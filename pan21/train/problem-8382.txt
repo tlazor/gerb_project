@@ -1,0 +1,6 @@
+The advantage of this method is that it does allow very precise and complex criteria to be used to create a subset of your data. The biggest disadvantage is that it can be kind of cumbersome, especially if you need to do it many times.
+You can add multiple headers and multiple rows if you want to filter by multiple criteria or pull multiple matches in.
+When you click OK, you should find all the rows from your List Range where your criteria match will be copied to the new location. It will be a single contiguous range, without any gaps where old data was or similar. You can now manipulate it as you wish.
+I want to take each account from this data, and create a new sheet with only the rows for that specific account. I don't care if it is cutting it right from the original sheet, or if it is copying it into the new sheet. I want to repeat this process for each account, until I have essentially parsed the entire sheet.
+We want to pull everything with account number 123-456 to a new sheet. Go to a new sheet, and add a header that matches the column you're filtering for on the main sheet. Below that, add the value you want to filter for.
+When you're happy with your criteria, go to the Data tab and click Advanced next to the Filter button. Be sure to have the DESTINATION tab active when you do this:

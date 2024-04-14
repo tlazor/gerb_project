@@ -1,0 +1,11 @@
+I had similar issue. This post is about how I solved it myself. the solution does depend on the platform / Device details though.
+5> I just did Re-install drivers on Kies -- It asked for confirmation --I said Yes. It asked to remove the USB cable untill it is finished.
+10 mins later it finished doing it. I think it installed the same drivers from the PC but this time they work. 10 mins Later I connected the phone. It asked me to keep my phone in MTP mode... and I got connected. If I keep the phone in normal "Camera" Mode . I can see all my folders in my phone under My computer. I could see the memory card.
+For Samsung its called "Samsung Kies". The best thing about this software is...even if you dont want to use them for data transfer , it helps to re-establish the connectivity. 
+Symptoms : Portable Devices under Device manager shows Yellow Exclamation mark ! with an error Code 37
+What I did recently on my notebook which I think could have caused the issue ; I used a PC cleaner software which did brilliant job in Cleaning the junk..freed a lot of space from my C:/ ---up t0 8 GB. Improved boot up time etc. But it came with a price...2 major issues.
+4>Did a bit of research and realized that there is another way to getting this thing to work. Every phone manufacturers (Well Most) come with a small client software which is used to managed the data/music and video and helps transfer of data to and from the phone.
+It does that in 3 steps : 1. It installs the USB drivers 2 MTP drivers 3 something called ACD (dont know what that is)  (Note that this is specific to Samsung phones) 
+So to summarize if your phone copmany provides similar software like Samsung provides Kies. I am pretty sure it should have the similar options and it might just work for you too.
+2> Re stared the notebook -----> Still the issue was not solved. As the drivers were not working even if they were present in the machine. that's what error code 37 stands for.
+3> Tried un install  and re install of the drivers ... But the system told me that I already have the best drivers available. The ugly yellow mark still stayed there.

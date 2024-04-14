@@ -1,0 +1,7 @@
+Better don't use star imports as one day something may get imported what you don't want. Let your IDE fix it.
+Throwing exceptions from main is frowned upon (I personally find it perfectly OK for tools; but a game would deserve better). If someone starts the game by clicking, they don't get to see the exception trace.
+After this line, the frame is taken over by the AWT thread and must not be manipulated directly from other threads. Make this line last or use SwingUtilities.invokeLater.
+The problem with this is that the total duration is unknown. It's 10 milliseconds plus something. You should use a timer or compute the sleep interval based on the elapsed time.
+Ever heard of "goto-fail"? This is risky. The general wisdom is to put braces everywhere (I personally disagree and use one-liners, but never such two-liners).
+You are returning squareSize, squareXLocation and fallSpeed from the methods where they are set but the return values are not used.
+I read it twice, but I'm stil unsure about what it practically means. If the change is planed, then drop the constants and use fields, possibly mutable, so the change is possible while the program is running.

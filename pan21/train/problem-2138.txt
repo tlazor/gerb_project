@@ -1,0 +1,8 @@
+However, when the same mail gets through my server, my server tries to forward it to alice, and her server rejects it during the SMTP phase, my server creates a bounce message to the innocent backscatter victim. (Which makes sense from the point of view of my server, but it's annoying for the backscatter victim.)
+Ideally you would do this for only NDRs to non-local users but I don't think that's possible with header_checks alone.
+If it isn't flagged as spam, but alice rejects the mail, I can't see a way for your Postfix server to not bounce the mail back to the victim, without turning off NDR's :(
+I run a Postfix server that hosts a small, alias-based mailing list. Let's say people@myserver forwards to alice@someprovider and bob@someotherprovider. Now, alice@someprovider might use a more restrictive spam filter than I do.
+Instead of discarding bounces completely, it is possible to intercept all outgoing NDRs and redirect them to a single mailbox instead of discarding them.
+This means all bounces will go to a single mailbox which may be a good enough compromise between discarding and sending NDRs out for small sites with few users.
+Is there a way to prevent this behavior? I don't want to turn off NDRs, since (in general) they serve a legitimate purpose.
+When a spam mail from (forged) backscattervictim@somewhere to people@myserver arrives, and my spam filter detects it as spam, it is rejected in the SMTP phase --> no harm done. 

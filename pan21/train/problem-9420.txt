@@ -1,0 +1,6 @@
+I had a bad experience with CrashPlan as well, and only trust solutions I have full control over now.
+I was wondering if there's some way to rsync (or any other type of sync) those files to Amazon Cloud Drive, using the raspberry pi.
+I have a rpi connected to my Apple Airport Extreme, where I plugged an external USB hard drive. Today I'm running a backup service from CrashPlan to basically backup almost 2TB of photos and documents.
+It depends what you mean by "Cloud Drive". I have a Debian linux t1.micro instance (virtual host) on Amazon's EC cloud. I can use rsync or unison to back files up to that just like any other *nix host. If you mean directly using Amazon's S3 storage services, you should be able to build something using Amazon's AWS CLI tools. I haven't done this yet myself.
+The reason I wish to change from CrashPlan to CloudDrive is that crashplan view of backuped files is confuse and I really don't trust them, and with Cloud Drive I would be able to access some of those bkpd files over my smartphone and computers.
+I haven't tried this myself yet, but I found a program that's available to 32bit ARM Linux, so it should run on the Raspberry Pi as well.

@@ -1,0 +1,5 @@
+Do you mean the client connections establish slowly when pointing to AG listener, and want to avoid that? if so, that is usual/known issue particularly when availability groups configured in multi sub-net environment, and the issue is due to default timeout for a TCP connection attempts from client to DNS Server.
+During a failover, all client requests are terminated. This is your application downtime. Now, after the failover, when a client reconnects to the AG listener, the listener will reconnect to the new primary (except for read intent connect requests).
+The Availability group (AG) listener directs incoming connections to either primary or read replica depending on how the AG is configured (whether it allows read requests or not).
+However, even in single sub-net using additional parameter (MultiSubnetFailover=Yes) within connection string could make client connections faster than normal. For more details..
+When a failover occurs, a role reversal happens and a secondary replica transitions to the primary role and the former primary will transition to a secondary role.

@@ -1,0 +1,7 @@
+I have also heard of "pl2bat", but no idea if that would keep the CLI alive whilst rest of program run.
+I developed several scripts using the command line in windows (which is needed because there are several 'say' comments that need to be shown) and using the line:
+I then wondered about batch files, but they appears to close the window once batch has run, so won't be able to display the say commands!
+You should be able to do this with a standard .BAT file containing the perl script. To preserve the CMD window put the pause command after the perl script.
+That opens the command line, and sets the prompt to "D:/path to script_" (I also tried adding perl in between the two arguemennts as per when typing directly into window. That had no effect) I tried "perl D:/path to script" in quotes. That didn't work
+This morning I created a series of shortcuts on Windows, the basic idea being they can click on the icon, and the CMD will open and start running the script. THAT is where I'm stuck !
+This is running client side, and NOT in browser, or sending data to a server, the idea being with Perl on a USB stick, it will be 'self contained' with nothing being installed on PC

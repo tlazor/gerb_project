@@ -1,0 +1,9 @@
+In this case you have to setup a Jabber server and extend it to provide gaming functionalities, then write the client using jingle to allow them to exchange their data.
+I'm coding a server in python to make the matches and send each player it's adversary ip and port, but I'm having trouble to make udp hole punching to work.
+If you are interested in lan play, broadcasting may be a solution (do not try to cheat by Faking a LAN throught a VPN...)
+There is a big problem for the P2P: the NAT curse. Peer to peer is difficult because a lot of client are connected through NAT. 
+You need a solution that will do the firewall penetration for you.  In general, this is called STUN:
+Is there any library specific for game networking that will include all necesary from making the match to setup the p2p?
+A good alternative may be linjingle: a library developed by google to allow audio/video in XMPP sessions (you may know XMPP as Jabber Istant Messaging).
+No matter what, you will need your users to all talk to a single server that they can all see at least once to find each other, and help poke through each others firewalls.  If you want to blow the money on bandwidth, it's certainly simpler if that server also reflects their traffic for them.
+If you make your game with Steamworks on PC, I believe their p2p matchmaking will do the hard work for you.

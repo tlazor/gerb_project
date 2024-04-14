@@ -1,0 +1,11 @@
+So should the device be called an "internet gateway" or is that too general? Because not all internet gateways are devices used to connect homes to the internet. Perhaps "home internet gateaway"?
+I hate asking this question because it seems like the answer should be obvious but I can't think of it.
+I don't mean the box on the outside of the home. I mean the box in the home that usually connects to an RJ45 and then usually acts as the wireless access point for the home network.
+The purpose of the modem is the take the incoming carrier signals, and convert it to an Ethernet signal that your local devices understand. It also does the opposite conversion for the outbound data. 
+Most people call it a "router" today. I'd call it "gateway" (it has a default-route, so it is not really a router).
+If the device is owned by your ISPs it is usually called "CPE" for "Customer Premises Equipment" (at least by your ISP), because it is the equipment they care about on the Customer's Premises.
+Today these boxes usually are hyperconverged appliances that bundle a modem, a router, a firewall, an ethernet switch, a wireless access point and maybe even a VoIP pbx system. So good luck coming up with a sane name for that.
+I would call it a "router" because that's the word that's used in casual language but I don't think that's technically correct in this context because just calling it a router provides no indication that the internet is entering the home through it; there are routers that are not used as internet gateways.
+The name of the device that is responsible for connecting your home to the Internet is the modem. If you have more than one router, it would be appropriate to ask something like "where is your gateway?"
+You can break down the responsibilities of each device like below, but these don't always apply 100%. It depends how the ISP has their infrastructure set up. 
+Many people use router/modem combos which helps connect you to the public Internet, and also takes care of your local network issues. The fact that most people only have one router/modem in their house, the term router seems to have become the most popular. 

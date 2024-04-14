@@ -1,0 +1,5 @@
+RNDC is the remote administration port. Do not open it to the outside world. Unless you use the rndc utility, it's not necessary for this port to be open at all, you can safely firewall it off.
+Bind needs UDP 53 to service normal requests. You should also open TCP 53 if (and only if) this server is the master for a zone and a secondary server needs to transfer from it.
+I recently installed Bind on a CentOS box.  Everything appears to be working with only port 53 open.  However, I noticed in the config file that there is a line in rndc.conf that says "default-port 953;"  I don't have port 953 open and Bind appears to be working.  Can I keep 953 closed?  What is the point of RNDC listening on 953?
+Usually there is no need to forward requests for 953 port on your border firewalls, but it is fruitful to keep it open on DNS server as a local service (of course if you have ssh access to this server). Properly configured rndc is a great tool to manage named.
+Actually it's BIND that listens on TCP port 953 of the loopback interface. RNDC is a client utility that can be used to control BIND. RNDC talks to BIND over TCP port 953. It's totally safe to leave it open.

@@ -1,0 +1,5 @@
+But as you say in your comment, you need to write the facts/types to handle the OS they're running on.  For types and providers you exit early.
+Is there a method to filter which plugins are being syncd?  I have a few new modules downloaded from the forge (puppetboard,puppetdb,python).  These modules include plugins, they are also only needed on the puppet master, the plugins are not needed on any of my clients.
+Note: AFAIK this patch is probably not publically supported, so you'll be on your own if you decide to use it.
+Has anyone come up with a good method for partial plugin sync?  I am not finding any solutions in my searches.
+Unfortunately the facter plugins within these modules are causing the puppet client to fail on some older systems that I cannot upgrade to the latest version of ruby/puppet/facter.  These older systems are running legacy software that cannot run on a newer OS release without a insanely painful amount of hackery.  All the rest of the rest of my plugins and custom facts work perfectly fine.  So I want to keep plugin sync, but exclude these facts that are breaking the older systems.

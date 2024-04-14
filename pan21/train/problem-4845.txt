@@ -1,0 +1,5 @@
+I can't see the names (as you've properly redacted them which is a good thing) but if any of those names are the same as the connectivity question you have open then what's happening is that everywhere a client uses that name to connect, it'll be replaced with the information in the alias. This could completely be the reason why your connectivity no longer works after an IP change as the alias could be forcing an old address.
+Does it have anything to do that in this particular case the machines (publisher and subscriber) are on different domains?
+I am having a problem with connectivity in one of my transactional replications and when checking the situation with the SQL Server configuration manager
+Aliases are a way for the client to be redirected to a different location without having to change things such as the connection strings. It's akin to adding in a record to your system's HOSTS file.
+It doesn't deal with any of that. It specifically says, "Wherever you see this name in a data source, replace it with this other information instead."

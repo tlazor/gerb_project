@@ -1,0 +1,9 @@
+Then, forget about optimizing on first stage of programming. Optimizing here is not necessarily bad, but may decrease readability of the code or prove to be useless if at the end of this stage your prototype will show the design is wrong.
+When choosing whether or not to spend time on optimizing something, the most important factor is how often this code is executed:
+How do you know when the code you are thinking of is going too far and is not a case of premature optimization? How much can your game handle at a time before performance becomes a problem?
+I admit I'm one of those guys that like to do premature optimization in a pretty obssessive manner but that's probably because I'm not aware how powerful modern processors are. I can think of lots of sollutions for a problem, but all of them are tough on the memory side, and I keep thinking "This will hurt me more in the future when I'll have to re-do it because it's bad performance-wise."
+Think of optimization on your designing stage, when you consider if the general algorithm (it's outline) is fast enough for your game, or maybe it may be too slow for a smooth FPS. If you're not sure, do a quick, dirty test (if possible).
+You will need a common sense to decide which function is CPU heavy (you can also measure it, but usually it should be obvious). Spend most time optimizing code that takes most time to execute (counting it's repetition).
+Only then optimize final, tested (and working) functions/classes, and then test them again using same unit tests.
+Special consideration should be taken for code which is executed in situations which are especially important for the user experience. Mainly loading times and saving times.
+After making a working prototype, try to isolate parts of code like functions or classes and test them with unit tests. 

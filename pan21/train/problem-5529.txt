@@ -1,0 +1,12 @@
+with a little extra effort you can also test collision with an outer rectangle, (edge of screen, or walls of a billiards table)
+I am making a bullet hell game in Python and am looking for a suitable collision library, taking the following into consideration:
+Collision detection would be a simple line segment to polygon intersection (basic linear algebra).  Iterate through all your projectiles and game entities, and you're done.
+Also, if your implementation/hardware is good, I wouldn't be surprised if doing it in Python turns out fast enough to achieve your needs.
+If after that, performance still needs a boost, then construct a quad-tree out of your entities and projectiles to do "macro"-AABB checks prior to the checks above.
+Pygame has a decent collision library, however having used pygame in the past and recently discovering much better 2D libraries, I've grown to hate it. As for pyglet, its pretty cool but its not a game engine just media engine sort of like SDL(but not SDL based).
+Try rabbyt its not maintained much anymore but its still pretty sweet. Its super fast also, it is however an entire 2D engine but can be used in pygame and pyglet. It takes advantage of hardware acceleration, and can do some pretty intense collision checks.
+Given the simplicity of typical projectiles in "Bullet Hell"-type games, it'd be pretty simple to roll your own collision detection code.
+If after that point, performance needs to be increased, then check AABB collision prior to each polygon intersection.
+For those making something more like Worms with destructible terrain, you may find it easier to work with a pixel based physics engine instead.
+Caution: this does not detect "tunneling" which occurs when fast moving objects move through objects due to their speed being greater than the area they would have collided with.  This is something Box2D handles with bullet=true, but tunneling detection can be performance heavy.  I think the ninja game "N" documented some performance tips for tunneling detection, if you roll your own basic physics engine those are worth looking into.
+I am also considering writing my own library in C/C++ and wrapping with python ctypes in the event that no such library exists, though I do not have experience with collision detection algorithms, so I am not sure if this would be more trouble than it's worth.

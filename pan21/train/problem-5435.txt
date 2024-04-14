@@ -1,0 +1,6 @@
+A friend of mine at a different company followed the exact same steps I did and other people were able to download files from sub-directories just fine.
+An interesting thing to note is that the file is called SMART_Data_Loader-Build_1.zip, but the error message dropped the .zip extension.  I'm not sure if that's meaningful.
+I also tried to change the security settings of the top-level ("share") directory, giving Everyone read-access, but the issue didn't change.  This is a company computer with IT security settings and applications I know little about, but I'm hoping the problem is in the way I tried to set it up.
+I'm on Windows XP Pro SP2.  I shared a directory by right-clicking the directory and choosing Properties, going to the Sharing tab, marking the "Share this folder" radio button, entering "share" as the "Share name", and clicking OK.
+How can I allow downloading of files from a sub-directory of a shared parent directory in Windows XP SP2?
+Now other users can see that folder at \mycomputer\share, and can download files from that folder.  They can also see files in the sub-directories, but when they try to download a file from a sub-directory, they see an error like this:

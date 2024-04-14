@@ -1,0 +1,6 @@
+You can also use Mondo Rescue to clone your installation. It will create a bootable CD/clone of your installation and you can use that to install ther servers using it. I have used it and it works very well. Here's a howto:
+But this only helps initial set up; you might wish to look into managing your configuration with puppet or chef. This lets you deploy and re-deploy servers or desktops with given configurations over and over again without much extra effort.
+The usual answer to this sort of problem is to get a basic system installed as quickly as possible with as little manual intervention, then run the same apt-get install ... commands on all machines to get the packages synchronized on all of them. A local package mirror is an excellent way to improve installation speed on the other machines, and provides an easy place to store / distribution site-local packages.
+If this is a long term thing, where you might need to install more computer or perhaps re-installed computer, you should maybe think about using the debian/ubuntu preseeding capabilities.
+This will give you the option to recreate the same configuration time and time again, with no need to run through any installation steps.
+An excellent (if potentially dated, at this point) introduction to managing multiple machines is hosted by our friends at infrastructures.org.

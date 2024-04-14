@@ -1,0 +1,8 @@
+I would like to declare my variable "$type_server" without to do declare "include ntp" on each server.
+I would like "basenode" includes "ntp" and use the value of "$type_server" in the node of my server.
+The scoping in puppet is a bit.. unintuitive.  It's a linear evaluation behavior - since the inherit happens before the variable is defined, and the classes included in the inherited class are evaluated immediately, the variable is set after you need it.
+Instead, use defined types.  It's what they're designed for.  So, instead of using classes and includes everywhere, use a defined type and pass it the data it needs:
+Instead of inheriting, try just including the "base" at the bottom of every node, so that it's evaluated after the necessary variables are set.  It's not a very object oriented way to do things, but this scoping behavior doesn't leave a lot of options.
+Don't use variables -- as Shane said, variable scoping in Puppet is FUBAR, and trying to use it just causes pain, suffering, nausea, headaches, and probably heart disease.
+I know this is pretty old, but as I was having some troubles with it and found this thread, it might be useful for others.
+Instead of using defined types or including a node within a node - which doesn't sound very nice imo - I would suggest using parameterized classes. By using that, the author could keep using his classes normally, and those classes would only have a slight modification to receive the variables (that they are already using) as parameters. 

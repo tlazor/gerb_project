@@ -1,0 +1,7 @@
+Testing the connection to the ODBC source only works in SSMS when I use the 64-bit source. When I use the 32-bit ODBC source no connection can be established and the following error is shown:
+I found out I can indeed connect to the Salesforce ODBC source and access the data using a 3rd Party Database Manager (Database5Pro 64bit, an SSMS alternative) - but this does not allow me to access both data sources at the same time (no linked objects available).
+The Devart driver requires (as mentioned in the installation guide, see page 41) the same bitness of all moving parts. 
+Whilst I can connect to the 64-bit source I cannot access the linked server object in SQL Server Management Studio 17.x (32 bit - I believe there is no 64-bit version of SSMS):  
+I have problems to access a linked server for a Salesforce ODBC data source with our MS SQL Server 2016 (Standard 64-Bit) using the Devart ODBC Driver for Salesforce in SSMS and SQL Studio Management Studio (17.8.1).
+Can anyone suggest a way to use a Salesforce source as a linked server along with SQL Server 2016 in an SSMS-like way? I am open to alternative solutions and 3rd-party tools.
+I have also tried an older version of SSMS (2012) and the beta version of SQL Operations Studio (basically VS Code like SSMS, actually a 64-bit application) to no avail.

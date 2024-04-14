@@ -1,0 +1,7 @@
+More indexes use more memory (RAM). Also, that might affect insert and delete time because each index must be updated after insert, update or delete.
+The second index will handle both of the example I gave for the first index.  So, in virtually all situations, you should DROP the INDEX(a).
+This will do good for both your query patterns. The first query will only use the first column and the second one will use the three columns. 
+My question is, will the second query have any speed increase from the index on column A or would I have to add indexes on all three columns in order to increase read speed? In other words, in a query where I have three WHERE conditions, will MySQL first search by the indexed column? Because if it does, out of those million rows, the first column would filter out maybe 100 or so, and querying those by the other two columns would be somewhat trivial and wouldn't require an index.
+I have another query that will not be executed as often as the first one but still often enough to qualify for a speed increase. That query will search by all the three rows.
+For a table like yours, with 1 million rows (possibly to grow more in the future) I would go for a composite index on the three columns. The first column should be the one that you'll search also separately.
+I have a table that has columns A, B and C. That table will have a lot of rows, let's say a million rows. I have a query that will be executed very often and will search the table by the A column, so I added an index on the A column.

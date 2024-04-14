@@ -1,0 +1,6 @@
+With Toolbar Buttons, you have an additional button Toggle JavaScript on/off that you can add to any toolbar in Firefox.
+When you don't like context menu provided by the site you're on, you toggle JS off - then, on right-click you have original Firefox menu. Toggle on and you have site's menu back.
+Remember however that when the page loads, you should probably have JS turned on, otherwise you may have to reload the page for certain onload JavaScripts to be invoked.
+If you have a keyboard with a context menu button (to the right of the space bar on most English keyboards) you can always display the default applications context menu (ie. the browsers context menu) by hitting this key.
+The Toggle JavaScript on/off button, contrary to Stop Flash button, does not kill JavaScript, only let's call it "pauses it". You have to use both to see the difference ;) "Stop Flash" will kill all preloaded YouTube videos for instance, and after switching it back on, all the Flash content will have to be reloaded. JavaScript is only paused.
+If you have a 3 (or more) button mouse then you could configure one of the other buttons to display the applications context menu (more commonly displayed with the right mouse button).

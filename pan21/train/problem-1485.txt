@@ -1,0 +1,7 @@
+Some advice to change default shell in the Terminal to /bin/zsh and restart the Terminal to see if the problem is specific to bash. In my case, doing so changed nothing, and the Terminal would still hang at login.
+Unfortunately, Finder doesn't show hidden files by default and doesn't provide an easy way to do this. However, in my case, I found that Automator could actually run bash commands successfully:
+I don't know whether it was a coincidence or a combination of specific steps that solved the problem but I'm glad that the Terminal is working again, and I hope yours will do so, too.
+In my case, resetting the configuration  changed font and color settings to default, but the problem persisted. If so did yours, proceed to the step two:
+I didn't want to reinstall Terminal from OS X disk, and so I followed several different procedures, and in the end one of them seemed to have worked. I'm not certain which is most important, but I decided to share my exact steps in case someone finds them helpful:
+I moved the saved com.apple.Terminal.plist back to ~/Library/Preferences/, replacing the current one, and decided not to restore old (and somewhat not too useful) .bash* files and deleted backup directory. 
+I remembered that during previous session I created .bash_profile file in my directory. Perhaps something is really wrong with it. If you haven't created one yourself, some installer could've created (or edited) it, especially if the software is not specific to Mac OS.

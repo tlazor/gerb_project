@@ -1,0 +1,9 @@
+This line makes no sense.  Out-File has no standard output to assign to $l, so $l is always going to be assigned the value of $null.  You also never appear to use $l again.  I don't know what you intend this line to do.
+As @ScottHodgin mentions, $SentUsers is likely going to be an array of values.  -ne treats both operands as a scalar.  You probably want one of the containment operators:
+Why do you need to do this?  You did the same thing earlier in the script, and $ab hasn't modified since then.  I mean, the file path is the same and everything.  Is that an error?  Did you decide to use the same file path throughout your posted code without leaving in the fact that you're actually changing different files?
+You probably don't want that because when you read it back the system will assume File and ---- are files.  The pattern you want is more like this:
+I tend to avoid pairing Out-File with Get-Content because they have different encoding defaults, while Get-Content and Set-Content are the same.
+First off, avoid non-descriptive variable names.  Your code is very difficult to read. Until you read the entire script, you have no idea what any variable is supposed to represent.  Every time you find a new variable, you have to hunt down where it comes from and then keep it all in your head.  It's difficult to follow the logic of your script because there's no contextual information.  If you were trying to remove sensitive information so you could post it on the web, you've removed too much.
+Huh?  "Else, output the string 'Exit'."  What are you intending this to do?  Is it supposed to stop the script?
+However, if I assume you only want this line to write the file column to a file and that you don't need $l at all, then as written this is going to output a header line.  Your file contents will be:
+The variable $cr has no value assigned to it.  If you're not assigning it elsewhere, this entire loop will never run.

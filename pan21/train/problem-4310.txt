@@ -1,0 +1,13 @@
+I managed to capture some pertinent info by running & logging a "ps -ef" every second - it showed at the time of reboot the command used was "/sbin/shutdown -t3 -r 0 w" which translates to the trap in /etc/inittab.
+I have 2 very old Linux servers (1 running RHEL ES release 2.1 and the other FC release 3 - both severely under patched [sorry]) that spontaneously rebooted at exactly [to the second] the same time last Thursday. This happened again yesterday [Tuesday] 5 times!
+Unbeknown to me [I'm a remote worker] but our PC Support had plugged my 2 servers into an IP KVM about a month ago.
+Only one of them is running the client software needed by the UPS management system [which logs show no recent actions].
+It would appear that through the act of them logging onto their windows servers the CTRL-ALT-DEL signal must leak outside of the intended target and get picked up by other connected nodes. As I'm sure you're aware C-A-D if left in default mode [as mine were] causes Linux servers to reboot.
+Not sure if running tcpdump on the affected machines itself is a good idea, but you can use either port mirroring on your switch or plug them temporarily into an old hub (not switch) and use a seperate machine to run tcpdump/wireshark/whatever you like.
+I have lots of Windows & Solaris servers on the same power supply that were not affected - I only have these two Linux servers.
+So mystery solved (yn) but I've found a valuable source of expert knowledge outside of my usual google-world.
+Its only happening during the day so I'm thinking the source maybe a users workstation [all windows] that is only on during work hours.
+It sounds like you are on the right track thinking that this could by a compromise - especially if both servers have the same user accounts/passwords.
+It could be something as simple as dirty power. Are these the only machines on this power strip/plug?
+I'm currently thinking malicious activity exploiting some [un-patched] Linux vulnerability [more than likely] being called remotely and possibly using some level of broadcast to trip vulnerable nodes - but I am paranoid :)
+Unplug the machine from the network if you think it's being rebooted remotely for any reason (if possible), and you can eliminate that.

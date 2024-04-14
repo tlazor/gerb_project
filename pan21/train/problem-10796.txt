@@ -1,0 +1,10 @@
+I am currently working on a network of around 15 computers, they are connected to a unix server for a specific piece of software for their client management system.
+Forget about browsers.  Open remote desktop connection, type in the machine name and you should connect to it.
+There are clients for RDP and VNC available for Linux if that's what you're using for administration.
+Is there anything optimised for local use only? I have tried remote desktop connection, but when I click browser and select the workgroup name I get a message about there being no terminals found.
+I am looking for a way to remote control the computers from one 'admin' computer - only within the LAN though, nothing needs to be setup for outside remote control.
+On each XP machine, right click on my computer > properties, choose the remote tab and make sure 'Allow users to connect remotely to this computer' is checked. Admins will be allowed in by default but you can add other users here.
+You can use the Remote Desktops tool but you'll need to add the workstations manually. Since the workstations aren't technically running Terminal Services, they won't be "found" by any TS tools.
+If you want remote control (i.e., supporting users) for free, use VNC. It has some quirks, but UltraVNC works for us, and it's Win7 compatible. Be aware that without special clients, the connection isn't encrypted, so passwords can be sniffed unless you direct it through SSH tunnels or such.
+If you use the remote access with Windows, you log in with your own session. That's the remote tab on the computer properties, allowing remote desktop connections with Remote Desktop Protocol. Ubuntu can then connect using terminal services.
+Everything I have seen seems to be based on dialling into the office and controlling the computers that way.

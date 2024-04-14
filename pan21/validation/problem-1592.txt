@@ -1,0 +1,6 @@
+Recent versions of Thunderbird can auto-detect the IMAP and SMTP servers (even though it does not support Exchange's "Autodiscovery" mechanism). If it does not work, try giving the same server for both IMAP and SMTP, and configure SMTP to use port 587, STARTTLS, "Normal password". (Also enable STARTTLS for IMAP.)
+From the "Account Type" setting, it seems that MailDroid retrieves your mail using "Exchange Web Services". Thunderbird does not support this – it only supports standard IMAP & SMTP.
+I have a company email that I've setup in MailDroid in Android.  And in MailDroid I was only asked these information:
+Of course, it could be that your Exchange server just doesn't have IMAP enabled, in which case the best option is to ask the mail administrator. There seems to be one addon for EWS support, though.
+I am now trying to setup the same account in Thunderbird.  However, Thunderbird needs more info like SMTP, its port, its authentication, etc.  So my question is, is it possible to derive all the other values based on just the values listed above as MailDroid seems to have done?
+Of course, it could be that your Exchange server just doesn't have IMAP enabled, in which case the best option is to ask the mail 

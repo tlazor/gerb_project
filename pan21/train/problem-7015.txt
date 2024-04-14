@@ -1,0 +1,5 @@
+I'm also sticking to Terminal.app, and since no other answer solved the issue I'm adding my own that worked for me.
+Specifically, you would be interested in iTerm2's options to map left/right option as "+Esc", which works much better than trying to have it emulate Meta for every purpose I can think of or have tried.
+You can figure out these codes by running read in a session, then pressing the keyboard shortcuts, e.g. Alt←.
+Besides configuring the current Profile in Terminal -> Preferences -> Profiles -> Select the profile to configure -> Keyboard and checking Use Option as Meta key, also look through the default list of bindings in the table just above and make sure that the combinations you want to assign are free. For me there were a few Option + Arrow keys that were interfering with tmux configuration to easily change between panes.
+I am using Mac OSX Lion. I have checked "Use Option key as Meta" in Terminal preferences. Although the Option key seems to work fine as Meta in Bash, when I use it in Tmux (over SSH) it does not work properly. I am trying to use TMUX shortcuts like ^b M-1 b M-2 etc. I can get these with the ESC key but not the Option key.

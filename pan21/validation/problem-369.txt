@@ -1,0 +1,12 @@
+If you want an answer specific to another programming language, you should really ask that as a separate question elsewhere (I would recommend on the StackOverflow site).
+With IPv4, you'll often be using (a) private address(es) (starting with "192.168." or "172.16." through "172.31." or "10.").
+Those are the only real IPv6-specific caveats that you would need to know (besides details like what an IPv6 address looks like) to have your program work well with IPv6.
+As the title say, I need to know how to obtain the IPv4 address of my Pc (Windows 7) in the simplest possible way in order to see if my program works.
+(If using PowerShell, the same would work exception you would want to place a "back-quote"/"back tick" before each quotation mark and comma.)
+How to determining what IPv4 addresses you have will vary based on what language you are using.  If you're communicating with IP, you're likely to be using code that also offers you a way to know your IP address(es).  If you were using Batch, you could output the IP addresses to a text file using:
+(That example includes some optional stuff: Feel free to remove the /OUTPUT and /format sections, the usually-redundant "Description" section, and more.  If you leave off everything after "Get" except the optional "/format:list", you'll actually get more information.)
+Some people want to know what their publicly-accessible IP address is.  The way to know that is to ask the Internet.  e.g., use HTTP to communicate with http://whatismyip.com or some other similar site, and perform whatever steps are necessary to extract the desired content.
+Recently I wrote a simple program which simulates the comunication between a Server and a Client on my computer by the TCP protocol. 
+WMIC /OUTPUT:"file.txt" NICCONFIG Get Caption,DefaultIPGateway,Description,IPAddress,IPSubnet,MACAddress /format:list
+That might not be what you intended, but that is likely the simplest answer for you, so there you go.
+You didn't ask about IPv6, but IPv6 is worth not shying away from, so here is the data related to IPv6.

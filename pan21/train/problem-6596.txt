@@ -1,0 +1,8 @@
+<a class="card-frame free-card" href="http://hearthstone.gamepedia.com/Fiery_War_Axe" rel="external">…</a>
+The spaces are meaningful for your content. Currently you only make it readable by using CSS, but not all user agents support CSS (text browsers, bots, feed readers, etc.).
+As the links point to an external site (unless you want to publish this list on that site), you could use the external link type:
+But if your desired design isn’t possible with a table, using ul is fine. In that case you might want to provide title attributes that explain the value (not a perfect solution, but better than nothing):
+The images you show would probably get the card name as alt content (unless you want to describe what the image contains/shows, but in that case they should probably be bigger), but as this would be redundant, you should provide empty values.
+<a class="card-frame free-card" href="http://hearthstone.gamepedia.com/Fiery_War_Axe"><span class="card-cost">2</span><span class="card-name">Fiery War Axe</span><span class="card-count">1</span><span class="card-image card-count-ex"><img src="http://i.imgur.com/44gyjvy.png"></span></a>
+<a class="card-frame free-card" href="http://hearthstone.gamepedia.com/Fiery_War_Axe"><span class="card-cost">2</span> <span class="card-name">Fiery War Axe</span> <span class="card-count">1</span> <span class="card-image card-count-ex"><img src="http://i.imgur.com/44gyjvy.png"></span></a>
+Instead of a ul element, a table element would be more appropriate for the kind of content. This would also allow you to provide labels for the different values (e.g., card costs and card counts).

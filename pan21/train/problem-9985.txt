@@ -1,0 +1,7 @@
+So the first think to define is the state of Muttal on the route, which is a pair of the current token and machine, which incidentally are two unsigned numbers
+I'm not sure if it will give you enough speed to pass the challenge though. If not, at least the code looks nicer.
+Now for every machine we would create a mapping, that gives us the next token and the next machine. 
+So, we have an optimized allocation, and optimized walkthrough when we iterate from the starting point.
+Then, taking the example from the question, item 0, i.e. machine M1, token T1 would point to index 3 (machine M2, token T2).
+So this would be the plain algorithm you utilized. However, as you said this will most likely give you TLE. So what i believe would be the main idea behind the challenge is to realize that there might be immutable orbits inside the map, aka whenever you end up with the same combination of token and machine, you can shortcircuit by taking the remaining number of steps modulo the number of steps it takes you to reach the node the again.
+So the question is, how can you find out, whether you can shortcuircuit and how long it took to get to the same token again. For me the solution would be not use a std::pair, but rather a custom struct

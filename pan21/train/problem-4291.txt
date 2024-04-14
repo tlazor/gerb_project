@@ -1,0 +1,6 @@
+Therefore creating addtional RAID sets, or volumes on the same SAN will not engage the standby controller.
+I know that for MD3000i we were advised to set up 2 RAID arrays, so that primary path can be set in a way that will utilize both controllers, and all 4 of the NICs.
+Have a look at the EqualLogic Configuration Guide.  It explains in gory detail how active/standby controller failover works and provides best practice connection diagrams.
+The purpose of the two controllers is to provide failover -- not to increase performance. This is actually desirable. If you think about it this method provides you with the only way that you can maintain your preformance, or SLA levels, in the event of a controller failure. If you were using both controllers at the same time, with high demand on both, and one failed, you would be asking one controller to do 200% of work, which is not possible. 
+The second controller is always in standby mode. There is not a way to make both controllers on an Equallogic SAN active at the same time. 
+I'm trying to figure out how EQL works with multiple controllers. Dell sales people recommended having one RAID array on one EQL unit. But will this set up allow utilizing both controllers? Or will the throughput be limited to 2G, with IOPS limit of a single controller in that setup?

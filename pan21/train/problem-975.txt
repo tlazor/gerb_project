@@ -1,0 +1,8 @@
+The -i option tells sudo to reinitialize the environment. X applications require $DISPLAY and (on some setups) $XAUTHORITY, and may use other environment variable such as locale settings. Try without -i, or if you must use -i, run
+Note that allowing another user access to your display allows him to do almost anything with it, including sending fake keypresses to applications. So if you were changing users for isolation, you won't get much.
+The easiest way is to use ssh -X to run commands as the other user. But this makes the applications run markedly slower, even locally.
+I have ssh configured on my server, and sometimes I have to run some graphical application on it. It works great when I connect with -X option. I can run e.g. google-chrome. However, if I change user by sudo -i -u other_user, I can't run GUI apps as this user.
+So far I've been assuming the other user could read your $XAUTHORITY. But that won't be the case unless you make it so (e.g. with setfacl -m user:other_user:r $XAUTHORITY).
+Alternatively, rather than let the other user read your $XAUTHORITY, you could copy the right cookie to another file that the user can read.
+I assume it is something with environment and DISPLAY, but don't know what to do. I tried to add -E, but then I got error message saying that I can't use it with -i. How can I run GUI apps via ssh as another user?
+Even if you get rid of -i, you might have to supply XAUTHORITY explicitly: by default (if the variable is not set) it's .Xauthority in the home directory.

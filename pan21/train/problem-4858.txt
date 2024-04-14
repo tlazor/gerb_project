@@ -1,0 +1,5 @@
+Because SDL 1.3 is still a long way coming I implemented native force feedback (rumble) support for Aquaria:
+Currently I use an environment variable to indicate the force feedback device that should be used. Does anyone know how to automatically find the correct device? What I've got is the input device as an index (e.g. the 0 in /dev/input/js0) and therefore the path.
+The joystick devices (/dev/input/js*) can be queried via the ioctl function code defined in "joystick.h" (codes starting with JSIOC). The general input devices (/dev/input/event*) can be queried with the codes defined in "input.h" (codes starting with EVIOC).
+However, I could not find a way to find the according event device (force feedback device) for any given joystick (gamepad) device. I looked in the SDL 1.3 source and I thought this might be how it is done:
+Of course each joystick device has an associated event input device. I do'not know if this is for true for all distributions, but on my OpenSuse system, there are mappings like

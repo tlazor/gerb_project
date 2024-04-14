@@ -1,0 +1,5 @@
+I want to setup a firewall handling two ISP connections and two routers. For that I am planning to use an old Pentium 3 machine. Now, should I use four network interface cards or a 4-port NIC?
+My suggestion: one gigabit ethernet card that can do vlan tagging in your preferred OS and a gigabit vlan capable switch.  
+Whatever you do, have at least one spare, you don't want your firewall to be down with a NIC failure and have to scramble to order a new 4-port NIC or find a few spare NICs.
+I'd go with two 2-port nics. They're generally easier to find, and you can get two for less than the price of a single 4-port. It also offers you more hardware redundancy in the rare even that one of them fails. For bonus points, get them from different vendors and avoid potential driver bugs as well. 
+Of course, all of this may be unnecessary if you just use VLANs. A lot of the router setups I've done are "one-armed routers", with a single cable coming out and all networks going through that port as tagged VLANs.

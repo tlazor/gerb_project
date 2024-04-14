@@ -1,0 +1,6 @@
+The easiest way to do something like this is to have all related sprites be the same size (same width and height), and so getting the (u) coordinate of the 4th sprite from the left is just (sprite_width*4.0 / sprite_sheet_width).
+My suggestion: Create texture containing all of your frames of your animation (side by side). Change the texture coordinates according to the frame you want to display.
+If you're trying to optimize and be space efficient, you can use a tool like TexturePacker to pack your sprites onto a single sheet.  TexturePacker also emits json or xml data that describes the xy locations of each of the sprites you load in.
+Make each entity in the world a box, then check if each of the axises of the box are colliding with other entities.
+A spritesheet is just a single image with all the different "frames" that show the poses the character can take.  You select which "frame" of the sprite sheet to display either based on time (as for an explosion animation) or on player input (such as facing left, right, or drawing a gun)
+With large amounts of entities to test for collisions you may want to check into an octree. You would simple divide the world into sectors, then only check for collision between objects in the same sectors.

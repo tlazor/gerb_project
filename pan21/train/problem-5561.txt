@@ -1,0 +1,7 @@
+Clonezilla is very powerful.  It can do something as simple as booting to a LiveCD to take an image, or Clonezilla Server can multicast up to 40 systems across your network at the same time.  Take a look at it.
+When I am doing corporate server support, I know where all the important stuff is on my machines - what can get backed up, what is transitory and can be discarded, and what will be recreated anyway.  The same goes for my personal machines.  
+Usually I stay away from desktop support, but as I am marrying this one I don't think I can get out of it :)
+You can also use Parted Magic, which includes dd and some other useful programs! Specifically partimage.
+You can mount those vhd files starting with Windows 7 from disc manager and you can boot them directly in HyperV oder Virtual PC or in XP mode in Win 7
+Basically, I want a non-bootable copy of the entire disk 'as-is'.  I could drag and drop, but is there a quicker way?
+However, the cardinal rule for end user desktop support is 'they never answer anything fully and completely correctly', so I do not want to end up in a situation where she last lost important data because it was squirrelled away in some non-standard directory that she didnt inform me of.

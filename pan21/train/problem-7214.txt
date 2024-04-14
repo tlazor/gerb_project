@@ -1,0 +1,8 @@
+So how I have it set up, all my mail from my other domains is forwarded to my main domain, but there is a spammer who has been sending mail through my web server. I think he's using a wordpress exploit to do it (even fresh installs of wordpress he still gets through). So I removed all the wordpress since it's not being used yet and it gets rid of the spammer.
+I'm not sure if forwarding the domains to the google apps domain will stop mails from being able to be sent through my web server or not.
+I'm also wondering if I should set up SPF and DKIM for each domain or not with the current configuration.
+Thirdly, let it be noted that I am on a shared server with a reliable web host. This also means I do not have access to do things like run lines of Linux code, nor do I want to.
+Second, note that Google Apps IS configured for catch all, and it MUST BE (I need it). Of course I want to RECEIVE any mail from any email, I just don't want it SENT from randomletters81273918237@mydomain.com
+Alternatively I'm wondering if I should instead set up each domain as a secondary domain from within Google Apps, and then individually set up MX records, SPF, and DKIM for each other domain.
+The other reason I took these screenshots is so that people coming here will see the properly set up configuration (for one domain mail, at least).
+(which is in fact, an addon domain; the root domain for cpanel is forwarded to the addon domain.. i.e. aaa.com is root cpanel domain; bbb.com is set up for google apps; aaa.com, ccc.com, and ddd.com are forwarded to bbb.com)

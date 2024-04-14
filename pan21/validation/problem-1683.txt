@@ -1,0 +1,8 @@
+If you want to learn what the specs mean, let's start by breaking down all the components as a starting point:
+4 Threads - using hyper threading, this is the number of virtual cores that your OS can use (each physical core is hyper threaded in to two virtual ones).
+Your processor listed runs at 2.8Ghz as a dual core but can boost up to 3.46Ghz when it needs the power.
+That should give you a starting point on where the cpu sits in the mix. Look it over and you can do a comparison as well.
+35W is the chip's TDP (Thermal design power - the amount of power the cooling system in your computer should be capable of dissipating).
+It has 2 cores on one die, each core has hyperthreading technology, so this give you 4 available process threads for multitasking. Core means individual processor.
+Here are the exact specs for your mobile CPU: http://ark.intel.com/Product.aspx?id=49666&processor=i7-640M&spec-codes=SLBTN,SLBZU
+Keep in mind, that mobile does not = desktop.  There are slight differences (chiefly power usage) between the two (as well as model number differences).

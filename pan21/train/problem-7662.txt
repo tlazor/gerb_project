@@ -1,0 +1,13 @@
+as $\boldsymbol{V}$ is orthogonal (consists of orthonormal vectors) we can write $\boldsymbol{V}^{-1}=\boldsymbol{V}^T.$ This implies
+$$\implies \mathcal{N}(\boldsymbol{z}|\boldsymbol{\mu}=\boldsymbol{0},\boldsymbol{\Lambda})=\dfrac{1}{\sqrt{(2\pi)^p\det\boldsymbol{\Lambda}}}\exp\left[-\dfrac{1}{2}\boldsymbol{z}\boldsymbol{\Lambda}\boldsymbol{z} \right].$$
+If we call $\boldsymbol{V}=[\boldsymbol{v}_1,\ldots,\boldsymbol{v}_p]$ and $\boldsymbol{\Lambda}=\left[\lambda_1,\ldots,\lambda_p \right].$ With these definitions in hand we can write the eigenvalue equation as
+In the last step I used $\det \boldsymbol{ABC}=\det\boldsymbol{A}\det\boldsymbol{B}\det\boldsymbol{C}$, $\det\boldsymbol{A}=\det\boldsymbol{A}^T$ for orthogonal matrices and $|\det\boldsymbol{A}|=1$ for orthogonal matrices. Hence, we proved that we can use the eigenvectors to linearly transform our variables to obtain a new coordinate system which has a diagonal covariance matrix $\boldsymbol{\Lambda}$ (which is diagonal). This implies that we do not have any covariance anymore.
+Remark 2: There is one suboptimal part of your code. You should explicitly determine the sample_size = data.shape[0] and then calculate cov = 1 / (sample_size - 1) * np.dot(difference.T, difference).
+$$\boldsymbol{\Sigma}[\boldsymbol{v}_1,\ldots,\boldsymbol{v}_p]=[\boldsymbol{v}_1,\ldots,\boldsymbol{v}_p]\text{diag}\left[\lambda_1,\ldots,\lambda_p \right].$$
+$$\mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}=\boldsymbol{0},\boldsymbol{\Sigma})=\dfrac{1}{\sqrt{(2\pi)^p\det\boldsymbol{\Sigma}}}\exp\left[-\dfrac{1}{2}\boldsymbol{x}^T\boldsymbol{\Sigma}\boldsymbol{x} \right].\quad (*)$$
+We plug this into $(*)$ and introduce the new variable $\boldsymbol{z}=\boldsymbol{V}^T\boldsymbol{x}$.
+As the covariance matrix is real and symmetric we know it is diagonalizable and that we can scale the eigenvectors to represent an orthonormal basis by the set of all eigenvectors. The eigenvalue equation for the covariance matrix is given by
+$$\mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}=\boldsymbol{0},\boldsymbol{\Sigma})=\dfrac{1}{\sqrt{(2\pi)^p\det\boldsymbol{V}\boldsymbol{\Lambda}\boldsymbol{V}^T}}\exp\left[-\dfrac{1}{2}\boldsymbol{x}^T\boldsymbol{V}\boldsymbol{\Lambda}\boldsymbol{V}^{T}\boldsymbol{x} \right]$$
+The eigenvectors can be used to transform your data into a coordinate system in which no covariance is there. Assume we have a $p$ dimensional multivariate normal distribution with 
+Remark 1: This diagonalization is what the principal components analysis is also doing under the hood. 
+$$=\dfrac{1}{\sqrt{(2\pi)^p\det\boldsymbol{V}\boldsymbol{\Lambda}\boldsymbol{V}^T}}\exp\left[-\dfrac{1}{2}\boldsymbol{z}\boldsymbol{\Lambda}\boldsymbol{z} \right]$$

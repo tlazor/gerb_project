@@ -1,0 +1,8 @@
+There's no definitive answer for your last point on web page logging, that'll be down to the companies data retention policy. You can do a tracert in cmd from your laptop to google to see if it bounces off vpn server or internal interface of your companies router, depending on what you're connecting too. That'll depend if the VPN configuration is set to point the gateway (vpn server) as the default route for everything, or just create a new route for the companies network address.
+If your connected to a VPN, you can look at your routing table on your local machine to find out what traffic goes through that connection. Its pretty advanced stuff but but I'll try to give a quick example:
+Is there a way to know if all traffic goes through there or only the remote desktop application traffic?  
+Assuming they trace the webpages you visited, for how long would they store them before deleting? I'm assuming they are going to delete after a while.  
+the 0.0.0.0 network destination means ALL traffic is going through the 192.168.1.1 interface (meaning your home network in this example). BUT, any traffic destined for a 10. whatever address is going through your VPN. So take note if your routing table says something like
+because that means that ALL your network traffic is now being routed through the vpn. VPNs do have the ability to change routing tables b/c they need to, just an FYI.
+If you're using windows you can find your IP addresses by opening a command prompt and typing ipconfig /all
+When using a VPN to connect to a corporate computer, the traffic would typically pass through some VPN server inside the company.  

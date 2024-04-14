@@ -1,0 +1,10 @@
+If all else fails, go and download another Linux Live CD and delete them from there. There are smaller distros available if an Ubuntu download is too large.
+I have some files with 'impossible filenames'. I'm not talking about special characters or anyting, but really impossible ones. (filesystem NTFS)
+Is there any program that I can use to rename/delete them? Perhaps something like PCTools (20yo DOS program) that can 'edit' the sectors like a Hex editor?
+Personally, I'd just make a quick LiveLinux usb and fix it from there. Is there a reason you can't use Linux?
+By default, every file and directory under an NTFS filesystem has two names by which it can be accessed: the long filename and the short filename. Short filenames follow the 8.3 naming convention which you may be able to use to delete these files by using the Command Prompt. For example:
+I've tried every suggestion in previously asked questions, but maybe something new is possible since 2 years ago.
+They are created by Ubuntu, when I saved/moved files with my Windows-mind (I don't know how the third one is created). I don't have any Linux or live-CD anymore.
+I can't even defrag the disk because the defragmenter trips when it encounters these files during analyzing.
+I tried programming my own rename function, but without low-level system calls (kernel32 defrag api comes to mind, but is too dangerous to just try), it keeps ordering path elements by '\' characters, so it can't find "receipt.jpg" in folder ~~/"images/", etc.
+Since short filenames are an optional feature of NTFS it's possible that these files don't have short names. In which case, you might be able to do it by using the extended length path form of the files' paths. You do this by prepending \\?\ to the full path of the file, enclosing it with quotes:

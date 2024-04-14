@@ -1,0 +1,6 @@
+Email clients like Outlook seem to only display the first address.  MailScanner/SpamAssassin use the last.
+I'm working on a problem that I'm seeing with an email scanning server (MailScanner, Spamassassin, Postfix, etc.), and From header spoofing.  Unfortunately, some of the versions of these components are old, so this may be a bug in one or more of them.  Upgrades are planned, I'm just seeing if an interim solution is appropriate, or if this is a configuration/rule issue that would need to carry over to the upgraded environment.
+Basically, a regex like the following would seem to catch these (whether that is in a header_check in Postfix or a rule in Spamassassin):
+I'm sure that this regex is terrible and there are probably more elegant ways to match the examples like the ones above.  ;)
+Here are a few examples, all from different messages, with names changed to protect the (possibly) innocent:
+Basically, I'm seeing messages that contain multiple addresses in the From header coming through.  That in itself seems to be RFC compliant, with specific conditions that usually aren't being met as far as I can see, however nearly every example that I can find that our environment has logged, this is a spoofed/malicious message.

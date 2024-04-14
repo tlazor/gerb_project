@@ -1,0 +1,6 @@
+Go to display properties and in the 2 and 3 monitors selects the checkbox (extend my desktop to this display).
+My desktop has a NVIDIA GeForce GTS 250 thats currently running two monitors. The Intel H55 motherboard also has an on-board VGA port. Is it possible for me to run a third monitor from this? Is there anything special I need to do to make it work? I need to know before I splurge on another monitor, and do not  have a spare monitor to test with. I'm running Windows 7 Home Premium, if it matters.
+2: With Windows 7, if you want to have multiple video cards, they must all be capable of using the same driver. So, if you have an onboard Intel GPU, and an nVidia card, its not going to work. Or if you have an nVidia graphics card, but the onboard uses the legacy nVidia drivers... no dice.
+1: Your motherboard must be of the type that does not disable the onboard graphics card if you have a video card installed. This can be checked pretty easily if you have two monitors.
+I just setup a 4 monitor system on a 3 year old Dell OptiPlex WinXP tower w/ on board Intel VGA. We tried to use the on board as a 5th monitor, but it would not work. Tried various settings in nVidia control panel, BIOS settings, and registry hacks. No dice!
+Yes you can use onboard and pci express cards at the same time. Just configure in the BIOS the onboard as the main video adapter.

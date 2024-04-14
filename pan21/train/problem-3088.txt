@@ -1,0 +1,6 @@
+The connection to internet works fine if i keep up only eth0 and to the other side the web server works fine too if i keep up only eth1. They work perfectly as intended.
+The problem is that I want both networks on at the same time and use exclusively eth0 to surf the internet / download updates and so on and I want to route all the traffic incoming to 123.123.123.45 to just that network.
+Your immediate problem is that you declare a default gateway on both entries. I suppose that this will result in whichever comes up last to "win" and be default gateway.
+The first line tells the box to look in table "1" for info on packets that go out from IP 1.2.3.4. The second line creates table "1" saying that the default gateway in that table is 1.2.3.1. The last line ensures that this takes effect immediately.
+How can I do that? I searched many tutorials but can't find a working solution or maybe I am doing something wrong. I do not want to reroute traffic from one interface to another, I would like to keep them separate and reroute traffic based on what IP they are coming from.
+However, if you remove the one on eth1, you will have the problem that the box will reply on eth0, even if the packet arrived on eth1. In order to tell the box to reply on a particular interface, you need to do what is commonly referred to as source routing.

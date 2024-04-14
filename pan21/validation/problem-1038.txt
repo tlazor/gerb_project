@@ -1,0 +1,7 @@
+However increasingly applications are written via a virtualisation layer that makes writing applications easier. There are two common ones: .NET and Java. I'm not sure about Java except knowing that forcing the right Java runtime install with solve the problem.
+this emulates(?) a 32 bit environment, and it has proved useful for getting some old 16 bit programs to run
+Drop the application "corflags.exe" into the \windows\system32 folder.  Open a command line as administrator and type...
+The more complex is to check what kind of exe it is, then modify it yourself. Background here is to understand that compiled code from languages that directly work with the Windows APIs are created as 32bit or 64bit at compile time by the developer. This cannot then be changed without going back to the source code.
+Tried everything and nothing worked. but then thought about moving gta iv directory from the C/program files(x86) to C/program files and it work since  x86 is for 32bit apps(I think) but worked anyway.
+The easy answer is to launch from a 32bit process (eg. use %SystemRoot%\SYSWOW64\cmd.exe to launch).
+How technical an answer do you want? You can probably force the exe to always run 32bit with a few SDK tools, but it does require a little work.

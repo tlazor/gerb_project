@@ -1,0 +1,11 @@
+and as cross-check, the processes have their corresponding cgroups also in their process info, e.g.,
+AFAIS, systemd seems to be not aware of the sub-slices as systemd-cgls shows the processes directly beneath the the parent unit's cgroup
+It looks like upstream since fixed this by specifying the Delegate= directive (commit 890186d82a – though specifying a subset of controllers would be a bit more elegant than simply true IMHO). If that update isn’t propagated to the CentOS package, you can apply it locally with the following command:
+problem was, that by default systemd assumes that all sub-cgroup/slices are handled by itself and that any unit processes have no own control.
+I have a service (HTCondor batch system), which is started as service unit within cpu,cpuacct and memory cgroup slices (CentOS 7 @ 3.10.0-*).
+(the [Slice] section might also be the right section, but apparently the right section depends on the release/kernel so #YMMV)
+My assumption is, that systemd is not aware of the sub-slices (guessing from systemd-cgls), while from the kernel's view these are proper cgroup slices. When starting the new unit, systemd notices the discrepancy from its expectations and 'cleans up'.
+The service starts sub-processes (~~> batch jobs) for which it creates sub-slices, i.e., subdividing its parent resources. Without further interfering, the started processes are in the sub-slices
+When enabling delegation for a unit, systemd will not try to take control of the unit's sub-resources
+still differ and only systemd-cgtop shows the 'right'Ä kernel view of cgroups while systemd-cgls does not show any sub-hierarchy of slices even with delegation)
+Now, when adding a new unit, reloading the systemd daemons and starting the new unit, all the job sub-cgroups disappear and their processes get attached to the parent cgroup.

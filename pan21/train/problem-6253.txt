@@ -1,0 +1,7 @@
+However looks like in VMWare are really genius working and now you can do it, Since VMWare Worksation 8. (in earlies versions is not possible).
+That is a really intersting question. Teorically you cannot do this, you cannot install VMWare EsXI or Hyper-V in a Virtual Machine.
+Take a look at this article, where you can do this, and what changes you need to do in your VMware Workstation or VM that will hold that ESXi.
+This is because they are hypervisor, bare metal sofware, that means, virtualization software that runs directly on the hardward without a host OS, as you can imagine it has lots of performance advantages.
+Particulary for casa of running EsXI you will see details at the document, but for start and run the virtual Machine you will need to change the virtual machine processor settings and enable the checkbox "Intel VT-x/EPT or AMD-V/RVI."
+This is called Nested VMS. An impressive thing is even if your host computer dont support hardware assisted virtualization can run hypervisor on a Virtual Machine.
+There is available this documment at the VMware Website that speaks about it and how to use it: Running Nested VMs.

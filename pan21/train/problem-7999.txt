@@ -1,0 +1,8 @@
+I created a vlan in Juniper qfx3600 switch by specifying just VLAN name. When I tried to commit the configuration I got an error saying "need L2domain configured". I asked with  my collegue, he said you must provide vlan id, when I specified VLAN-id to the created vlan the commit was successful. But the documentations I read says VLAN automatically will be assosciated with VLAN ID if one is not provided by the user. 
+I got confused by all of these, can anyone please tell me which is right and why the commit was successfull after I provided VLAN ID but not before that.
+Juniper would never be able to automatically associate a VLAN name to a VLAN tag by default. If you just specify a VLAN by name, there isn't any way to figure out what VLAN that traffic belongs to. 
+However, you are using a QFX3500, and I cannot find a similar statement in the QFX range documentation. Here, Juniper states (2):
+Because the 802.1Q tag is number based, Customer A and Customer C would be able to communicate while Customer B would not be able to talk to either other customer.
+The documentation for the Juniper EX series switches indeed mentions the possibility of creating a VLAN without specifying a VLAN id (1):
+I'm not sure about the Juniper method of assigning VLAN tags but I hope this helps clear up why you shouldn't rely on autoconfiguration for that.
+802.1Q tracks VLANs based on ID (number) not name, so this would be an awkward way to program a switch.  Example:

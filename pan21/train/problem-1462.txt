@@ -1,0 +1,7 @@
+A single new hostname with two A records that points to the two servers, as he states some clients does not correctly do round-robin with same priority MX, it should be a legit setup, but does it still correctly support failover, e.g. 172.16.10.1 fail, is 172.16.10.2 being tried for delivery?
+The MTA will first try mail1 which half of the time point to .1 and the other time to .2. The problem here is that mail2 may point to the same address as mail1 in the scenario where mail1 is not reachable.
+Let's say mail.example.com has been resolved to 172.16.10.1 and it fails. Then 172.16.10.2 won't be tried as there is only one MX record.
+Take domain example.com, it has two mail servers mail1.example.com and mail2.example.com, both already configured, usually I would go with the following setup:
+For effective an mission-crticial load-balancing and failover, get or put together a load-balancer (cluster).
+The third setup generates twice DNS traffic as the first one. Aside fom traffic, both of them have the same behavior: As you said some clients won't correctly do round-robin with same priority MX.
+to lower the risk that the initial connection will not work. Still the risk will not be zero. But MTAs will reattempt the connection later.

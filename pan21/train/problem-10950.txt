@@ -1,0 +1,6 @@
+Is there any way to specify the worksheet of the linked Excel document? How can I automatically update all linked worksheets in Word? Or do you know any better way to import Excel worksheets to Word?
+I have an Microsoft Excel file with several (about 10-20) worksheets. All sheets should be stored in one Excel file, because they are connected to each other (calculated values).
+I can select the Excel file, but cannot specify the worksheet. I activated "Link to file" (Unfortunately I cannot show any screenshots here).
+If I update the document (e.g. Ctrl+A, F9), all imported objects are set to the worksheet which is currently selected in Excel.
+Now I have to create a report in Microsoft Word and want to include all the Excel worksheets as linked objects, so that any changes in the excel file are reflected to the Word document.
+I opened the Excel file, switched the second worksheet and saved the file. Than I imported the same Excel object again in Word and the second worksheet is shown. And so on.

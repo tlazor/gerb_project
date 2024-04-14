@@ -1,0 +1,7 @@
+You can perhaps replace the script by a binary that decrypts a key on the fly. That would make it harder (but not impossible) to capture the key for other purposes. 
+Another solution would be to restrict the amount of access that the ssh user you are using to connect has. So even if they do connect, they can't do anything.  You could do this by creating a new user and setting up correct permissions for just this connection. Additionally you could set up a virutal-environment on your server for that user that is isolated from the rest of your server. If you don't set up a virtual environemnt, you would need to do a security audit on your files to make sure there aren't any 'everybody' permissions on files/directories that would be available to this user.
+But IMHO it is safer to write a small web server that runs the actions on the server, with the local script doing curl calls to it.
+If you want remote port forwarding, you need to use PermitListen instead of PermitOpen and an appropriate GatewayPorts option.
+If you want users to only be able to use port forwarding, you should be setting up restrictions on the server.
+Users in the UNIX group some-group will then not be able to do anything but using port forwarding to localhost:62222. ssh must be invoked with -N (“Do  not execute a remote command.”) because otherwise ForceCommand will take effect and kill the connection.
+If there is only one thing to run on the server, you can try to make that a script that is defined as their login shell.

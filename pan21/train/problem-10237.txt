@@ -1,0 +1,5 @@
+I have looked this up and found that the alert 46 = "TLS1_ALERT_CERTIFICATE_UNKNOWN", which seems to be a generic error stating only that "something" is wrong with the certificate.
+I have a webserver that is secured using an SSL cert from godaddy. The certificate seems to be working fine for about 30 clients, but one client cannot connect and I cannot for the life of me figure out why.
+Can someone point me in the right direction? I need to figure out more details about the error and I have no experience in tracing these kinds of issues. Is there another log somewhere that I should be looking at?
+The thing is though that the certificate seems to be working fine for everyone else except this one client. The client involved is using ColdFusion 10 with Java 7 to try to talk to the server and they are the only ones getting an error.
+What's even more confusing is that up until the server was restarted a few days ago, this 1 client was working fine. So I know the server restart was the trigger but I can't find what's wrong.

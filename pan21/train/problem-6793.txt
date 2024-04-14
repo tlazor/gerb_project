@@ -1,0 +1,6 @@
+Now, once again, I don't fully understand the issue, but it appears you are concerned with the size of the indexed entry, and not necessarily the actual row entry in the heap.
+Let me begin this reply with a caveat:  I've never encountered this exact problem, so I don't fully understand the nature of it.  However, I'm going to give my advice so that perhaps it gives you the insight you need to complete your task.
+For that case, you should use a function call from the pageinspect extension to query the pages of your BTree index, as
+Broadly speaking then, you need to create a PL/pgSQL function to iterate over the pages of your index(s), checking the itemlen, and collecting the ctids of the heap entries, and once completed, since you state it was OK to drop violating rows, then wrap it all up with a
+Presumably, though you should check against your own data, you can see the number of bytes which the index key is using by checking the itemlen field. I am betting that you can use this to check against your pre-determined limit which you said was 2712 bytes, and in that case use this info to collect all the ctids which violate your condition.
+Recent versions of PostgreSQL come with an extension which you can install that allows you to inspect the individual pages of elements stored in your database.

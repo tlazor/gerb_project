@@ -1,0 +1,7 @@
+2 bits hold 4 values.. representing the numbers 0 to 3.  Just like 2 decimal digits hold 100 values 0..99
+Next are the logic components: components like gates (NOT, AND, OR, XOR, NAND, NOR) are easy to understand and use and can be combined to generate higher order components (like flip-flops or at the very extreme end, a CPU). The math behind that is very well understood (Boolean algebra).
+There were computers working with decimal system (the "ten" based system you usually use) with the most famous one being ENIAC but they probably proved too complex and inefficient.
+They all depend on binary code made up of 1's and 0's and each bit you add to a binary number doubles it.
+Making them in decimal numbers would just "waste" some of these numbers used at machine code level to address memory or provide coded information so would be inefficient.
+Probably the main reason is that it's easiest to work with on the hardware level. It's easy to represent two states with power on or off (or low power vs. full power), but it would be harder to do with, say using and correctly interpreting 10 different voltage levels.
+3 bits can hold twice what 2 bits can..  Because when the third bit is 0, the remaining 2 have 4 values, and when the third bit is 1, the remaining 2 bits have 4 values.  So, for 3 bits we get 8 values. 2^3=8

@@ -1,0 +1,8 @@
+As for cutting the power every night -- this is not something that's recommended.  All these devices have internal clocks that typically draw from the CMOS battery or the power line (the computer definitely has this).  Cutting the power could drain the CMOS battery, which will reset the BIOS settings every time the power gets cut in the future.
+It's possible the Wii could be downloading something while you unplug it (if the light is yellow instead of red) but that risk is small enough to not worry about.
+Also, you have to consider the power draw from doing a full-on cold boot.  Each device draws its max power at boot, which stresses the line more than during any other moment (this is why your lights might dim when the computer boots).  
+Generally, you'll be fine by doing a shutdown of all the devices but leaving the surge on.  That switch is designed to turn everything back on after a surge more than to kill the power on a regular basis.
+The only thing that could cause problems by cutting the power are the TV, and the Wii (assuming everything else is powered down). 
+When you say you put everything in standby mode, you're not actually shutting it down.  If you shut it down, the power draw should be minimal (>1W).  
+Some TV have to reboot if they lose power. On my TV it takes about minute, though it doesn't lose any settings.
+In the case of the PC (and depending on it's OS), if the operating system has not written what it needs to disk, you may experience some data loss when flipping the switch. You may want to shut it down first.

@@ -1,0 +1,8 @@
+You may want to get the diagnostics software by the HDD manufacturer and run it against the drive to see if it reports any defects.
+Get into Vista (in recovery mode if necessary) and do a chkdsk -f on the boot drive. That should schedule a fix for the next boot (I think the chkdsk that's running isn't automatically fixing). By forcing it to fix, it should clean itself up.
+Also you may want to check out SpinRite as it's like CHKDSK on 'roids, but unlike CHKDSK it won't just outright kill data in faulty sectors, it'll try to recover them.
+Now when I boot into Vista, CHKDSK runs.  It passes the first stage, but it hangs on the second "verifying indexes" stage.  If I skip it, everything seems to run perfectly.
+What could it be hanging on?  Is there anyway to force it to validate or update its indexes (if that even makes sense in this situation - I'm used to DB indexes)?
+If they both say it's clean, then you can at least feel good that the drive probably isn't physically damaged and that you're dealing with file-system corruption (or alike).
+Is it really hung up? Or is it only very long? On a big drive this could go for ages (with XP, 20 minutes on a 400GB drive).
+I recently dual-booted under Vista x64 and Ubuntu 9.04.  Instead of using Vista to re-partition before installing Ubuntu, I just let the Ubuntu installer re-partition the drive.

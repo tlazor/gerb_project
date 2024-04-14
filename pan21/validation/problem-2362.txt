@@ -1,0 +1,5 @@
+One way i have is that, instead of using TextBoxes I can directly enter the text into the cells, but doing this will restrict my requirement(as i have used the cell's width as interval and the TextBox width as the time for which the task will happen).
+I've gave a keyword(that will distinguish the TextBox in interest from others) of the text in the TextBox in a cell and made the cell as hyperlink to the nearest cell where the TextBox with the related text is present.
+Is there any way to make sure that the text in the TextBox can be identified when searched using CNTRL+F option or is there any other way to draw a flow chart so that the text can be found when searched.
+But now when i search for a particular text in the sheet, it is not showing up. im unable to locate the text using CNTRL+F option, and im forced to go through each TextBox manually for the required text.
+So, when i search for a text(keyword) using CNTRL+F then this takes me to the cell(in which the keyword is present) and when i click the cell(hyperlink).. it takes me to the cell nearest to the related TextBox.

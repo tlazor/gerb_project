@@ -1,0 +1,5 @@
+I am trying to recover the password for one of the logins on a SQL 2005 (SP3) database. There seem to be a large number of tools out there to do this. 
+This URL, http://www.ngssoftware.com/papers/cracking-sql-passwords.pdf, describes how their cracker works. They even helpfully supply C++ source that you can compile yourself. I've used the NGS software and it works provided the password isn't too hard.
+This load the passwords hashes out of sysxlogins (or whatever the new view is :-) and cracks them: it does not load the live server
+The NGS software just takes the password hash from the row in syslogins, so it doesn't tinker with master.mdf. Like you, I'd be pretty nervous about anything that hacked the master database, and I'd use it only as a last resort.
+Are you recovering because someone lost a password or because you need to recreate this on a new server? If it's the former, use the NGS tool above. If it's the latter, you can script the login with a hashed password, and run the script on the new server, securely moving the password without needing to know it.

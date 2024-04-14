@@ -1,0 +1,10 @@
+This will (technically) set the selected scheme, which you can verify by going to your Sounds settings and see that the No Sounds scheme is selected. However, the event sounds will still play, and that is because the selected scheme has not been applied.
+In addition, there's a .Current key at this level that is the actual sound that is played. Presumably, when you select a new scheme in the UI, it copies each of the settings individually over the .Current value.
+Get-ChildItem -Path "HKCU:\AppEvents\Schemes\Apps" | Get-ChildItem | Get-ChildItem | Where-Object {$_.PSChildName -eq ".Current"} | Set-ItemProperty -Name "(Default)" -Value ""
+As an example, to apply the No Sounds scheme to the System Exclamation event, you would copy HKEY_CURRENT_USER\AppEvents\Schemes\Apps\.Default\SystemExclamation\.None over HKEY_CURRENT_USER\AppEvents\Schemes\Apps\.Default\SystemExclamation\.Current.
+The "No Sounds" scheme has the name .None; you can see this by exploring HKEY_CURRENT_USER\AppEvents\Schemes\Names.
+The selected scheme is at HKEY_CURRENT_USER\AppEvents\Schemes, which defaults to .Default. So you can set the selected scheme by changing this to .None:
+However, in your case, you can just clear out all the values, since you're applying a "no sounds" theme. This can be accomplished by an one-liner:
+It appears that the keys under HKEY_CURRENT_USER\AppEvents\Schemes\Apps are the apps, with their default value being a display string. The ones on my system are .Default ("Windows"), Explorer ("File Explorer"), and sapisvr ("Speech Recognition").
+The keys under each app event key are the sounds to play for each sound scheme. So HKEY_CURRENT_USER\AppEvents\Schemes\Apps\.Default\SystemExclamation\.None is the sound to play for Windows' System Exclamation when using the No Sounds scheme, and HKEY_CURRENT_USER\AppEvents\Schemes\Apps\.Default\SystemExclamation\.Default is the sound to play for Windows' System Exclamation when using the Windows Default scheme.
+Changing the scheme is relatively easy. However, you then have to apply the new scheme, which is a bit more involved.

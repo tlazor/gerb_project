@@ -1,0 +1,7 @@
+So you could setup a directory per site and assign that directory to the local OSTs for that site, which will direct all I/O to the local OSTs. It will still be a global namespace.
+There's a lot of work going into improving Lustre over WAN connections (local caching servers and things like that) but it's all still under heavy development AFAIK. 
+The only downside I found (compared to MS DFS) is that it will not detect a local file copy. Instead it will interpret it as a new file an uploaded to all the peers.
+So far btsync seems to be the best synchronization solution and it can be installed on Windows, Linux, Android, and ARM devices (e.g. NAS) 
+Btsync is another solution that I've had good experience with. It uses BitTorrent protocol to transfer the files, so the more servers you have the faster it is as synchronizing new files.
+Unlike rsync-based solution, it detects when you rename the files/folders, and renames them on all the nodes instead of delete/copy.
+It won't be automatic but with OST pools you can assign directories/files to specific OST/OSSes - basically policy based storage allocation, rather than the default round-robin/striping across OSTs.

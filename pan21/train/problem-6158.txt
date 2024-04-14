@@ -1,0 +1,6 @@
+So my question really, is how do I go about detecting the vhost that is generating this malicious traffic? If I can do that, I can let my client know, and he can take steps to investigate the site and make the necessary changes to stop it..
+Please note, I've obfuscated the "Host:" above, I believe that's the host being attacked (is this correct?).
+I'm currently using tcpflow to log traffic going from any port on this server to port 80 on any other machine using this command:
+One of the servers I look after appears to be participating in brute force attacks against Wordpress installations.
+I've found this preferable to tcpdump. Looking through its output can be somewhat brain-melting after a while :) tcpflow puts each request into a separate file..
+I've been on the receiving end of this many times, so am very familiar with steps that can be taken to prevent this. What I'm struggling with, however, is detecting outgoing attacks. The server is a typical Apache server with a number of vhosts on it - this is where the complication comes of course - if there was just one on there, it wouldn't be as difficult!

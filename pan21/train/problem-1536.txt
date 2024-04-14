@@ -1,0 +1,6 @@
+Other Repackers just add a skin to executable installers, making it look like an MSI, in reality it is just an exe.
+In the above case, you could very well mess up the deployment. The "Disaster" that would follow would very much depend on where you made the mistake and what you edited. That is the same with deploying software, or misswriting a command in command prompt.
+We primarily in the past have pushed out MSIs through GPO. Most of these would be installed, modified and then repackaged. If the repacking software picks up all the registry keys, files, folders etc from the install, its not a problem.
+SO TLDR: Disasters are possible, severity depends on what you have done. The way you have mentioned doing it has you configuring the MSI in a familiar area, the GUI. The machine picks up the changes for you.
+I work at a business that has transitioned through several deployment methods. (Not always by choice!)
+There is another type, that lets you modify the MSI itself. This is probably the most dangerous due to the potential for user error. If you didn't build the MSI, you don't have a full understanding of how it was built and the intention of each part. There may not even be documentation of what everything is.

@@ -1,0 +1,7 @@
+You should read the SDL 1.2 to 2.0 Migration Guide, you still can access pixels but they should be in System memory surface as  seem you are trying to do. 
+There's more than one way to manipulate pixels, lines, rectangles, etc. with SDL2 and one of the easiest, and not so fast, ways to do that is to use texture and renderer.
+  But, Why you are locking the texture? You shoudn't access texture memory directly, in general accessing GPU memory has low performance. You should work with SDL_Surface all time then use SDL_UpdateTexture(sdlTexture, NULL, pSurface->pixels, pSurface->pitch); when your drawing is done, and finally call SDL_RenderCopy(renderer, pTexture, NULL, NULL); 
+You need to create renderer and then texture with access SDL_TEXTUREACCESS_TARGET. Once that's done, you can use renderer to draw pixels and other (supported) graphics primitives, like this:
+Of course, you should call SDL_SetRenderTarget() once and then use SDL_SetRenderDrawColor() and SDL_RenderDrawXXX() function(s) as many times as needed, followed at the end with call to SDL_SetRenderTarget(renderer, NULL).
+Alright, I have spent a lot of time on this one, so I need some help. I like the ability to draw pixels directly to the screen, sometimes I do this to trace the path of objects for debugging etc. In SDL 1.2 you could do something sort of like this :
+This would result in a red pixel being displayed, you could make a simple line across the screen with a loop. Now SDL2 is really blowing my mind at the moment, here is what I've got:

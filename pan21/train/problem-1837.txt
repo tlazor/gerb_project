@@ -1,0 +1,7 @@
+As for the clients not being able to talk to the servers, are they on the same subnet, or are they on a seperate, possible secured network that is non-routable? It sounds like a rather simple network, but it sounds like you're WAN router might be specialized, and not to actual routing internally???
+Try setting up an SSH connection to an external system. If it fails, or is very slow, you might have a routing problem.
+The other thing, you may have an ACL on you're WAN router, or a Firewall not mentioned, that is blocking the icmp time-exceeded message. If you allow these messages, at least internally, traceroute should work (and there is no risk to allowing this, only some types of icmp messages are bad).
+It looks and sounds like you may have a routing loop. Given that inbound access works, but outbound does not. I could be completely wrong, but that's what it seems like.
+I would also think about removing one of the routers from the load-balancer. If you can traceroute with only one router, you have a routing or load balancing issue.
+1 thing, if you're using solaris based traceroute, you can do a traceroute -I rtcamp.com which will use icmp for the traceroute. We do this at work since UDP traceroute is blocked on our Firewall.
+Something is blocking ICMP. The blocking of ICMP time exceeded in transit messages is breaking traceroute. The blocking of ICMP fragmentation needed messages is breaking TCP. Most likely it's the load-balancing router.

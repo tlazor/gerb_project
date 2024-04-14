@@ -1,0 +1,10 @@
+So it looks like it is an issue with when the System account is available when SQL server  service starts?
+In Services.msc, double click your sql server service, and go to the recovery tab and change the default for 1st 2nd and 3rd failure to "ReStart the Service" and change the minutes to 2 or 3 minutes.
+From experience I know SQL Express doesnt enable mix mode with SQL Server and Windows Authentication (On Installation)
+Using SQL Management Studio, Right click on the Server and choose Properties. From there select the Security Tab and see how its set up.
+I could use an SQL server account in my applications SQL connection string but then would I still have the issue with SQL server express complaining (i.e. the audit error)? Alternatively, should I run SQL server express under another user account rather than local system?
+If I then start my service application manually (with services.msc), it starts perfectly. So the problem is only with rebooting.
+I found that when one of our machines reboot, I see audit errors in the event viewer saying that SQL Server Express cannot logon with NT Authority\System, there after my service application gives a similiar login error and does not start.
+In reality, though, something else is happening on the underlying system.  You should check the event logs for more errors.
+I had a similar problem.  I was able to resolve the problem by making the MSSQLSERVER service a dependency of my service by changing the registry:
+Also http://ServerFault.com is a forum better suited to this, and so is http://Ask.SqlServerCentral.com

@@ -1,0 +1,7 @@
+The domain points directly to my web server so when it goes down, all they see is host not found. The domain is hosted by godaddy if that helps any.
+In this configuration you may be able to take only one machine down at a time, and not have your site down at all.
+When I take this server down, I need a way to flag the domain as currently undergoing maintenance instead of host not found.
+Unfortunately, DNS gets cached so aggressively that it can be quite a while before an update, either to take your site down, or to bring it back up, would propagate everywhere.  A short TTL on the DNS record would help, but it would hurt performance a bit.
+That way, you can change where the load balancer points, or even get the load balancer itself to host the 'This is Down' message.  It also opens you up to a more reliable configuration, where you have more than one server:
+Dedicated Windows 2008R2 server hosts my Windows 2008R2 vps web server (which is the one I need to take down).
+Your final option incidentally, if you don't need to restart the machine, or you don't mind that the site will still be down while it's restarting, is to condense all of this onto a single machine.  Run Nginx on the machine, have it proxy to IIS normally, but show an error message when necessary.

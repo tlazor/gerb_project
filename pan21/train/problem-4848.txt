@@ -1,0 +1,6 @@
+Your (first) command should be giving you a permanent pre-routing rule as you wanted, so long as you do not stop firewalld. I would tend to think that should be sufficient, but I may very well be missing something about your needs. 
+Both approaches work the same, have the same effect, and absent other changes to your firewall policy, should be doing what you need.
+tl;dr: I would just keep firewalld running, and use its commands to create and manage your rules. While the firewall-cmd vs 'raw' iptables commands have slightly different visual effects, they have the same effect on the network traffic.
+If the PREROUTING is no longer working when you stop firewalld (and I am not clear why you would do that), then I would assume that is because firewalld is removing its entire policy (e.g. iptables -F/iptables -X). In which case, the fact you added another version of the same rule manually would make little difference. 
+Just to be clear: there is no practical difference between having your prerouting rule in the PREROUTING_DIRECT chain or the PREROUTING chain.
+The only difference is that firewalld is essentially doing a little admin behind the scenes for you, and placing your actual rule in a user-defined chain rather than a system defined one. 

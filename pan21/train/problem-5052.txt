@@ -1,0 +1,6 @@
+I am able to connect to a printer on \\printserver\Printer Name, however \\printserver.fqdn.com\Printer Name gives me an error "Operation could not be completed (error 0x0..0709). Double check the printer name and make sure that the printer is connected to the network.".
+I have applied the setspn commands as defined on http://www.md3v.com/enable-windows-server-smb-2-0-alias-cname%29
+I am able to access the printers on each server directly, either using the netbios name for FQDN name.  The issue only arises when using the FQDN CNAME.
+The registry change to LanmanServer has also been applied (see https://support.microsoft.com/kb/281308 as it applies to Server 2003).
+I am trying to alias my print server to \\printserver.  The actual name of the server is \\fileserver1 and/or \\fileserver2.  The idea is that I can switch the CNAME between each real server as required.
+All hosts are on a flat network, and are all behind a firewall...  I don't have any reasons to suspect any interference from there.

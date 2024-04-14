@@ -1,0 +1,7 @@
+If I get a 3ware hardware RAID controller, I will still need to plug 4 drives into the motherboard, will I still get all the benefits the 3ware controller offers?  Will I need 2 of these controllers?  
+If you can live with software RAID, or are on a serious budget, go for the cheap option and use the OS's software RAID.
+The question boils down to what OS you'll use, and whether you are willing to pony up for real hardware RAID.  If you want real RAID you'll either need two of those 3ware cards, find a 6- or 8-port card (for more money obviously), or buy a server motherboard with a real hardware RAID chipset on board.
+However most botherboards only come with 6 sata ports so I will obviously need to get an extra controller.
+Just remember: RAID is not a backup.  Also keep in mind that a hardware RAID solution can't generally be migrated to a different hardware chipset, while a software RAID can.
+Most consumer motherboards use a software-supported RAID chip, meaning it's not real hardware RAID.  Linux calls this "fakeRAID", and generally the Linux solution is to use the hardware as a standard SATA controller and do software RAID on top of that.
+What I am wondering is, can I simply buy a cheaper PCIe card to give me more sata ports and then run all 8 drives in a software RAID? Performance isn't an issue, just redundancy (I have a lot of data).  

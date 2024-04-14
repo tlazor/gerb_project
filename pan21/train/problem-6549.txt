@@ -1,0 +1,6 @@
+My current project is a very simple browser-based game. The player moves with the keys and draws a bow with the mouse to shoot arrows at approaching enemies. This seemed to me like the perfect game for a Python/PyGame implementation and it proved to be true - except if I want it browser-based (Desktop version already works perfectly).
+Is there any way I can get Python/PyGame running from a server in a browser window? I tried Kivy but it seems to have problems handling PyGame.
+Is there an alternative (JavaScript + additional libraries?) that offers me: PNG with Alpha handling readily implemented (I don't really want to use another few days to write that on my own...), easy catching of mouse/key inputs and an "easy-going" license policy that allows me to publish it donation-based without having to pay for a license?
+Is there a way to use HTML, PHP or the like to get the Python/PyGame script running in a browser window by "translating" inputs to the Python script and vice versa translating returns into view changes?
+I'd really appreciate any advice on these questions as I'm really stuck with it until I know to which language I have to translate the Python/PyGame version.
+Note: If I really have to change to another language anyway, then I'd prefer one where I can implement catching touch-screen inputs from mobile devices.

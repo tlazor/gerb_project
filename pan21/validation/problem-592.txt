@@ -1,0 +1,10 @@
+Along with the access token a request token is also received from the response. This refresh token is used for getting a new access token when the original one has expired.
+_fetchTokens makes a POST request to my web service's OAuth endpoint and retrieves the tokens form the response. It then proceeds to persist them (For example, localStorage) so they can be used for later requests and continue to live on even if the application is closed.
+I have an endpoint, that when receiving the correct credentials, responds with an access token that will be used in consequent requests.
+This avoids persisting a session and using cookies, which is what we wanted to accomplish when we started designing our web service.
+With short timespan and token refreshing, an user can't authenticate as another user just by stealing the access token (theorically it can, but for a short period of time, i.e. until it's refreshed).
+My problem is that consequent requests should send the access token (on the Authorization header). If a request is sent with an expired token, a 401 Unauthorized is returned, so this service must proceed to try to refresh the token. After successfully refreshing the token, it shall retry the original request again but with the new access token.
+With this approach I think there's going to be a lot of replicated code, so I was looking for help on how to better structure my code. Not only for better quality but also for better readability.
+As you can see it's a very long code and it's even incomplete, this is only the authenticating function.
+signIn is the public function that the client will see from outside. It simply creates the deferred object and calls _fetchTokens.
+I suppose such a service is not that uncommon so I hope that many people has experienced this type of situations.

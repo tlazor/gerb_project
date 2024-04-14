@@ -1,0 +1,6 @@
+As documented by Microsoft among others, you solve this by splitting the scope between the servers; one could hold 50% of the address space, and the other the remaining 50%.
+Once the old server has been phased out, add its scope to the new server (or enlarge the existing scope.)
+I am in the process of configuring a new Server 2008 R2 domain controller in our enviroment and have a question regarding DHCP.
+Is it safe to have two dhcp server on the same subnet with the same scope?. i ´ve backuped the dhcp config from the 2003 server and moved it to the 2008 server. What i´d like to do is to activate the new server and have both of them running until i am certain that the new dhcp server is working properly.
+Hardly. This way, two hosts can get the same IP address, one host can get the address from the first and the other from the second dhcp server. Dhcp servers don't share the pool.
+SBS won't start the DHCP service if it detects another DHCP server on the same network segment, so the question is moot.

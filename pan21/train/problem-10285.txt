@@ -1,0 +1,8 @@
+The simplest for our purpose is 'Firefox mobile OS Simulator'. It runs as add-on for Firefox browser, this lightweight simulator has an ActiveSync Client built in for emails.
+Actually there is a way to have lightweight desktop client with ActiveSync.. its a workaround. you will need a modern mobileOS simulator to achieve this.
+A quick thing that may work is just to set up a rule on Outlook (if you use it) or through OWA that will forward all your emails to the external Gmail account. 
+You can use Outlook with ActiveSync - you add an account as Exchange Active Sync (from Control Panel, Outlook not running) , when you get "Log onto Exchange Active Sync mail server (EAS): The server cannot be found" - kill the host process from Task Manager - start Outlook and you will find ActiveSync access in Outlook. 
+Anyway, Sorry I cannot really think of a proper easy solution, I cannot find an PC Activesync addons - Other than downloading a Pocket PC Emulator!. 
+Evolution will do this, and there is a Thunderbird plugin.  Also, there exist some OWA->IMAP bridges out there.
+Another thing may be to beg your administrator (or bribe with Pizza!) to enable POP3 or RPc over HTTP, even if it is just for your IP.
+... You just got me thinking, Why doesn't Outlook support Activesync! I guess it would just be a redundant feature for Microsoft to support when RPC is so much more feature rich and complete...

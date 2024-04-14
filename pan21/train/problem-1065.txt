@@ -1,0 +1,8 @@
+If you set Outlook to be offline then it will only check when requested or as frequently as is set in the "send receive" settings.
+To change the automatic scheduled "send & receive" go to "Tools" -> "Send/Receive" -> "Send/Receive Settings" -> "Define send and receive groups"
+Now to synchronize you'll have to manually send and receive. I would be interested to hear why exactly you want this set up this way though.
+Outlook is still happily downloading new email every minute or so.  Have I missed or misunderstood some of the settings?
+Outlook doesn't "download" email from the server, as the email remains in the mailbox on Exchange. If you really want to disable automatic synchronization, set the Exchange account to be in Cached Exchange mode, and then in the bottom right of the Outlook window where it says "Connected", click that and select "Work Offline". 
+As has been stated, when you connect to Exchange using outlook,using RPC, not POP, you are not downloading mail, you are just viewing mail that is stored on the exchange server. Therefore when email arrives at the server, the view on the client is updated. The only way to prevent Oulook from updating when mail arrives at the Exchange server is to take outlook offline and use the cached mode.
+Alternatively, it seems this client would be more suited to using POP or IMAP to get at there mail, which fits in with the idiom of send/recieving mail from the server.
+I have a user with Outlook 2003 installed and an account on our internal Exchange server.  I do not want this computer to download email from the server until the user manually selects Send / Receive.

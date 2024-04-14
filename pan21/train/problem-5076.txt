@@ -1,0 +1,8 @@
+What is the best method to secure a Wireless Access Point (without passwords I assume), so that we can restrict it to company issued laptops?
+The issue with changing the password and re-connecting the laptops is that anyone can go in and view the password (a 2 second search: https://www.google.co.uk/search?q=how+to+view+wifi+password&oq=how+to+view+wifi+password&aqs=chrome..69i57.2655j0j1&sourceid=chrome&ie=UTF-8).
+On enterprise access points you can also use Radius based VLANs for each device based on permissions assigned to the user or machine.
+You can configure WPA2-Enterprise in a few ways e.g. username and password for each person from their account in AD, certificate based or machine authentication.
+There's probably a better way but the simplest I can think of relies on RADIUS and MAC address. I found this link http://kb.zyxel.com/KB/searchArticle!gwsViewDetail.action?articleOid=007988&lang=EN on Zyxel site. 
+The best method is implementing WPA2-Enterprise with Radius Server (Network Policy Server on Windows Server).
+We want to change our policy to only allowing company issued laptops to connect to our wireless network (even company issued mobiles will no longer be included).
+We have a Windows based site running Windows Server 2012. We have ZyXEL NWA1123-AC access points that up until now we've allowed people to use on laptops, mobile phones etc. We have been using a password but had been giving out as needed.

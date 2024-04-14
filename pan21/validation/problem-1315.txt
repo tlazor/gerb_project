@@ -1,0 +1,11 @@
+Your client machines should be using the address of the domain controller as their DNS server (the server should be pointing at itself for DNS). You'll then need to configure the DNS service on your domain controller to forward anything it can't resolve to your router.
+The ping startup times that you describe are probably not related to the application performance problem.
+When I ping using the ip of the server though, the ping starts printing out immediately, and there is no start up delay.
+I have a 3 computer network connected through a Linksys/Cisco E3000 Router in a small office. One is running Windows 2008 R2 Foundation and the other 2 are running windows 7.
+When I ping the R2 from the windows 7 machine using the name (eg. ping server), the ping waits for 6 seconds, and then starts printing the round trip times (no problems with the round trip time). The printed time is 1ms, and once ping starts printing, it goes fine.
+When you ping the server by name, and when no DNS or ARP cache data for the server is present, the client needs to perform both DNS resolution and ARP resolution for the server. This is likely the cause of the delay in getting the first ICMP Echo Reply from the server.
+If you want to switch it to a workgroup then you should be able to use Network Discovery for local name resolution, but personally I'd keep the domain.
+I did not remember to check the arp tables on the 7 machine, but this seems strange. The router is handling the DNS. 
+To confirm this, clear the DNS and ARP cache on the client and ping the server by name. Once the ping completes run it again and see if the response time exhibits no delay in the first ICMP Echo Reply.
+I can access shared folder on the server and is pretty snappy. However, we have an application (that is uses machine names to work) and has become incredibly slow. I suspect that if I figure out what is happening with the ping start up times, I can maybe figure out why the application is running slow.
+If the server is configured as an Active Directory domain controller, it should also be running a DNS service for the internal clients.

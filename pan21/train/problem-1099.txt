@@ -1,0 +1,6 @@
+Because we are using a different telco (a niche one), maybe it takes some time for them to refresh the DNS. But it has been months and the problem still persist, and I have no idea who to refer to, is it our hosting, or our telco?
+You can start debugging by opening the page by using Chrome Developer Tools - specifically the network tools.
+Examine resource timing to determine what exactly causes the slow page loads. Is it DNS Lookup (problem with DNS resolver or DNS server), is the browser waiting for response (web server overloaded and takes too long to process the page) or is receiving data slow (network link overloaded).
+Looking at the page I would suggest you ask your hosting provider to enable gzip compression on your site. This would make the pages considerably lighter (and hence faster) to load.
+I apologize if this question seems to vague, but where do I even begin to investigate and narrow down this issue?
+Ever since our non-profit website (www.teachformalaysia.org) moved to a different hosting, it has been loading very slowly, but only in our building. Opening it from everywhere else are fine, opening it by tethering from my phone is also fine, so I suspect it has something to do with our telco.

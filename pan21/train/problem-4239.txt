@@ -1,0 +1,6 @@
+However, the general idea should be clear now. Try to isolate the actual problem (is it network related or a config problem?). Maybe this video can also help you: https://www.youtube.com/watch?v=DCgRF4KOYIY&t=76s 
+The error message says clearly the MySQL server could not be reached, hence check everything that could block access to it. This is not user related.
+If you can answer all that with yes there should be no problem connecting to the MySQL server from MySQL Workbench. Point 6 can be a bit more complicated, if your MySQL server is not on the same machine as where the SSH endpoint is or if it has networking disabled or if it uses a different port than what you tried.
+I am facing the same issue. As weird as it can get I found that I can only connect to the server using the "Topbar -> Database -> Connect to Database..."
+same issue i faced with mysql workbench 6.3.8 build 1228 CE (64-bits) community with kubuntu 18.04 version.
+i set connection method standard tcp/ip over ssh and when i try to connect to remote server it asks for ssh password and after successful ssh tunnel it asks for remote mysql password ( which was expected as i did not store passwords in keychain -- option available there in connection window ) and when i entered it i got same above error. 

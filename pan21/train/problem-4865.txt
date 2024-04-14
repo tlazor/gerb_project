@@ -1,0 +1,5 @@
+For the auto growth amount it all depends on how active your database is but I'd definitely suggest a fixed figure rather than a percentage growth. Looking at the growth above, maybe set it to 256MB growth and see if this suits your needs. You can alter this if it's too large or too small.
+I think you'll find a good starting point here - http://blog.sqlxdetails.com/set-transaction-log-initial-size/
+https://www.simple-talk.com/sql/database-administration/sql-server-database-growth-and-autogrowth-settings/
+You're right, your database is having to grow a lot at once which isn't ideal, the growth settings aren't adequate for what's happening there. By the looks of it I would guess that your auto growth settings are set to the default of 10% which is why you're seeing the growth changing each time.
+What you want to do ideally is set the initial file size to a figure that's not going to need to be grown but you'll only really work this out from experience. For now, try setting it to whatever size your log file currently is. 

@@ -1,0 +1,5 @@
+I'm really looking for some suggestions on what software to use to set this up, any advice would be really helpful!
+What should I look for to manage domain names and point them to the correct website and also what would be the best way to manage email accounts/set up new ones etc. I want to avoid cPanel/WHM if possible, I'm looking to control most things through the control panel I will be building. So any suggestions on this would be useful as well, as I will be wanting to add email accounts through php (Can be done using a shell I assume?).
+Just looking for some help/suggestions with this. I require my own server for an upcoming project that will be hosting users websites. I want to build a control panel the user can log into and modify their website which will be stored elsewhere on the server. This all seems easy enough, It's just managing domains and emails that confuse me.
+Check out webmin It should allow you to do a lot of this. There are some great guides on configuring it.
+I will also be wanting to measure bandwidth used on the websites contained in each users directory, any suggestions on making this possible?

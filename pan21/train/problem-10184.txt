@@ -1,0 +1,7 @@
+Found this question when trying to do the same and ended up using git on the postgresql data directory. Discarding the changes is as easy as:
+Probably not the answer you are hoping for, but have you considered some lower level of snapshotting - LVM for example?
+In your/most cases, it would be best to install a lightweight linux (than a Windows server) for running the virtual machine where the database is hosted given you mention you have little ressources available on your laptop.
+How about you create your base state as a database, and then create a new database from it for your test run, using the CREATE DATABASE ... TEMPLATE functionality.  After the test, you throw that database away.  Then your speed constraint is essentially only the time to cp -R the database directory.  That's about as fast as you're going to get without file system snapshot magic.
+If your database runs in Virtualbox, you can easily save snapshots and restore snapshots of both the database state and the OS itself in a few seconds (or 1-2 minutes if you really have a lot of data in the database or the OS or very little memory allocated to the virtual machine) for free.
+On the production site, I use MediaTemple's snapshot backups to achieve the same result (but it's 20$ per backup slot and specific to that webhosting service, so that may not fit you).
+You could use file-system level snapshots, but that is often pretty cumbersome, needs special file systems, and is not always available, especially on aging laptops. ;-)

@@ -1,0 +1,7 @@
+I've been using the queries here to get a figure for table size, and I've been using this to get approximate rowcount....
+The tests were run immediately after doing a VACUUM ANALYSE on each table and no other processes were accessing the database at the time. The only other factor that may be important is that the first table is continuously being updated, whereas the 2nd is largely static, however I would expect that after shutting down all other sessions and running a VACUUM ANALYSE, the way the tables are used wouldn't make any difference.
+I have one table with 22 thousand rows sized at 700 Mbytes or approximately 32k per row. The table consists of 4 timestamps, 4 integers, 2 booleans and one 6 character field as a unique primary key.
+It's the VACUUM ANALYZE that does not make a difference on the size of tables. Because it does not immediately recover the bloat resulting from old versions of rows, it merely marks these rows are reusable.
+I have a 2nd table with a very similar structure, albeit only 18 thousand rows, but that occupies 6Mbytes or 333 bytes per row.
+Why the enormous discrepancy? 32Kbytes per record for the 1st one, and 333bytes per row for the 2nd one!
+Only VACUUM FULL would recover that space, by rewriting the table from scratch with only the live rows.

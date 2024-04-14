@@ -1,0 +1,5 @@
+I noticed that this problem occurs only when the PC is associated with my wireless network (which uses a rock-solid router and I haven't touched in over a year).  As soon as I disconnect from the network, sound works perfectly.
+Figuring that the NIC is old and probably isn't compatible with Windows 10, I switched to a modern NIC (ASUS PCE-N15), yet the problem remains unabated.
+Immediately, I began experiencing ripped sound playback, regardless of sound source: VLC, Windows Media Player, Flash in Firefox, etc. behave identically: every few seconds there's either a "rip" or a momentary dropout of sound.  Sometimes, bizarrely, the music actually slows down by a few BPM for a few seconds.
+I have a PC that I built some years back.  Like a champ, it ran Windows 7, 8, and 8.1.  Then I upgraded to Windows 10.
+Windows 10 does not find any improved drivers for any of my hardware.  I set the Wireless Adapter's Power Options for "Maximum Performance", and changed PCI Express -> Link State Power Management to "Off".  No improvement.

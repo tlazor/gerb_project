@@ -1,0 +1,8 @@
+I encountered something similar, however, this is for an ongoing recurring appointment. It shows me reminders from the start of the appointment.
+In calendar view of Outlook marking the birthday and pressing (w/ or w/o shift) "delete" key had no effect.
+When the reminder comes up, click open. Then press the delete button at the top. The same was happening to me just today for the first time.
+I came across this article, installing a macro at start-up of Outlook to erase old appointment reminders: http://techniclee.wordpress.com/2011/04/01/killing-overdue-reminders-in-outlook/
+Solution for my case open "The entire series" in calendar view and using the "X" symbol to delete the series. This also wiped out the line in my still open reminder window. Drawback you might create the series from scratch.
+In reminder window pressing "delete" key had just the effect that this single entry popped up in first line of other newer not dismissed lines again.
+You can snooze a reminder for times not available in the drop-down list by typing them as long as you follow conventions - choose 2 weeks and edit that to 999 and see what happens
+Had a Birthday reminder (== recurring event) coming up again and again since 2 weeks on every other new reminder in Outlook 2016.

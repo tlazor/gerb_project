@@ -1,0 +1,9 @@
+After the most recent patch, you can configure the clients to pull from a different server.  Unfortunately, it is the same for all clients.
+Currently, when we update the software, I manually push a copy of the updated client/config files down to each DC.  I have a script that we run on each PC to update the clients.  It determines what subnet the PC is on, and pulls the software from that DC.
+Example:  Client 1 is at site A, client 2 is at site b.  They each run the software and a version change is detected.  As per the config files, the clients look to ERPUPDATE for their updated client.
+A better option would be to setup DFS replication with a namespace, you can then do \\mydomain.local\updates.
+You could place the updates in folder with in netlogon and access it via \\mydomain.local\netlogon\updates
+Is there some kind of DNS magic I can use to pull from the local server?  For instance, if I tell the clients their update server is ERPUPDATE, can I have their local DNS server return a different IP for ERPUPDATE than the other sites?  
+I use the Active Directory domain name to help localize services, you could put the software updates on a share on each DC. For example if you ping mydomain.local from site A it should automatically resolve to the IP of the DC in site A.
+The client has an autoupdate feature, but it'll only pull from the application server (which is housed in the datacenter, over the 3 meg link).  It takes forever, since the updates are not "patches" but a full version of the client, even for minor upgrades (bad design).
+Excuse the poor explanation, I worked 61 hours over the weekend and haven't completely rebounded.  I'll be happy to clarify if needed!

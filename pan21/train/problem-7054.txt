@@ -1,0 +1,6 @@
+Both iTunes and WMP have a function to "manage my library files" or something similar where they can folder structure the files in the library.  IIRC (it's been a while) WMP has an option as part of that where you can change the format so you can make it be <Track>-<Title> and WMP will set about reorganising your library and the file names itself.
+Being all set, go to Action -> New. Name it "Cheap Mp3 Player" or other name of your preference. Then, select "New" to add a new action. Select Action Type -> Format Value.
+I've used Tag & Rename, works really well for my purposes.  It's not quite free, but it has a trial period.  I rarely pay for software programs, and I bought this one.
+I have had great success with Tagscanner. It is the most powerful, but straightforward tool I've come across.
+Mp3tag can handle that. I'm supposing your ID3 tags are correctly set (no missing titles, no missing track, etc).
+EDIT: Just checked iTunes and it doesn't have a changeable option but the format it uses is <Track>-<Title>

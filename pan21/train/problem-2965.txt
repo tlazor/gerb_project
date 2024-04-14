@@ -1,0 +1,10 @@
+Is it always ~3 minutes before it shuts down? If it is and you can leave it on in the BIOS for over 10 minutes (or a significantly longer time), I would go down the route of either heat or power. If it shuts down in BIOS as well, I would point to power, but it could mean other parts are faulty
+Personally, I could be wrong, but I would point more to a under performing / inadequate PSU than heat, but I think it is one of the two.
+At first, I thought it was a heat issue. I powered it back on, went into the BIOS, and watched the CPU and chassis temperatures. They never went over 90 degrees Fahrenheit. 
+If the motherboard is one of the new ones that comes with the high end ATI video built in, (and even if it isn't) it is possible that when Windows (or your OS of choice) is started, it suddenly produces excess heat. Watching the BIOS is great, but remember it is running at around .5% (or less) utilisation, that being said, ~30c is very low!
+PSU calculator from newegg. Just pop your hardware into that and it should give you some idea as to whether or not the problem is your PSU.
+Power, the same goes really. If you have one of those energy meters, hook it up and you will see that when the OS is started, it sucks up a lot more energy.
+What if the PSU was warming up and reached the point it was unable to deliver the needed power--from your comment to ThisTime it sounds like you're at the edge.  So long as the power supply is too hot it can't deliver enough power and the board doesn't work.
+I'm thinking it's the power supply, but I'd like to get some ideas from the community as to what else it could be.
+I'm using the on-board audio and video; no other components are hooked up aside from hard drives and dvd burners.
+I recently replaced my motherboard, processor, memory, and power supply. After powering up and running for approx. 3 minutes, the rig shuts down, like somebody pulled the cord out of the wall. It won't power back up either instantly. I have to wait a while before I can even turn it back on. 

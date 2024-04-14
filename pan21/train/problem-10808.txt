@@ -1,0 +1,8 @@
+If you frequently need to switch between Unity versions, you may want to create a file that does these operations for you, so that you won't need to do that over and over again.
+And you can press the "Alt" Key while you are starting Unity to force it to show you the Project Wizard. For me this isn't working when I use a Desktop Shortcut to open Unity on Windows 7. When I open it with the Startmenu, it does.
+You can set Unity to always ask you which project it should open on startup. That way you can easily choose the compatible projects for your Unity version.
+As I mentioned, if you specify wrong project path you can then choose any project you like. That should avoid the Upgrade project question. Using CommandLine gives you better control on what project you open with which instance.
+In my computer, kProjectBasePath_h4113231939 is the key I'm talking about. You just need to delete its value to achieve the result. To do so, execute regedit, navigate to the path above, locate the key, right-click it, select Edit and delete the value.
+Then change the extension to .reg. Opening this file will automatically delete your registry key value.
+You can start another instance of Unity from the CommandLine/Terminal, and then specify the project path you would like to open with that instance. If you specify wrong path to project, Unity will show you project selection screen.
+The last opened project path is saved on a Registry Key in HKEY_CURRENT_USER\Software\Unity Technologies\Unity Editor 4.x

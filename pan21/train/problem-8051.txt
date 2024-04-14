@@ -1,0 +1,8 @@
+As they can often support DPD mode (essentially sleep) and use system RAM only due to lower latency the battery life can go up.
+High-speed drives (I have a Barracuda) take 8W on average (the documentation says). This means that you need to calculate it as 10W (2W as reserve power).
+If you start looking at all the appliances around the house, read their electrical specs, then plug them into a power meter and read their actual usage..  it's much lower than what's on the label.  Very illuminating.
+But according to the documentation, they can take 30W (plus 1-2W for the digital part) at spin up! When I did the power calculations for my PC, I considered two drives at 30W.
+I measured the power consumption of my PC but it was some years ago and I forgot the numbers. I will do it again during gaming and boot.
+21.36 watts sounds about right. You can use a general rule of thumb for about ~25 watts per 7200 rpm drive.
+I've tested this experimentally and got maybe a 20% increase with identical system running 10 with Crucial M300 SSD versus 500GB slim 5400 HDD.
+Its possible to accurately measure this with a tool like "Battmon" or similar and you can actually see the energy usage with things like screen brightness.

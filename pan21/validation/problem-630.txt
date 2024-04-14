@@ -1,0 +1,8 @@
+This can easily be solved by assigning a password which will enable Remote Desktop for that account (after you add it to the Remote Desktop Users group). Then configure the computer to automatically logon using the account and it's password.
+I have an old WS that I turned into a dedicated plex transcoding server. It is running windows 7(64 bit) and has no onboard or dedicated graphics installed( to lower the power usage of an always on system ).
+I am looking for a  way to remotely run command lines/bats and I need to be able to kill the process and restart them.
+You should try Remote Desktop (again). It will work fine on a system without a graphics adapter as confirmed by this Microsoft blog post:
+PowerShell has Enter-PSSession.  It's going to take some work to get the computers to trust each other and configure Windows 7 for remote management but it's doable. 
+I understand the account doesn't have a password so that Windows can login to the account automatically, but this also prevents using the account for Remote Desktop due to the security policy preventing network connections using accounts with blank passwords.
+...[M]y issue with [Remote Desktop]...is that the user account...is a under privileged user that has [its] password disabled to [permit] automatically login on the event of a power failure / reboot.
+I can re-install the gpu if needed to do system updates / set up newer software. If there are some software packages to do this that I am not aware of.

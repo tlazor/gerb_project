@@ -1,0 +1,7 @@
+The reason I say this is because the chance is high your cpu is 64 bit. It has to be really ancient (like 10 years old) for it to not be a 64 bit processor.
+My Windows XP installation has become unusable for some unknown reason. Since Microsoft is going to end support in a few days anyway, I decided to install Linux Mint.
+I would recommend to download the 64 bit live-cd from the linux distro you want to use, and see if you can boot into the OS. If you can, your system is supported.
+What information in the BIOS should I use to determine whether or not my I can install a 64-bit operating system?
+For optimal hardware utilization, I want to use a 64-bit system if possible. However, since XP isn't working it's not possible to determine whether or not I can use a 64-bit OS in the usual ways.
+Look up the processor model in the BIOS. Then search on the internet for that processor's specifications.
+In the live-cd environment, you can test every aspect of the linux distro and determine if this is what you want to be using, and if all hardware is supported. You may find out that even though you can run 64 bit, you just can't get used to linux or some crucial hardware doesn't work. Installing a distro takes a little bit more time than just booting into a live-cd.

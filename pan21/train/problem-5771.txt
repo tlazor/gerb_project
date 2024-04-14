@@ -1,0 +1,6 @@
+What I am worried about is what is going to happen when I plug the new one? It is a different brand, so I presume the configuration file backup from the SMC will not be useful. I am not a network engineer and it will be tricky for me to reconfigure the whole network from scratch.
+So, is the network going to crash? What can I take note of before replacing the routers? Is there a way to exchange the settings from the old to the new one(a general way, I do realize this could be really brand specific)?
+There really isn't enough details to fully solve your problem. Is the switch currently managed? What's the current configuration like? Are you using wireless?  Is the new switch managed?
+I have a small office network, around 10-15 devices. The router at present started causing problems and considering it's a 8-years-old SMC I bought a new one for replacement.
+Best bet, match your configurations and install outside of business hours so you can trouble shoot any issues after it has been installed. 
+Assuming both are managed,  just using the old configuration may not work as the syntax to certain functions may have changed. 

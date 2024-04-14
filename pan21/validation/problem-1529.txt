@@ -1,0 +1,7 @@
+Also don't forget when dealing with the world that the angular is applied to the object only, given the world is presumed to have infinite mass for the purposes of the calculations.
+With that working the next thing I would do is rig up the scene such that the object is at 45 degrees, drops to the floor, and then rotates to land flat. From that you know exactly what is going into the system, and what you should see coming out.
+Before anything, just have the object in the air, give it an impulse along of say 1m/s and don't process any collisions. You should see it damp down to nothing and then come to rest. Whereas in the video the block never stops it continues floating ad infinitum - unless the damping is so small as to not really effect anything.
+The next thing to do, same test, is to test that with slow movement & angular that it comes to a rest. If it does not then before doing anything more complex I would fix that.
+It's on the right track but there are a couple of odd things happening. Firstly the body doesn't come to rest, it continues gliding and if you are applying damping that shouldn't happen.
+You would expect to see nothing happening until contact with the floor then you would expect to see an angular velocity along X only which will then die away to nothing as it lands on the floor. If you see anything else then you can debug through to see what is causing that.
+Your equations look correct. I've not checked the code thoroughly but this looks like some sort of bug rather than anything fatally wrong.

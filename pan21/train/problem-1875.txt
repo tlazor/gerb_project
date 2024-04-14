@@ -1,0 +1,6 @@
+I edited the action so, instead of that group, notifications are sent to the two users individually:
+I tried that in two ways. First, I created a "Notifications Receiver" group in Zabbix, set that group's read permisssion to all entities, then made the first user a member of that group. That was my initial setup, with only user 1 being a member. That worked. But when I include the second user in that group, Zabbix ignores me and new notifications still get sent only to the first user.
+I'm using (and am new to) Zabbix 3.0 on CentOS 7. I successfully created an action that sends e-mail to one user. When a condition (e.g. a filesystem more than 80% full) happens, an e-mail gets sent to that user. But now I want the e-mail to go to two users, not just one.
+But Zabbix ignores me. Everything STILL gets sent only to the one user, the first one. It doesn't even try. This screeenshot for the dashboard shows it only sends e-mail to the first user:
+Soon after that, the status of the status changed to "Sent" and one e-mail arrived. But it didn't even try to send to the second user even though its media is set correctly, just like the first one:
+There were  two things. One is what @Richlv replied above; another is that Zabbix doesn't seem to be reloading its configuration correctly. I had to go to the server prompt and do this:

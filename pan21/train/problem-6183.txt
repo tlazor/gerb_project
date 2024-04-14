@@ -1,0 +1,8 @@
+Will accept up to 2 Remote Desktop connections, and one console session for a total of 3 sessions.  You can buy additional Terminal Services licenses to support more users (licenses are tracked and you cannot expand the number of Remote Desktop/Terminal Server users without buy additional licenses).
+Your biggest limitation is the number of concurrent network connections that can be made to the client OS (Windows XP).  Windows XP will only support a maximum of 10 connections while server will support an unlimited amount.  
+Server (2003/2008) will come standard with 5 user/connection CALS meaning from a legal standpoint, if you will have more than 5 users or connections accessing services served up by the server you will have to buy additional CALS (legal standpoint only, server will still work).
+Will only support a single session.  If someone is logged in on the console, and then you log in using Remote Desktop, you will take over the desktop session.
+I'd lean towards Server 2003 for this one. The memory system has been focused on application serving, and the network options are more sophisticated.
+From a licencing point of view, you would need to go with Server 2003 if it's to be used by several people connecting in remotely, and you would need CALs for those users.
+From a performance point of view, little difference for something small-scale. There are some connection limits that you may run into on XP. Terminal services will not be available to you on XP.
+you have to use Windows Server. Yes, you can hack this functionality into Windows XP but it's against the licensing rules for the XP Remote Desktop.

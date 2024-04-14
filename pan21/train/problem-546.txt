@@ -1,0 +1,6 @@
+I know this is an old thread, but there's an easier way and the resolution is better... copy your equation, and then do a Paste Special... when the Paste Special box comes up, select Picture... 
+Try saving the document as HTML. The images will appear in PNG format in a folder next to the output file called (DocumentName)_Files. From my tests the quality looks much better than when converting to DOC and is not blurred.
+Your options are nicely summarized here. The best option is the add-in, but unfortunately it isn't free. There is a trial period though. Perhaps there are similar free add-ins available.
+It doesn't put the equations into separate files but this was a quick solution for me when I needed white equations on a black background.
+You could also try following these steps to export as a TIFF, then open in MS Paint and save as a PNG. Unfortunately this only works for formulas in a document by themselves, and involves editing.
+Along the lines of Adam's response:  If you format the equations to the right size and appearance in Word and then save as .pdf, you can use Edit -> Take a snapshot in Acrobat to get images of the equations.   

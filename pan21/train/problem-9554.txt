@@ -1,0 +1,8 @@
+This morning after starting my Windows 7 PC I found myself logging into a completely black screen (no mouse cursor as some people get with this similar problem). The Windows 7 login screen comes up, the associated chime/sound plays and I can enter my password. I see the "Welcome" message and blue spinning neon ball, then my monitor goes completely black, no cursor.
+When I do a msconfig logged in via safe mode I see all the services are checked but the vast majority of them have a status of stopped.
+If I unchecked every stopped service and restarted, would that essentially boot me up in the same manner as the safe mode I'm in (even though I don't boot up in safe mode)? Could I then just start checking some services and reboot to see if I can narrow it down to a particular service causing the problem?
+Since Safe mode is working, rather than manually trying to fix or stop Stop services one at a time, you can let Windows try to repair itself. There are two command-line tools, SFC and DISM, which do the work without supervision.
+I've been trying to get the black screen login resolved for 10 hours now and I'm not having any luck. I'd like to try booting up with various services on/off to see if I can track it down to a service.
+ctrl-shift-esc and ctrl-alt-del don't do anything at that point. I see a common solution is to bring up the task manager, kill the explorer process then run a new one as a common fix, but I can't do that.
+If all goes well, try a normal reboot. I not, repeat the above procedures, but get help examining error messages.
+I'm not incredibly technical when it comes to Windows and troubleshooting this problem has not been the easiest for me.

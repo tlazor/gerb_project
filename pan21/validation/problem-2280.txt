@@ -1,0 +1,5 @@
+I have to mention that you can change the default folder where windows stores your Documents and Music by right-clicking on them and changing the Location directory; but this only works for folders inside your home directory (C:\Users\YourUserName) that windows uses for that sort of files.
+Supposing you want to install MyApplication under the D:\Apps directory instead of the C:\Program Files\, and suppose MyApplication installs by default under C:\Program Files\MyApplication.
+Then you proceed to install your application normally, but all its files will go directly to the second drive because of the link between the directories. I've installed many apps like this and they work pretty well.
+Now you have created a symbolic link that is named as the driectory where the app tries to install, and it links to another folder under drive D:\ which is where all the files will go.
+You can also make symbolic links to folders inside another drive, so you can redirect anything to a secondary hard drive without having to mess with the Windows Registry. Like this:

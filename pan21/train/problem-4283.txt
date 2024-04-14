@@ -1,0 +1,6 @@
+If you try to delete a snapshot that's tied to an existing AMI, it will give an error and ask you if you're sure.
+If you have only been creating snapshots at AMI creation time, you may be able to reliably do this with the CLI or powershell tools:
+Recently we had clean up drive in our Amazon Web Services account. We deleted more than 200 AMIs. Because snapshots for these AMIs did not to delete on delete of AMI.
+That won't identify that these volumes were generated along with AMIs that you want to delete, though... only that they've been orphaned.  Consider saving yourself a lot of future headache and tag your EC2 volumes at creation time with some simple metadata about who was responsible for creating them, and what they were created for. 
+I have written a small python script which generates csv raport with all information about snapshot usage. It includes information about linked volumes, instances and amis.
+What I did was selected all of my snapshots and clicked delete, and then just pressed cancel when it let me know that some AMIs were still tied to existing AMIs. Probably the fastest yet scariest way to solve this problem.

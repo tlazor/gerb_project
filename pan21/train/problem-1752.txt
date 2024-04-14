@@ -1,0 +1,8 @@
+(http://www.cisco.com/en/US/tech/tk648/tk362/technologies_tech_note09186a0080094a94.shtml#topic1).  
+For the last 60 seconds this is accurate, bearing in mind that the values only update every 5 seconds. It will be quite spiky and unpredictable due to the run to completion nature of IOS.
+(http://www.cisco.com/en/US/products/sw/iosswrel/ps1828/products_tech_note09186a00800a65d0.shtml#showprochistory) 
+After every 60 seconds an average is calculated from the collected data and stored as a data point in the 60 minute graph. 
+The intention was that this command was to be used to look for patterns in CPU utilisation, aiding the correlation of transient issues with CPU spikes (specifically call control errors with CPU spikes and call rate on the as5800 series).
+To a large extent, it doesn't really matter all that much.  One gives you one number, and one gives you a another number nearby.  Use the SNMP one to graph and collect with, and don't worry too much about the 'actual real guaranteed usage'.  This is most likely due to different sampling intervals, and the impossibility of actually getting a instantaneous rate (i.e, in any particular time slice, the CPU is either 100% or 0%).
+The way that the averages are calculated mean that there are bound to be variances. However it uses very little memory or CPU overhead to maintain the data. Given that the command has to run on the smallest router and line card upwards that was more important than accuracy.
+I'm using snmp to monitor my cisco router's cpu loading, but the number has a large difference with show proc cpu history's output. When sh tells me cpu loading is 7x%, the snmp only gets 2x%. Which number's accuracy is higher than another one? 

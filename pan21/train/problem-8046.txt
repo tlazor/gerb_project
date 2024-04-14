@@ -1,0 +1,9 @@
+Being standards compliant will go a long way to resolving your issues.  Don't be discouraged, I see a lot of large corporations whose mailings get high spam rating because they are non-compliant. 
+Jeff recently had a post on his blog titled So You'd Like to Send Some Email (Through Code) which details a number of techniques you should use to ensure that your email gets delivered. In short:
+If you have a reputation problem, but cannot shake it off, it may be easier to allocate a new IP address (but make sure in future you don't send spam from it - not even accidentally)
+SPF and domainkeys don't actually work for making your messages look less like spam - spammers quite often have them too.
+You are missing an rDNS mapping.  This indicates your email server is not correctly configured and start you on the way to being flagged as SPAM.  Missing SPF record in DNS won't help, but won't hinder much either.
+Normally the reason your messages don't arrive is that you're on blacklists or are considered to have a bad reputation. This mostly happens because you share a relay with a spammer, or are one yourself.
+We have also seen problems where some misguided sys admins decide that IP blocks allocated by certain IP registries aren't "good enough" to send mail to them. These misguided individuals often work for major US corporations, and decide that all non-ARIN IP addresses are used by spammers. Sadly, there is no way to work around this except for using ARIN-registered IP space for your relays to relay messages to these losers.
+Publish SPF records for your domain name, as well as DomainKeys if you can (these likely won't help in most cases, but why not).
+Non-standard formatting of the body of the mail will also create problem.  Unix default is to use line-feed line termination.  The standard requires carriage-return line-feed termination.  Also you need to ensure lines are less than 80 characters in length.  

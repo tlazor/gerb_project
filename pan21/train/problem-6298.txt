@@ -1,0 +1,7 @@
+Also consider using SynWrite editor, it has simpler external tools configuring. You can also call PyLint tool ang go to errors, but easier than in Notepad++, maybe.
+I am currently programming Python on Notepad++. Many times I have been bogged down by typos and misspellings. It's becoming frustrating to find those errors when writing so many lines of code. Is there syntax checking for Notepad++? I know a SO user offered a script like this: 
+For Python (also Perl, PHP, Ruby, Javascript) development, I would recommend using Activestate Komodo IDE - it is very powerful, has live syntax checking, code completion, debugger, regex toolkit, works and looks almost identical on Windows, Mac and Linux, etc.
+However, Komodo IDE is commercial tool and is not free (it costs $200+). Fortunately, there is free open source flavor of it called Komodo Edit. It still has the same great live syntax checker and syntax highlighter, but it does not have Python debugger. Give it a try - it is very good editor.
+If you are using the Anaconda Environment Spyder provides a very useful and helpful Syntax checker that does exactly what you have been Looking for
+But when I added it to Notepad++, created an icon out of it, nothing happened. How do I use this script? 
+First install Pylint and its dependencies. I also added pylint.bat to Python27/Scripts. Downloaded Python Scripts. Then go to Show Console under Plugins and Scripts. Make sure to have a .py file open. Enter in

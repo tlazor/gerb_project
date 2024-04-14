@@ -1,0 +1,5 @@
+Should they be as similar as possible (preferably identical)? Or should the dev environment be purposefully under powered in order to push developers to write optimal queries?
+I was wondering if there are any best practice recommendations on setting up databases in a dev environment versus a live environment with regards to configuration.
+This could be as simple in MySQL as setting query_cache_size and related values to lower when on the dev machine.
+I worked for a shop where we didn't have an environment that matched production, so we couldn't do many of the tests as we should. I'm not saying that each developer/tester should have an env identical to production, but at least one environment for all devs/testers. And for usual development any environment will do. Testing performance of the code should be mandatory, if not for all pieces of code, than at least for the most used ones (can use profiling tools to find out).
+I'd say that not having in development/test environments one that matches production will be a bad bet.

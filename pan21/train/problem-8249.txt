@@ -1,0 +1,6 @@
+However... if not work mouse + KB, it's really hard to do so, because windows installer must be started from running windows.
+Can you check the service startup status for "i8042prt" - this is a hidden system service, so it can't be found in "services.msc".
+You can download upgrade assistant or get an ISO of win 8.1 and run it or installer under loaded win 8.1. Follow steps and choose "Keep Windows settings, personal files, and apps" while passing through steps. At final stage windows will start installation and keep EVERYTHING! It much better than Refresh, so, it's the best current solution.
+What value is the service on?  Take note, then turn the StartValue to 1, reboot the PC and see how you go.  If it doesn't help, you can change it back.
+For now, there is no known solutions. BUT, it possible to repair windows 8.1 in the good old meaning of that word.
+Sorry to hear about your troubles with Windows 8.1!  I've seen this before on a machine and I found the answer on a TomsHardware forum - http://www.tomshardware.com/answers/id-1946297/keyboard-working-windows.html

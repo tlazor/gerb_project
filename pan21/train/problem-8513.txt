@@ -1,0 +1,6 @@
+Call me cynical, but whats with the at now +38 minutes? That is clearly requesting some commands and/or a script to be executed 38 minutes later. That's not recording in the bash history of course.
+It may be that there is a queueing discpipline in place again and that is what at was doing. You could try to login to this system and run tc qdisc ls to check if the default qdisc has been altered.
+In any case, if this guy says he removed some temp files, I'd definitely be cynical at that - none of what hes done there is remove temp files.
+Note that tc isn't just used for delaying or producing packet loss, but also for traffic re-prioritization and bandwidth allocation. It is entirely possibly what the guy was attempting to do was meant to be beneficial but screwed up somehow.
+Its not possible to tell the state of the system prior to these commands having been run and thus not possible to tell if he was removing a change he made or if the work he did was actually going to cause no changes.
+I wasn't able to recognise what the echo commands were trying to manipulate. At least there is no redirection going on in the command line (the command itself suggests it should be put in a file somewhere).

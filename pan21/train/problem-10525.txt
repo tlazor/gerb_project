@@ -1,0 +1,6 @@
+or if you want to allow for any character (eg punctuation) you can exclude fourth character being digit with a variation:
+The < means beginning of word ie we want the 3 digits to be at start of word but don't want to pick up 3 digits part-way through a longer sequence (eg ignore 12345 by not finding 345 within it).  
+In both examples, in the Find what section, the round brackets indicate parts - we want to find  the 3 digits at start of a "word" as the first part, and to find only those where the  next character is a letter ie the second part that we want to keep.  
+In the replace with \2 means we "replace" our found text (eg 123A) with just the "A" part (rest of text following that unchanged as not part of the "find" result).
+You could do this in Word (ie not scripting) with a wildcard find and replace.  If 3 digits will always followed by letter:
+The square brackets are a range of characters so [0-9] means any digit from 0 to 9, and {3} means a sequence of 3 of those characters.  The [A-Za-z] means any letter lower case or upper case.  The alternative option with [!0-9] finds everything except (! is not) digits 0 to 9.

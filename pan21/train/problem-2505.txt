@@ -1,0 +1,7 @@
+Did you harden it using the SCW? If so, you can run the SCW again to rollback the last SCW configuration that was applied.
+since configuring a Windows Web Server 2008 R2 x64 to be hardened for an internet-facing deployment I receive this:
+So Device Manager looks at the host name and compares it to the name on the connection. It clearly uses Hostname for one and the local machine name for the other and seeing as these had gotten messed up, they didn't match and thus I was deemed a remote connection!
+Somehow while switching between DHCP and static IP addresses and back again, my DHCP server dished up the IP address of my other server.
+I got this from looking at the Registry Monitor trace and seeing it looking in the Internet Explorer Zones database which made me wonder if it was a DNS issue - during this investigation I noticed the odd hostname.
+I had the same problem.  It turns out that my Hostname was two characters longer (17) than what was being displayed in the device manager (15).  I shortened my Hostname to 15 characters, rebooted the host and now it works.
+I get no joy. It looks like a Microsoft ballsup. I'll try and use Process Monitor to have a look. Google returns only 1 page for this error.

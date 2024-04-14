@@ -1,0 +1,8 @@
+Lastly, if you are to use multiple memory modules, they should be of the same clock speed. Some motherboards don't actually support single 4GB modules in one DIMM. You should check your motherboards specifications for this.
+Check out: http://www.pcworld.com/article/110401/frequently_asked_questions_ram_upgrades.html for more info!
+As for increased performance, I don't think you'll be getting anything if you're only using 32bit 7. If you remove the 2 GiB module, you'll save some power. 
+There won't be any slowdown, since you just have a 2 GiB module right now, so you aren't using dual/triple channel, which improves performance if same modules are used.
+Your computer will be unable to use the extra 2GB as you said. The way RAM works with other chips is to use the slowest module's speed. If the 2GB chips is slower then the 4GB, you should remove it.
+Firstly, a 32 bit system can only address just over 3GB of RAM, so installing 6GB is a waste anyway.
+I currently have 2GB of RAM in my PC, and I ordered a 4GB module a few days ago. I run Win7 32-bit, so I know I can't use all 6GB of that total RAM. However, my question is: Would using both modules be faster than using just the 4GB one? Would the fact that they are not the same type of modules cause significant slowdown?
+Secondly, the only way that you can reach the 3GB limit of 32 bit without wasting a module is to use the single 4GB module.

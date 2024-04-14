@@ -1,0 +1,7 @@
+Not sure if this is any help but sounds reminiscent of a flash corruption i had one time, that or local certificates expire/corrupt - in which case i just regen them.
+And the hardware crypto tells me it has a DH index limit which software crypto does not report (we may well have been hitting the software crypto limits)
+I have 40 or 50 tunnels with over 200 SAs active on a 7204VXR with NPE-G1 using the software crypto engine (no VAS card installed).
+Everything was fine for a while then one day all tunnels were down and debug messages were showing Unable to generate DH phase I values! almost identical to this unresolved issue.
+I then upgraded to the latest (C7200-ADVENTERPRISEK9-M), Version 15.2(4)M8 and it's been ok for 4 days and the issue has occurred again with a slightly different error string Unable to generate DH phase 2 parameters!  I'm guessing they changed the string rather than it being a different error.
+Funny you should mention flash.  I had to reformat the flash recently as it was hurrendously slow to boot. I think I've got a spare CF card I can try.
+A couple of days later the same issue occurred again, reload and then a couple of hours later again.

@@ -1,0 +1,5 @@
+You can't do this only with find, because find acts on individual files, and doesn't have a concept of adding up file sizes. You could pipe the output of find into another tool, but why bother when du does most of the work?
+I have used du -ms to get consistent output that can be processed by awk without additional intervention. You are correct that human readable output is better, so the final output gets processed once again for that.
+This will print the disk usage (in kb) for each user's files in dir regardless of where those files are:
+The find command prints the owner and block count of each file and directory in dir. The perl command adds the usage into a hash keyed on the username, thus building a sum of each user's file sizes; and then the contents of the hash is printed out.
+The awk test becomes messy when the "human-readable" suffix in included in the input, because you need to strip off the trailing "M" to do an integer comparison. For the output, personally I'd skip the "M" suffix, but that's what was requested.

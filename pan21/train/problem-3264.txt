@@ -1,0 +1,10 @@
+Ultimately, the key is pre-egress encryption - i.e. it needs to be encrypted before it leaves your computer, do not rely on cloud security to keep your critical data safe, encrypt it yourself first.
+I'd like to keep them on a remote service to make sure I don't have to make backup copies (in case my hdd would fail somehow).
+You can have your passwords in keepass encrypted with password and key file, have the key file on all your devices and the encrypted database (without the keyfile) on DropBox.
+I'm actually storing them in a google drive spreadsheet file, describing user, password, role, service.
+In addition to the aforementioned keepass (or keepassx on Unix derivatives), I have found that folks are fans of LastPass and 1Password. I prefer and use LastPass because it has Linux support, encryption happens on the client, the UI integrates very well with the browser, and they have YubiKey support. Because the built-in password generation and storage is so easy to use, I have 12 to 20+ character random alpha-numeric-symbol passwords for hundreds of accounts.
+These passwords are used for services like databases, webserver user and so on that run customers' services, so it's really important to keep them in a safe place and strong.
+This way you can acces it from anywhere, because the encrypted database are stored in the cloud but without the keyfile. I think it is safe enough.
+You could do this manually with a text file saved inside a TrueCrypt vault that you keep on DropBox or something. But that would not really be that easy.
+Instead, you could use a password manager that will do this for you. There are password managers that will save your password in encrypted form, and then sync this encrypted file between your devices. An example of a password manager that can do this for you would be 1Password.
+What you can do is encrypt them yourself and then keep a copy of the encrypted file in the cloud. That way, assuming you have not used a bad password for the encryption, your passwords are securely stored off-site.

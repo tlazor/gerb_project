@@ -1,0 +1,9 @@
+From a user machine with user's userid and password, I cannot see the folders or files, but the shortcut which accesses those files via an application works correctly, so the files are accessible.
+I inherited an SBS2008 server which had a corrupt or otherwise lost userid which was used to setup redirects, etc.
+SO, I THINK THE SAFEST COURSE OF ACTION IS TO MAKE THE FILES COPIED TO THE WINDOWS 7 MACHINE VISIBLE, ESTABLISH A WORKING SYSTEM, AND THEN GO FROM THERE.
+Unfortunately, the previous person (who is no longer here) was not taking backups, so I am in a precarious position.
+I've changed the hidden attribute and the owner of the folders and files copied to the Windows 7 machine, but they are still not visible.
+Now, I cannot see the redirected folders. Using TreeSize Pro, I can see the folders and their contents.
+Using TreeSize Pro, I can copy the folders, sudb-folders, and files to a Windows 7 Pro computer, but even on this computer, I cannot see the files except through TreeSize.
+I THINK I NEED TO MAKE THE FILES COPIED TO THE WINDOWS 7 PRO MACHINE VISIBLE AND ACCESSIBLE, so that I can see what I have, determine if I can run apps against them etc. - So that I can then reload SBS2008 from scratch and set everything up correctly.
+The application is mission critical and cannot be down for more than an hour or two and corrupting the data (without access to a proper backup) would be a disaster! Since I don't have proper backups (except what I could copy using TreeSize), I'm afraid to do surgery on the SBS 2008 machine to make the files visible.

@@ -1,0 +1,9 @@
+I was looking for an answer to your question also, and by now all that I have read said that you will need more privileges on your server (which you won't get on shared hosting).
+I wrote about projects to get R online on my blog here (like ggplot2 web interface and R-node),  If you find good solutions, please let me (us) know.
+I wrote a trending class in pure PHP as part of PHPExcel, to provides the functions for calculating coefficients and plot. It should provide everything that R can provide. As an alternative to running R itself, you can find it on the PHPExcel site at codeplex. If you can't find an exec() solution, you're welcome to pillage that code to provide a pure PHP solution, though I'd appreciate any feedback/bugfixes/etc
+I designed a web page that lets user define some criteria using drop-boxes etc. and php collects the relevant data from the database according to that criteria.
+What I intend to do is modeling a least squares trend line over that data using R and displaying coefficients and plot etc.
+Potentially going do a virtual dedicated server would work for you, but I don't know yet of someone saying that he did it and that it works.
+But I'm unable to run R, though it's installed in the server and works as expected when invoked within the server. I guess there are some security issues.
+On the other hand, some time ago I was making something similar and I used a named pipe through which PHP was sending commands to a constantly running R instance, which was then putting its output directly to the database. In this solution the pipe served as a queue, so it could survive multiple clients at one time. 
+Can anyone lead me to a solution. My hosting company says it's impossible to run a exec() command to invoke R within PHP because of security reasons.

@@ -1,0 +1,7 @@
+Sorted !!! The exact same thing happened to me. Red no sign when i tried to drag and drop to start button.
+Repeating the procedure, but pointing to %WINDIR%\explorer.exe "D:\" instead solved the problem - while preserving my "special" default location.
+Also running Windows 7 Enterprise here. I have had the same problem intermittently and have some solutions that worked for me:
+I had the same problem. Hinted by a comment in this question i realized it was because I had changed the default location for explorer - by right clicking the explorer icon, then right clicking windows explorer, choosing properties and editing the shortcut target to point directly to a different location - in my case D:\.
+I noticed a 'bug' with the taskbar when both Windows Explorer and a shortcut were pinned simultaneously. It treats the shortcut as a windows explorer icon, so when I attempt to drag & drop a folder to pin it, it says "Pin to {sortcut_name}" instead of "Pin to Windows Explorer". 
+Removing the shortcut then repeating the procedure works, until perhaps when (1) that shortcut's properties are edited from within the taskbar by a user. The property change will not propagate to the shortcut on disk and windows will treat the shortcut as an Explorer icon.
+I figured this out... I utilized this tip (http://www.howtogeek.com/howto/6709/add-the-recycle-bin-to-the-taskbar-in-windows-7/) and didnt realize that it replaced all the functionality that the Windows Explorer icon gave... once I removed the recycle bin from my task bar... problem solved!

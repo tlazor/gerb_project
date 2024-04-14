@@ -1,0 +1,6 @@
+Your best bet is to not store them in the database. Look at one of the many distributed file stores and write your own datastore class to store the binary data in there. It has the advantages of giving you scalability, keeps your databases small, which improves dumps and restores, and your data is replicated, giving you better reliability.
+If it turns out you do, first move the tables with blobs into their own tablespace, and possibly tweak the disk performance on that tablespace by using raid1 for faster reads.
+While blobs take up space, they won't be written to often (I expect), so you may not need any tuning.
+Jackrabbit is a implementation of the JCR (Java Content Repository API), and it is used for instance by Artifactory which stores the maven artifacts in it. Therefore most of the stuff consists of blobs. 
+That one is for 8.3, which you appear to look for here. But you should really consider using 8.4 instead, since that's the latest version. Most of the advice in that article is still correct - just a couple of parameters that no long exist and can be ignored.
+Start from this page in the PostgreSQL wiki. If that's not enough, you're going to have to do a much more detailed analysis of exactly what needs to be done. But most likely, that guide will take you as far as you need to go.

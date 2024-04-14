@@ -1,0 +1,8 @@
+Your alternative is to make a delegate for each number and type of parameters you wish to use and...have multiple methods that deal with invoking each those delegate calls.
+I have a nice EventManager, who handle multiple arguments. (no argument, one int, one bool, a GameObject and a bool... but for each sort, I have to create a special dictionnary for this...
+Essentially what this boils down to, is you have an event that has only so many details, and you want to do several different things with it, and that's not something you should be doing.  ThingWasClicked() only needs 1 parameter: the thing that was clicked.  Passing a second object doesn't really make much sense, especially if you are conditionally sending that second object based on what the listener wants to know about...
+If you absolutely, positively, must have a single function declaration that takes in exactly 1 argument and you want to pass more, and only sometimes, your best bet is to have that 1 argument be an Object[]. You'll have to figure out how many objects and of what type they are in your handler function, but you can do it. It definitely isn't pretty and might cause more problems than it solves.
+So... My question is... how can I make that dynamic ? with only one Dictionary ? with only one list ? with good OOP or something ?
+here SomeFunction take 1 argument, but if i wanted to have 2... i have to hard code the case in my EventManager
+Let's say 2 functions are listening for PlayerAddScore from 2 different script, how can I handle an order between the 2 function ?
+No, just send everything all the time and if the listener doesn't care, it just ignores the paramters. There is nothing wrong with

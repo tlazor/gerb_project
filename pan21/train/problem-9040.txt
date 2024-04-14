@@ -1,0 +1,5 @@
+I have a problem where KB2494088 (a SQL Server 2008 R2 patch) continually fails to install when I reboot my system.  Downloading the manual patch and trying to apply it says:
+Lastly, if you attempt to install KB2494086, and it also reports that your SQL Server is running a version newer than this patch applies to, than you can choose to 'Hide Update' in your Windows Update for that particular patch.
+"Note This issue is specific to security update 2494088 for SQL Server 2008 R2. This issue only applies to systems that run the original release version of SQL Server 2008 R2. If you already applied a cumulative update (CU) or a critical on-demand (COD) hotfix to the system and are no longer running the original release version of SQL Server 2008 R2, you must install security update 2494086 instead of security update 2494088."
+So basically if you've installed ANY patches EVER, this patch is never going to install for you. To see if your system does qualify for the right patch, please attempt to download and install the hotfix located at:
+Most other posts (this, this) suggest it's either a failed (or cancelled) past installation or requires a SQL server repair.

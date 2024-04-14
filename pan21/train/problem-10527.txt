@@ -1,0 +1,11 @@
+Trying to run a test in the lab prior production with HAproxy and keepalived.  Here is what I have on my keepalived setting:
+I had a slighty different configuration so this is not the answer to your specific problem, but it may help others experiencing the 503 error with HAProxy.
+You should use stats too, not only with socket but with protected web interface too. I can shows you information about clusters behind haproxy, which servers are offline, which has any problems, about response times and so on. Very usefull for debugging.
+And now you can clearly see that there is no configuration of frontend at all. Requests comes to HAProxy via frontend main but HAProxy doesn't know which servers are reliable to handle it, so will return 503.
+I've never used HAproxy but a quick search leads me to think you need to add default_backend app immediately below frontend  main *:80.  I see nowhere in that configuration connecting the backend and frontend together.
+When I started the HAproxy, I got thiss error and I'm not quite sure where to start looking to fix it.  Perhaps someone who has done this many times can help me shed some light?
+All I want is just a simple load balancing for the webserver that sit behind the HAproxy.  Any advise or suggestion is absolutely appreciated.  Please help?  Many thanks.
+Note that extra line between X-App-Id and Host. An empty line makes HAProxy believe that this is the end of the HTTP Headers, therefore it ignored the Host header and it could not find the correct backend.
+I'm new to this load balancing scenario and I'm being tasked to figure out how to make this load balancing works. 
+In my case, the reason for the 503 error was that the client was sending the following request headers:
+Problem is in your HAProxy configuration. When I remove all comments from your config, I will get this:

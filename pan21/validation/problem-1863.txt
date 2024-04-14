@@ -1,0 +1,6 @@
+To make two users as similar as possible, make the new one a member of all the same groups as the old one.  Of course, permissions that mention the user specifically (and not a group he belongs to) won't include the new one.
+On Linux (as on any POSIX system), permissions aren't tied to users.  Each object (files, directories, and a few others) grants permissions to some users and some groups.
+Exactly as the question title.  I have an existing user, and I basically want to clone it for a new user.  Is there a particularly easy way to do this?
+If you want to make a user on the same system (not a migration from another system), use a combination of the id command and the useradd commands.  id will show you the groups for the user, then you can specify the groups with useradd -G apple,banana,wheel username.
+Keep in mind that you may not want the new user to have the same GID, just because you want him in the same groups.
+If you don't want to keep the old user, you can recycle the user number (UID).  That way, the new user is in effect just a new name of the old one, and every privilege it had will be preserved.

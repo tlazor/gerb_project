@@ -1,0 +1,7 @@
+I have a dante socks server which is configured to listen in an ipv4 IP and to have an ipv6 external IP.
+Also the man page suggestions using --proxy rather than --socks* options. From my reading the correct syntax for your case would be --proxy socks5h://192.0.2.4:9000/
+I will get an error on date socks side because google.com resolves to an ipv4 address and dante says that it can't route IPv4 because it has no IPv4 address configured as an external one. Which is pretty much expected.
+Then I found -6 parameter for curl. It now resolves google.com to an IPv6 address but also now tries to resolve 1.2.3.4 to an IPv6 address which is wrong.
+Also I tried to use proxychains with the telnet, but it seems that if i specify an IPv4 address as a proxy in proxychains:
+In the curl man page, I find mention of two different SOCKS5 options depending on which side you want to resolve the hostname. --socks5 will resolve the hostname on the client, --socks5-hostname will resolve the hostname on the server. I recommend using the later. Other SOCKS clients may also need to be configured to do hostname resolution on the SOCKS server. For example I have found that Firefox will resolve hostnames on the client side by default, but it does have a configuration option to do it on the server instead.
+What you are seeing is one of numerous reasons why it is almost always better to send a hostname over SOCKS and let the SOCKS server resolve it to an IP address rather than resolving the IP address on the SOCKS client.

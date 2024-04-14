@@ -1,0 +1,9 @@
+"e00084f8 - The network connection to the Backup Exec Remote Agent has been lost - Check for network errors" - see more information here about this error here:
+At the weekend my colleague makes a file-backup via backup exec. We do this on many servers but only this one make problems. We have this issue for about four weeks.
+http://www.symantec.com/business/support/index?page=content&id=TECH153800&actp=search&viewlocale=en_US&searchid=1412580918437
+Additionally, check what time the Backup Exec daily maintenance is set to run. Do ensure it does not conflict with the backup job timings. If running an AV scan, set it to exclude from scanning the BE processes. Check Windows Scheduled Tasks as well.
+So i think this is the problem. But what can i do? Is the virtual disk service needed, or can i just test to disable the service? Or has anybody else had a similar problem?
+Lastly, check if the Remote Agent service is stopping/crashing on either server. Usually, there would be an event id 1000 logged.
+i didn't know what could be the problem, because our monitoring didn't show any network problems as mentioned in the error message. Both servers (file server and backup server) were reachable during the whole time. But then i checked the event-log on the fileserver and saw, that in 4 cases the "Virtual Disk Service" has stopped at nearly the same time as backup exec gets the error.
+By the way: After the error occurs backup exec starts again and is successful. But because there are so many files the backup needs time till early Tuesday!
+Are you backing up to a Disk-based storage ? If yes, then the Virtual Disk service stopping can cause this type of a backup failure.

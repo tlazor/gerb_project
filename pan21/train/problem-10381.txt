@@ -1,0 +1,7 @@
+Some external hard drive enclosures have an Ethernet port to do this. There are also larger Network Attached Storage (NAS) Devices which allow multiple drives to be served up. 
+If it went through a HTPC (Home Theatre PC) to show itself on the TV? If that were the case you could outfit the HTPC so it could connect to the network and then set it up to share the hard drive via the network so you can add items from the laptop.
+Is there anyway to add an external harddrive (that isnt connected to a computer) to my network so i could add/modify things wirelessly from my laptop. I ask because i have a HDD hooked up to my television and it gets to be a pain to have to physically connect it to my laptop to add new stuff. Is there any way to make this happen? (I wouldnt mind if i had to buy something extra to get it to work)
+Basically, it's a hard drive in a network aware enclosure. Other machines can then access that hard drive via it's IP address.
+For a USB drive, you would need some piece of additional hardware in order to get the device to be accessible on the network. 
+You need some way to connect to the HDD from the network - either by getting a device to essentially turn your HDD into a NAS (Network Attached Storage) device (eg. Airport Extreme) or by replacing it with a proper NAS device.
+What you need is a NAS drive. This article came up on a search for "NAS drive". The first two paragraphs read:

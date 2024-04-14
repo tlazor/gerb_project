@@ -1,0 +1,7 @@
+I'm trying to use PsExec from a server to run GUI applications on remote Windows 7 machines on our domain:
+Have you thought of setting up a scheduled task to run the program? You can use the "BUILTIN\Users" User when you create the task to have it run as the logged on user. Doing it this way would allow you to use group policy to send it out instead of depending an admin computer launching the program.
+What we're trying to do is every so often force all employee PC's to run an app the puts them into kiosk mode and forces them to fill in certain information. (It's a company policy thing - if not for the enforcement, employees would simply neglect filling in the info.)
+The -s switch is for ruuning the process as SYSTEM user, so I know it could be weird to combine those parameters, but it works!
+If I use -i 0 instead of just -i, the users are given the option to choose whether to let the app run, which defeats the entire purpose of running the app in the fist place!
+I'll warn you now that it will take some time and testing to get setup, but it is extremely powerful. I'd only try it if you can't get PSexec to work.
+Problem is, it will appear on the remote machine, but everything within the frame will appear entirely black.

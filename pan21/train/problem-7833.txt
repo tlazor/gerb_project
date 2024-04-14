@@ -1,0 +1,8 @@
+Why your modem is not asking you for username/password, I have no idea, but probably a good idea to change the password for it. 
+Are you using wireless?  If so, disable wireless and used a wired connection.  I bet you are hitting someone elses wireless router.
+Looks like ZyXEL is what you should see when connecting. And since you mentioned you have a router, and a modem, accessing you "External IP" means connecting to your modem first before even routed further deeper into your LAN (or beyond your modem). 
+By the way, this page (from Centurylink) has some interesting information about your Embarq 660 Modem and how to arrange WAN to LAN incoming connection.
+And that's what I did, thanks for all the help everybody. Especially Isrni, you gave me terrific instructions.
+If this problem continues, you can just forward port XXXX on the external side to point to 80 on the internal side, and then type the port number after the IP to connect, ex. 123.123.123.123:XXXX
+Alright guys, so I got it to work. All I needed was a good explanation of DMZ. Anyway, here were the steps to getting my server up and running.
+To check if the modem do belong to you, see if you can find the username that the modem uses to connect / authenticate to CenturyLink. If the username is yours, then there you go. If it is not yours... are you sure you're connecting to the correct external IP? 

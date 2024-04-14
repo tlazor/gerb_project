@@ -1,0 +1,6 @@
+Ultimately, neither of those config options are particularly dangerous, so you'd be safe to merge them into /etc/mysql/my.cnf and restart MySQL. Though you want to keep an eye on innodb_buffer_pool_size = 1G because if your MySQL service gets busy and you don't have a lot of RAM, your system could get low on memory.
+The Ubuntu MySQL packages create the configuration file in /etc/mysql/my.cnf, so if you have a /etc/my.cnf file, it is because either a package (probably from multiverse) or a tool you've used, created it.
+For me, it looks like both are configurations for MySQL server, but Why there are two my.cnf in different locations, can't the content to be merged to one my.cnf ? What is the purpose to have seperate my.cnf for MySQL server ?
+If you're unsure where the file came from, you can see if it came from a package by using dpkg --search file.name , example output below
+You'll want to make sure that you let your MySQL service run under normal load for 24-48 hours before running mysqltuner though, as it works best when it can analyze MySQL's various performance characteristics under normal/usual load.
+If you're looking to fine tune MySQL, I suggest downloading and running https://github.com/rackerhacker/MySQLTuner-perl

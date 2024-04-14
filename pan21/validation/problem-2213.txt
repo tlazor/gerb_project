@@ -1,0 +1,8 @@
+It's also quite simple to implement, because you only have to add an additional DNS entry 'www.mydomain.com' pointing to the second server IP address
+We have a Windows 2016 Server VPS that works as download server. users request file with URL and download from those. I'm using asp.net as web application and IIS as web server.
+You also have DNS traffic manager (like Azure DNS or F5 GTM), which can monitor each server availability. But they have significant costs, and are more appropriate for big geographically-distributed applications (in different countries / world regions)
+On the opposite, if you need fault tolerance, there are load balancing solutions like HAProxy , which can do load balancing at TCP and HTTP level. You can install it on a server dedicated to that role
+Now I want to increase number of server to 3 or more and i don't know how to handle request to Load balance and fault tolerance of this server.
+If you only need simple and cost-free load balancing without fault tolerance and session affinity, DNS round-robin on your 2 or 3 download servers would be an adequate solution
+Does it write choice for my problem? what technique use middle-size(not GoogleDrive or DropBox) company at this moment?
+Now after 2 years from beginning, number of download request increased and I afraid maybe one server can't handle all request at same time.  

@@ -1,0 +1,6 @@
+More information and discussion about how to backup jenkins can be found here: How do you back up Jenkins jobs & master configs?
+I'm using Periodic Backup plugin + my own scripts for transfering backups into different places. But this plugin is not really stable and has opened issues, so i'm not recommend this for highload production use. That's fine for personal not-critical systems. Now I decided to migrate to my own solution with simple job to archive and copy all configs of my Jenkins instances. 
+PeriodicBackup Plugin - be aware, has status This plugin is up for adoption right now, that means there is can be lack of support
+I would like to upgrade my Jenkins version(From 2.60.2 to 2.121.1) and some of my plugins. Currently, there are some jobs configured in it. I know there are some configuration changes needed for jobs after upgrading the plugins. Is there any way to restore all the settings(data + conf + plugins) to the previous state if my updates went wrong.
+SCM Sync configuration plugin - see attention on the plugin page, this is deprecated plugin, the suggestion about migrate their jobs to Pipeline Plugin and use the Configuration as Code Plugin also make sense
+Jenkins has good structure for backup, it is not hard to understand what exactly you need to backup and how.

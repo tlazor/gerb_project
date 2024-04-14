@@ -1,0 +1,12 @@
+if you want to run only for a certain period of time, you can use the -c flag to set the packet count.
+if you would like to let it run and look at it later, you can use the --report switch and save it to a text file.
+there are a few things you can do to find out if it is your webhosting provider or if it is a hop or two away from your server's endpoint. I recommend logging into your server where your site is hosted (providing you can actually log into it) and run an mtr to various domains (this also assumes you are running some flavor of linux, though I think there's an MTR for windows).
+A little packet loss (<5%, occasionally) may make websites slow (from retransmission delays or lost DNS queries), but your average user probably won't notice.
+High packet loss (>10%, semi-regularly / constantly) will infuriate your users. The website will take a long time to load, or may not load at all.  It will probably be so painfully slow that people stop visiting.
+Moderate packet loss (up to 10%, happening semi-regularly) will often be noticeable. The website will be "slow".
+I would expect NOTHING to work with packet loss as extreme as what you're claiming -- you are effectively not connected to the internet.
+If you don't have administrative permissions, you can ask the webhosting provider if they can run one for you and provide you with the report data. It's a good place to start when trying to troubleshoot connectivity.
+if running mtr from your server to outside servers yields no packet loss, packets are most likely being filtered at your firewall. I would recommend running another mtr from your local machine to the server to see if and where there is packet loss...if it happens at the last hop or not at all, you know that the problem lies in your webserver and you can move on to next steps...if you get packet loss anywhere else, you can be fairly sure the problem is network related.
+I would recommend various sites such as google, amazon, facebook, or some other well known server that most likely will respond to ICMP echo requests.
+using this tool will help pinpoint WHERE the packets are being dropped and who is to blame for the packet loss. If you determine that the packets are being dropped at your server, you can begin next steps.
+You are not experiencing "high" packet loss -- you're experiencing EXTREME packet loss (70+% of what your sending never gets where it's going -- If UPS worked that way you'd never ship anything with them again).

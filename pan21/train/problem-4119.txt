@@ -1,0 +1,8 @@
+Which part do you now know? For me this is a shopping question (voted to close). ISP network side is basic administration.
+Non-portable address space can come from some larger ISP who carves out a block for you. You will lose the use of those addresses should you end your business relationship, but they may be more available for less up-front cost.
+I want to be able to provide internet to rural areas of my country so they can too gain acces to internet for free.
+Once you've got yourself a route to the 'net / larger service provider accepting your traffic, the rest is just making packets flow within your network. That's the hard part ;)
+I was wondering what I need to start small, like provide internet on a block or something, hoping eventually this can be big enough for anyone to use.
+Assuming you've got all the infrastructure to provide network connectivity on your end, what you need to link it to the world is a routable address block. There are two types of routable address blocks: portable and non-portable.
+I hope you guys could point me out to the right direction(If you could also help it would be awesome).
+Portable blocks are owned by you and assigned by your Regional Internet Registry (RIR). You can use them to link to any ISP, take them with you, they're yours. They're also scarce and expensive.

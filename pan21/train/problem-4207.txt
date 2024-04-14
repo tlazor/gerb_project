@@ -1,0 +1,7 @@
+This works because ZFS will proportionally place writes to whichever vdev has most free space, in this case the brand new drives which were empty.  (as of 0.7, zfs will favor faster drives for writes, but lets assume your 2 new drives are same or greater performance than the original drives)
+Also, found a php script that does the copy/delete/rename procedure on a file-by-file basis.  This was linked in an answer from a similar (but zvol) question a few years older.  (didn't test this script personally)
+That is, how can the files which were written to one mirror be written to two mirrors to take advantage of the striped disks?
+To be more precise, I would choose the second solution and transfer each file system separately at times where system load is low (for example at night):
+Only newly written (appended) data is split between all currently active vdevs, there is no explicit rebalance operation in ZFS.
+Using a striped mirror (Raid 10) as an example, if two  disks are expanded to four, how can the data from the two disks be 're-balanced' (spread out) amongst the two mirrors?
+It's probably slower than zfs send | zfs recv, but simpler because you don't have to create/destroy snapshots.

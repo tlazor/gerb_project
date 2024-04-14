@@ -1,0 +1,7 @@
+I'm not quite sure what your problem is. Have you upgraded your server to Java 6 and are now concerned about security holes ? What evidence do you have for this (if any) ?
+I have web application running in jboss 4.0.2 and it has older java 5 version, is this new update causing possible security flaws in my web application server?
+You should evaluate jumping to jboss as 4.2.3 (you can read the release notes here http://sourceforge.net/project/shownotes.php?release_id=614346&group_id=22866).
+Here's the Java 6 adoption guide. As well as a bunch of new APIs there'll be bug fixes and (possibly) security holes closed. But I don't know of any particular issues being introduced in Java 6. If you have security holes in your app, they're likely to be there as part of the application itself, and not the underlying Java infrastructure.
+What I am trying to say is that you may run into issues, and also that the version of jboss you are running is extremely old.
+You should generally always use a distribution which allows you to automatically upgrade to the latest versions of software.
+If you are using the freely downloadable version of the jdk and not a "java for business" release, if the previous statement is true, then the probable best approach is to upgrade to java6 after upgrading jboss to a newer version.

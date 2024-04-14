@@ -1,0 +1,9 @@
+However, be aware that the junction point will then not be archived and will not be recreated when you extract the resulting archive.
+Wikipedia actually mentions this very issue: http://en.wikipedia.org/wiki/NTFS_junction_point#General .
+The free 7-Zip archiver supports a lot of formats, one of which will hopefully work. http://www.7-zip.org/
+As a last resort, you can try temporarily deleting the junction point. But be careful, if you try to delete the folder as usual, you will end up deleting what it points to. And you may temporarily break stuff that relies on the junction point. The delection can be performed with (according to http://support.microsoft.com/kb/205524 ):
+I believe the limitation is of the compression tool or format and not of the operating system, so you should try different compression tools and formats.
+The problem is that "C:\Users\Administrator\AppData\Local\Application Data" is a NTFS junction point that points to "C:\Users\Administrator\AppData\Local". This causes an infinite loop in programs that do not specifically check for junction points.
+There is a 1024-character maximum directory path length limit for ZIP files, which are clearly exceeding, so you are going to need to find a different method.
+Depending on what you are trying to accomplish, I recommend just using the Windows backup program, which will also do compression into a bkf file, which compresses about a 2:1 ratio.
+You should look for an archiver that understands junction points and has the option of not following them.

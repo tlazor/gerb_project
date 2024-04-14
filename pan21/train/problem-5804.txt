@@ -1,0 +1,7 @@
+Regardless of what metric you're speaking about, it could be CPU usage, Disk IO, Network IO, RAM, etc...their values only matter to the extent that they affect your application.
+So, if your current level of Disk IO is slowing down queries to the point where it's affecting your application, well then yes, you need to look into faster storage.
+Note: You can view your total IOPS usage in Cloudwatch. You can also view your Burst Balance which will show you whether you are consuming more IOPS than your allotment. 
+I believe your bottleneck is unlikely to be IOPS because you state that you have  "100 GB SSD storage". In that case Amazon allots you 300 IOPS (for both reads and writes combined), or if you are instead using provisioned IOPS you'll have at least 1000 IOPS.
+Your bottleneck is unlikely to be IOPS with the data you've given. Your bottleneck might still be the database -- queries can be slow without being disk bound.
+Determining whether or not your database layer is the root cause of your poor performance is another topic altogether.
+It all depends on what kind of storage is backing the server.  If it's running on a single 5400 rpm hard drive then, yes, your IOPS are too high.  If it's running off of a SAN filled with SSD's then, no, your IOPS are fine.  80 IOPS for a database under load isn't unreasonable but without knowing a WHOLE lot more about your setup it's impossible to know if IOPS are causing your issue or not.

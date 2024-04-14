@@ -1,0 +1,6 @@
+For many years I've used and still use this setup with a real pleasure. I only added some more failover solutions:
+Before assuming it's a DNS issue, add a real monitoring: for example live analytics tracker, or something like that. Then shutdown one server, and see if live tracker shows a decrease in current users on the website.
+Maybe you have some caching solution on the webserver, which won't hit your dynamic server (PHP, Java...) if the request is already in cache. The more servers, the more requests before caching (if they don't share cache).
+Now, for your concern, how did you monitor accesses? Was it the size of some access_log? Was it the requests per second on your webserver?
+To me it's a great deal if you don't want to pay for expensive load balancers. See my reply here about how it's handled by browsers: https://serverfault.com/a/868535/114520
+If one PHP-FPM goes down, Varnish probe will fail and remove the backend until the probe is good again. If Varnish fails, then Round-Robin+browser will handle the change to another node.

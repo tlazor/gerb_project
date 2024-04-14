@@ -1,0 +1,8 @@
+In the appropriate context in Apache.  There are configuration instructions and installation instructions that should really help.
+One can do a once off configuration of mod_wsgi which then allows you to add applications without needing to go back and modify the configuration again. As someone else mentioned, this revolves around using AddHandler instead of WSGIScriptAlias. See:
+What im wanting to know, is there a way of getting python scripts to run in the same way as php, i.e. just by going to index.py etc... or is it more involved than that?
+You can simply run Python scripts as CGI, if you really want - just add .py as a CGI handler in your Apache conf:
+I would stick with mod_wsgi.  It seems more actively maintained.  There are good docs for it on the project page.  If you want mod_wsgi to handle your .py scripts, you can add something like:
+Note that this is a very bad idea other than for very low-usage applications, as it is slow and inefficient. You really are much better off going with mod_wsgi.
+BTW, you probably want to look at a higher level framework or library of WSGI components rather than work with raw WSGI. For example, see:
+im getting a bit stuck regarding options for running python scripts on my server. From the research ive done so far, i can see i need to modify apache slightly to run python scripts, by using either mod_wsgi or mod_python. Two issues i have:

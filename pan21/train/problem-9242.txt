@@ -1,0 +1,6 @@
+As you have an internal SSD, your computer drive would not be the bottleneck. And 30MB/s is almost the maximum speed for a 5400RPM HDD, which you have into your USB drive.
+Well, I know that using USB2.0,  it is not uncommon for USB2 hardware to get speeds as slow as 2.5MB/s .   So, USB3 being much faster,  30MB/s might be considered good by some persons.  I wouldn't be too concerned unless you were getting speeds that are slower than that.
+The workstation is a Dell Precision 7500, 192 gig ram, 500 gb ssd internal, 500 gbb hdd internal, win 7 64 bit.
+I have a WD Passport 1tb drive, and a 3tb Seagate 3tb GoFlex drive; both are external, both are usb 3.0, and both are slow as molasses:  the most I can get out of them is 30MBs.
+I've tried copying from one drive to another, copying  a file from one place on the drive to another (ie, on the same drive), and copying from the USB drive to the internal SSD, and the performance is still FAR below the 80MBs+ the drive is capable of.
+The Dell Precision T7500 doesn't have USB 3.0 ports.  30MB/s is the maximum performance you will get with a USB 2.0 connection which seems to be the case.

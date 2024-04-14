@@ -1,0 +1,7 @@
+1- install the oracle binaries and patch them to the same level as the live instance without create a database on the stby1's host server
+5- Make sure the listener.ora and tnsnames.ora files are configured correctly on both prd1 and stby1
+Here are the steps I follow when creating a standby for a dataguard environment on windows server, please confirm in comments at which step you currently are to help identify your issue here.
+2- On the prd1 instance create a control file for the standby ALTER DATABASE CREATE STANDBY CONTROLFILE AS  'D:\CONTROL01.CTL';
+As part of data guard configuration, I've installed standby database using Oracle Software only and configured .ora files/folders as required. But while trying to start the listener or check the status in standby, it's throwing the following error. 
+8- Once you got all the above settings figured out you go on the stby1 instance and recover the database using SQLPLUS
+As I'm doing this for the first time, I'm very much confused at this stage. How can I resolve this? 

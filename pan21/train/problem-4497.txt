@@ -1,0 +1,6 @@
+Unless you are actually using 5.6+-specific features, then mariadb is to all intents and purposes fully compatible.
+Most things that 'require' mysql that I've run or installed, for some years now, seem to be entirely happy to use mariadb, and mariadb has an explicit intent to be a drop-in for the (now) Oracle MySQL. 
+If you do need 5.6+ features, then I would suggest you check if your specific needs are supported (and possibly, assess the 'cost' of making some alterations). 
+Unless you are concerned about support for code you specifically wrote for mysql 5.6+, then I don't think there is a compelling reason for avoiding mariadb (beyond personal taste and possibly support options). 
+You don't mention what concerns you have about the switch, but I would suggest you at least consider re-assessing your fears about MariaDB - all else aside, you may find it makes your (operations') life easier to use your chosen distro's default choices than needing to deal with integrating alternatives. 
+mysql-server-5.x will no longer be available and is replaced with mariadb-server-10.1. i don't feel i'm ready for the big step and moving to MariaDB, i'd prefer to stay with mysql 5.6 or - even better - 5.7. what would you recommend - using 5.7 from debian's unstable repository? going with the oracle-provided packages? some other options?

@@ -1,0 +1,7 @@
+This information isn't necessarily complete: at best it will have information only since the last start of the database engine (not persisted across service restarts.) 
+If you're not running a trace that will capture the exec event (and don't have a default trace running) then you'll have to have an application level auditing mechanism in place to capture the running of stored procedures.  If you don't have either of those going then you're not going to be able to go back in time to see when the procs have run.
+As will operations that clear the plan cache as a side effect (such as changing MAXDOP, or memory settings) or otherwise invalidate cached plans.
+For any stored procedure plans that are in the procedure cache, this will tell you the last execution time. (There are many more interesting columns in the DMV as well.)
+You can get a limited answer to that question by looking at the sys.dm_exec_procedure_stats dynamic management view that was introduced in SQL Server 2008.
+Here is a little script that will list all of the user stored procedures (ie- those that didn't come with SQL Server or aren't system stored procedures) in all of the databases on your server instance:
+But it gives you a ballpark, and if you're feeling really ambitious you could write a routine that polls the DMV periodically and stores the results in a table for longer-term analysis.

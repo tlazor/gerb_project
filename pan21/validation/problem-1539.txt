@@ -1,0 +1,6 @@
+Based on your response to comments, you can set up your Cisco VPN client to logon to the VPN prior to logging onto your computer.  Then, because you're using XP Pro, you can logon to the domain after you've connected via VPN.
+If you join your home computer to the domain, you will require an active connection to your work. This is a problem on the login screen, because you typically haven't established a VPN connection before getting to the desktop. 
+Setting your "workgroup name" to the domain name and then logging in to the servers either manually or via Evan Anderson's method (NET USE ...) will get you 90% of the way there. The thing it won't get you is your roaming profile.
+The Windows VPN client will allow domain authentication. I would advise connecting through the VPN and then working on your home desktop.
+One caveat is that your Sys Admin will have to add your computer to the domain as you probably lack the credentials to do that.
+Ask for a domain-joined computer from the company pre-set up and authorized with the policies needed for this to work. If I was the IT manager and someone even mentioned the thought of plugging anything but the company machines into the local network, even more so joining the domain, I would take it as a bad joke and walk away. Seriously ^^

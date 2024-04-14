@@ -1,0 +1,7 @@
+Let's deal with the first problem. Debian packages are just an ar file of two tar files. You can extract them by hand if you really need to. Try the following:
+Short of rebuilding the whole server from the ground up (which I'm working on anyway), any ideas how to fix this problem on an old debian etch box?  Its annoying to not be able to apt-get things...
+Okay, this is going to be fun. Your box is fairly screwed, so the worst problem is that you screw it harder, but I take no responsibility for you doing that following this advice. The problem is either that the dpkg package didn't install correctly, or the metadata is corrupt.
+Hopefully now, dpkg should be working. If it is, I would reinstall dpkg, so dpkg knows what files the dpkg package has installed. 
+This should extract the files from the package and install them on the system. We should probably tell dpkg that the package is installed. Find the /var/lib/dpkg/status file, and find a line that says:
+apt-get depends on dpkg for operation...thus if your dpkg is messed up, apt-get will not be able to install anything (including dpkg itself).
+If it's a metadata file that's become corrupt, they're just plain text files, so you can edit them. I would suggest using dpkg in debug more or strace to see if you can find out which file in particular is broken.

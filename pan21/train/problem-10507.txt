@@ -1,0 +1,6 @@
+I followed this guid and others that were similar but I failed each time. In the end, I used Rpi filler (ivanx.com/ raspberrypi / , aparently I need more than 10 reputation points for more than two links) from a Mac and it worked.
+I think Rpi filler worked and the dd command didn't because the partitions weren't labeled. I am suspicious of this because in the RPi boot problems sticky there is a part that says:
+Another problem which was automatically taken care of, was the issue of a large amount of un-used disk space on the sdcard. This used to occur earlier was no longer encountered. 
+I know the above quote is specifically for NOOBS but I'm suspicious that the same applies for Raspbian. I wasn't able to put a name on the partitions with the dd command. Whenever the dd command finished, the partitions had a seemingly random name.
+The most useful resource for troubleshooting RPi related issues, (imho) is the official site of the  Raspberry Pi Foundation.
+So after much searching, trail and error, I was finally able to create a bootable SD card for my RPi2 Model B. Unfortunately, I did it in a way that I did not want to and I wanted to know where I have gone wrong.

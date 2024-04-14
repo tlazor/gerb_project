@@ -1,0 +1,9 @@
+It should be easy to setup a shell script that repeats copying a file on the server and recalculates the checksum of each copy. After it fills your sever, you check all the checksums by hand.
+My experience is that raid controllers that have Promise written on the outside are broken on the inside. Get rid of it. Sometimes even the Promise controllers only make a driver driven software raid. Try Areca or so. 
+If you plan for raid, put a pricetag on your data. Then put a pricetag on not being able to work a few days. Then check for prices of good raid controllers. 
+You say that other PCs can copy files to each other, but that doesn't mean the server network card (or driver) isn't fritzy.
+Chkdsk has always been my first-line tool for fixing NTFS. Comes in the box, and works like a charm. Full disclosure: I very seldom have the need to verify filesystems, so I've never needed another tool.
+Out of the 100 or so servers I manage I've needed to use it once and that time was because of problems caused by a bad data sync on the SAN, not the RAID card. I'm with everyone else saying ditch the Promise card and get something better.
+What is the make of your drives? a priori, I'd suspect the Promise card. They have a very long and painful history of absolutely shitty products, with abysmal performance, data corruption, buggy drivers, and various combinations of all of these.
+You don't need to cough money for ram testing tools, because memtest86+ rules and is free. To test the filesystem integrity you could use afick, it works fine for me (but I didn't used it much on windows, though).
+Are you sure it's the RAID controller? I've experienced similar problems that had to do with the network drivers / card failing.

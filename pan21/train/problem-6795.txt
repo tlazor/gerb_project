@@ -1,0 +1,11 @@
+BTW is there any information about whether changing a uniform and calling glBufferSubData is more (or less) expensive.
+I vaguely remember reading somewhere that each time you change something in the pipeline, it has to get flushed and that can cause performance issues. But for each drawing call i'm setting up a model to world matrix anyway, so what sense does it make to ever be concerned about this?
+There's also still value in sorting by depth, too.  You must sort back to front for transparent objects (ignoring several advanced techniques that remove that need, in limited circumstances).
+Now for each model i have to change the model to world matrix uniform, no sorting is going to change that. So is the jump from changing this matrix to also setting a material for each object that bad?
+There's also value in sorting opaque objects front to back, as that allows early-Z to greatly reduce the fragment shader overhead of your scene.
+I'm trying to implement a scene graph and in all the articles i've come across there is talk about object sorting. So you'd sort your objects by "material" for example. Now untill i sat down and started implementing it, i kind of took this for granted, because it made sense. But now i'm wondering what does sorting actually change?
+In my engine, i have a manager for UBOs, i use those to store data that'll be shared between programs, at the moment that only involves time, camera and projection matrices and lights (i'm not worrying about managing which lights affect which objects ATM).
+You definitely want to sort to batch together materials.  If you can, you can also use instancing to batch together geometry (e.g. If you have X number of the same objects).
+When rendering, the stuff that's closest to the camera and solid gets rendered first, and anything else that occupies the same space will be rejected by an early z-buffer check.
+If the graphics architecture has some kind of hierarchial or low resolution z-buffer, the geometry may get culled even before anything gets rendered.
+Sorting objects purely by depth has a huge value, especially on binning or tiled rendering architectures.

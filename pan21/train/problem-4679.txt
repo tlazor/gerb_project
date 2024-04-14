@@ -1,0 +1,7 @@
+I learned today though that there's a /etc/init.d/openvpn script that runs at boot time and if I place the openvpn config file in /etc/openvpn/ (the file extension must be .conf), I can control the connection by using /etc/init.d/openvpn stop, and etc/init.d/openvpn start (or "service openvpn stop").
+This will send SIGTERM to the openvpn causing it to gracefully quit and close the tun interface. You may/will need to modify the section after -f to match the way you started the openvpn connection.
+I've been using a Debian Linux distro and installed the openvpn package.  The client config in Debian can be launched via command line, which leads one to this problem of there being seemingly no neat way to terminate / manage the connection...
+Putting the config file in /etc/openvpn/ also causes the VPN tunnel to come up automatically at boot time.  It also reconnects after disconnect automatically as well.
+Just thought I'd update my comment with a fuller answer (which may not be relevant, considering I dont know about free-radius)..
+I have never used free-radius, but I am familiar with a similar problem in OpenVPN. If the connection is started from the command line, then the VPN client either stays alive on the prompt or it retreats into the background, but there is no command to explicitly stop the connection.
+Under Linux the only way to stop the connection is with a "kill" or "killall" command. Could be similar for free-radius connections.

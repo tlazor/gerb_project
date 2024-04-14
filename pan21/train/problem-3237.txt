@@ -1,0 +1,7 @@
+You could also simply try rm \home\steve?esult.png as the question mark will match one character (no matter what that character is). However the backslash needs to be doubled as now it's trying to assign special meaning to the following character.
+It is good to master the rm command to be able to use it for any kind of strange filenames (like ones starting with - for example), and you could learn to do that from other answers here.
+Thanks for the responses, Ive managed to get rid of them using a Remote Desktop and selecting the files which must have just sorted out the odd characters.
+Using Windows Explorer to view the smb share they are called _1UPF8~X.PNG and _UYBX6~Q.PNG and are viewable as pictures as one would expect. I can't do anything else with them though due to lack of appropriate permissions.
+There is also another solution, that can be helpful in many other cases. Install the tool called mc aka Midnight Commander. It is a file browser running in the terminal, so you can list files, highlight the one you want to operate on, and then just hit F8 to delete it. Whatever characters are in the name.
+The backslashes are escape characters indicating that the following characters have special meanings. Double quotes will indicate that they are part of the filename and allow you to delete the files with the rm command.
+The question mark shown by ls is probably not a real question mark in the file name, but an unprintable character. Try using ls -b which prints such unprintable characters as their C-style escape; e.g. \t for a tab.

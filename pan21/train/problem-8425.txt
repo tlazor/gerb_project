@@ -1,0 +1,9 @@
+Either XFS or ext4 will serve you well, though XFS can handle much larger directories and much larger filesystem sizes. I currently create XFS partitions, as well as XFS /boot partitions (or ext4 /boot partitions on slightly older distros like CentOS 7).
+A journal won't hurt you and can only help. These days I even use a journaling filesystem for /boot.
+My VPS will not hold important data that needs to be backed up. I don't need snapshots. If it has a failure that wipes out all data on disk, I'll just reinstall it. The applications are not disk I/O intensive. Most activity is network-related. I would like a lightweight filesystem.
+What are the considerations I should keep in mind for picking the right file system? I'm going to guess I probably don't need a journaling filesystem. (I do want a file system that is in the Linux kernel.) What are the top choices I should consider in my situation?
+I have not done the VPS installation yet, but I believe the file system choices will include btrfs, vfat, ext2, ext3, ext4, xfs, reiserfs, and probably more. In fact, unless the KVM virtualization environment imposes limitations, I should have available all the filesystems listed here:
+I wouldn't bother with btrfs for a VM. It just introduces too much complexity. You might consider it for the hypervisor, a storage server, your laptop, etc., but for a simple VM it's usually overkill.
+I'm going to manually install Arch Linux from an ISO image on a KVM VPS that uses SeaBIOS. I plan to use grub2 as the bootloader.
+Your two main contenders are ext4 and XFS. It's not worth worrying about ext3 or ext2; these are effectively obsolete. ReiserFS (which is version 3) is also effectively obsolete and its successor Reiser4 is unlikely to ever be added to Linux.
+With this kind of requirements and light workload, basically any modern filesystem will be adequate. Anyway, I really suggest ext4 or xfs: they are extremely widespread and reliable.

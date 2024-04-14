@@ -1,0 +1,9 @@
+@gebbissimo answer worked for me in TF2 with just small adaptations that I share below in a single function:
+In the post that I linked, maz states that there is a dimension mismatch that prevents changing the input layer of a model -- if this was the case, then how is that I put a (480, 720, 3) input layer in front of the VGG16 model which expects (224, 224, 3) images? 
+I have two image datasets where one has images of shape (480, 720, 3) while the other has images of shape (540, 960, 3).
+I think a more likely issue is that my former model's output is expecting something different than what I'm giving it based on what fchollet is saying in this post. I'm syntactically confused, but I believe the whole x = Layer()(x) segment is constructing the layer piece by piece from input->output and simply throwing a different input in front is breaking it.
+Can somebody please enlighten me how to accomplish what I'm trying to do or, if it's not possible, explain to me why not?
+Now that I've trained this model on the former dataset, I'd like to pop the input tensor layer off and prepend the model with a new input tensor with a shape that matches the image dimensions of the latter dataset.
+This how I change the input size in Keras model. I have two CNN models, one with input size [None, None, 3] while the other has input size [512,512,3]. Both models have the same weights. By using set_weights(model.get_weights()), weights of model 1 can be transferred to model 2
+This should be pretty easy with kerassurgeon.  First you need to install the library; depending on if you are using Keras through TensorFlow (with tf 2.0 and up) or Keras as a separate library, it needs to be installed in different ways.
+This post seems to indicate that what I want to accomplish is not possible. However, I'm not convinced of this -- given what I've already done, I don't see why what I want to do can not be achieved...

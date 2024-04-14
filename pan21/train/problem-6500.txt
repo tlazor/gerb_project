@@ -1,0 +1,6 @@
+So what happens then? What happens when some DNS has already cached a whole lot of records for some domain and doesn't want to store more? Will the domain get blocked or banned? Will old records be dropped before their TTL expires? Is there any official policy for this?
+We all know that when I ask for some hostname I connect to my DNS server, which checks if it has its corresponding record in cache, and if not it recurs, if necessary, up to the authoritative DNS for that hostname.
+Now, in principle an authoritative DNS can account for an enormous amount of records. Take this nodeJS example: 
+If I use this as an authoritative server for my domain, any request for any subdomain will result in an A record pointing to 1.2.3.4. This means that, if a bunch of users start asking for random subdomains of my domain, their DNS server will keep asking mine for new records, and caching them.
+But my common sense says that, for example, Google's 4.4.4.4 will not be willing to store gigabytes of records only because some bored geek played with two lines of node. 
+Caching behavior is entirely up the implementation. The only requirement is that cached information must be correct (naturally) and must not be older than the TTL says. So the server in your example is free to throw away records as fast and as often as it wants to.

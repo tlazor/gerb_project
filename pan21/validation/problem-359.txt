@@ -1,0 +1,7 @@
+Instead of using Shift we can kill two birds with one stone, we can use sort to reverse the order of the parameters and save them in a variable, then grab the 1st arguement for your purpose and then remove it from the  variable and submit to your originalcode.
+(Please do not suggest alternatives to batch files; I have already enquired and the only available option is to modify the existing one.)
+Once I have the final command-line parameter in a variable, I can prefix it to each parameter that doesn't contain a colon (and thus is a relative path). But my problem is, how do I go about obtaining this final command-line parameter, and how do I make the loop above stop processing at the penultimate parameter?
+You can use SHIFT and a loop to walk through all of the command line arguments. Since SHIFTing will consume each argument, you'll want to do it in a subroutine. The subroutine I present here also counts the arguments, so you know how many to loop through later.
+and a list of arguments greater than 9 in number, which would cause problems if you were to use %1 through %9...
+Or alternatively, and even easier, just use the fact that on a loop that sets a variable the variable will equal the last value set)
+I have to modify a batch file (written by a former employee) that uses a for %%f in (%*) do ( ... ) loop to operate on each command-line parameter. The new requirement is that a directory name will be appended to the batch call, and this directory is to be used for each parameter with a relative path. For example:

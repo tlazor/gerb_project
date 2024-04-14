@@ -1,0 +1,11 @@
+Here's another option to consider, using Excel's built-in efficiencies with Tables and Pivot Tables.
+The downside to this method is that it leaves blank spaces between the X-Axis values if it has less than the maximum number of Grain Size data points. If you want to add data labels, then the errors will show up as zero so format the data labels with the custom format #,##0;-#,##0;; to hide the zeros.
+You can't make a scatter chart as a pivot chart. You can make one if you add the data series by series, long story, but instead, I copied the pivot table and pasted as values in another range (E12:I19 in my screen shot), and I made sure the top left cell (E12) was blank.
+First, I made a pivot table to arrange the data in a better layout, with dates in the columns area, distance in the rows area, and average grain size as the values. This is in E1:I9 in the screenshot.
+The only editing I did for the screenshot above was to reduce the gaps between columns so you could see it better.
+Then I made my scatter plot, and in the select data dialog, I clicked on hidden and empty cells, and selected the option to draw a line connecting points on either side of a missing cell.
+To get maximum value from this solution, you can set your table up to automatically refresh from different data sources (e.g. SQL Server), ensuring your tables/charts are always up-to-date.
+You can see your original data in columns A:D. I actually modified it because there were two very large values and they made it hard to see the three columns. In F1:I8 is the table I made and the chart is in the bottom right. Here's how you can repeat the process:
+Well, I don't know if a column chart is really the best way to show grain size vs position, I'd try a scatter chart.
+Now, without any formulas you have a linked series of objects that will refresh with changes amongst them (e.g. adding rows to your data table, filtering your pivot chart or pivot table).
+Here's one idea: Create a new table that tabulates the data differently and make a chart off that. It's not a perfect solution but it works and it's easy to expand as your data grows.

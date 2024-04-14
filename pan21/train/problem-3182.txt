@@ -1,0 +1,7 @@
+However, the e-mails are still visible on the Virgin Media webmail. I have suggested that she use the webmail permenantly and avoid Outlook, but she has rejected this possibility.
+When looking through solutions to similar problems on the internet, I found a suggestion that the .pst file should be deleted/moved to a different directory and then send/receive performed again. This caused no e-mails to be shown instead.
+If using a laptop you will probably need to be fit it into an external drive casing... better try with a desktop computer.
+Add the virgin account as an imap account - Settings are on the virgin site - once connected, the emails and imap folder structure (inbox,outbox,sent etc) will also appear. Create a new PST with all these emails (make sure you copy the mails to the PST - not move) then you can remove the virginmedia account, and just attach the newly created PST file.
+I am trying to assist a friend in viewing her old emails through Microsoft Outlook version 14 (32 bit). This version of outlook is part of Microsoft Office Professional Plus 2010. She wants to be able to see the emails which were sent and received prior to setting up Outlook on the new machine.
+If the harddisk still works (i.e. is readable) then you may connect it to another computer and read the files - avoid writing to it in any case.
+Her previous machine is no longer able to start up, so I cannot copy the .pst file with the email data over to the new laptop. 

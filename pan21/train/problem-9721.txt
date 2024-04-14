@@ -1,0 +1,5 @@
+There is no non-root command, but a root command. It is passwd -S <username>. Which does output the following:
+For my situation, the use of locking is not sufficient because a user might still be able to login, e.g. using ssh authentication tokens, and processes under that user can still spawn other processes. Thus, we have accounts that are enabled or disabled, not just locked. What I'm looking for is a way to check the enable/disable status of an account via a shell command, for use in a custom Java process.  The Java process can parse the output or make use of the exit code, and it can execute complicated statements such as those including pipes between commands.
+For bonus points this approach is more scalable and manageable if you have many servers with same user base. /etc/passwd also starts to suffer performance-wise if you have thousands of user accounts or more. 
+Beware: The above script is vulnerable for code injection, so you have to secure it for your purpose.
+One way would be to move your account information to LDAP or SQL. Then use PAM modules for integrating those with your server. Your Java application can easily access LDAP or SQL directly. 

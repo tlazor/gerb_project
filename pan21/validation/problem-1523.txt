@@ -1,0 +1,10 @@
+There is a bios update(scjev130.exe for the C55T-A5123) that allows the uefi/csm change, BUT I did not install that update before wiping windows 10.
+If you have Secure Boot enabled, you cannot enable the CSM. You’d have to disable Secure Boot first. 
+I even created a gpt/uefi usb mem stick with win7 iso that DOES boot and DID install Win7 on this laptop's HDD, but upon reboot does not see the HDD (even with boot order change to HDD first)! and goes right back to a Win7 startup install screen
+After that it was all downhill! My Win7 install DVD was recognized, the install went perfect and it has rebooted to the HDD!
+There is an option, in that launcher utility, out of 4 choices to create a bootable CD/DVD for updating the BIOS. I thought I would use a newer BIOS update (v1.40) but that didn't work.
+Other than that, there’s nothing you yourself can do. Well, except asking Toshiba to provide firmware with CSM.
+OK problem solved, I downloaded the Toshiba BIOS updates (1.30,1.40, and 1.50) for my C55t-A5123, and used the Toshiba "launcher.exe" utility (part of the expanded files) that are in a folder created by the download.
+I see lots of chat about toshiba and bios options. What I don't see is A fix for not having CSM ( legacy) option in Bios. My problem is If you can't enable csm, you are not able to boot from cd/dvd/usb to flash bios newest release scjev150. RE: can't find boot loader without CSM. Leave it to toshiba ( I have been building/servicing since the days of as400's and first computer was apple 2c. Are there any links that describe A fix other than applying 480 vac to power supply input. Thanks in advance for any feedback Regards; man of science
+So I created a second DVD using the v1.30 update (the first update to add the UEFI/CSM option) and that worked perfect. I rebooted, pressed F2 and went into "ADVANCED" BIOS settings and there it was! An option to change UEFI to CSM! I set it to CSM and rebooted.
+Hence, I have no OS installed and can't install(This C55t does not recognize the CD/DVD with my win 7 disk) the win 7 OS I want so how do(can)

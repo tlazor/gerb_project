@@ -1,0 +1,5 @@
+In board_eval() use loops for row and cols. This makes checking the code easier and the compiler will unroll the loops anyway, thus there is no performance lost.
+Add static to the declaration of bestMove and all functions but main(). This might allow your compiler to inline a few functions as it is a good rule to not export what doesn't need to be exported.
+Note that this function returns -3 and 3 instead of -1 and 1, but it doesn't make a difference to your algorithm.  I tested this on my machine it made your program about 30% faster, but your mileage may vary.
+This is in response to your question of how to make board_eval() faster.  You can use a trick where you add the three values in a row and then check to see if the sum is either -3 or 3.  So your function would look like this:
+Thanks for the help...the final program is below. Please compare this to the original code to see the evolution of changes to improve the speed as suggested/proposed by the peer reviewers. It's a definite improvement! Thanks.

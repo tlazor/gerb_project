@@ -1,0 +1,7 @@
+Assuming it is asked how to check what Ansible has done on a has I would recommend to take a look at the Linux Kernel Audit framework. The audit daemon runs in the background and logs system changed to /var/log/audit.log
+All of these are not necessary to run a tested playbook. They are tools to gain confidence that a playbook will result in a certain state.
+will check if the there is an directory /foo before creating it and returning OK if the directory is already present.
+That said, often when debugging playbooks and modules you want verification that things actually happened. as modules vary in how much validation they do. A few ways to do that. Run in check mode to simulate a dry run of what it would change. Use an Ansible task logging system like ARA or Tower. Write your own verification scripts in your preferred language. Enable relevant logging (syslog, audit) on the managed hosts and review that. Dump Ansible's scripts it runs on the hosts by setting ANSIBLE_KEEP_REMOTE_FILES=1. 
+It makes sense here to use a tool different from Ansible itself as bugs, wrong configurations, etc in Ansible could not be reported by Ansible itself.
+For utilizing audit you need to install an Kernel compiled with CONFIG_AUDIT enabled and start the auditd service.
+Playbooks by themselves are intended to "validate" the desired state. Each task run is essentially an assertion that the system be configured in one small way, such as a given user existing. Continue with the next task. Ansible will abort early on error.

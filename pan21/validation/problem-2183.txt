@@ -1,0 +1,5 @@
+It is the job of a file system driver (ntfs.sys in your case) to abstract away the physical location of a file's blocks from an application accessing the file. This implies, that the choice of copy utility will not make much of a difference.
+I have used Windows default copier, TeraCopy, Robocopy and xcopy in the past but none were a solution to this problem.
+Whenever I try to copy huge amount of files on a NTFS drive, Windows always fragments the file. This is very annoying because I'll get a really slow transfer speed (~100KB/s for a 15GB file!), and then I have to use a defragmentation to defrag the file, which takes forever for these large files.
+What does make a difference, especially with NTFS, is the free space percentage - and this is very low indeed in your example. Your results will be much better, if the FS is not filled over the 70% mark.
+This got me thinking, is there anyway to tell Windows to copy the file directly in a section of the drive which I know is empty, and thus avoid copying a fragmented file in the first place?

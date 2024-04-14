@@ -1,0 +1,6 @@
+But the RFC says that "if in case DHCP is enabled in your device and there is no DHCP server and no static IP available - the device should opt for Link Local address"
+I really have no best practice at hand, but I know that clients usually take multiple approaches to reach out for a DHCP Server via a DHCP-Discover Packet. Maybe you want to perform a packet capture with wireshark (other products are available) in order to determine the amount of approaches taken / the time elapsed. 
+I know how to enable DHCP in my device - but how can one assure that there is no DHCP server in network running?
+Are you trying to write your own DHCP client? Because other ways you could periodically fetch for the IP address assigned to the interface in question. If the client is being told to perform DHCP it usually has no IP address assigned until either one of two events take place
+The aim is to create the scenario for the device to auto config itself to a random Local Link Address - 169.254.x.x
+I have a testing scenario where our device will be plugged into network without having a static IP and no DHCP server in the network. 

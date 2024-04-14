@@ -1,0 +1,12 @@
+Your memcache local.xml config would look like this, and read this to see why the slow_backend is necessary - http://www.sonassi.com/knowledge-base/magento-kb/what-is-memcache-actually-caching-in-magento/
+I do not think there is a way to split out namespaced objects and associated ram usage in a single memcache instance.  So like the other responses say best to run multiple instances.
+I would suggest setting up multiple Memcached instances using unix sockets (its faster and safer than TCP/IP). You can start Memcached with the following flags
+From http://www.sonassihosting.com/blog/support/implement-memcache-for-sonassi-magento-optimised-dedicated-servers/ 
+Allows you to setup a proxy in front of memcache.  This means all sites/clients connect in to nutcracker processes which load balance across your memcache pools.
+Memcached has no conception of namespaces, partitions, or similar. Therefore the only way would be to run multiple instances of memcached. That's no problem though as memcached is ridiculously simple to set up (purposefully).
+While this might be an easy task if this is large scale these also might be good resources to look at:
+http://blog.nevalon.de/en/wie-kann-ich-mehrere-instanzen-von-memcached-auf-einem-server-laufen-lassenhow-can-i-run-multiple-instances-of-memcached-on-one-server-20090729
+It can just be bound to, for example, 5 different ports (one for reach site) or 5 different IP addresses.
+So again it depends on the size of your infrastructure but these might be tools that would helpful to you in a larger or growing infrastructure.  Splitting these out would allow you to have several smaller instances, and rather than adding say a new 512MB instance for every site you could stick to even smaller say 64mb instances and expand at a much smaller rate.
+The easiest way will be, as your suspected, to have multiple instances of memcached. memcache is purposefully kept as simple as possible for speed so offers no internal forms of separation like what you're looking for. It doesn't even offer any form of authentication for the same reason!
+Its extremely unlikely that Memcache will ever consume more than around 32MB RAM for a Magento store anyway. When you consider each cached page is around 4Kb - you've got a fair bit of scope for cached content.

@@ -1,0 +1,12 @@
+I want to load an ISO into my RAM from an USB flash drive. Included in that ISO should be a running MS-DOS (which version doesn't matter at first).
+The Syslinux project contains a bootloader called memdisk, which can boot virtual hard disks. So if you put your MS-DOS installation on a hard disk instead, it would load the disk into memory and boot from it. You can also load multiple hard drive images to see multiple disks.
+You might think then you can find some DOS-based RAM disk (RAMDRIVE.SYS?  It's been a long time ...)The problem is that when DOS boots, it needs to load IO.SYS and MSDOS.SYS, then CONFIG.SYS and any files CONFIG.SYS points to, and it will use the BIOS routines to do that.  No RAM drive can be available until at least IO.SYS and MSDOS.SYS is loaded - and it will try to load it from the same place it was booted from AFAIK. 
+So - unless your BIOS (not anything else) supports loading an .ISO in RAM and making it look like another hard drive attached to the system (which none do - but there are some BIOSes in the late 80's that had DOS in ROM and such), or you run an overlay loader that does this before booting MS-DOS (I don't know of any or if that would even work), you can't do this.
+However, the drives only work if your software uses the int13 to access disks, and it doesn't work on all BIOSes. Also, this solution does not use ISO images at all - but if it works on your system, it might solve your problem.
+You can use Rufus or other similar utilities to create a bootable MS-DOS usb stick as described here.
+MS-DOS uses real-mode 16-bit BIOS calls to enumerate and access disks, as well as anything that DEVICE= or DEVICEHIGH= lines in your CONFIG.SYS might install.
+Windows 98 rescue disk used the same approach, extracting the content of a cab file with utilities in the ramdisk.
+I need to have an edited MS-DOS, as I want include command files like for xcopy, net use, NTFS4DOS and so on.
+So upon booting, I want to have MS-DOS started with the access to the other data. If this is on the same "drive" (say ISO) or on a second one doesn't matter.
+I also want to have a second ISO mounted into the RAM, but these files could also be loaded into the first image, if it has to. (I just mind the maximum 1.44 MB of a floppy, which wouldn't fit.)
+My first thought was to use GRUB to load it into the RAM and start it. Unfortunatelly if I edit the MS-DOS ISO (in any way, e.g. switching the keyboard layout or include another small file), it refuses to boot it.

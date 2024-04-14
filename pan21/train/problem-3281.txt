@@ -1,0 +1,6 @@
+Here is the full command used to launch the IDE process on my machine (discovered via the excellent Process Explorer). Obviously your own will be slightly different.
+You can pin NetBeans to the taskbar and take advantage of other Windows 7 features by using free SevenBeans module. 
+It turned out shortcuts are limited to a certain number of characters as well, and all that wouldn't fit. I tried creating an environment variable to hold it all instead, but it turned out environment variables were of limited length as well (though not as drastically), so I ended up creating two of them.
+On the machine where "everything works" I had installed a 32-bit Java runtime, but on the "faulty machine" I had installed the full 64-bit JDK.
+Netbeans.exe is a custom launcher written in C++. It's a 32-bit module. When it loads, it first tries to load Java as a DLL into itself and then start NetBeans. However, if the Java runtime is 64-bit, it cannot do that because a 32-bit module cannot load a 64-bit module and vice-versa. Thus it falls back to starting Java as a separate process (javaw.exe) with the right parameters.
+I ended up with a shortcut target of "C:\Program Files\Java\jdk1.6.0_17\jre\bin\javaw.exe" %NB_PARAMS1% %NB_PARAMS2% starting in "C:\Program Files\NetBeans 6.8\" and that seems to work just fine.

@@ -1,0 +1,7 @@
+Once a critical update / insert / delete occurs, an external program is invoked trough newly added sys_exec functionality embedded in certain triggers.
+For one of our applications (accessed trough Chrome and ONLY Chrome), we're using MySQL with sys_exec UDF.
+What GoldenGate does is turn the database transaction log into a filterable event stream that can be consumed anywhere across the network. We use it to turn relevant transactions into either cache updates or cache invalidations, both of which can trigger application-level events, e.g. pushing the data all the way out to desktop or HTML5 websocket applications.
+At that point, we've got all we need to relay the message to every connected client without any need for polling or multiple queries as everything happens real-time.
+An application needs to have data as more freshly updated from a database as possible. In such a case, is there any other way for getting the data, besides of a timer based requesting (polling) the database?
+We use a combination of Oracle GoldenGate and the Java Persistence API (JPA) to do this with Oracle database, but also with DB2, Sybase, Microsoft SQL Server, MySQL, Teradata, etc. The feature is described here: http://docs.oracle.com/middleware/1212/coherence/COHIG/golden_g.htm
+I work with a MS SQL Server 2008 (and .NET applications + Entity Framework), but I'd like to get knowing about other types of databases as well.

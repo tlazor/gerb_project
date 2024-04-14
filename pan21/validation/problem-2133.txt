@@ -1,0 +1,9 @@
+The simplest way is to use putty (Client Side APP). You should not need anything on the remote side except firewall rules to allow out going connections
+This will create a tunnel on port 25565 locally to any destination on the remote site. This also assumes that you can tunnel a minecraft connection (you might need to set your IE settings to use the the SSH tunnel as well since games sometimes use this if they cant get a connection)
+If you cant tunnel minecraft by default use a app like proxy cap to force all out going connections through the tunnel.
+I want to play a game which is hosted on port 25565 (minecraft!), but my university firewall does not allow this port.
+It would probably be slow, but it's better than not being able to play at all. Is it possible to do using only SSH, or do I need other client/server software? My server has OpenSSH installed. Also, the computer I'm using to play the game is running Ubuntu.
+I've tried searching but there seem to be so many different solutions to different types of problem =/
+You can change the port Minecraft runs on, so just set it to 22 (because they haven't blocked SSH) then you'll be able to play by specifying the port on each client.
+Try http-tunnel. Just go to Settings>Add Ports/Applications and enter the server IP and application port (usually 25565) then press ok and try running minecraft.
+I have a dedicated server running linux not too far from uni, so I think there's a way to tunnel through it (but I've never done this before and have no knowledge/experience of tunnelling)

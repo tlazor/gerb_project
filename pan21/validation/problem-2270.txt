@@ -1,0 +1,9 @@
+This script fails unless the disk is already a member of a Storage Pool. When your server is already a member of Failover Cluster, there is a problem, that newly created Pools are shared. Best is to create a Storage Pool before joining the cluster, change Media Type and destroy the pool. Disk type is preserved.
+I have two HP ProLiant DL380 Gen9 servers with Windows Server 2016 on which a SQL Server 2016 is to be installed in the failover cluster with Storage Spaces Direct. When I try to activat S2D via PowerShell I get the error:
+WARNING: 2017/07 / 13-10: 13: 48.295 Disk number 2 ({455cd214-ecdd-7e52-b5c5-a505367c878c}, friendly name 'HP LOGICAL VOLUME') on node DB1 has unsupported media type
+You have to have supported media types with Storage Spaces Direct which is no-RAID, no-FC and no-iSCSI. Should be SATA, SAS and NVMe. 
+P.S. In general I'd skip using S2D on only two nodes, it's clumsy at best: fault tolerance isn't great: cluster can't survive second disk or node crash in a row, multi-resilient disks and erasure coding aren't available. 
+https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements
+https://www.starwindsoftware.com/blog/resolving-enable-clusters2d-bus-type-support-issue-on-some-storage-controllers
+Right, using Storage Spaces Direct in two or three nodes configuration is not the best idea. There are a lot of solutions in this niche like HPE or Starwind. HPE Storevirtual works with two nodes and additional witness node. Starwind works with two nodes by design. https://www.hpe.com/us/en/storage/storevirtual.html
+You can easily workaround this issue if you say don't have compatible SAS HBA and want to use RAID controller and single driver RAID0 nodes by forcing RAID -> SAS using registry tweaking or installing third-party filter driver to do that.

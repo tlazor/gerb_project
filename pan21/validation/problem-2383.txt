@@ -1,0 +1,5 @@
+You can read detailed instructions in this article:  How to Fix Authentication Error Function Not Supported CredSSP Error RDP
+As others have said, this is because of a March patch that Microsoft released.  They released a May patch on May 8th that actually enforces the March patch.  So if you have a workstation that received the May patch and you're trying to connect to a server that hasn't received the March patch, you'll get the error message in your screenshot.
+We removed that latest security update KB410731 and we were able to connect with Window 10 machines at build 1709 and earlier.  For PC's we could upgrade to build 1803, this resolved the problem without uninstalling KB4103731.
+I got the same issue. Clients are on Win7 and RDS servers are 2012R2, Clients received "2018-05 security monthly quality roll up update (kb4019264)". After remove that , all well. 
+You really want to patch the servers so that they have the March patch.  Otherwise, in the meantime you can apply a Group Policy or registry edit.

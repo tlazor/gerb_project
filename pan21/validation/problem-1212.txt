@@ -1,0 +1,7 @@
+let's say I have a fixed size grid puzzle game (8 x 10). I will be using sprites animation, when the "pieces" in the puzzle is moving from one grid to another grid.
+2) A large size sprite image will be used (128x128). As sprite image shall look fine if we scale from large size down to small size, but not vice versa.
+To solve this problem in a game I'm working on I adopted the Model View ViewModel design. I had the following architecture:
+Notice that the SquareModel isn't aware of its position on the screen or its dimensions. When switching resolutions or platforms it is sufficient to change the dimensions in the SquareViewModel and the texture used by the SquareView.
+I was wondering, what is the technique to have this game being implemented as screen resolution independent. Here is what I plan to do.
+Or, if you are ambitios, you can draw them yourself. Even if it is lots of work, it have its advantages. For instance, it is easy to change various colors of the drawing to account for selected/disabled/locked/etc status.
+Is it possible to draw the sprites with vector graphics? If you search some you can probably find a way to draw svg (scalable vector graphics) with a canvas directly. 

@@ -1,0 +1,7 @@
+Start a command prompt as administrator. You can use the login credentials from your non-working account and it will work.
+Although you cannot login to your main account, you can still use its administrative capabilities if your other account hasn't admin access.
+This allows you to create a new user with administrative privileges. You can then copy over your files from your non-working account which allows you to combat this problem without actually reinstalling Windows.
+You can replace NewUsername with anything you want for as long as its a non-existing username on this particular system.
+Now, reboot and login with the new user, and you can copy all files from your old profile into this one by going to C:\Users\OldUsername. If you copy the AppData folder, it should restore all settings for the programs you use, but it may break your account again, because we still don't know why exactly your profile becomes corrupt. Use with care.
+If your other user has Administrative privileges, you can just use the Settings menu to create a new user. If your other account does not have Administrative privileges, the following trick will allow you to create a new administrative user.
+It is a common problem when updating to 1803. It may only happen if you have more than one user account though.

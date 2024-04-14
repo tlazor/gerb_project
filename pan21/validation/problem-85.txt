@@ -1,0 +1,5 @@
+I'm not sure what is causing the problem but all I know is this started to happen after I added it to the domain, 
+I've seen the same problem pop up on Dell/Broadcom combos in the past, you'll want to remove all traces of the driver prior to reinstalling.  In all cases, I've had to replace it with the official Broadcom driver for the card to resolve the problem.
+If it was a domain policy you would be seeing this behaviour across more servers.  I'd try updating with the latest NIC drivers available from Dell and/or Broadcom (try Dell first and if it's still a problem try Broadcom).
+After the computer restarts, the operating system automatically detects the network adapter. If the network adapter is not detected, you may have to manually reinstall the network adapter drivers.
+I have a server that after the first configuration it was DHCP, now I have added it to our domain and in a static IP, however after a few moments it returns to DHCP but with only some of the IPv4 setting staying the same, It loses DNS for example.

@@ -1,0 +1,9 @@
+You are iterating over the indeces of the list, this is not pythonic at all. Use a plain for instead:
+To increase performance you should randomize the partition function. You simply have to change the initial lines:
+Note that this implementation uses O(log(n)) memory in the average case, O(n) in the worst case, but the worst-case may be a problem since it's when the input is ordered.
+Lastly, your code is suboptimal. It uses O(nlog(n)) space instead of O(log(n)). The usual implementations of quicksort use a partition algorithm that moves the elements in-place, without creating temporary lesser, greater lists. With such a function the whole implementation of quicksort becomes:
+Your method is actually a function. It never uses self except when performing the recursive calls, hence you should consider putting this outside the class, or make this method a staticmethod.
+In this code I did iterate over the indices because the iteration starts at some index start. In your case you always iterated over the whole sequence.
+You could use a list-comprehension or the filter function. What you are effectively doing is an inline-filter.
+There is an unnecessary complication: you put pivots in pivotPlace before the loop, and then do extra work to skip it in the loop.
+You are not following the PEP 8 style guide, which is the official style for python code. to fix this:

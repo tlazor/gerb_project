@@ -1,0 +1,6 @@
+Netgear (and many other manufacturers) have/has some managed switches (hardware that you may already have?) that can prioritize bandwidth (through a web interface) and you can use Wireshark (free) to examine traffic.
+The easiest thing would be if the router has NetFlow support. Then you can run a netflow program on your PC. This is just for monitoring use.
+SQUID is a web proxy so it can handle all web (including ftp://) access. You can restrict content in lots of ways and you can restrict by username and even by time of day, and you can analyse the logs to see exactly what your chaps have been downloading. Best of all SQUID is completely free, and courtesy of http://www.ratsauce.co.uk/notablog/squid27setup.asp easy to get working.
+may be other things, but that's the most important, I'm looking essentially for a third party software that just DO THAT, I don't want a huge software full of 'crap'.
+I work on a small company where 4 computers are connected to the Internet through a router. (router is linked to a hub 'switcher I think' and gives all computers internet access).
+But SQUID isn't a general network monitor, so for example you couldn't intercept or control e-mail. It also can't control bandwidth. If what you really want to control is web access then I can strongly recommend SQUID as I use it at many of our branch offices.

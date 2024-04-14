@@ -1,0 +1,12 @@
+-n ignores empty files. Add -dN (--delete --noprompt) to delete all except the first duplicate file.
+I've hosted it at Google Code and I've open-sourced it as GPL v3, so I assume anyone that wants to improve the program can do that.
+This is a slow but sure and very simple approach that should run on both OSX and Linux. I am assuming that you are interested in duplicate files residing in your $HOME but you can change that to suit your needs.
+You can use fdupes without -r so it doesn't descend to subdirectories. This prints a list of duplicate files:
+I've also debugged it somewhat (created tens of files in Windows, deleted all leaving the originals). The code is highly commented as to inform anyone of what the code actually does.
+My required feature: Remove duplicate files across a large folder-structure, but ONLY if the duplicates reside in the SAME folder.
+CAVEATS: This is slow, actually SLOW, will not give warnings and will delete files silently. On the bright side, it will only do so if those files are in the same directory which is what you want. 
+I have read the FAQ and I know this comes close to being closed as asking for a product recommendation...   
+The idea is to first find a list of all directories, then compare the files inside them and delete any that are identical. As I said, this is very simplistic so it will just keep the first of any pair of files and delete the rest with no warning.
+I have looked at at least 40 "duplicate files" remover utilities (Windows, OSX and Linux) and none of them has the particular feature that I am looking for.
+I need to now if there is anything out there that can do this or if I will have to write my own tool for it.  
+E.g. Say I have files A,B and C which are identical. A and C are in the same folder. B is in another folder. Either A or C needs to be removed (no preference), but B should be left alone.

@@ -1,0 +1,15 @@
+I have already set up server B to accept mail for our domain, user authentication is working and I also have a script which runs an rsync of Maildir data from server A to server B making the needed changes to accomodate for dovecot. Mail delivery for another test domain configured on server B works fine.
+How about just diminishing the DNS TTL to a much shorter period a few days before you do the actual change?
+3) Install Perdition to it for proxying IMAP/POP connections. Perdition can look up the user server location from the central user management place.
+4) Install Postfix to it for delivering the mail to server A or B. Again, Postfix can look up the server location from the centralized place.
+Then you do the DNS switch. Then you sync again with imapsync. If there are still mails arriving at the old server, you can sync again, and again ... untill all mail servers have the new DNS record.
+If you have the time and willpower to put yet another layer in front of your existing mail servers, you can do everything transparently without any downtime.
+Regarding the inconsistency: you might try to setup your new dovecot as a proxy for the old one. That way the new dovecot sees everything the old one sees. Not sure though how that works with syncing. Check the dovecot docs.
+Is there a way I can avoid the "inconsistency" period due to DNS TTL and have a seamless switchover to the new server?
+imapsync offers a bunch of options, you should experiment with it a bit bevor going into "production".
+Imapsync has the advantage (over rsync) that it can also do various other actions, like expunge, setting a specific date range (makes subsequent syncs considerably quicker), ...
+Start synching your emails with imapsync. (The webseite offers a pay version, but if you google, you will find it for free on github or something ...).
+2) If you don't have it already, install a centralized user management such as OpenLDAP. Or for your case, something like pam_mysql will do nicely.
+My problem now is how to sync & switch from server B to server A without (if possible) having mail delivered to both server while DNS caches expire.
+I am in the process of migrating everything from server A to server B and that includes email services.
+5) Create a migration script which will copy the mail user-by-user with imapsync or other tool of your choice. Then when a user gets migrated, update to centralized location the fact the user now is located at server B.

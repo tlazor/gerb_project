@@ -1,0 +1,6 @@
+The example is very contrived, yet background is that I want to only export a sub fraction from a larger csv without having to cherry-pick via sed or using
+I will use the smaller file for setting up a unit test, which is why I don't want to change the format of the csv file even if it most likely wouldn't make much of a different given a proper csv parser.
+As the point of the unit test is to make sure it parses the actual format properly, and I don't want to test against LibreOffice's understanding of a CSV file.
+If I open this one with Libre Office with these settings, I can view it nicely. Yet if I select the entire document again and copy it, the clipboard contains:
+I like to use LibreOffice Calc as it offers a nice filter feature through Data > Autofilter making it easy to find the lines I want to use. Yet extracting that selection is not as straightforward.
+This is slightly different formatting from the original.  If it needs to be exactly the same, then LO Calc is not the right tool.  Use sed or similar.

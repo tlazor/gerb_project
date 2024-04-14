@@ -1,0 +1,8 @@
+It depends what the outgoing requests are how you are making them. If the facility you are using to make the requests supports it then you can ask it to bind to a specific address instead of the default.
+Program your app to use a specific IP, and it will happen. IIS doesn't provide an outbound communication API directly, so it won't help you.
+I don't think you're going to get that functionality with IIS alone. You could put in some kind of front-end NAT box (say, a Linux machine w/ iptables), run the various sites on different TCP ports on the IIS box, and NAT them to different IP's on the Linux machine as a quick-and-dirty solution. IIS and Windows, though, aren't going to do what you want.
+In IIS, it might sound picky, but Web sites don't communicate outbound; applications hosted in a website container do.
+The iptables rules to do what you'd be looking for would be pretty simple. A Cisco router's NAT, and a slew of other embedded NAT implementations, could do it too.
+I'm pretty sure that you can not do this with the common IIS methods though (like using the WinHTTP library).
+Check to make sure that your extra IPs are not just being routed to a single IP before it gets to you. You could do this by plugging into the same VLAN as the server and hitting the secondary IP.
+In other tools/libraries, look for a "bind address" option such as this taken from the wget man page:

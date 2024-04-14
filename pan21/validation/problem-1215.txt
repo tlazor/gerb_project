@@ -1,0 +1,6 @@
+You can check with your schools IT guy since a firewall rule can be set to limit an ssh connection to a single IP address (your home).  That would lower the exposure of the school to ssh attacks.  In fact, the Pi must have a firewall that drops all ssh connections except the connection from your home IP address.  That is, Pi machine should have an "NSA quality" iptables or nft firewall anyway.
+Once this is working mount your music on the schools Pi as an SMB remote file system and export to wifi via a kodi server for playing on your cell phone.
+Ssh does encryption and compression and rdesktop does too, so I have turned off rdesktop's encryption and compression and limited the transmitted colorspace to save bandwidth.
+I do something similar from home to work.  I use Linux at home and ssh port forward to a Pi which then redirects through the ssh tunnel to the Win10 box (10.0.0.104).  Port 3389 is remote desktop. Your home windows machine might not have remote desktop available if it the home edition. 
+Run FreeSSHd on my Win-HomePC (with forwarded Ports), connect from my raspi at school to my HomePC via ssh (e.g. ssh 79.43.X.X) and connect via PuTTY back.
+i have at my school a raspberry pi 3 and i want to tunnel it directly over my windows pc at home. At my school i can't get a port forwarding and the raspi haven't a public IPv4.

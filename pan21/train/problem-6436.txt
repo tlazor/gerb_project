@@ -1,0 +1,11 @@
+If the video is within the network then you would need a managed switch to control the type of traffic flow.
+If the video is external and uses a dedicated protocol then you can block all traffic using that protocol using a firewall.
+The best solution here would be to use QoS and traffic shaping to still allow the video, but grant other traffic types a higher priority.
+I am administrator of the network in my house. There are lot of tenants watching audio/video streaming (for example: TVUPlayer). This creates problem to other users in the network resulting in lower speed and frequent packet drops. Could you let me know how to permanently block users from such streaming ?
+Use OpenDNS as your DNS provider, configured on the router.  You can set up a free account with them, that you can then use to filter: 
+1 - Your router is using DHCP to administer IP address allocation and host TCP/IP config for all the clients.
+Keep in mind that implementing a 'no streaming' policy such as this may result in less tenants, and possibly less rental income. Or, it may result in requests to install additional broadband connections to specific rooms, which of course you can deal with using your own judgement... :) 
+That would depend a lot on the router/firewall, and on how the video is streaming, and where the video is streaming from.
+Traffic to those sites will result in an 'Error Page' that you can customize, so that your tenants know to talk to you about their inability to stream, rather than Google "openDNS".
+For best effect, I'd also recommend that you disallow DNS traffic through the router to other resolvers, essentially forcing all clients to relay DNS requests to the servers you've chosen.
+2 - Your tenants understand that you're in charge of the network, and that if you change things, they either deal with the changes or are on their own for bandwidth.

@@ -1,0 +1,7 @@
+Install the required tools before installing the fglrx driver. Optionally, run the installer with --force option to install without the tools. Forcing install will disable AMD hardware acceleration and may make your system unstable. 
+One or more tools required for installation cannot be found on the system. Install the required tools before installing the fglrx driver. 
+fglrx installation requires that the system have kernel headers. /lib/modules/3.13.0-24-generic/build/include/linux/version.h cannot be found on this system. 
+Kernel: Linux version 3.13.0-24-generic (buildd@komainu) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1)
+I downloaded the Catalyst 13.1 legacy driver for 32 bit linux and ran the script. When it tries to install, it gives me an error. It says:
+I installed Linux Mint on a relatively old computer setup that I have to use as a media centre on my TV. Since I am using a dedicated ATI graphics chip I need the drivers because the desktop extends past the sides of the screen. 
+Forcing install will disable AMD hardware acceleration and may make your system unstable. Not recommended."

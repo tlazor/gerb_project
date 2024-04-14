@@ -1,0 +1,7 @@
+So I've just setup a brand new box and thought it would be a good time to make an image with Clonezilla.
+But it appears that it will take more or less about 4 hours to create the image with  Clonezilla.  Should it really take that long to create an image of 4GB of data?
+Another thing to check since you mentioned partimage is what filesystem you have on the USB drive. Even if it's a 16 gig drive, if the filesystem can't handle a single 4 gig file, the clone may fail and some open source programs do not handle failure gracefully...you might have been sitting for four hours with a program that's not even running anymore or is "stuck".
+The harddrive is 250GB with ~4GB used on the partition that I have chosen to backup, so I plugged in a 16GB USB stick to store the image on, which should be sufficient (?).
+There really isn't a canonical answer to this since it would depend on disk subsystem speeds, fragmentation, etc. so it doesn't quite fit this format well.
+Backups are generally done at the file level. Clones/images are drive level. You probably need to use either cloning with compression or a true backup program that will copy files and compress the files, not the resulting filesystem image file.
+That said, if it's a "clone" of the drive, it will try to copy the entire drive, sector by sector. The way to get the end image smaller is to compress it.

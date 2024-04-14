@@ -1,0 +1,5 @@
+What happens when an SSD fails?  The same thing that happens when a mechanical hard drive fails: You recover from your backups onto a new drive, and continue on.
+What I have heard is that ssd's fail on write and not on read. Therefore, it is much more likely that you will not loose data but, if you have unsaved documents you won't be able to save them (in the worst case scenerio).
+It died without any warning, no SMART alert nothing, one evening it displayed 0bytes of space left, so I started deleting files but it stayed at 0bytes left, I noticed that when I deleted something the SSD capacity shrank.
+This article published July 2011 talks about SSD failure modes: http://www.zdnet.com/blog/bott/ssds-are-fast-but-do-they-last/3621  . He has found that they are roughly as reliable as 1TB drives. Talking to sites that use many SSDs, they found that SSDs tend to fail catastrophically, compared to HD's that degrade gracefully over time.
+I can only share my experience specific to my Samsung 840 EVO, it lasted 4 years but I admit that I used it intensively, I ran Debian on it and it was almost full the entire time.

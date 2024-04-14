@@ -1,0 +1,7 @@
+You won't be able to run those commands (man, ls, pwd) from within CMD.EXE or COMMAND.COM by using just the software built into a typical Windows installation.  However, there may be some ways to get those commands to be supported, by installing some support for running Unix commands, which some of the other answers here mention.
+man, ls and pwd are not Windows commands. Install Cygwin or Linux instead, or type Help and learn the names of commands you can use at the Windows command prompt.
+So, what this means is that you just need to be careful about which command prompt you are using.  You want the "PowerShell" variation.
+Depending on the version of Microsoft Windows, the commands you mention (man, ls, pwd) may be entirely invalid.
+Presumably details (about how to find that software) may vary with different versions of Microsoft Windows.
+Newer versions of Microsoft Windows do support all of those commands, but not from the "Command Prompt" icon.  Instead, they need to be run from PowerShell.  For example, in Windows 7, go to Program, Accessories, Windows PowerShell, Windows PowerShell, which runs:
+However, these commands are not supported by the traditional "Command Prompt" icon which runs CMD.EXE or (particularly with older versions of Microsoft Windows) COMMAND.COM

@@ -1,0 +1,7 @@
+There is enough information about the actual scanning time (time to complete each scan) but it's hard to find the frequency of these scans. That is to say, how long will the STA wait to scan again if an initial scan fails to identify any nearby APs? Is it standardized in 802.11 or is it implementation specific?
+Per default on my Raspberry Pi 3B with Raspbian Stretch I just checked that it will perform a scan every minute, if there is no data link on the WiFi interface. Furthermore, I noticed that while you open the list of the access points detected on the GUI, the scan interval is much shorter.
+or an interval that is increasing between scans, e.g. intervals of 3, 9, 27, 81 … up to a maximum of 300 seconds in this example: 
+It is much appreciated if any information regarding this can be provided for each of the scanning methods - active and passive.
+Consider an 802.11 STA that is currently unassociated. While unassociated, how often will it scan the network (passively or actively) to determine available APs?
+When using wpa_supplicant, the easiest way to see, when scanning takes place, is to call the interactive mode of wpa_cli and wait for the messages that indicate a new scan.
+If you e.g. look at wpa_supplicant in Linux, here you have the possibility to control the scanning interval inside the configuration file: wpa_supplicant.conf 

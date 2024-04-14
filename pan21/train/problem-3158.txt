@@ -1,0 +1,10 @@
+When a user connects, the script is called as <path-to-script> add <ip> <username>, furthermore the network interface is placed in the environment variable $dev (e.g. tun0).
+The script configures the network interface for queueing discipline and attaches the necessary filters and classes to it. It keeps track of the IPs for which it installed filters and classes so it can later remove them if the user disconnects. That state is kept in the directory /tmp, this should probably be changed.
+Note that I'm not sure I have gotten the traffic control stuff 100% right. Download traffic shaping (i.e. from OpenVPN to the user) works fine, but limiting the upload isn't very precise, which is somewhat normal from what I have understood. Maybe you can find a better way and integrate it in the script.
+This was fairly easy to implement with PPTP as each user got their own interface, so I could just create a new class/filter for that interface limiting it to my desired speed limit using something like this:
+I have a group of users connecting to my server via OpenVPN TCP and UDP (2 services). The two services are operating on tun0 and tun1
+I'd like to be able to limit each user's bandwidth to say 5mb/s up and 5mb/s down using the TC command.
+As far as I can tell with OpenVPN users do not get their own interface, all traffic goes through the main tun0 and tun1 interfaces.
+I once did something like this for individually firewalling each user's connection. I have implemented it using the learn-address script in OpenVPN which is called when a user connects or disconnects. I have adapted it for your use case.
+1) The script above does not seem to work with OpenVPN for some reason (setting the interface name to tun0 or tun1) my test user can still download at their internet's max speed.
+2) I need to be able to filter this per source IP and add it in OpenVPN's up script when they connect while maintaining the other filter/classes and remove that filter/class in the down script, again without affecting the other connected user's limits (i.e. I can't simply delete the qdisc for tun0 each time a user connects).

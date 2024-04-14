@@ -1,0 +1,6 @@
+Every time you open a website, your browser sends a request to the corresponding server, say example.com and "requests" the website you want to view, requests an image or any other resource.
+You could, for instance, use the intranet when connected to the VPN even though it's firewalled for computers connecting from outside.
+It's by the way also possible to tunnel only certain services via VPN, but a full-tunnel is quite common.
+In research institutions, it is quite common to offer access to restricted catalogues / resources such as research papers only from within that institution. Technically, you are connecting from outside to the server "inside" the institution which then requests the resources for you. Note that this is not a proxy server, since you are actually connected to that network and your client still connects to example.com
+When using a proxy server, your browser sends that request to that proxy server which in turn forwards that request to "example.com", retrieves the resource and hands that back to you.
+For instance, most universities, companies, ... offer such a VPN, allowing their employees / students / ... to connect to their internal network from anywhere in the world.

@@ -1,0 +1,6 @@
+Well, most of the time (absent someone's attempts to screw with things) your TERM will be set to screen (or at least mention screen somewhere).
+The easy solution to the problem is just run screen everywhere.  Don't leave home without it, I say.
+I have to thank Kyle Rankin of Linux Journal for this.  See his fantastic article at http://www.linuxjournal.com/article/10950.  The man page section he refers to can be found at http://www.gnu.org/software/screen/manual/screen.html#String-Escapes.
+Add the following to your ~/.screenrc and you'll see a status line down the bottom (showing in inverted text the date, time and system load.  More escape codes found in man page link below.
+you could also recurse up the process tree from $$ to see if you find a screen instance. the exact chain will probably depend on your setup--on my OS X box, a zsh inside screen has login as its parent, SCREEN as its grandparent, and screen as its great-grandparent.
+Look for $STY which provides details that screen uses to communicate with itself; $WINDOW will then be the current screen window number.

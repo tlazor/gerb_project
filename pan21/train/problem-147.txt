@@ -1,0 +1,9 @@
+Threads_running is an instantaneous count of how many connections are actually doing something at the moment.  A few dozen is a "high" number for this.  However, this is a fleeting count, so watching it is more intrusive than useful.
+I have a single db.m5.large RDS instance running in my aws setup. When I check for max connection from mysql console, with bellow query.
+Max_used_connections = 99 means that at some time since startup, there were 99 connections.  However, they may have been sitting idle waiting for the application (or user) to issue a query.
+The various metrics you propose are not 'actionable', so I won't try to concoct how to measure them.
+I am little worried about this, that my server might stop after reaching max connection(100) after some time.
+If you would like a review of the hundreds of VARIABLES and GLOBAL STATUS, see this for the info I need.  There are about 200 potential red flags that it looks for.
+max_connections = 624 says that it will allow that many connections.  It probably can't handle that many at once.
+But, my AWS alarm system and RDS monitoring system shows its taking 90+ db connections. But my RDS CPU consumption is only 8% at the same time. Does this alarm/monitoring is just the number or the average max connection count?
+If your app runs slow, that is a clue to look around.  The slowlog is my "goto" place -- it not only says that there was trouble, but indicates which query is the "worst" (after using some digest).

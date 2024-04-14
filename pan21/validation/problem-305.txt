@@ -1,0 +1,7 @@
+OS will boot faster, but aplications which you removed from autorun will start slower or you might lose some features.
+I hesitated doing this myself at first, but the truth ist that as important as things like "Intel Common User Interface" sound, they really just do you a bit of time saving when you really need them, which in intel's case is, if you change your graphic settings via the "intel Graphics and media control panel" in your taskbar.
+E.g. Part of MS OneNote can start with system and provide quick access to notes and acess to some... Hmmm, let's say "macros" (like OneNote's screenshot).
+Also, if applications starts with your system, coldboot (starting aplication for the first time) time is reduced.
+Even if the question was asked two years ago, installing additional software, wasn't really a soloution for me.
+In my humble opinion Autoruns, by Mark Russinovich and Bryce Cogswell, is really the definitive start-up inspector.  
+After reading this post I'd advise you (or the person that just googled the same issue) to cut down the start-up programs to "Synaptics pointing device" .

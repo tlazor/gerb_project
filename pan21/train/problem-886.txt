@@ -1,0 +1,5 @@
+In my case, I managed to fix this problem by enabling the shared folders feature in the VMWare GUI. 
+You might not want to use the shared folders feature, for example if the VM is untrusted and you don't want to give it access to any folders on your physical machine. If so, choose from one of the answers that modify the fstab to allow uninterrupted boot without the hgfs/Shared-Folders feature.
+If you want to use the shared folders feature, look at the top of the running VM window and go to Virtual Machine->Virtual Machine Settings->Options tab->Shared Folders, and make sure Shared Folders is enabled.
+Have you tried reinstalling the VMware tools or running vmware-config-tools? It sounds like the Host-Guest filesystem kernel extension isn't loading at boot-time, and reinstalling/reconfiguring the VMware tools will rebuild your initrd image and allow the module to be loaded at boot time.
+I reinstalled Guest Additions (no need to uninstall on your own - just install it the same way you installed it the previous time) and the shared folders were working again.

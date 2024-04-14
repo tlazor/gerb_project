@@ -1,0 +1,8 @@
+By doing so I should have automatically switch between Moblin and Window at each boot but it's not working. 
+Moreover the menu.lst, i have is actually a symbolic link to ./grub.conf. I have also noticed that grub-intall and grub-set-default commands are not working.
+Your problem is that the Pathetic Windows entry does not do a savedefault, so the default entry is never changed to Windows.
+Almost all the troubleshooters on internet are saying that I should enable the DEFAULT=save option in /etc/default/grub but I am unable to find this file. Any idea what else should I do?
+I used the equal to sign because by default my menu.lst had an entry as default=0. However, default 0, is also working fine. 
+I don't know Moblin but in other distributions it is common to have the configuration file somewhere in /boot/grub, not in /etc.
+Edit: Furthermore, savedefault by default saves the current entry; only if you give it a number will it save another entry than the current one.
+I just installed Moblin Operating System. It's using GRUB2. On my Ubuntu 8.04 GRUB 0.97 was being used in which i was using the default saved option comfortably. I found that with GRUB2 i should not edit /boot/grub/menu.lst directly but I did :) because my Moblin does not contain any /etc/default/grub where they say I should do the modification I want.

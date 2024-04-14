@@ -1,0 +1,8 @@
+Select the cell or cells you want then on the Home tab click Conditional Formatting, you should see the following:
+This can be done with Conditional Formatting and two rules, I've made a simple thing that works with one quirk.
+I would like the cell to be formatted as 'accounting' w/ zero decimals for option A and 'percentage' with zero decimals if option B is selected.
+Click "New Rule" and you should see the following dialog, in which yoou want to select the bottom option "Use a formula to determine which cells to format":
+Click the button beside the "Format values where this formula is true" box and select your cell range, so you end up with something like "=K6:K20=1" (minus the quotes) after the second '=' you can put whatever you are matching, text will need to be in quotation marks and you may have to press F4 a couple of times after selecting the cell number ranges to get rid of the $ sign.  
+After you've done this you can tweak the settings for it using the "Manage rules" selection on the first image I linked, at which point if you select "This Worksheet" under "Show formatting rules for:" you will see something like this, where you can fine tune the rules, this is what I had.
+I have a dropdown field with two values in a form I am creating. The expected data in cell D15 changes depending on the selection. If Option A is selected then a dollar amount is expected. If option B is selected that a percentage is expected. 
+Then click the format button to choose the format you are after.  You should see something like the standard cell formatting window at this point where you can set it to percentage or currency from the "Number tab" 

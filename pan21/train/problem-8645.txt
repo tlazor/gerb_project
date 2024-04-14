@@ -1,0 +1,7 @@
+I am not aware of a tool that will do this for you.  I would also not trust any tool to do 100% of the work.
+I recommend iterative changes.  Create the new desired structure (groups first) and add existing items there.  You can then unit test removing the legacy groups one or two at a time, while knowing exactly where to look if things break.
+I will say that OUs are probably easier, if only because they are mostly a target for Group Policies.  GPMC and RSOP tools are well suited to sorting out hierarchy before such a venture.
+So what would be the best way to determine which IP addresses/hosts or scripts/processes are dependent on the existent OU-structure and group-names? 
+You should definitely include all technology teams in the effort, as someone invariably targeted SharePoint user sync or something to a specific OU or branch (to keep real users separate from service accounts, etc.)
+Currently we are in the process of redesigning our AD infrastructure. I am pretty concerned about the possible impact a change of several group- or OU-names might have to our eco-systems (like IAM relevant software, etc). I want to ensure that there are no unknown dependencies. 
+I was thinking about monitoring LDAP queries using wireshark. But that might be too inconvenient. What other possibilities do you see?

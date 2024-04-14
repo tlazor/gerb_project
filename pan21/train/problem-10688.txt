@@ -1,0 +1,8 @@
+I have a HP microserver currently serving as my NAS+media server. I am thinking if I get a second NIC for the server I can lay the network out as follows:
+Now on to the problem: The modem+router device is also responsible for the wifi portion of my network. I would really like to have the wifi network also go through the proxy. Is there any way of doing this without getting a separate modem or wifi access point? 
+Then configure IP forwarding on [microserver] so it forwards internet traffic to your [modem+router].
+"The first prize answer will be where I can simply remove the microserver from the picture without needing to reconfigure settings on the router and/or client devices." 
+I think the whole point in having a transparent proxy is that it's transparent to the clients, and as such you should configure your clients to use the proxy [microserver] as its gateway, so you would need to configure DHCP to use the IP of [microserver] as your private LAN's gateway.
+Do you mean, configuring it such that if the microserver went down, you wouldn't need to reconfigure anything on the clients/router to make it all work again?
+The first prize answer will be where I can simply remove the microserver from the picture without needing to reconfigure settings on the router and/or client devices.
+With this layout I can then install dhcp, DNS, squid and anything else I would like to have between me and the internet. 

@@ -1,0 +1,6 @@
+Depending on the encryption software you are using, there may be an option for to compress as well as encrypt.  What encryption tool are you using?
+A variation on this if your packaging solution doesn't itself support encryption and so on could be to:
+Seriously, if your encryption algorithm is sound, you shouldn't be able to compress it at all, because there shouldn't be repeated bits, or not-obviously-random stuff. If you get even 1%, then that means your crypto algorithm is unsound and could be crypt-analysed.
+Now you have an encrypted compressed volume containing the files you need.  Next step, to create your installation packager:
+These utilities also have the ability to create self-extracting archives, usually with various levels of functionality (eg creating shortcuts, running scripts, etc.), thus allowing you to create a compressed and encrypted installer.
+One option you could try is to decrypt the files, then use an archiving app like 7-Zip or WinRAR to compress them, and use the tool’s built-in encryption function. In fact, modern version of such utilities not only allow you to encrypt the files, but even the filenames, so that the archive is truly opaque without the passphrase.

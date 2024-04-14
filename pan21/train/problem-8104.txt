@@ -1,0 +1,5 @@
+I've done some searching on the internet and several forums on it but they all resort to explaining what ROM is, it retains its memory even when there there is no power to it. 
+In the picture below, an 81316F 16K ROM from 1965 with the lid removed, you can see the row and column decoding logic around the perimeter. In the middle are two massive arrays that contain diodes at some intersections and nothing at others:
+LMGTFU - There is no single answer to the question as there are different types of ROM which work differently.  You might also be intested in Memristors (next generation ROM)
+In the classic diode matrix ROM, there are row wires and column wires and for each combination of row wire and column wire, there can either be a diode connecting them or not be a diode connecting them.
+Most rewritable ROM (a contradiction) today is Flash. It stores the data as an electrical charge on a floating gate, which is embedded in Silicon dioxide, one of the best insulators there are. So the charge can't leak away from the gate, and can be held for tens of years. If you switch the power off the charge will still be there.

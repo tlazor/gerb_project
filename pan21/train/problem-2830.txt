@@ -1,0 +1,6 @@
+It does not directly answers you question, but maybe you can gain some benefit from installing a zram/cache enabled kernel: that'll provide you with some amount of RAM-backed, compressed page cache and swap.
+System-wide, you might find you get better performance by fiddling with the "swappiness".  Try sysctl vm.swappiness to read the value and sysctl -w vm.swappiness=N to set it to N, where is some smaller number than it is currently.  (Try 0 if you want to be extreme, telling the kernel that it should always evict cached pages in preference to swapping.)
+You can also control at which point the system starts to use swap memory. This will tell you what is the current value in your computer:
+Linux default used to be 60. Roughly speaking, this means that the computer will start using the swap partitions when as little 40% of RAM is being used. This was a safe default for old machines. However, if you have plenty of RAM, you can reduce the swappiness.
+This way your system will still page out ("swap") but it'll do most of it to ram, and thanks to compression the amount of memory pages kept in physical ram (either in active memory or in zcache) will be more than what you get from normal uncompressed ram. 
+If RAM is enough the OSes will not swap, other than paging out some 'dormient' processes to free more physical ram.

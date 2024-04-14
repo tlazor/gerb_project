@@ -1,0 +1,8 @@
+One thing I find odd though is that you're checking these properties via the compatability view (sysdatabases) rather than getting the status via the system view (sys.databases). Is there a specific reason for that?
+For slightly better performance consider disabling auto close unless you have a high number of databases on the system and really need to reclaim the resources.
+This theory is backed up by the fact that there is an is_cleanly_shutdown column in sys.databases. The value of that column is always the same as the value of IsShutdown, i.e., they are the same. 
+That definition does not make much sense given the name of the property. In practice, the IsShutdown property seems to be directly related to the IsAutoClose property. If Auto Close has cleanly shut down the database after no connections are active any longer, IsShutdown gets set to True. Once the database spins back up (so to speak), IsShutdown is set back to False. 
+My guess is that you're still supporting SQL 2000 instances, but if not you might want to update your monitoring code to take advantage of all the data available in the SQL 2005+ system views.
+Short story: The IsShutdown property is not important for monitoring the status of my databases. Even when set to True, the database is still in a good state. 
+The bad definition of the property is likely what caused the developer I inherited this query from to include it in his database status check. I have now removed the check of that property from the query.   
+A better practice might be to look at the status of the database in sys.databases or sysdatabases.  If the status is not 0 then there is probably a problem (unless you are using mirroring, log shipping, etc. where the database status shouldn't be 0).

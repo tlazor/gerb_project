@@ -1,0 +1,6 @@
+In short, no the hash stored in /etc/shadow is not and can not be used as a substitute for a users password.
+Now, when you first create your password, say hunter2 the system will run hash('hunter2') and store the result in the shadow file.
+I'm sure you know, but just in case the idea behind hashing is pretty simple -- you find a function which is easy to calculate in one direction but incredibly difficult to calculate in the other direction. Let's call that function hash.
+Then when you log into the system you claim that your password is hunter4 and the system checks this by comparing hash('hunter4') to the value stored in the shadow file. If the hashes are equal system will let you log on, if they're not then the system will deny you.
+You can use the --askpass option to have sudo call a helper program to get the password for it, but while it would prevent the password from appearing on the command line, it still requires the plaintext password to pass to sudo  
+The advantage to this is that even if someone manages to get access to your shadow file, they still don't know your password and can't log on as you because although they know the hash, it's incredibly difficult to determine the password that produced this hash.

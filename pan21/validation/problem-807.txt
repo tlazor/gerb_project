@@ -1,0 +1,5 @@
+There are no such thing as mSATA traditional hard drives, so you would have to use an adapter (if one exists to go from mSATA to SATA, not sure there is such a thing) to fit a standard SATA drive into an mSATA slot.  
+mSATA is the same as standard SATA port, but uses the physical form of the mini-PCIe connector. There is no performance difference, just a physical size difference.  On some laptops, the connector can be set in the BIOS to act as either a mSATA or mini-PCIe slot (you cannot plug an mSATA in a mini-PCIe slot or vice versa, it won't work).
+So if you have a normal-size SSD for OS usage and a high-capacity (3TB, 4TB) spinning drive for storage, you'll want one of each port.
+mSATA "drives" are very tiny, this is the advantage of mSATA.  Adapters to convert an mSATA to a standard 2.5-inch SATA size are cheap and widely available.
+The motherboard I am going to use to build my new computer with has an on-board mSATA port for an SSD. How is this different then a regular SATA SSD? What are the advantages and disadvantages of using one over the other?

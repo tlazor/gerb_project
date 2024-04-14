@@ -1,0 +1,7 @@
+Someone implemented a kernel-mode driver to do this magical feat for the wireless Apple keyboard. I am not sure if it works for a macbook. The FAQ says that an option is to install Windows "natively." Regardless, there is a good chance a small modification to the source code could get it working everywhere.
+(there is also OSXFnBehavior but AFAIK this just controls that the function keys can be pressed without pressing Fn)
+There are sooooo many discussion on the internet about swapping the fn and ctrl key on a MacBook Pro.
+There is a registry key that may be able to do this, however I haven't found any documentation on it.
+I remember there used to be a program (maybe it was on XP) that not only swapped the two keys but it also controlled the fans on the MacBook Pro. But I can't remember the name and I also recall that that program stopped being updated like years ago.
+But on the PC side (specifically Windows 7), I can't really find a definitive answer. Most post refer to this article but I read the loooong article and followed the instructions to no avail.
+It's a service you have to run in the background, but I've used it in the past when I was using an Apple keyboard on a Windows machine. It works pretty well--the only downside is that you need to have a service constantly running in the background.

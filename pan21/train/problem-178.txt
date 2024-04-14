@@ -1,0 +1,9 @@
+/edit : Mathieu makes the good point that you might do just fine with MS NLB, depending on the service(s) that you're trying to make highly available.
+You badly defines your needs. You choose a solution based on what will the servers hosts (web sites, mailboxes, dns, databases, custom app...).
+It may require special configuration on your switch, depend on setup your will choose (unicast vs multicast).
+Mainly, the solution should be designed to work in high availability, else you will experience issue and won't be supported by the software vendor in case of issue or questions.
+E.g., if 1 server goes down(due to connection or power, etc), the other kicks in either immediately, or after a certain time of like a few mins
+I have 2 Windows Server 2012 servers, and 2 Windows Server 2008R2 servers. What software should I consider for each of the setup?
+What are some of the industry standard enterprise software to allow fail-over or swap-over between 2 servers?
+If you also need to share data (shared windows disk through san), then you must look on Windows Failover Clustering. It's more advanced (using resource) , but need a shared storage solution.
+It's IP based, so it won't detect if your web server or application stop. It will spread load against all servers until one of them is disconnected from network or dead.

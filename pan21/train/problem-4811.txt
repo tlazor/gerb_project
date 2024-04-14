@@ -1,0 +1,9 @@
+Looks like something wrong with DNS. 30 secs may be the timeout on some DNS query on Apache or LDAP server side. I'd double-check that!
+Do I reload the page after the first slow but successful authentication, everything is done in one second, see this log file snippet:
+For the sake of completeness you should post your actual mod_authz_ldap configuration directives, not just the log snippets. For me this sounds like a DNS problem somewhere between Apache and AD, but without more info I can't be sure.
+I would do a packet sniff on the network to see where the delay is occurring.  It should show you if it's taking a long time for a DNS response to come back, or if the LDAP response is slow, or if there's some other delay you haven't anticipated, like an LDAP referral as DAM suggests.
+I have a problem regarding my Subversion server installation with Apache (mod_ldap and mod_authnz_ldap) and my LDAP connection to a Microsoft Active Directory
+I also post this question here, but it is not a subversion problem, it is related to Apache and mod_ldap, so I think I won't get help there: http://subversion.open.collab.net/ds/viewMessage.do?dsForumId=3&dsMessageId=417998
+You should try to do the authentication manually using, for example, ldapsearch on the CentOS machine and see if you can reproduce the problem there. Something like:
+The problem is the connection to my LDAP, because it needs for the first authentication exactly 30 seconds.
+A look at the LDAP server: First it binds successfully, then it does very fast a search request and gets a search request entry with the full values of the user ´myLdapUser´, then, the user is not authenticated yet and after 30 seconds, it calls again the Active Directory with the user information of the search request entry and after that, the user is accepted.

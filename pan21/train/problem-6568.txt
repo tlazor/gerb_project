@@ -1,0 +1,10 @@
+I have backups of all the important files that are missing, but I'm not sure how to get this Active Directory server forgiven for jumping back in time so many months.
+There is a secondary domain controller (on a physical machine), but now that this primary server is running (like its October 2012) I assume it is replicating over the 2nd domain control server that never went down.
+Today, after receiving notification of numerous problems occurring on the network, I launched Hyper-V manager to discover that the company's primary active directory server was missing from the list of virtual machines!
+What's the best thing for me to do. Am I going to have just rebuild the whole network from scratch to get all these issues resolved? Or is there a way that I can get the other machines on this network to forgive this outdated Active Directory server?
+We access Hyper-V using Hyper-V Manager which connects to this host-server and it provides a GUI for managing our virtual machines.
+After doing this, the server booted up, but all the files on the file system were from October of 2012.
+Also, now that the server is running, Active Directory isn't working properly. Many mapped network drives are giving users access denied errors. I've removed sharing from each of these folders and have added sharing back, but I continue to struggle. Share printers aren't being shared anymore. Too many issues to mention!
+I logged into the host's console and found the folder where the virtual disk drive were located. Since the virtual machine was no longer listed in Hyper-V Manager, the only thing I knew to do was create a new virtual machine, and mount the same virtual drives c and d to this new virtual server instance.
+We are running Hyper-V on a Window 2008 server that doesn't have a desktop (only console login is provided).
+There are current snapshots (avhd files) of the server, but since I booted the server from the vhd file first, I understand that I've corrupted the ability to merge to the snap shot. If there's a way around this please tell me.

@@ -1,0 +1,6 @@
+Of course, while that simplifies the code, it sacrifices clarity and maintainability. So don't do that. :)
+As a Java developer, the first is much easier to read. It could be confusing too: why the author use LINQ instead of a simple ||? It reminds me the law of the instrument: "if all you have is a hammer, everything looks like a nail".
+Anyway, maybe it's worth creating a well-named local variable for the condition which could help the readers:
+Seems to be swatting a fly with a Buick to me. The first form seems pretty concise and the variable names are quite descriptive. The second form creates a new object (the array) which will eventually have to be GC'd and introduces a new lambda variable, c which doesn't seem descriptive any more.
+Assuming both budgetRemaining and totalOpenInvoices are guaranteed to be non-negative, you could write:
+Fancy is not the word for it. This is insane. Ever heard of the KISS principle? Keep-it-simple-stupid. Unless of course you are intentionally looking for ways to make your code look obfuscated, and your executable file bloated.

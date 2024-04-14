@@ -1,0 +1,7 @@
+So suppose I have a block of IPv4 addresses and one of the hosts address is 182.44.82.16/26. Is it possible for me to find the first and last address of this block of address?
+/26 means 26 bits for the subnet. At 8 bits per byte you get 24 for the first three bytes, and two for the last. It means your last byte will be of the form (nnhh hhhh), where n is a subnet bit and h a host bit. 16 is indeed (0001 0000), so you get (00xx xxxx).
+Thus the network address is (00|00 0000) -> .0, the broadcast is (00|11 1111) -> .63, and the first and last useable addresses are .1 and .62.
+And then this means I left with only the last 3 bits for the IP addresses, which makes the first address going to be 182.44.82.16 and the last address 182.44.82.23. But this doesn't look quite right. How can I calculate the first and last addresses of this block of addresses?
+I am not sure if this is the right place to make this question but I thought this is one of the most appropriate SE's site to make a question on networking. Please move it to other more appropriate sites. Thanks.
+Since both the address and netmask can be expressed as a 32-bit unsigned INT, and they are intimately related, this is easy:
+Subnet Calculator might work, http://www.subnet-calculator.com/. Assuming the network class is class 'B' you get 182.44.82.0 - 182.44.82.63

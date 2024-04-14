@@ -1,0 +1,9 @@
+If you only have 2 servers, make them both DC's.  There is no harm in this.  Since this is a small network, they can double as your file servers.
+Also, as a general rule, it's highly recommended to have 2 servers be domain controllers (and global catalog servers) for your domain.  That way your Active Directory stays up in the event of a failure (or reboot!)
+Also personally I hate doing implace upgrades on servers (too risky, had too many bad things happen).  Plus you wouldn't be able to if you got the Windows 2008 OEM since its fixed to the new hardware.
+There are lots of good articles from Microsoft and bloggers that describe this process.  Here are some links:
+What is the best way to move the AD and all it's settings, members, groups, rights etc to the new server?
+Will you be keeping both servers after the domain upgrade? If so, your best bet is to leave the new box as a member server and upgrade the current DC instead. You can use the technet guide at http://technet.microsoft.com/en-us/library/cc731314.aspx for assistance.
+The AD domain will be at a 2003 level.  Nothing wrong with that, but IF there was a feature you wanted that existed only with a 2008 AD Domain (don't confuse with a 2008 Server) you'd need to remove the 2003 DC by DCPromo it down.
+At my work, we have bought a new server with the 2008 server OS. And the old AD domain controller is run on a 2003 server.
+The quick answer is to use dcpromo to add the 2008 server as a domain controller in the same domain that the 2003 server is in.  Once the 2008 server is a DC, you can run dcpromo on the 2003 server to remove it as a domain controller.  This will allow you to keep your Active Directory intact, but move the services to another server.

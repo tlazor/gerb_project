@@ -1,0 +1,5 @@
+Docker actually manipulates iptables behind the scenes, so there is a good chance that sshuttle is interacting with docker in unpredictable ways.  Any rules that need to be added to IP Tables that affect the docker interface need to be added to the DOCKER-USER chain as per Docker and iptables.
+Please note that I am not trying to push a contained behind VPN. The problem occurs specifically on build stage. 
+It's quite an involved topic so I would also consider reading an exploration of Docker networking and the overview of the docker network.
+There is also an old question on StackOverflow but based upon the comments the current highest voted answer no longer works.
+Well, the title says all. I have no success trying to route docker's network traffic through an active VPN connection (openconnect) or SSH tunnel (sshuttle). Docker creates a virtual network interface called docker which seems to be ignoring all the iptables rules that sshuttle adds. In VPN case however the entire docker process disconnects while OS's traffic is being routed through VPN.

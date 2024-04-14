@@ -1,0 +1,6 @@
+As you said, you are unable to use sudo, you may think the other way around. Are you able to run the script as root and su to an user with lesser permission for the parts which do not need to be run as root?
+The approach you describe would require that anyone who could run the script would be able to read the script - and hence the root password.
+As already said, sudo is exactly what you need and the best solution (you know, that you can limit sudo access for each command separate?)
+You could set the sticky bit on the file permissions - but it'd take a very long time to go into the implications of doing that - and it seems that neither you nor the person who asked you to disable sudo really understand the Unix permissions model.
+! you've been asked to disable the sub-system which has been specifically designed by some very smart people to provide limited root access to designated users and now you need to provide root access to designated users with your own home grown solution (and have proposed a very bad way of solving the problem).
+you should use sudo. In the file /etc/sudoers you can configure the commands which should be run with root privileges and whether a password is needed or not.

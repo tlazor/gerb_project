@@ -1,0 +1,9 @@
+When the door is opened, replace that sprite with #2 (just the door post).  Then place sprite #3 (just the door) in the adjacent cell that the door would be in. 
+When the door is closed, draw sprite 1, and treat it as a "blocker" so players can't walk through it.
+With this setup, you don't have to worry about rendering the opened door in any special order.  Just render it in the order as any other object in the square it is in.
+I have an animated tile of a door. When it's closed it should be sorted one way, but when it's openend it will need to be sorted a different way, as it belonging to a different(neighbouring tile).
+I imagine it would be possible to override the sorting system for such tiles and adjust the sorting based on the frame, but it feels a bit hacky.
+Maybe you could make a door out of two objects, on different tiles, and only show one of them at a time. This way, opened door might conceivably block movement too, which seems kinda realistic.
+The downside is that you can't have the player or any other object in the square where the opened door will go.
+The best way to solve the sorting of objects is by not sorting at all. If you use a depth buffer, you can render everything in one pass. Objects that have a higher z-value will be further away than objects with a lower z-value.
+Even if your game is 2D, you should still consider using 3D coordinates with a depth buffer, otherwise you will forever tango with the painter's algorithm.

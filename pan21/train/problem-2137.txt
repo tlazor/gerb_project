@@ -1,0 +1,6 @@
+You won't be able to do backups to remote PCs anymore - the two PCs hook up via the CrashPlan servers.
+Assuming their infrastructure won't be available anymore at all I guess you should at least be able to restore your data by copying over the backup dirs from the destination machine. Afterwards you should "import" the backup archives on your machine. Give it a try while you're not connected to the internet. 
+Restore functions without our infrastructure - provided you have access to backup set.  (I.e. local backup, or another computer)  So no risk there.
+You can pay them some money to send your files back to you on a drive but that's only any good if you have warning of them going out of business. Otherwise, no, your data will be gone (but without anyone paying the electric bill what else can be expected ?).
+In general, I'd suggest performing another type of backup (probably with different schedule) as well. Relying on one (proprietary) solution only could be dangerous.
+If you've done your backup solution correctly, it should not hugely affect you. The crashplan client allows you to upload to multiple vendors, and you should do so if you feel there is a need. Your solution is usually only as good as its weakest point. It shouldn't be your only backup.

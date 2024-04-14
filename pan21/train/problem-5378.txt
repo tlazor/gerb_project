@@ -1,0 +1,6 @@
+Page 22 of the 323's manual doesn't provide any specific (or helpful) guidance other than saying it can use a static IP or use DHCP. 
+Barring that, since your router ARP log doesn't show a DHCP REQ (request) from the 323, there may be something else going on - either with your router or with the 323.  Another thing to try would be to place an analyzer/Sniffer (like Wireshark) in between the 323 and the router. If you see DHCP REQ's coming from the 323, you know the issue is with the router. Otherwise, if you don't see requests, you know the problem is with the 323. 
+If it is anything like an older Dlink NAS I had, the answer is that it comes pre set to a static ip... I think 192.168.0.100 (but I forget now).
+Remember that if you're in a switched environment, you will only see the DHCP request broadcast on the initial broadcast/flood and not DHCP reply from the router (assuming you're not port mirroring or using a passive splice, etc.)
+Unless someone here works for D-Link and knows the 323's hardware/software requirements, no one (here) is going to know the answer to your question - Whether the 323 must reside on a 192.168.0/24 network. 
+The simplest approach to answer your question would be to reconfigure your router to serve an address on 192.168.0/24 and see if things start working. 

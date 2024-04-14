@@ -1,0 +1,8 @@
+When we send mail to Hotmail servers, they do not recognize our Sender ID. In the receiving mail source, it reads
+- We have tried all of the steps above with another domain of ours and different IPs as well, nothing changed.
+I'd express my opinion of the people responsible for this, but I'm pretty sure it'd violate the site guidelines on profanity.
+And then you should be aware that Sender ID is not SPF. See the Wikipedia entry and the OpenSPF website (when it'll be back online). But there are even more resources.
+I am aware that Sender ID is not the only thing affects deliverability, but I need to fix only Sender ID, as it seems to be hardest one to solve and probably this is the only problem we have. IP and domain are both new, and not on any blacklist. 
+Best guess is to visit http://www.kitterman.com/spf/validate.html, fill out the form(s) and check for errors. You will probably see no errors, otherwise Google would reject it right away. But you may see warnings. Take care of warnings, fix them and you will see.
+We have been getting this error for weeks. I wonder how people who have "pass" in the header do this. 
+Try sending a message to port25's verifier address mailrcheck-auth@verifier.port25.com.  You may want to review my experiences in Detecting Email Server Forgery.  The article includes a list of verification services which may help you track your problem. 

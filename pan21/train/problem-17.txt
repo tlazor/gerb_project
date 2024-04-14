@@ -1,0 +1,7 @@
+But there's one big problem with this method; when the script finishes, it returns me to the "C:\Windows\system32" directory instead of the directory of the script itself.  See my image below for clarification:
+What do I need to change in the default value of the command key in order to get the PowerShell script to act as if it was run from the same directory as the script?
+And in this key, I have something that almost works, but not quite.  So the default value of the above command key is:
+and that's all fine and dandy to create the entry.  However, in order to actually make it do something, I need to add another key, the command key:
+Or just create a new shortcut, configured the way you wish and use Right-Click SendTo menu, no reg hacking required. 
+Instead of it recursing through all the folders local to the script I just ran, it tries to recurse through all the folders at "C:\Windows\system32!"  Clearly this is undesired.  So here's my question:
+I'm really close on this one.  Basically, I want to create a context menu entry for .ps1 files that run the script as administrator without exiting the console window after running.  So I can create the key:

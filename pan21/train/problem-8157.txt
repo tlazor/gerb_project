@@ -1,0 +1,5 @@
+I'll second @Zak 's suggestion on clearer function names, although my naming preference is for AsciiToHexString and HexStringToAscii.
+Your second function should explicitly state its return value. In your case, it should return Variant since the value could be CVErr or a valid string.
+I prefer variables to begin with lowercase letters and a Sub or Function to start with an uppercase letter. I've seen this convention used consistently on SO, and (for me) it makes for clearer reading.
+In the other function, your error handling is not consistent. At the very least you should add a GoTo SafeExit at the end of your DecodeError: section. This is good practice to force a single return point from your function. Alternatively, you can skip that error handling altogether with If statements:
+It's a personal preference thing (IMHO) on how to handle function returns. One possible alternative would be to set the function return value for the failure case at the beginning of the function. Successfully completing the function will change the return value to an expected result. Any potential processing errors along the way will guarantee return of the failure case.

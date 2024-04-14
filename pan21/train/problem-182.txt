@@ -1,0 +1,6 @@
+First you should decide whether you think these values are independent or not. Do the x predict the y or z at all? And, do you think just the previous 1 value is predictive, or the previous n?
+This looks like the Markov chain model, so you may look into that, but somehow I think it's over-general for what I think the problem is.
+For example if they're sensor values read fairly rapidly, and the sensor changes slowly, you'd expect some simple model like a moving average to do well. For other types of values this would not be predictive at all.
+Either way you could model this as a simple regression problem. What technique is best really depends on what you expect the relationship to be, and what these variables are; I am not sure that's given here.
+AFAIK if you want to predict the value of one variable, you need to have one or more variables as predictors; i.e.: you assume the behaviour of one variable can be explained by the behaviour of other variables.
+In your case you have three independent variables whose value you want to predict, and since you don't mention any other variables, I assume that each variable depends on the others. In that case you could fit three models (for instance, regression models), each of which would predict the value of one variable, based on the others. As an example, to predict x:

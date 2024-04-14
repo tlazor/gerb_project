@@ -1,0 +1,8 @@
+Combined with default REJECT rule on the INPUT chain this approach prevents users from connecting directly to ports 8080, 8181
+Let's say we have a server which accepts HTTP connections on port 8080 and HTTPS connections on port 8181.
+If your system supports it you could maybe use capabilities. See man capabilities, the one you need would be CAP_NET_BIND_SERVICE. No, I`ve never used them myself and I don't know if they really work :-)
+works fine but it has a small drawback -- it does not prevent user from connecting directly to port 8080 instead of 80.
+If you are trying to do this so that a user-run command can use port 80, then your only solutions are the iptables tricks or setting the executable setuid-to-root.
+The way something like Apache does this (it binds to port 80, but is running as someone other than root) is to run as root, bind to the port, then change the ownership of the process to the non-privileged user after the port is set up. If the app you are writing can be run by root, you can make it change owner to the non-priv user after the ports are set up. But if this is just for an average user to run from the command line, then you'll have to use one of the other solutions.
+Now, let's suppose our server decides to redirect user from a HTTP page to a HTTPS page. Unless we carefully rewrite the response, it would redirect to https://host:8181/. At this point, we are screwed:
+I think the best solution is to sgid your app and as soon as it has its port bound it should drop the privileges by switching to another user.

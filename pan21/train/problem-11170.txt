@@ -1,0 +1,7 @@
+My laptop usually runs under Archlinux / Gnome, but being dual-booted with Windows 10, I could see that the problem also occurs in Windows (latest version, up to date including all Dell utilities), but maybe a little less frequently, I think.
+As unplugging the power immediately solves the problem, it could suggest that the power supply would be involved.
+I was able, thanks to a USB multimeter, to check that the voltages are almost identical on the 2 USB ports (5.07V on the port where the problem occurs, and 5.08V on the other).
+The use of Dell diagnostic tools, whether on Windows or UEFI firmware, has not revealed anything abnormal.
+The problem occurs randomly, the malfunction can last a few tens of seconds, then everything works fine again. until next time, which happens very regularly!
+This problem only occurs on one of the 2 USB ports (the one next to the power plug), and this is the strangest thing, if I unplug the power to run only on battery, the behavior of the mouse becomes normal again immediately.
+I recently noticed a rather odd problem with the operation of my Dell Wireless Mouse WM514p on a laptop Dell XPS 9550 15: the movement of the mouse becomes jerky and its positioning imprecise, which makes its use almost impossible.

@@ -1,0 +1,6 @@
+All this is meant for the packaging system to handle and upgrade automatically the clusters, which are features that the baseline PostgreSQL leaves to the database administrator.
+I had this problem with an Amazon Web Services instance.  The Postgresql site assumes you have the server and client installed.
+Once you've installed the PostgreSQL server with apt-get install postgresql-9.1, it's already set up and running so your steps #2 and #3 (run postgres and run initdb) are not necessary and in fact would conflict with what has already been set up. By running manually initdb you'll end up with two postgres clusters.
+When you run sudo it is best to put the full path to the command you are running.  In your instance:
+The postgresql packages for Debian and Ubuntu provide a command named pg_createcluster that resides in /usr/bin and that you may call, should you need to create a new cluster. Under the hood, this command will call initdb with the right parameters. The end user is not supposed to call initdb directly, which is why it's not in the normal PATH.
+There are also other commands like pg_dropcluster and pg_ctlcluster that supersede the ways a non-packaged PostgreSQL instance would be administrated.

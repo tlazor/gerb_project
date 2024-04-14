@@ -1,0 +1,5 @@
+It seems like one's turning on switches on some machine which is contained somewhere, but it isn't seen as an object in object-oriented sense?
+It is also a Hardware Abstraction. The same OpenGL routines should have roughly the same effect regardless of the hardware it's running on. If you upload 3 vertices for a triangle and then draw them, that should produce similar results on an ATI, Nvidia, or Intel GPU, for example. You don't need machine-specific instructions for each one.
+For more about the paradigm, you can read about it here: https://en.wikipedia.org/wiki/Imperative_programming
+It's generally referred to as a "state machine". It has, as you noticed, a bunch of switches and parameters. All of them are globally accessible to any code that has access to the current context. Your program sets them and then issues draw calls. Anything you don't change, will remain in that state until you do change it. 
+The proper term for this style is called "imperative programming." You would be correct in thinking that it is similar to C because C is classified as an imperative programming language.

@@ -1,0 +1,8 @@
+Second, you should consider using SCVMM 2012 R2 (System Center Virtual Machine Manager) to migrate your virtual machines between the clusters.
+I did some browsing of the existing articles regarding this question but I couldn't find it so I apologize if I simply missed it.
+I have 3 newer servers and an extra, smaller capacity FC storage device that I could use to temporarily house the guest VMS. 
+Do I have this right? Am I making more work for myself then is necessary? Is there a way to do this without moving my guest VMs off the production-CSV?
+SCVMM will be able to move the VMs from the 2008 R2 cluster CSVs to the 2012 R2 cluster CSVs and upgrade the Hyper-V integration services in the guest operating systems.
+My goal is to upgrade my current 2008 R2 3-node hyper-v cluster to server 2012 R2, "using the same FC storage" (production-CSV) and expand to a 6 hyper-v node (3 newer servers + 3 current "older" servers). I have read many, many articles regarding this process and the steps seem pretty straight forward. This is what I was planning to do based on my readings:
+First of all you won't be able to access a CSV from the 2008 R2 cluster and the 2012 R2 cluster at the same time.
+One additional consideration would be to check the compatibility of your old servers with Windows Server 2012 R2 so you dont end up in an unsupported configuration. Also, you won't be able to achieve Live Migration between hosts with different CPU manufacturers.

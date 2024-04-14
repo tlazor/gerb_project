@@ -1,0 +1,6 @@
+The suggested formula provides two starting values: the current time, and the local system's MAC address. This creates two seed values for the final random output.
+The section right above it (3.2.1) identifies that the formula in 3.2.2 is merely a suggested formula, not directed:
+Remember, the purpose of the algorithm is to avoid everyone picking FD00::/48 so they can abbreviate everything with the double colon. (Or other "easy" ones like FDAA:AAAA::/48, etc).
+So what MAC address? Whichever you want... your phone, your home PC, your work PC, your buddies VM on his hypervisor, etc. So long as you pick one that you would likely not pick again if you are faced with generating another ULA address scope in the future -- even a random series of 48 bits would also do the trick.
+If you were picking your own values, you would want to pick a value that would be different every time you generated a new /48 (like the current time), and something that would be different if two people on opposite ends of the world happened to generate their ULA address space at the exact same second (like their individual MAC addresses).
+As long as you use something with at least as much randomness of what is outlined in 3.2.2, you will be fine. 

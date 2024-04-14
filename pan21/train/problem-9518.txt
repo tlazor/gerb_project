@@ -1,0 +1,7 @@
+It works great. But our guys need to be able to run multiple instances of the app locally. I can manage to seperate the users and handle everything on the Windows 2008 Terminal Server side - but I've got one major issue.
+I've got users using RDP to connect to a Windows 2008 with Windows Server 2008's Terminal Server Application mode. (Users RDP in and get an app that looks like it's running locally.)
+Did you try to 'runas' tsclient with different credentials? Trick works with some apps which allow single instance only...
+If he needs to launch several applications, you should delete the "launch application" from the shortcut's properties: that will allow him to see the desktop. There he can launch multiple applications as if he's using his desktop computer.
+Do you have your TS server(s) set to restrict users to a single session, either on the TS itself or via GPO?
+On the Windows clients (that are running RDP to connect) - I can't run more than one session of tsclient (the Remote Desktop sofware.) I've tried duplicating the shortcuts that the users use to launch the session, I've tried renaming the server (using hostname in one shortcut and IP address in another), but no matter what I do, it keeps focusing the already existing RDP session rather than creating a new one. However, if I don't use a shortcut, I can have two RDP sessions going at once (haven't tried connecting to the same server yet.)
+RDP allows only one connection per account: each user has ONE desktop, and it can't be shared among multiple connections.

@@ -1,0 +1,6 @@
+The most "normal" way to prevent database backup - simply ask persons who have permissions to backup databases, do NOT do any full backups (that are not copy_only) until migration is complete...
+And disable any user that is in the db_backupoperator or db_owner groups. Members with this role can backup that database. You will need to do this for each database, they are database roles, not server-wide roles.
+The least permissions required to take backup is db_backupoperator ,then comes the db_owner who can take the backup. These are database level roles. 'Sysadmin' being the server role which can take backups.
+You could disable logins from the SA group. Anyone in this login group can do backups on any database on the server.
+Please consider scripting out these users and logins before deleting them. While disabling is a lot easier to restore then dropping, a restore script is a safety net to help keep you employed and way less stressed out...
+Now you would like to check the permissions your logins have. Script them all out first. Just remove above permissions till you are done with the migration. Once done grant the permissions back.

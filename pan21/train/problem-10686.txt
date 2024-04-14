@@ -1,0 +1,8 @@
+In terms of making it simpler, the main thing that sticks out is you have essentially 4 nearly identical loops. Let's start by comparing the adding of rows. Between the LR and RL versions, the only difference is the direction the column j loop goes. The direction you go when setting all of the cell values doesn't matter in this case (because you are looking up the column with the same index you are setting in the value), so let's move the row adding loops outside the column adding loops.
+Some style suggestions (the first two are the only ones I feel strongly about, the rest are very subjective):
+You could get really fancy and create variables for your loop index start, end, and increment conditions. I don't think it would help readability, but this is another option for condensing code:
+At this point, you have two separate if blocks, each with their own for loop, and only one function inside. That's about as "simple" as I would try to make it.
+Passing in a string for horizontalDirection and verticalDirection is error prone. The caller could pass in the wrong value without realizing it. It also makes it harder to make changes with refactoring tools.
+I like that you have an actual method, instead of a bunch of code in Main. This makes is easier to reuse, segment changes, and test.
+I wanted to have a DataTable with cells in direction that is top to bottom or bottom to top and left to right or right to left.
+Comapring BT against TB, the only difference is the start, end, and direction of the i loop. That means the inside of the loop is identical. Sound like a good place for another method?

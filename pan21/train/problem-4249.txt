@@ -1,0 +1,7 @@
+I run Music Player Daemon on an old Apple Cube with a couple of big harddisks in software RAID1 with all my cd's in flac format.
+With Windows 7 and Windows Media Player 12, the media sharing options are remarkable, and it syncs perfectly with my old Sansa m250 MP3 player.
+I use iTunes on Mac OS X because I like the integration with everything else, it's default, and I don't have any third-party hardware I need to use with it.
+Whatever is default is fine. Other than installing iTunes for Windows so I can sync my iPhone on my HTPC, which also holds the media/music library, I don't install 3rd party software for music playback.
+To control the daemon I have hooked up mpc-commands to various F-keys in XEmacs on my desktop machine. Occationally I start the gmpc.
+I've written a very rudimentary iPod touch friendly web-frontend that uses mpc to get information and send commands.
+Oh, and a simple commandline utility that transfers a music file to the jukebox and queues it for immediate play (i.e. for ad-hoc downloaded podcasts etc.)

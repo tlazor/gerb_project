@@ -1,0 +1,7 @@
+But alas, as I found out, at least "List folder/read data" permission is required to be able to create a share!
+Even the second approach (let the user create the subfolder by itself) is open to "curious" administrator as, again, nothing can stop a real admin from read/write any file.
+I don't think you can prevent administrator access to some files: even if configuring the ACLs to deny access, the administrator can always change the ACLs itself.
+If you are speaking about "real administrator" (eg: someone included into the "Administrators" group", you will have an hard time doing that.
+If you talk about "share admin" but not really a machine-wide administrator, the second approach can work, though.
+I encountered a problem when trying to create a folder share on an NTFS volume on a Windows 2003 R2 instance:
+The account used for administration should - due to the sensitivity of the data - not be allowed to access the folder itself or the files therein. That access is to be restricted to the owner of the data.

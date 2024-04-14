@@ -1,0 +1,6 @@
+I've set up 8x500gb disks in raid0 on an EBS optimized EC2 instance and I ran iops.py to check the speed, but it seems really slow.
+So it comes down to, what speed/type of disks are you using? Then find out the avg. seek time and latency from the manufacturer and use the above values to see if the IOPS is what is expected (again write penalty and overhead should be factored in for write IO).
+Are you paying for provisioned IOPS? If not, you'll be getting around 100 IOPS per EBS on average, which ties in with what you're seeing with 8 EBS volumes tied together.
+Does anyone know if this is normal speeds for raid0? I'd think I'd be getting IO/s over 1000 more or less constantly?
+You're not really giving us enough information to go off of.  Taking any kind of write penalty out of the equation if we assume your using standard 7200rpm Sata drives then your IOPS would be as follows:
+This might be harder since your not in a physical environment but I'm sure someone can give you a clue about the disks used in EC2 pools.

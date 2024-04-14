@@ -1,0 +1,5 @@
+This seems to be an SNI problem. If you provide multiple SSL certificates on the same IP the client sends the host name along with the initial request, so the server can provide the correct certificate. Older versions of ssl-cert-check don't do that, the feature was introduced with version 3.27.
+This checks the installed openssl version for the servername support. When I add this block into the script on my local Ubuntu installation the result is fine, without the block I get the wrong certificate, just like you.
+So, this is a bug, which has been fixed by the author, but hasn't found it's way yet into the Ubuntu repository. You can fix it yourself and hope after the next update the repo contains a fixed version, or you use the script from github instead.
+As you can see, the variable is set to FALSE and later it is checked for TRUE, but it is never changed.
+Both Ubuntu versions 14.04 and 16.04 ship version 3.27, but it seems like the feature is bugged in this version. There are basically two lines of code that are relevant:

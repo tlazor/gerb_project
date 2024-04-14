@@ -1,0 +1,6 @@
+Until then, you will experience the delay EVERY TIME you launch your 16 bit program.  Even if you are in a "black" command prompt window already.  You would think the driver has already entered the support mode for the DOS program.  But you will experience the delay when you enter the name of the 16 bit program and hit enter.
+Maybe you can buy an inexpensive video card and put it in your computer and stop using the integrated VGA or DVI on the motherboard.
+From my experience, the Intel HD Graphics 4400 integrated processor always causes a multiple second delay launching 16 bit programs.
+It is related to your video card.  I'm betting you are using a Intel core processor with the integrated Intel HD Graphics 4400 processor.
+Not every video card supports every video mode.  For instance, some video cards do not support full screen DOS mode.  That is, text 80 columns wide and 25 rows tall.  Some video cards only support DOS programs in a windows.
+The delay is not 8 seconds on every system.  On some systems it is longer.  I have a system that always has a 5 second delay.

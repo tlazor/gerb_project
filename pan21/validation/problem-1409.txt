@@ -1,0 +1,11 @@
+Any quadratic Bézier curve traces out a parabola, so we just need three control points. We already have two - the object's initial position and its target, so we need just one more.
+Then we can plot the complete path from the start position P, via this middle control point M, to the target point T by varying the parameter s from 0 to 1:
+The force/acceleration will lead to a change in their velocity, which will lead to a change in their position.
+With this basics of letting an Object follow a path, you just need to create an animation curve containing your specific shaped path and let the Object follow it. Just fill the animation curve with keyframes "by hand" or copy the values of e.g. the Mathf.sin function into it.
+To ensure continuity with the object's initial position, we can place the middle control point along the line (x + u * vx, y + u * vy) for any positive coefficient u we like.
+We can also think of this parabola as a ballistic trajectory under a constant acceleration a. over a time duration t = 2u, using the value of u we picked above to select the middle control point M.
+If you properly steer your NPC, their routes will automatically be curve-like and smooth. What is proper steering? You need to steer them doubly-indirect.
+Making an NPC reach a certain location in the world then becomes a hard task: you need to steer towards their goal, if still far away from it. When near, you need to steer in the opposite direction to slow them down, otherwise they will overshoot the target location.
+I want to reach the target by a parabolic path, how to implement an ai that follow a particular path from any given point to another like parabolic or sine wave.
+The best tool to steer your NPC around a world by settings forces, is the Proportional Integral Differential Controller, or PID Controller.
+You can iterate the next point to move to by just passing the time as index (needs to be converted to integer) for the next keyframe of the animation curve. More keyframes smoothen the movement and makes the object follow your curve more accurately.

@@ -1,0 +1,7 @@
+You can then stop/terminate your old server, leaving you with the new one in the correct Security Group.
+Of course, this solution won't work with a server running a writable database, but if you've got a writable DB on a single server instance in EC2 Classic, you've got other problems.
+I tried to create a VPC and include my running instance in the active VPC by creating new network interfaces, and this is not possible as well.
+If downtime is not allowed, you could clone your server instance by making an image of it, then relaunching the image with the correct security group.
+You could then create an ElasticLoadBalancer, place both the original and the clone behind the ELB, switch DNS (with very low TTL) from the priginal server to the ELB endpoint and the wait until the load is distributed across both.
+You would then drop your original server out of the ELB, using connection draining, and reverse your DNS change so that it now pointed to the ip address of the new server.
+I want to change the security group on running ec2 instance which is not included in VPC. I read that this is possible only if my instance is running in VPC.

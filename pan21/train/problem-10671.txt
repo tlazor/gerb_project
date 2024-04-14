@@ -1,0 +1,7 @@
+Syntax highlighting many languages in Word documents: http://www.planetb.ca/2008/11/syntax-highlight-code-in-word-documents/
+I found this question looking for the same thing for Outlook on Mac OS, but Notepad++ doesn't exist for OSX and I use Sublime Text (which has the advantage of being cross-platform).
+Without manually creating character styles for each element of the language and applying them manually, you can't.
+You may want to consider abandoning Word altogether and use AsciiDoc instead.  AsciiDoc is both a simple markup language and a processor to render documents into other formats.  It supports HTML and DocBook.  DocBook format can be converted to other formats (e.g. PDF, ePub) using additional tools (e.g. a2x).
+Your best bet is to take a screenshot in a editor that does do syntax highlighting and insert that into your document, or copy-and-paste the already colourful code from another program (perhaps a paste bin) and paste it into Word and hope that the colour formatting gets preserved.
+Note that on Windows or Linux the shortcut key for the Command Palette is different, but it can be accessed by going to Tools > Command Palette.
+Then to copy text you can press cmd shift P, and run "SublimeHighlight: copy to clipboard as HTML" (or RTF). These commands can also be assigned keyboard shortcuts.

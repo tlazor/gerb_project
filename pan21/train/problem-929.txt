@@ -1,0 +1,8 @@
+That said, with fields like this, you typically need to redo all the work for every group of NPCs that have a different goal.
+But the nice thing of these fields is, that once computed, you can have as many NPCs using it, as you want. As long as they share their goal. This allows for 1000s of agents doing pathfinding. Pathfinding this way is independent of the crowd size (cost is near-constant in crowd size, linear in number of different goals.)
+This is way too much information to explain in a single answer, but some good keywords for multi-unit pathfinding are "swarm pathfinding", "boids", "flocking behaviors", and "collision avoidance pathfinding".
+I assume that you're not keeping individual stats on these hundreds, like Spider named "Leggy Bob" has 3 HP remaining while his neighbor "Mandible Sheila" has 4 HP.  That would be silly.
+Make each navigable spider represent a group of N spiders, then calculate one path and during your movement flow the N spiders out during placement and rendering.
+Also for highly dynamic maps, if approximate paths are ok, check out HPA* (Hierarchical Pathfinding A*) - you don't need "logical divisions" to be able to separate your grid into smaller grids.
+You can also do SIMD processing of your grid. I personally did this with AVX Intrinsics in my steam game Imhotep, Pyramid Builder. I used 10 grids, one per goal, of size 128x128 cells. It pays if you can process 8 cells in a single instruction.
+In a 60 FPS game, there is no need to compute it every frame. Once every 20 frames is more than fast enough.

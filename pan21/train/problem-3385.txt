@@ -1,0 +1,6 @@
+1. Has anyone else ran into this or know if this is a known bug in version 12 or just a known "gotcha" ? (I'll get my exact version in a bit)
+I have interfaces 1-4 plugged directly into one another on the two switches. Port 1 to 1, 2 to 2, etc. The switches only had vlan 1. Port 1 on both switches were access ports and 2-4 were dynamic (default) but the operational mode was access in show int f1/0/2 switchport since there are no other vlans on the switches. Both switches were in mode rstp. 
+I'm in the process of studying to renew my CCNP again. 3 years comes and goes awful fast! While working on my lab gear I thought I wonder if I can shut down STP on a single interface like I've done in HP and Delta networks in the past. This particular set up was 2 Cisco 3750 48 port poe. Version 12 something. I'll need to double check exact version.
+On the root switch I decide to use context sensitive help and see if I could stop STP on interface 1. Here's what I typed... 
+The response I received was there was no spanning tree instance running! What the heck! I was on an interface. It was running just before that. It's easy to replicate as well. 
+I know this is going to sound elementary. Is there a way to turn STP off for a single interface? (not portfast or bpdu filter like I normally use). 

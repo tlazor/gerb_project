@@ -1,0 +1,6 @@
+You need to understand your requirements and study the different virtualisation platforms available and architecture best-practices used.
+It depends on your virtualisation solution and setup. If done correctly, it will have little difference compared to a physical machine. If done incorrectly, it will result in slow-downs. There are just too many possibilities. 
+My limited experience with VMs have led me to believe that disk IO is where a significant bottleneck is.  For that reason, I'd be more concerned about mysql than apache/php or network bandwidth.
+If your storage-pool uses images residing on top of an existing file-system, it will be less efficient as compared to a raw partition or even fiber-channel storage. If your VM defaults to a 10Mbps NIC, it may slow things down. If you use OS-level virtualisation, it can help reduce memory requirements because the kernel and libraries can be shared across VMs.
+we (our company) provide SAAS (software as a service) applications, and we think about virtualization to host our apache/php servers, and our mysql master/slave servers.
+I'll defer to the experts here but in the meantime, I thought I'd ask some questions that might help to formulate a more specific answer: 

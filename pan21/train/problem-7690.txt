@@ -1,0 +1,6 @@
+Building upon Raystafarian's comment, you can use the Contains or Does Not Contain values if there are no characters in the string.  If there's a chance of a character (e.g. 123c), then it will filter that value out.
+Have a look at this. It gives some interesting examples on advanced filtering. http://searchengineland.com/advanced-filters-excels-amazing-alternative-to-regex-143680
+This evaluates the first character in your cell (LEFT(A1,1)) and returns it's ASCII code.  If the code is between 48 (0) and 57 (9), it will return True, otherwise False.  You can then filter off of this column. I agree that you should convert your data into a Table, Excel works and plays well with Table formatted data.
+I have a column in excel file which is mix of set of character and numbers, I want to filter out all rows starting with character.
+To filter against the character v. number in only the first character, you'll need a helper column. Assuming your data in Column A:A, in an adjacent column (e.g. B:B), insert the following formula:
+If you need to, you can always hide the secondary column. Note that if you change your data into a table, adding new rows will keep the formula correct in the hidden column. If you need more flexibility on moving rows around, replace the cell reference with an OFFSET formula. Then, if you cut/paste rows, everything will still be correct.

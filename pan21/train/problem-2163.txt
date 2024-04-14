@@ -1,0 +1,7 @@
+All of them would have to be up for the pod to be completely up. Instead of running multiple processes within the same container, use sidecar containers. For now they share network namespace and emptyDir filesystem, but not pid namespace (pid namespace sharing is available in beta, https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/).
+So you can use an nginx container that serves content out of the pod disk and another container that runs “git pull” in a loop with a short pause to refresh the html content on the pod disk. 
+So the real answer is that most folks can and should avoid running multiple containers in a pod. If your starting from scratch building a typical new system you can keep things clean. 
+There's also those that setup an app stack as a Deployment (which materializes in one or more replicas of a pod), instead of multiple deployments. 
+A typical sidecar use case is utility containers. What I commonly see it one for logging, such as a splunk forwarder or syslog daemon. 
+Yet more and more people are moving legacy workloads onto kubernetes. Then you don’t have a choice about the actual application architecture. In which case you may find you need to run two or more processes that share resources wiring a pod. That’s a total anti-pattern for modern “share nothing” microservices but legacy code doesn’t follow modern best practices.
+Of course people would typically build an image containing the latest html using “FROM nginx” at the top of the dockerfile so they wouldn’t normally do things the way I described. 

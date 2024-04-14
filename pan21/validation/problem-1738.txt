@@ -1,0 +1,10 @@
+%ASA-3-713123: Group = 50.x.x.x, IP = 50.x.x.x, IKE lost contact with remote peer, deleting connection (keepalive type: DPD)
+There are about 85 tunnels that need to be changed, so even if this is relatively safe (and appears to be), I'd rather only do this once.  Does it sound like I am on the right track? 
+DPD only kicks in when your tunnels are completely idle, so as long as you were using bi-directional mode (the default), then the R-U-THERE/response messages from each node should also count as traffic on the link and reset the threshold on the far end each time (even if the counters are much longer on one end).
+These are statically defined tunnels, and usually they come back within a few seconds. These have no secondary peers.
+I have tested changing them, and can make the change, and nothing bad happens, but I am unsure if anything good is happening (the up/down bounce while frequent overall, is infrequent on any given tunnels).  Before I start changing a bunch in production I would appreciate a sanity check: 
+I think you are on the right track with regards to your settings - I generally stick with 10s for retry timer - if there are no secondary peers, then it doesn't really matter how fast a failure is detected.
+No good ones that I can think of.  Perhaps if there isn't a lot of traffic on the link to keep it alive, or it's a ridiculously expensive Satellite link, then you might wind out the threshold a bit.
+It's been a long time since I've touched an ASA, but I'm pretty sure that each instance of an L2L tunnel has independent settings rather than inheriting them from any of the default groups, so no unfortunately.
+I can find lots of information on how to set the threshold and retry for DPD keep-alives, but very little guidance on when to use and how to determine the best settings.
+Environment: Generally these are ASA5505's, a few 5525's and 5515's, with versions ranging from 8.2(5)59 to 9.5(2)6. The circuits on the spokes are generally low speed (cable modems, DSL, etc.) and usually not busy, but occasionally too busy. 

@@ -1,0 +1,6 @@
+Also, you may need to create the flexible bridge with the correct constraints when the user clicks the mouse.
+It looks like it is probably based on curves - like maybe piecewise Bezier curves, or maybe B-splines.
+One approach is to take the coordinates of the users click in game world and interpolate the points on either side to alter the terrain. The result are going to be determined by your method of interpolation. For instance a linear interpolation will result in triangle forming. 
+I do not know how it is done there nor can you ask that specifically unless you contact the creator of that demo.
+Internally in the code they could also be using hermite splines, catmul-rom splines or some other variant but without seeing the code its nearly impossible to tell what specific curve is being used since many of the above are visually equivalent, but are calculated differently!
+One last thing is that it appears the surface is being pulled from multiple points. Not just the one where the user clicks but also a couple if nearby ones.

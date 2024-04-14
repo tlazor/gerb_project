@@ -1,0 +1,6 @@
+What will the speed will each user get ? Will the 4MB be divided among all 75 users or will all users receive the same speed throughout the day ?
+Com on, that is common sense. NATURALLY the limited resource (4Mbit bandwidth) will be distributed among the users that actually use it (which is less than 50-75 - not everyone will have the same demands at exactly the same moment).
+Normally you would put a router on each end, shape the output interface of the router (which probably is ethernet) to 4Mbps, configure a QoS policy and apply fair-queueing, random-detect. You could also prioritize or reserve bandwidth for some applications.
+This would be entirely dependent on what everyone was doing at any given moment. The minimum bandwidth everyone could get would be 1/75th of the 4Mb (everyone streaming videos for example). The maximum could be 4Mb, with only one person using the line.
+Say that i purchase a 4 Mb leased line (Radio wave), and also i have around 50-75 users using the connection.
+Well, actually it depends on the queue management on each end. If it is a FIFO queue, in case you have eg a big FTP transfer between the two sites, it will consume the whole bandwidth while connections to Internet will suffer and telnet will seem unresponsive. 

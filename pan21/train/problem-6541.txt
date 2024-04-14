@@ -1,0 +1,8 @@
+It also depends on the network complexity. It is possible that your computer is located within a network that has multiple external IP addresses and the router somewhere up the line sends the traffic out to the Internet based on some criteria: for example, destination IP-address, or time of day (may be one uplink channel is cheaper at night or for other reasons).
+Or it could be that a certain destination (for example host1.example.com) always routes thru the Uplink A, and the host host2.example.com always routes via Uplink B. So, your external IP addresses as seen by those hosts will be different, providing that Uplink A and Uplink B are different ISPs.
+This will show the unicast address of the DNS server you are using, and if it supports EDNS it will also show your IP address, though possibly truncated.
+You can also use OpenDNS if you so prefer. OpenDNS doesn't use TXT records for this but rather A and AAAA records, so you have to specify which protocol version you are looking for:
+So, to be complete, a notion of "external IP address" may require defining a destination point to which your address is being external.
+In the example below Router #2 could perform NAT and send traffic to either uplinks and the receiving host could see different external IP-address for the Host.
+To get your full IP address you can bypass your local DNS server and send above request directly to ns{1,2,3,4}.google.com
+Notice that if your traffic goes through protocol translation you may get different results or none at all. Testing from a machine behind NAT64 I was able to see my IPv6 address with the above commands but not the IPv4 address of the NAT64.

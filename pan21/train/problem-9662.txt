@@ -1,0 +1,6 @@
+When I turn off encryption, I can get the WLAN speed to go higher to 1 MB/s or so, but of course that doesn't affect my internet speed, which also uses encryption. And obviously it's not something I want to do.
+http://social.technet.microsoft.com/Forums/en-US/w7itproperf/thread/4537c7b6-9761-41c5-8b47-0ecb831c8575
+If the WLAN speed problem is file copying between Windows 7 machines, there are several known issues that could be causing the problems.  Windows 7 introduces all kinds of overhead to network file sharing.  Here are some tips which might improve the speed:
+The cause seems to be encryption, though I can't make sense of why it would cause such a drastic slowdown.
+The former is normally ~2 MB/s (I get ~3 MB/s sometimes too), but the latter just doesn't go above a few hundred KB/s (around 200-ish). It's pretty much useless.
+For what it's worth, there are still some lingering problems with Windows 7 file sharing speed covered in this very lengthy thread over at Microsoft Technet Forums:

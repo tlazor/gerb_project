@@ -1,0 +1,5 @@
+(A possible reason they don't do so by default is that it is very annoying to accidentially IM your password to a stranger who just greeted you.)
+What you can do is configure Pidgin to set the window state to "needy" when a new message comes in. This will make the window and its taskbar icon blink until you give it focus. Usually this is enough to grab my attention. In Pidgin 2.7.0 there is a bug which prevents blinking from working properly, but that was fixed in 2.7.1, so make sure you're running the latest version.
+Pidgin is designed intentionally to not steal window focus. It would be nice if there were an option to let it do so, but currently there is not. I personally find IM clients that steal focus to be very annoying, since they distract from my workflow, but each to their own.
+Pidgin has a "New Message Notification" plugin, in which there is an option to make windows appear in foreground.
+I have tried everything I can, but Pidgin chat windows do not pop-up in focus when I get a new message. The chat windows are created in the background and I always miss them.

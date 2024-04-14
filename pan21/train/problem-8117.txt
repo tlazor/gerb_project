@@ -1,0 +1,5 @@
+Presuming your web-client is running inside Windows and is a web-client that understands Windows CAPI, you would want the user-certificate to reside in CAPI --> Current User --> Personal --> Certificates, and must have Extended Key Usage "clientAuth". In this case, it will be presented by the certificate selector in IE and Chrome. 
+I would like to setup Client Certificate Auth with my tomcat. I've configured the webapp for this auth and this is my tomcat config. I'm using Windows PKI for my certificates so I have pfx files.
+When I access the webapp via browser, I get to the point where I can choose a certificate, but it's not showing me the certificate that I want to use.
+This webapp also has a mobile app. I've installed a pfx certificate on my IOS device and tried to connect.
+Firefox does its own thing (I believe this is to be cross-OS consistent), which is the NSS subsystem and file-format. As far as I know, the certificate can only be ingested into NSS via the Firefox browser GUI in Options --> Advanced --> Encryption --> View Certificates. Again, the certificate must have sensible EKU and constraints. 

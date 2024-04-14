@@ -1,0 +1,6 @@
+A faulty network adapter can, in some scenarios, cause the switch to believe the other device is PoE compatible, when it is in fact not (because for whatever reason, it happens to have the right resistance between two wires).
+I talked to Cisco support today and they knew the answer right away - Green Ethernet causes problems, and this is turned on by default. The guy said that this happens mostly with Macs. Well, I now know that it happens with the XS35V2's built-in JMicron PCI Express Ethernet Adapter.
+You didn't specify your troubleshooting steps, but we'll have to assume that you plugged the server into another switch to test it.
+The more plausible cause might be static build up during the cable change.  The switch is delivering. Max of 15.4 volts, on the pins that are not used for networking.
+PoE checks for a resistance between two wires, and if it is within a certain tolerance, it sends power down that port.
+We have a bunch of older Dell Optiplex's, and a lot of them are plugged into a switch that happens to also do PoE. All of them were perfectly fine except for one PC that could not sustain a network connection, it just flicked on/off/on/off/on/off/on/off. Disabled PoE explicitly on the switch for that port and it worked fine.

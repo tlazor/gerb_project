@@ -1,0 +1,17 @@
+Inherit one of these and create any custom code you need, then add your room implementations in to a city and your city implementations to a world to build your virtual world.
+Shown is the way my linking works. Note that Entry C.B is not accessed currently. An Entry-Point without a corresponding exit-point can exist (for example for future expansions).
+My game is structured in areas which contain locations. A player can have roles which allow him to do something (or disallow him from doing so).
+A good rule of thumb is to have your content be data driven. You would store this data externally and create a class to load in the data.
+Whenever a link in the following answer is mentioned, it is a ONE-WAY-Link. If two different links link each other, that may look like a two-way-link, but they are actually one-way-links which happen to point at each other.
+An area is a folder containing four types of content. These are exit-points, entry-points, locations and dungeons.
+I'm currently writing a text-adventure myself and choosed the following (unoptimized, clumsy ect.) approach. Why is explained in the conclusion of the answer. For the short version, skip to the end of the answer.
+The programming is basically done in the interaction-list of the locations. The player issues a command, the interaction-list says how to react to it. Of course, the possible reactions have to be coded somewhere. Up until now, I managed to do everything with static methods, because boiled down, there isn't much a player can do (look, skill, talk, leave to another location).
+I'm programming an RPG in java. It's text based, so movement is more or less from "room" to "room." In the case of cities, they will generally be one room, with some sub rooms for important shops and things.
+All in all, this might not be the best approach, but it will definitly ease your life when your world gets bigger, because not a single line of code has to be touched anymore!
+I have classes for locations, but where should the programming for each individual location be done? A bad idea would be to create a bunch of New Location()s in the main method. Another idea I had was to define all of their attributes in a text file (or maybe something like JSON) and then reading it in when needed. Or should it go in a class file somewhere?
+Valid question. I'm wrking with two non-programmers. They are responsible for the story and stuff, I do the coding. I had the choice to teach them how to programm a location, or simply read textfiles they give me. As they were somehow resistent to learning, I got stuck with the textfiles. Today, I'm happy with this.
+Another interaction, but can't edit the basefiles (because we're modding, and basefile-edits are bad!)? Throw in a new interaction list with a running number, because the parser only checks if the file starts with interaction_list_.
+Ok the question is pretty vague in that it reveals nothing about your game design but here's my take on any form of "game world":
+How you actually write the code is then entirely up to with regards to implementation details, and i'm sure you can think of many more ways to improve the IArea interface right :)
+When I say type contains type, I'm refering to ''contains the file name and location''. This will should be understandable from the attached pictures.
+Add a whole new town into the landscape? Throw the area-folder next to the others and add some exit-points to the existing regions.

@@ -1,0 +1,7 @@
+The server's main function will only serve as a firewall using IPTables no other apps will be installed except for some network monitoring tools, then 2 or 3 additional users maybe.
+Failover in this case isn't really going to have any impact on partitioning.  A standard partitioning scheme on both should work just fine.
+But on a new project we plan on setting up two old servers HP DL380 G3 both would have identical components with 2 x RAID 1 SCSI volumes at 72GB. This will be setup with DRBD for failover.
+As you won't need much space for the base system I would recommend to use as much space as possible for LVM. Maybe like 10 to 20 GB for /, a few GB for swap and /var (or /var/log) as a logical volume. This way you're very fexible, for example you can increase /var when needed or if you ever use it for another service you can create a new logical volume for that.
+I've been using Ubuntu for a while but didn't really paid attention on partitioning and just accepted the defaults.
+By the way, on a firewall DRBD doesn't make much sense IMHO, as most of your important data (iptable rules, configuration) is staic anyway. You could use for example csync2 to keep configuration on both hosts in sync.
+I also agree with HopelessN00b's comment; you'll spend more in power in a year powering one G3 than the cost of a suitable new, enterprise grade desktop machine.

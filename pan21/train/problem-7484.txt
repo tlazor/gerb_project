@@ -1,0 +1,7 @@
+Of-course you can always install OpenWRT as well on those devices in case you don't like Mikrotik RouterOS.
+Of course all of that depends on whether the firmware is compatible with your router in the first place. But it's something worth investigating.
+Routerboard devices come with Mikrotik pre-installed and it's included in the price (some models are even cheaper than the license itself - so it's a good deal generally given the features that both the hardware and software provide).
+There is a paid version of the DD-WRT firmware which has exactly the feature you're looking for, however it may be possible to accomplish the same thing for free using a bit of script hacking as explained here:
+It's certainly better in terms of performance to use 2 different APs. You can get a routerboard to use as an AP for you and connect your existing AP on one of the ethernet ports of the Routerboard and apply your QoS rules on that ethernet interface.
+You can have virtual APs (different SSIDs & WPA2 PSKs) with a single device/AP and apply whatever QoS and/or Traffic Shaping (among tons of other things) you need by using the extremely intuitive winbox interface. You can set up very complicated stuff in a matter of a few clicks.
+Keep in mind that by using 1 physical AP with a virtual AP to separate the network for your tenant you may have strange issues with the Hidden Node Problem on WiFi networks.

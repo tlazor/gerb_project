@@ -1,0 +1,6 @@
+in terms of performance make sure to separate your databases vs your logs, that would give you a big boost for performance. i think now days a lot of people prefer to use some sort of volume managers such as LVM or similar which gives you a lot of flexibility in terms of adding disks almost seamlessly but the draw back is cpu cycles.
+Using non-standard-ways always gives you problems and/or headaches later on - I speak from over 10 years of experience here.
+I add lots of additional VMDK's to existing virtual machines, and even with the flexibility that comes with this type of storage, I use the standard partitioning arrangement for the sake of consistency and compatibility. Suppose you have a third-party software package that expects /dev/sd[x][y]... Would it break by not having a partition number? I can think of several applications that would not handle that gracefully.
+The only advantage I can think of, though, is that partitioning the drive is a more standard way of setting this up.
+An accident of decision making resulted in us having a number of systems with this setup using unpartioned "/dev/sdb"
+This is a general question to optimize performance, reliability, and consistency. I know that both of these methods work, I'm just wondering if there are (dis)advantages to one over the other.

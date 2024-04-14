@@ -1,0 +1,6 @@
+Another simple way instead of doing all this crazy (albeit simple) stuff with command prompt, simply drag and drop from somewhere else to the Public Desktop, and it will automagically prompt for Admin credentials. No need to launch elevated command window and use commands...
+and it did appear on my desktop! But, oddly enough, I cannot view a directory listing, or do any other type of function (like delete) in the "C:\Users\All users" directory.
+    C:\WINDOWS\system32>copy 'C:\Users\conradb\Desktop\photies - Shortcut.lnk' c:\Users\Public\Desktop c:\Users\Public\Desktop
+That folder is only accessible if you elevate in Windows 10 - Im' not sure how to elevate "explorer.exe", but you can copy the shortcut using pwoershell or dos "run as administrator. example:
+I just checked my Windows 10 x64 Home (which I just did a clean install a couple of hours ago) and from an elevated ("run as admin") command prompt, was able to copy a shortcut link from 
+Go to Control Panel > File Explorer Options > click on the View tab > under Advanced settings: look for hidden files and folders > choose "Show hidden files, folders, and drives" and click "OK". 

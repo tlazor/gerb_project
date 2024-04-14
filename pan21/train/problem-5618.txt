@@ -1,0 +1,8 @@
+In your services.cfg, either check the servername instead of the IP, or check the port instead of the http response.
+I used the Nagios tools to check. servername is the name of the vhost server name I used in the Apache configuration.
+I would try bypassing Nagios and use wget from the command line on your Nagios host to check the URLs you are sending to Nagios:
+A general Nagios debugging tip is to try the -v option, which most plugins implement to provide verbose output.  The capture_plugin script is really useful for capturing debug output when the plugin is run under Nagios.
+Had the "same" problem on one of our web servers. And it appeared after an update on our website was done. they also changed the headers in the IIS and that´s why the error started to appear.
+I found a problem that Nagios3 reports a warning in the HTTP monitoring service of a Debian server set at ip 192.168.1.52, that has an individual virtual host and a mass virtual host for application development.
+I get the same status message as the warning, so I assume that I don't have Nagios completely well set up because doesn't recognize the vhosts for that server, how it should be as the check_http service shows.
+From the above, I'm guessing that the first command will fail but the second one will work, which leads me to believe that your virtual server name is resolving to a different IP address.  Try 

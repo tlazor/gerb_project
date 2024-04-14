@@ -1,0 +1,7 @@
+If you look carefully you will notice the picture changes from a full colour range to a slightly washed out limited range. Colours look deeper and whites brighter in the full range, whereas the limited range looks more grey by comparison.
+DisplayPort, being a primarily computer to monitor interface, might default to full range while HDMI, used for TVs and other devices as well as computers might default to "limited range".
+If you are not using the monitors regularly or you just look "in passing" then you might not be able to see it but yes, depending on the defaults for each output it could be that the colour range is subtly different.
+I have two of the same monitor and I have connected them to a dock, one with an HDMI cable and one with a DisplayPort cable.
+One of my colleagues has complained about a noticeable difference between the pictures but I can't see any.
+Is it possible that the two of the same monitors receiving a signal from the same machine via the same dock would display differently due to a different cable?
+HDMI has a concept of "RGB full range" where colours run from 0 to 255 and "limited range" where they go from somewhere around 30 to 220.

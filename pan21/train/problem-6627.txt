@@ -1,0 +1,7 @@
+The Media Player component can play videos within the MPEG-4 container and that use the H.264 codec.
+LAV filters is all you need your users to install in order to have systemwide support for other formats.
+Our company developed a Thick-client software product for the commercial market that would allow users to view sports statistics.  One of the components of our software product is a Media Player component that uses Windows Media Player.
+Is there an executable on the web that will resolve the aforementioned problems?  If yes, where can we get it? 
+Therefore, we thought we would send our users another executable that the users can click in order to install files that would enable their  Microsoft Windows Media Player to play  Matroska (MKV) video.
+However, we send the user videos within the Matroska (MKV) container and the H.264 video stream.  Our Media component fails to play videos within the Matroska (MKV) container and the H.264 video stream because a standard Microsoft Windows Media Player for a regular Windows 7 installation will fail play videos within the Matroska (MKV) container and the H.264 video stream.
+When a user clicks on the Media Player component of our Software Product, he/she should be able to view sports videos.  

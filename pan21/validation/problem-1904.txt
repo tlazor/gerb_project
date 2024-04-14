@@ -1,0 +1,9 @@
+You won't get around using either symmetric encryption and handing over the secret to every single recipient (or do the same with the private OpenPGP key). If you want everybody to have his own secret, nobody else will be able to decrypt his version of the data; so you will have to send everybody another version of this data.
+Of course, there are two cases in which this overhead can get big in comparison to the encrypted data:
+GPG/PGP and other public key encryptions allow encrypting to several recipients using their public keys.
+I wrote a tool to do just that: https://github.com/galets/AsymmetricCrypt . You will need mono to run it on linux, but otherwise it works fine and doesn't require you to store encrypted key in separate file.
+I was actually looking to solve the same issue. The problem with gpg, is that you need to carry too much baggage with it - key store, etc. Sometimes you just want to create a keypair, put the public key on machine which does encryption and go with it.
+Current PGP versions and all of GnuPG (GPG) implement the OpenPGP standard. I will only use the term OpenPGP below.
+If I were to send a public key encrypted message to a smart phone it would be too huge. Especially if it was encrypted to several recipients.
+Sure. Just encrypt the file with a random key and then encrypt that random key with the two different symmetric keys.
+OpenPGP uses both public and symmetric key encryption: When encrypting a document, some random symmetric key gets generated and encrypted using the public key. The receiver will encrypt the symmetric encryption (block cipher) key using his private key. As only the symmetric key get encrypted using the public key, overhead stays small (this is what David Schwartz proposed and already is implemented by OpenPGP).

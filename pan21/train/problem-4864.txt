@@ -1,0 +1,6 @@
+First of all, you should check that you have the latest version of firmware and driver installed: first download and install the latest Support Pack (or equivalent of your OS) and then run Firmware Maintenance CD. It is important that in an upgrade scenario you update the drivers before the firmware.
+The P410i controller you have in that machine can support up to 64 logicial drives/arrays - you have to define an array to put the allocated disks into, they can't just be on their own, they have to be part of a RAID array even if they're the only member.
+If you are still having problems, make sure your controller firmware and your ACU software are fully up-to-date.  Newer versions of ACU also have a "Wizard" tab that can automate some of these configuration steps.
+The ACU should give you an option to create a RAID array, but you have to click on the controller to get that option, not on a physical drive.
+You need to purchase a memory module for the RAID controller, as contrllers with no memory only allow to create 2 arrays :-)
+Then you can run the Array Configuration Utility (ACU) to create a new raidset and then a logical volume.

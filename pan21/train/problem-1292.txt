@@ -1,0 +1,5 @@
+I have finally crafted a convenient way to setup password less ssh to multiple nodes. Have been using those scripts for a while and it has been flawless for me so far. Hoping that it will help someone save time. I believe that this mechanism can run under a few minuted for a few hundred nodes at once. It is based on expect & bash scripts. Take a look at it and let me know your feedback.
+If, for some reason, you have multiple public keys for the user on B or C, you can append them to the end of the authorized_keys file.
+The modification of the ~/.ssh/config file you have in step 4 in your sequence is needed if you don't use the standard ~/.ssh/authorized_keys file.
+The private key is kept on A. You can use the same private key/public key combination to connect to more than one machine.
+If you've used ssh-keygen & ssh-copy-id before, the whole idea in the scripts is to automate that task on all nodes at once using pdsh and a file containing hostnames. Almost everything is automated and will save you a ton of time. Let me know how that works for you. I will be more than glad to help you.

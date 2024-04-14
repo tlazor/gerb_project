@@ -1,0 +1,5 @@
+The best option is to partition it by month, but I have 2 relevant dates, and at the begining/end of the month start will be in one partition, stop will be in another.
+A better workaround, is to update the stop_datetime for rows without it, at every start, and use another column for storing that this is not a normal stop, I think I will go with the second workaround.
+I need to create a log table to stores the connections to out network (last 3 years, after that the log will go into backup). The hardware/software used is proprietary, and for accounting it just call our custom script with some arguments like this:  
+Updating indexes is expensive and it happens at inserts, updates and deletes. Keep the indexes to a minimum. If the main queries will be those selects then I would keep the primary key like the following and trash all the other keys:
+I think partitioning by day (date_format(start_datetime, '%Y-%m-%d')) would be adequate since 1 billion rows divided by (3 years * 365 days) ≃ 900,000 rows per partition

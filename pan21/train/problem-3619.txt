@@ -1,0 +1,6 @@
+I have followed the routing instructions on lartc.org but I still need instructions to do the NAT-ing properly.
+Crucially the routing process will work from low prio to high prio rules ... but 32767 is not the highest rule#. So if the main routing table has no default route (but may contain all kinds of dynamically changing routes for vpns etc) then if a match is not made, it falls through to default (normally empty) and then looks for higher prio rules.
+My local network is connected to this server via eth0 and the box is the DHCP server cum Gateway for all the machines in the LAN.
+mefat's answer helped me a lot but rather than a one off copy of all the main table rules into the two ISP tables a better approach may be to use the rule prio to add the default rules after the main table.
+This is connection based load-balancing so I'm going to look at using load to monitor and replace the stats rule: iptables -t mangle -R PREROUTING <n> from userspace. So if there's a long-running download on one connection and the other connection is lightly loaded we should prefer the lightly loaded connection.
+I have two internet connections from two different ISPs and I need to balance the traffic originating to and from my network between the two ISPs. I am using Debian GNU/Linux.

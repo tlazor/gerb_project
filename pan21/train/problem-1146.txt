@@ -1,0 +1,5 @@
+This will push the changes via all replication links, outward from your source DC, for the default naming contaxt (which is where your user data is).
+Remember when you play with forcing replication, all replication links are one-way, incoming.  If you want to push changes outbound from a DC via the Sites & Services console, you have to go to each replica-partner and PULL from the source DC.
+Here's a Technet article that outlines the AD replication model.  Look at the Urgent Replication section for a discussion of what gets replicated immediately and doesn't require a forced replication.  Mostly it's critical user security events (password changes, account lockouts) that are replicated immediately.  There are configuration considerations to be made to make this happen site to site.
+There 's also the possibility to make this using repadmin.exe with the /sync switch or you can even script it using ReplicaSync wich is included in the IADsTools. 
+There is an easier way to force "outbound-full-replication" using the repadmin.exe tool from the Windows 2003 SP1 Support Tools kit:

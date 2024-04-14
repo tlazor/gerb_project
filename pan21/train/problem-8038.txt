@@ -1,0 +1,7 @@
+I already had libfaac-dev and libfaac0 installed, and installed faac after the fact to see if that would help.  No dice.
+What happens is that when Ubuntu releases a new version of libav, the -extra packages in Medibuntu take a while to be updated. The old -extra packages are not compatible with the new version, and so when you upgrade the -extra packages are removed, thereby removing the non-free codecs.
+When using Medibuntu, the core libav packages are still installed from the official Ubuntu repository. Medibuntu adds the -extra packages which provide the non-free functionality.
+If you want the full package, you will likely have to build it yourself, or browse Google for an hour, searching for a binary that has the modules you are looking for.
+I'm running Ubuntu Server 10.04 LTS x64.  I've been using ffmpeg on this machine to encode H.264 videos with AAC audio for over a year.
+You could try using the Medibuntu Repository. It is a third-party repository that contains packages that are unable to be included in the official Ubuntu repositories.
+Various builds of ffmpeg have certain modules enabled/disabled, often for legal reasons.  (Certain patented codecs and what not can generally not be distributed, except in source form, depending on the country.)

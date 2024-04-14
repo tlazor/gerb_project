@@ -1,0 +1,5 @@
+With the above a subject DN ending with OU=ITS,O=My Org will be mapped to an LDAP entry with object class pkiUser with the client cert's subject DN stored in attribute seeAlso like this:
+First of all you should not use an IP address in LDAP URL for provider=. Rather get a correctly issued TLS server cert for the hostname and then OpenLDAP slapd will conduct the correct TLS hostname check to prevent MITM attacks (see RFC 6125).
+In case of TLS client certs the resulting authentication identity (authc-DN) is the subject DN in the client certificate. You might want to map that to an authorization identity (authz-DN) of an existing LDAP entry. This can be achieved by adding olcAuthzRegexp to cn=config like this:
+You can then properly authorize this service user entry, in the above example via LDAP group ae-replicas.
+I assume that you have TLS configured on your provider and consumer instances. The above syncrepl configuration uses the already configured TLS server certificate also as TLS client certificate for replication.

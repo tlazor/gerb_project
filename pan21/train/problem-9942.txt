@@ -1,0 +1,6 @@
+The description says that it's only for Domain Joined machines, but the templates typically manage the registry, so it may be that this can be tuned on standalone machines, too.
+If you are in an enterprise environment, there is an ADMX template for Group Policy that has a setting to control the warnings. 
+and change "extensions_to_open": "", to "extensions_to_open": "pdf", and you won't see that prompt any more :) If there are already other extensions, use a colon to separate pdf from the existing entries (i.e. "foo:bar:pdf"). Then save the configuration file. 
+I know this is very counter-intuitive but I just did it and it stopped the exe download warning for me. 
+There IS a way to stop Chrome (or Chromium) from showing this annoying prompt. You have to exit browser, locate Preferences file of your Chrome profile (~/.config/chromium/Default/Preferences in Linux), find 'download' section that looks like:
+Yeah, I know, it doesn't make sense, but enabling it resolved my issue on Chrome v59. I would think the exact opposite would be true but no, this did it.

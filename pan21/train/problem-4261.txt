@@ -1,0 +1,6 @@
+one suggestion is that you could code the site to to report "no update" to x% of clients during an update cycle and have X gradually decrease to 0 over a few hours/days to help spread out the load.
+I have setup a bunch of small VPS's that I'd like to use to serve up the requested download. Due to the way the software automatic update request works, the requested download URL is always from the same server/URL.
+For example, the download request comes in for http://osirisdevelopment.com/BatteryBar/BatteryBarSetup.exe.  IIS would returns a 302 code with a location header to http://mirror1.osirisdevelopment.com/BatteryBarSetup.exe, etc.
+I'm running IIS7.5 running a website for a software application.  The application supports automatic updates so when I release a new version, the server gets pounded with download requests from the software.
+Microsoft provides a load balancing service that could be configured in front of IIS to do this. Otherwise you might need a bit of custom code to pick a new URL & redirect.
+So, I'd like to know if I setup IIS to redirect requests to a certain URL to a random or round-robin list of mirror sites.

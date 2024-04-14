@@ -1,0 +1,5 @@
+If you have the right cookies, you can technically set them in your wget headers, but you would have to browse to the download in your web browser and then copy the request that the browser is making.  At that point, you might as well download Java with your browser.
+I have been trying to download "jdk-8u211-linux-x64.tar.gz" from https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html? with the below command. The file gets downloads but not the correct one. As when I do file jdk-8u221-linux-i586.tar.gz it is showing as html file. 
+Following a licensing change of Oracle Java on 16 April 2019, Oracle now forbids anyone from downloading Java outside of their approved process.
+command: wget --user=*** --password=******* --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.tar.gz"
+That process is currently to log in to an Oracle account, accept the new license, then attempt the download with the authentication cookies in place.

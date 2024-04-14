@@ -1,0 +1,6 @@
+Just picked up a Dell PowerEdge R720. I created a virtual disk with the PERC H710 Mini BIOS Configuration Utility 4.03-0002 and configured it for RAID 1.
+You should be using the LifeCycle Controller to install the OS, which will include the appropriate drivers for your RAID controller.
+Lifecycle controller is the way to go.  I mount and OS ISO in virtual media in iDrac8 then boot to it after setting up OS deployment in Lifecycle.  It will then recognize the drives on the raid controller.
+I've tried downloading drivers from Dell but they only come as .exe files which I can not run when I am in the middle of trying to install Windows.
+Even when installing with the Life Cycle Manager you need drivers and those of us using this as an ESXi host and installing through vSphere don't really have that option.  I think this link will provide you with what you need.  As you mentioned you DON'T need the exe files.
+When I then go to try to install Windows Server 2008 R2 64-bit the virtual disk I just created fails to show up and it doesn't show any drives in which to install Windows Server on.

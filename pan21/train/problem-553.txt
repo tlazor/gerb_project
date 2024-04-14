@@ -1,0 +1,5 @@
+I narrowed the problem to IIS7, so I added a method to the Application_Start event (it's an ASP.Net MVC app), which emails me every time the application is started and re-deployed the site about a week ago.  I've been getting the 'startup' email every 26ish hours since.
+While it doesn't seem to have an immediate answer to your question it does appear that this is not an uncommon problem.
+I discovered this by selecting the pool from the list of Application Pools and clicking the 'Recycling...' button.  That screen gives you a 3 options for recycle intervals: a set time interval (minutes), a fixed number of requests, or at specific times.  And it appears that you can use all 3 in concert.  You also have 2 options for Memory thresholds, that once hit will cause a recycle: Virtual memory usage (in KB) or Private memory usage (in KB).
+Every 26 hours? That sounds like an application pool that is automatically restarting for the purposes of freeing memory.
+This is controlled by the recycling feature of the Application Pool the site resides in most likely. You can tweak this to recycling at set times or at longer intervals.

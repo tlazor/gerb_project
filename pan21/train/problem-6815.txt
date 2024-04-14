@@ -1,0 +1,6 @@
+As far as I know, "cross-connects to a bandwidth provider" literally means they will put a cable down from your rack to that provider's switch in a carrier room or cage. This might cost a few hundred dollars and then perhaps $40 a month in maintenance costs, so it doesn't seem to me that it's worth a whole lot, because it doesn't sound to me like they are offering any actual IP transit for free. I recommend you get them to clarify the exact nature of the offer. Terminology in this area can vary from person to person.
+I can't say what we pay but if you have a spare port on your router, you would establish a route to the new ISP's upstream router and perhaps advertise your subnet via BGP. Do you do this to advertise routes to your three clusters at the moment, or do you use DNS to get traffic to each?
+"What are people out there typically paying for bandwidth via cross connect and how hard is to setup?"
+"Can you really get IP transit down to a couple of dollars per megabit per month just by doing the routing yourself?"
+Not sure about the price, however in my experience if you can get $1 per mb then you should rebadge it and sell it - some ISPs might bite your hand off! But I guess the US market is very different to the UK.
+I'd wager that the cross-connects offer is simply to run a cable for free and charge no maintenance on it, but I could be mistaken.

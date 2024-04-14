@@ -1,0 +1,6 @@
+First rather than doing the whole static Instance thing, pass (this) as a parameter when you create the HUD also you have a GraphicsDeviceManager in the GameScreen which isn't needed as you have a reference to the GameStatemanager which should also have a reference to a GraphicsDeviceManager.
+but to answer you main query you access the GraphicsDevice by GraphicsDeviceManager.GraphicsDevice so from your GameplayScreen class it would be 
+I'm not sure ,but did you check for it in the ScreenManager? Some architectures for state management i used kept the graphics device reference in there .
+You can always grab the graphics device from the Game class ... so as long as you have a reference to that you can do:
+You could pass your instance of GraphicsDevice as a parameter in the constructor of you GameplayScreen and set your global variable you have already declared as the value of your input parameter like so
+This is assuming however that you have access to your graphics device instance from where ever you are creating an instance of this class (I assume GameStateManagementGame)

@@ -1,0 +1,5 @@
+"The internet is slow" would be a very, very unusual complaint to be caused by browsing a subversion repo.
+For "the dev server is slow", why not watch the CPU load, either with Ctrl-Alt-Del-Task Manager on Windows, or the top command on Unix/Linux?
+On a LAN you shouldn't be loading anything unless you're browsing a biblically large source tree or there's some sort of config or tuning issue on the server.
+If your dev server is at a remote site and you're using an asymmetric connection (e.g. ADSL) where the upload bandwidth is lower than the download bandwidth it's possible that you really are saturating the available upward bandwidth, particularly if you're committing large files.  If you have a firewall or proxy that's got malware scanners checking the traffic you could possibly also be putting load onto that.  A packet shaper or other agent that artificially throttles HTTP traffic might also cause this sort of bottleneck.
+No, this is unusual. Do you commit a lot of large binaries? If so, perhaps you are saturating the available bandwidth due to the large file transfers. 

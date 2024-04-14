@@ -1,0 +1,8 @@
+For Linux, are you using some sort of provisioning system already? (e.g., Spacewalk, RHSS)  That would be the best bet to centrally manage configuration files.
+The downside, of course, is that this means you need to learn about how to run/configure a configuration management system. Of course, in doing so, you will likely find many, many more uses for it that make your environment and administration more efficient.
+Still, I'd go with this. Write a script that reads a list of servers to access, probably with a OS / login control method that varies based on a field. Alternately, Puppet can be used in a similar manner to push configuration files to either Linux or Windows. Puppet will also version and log file changes.
+You could place redundant servers with IP failover, but that won't solve network issues. I wouldn't consider this a strong solution for your single-purpose task.
+You'd still need to script or send a pull request to each server. I don't see the intrinsic downside of "source control tool in production", though.
+This is not an Oracle question. This is a canonical use case for a configuration management tool like puppet, bcfg2, cfengine, chef, etc. (of those, at least puppet has some support for managing windows machines as well as unixes)
+You can also use DFS for this - that should fix the lack of redundancy, as long as the DFS root has more than one fileserver in it. You would need an SMB client on the Linux machines that supports DFS; I don't know if that's easy/free/impossible/buggy.
+For the Windows systems, a GPO to copy the files from a share should work.  That will do the job for Linux as well if you're using Centrify, Likewise, etc.

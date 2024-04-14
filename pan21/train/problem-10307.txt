@@ -1,0 +1,6 @@
+But the second rsync should finish as quickly as possible and normally finds none or only a few changes. Yet since this are so many files it takes quite long. 
+This method can also be more secure than rsync+ssh, as Chroot SFTP is supported.  There is no need to provide a shell to the client, if you prefer.
+The first rsync is syncing the mayor changes without locking the system. It can run a long time and that is fine.
+You can utilize a different client that is multi-threaded that will break up your job into as many connections as ssh on the remote end will allow and that you specify.
+I prefer add a second step of rsync  brefore putting the system in maintenance. If the first step takes ages, the second one can take minutes/hours before putting the system in maintenance. Then the last one takes seconds/minutes, instead of hours.
+I use this on multiple systems that replicate database backups and logs to remote destinations hourly.  It is extremely fast.  Your only limits will be bandwidth and the max connections allowed to auth on the remote end at once, the max number of files allowed to be open at once.

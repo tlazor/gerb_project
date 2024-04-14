@@ -1,0 +1,9 @@
+However I would not suggest to do this unless you can obtain permission from the relevant persons as this will likely be a breach of some form of policy or contract that could land you in trouble.
+While you can set up a second DHCP server on a network, there is no reliable way to get a computer to prefer its responses.
+You could set up a router with it's WAN interface plugged into your company lan, then operate a different subnet under your control so you can control DHCP for your machines without affecting the rest of the company's LAN while still accessing the company's resources.
+More importantly, though, you should not be trying to circumvent your company's policy.  This is unprofessional.  If you need access to the DHCP server, make a case for it to your manager.
+You shouldn't be creating your own DHCP service at all without the permission of the network and system administrators, in fact doing so without their permission should be a firing offence. It's exactly this kind of behaviour which underlines why DHCP in anything but a client-only environment is dangerous.
+Recently I want to setup PXE boot server (i.e. DHCP server + TFTP server + syslinux software) for my company network in a LAN. I have read the setup details at here: http://www.linuxjournal.com/article/9963
+If I cannot setup my own DHCP server, what is the working round for this problem? I really want the PXE boot to easy my batch installation process. thanks. 
+I want to do the PXE boot in a good intention (make the new OS installation easier). Can I setup my own DHCP server (not 'legal' DHCP server) and use it with my PXE server to do the PXE boot? Is it possible? 
+However I don't have admin/access right to the existing DHCP server and I cannot change the settings. (you need to put the PXE server IP address in the DHCP server configuration file to make the PXE booting works).

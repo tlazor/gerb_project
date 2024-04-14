@@ -1,0 +1,5 @@
+This can happen if your machine has a hostname/IP-address that cannot be both forward and reverse looked-up according to your local name resolver setup.  InetAddress.getLocalHost() is known to perform reverse lookups to resolve the local host.
+Note that the Jenkins JVM will cache hostname lookups, so it pays to have a small test program to make the test call to InetAddress.getLocalHost(), otherwise you should restart Jenkins after each configuration change you test.
+Since I don't control the source for the release plugin other than changeing the code is there some way to work around this issue? Can I setup my etc hosts in some way to force specific response from "InetAddress.getLocalHost().getHostName()"? 
+Run the hostname command, and make sure that you have an entry matching your real IP address to that name in /etc/hosts.  It may be that hostname is returning either the FQDN hostname or the alias/short hostname, and that these cannot be forward/reverse looked-up.
+I'm assuming that your XXXXXXXXXXXXXXX is masking an actual, non-localhost (or localhost variant/alias) hostname.

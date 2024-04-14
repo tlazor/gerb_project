@@ -1,0 +1,6 @@
+I have a linux server (SUSE Enterprise 11) installed in a virtual machine. Where preallocated disk space is given as 256 GB. But from the linux if I use df -h command it show this statistics:
+From which it seem that the server has only about 40GB of disk space. I am wondering where the other 210GB went! Any idea?
+With dynamic size allocation, the VM software will allocate more space to the VM as it starts running out of the initial allocation, up to a maximum of the set limit (256 GB in your case).
+You've probably allocated the disk-space in a dynamic size allocation method, rather than a fixed size.
+Basically my problem was, lack of understanding the fact that allocating disk-space from the VMware does not mean that the disk space will be automatically taken up by linux os. It is like you have 250GB HD and you allocate only 40GB for linux and rest of the disk-space remain unused.
+I found all the invisible Preallocated spaces as unused using cfdisk /dev/sda command. Now all I had to resize my sda2 drive with those spaces.

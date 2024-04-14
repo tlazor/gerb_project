@@ -1,0 +1,5 @@
+I have a large external hard drive that I use for all of my backups that has plenty of free space, yet File History refuses to identify that the drive is available to store the file history. Other than not showing in the File History tools, the drive appears and acts just fine. Any ideas why this drive would not be available to use with File History?
+http://www.techrepublic.com/blog/window-on-windows/enable-windows-8-file-history-to-protect-your-data-revisited/7171
+I had several folders on this drive included in libraries. Since I don't particularly need/use libraries, I removed the folders and deleted the libraries themselves. After restarting, the drive appears as expected.
+My problem was that I needed to be more observant. When you go to select a drive, File History will tell you (albeit in very small, gray text) that you cannot use a drive that is included in any libraries.
+I recently upgraded from Windows 7 to 8 and am still learning the ins-and-outs of the upgrade. One thing I recently discovered was that Win8 replaces the Volume Shadow Copy Service with the new File History tools. More importantly, this is not on by default like I had assumed.

@@ -1,0 +1,6 @@
+Noticing this, I went to Github and modified my profile to include the <me@mymachine.mydomain> version as an alternate e-mail address (unverified, but whatever)
+There may be a config setting somewhere that is incorrectly filled in with the <me@mymachine.mydomain> string, but I have yet to find it.
+I couldn't figure out what was wrong, and eventually stumbled on the log files in the Aptana project directory (aka local git repo) .git/logs directory. In the HEAD file I noticed that somebody (Aptana?) was inserting my local machine name into the user string, so it looked like
+Keep in mind that, every time you update Aptana, (or I assume that plugin) the [user] setting will go away, so you have to put that in there again... 
+I am running Aptana on Win7x64, using msysgit installed separately from Aptana, as Aptana's git plugin still has version 1.7.3.1. Aptana's Preferences->Team->Git points to C:\Program Files (x86)\Git\bin\git.exe, and all git functionality works properly from Aptana's git bash shell. However, when doing a Push using the Team menu, the author was showing up as "Unknown."
+OP asked this a long time ago, but I just ran into the same problem, although it required a different solution. I'm noting it here in case anyone else runs into the same problem.

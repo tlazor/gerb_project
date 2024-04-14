@@ -1,0 +1,5 @@
+When I load this data into my data warehouse I load it into a table that has a parent-child relationship like this:
+Maybe I'm overthinking things but I don't really like this because it's currently doing 12 table scans to get the result. The optimiser is also currently choosing to sort the data and do merge joins to achieve the UNION but I'm not worried at this stage about it's choice of doing that. 
+Is there another way that I could do this which doesn't result in additional table scans every time the hierarchy gets one level deeper? 
+So to get to that format I have a query which grabs the distinct values of CostCentreCode and CostCentreDesc by generating a UNION of the values in each level, like this:
+I have some tables in the staging area of a data warehouse that I'm filling with data from some flat, comma-delimited text extracts from another system. When the data comes in the hierarchy of parents for each element is presented in columns labelled ParentCode01 ... ParentCode11 where the immediate parent of the current node is in ParentCode01 and the top level parent could be in any column (ParentCode11 is mostly NULL).

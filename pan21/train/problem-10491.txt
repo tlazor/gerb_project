@@ -1,0 +1,6 @@
+The closest I have come up with is to run screen as part of the ssh command to connect to the remote server:
+In case that I want to resume a screen (e.g. named 'old-screen'), because I start screening every time when I login, I face a situation that I am attached to 'new-screen' and I want to reattach to the 'old-screen'. If I just
+Can your OS support command-line switches with the shell command definition in your "login" parameter for your account?  If so, try changing it to:
+Instead of using screen -r which tries to resume a screen session, you can use screen -R  which tries to resume a screen session and creates a new one if one doesn't exist.
+I find myself in a recursive screen, and I can not navigate within 'old-screen' because all the shortcut key are received by 'new-screen'. If I try to quit the current screen, my connect to the remote machine will also be lost immediately.
+to the end of the .bash_profile file, then I find out that when I terminate the screening, my connection to the ssh host is also closed immediately. How can I avoid this?

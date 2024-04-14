@@ -1,0 +1,5 @@
+If a client resolves a name to an IP address, it connects to that IP address. There's little scope for fiddling with that.
+On one of the client machines with the problem, run a quick PING www.example.com to see what its initial impression of the IP address is.
+If it's just one group of clients, eg, external clients using external DNS, then chances are their connections are NATted (translated) anyway, and it could be that the external port 80 mapping from publicname.example.com to an internal address isn't what you think it should be.
+Sounds like DNS doesn't point where you think it does. That sounds vaguely confirmed by the behaviour you describe when you bind the site to a specific IP.
+To troubleshoot it properly, grab a tool like Wireshark or Network Monitor, and capture some traffic for a little while. You can do that from either the client or the server, or both (both simultaneously gives you the best possible coverage of what a client thinks is happening, and what the server is seeing at the same time, which - depending on networking kit - isn't always the same thing.)

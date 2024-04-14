@@ -1,0 +1,9 @@
+Jan 23 22:09:46 wanners named[14828]: transfer of 'wanners.net/IN' from 64.68.200.91#53: failed while receiving responses: permission denied
+In my case all the permissions were correct and I even did a restorecon on the directory, but it would only work when selinux was permissive or disabled.
+I've got a domain set up with bind9 on Debian Lenny acting as a slave to my DNS hosting provider's servers. The exact circumstances are I think irrelevant, but I have allowed transfers out to my server's IP at my registrar/DNS host's web interface. This is in my /etc/bind/named.conf.local:
+[I'm using IPv6 in the test because the server is going to be serving on IPv6. The results are them same for any record under wanners.net or subdomains, even when querying from off-site]
+Change the ownership of the /etc/bind/zones/ folder to that of the BIND user. Bind is unable to write to that directory.
+So it gets the records just fine and even refreshes them; it's just not answering to queries regarding them. Why is this? What should I do to fix it? And the dig to prove it:
+Jan 23 22:09:46 wanners named[14828]: transfer of 'wanners.net/IN' from 64.68.200.91#53: connected using 68.226.67.198#51368
+Then bind will write the file in /var/cache/bind , where it has the correct permissions, and where it's meant to store it's temporary and working files.
+Jan 23 22:09:46 wanners named[14828]: dumping master file: /etc/bind/zones/tmp-dysZfOWkDE: open: permission denied

@@ -1,0 +1,8 @@
+My first (and foremost) usage case would be to update a remote embedded target (ARM9) from a .tar produced by Buildroot.
+Unfortunately things are not this easy because bad interaction between ssh and fakeroot. I will detail what I did to help whoever will search.
+I still get the error "Could not create directory '/root/.ssh'." but it appears to be benign (no files are created/used there).
+I do not have the "real thing" on disk (I can produce a copy while being root) and I would like to avoid transferring the whole rootfs to update a few files.
+Catch is rsync uses ssh for communication (and I want it to!) and thus, being "fakerooted" it tries to open root credentials (in /root/.ssh/), failing badly. The following set of options work for me.
+The right answer seems to be to unpack the tar archive using fakeroot (to avoid becoming root) and then use rsync. Possibly repack the archive, if needed.
+Problem is I need to correctly backup user/group/permission settings and, while I have root access on remote I would like to avoid running as root on the local machine.
+    rsync -av -e "ssh -i $HOME/.ssh/id_rsa -oUserKnownHostsFile=$HOME/.ssh/known_hosts" . root@$target:/

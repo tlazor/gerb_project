@@ -1,0 +1,5 @@
+Heimdal is the implementation of Kerberos5 that FreeBSD uses.  It and the MIT implementation are also available in the ports collection.
+So I'm setting up a small network with all the standard stuff (files, email, etc.) and I've decided to go with a Kerberos+LDAP solution. Any ideas or recommendations on Heimdal vs. MIT?
+I've used MIT before, and tangentially Heimdal, but I don't really know of any real reason for using one over the other. I just know that I'd prefer not to realize I'd rather be running MIT after getting the whole Heimdal up and running with a full user database.
+I would tend to answer, "whichever one is provided by your distribution", unless there are particular features you need that are only available in one or the other.  For example, Heimdal lets you use an LDAP directory as your keystore, which may be attractive in a larger organization (since you can store Kerberos credentials and other user information in the same place).
+MIT Kerberos is well supported. It is the reference implementation and default on RedHat and I believe Debian as well. OTOH, Heimdal had slightly nicer administration tools IIRC, but I've gone with MIT.

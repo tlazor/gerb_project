@@ -1,0 +1,5 @@
+Just to check: Are the Ctrl keys "unsticky"?  By that, I mean, does it lose its state after one use?  That is, if, say, you hold down Ctrl then "S", let go of "S", then hit, say, "W", does the "W" get typed instead?  As opposed to, I dunno, closing the current file or something similar?
+I say "sort-of" because the right Ctrl key, Home, and maybe a couple other keys don't work at all, and the F-keys work intermittently (but at least my Caps Lock-turned-Ctrl key works properly, and lets me code in Emacs properly, so I'm relatively happy).
+If you hold down the Caps Lock key, does the light go on (assuming it was off to begin with), then automatically turn off after a couple or so seconds?
+I only managed to get those keyboards sort-of working with a PS/2-to-USB adapter I got from ClickyKeyboards: http://www.clickykeyboards.com/index.cfm/fa/categories.main/parentcat/11298
+If both counts are true, then you're probably using a cheap PS/2-to-USB adapter with a keyboard that doesn't work properly with it.  I've experienced this on a couple of Model Ms, a Dell AT101W and a Unisys MX 1800 (with Cherry Blacks).

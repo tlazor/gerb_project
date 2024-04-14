@@ -1,0 +1,5 @@
+I want to populate my Powershell ISE's menu with submenu items that are in turn populated by a list of modules in a directory so I can load the module with a couple of mouse clicks.
+The "_Connect-Office365Service" value is the last value or folder processed by the foreach statement. I want the unique and corresponding value of $folder for each folder name found to be part of the submenu item created. 
+Is this possible? Perhaps there's a better, more elegant approach I can be pointed to? I know there's better ways to get a list of modules I have access to than to search for names in a folder, but regardless of a the source I think I end up with the same problem of passing the wrong (last value) from the variable.
+The code works as expected by creating a list of 20 new submenu items under the parent menu item "Modules" but when I click on any of those submenu items:
+I can't seem to articulate my issue well enough within the search engines to find the answer I'm looking for, so I turn to the community for help:

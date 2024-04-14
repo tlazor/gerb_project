@@ -1,0 +1,7 @@
+I've tried setting the TERM to "xterm" or "xterm-color", no change. I've pasted my termcap file here:
+It's likely that you're actually running vi (which is symlinked when you try to invoke vim). In vi to the best of my knowledge, in insert mode, you can't backspace stuff you didn't just type (in that insert erm... 'session').
+Hmm, what user90483 said.  I have the same behavior with vi/vim under Linux.  Backspace won't actually delete anything unless you're in edit mode, not command mode.  Are you in the right mode?  If I hit "i", the backspace will delete things.  If I hit "esc" at that point, backspace is equivalent to the "h" key and moves the cursor to the left.
+Also, if you're using vi correctly, in the terminal, can you issue "stty erase " followed by ctrl-v and then the backspace key, then hit enter, before trying vim?  This has the feel of the terminal "erase" being mishandled by vim; your shell may be compensating for all types of backspace signals.
+In command mode, hitting backspace has always just moved the cursor back one character. To delete you're supposed to be using x aren't you?
+I've just installed Solaris 11 Express, and I can't for the life of me work out how to get vim to backspace correctly.
+You should try the Vim from www.sunfreeware.com, to see whether it's a environment problem or the problem of Vim you installed.

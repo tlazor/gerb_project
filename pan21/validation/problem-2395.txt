@@ -1,0 +1,7 @@
+Tune AWS CLI S3 Configuration values as per http://docs.aws.amazon.com/cli/latest/topic/s3-config.html.
+Using between 64 and 128 parallel (simultaneous) uploads of 1MB objects should saturate the 1Gbps uplink that an m1.xlarge has and should even saturate the 10Gbps uplink of a cluster compute (cc1.4xlarge) instance.
+In cases of transferring large amounts of data, it may be economically practical to use a cluster compute instance, as the effective gain in throughput (>10x) is more than the difference in cost (2-3x).
+I have to copy 400G of files from an elastic block store volume to an s3 bucket... Those are about 300k files of ~1Mb
+I've tried s3cmd and s3fuse, both of them are really, really slow.. s3cmd ran for a complete day, said it finished copying, and when I checked the bucket, nothing had happened (I suppose something went wrong, but at least s3cmd never complained of anything)
+While the above ideas are fairly logical (although, the per-thread cap may not be), it is quite easy to find benchmarks backing them up. One particularly detailed one can be found here.
+Try using s3-cli instead of s3cmd. I used it instead of s3cmd to upload files to my s3 bucket and it made my deployment faster almost by 17 minutes (from 21 to 4 minutes)! 

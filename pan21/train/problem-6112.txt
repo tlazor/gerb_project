@@ -1,0 +1,7 @@
+Your suggested method is the way I would do things. It does mean running two or more instances of dnsmasq, but I see no alternative as dnsmasq does not support this kind of functionality.
+If you're already using two instance of dnsmasq, and if you can have them listening on different IPs, then you can use DHCP to assign different DNS to different clients, so you don't have to mess with iptables.
+I have done this on my setup but only using NAT/port redirection iptables rules. In some respects, this is actually a more elegant method as iptables supports matching on the source MAC address of the client making the DNS query, which will still catch the client even if its IP address changes.
+I want to override the DNS configuration for some domains by using dnsmasq so that queries are forwarded elsewhere to be resolved. I can do this with this configuration snippet:
+I'd like to ask if dnsmasq supports such a configuration, because I couldn't find a way by reading its manual (maybe I'm missing something or searching for the wrong terms).
+The problem is - I only want/need this override for a particular client in my LAN (my smart TV) and I'd like to have regular DNS solve the same query for all other clients. 
+However, although it should work, it seems convoluted and requires me to set up extra startup scripts.

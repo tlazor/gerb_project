@@ -1,0 +1,9 @@
+this will generate a traceroute and you/they can identify if the flakiness is local to you, on their network, or the backbone network.
+I suspect that any cable repair person will check those logs anyway.  If there's a discrepancy between the cable modem log and the logs you get from a third-party app, who will they believe? 
+My cable modem for Time Warner is accessible at a particular address 192.168.xxx.yyy similar to the way a home router is.  If I point my browser to that address there is an interface that allows me to see some diagnostic pages including a log of recent activity.
+Does the connection go away altogether?  Assuming that there's some kind of "Connected" indicator LED on your modem, does it stay lit or not?  Is there a pattern to when it comes and goes?
+Or is it that you appear to have connectivity but you can't seem to connect to anything ... web sites, mail servers and the like?  In that case, next time it's working right, look up the IP address for a site, then next time the service seems to be out, try connecting to the IP address rather than the www.whatever.xyz address. If it works with the IP address but not with the "friendly" name, it's likely a DNS problem at the ISP end.  There are alternate DNS providers you could try in your internet settings to get around this one, at least temporarily.  
+Bash script, with timestamp, so when you show it to Comcast, you can point to exact times when it was down or flaky.
+Find out the make and model of your cable modem and then try a web search to find out how to access the configurations screens.
+If your connection is dying, it may be that the log will show something that happened at that time.  Mine did when I was having a problem: lots of "timeout" and "re-establishing DHCP connection" messages.
+Comcast is probably unaware of your service issue. Provided you find a decent contact with their support, they might be able to resolve your issue.

@@ -1,0 +1,5 @@
+As soon as I run netplan try, I can no longer ping my external IP 78.111.203.13 until the timeout and the network resets itself. Interestingly though, I can still ping the external IP from other VM's within the network - I'm not sure if that means anything?
+The default gateway is the address of the router which will route packets for which you don't have routes defined already. About 99% of the time, this is the router which will provide your system access to the Internet. Any host will have exactly one of these (per protocol) in a normal configuration.
+My interface ens160 is already fully configured. However, when I try and setup ens192 and apply the settings with netplan apply, ens160 stops pinging externally.
+You've defined two, so one conflicts with and overrides the other. Because it is not your gateway to the Internet, you should remove it again.
+I've got a VM running Ubuntu 18.04 - it's all setup and running on a single public IP and has two interfaces - ens160 (public) & ens192 (private).

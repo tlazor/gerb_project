@@ -1,0 +1,5 @@
+A few weeks ago, something strange started happening. When I save files, it appears that it doesn't save the file completely, i.e. at some point in the file, it's stops saving and I only get half the file.
+I've reinstalled the Notepad++ plugin and I've updated to the latest version of FileZilla server, but to no avail. Concerned it might be the hard drive failing, I set up another directory (in Filezilla server) on a different hard drive, but it keep happening.
+I was same problem, but today I fix it. Install this version notepad++ v7.3.3 - it fix your problem.
+I'm using Notepad++ with it's FTP functionality to edit files on my local machine. I also have FileZilla server running on my local machine which I am connecting to. I know this is a strange way of doing things, but it works for me (or it did) as I often modify files that are not local.
+Maybe cache folder of Notepad NppFTP is damaged. Use disk check. Also try SynWrite app-- it has ported NppFTP with name SynFTP. Does it show same?

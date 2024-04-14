@@ -1,0 +1,8 @@
+If server 7 shall send some IP packet to server 1, it will check if the address of server 1 lies in the address range of its own "group". 10.1.1.2 is in the address range 10.0.0.0/8, so server 7 will assume that server 1 is a member of "group five".
+A layer-2 switch is only interested in the destination MAC address of an Ethernet frame; for the layer-2 switch the (destination) IP address of the IP packet is nothing but some bytes of the data being sent.
+Therefore server 7 will broadcast an ARP packet to all computers in the Ethernet network. This packet contains the "ARP request" that 10.5.2.2 wants to know the MAC address of 10.1.1.0. Server 1 will answer with an ARP packet containing the own MAC address. (I'm not 100% sure if server 1 will check if server 7 is part of "group one". I'm assuming that server 1 will not check this.)
+No.  Because your groups are in different subnets, they will not be able to communicate.  In order to communicate from one subnet to another, you need a router.
+If the routing configuration of server 1 does not contain information about a router whose address is in the range 10.1.1.0/24 and which is able to forward packets to server 7, the operating system of server 1 will refuse to send any IP packets to server 7.
+With a high probability server 7 would be able to send packets to server 1, but server 1 would not be able to send packets to server 7:
+However, if server 1 wants to send IP packets to server 7, it will find out that 10.5.2.2 is not within the range 10.1.1.0/24 and therefore server 7 is not a member of "group one".
+Therefore server 1 will assume that server 7 cannot be reached "directly" over Ethernet but that it can only be reached using some router in between.

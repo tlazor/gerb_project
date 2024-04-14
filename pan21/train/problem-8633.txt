@@ -1,0 +1,8 @@
+Now I also have some subdomains, that's why I'm using a wildcard certificate. The subdomain configs just looks like this:
+This setup is pretty neat because all the subdomains are inheriting the ssl settings from the example.com config because it's the default_server.
+So sub1.example1.com would inherit the SSL settings from example1.com-default and sub1.example2.com would inherit the SSL settings from example2.com-default.
+Have one "main" config for each domain, let's call it example1.com-default and example2.com-default.
+These configs should include all the settings that are common between the different subdomains, like the SSL config, Perfect Forward Security,... and the different subdomains would just be smaller configs who inherit these settings from their respective main domain.
+I'm trying to run two domains, one with a wildcard certificate and the other one with a regular certificate from one IP and one nginx.
+My current nginx config for my wildcard setup looks like this (I haven't started with adding the second domain yet):
+What's the best way of adding a second domain now? If I just add the domain the same way I'll obviously get an error on launch because there's a duplicate default_server entry. If I remove the default_server entry from example2.com's config it'll fall back to the ssl config from example1.com.

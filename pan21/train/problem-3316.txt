@@ -1,0 +1,6 @@
+this logs the output of the program from print and also the logging information, but all the tracebacks are sent to my local terminal where i excecuted the the script and my script gets stuck waiting for any exception to happen in the remote program.
+You almost had it... However, all three pipes need to be re-directed to background a process via ssh.  Std In, Std Out, Std Err.  Thus:  
+This gets me almost exactly what i want, loggin information and python tracebacks, but i do not get any of the information displayed using print from python, which i need.
+I have a python app in a remote server that i need to debug, when I run the app locally it prints some debug information (including python tracebacks) that i need to monitor.
+Im trying to redirect all the output of the program to a file so I can monitor the remote output using tail -F, here I found the following command to redirect the outputs:
+note:  &> is the equivalent of redirecting std out and std error at the same time. In other words, it is the shortened version of ' >> /var/log/myapp.log 2>&1'

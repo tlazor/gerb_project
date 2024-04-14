@@ -1,0 +1,7 @@
+Can your own box correctly resolve the domain name you're using? If you're requesting files from www.domain.com, can you ping 'www.domain.com' from itself - Does it resolve the correct external IP that would receive when you ping 'www.domain.com' from an external connection.
+On the server, I can "curl " or "wget ", and that works. I can use PHP to request pages externally hosted (google.com etc.), but I can not do it with pages hosted on my lighttpd config on the same server.
+1) The machine name is aliased in your /etc/hosts as 127.0.0.1 and your webserver isn't bound to the loopback address
+2) What about load-balancers, are you using any that might cause routing issues when trying to route to itself
+If you change it to, say, 50, it works fine. I'm assuming that it needs to fork off another process or something to make the CURL request, and can't because max-procs is set to 1 by default. 
+I have a webserver which serves content for a site, let's call it "domain.com". On that site, I have several PHP scripts that serve content. When someone browses to that site, everything works.
+If I request, from within PHP (with Curl/Fopen), a URL on my own site (I'll call "domain.com/api/something.php?x=y", I get a timeout that the site could not be contacted. That only happens when I request that URL via PHP, not when called via the CLI. When I browse the URL from externally, that works.

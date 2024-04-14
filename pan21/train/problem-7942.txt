@@ -1,0 +1,6 @@
+You need a fixed IP address if you want to reliably sent to the Internet.  You will have much better success if you get the PTR record set to return the DNS name of you mail server.  If you can't get a fixed IP address, use your Provider's relay server to send email.  
+Typically if your domain is example.com then then you mail host would be configured as smtp.example.com or mail.example.com.  This would be the MX for example.com.  Postfix should be setup to identify itself with this domain name, not localhost.localdomain.  localhost.localdomain will not have an MX on the Internet and many servers will refuse email or file it as spam.
+You are trying to set up a mail relay. The following config in /etc/postfix/main.cf should be enough:
+ - You can configure the server to authenticate to your developer's MX and deliver over an authenticated connection.
+ - You can get your host configured as a local server on the developer's MX server.  This requires that you can identify the mail administrator for the MX.  They will likely require that you have a fixed IP address.
+I reset my main.cf to default, tried to send an email via PHP and tailed the maillog giving me this error:

@@ -1,0 +1,9 @@
+But, supporting Secure FTP requires integrating a public key authentication mechanism into the system. Windows is not close to that yet (at least for mapping file systems). And, if any such thing is now supported in Windows 7, I'd like to know very much.
+Then, take David Spillett's answer, but use localhost as the server, assuming you're not already running some other FTP server at your host.
+Today I saw that Vista and Win7 (which I am using) have the option to map ftp natively, according to this article:
+Windows Explorer should then open up ftp://localhost and you'll see the FTP process running on the server. I suspect that you will only be able to do PASV mode transfers.
+Then, suppose you even can only run the server FTP process in user space, and can't glob onto port 21. Ok, call it port 2121.
+You can also, if supported on the server, run an FTP server, but only accept connections from localhost.
+Now your SSH program is listening on port 21 of your client (Windows) port 21, and forwarding that over SSH and asking for, e.g. localhost:2121 in the realm of the server environment.
+SSH into server, with PuTTY, for example, and set up local port forwarding from port 21 to server:2121 or even localhost:2121 if you bound only to 127.0.0.1 on the server FTP process.
+I have found the WinSCP is a good windows solution for SFTP in windows. It is not a mapped drive but it does allow for drag and drop and has Putty integration. Check it out at http://winscp.net/

@@ -1,0 +1,7 @@
+I have training data consisting of a time series of numerical values (e.g. a user activity metric on a website over a period of 100 days).
+If you want to forecast a categorical variable you will have to make sure to create sufficient covariates based on historical values. You could then proceed with a Random Forest.
+What would be a good approach to predict for a new user (say on day 50) the future value of the activity metric, either as a numeric value or as a class (low, medium, high)?
+A. Perform time series regression or classification separately for most (or all) combinations of the initial categorical features.
+Without having seen the data I would say that activity sensors may have a strong seasonal behavior. If that is the case time series analysis could give you some good results. Some basic before you head of in that direction, make sure to make your time series stationary before you use it in ARIMA. See for a good tutorial here.
+B. Extract 4 to 10 different numerical and/or categorical features from time series (e.g. high, low, average, weekend levels, weekend to weekday ratio, etc), then performing a random forrest classification or regression on the entire set of features.
+In the end I would recommend you to consider how well you should be able to explain the outcome of the model. ARIMAX models are more tractable than Random Forest since the latter use bagging and averaging. So if you need to explain why your model gives a certain forecast, ARIMAX will probably be easier to explain.

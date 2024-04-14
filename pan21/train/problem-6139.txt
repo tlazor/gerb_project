@@ -1,0 +1,6 @@
+I do not use Scientific Linux but it seems you could configure your network interfaces with the following command, as per this article:
+For host-only networking, you have to enable it and create either a DHCP server (within options of virtualbox) or use static ip-addresses on you VMs.
+If you issue ifconfig and find that there is only a loopback interface that's listed, then you do not have any interface to communicate with your network.
+I have DHCP on my router and I have an internal DHCP server for virtualbox. So if I have VMs with more than 1 internet/ethernet requirement, I create 1 bridged and 1 host-only network.
+You want to set up either an internal network or a host-only network. The practical difference between the two is that the host computer can participate in a host-only network, but not an internal network.
+You should have something like an eth0 interface on both machines.  Make sure in your VirtualBox settings that you have a network enabled for both VM's, and that "Cable unplugged" isn't checked.  Bridged networking is probably your best bet if you need the two VMs to communicate with anything besides each other, as it will use VirtualBox's virtual interface to get you IP's on the same network as your host (assuming your network has a DHCP server).  

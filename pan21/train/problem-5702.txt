@@ -1,0 +1,7 @@
+Generally, this problem (missing GDX libraries at run-time on Android) is because the "libs" directory isn't setup exactly as specified in the project doc.  The directory must be called "libs" and it must contain the GDX backend and both sets of ARM libraries.
+Why won't it run properly on the android emulator even though it runs fine on the desktop application?
+Did you look at the "Running the game on Android" section of the documentation you linked? Are you sure the AndroidApplication backend is present?
+So I'd say there's an issue with the badlogic library. You may want to read the text files it wrote out to see their stack traces. Perhaps that'll give you more of a clue.
+If the Android project compiles correctly but is missing classes when run, it may be because ADK r17 (the current version atm) doesn't include the external game project as part of the build. There's an extra step you have to do that's still lacking from most of the existing documentation for project setup. It's described here. Copying from that site, the steps are:
+So I finished tweaking a tutorial called Rain Catcher and I ran the desktop application.  It works fine.  I then proceeded to run the application using the android emulator the game then crashes.
+It's unable to resolve the superclass for Lcom/badlogic/drop/Drop and unable to resolve Lcom/badlogic/gdx/backends/android/AndroidApplication

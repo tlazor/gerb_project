@@ -1,0 +1,8 @@
+(2) regular languages are closed under application of a FST -- this follows from the more general fact that FSTs are closed under compositions.
+$L'' = \{w | w \in \{0,1,2\}^*, \exists w' \in L \text{ such that the ternary encoding of } w' \text{ is } w \}$
+Can we say that the set of strings in $L$ (representing non-negative integers in binary encoding) when represented in some other encoding (say unary, or, decimal) also form a regular language ?
+For given "k" and "r", a set is "k"-automatic if and only if it is "k^r"-automatic. Otherwise, for "h"and "k" multiplicatively independent, then a set is both "h"-automatic and "k"-automatic if and only if it is 1-automatic, that is, ultimately periodic.
+A possible reference for FSTs is the Sakarovitch textbook "Elements of automata theory". Hope this helps...
+(1) conversion between two number bases can be expressed by a FS transducer -- not sure about that one, please check;
+What happens when the base is shifted to a lower number? For example can we also say anything about the following language:
+Formally, is it the case that the language $L' = \{w | w \in 1^*, \exists w' \in L \text{ such that the unary encoding of } w' \text{ is } w \}$ also regular? 

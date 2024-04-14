@@ -1,0 +1,6 @@
+You can get a windows handle if you know the title with FindWindow. This article explains how to get a window handle if you partially know the title (non-exact match), though I've never tried.
+For your hot-keys, look at SetWindowsHookEx with WH_KEYBOARD as the hook type. You'll make a KeyboardProc, which Windows will call on key-presses. Here, you can capture your specific key-combinations and activate certain windows.
+On Windows 7, you can switch to any of the first ten items on the taskbar (whether running or not) by pressing Windows+(1..0).  You can drag taskbar items around to change the order.
+If is nothing default built on windows xp/vista or 7 how can I do that programmatically using c++? For example to press alt+l(or alt+1), to activate the left window and the alt+r(alt+2) to activate the right window.
+How can I switch between those two applications, but without using alt-tab or win-tab or mouse clicks?
+Let's consider the following scenario: In my desktop machine i have two applications opened side by side, a browser and a text editor(half size of the display for each application).

@@ -1,0 +1,6 @@
+so i just enter my passphrase absolutly right (coppied from keypass) and enter. And i am asked again for passphrase, now only once:
+Weird thing is, that sometimes i can make it work just by pressing "enter" on first try, then put passphrase and second hosts suddenly working. When i run it one more time i am asked for passphrase just once (for host that failed before) i enter passphrase and now its working.. i am like, what the hell?
+Tryied to run my ansible commands with multiple verbosity, didnt find anything wrong there. Any ideas?
+Is this bug in Ansible or am i doing something wrong there? If i just ssh to my hosts it works absolutly fine.
+i am running ansible modules/playbooks (for example ping) with this command by user, who have sudo rights:
+"hosts" is group of 2 hosts. When i run this, i'm asked for local sudo password, which is fine. Then i'm asked for sudo on remote host (because i configured that in ansible.cfg), which is also fine. Then i have to enter passphrases for both hosts and this is where i have problem. I am asked literarly like this at one line:

@@ -1,0 +1,5 @@
+Open a CMD box and go delete everything in the %systemroot%\SoftwareDistribution folder (usually C:\Windows\SoftwareDistribution).
+I get the same yellow baloon alert every day that tells me updates are available.  I click on the baloon, and click the Download button.  The window minimizes, and the yellow icon disappears immediately.  The updates never download.  What is going on?!
+Perhaps you have a firewall blocking the port they download on. Check Process Monitor for errors, and your firewall logs (probably in your router, not in windows itself), assuming you don't have some other third party firewall.
+Stop the Background Intelligent Transfer service (aka BITS) if it's running (should be set to "Manual" startup), and stop the Windows Update service (which should be set to "Automatic" startup).
+If that doesn't work, another thing to consider would be that you may have a previously failed patch that's preventing the problematic patch from installing.  Though, that situation will usually produce an error in  Windows Update itself, and/or it the system event logs.

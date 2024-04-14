@@ -1,0 +1,6 @@
+Technically, there's no difference between a private and a public IP address. It's quite possible that your DNS provider won't accept private IP DNS entries though.
+If you run your own authoritative DNS server (pointed to from outside) it's quite possible to have some A record resolve to a private IP address. If you don't like that you need to either be careful, split the DNS scope or use a filter between inside and outside queries.
+The machinery of some organisation's public DNS server might give you an answer, but it would be its answer not yours.  
+However, the policy about private addresses says that such addresses should not be leak out from their organisations.
+You're quite right, no other organisation can magically see into your network and find, for example, host names unless you have some way to publish them.
+But specifically regarding 192.168.0.0/16 type addresses: as private IP addresses are not uniquely assigned, any organisation can use them and assign its own names to them.

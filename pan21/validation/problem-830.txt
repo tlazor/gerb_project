@@ -1,0 +1,6 @@
+The reason that pg_dump and the other tools are still working is probably because they're connecting over the unix socket instead over TCP/IP. clusterdb should also be able to do that if you just leave out the -h and -p options.
+Are there any security changes were implemented in PostgreSQL 9.2 vs 9.1 that may prevent clusterdb to work properly?
+I'm able to connect to the server locally and from outside. I can also use another utilities  such as pg_dump with no problems.
+It looks like something went wrong when you upgraded. You have to check that the port and listen_addresses are correct. Perhaps the listen_address changed and the instance isn't listening on the host anymore?
+After a fresh PostgreSQL install (version 9.2) on my Ubuntu server 12.04, clusterdb utility stopped working. I used the same config files as I used with version 9.1.
+The pg_hba.conf is not relevant because your client can't connect to the server at all. You can verify that the server is listening on the expected host and port with telnet <host> <port>.

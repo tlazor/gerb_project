@@ -1,0 +1,6 @@
+Index allows you to select one element from an array/list.  Row() just returns the number of the row your formula is in and the -6 is the offset needed to get row 7 to equal the first element in the list, "Jan".
+=IF(INDIRECT(INDEX(ListMo!$A$1:$A$12,ROW()-6,) & "!E" & COLUMN()-1)>0,INDIRECT(INDEX(ListMo!$A$1:$A$12,ROW()-6,) & "!E" & COLUMN()-1)," ")
+What all of this allows you to do is to drag the formula right and yet get the cell reference to move down which is not the default behavior when dragging formulas in Excel.  And dragging the formula down now selects the next sheet name and sheet names can't be incremented by default dragging.
+Just like Row(), Column() will return the number of the column that your formula is in and the -1 is the offset needed to get column E, or 5, to equal the 4 inE4.
+The Indirect formula has to be done twice because the that cell reference is used twice in your formula.
+This approach requires a list of abbreviated month names, which I put in cells A1 through A12 of a sheet that I named ListMo, like this:  

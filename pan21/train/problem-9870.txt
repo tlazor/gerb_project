@@ -1,0 +1,6 @@
+One file seemed to be taking ages. I checked the folder and it was complete, hit enter and suddenly it burst back into life to get the rest.
+I've just had two occurrences of windows 7 stalling an execution until I hit enter on the command prompt/powershell. Afterward execution seems to continue as expected.
+I have seen this with Powershell several times when focus was removed from the Powershell window. Perhaps that's what's happening here as well? Every time it happened things would spring back to life after the window re-gained focus and I hit Enter.
+This means to start program in hight priority. It is much faster and it does not require you to press any keys during execution
+edit the settings on the command shell that you've opened up its been set to quick edit mode which you don't want in this case.
+Second is a java program (an ETL job) in powershell which paused as it was about to output SQL duplicate key warnings. I cannot confirm if actual execution stalled but I suspect not. I have just repeated this one as I type.

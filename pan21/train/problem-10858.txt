@@ -1,0 +1,5 @@
+I removed 2 networking protocols and did restore defaults in the vmware network tool, and that seemed to resolve this problem.  For good measure I disabled antivirus and firewall.    The 2 protocols were:   Cisco Discovery Protocol Packet Driver and iPass 802.1x.  These were removed by uninstalling a Cisco Voip softphone and iPass client software (for logging into pay wifi networks).  Both were part of the standard build on this PC, and luckily I didn't need either.  Perhaps reinstalling them after VMware would work if I needed them.  Hope somebody finds this helpful!
+Extract vmnetcfg.exe from "network.cab" in "extract and copy vmnetcfg.exe to your installation folder (like "C:\Program Files\VMware\VMware Player\")
+Below is the resolution that worked for me.  I hate having any extra networking protocols/bindings, they always seem to cause impossible-to-troubleshoot networking problems like this.
+http://www.google.co.in/search?aq=0&oq=trouble+shooting+vmware+ne&sourceid=chrome&client=ubuntu&channel=cs&ie=UTF-8&q=troubleshooting+vmware+networking
+http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1008367

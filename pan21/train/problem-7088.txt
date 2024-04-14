@@ -1,0 +1,6 @@
+I'm trying to create a global temp table using data from DB1, then use that temp table in a query executed in DB2 and then have the results imported into a new table on DB2. Since the query is a bit more complicated a simple Merge join won't do as I need to transform the data and add an extra column (dense_rank) based on data from both Databases.
+tldr: Is it possible to create a global temp table in SSIS session and pull data from it no matter the Database?
+What is probably happening here is your create ##Table session is going out of scope/context and when the session goes away, there goes it's temp table. Whether local or global. So the process that created the temporary table is out of scope and it's temp table is gone.
+In other words - the problem isn't the scope of the database you are connected to. any temporary table can be access regardless of the database you are using. A temp table isn't created in any of your user databases (DB1 or DB2), they are always created in TempDB. 
+Even a local temporary table (#Table) would work as long as you stayed in a session context. A global temporary table (##Table) is only global in that it can be seen by other sessions.
+After extensive googling and different tries, the DB2 source connection won't find my temp table (##globaltemp) which has been created in DB1.

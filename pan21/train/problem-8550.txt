@@ -1,0 +1,6 @@
+[*] A managed network device could just have a serial console which doesn't require any addressing. However, this was only used on very early devices. Today, most devices feature both, in-band network management and out-of-band console access.
+I saw a post say Switch do not need its MAC address, unless it's an administrable Switch for managing. 
+The basic function of a switch is transparent bridging - for this, it doesn't need any MAC address of its own.
+Yes, if your switch supports spanning-tree protocol(either legacy spanning tree protocol, rapid-pvst+ or MST) your switch will have a mac address since spanning-tree protocol uses bridgeID to elect the root bridge and bridgeID consists of the bridge-Priority, a unique mac address and system-id which is basically the vlan number. 
+Also if a switch has a management ip address, it will need to have a mac address so that ethernet frames can be forwarded to it at layer 2.
+However, if you need to talk to a switch - ie. a managed switch - then that switch requires an address; usually that is a MAC address and an IP address [*]. STP is only supported on managed switches and in addition, an STP bridge is required to have a bridge ID which usually is identical to the management MAC address.

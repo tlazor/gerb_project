@@ -1,0 +1,7 @@
+I would also add heatsinks to the Broadcom chip and the ethernet chip (the two chips on the board.)  You can find them on Amazon and the like.  
+I removed the USB devices and over-current messages stopped. however after some time. Pi restarted and doesn't boot now.
+Grab a voltage meter. Power up the pi using the power supply. Look at the reverse side of the pi. Check these points (These are from memory. It may be wrong):
+If the RED LED flashes, it should mean that it can still boot. If not, maybe the LAN chip got fried (Symptoms: hot chip).
+Remove everything. Plug in a freshly-burned SD card. Plug in a known good power source (maybe a branded phone charger, about 1A to 2A current, Samsung charger maybe)
+If everything is good, your LAN chip may really be fried. If not, try to find a way to fix it (Take note that the Pi may become a fire hazard).
+The Middle chip at bottom gets hot, if i leave the pi connected to power. I waited for 24hrs as some websites suggested that fuse may have gone bad. But still it is not booting :'(

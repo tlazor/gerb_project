@@ -1,0 +1,5 @@
+You'll want to push these out through Group Policy.  In GPME, User Configuration/Windows Settings/Internet Explorer Maintenance are some options for security and URL options.  In User Configuration/Administrative Templates/Windows Components/Internet Explorer are more settings that you can customize.  Since you didn't specify what level domain you're in, I'll say that I pulled this from a 2008 DC, but the paths should still be the same.
+I think there is a way to automatically configure IE's settings for all users from Active Directory, but I can't find it. Any help?
+I recently created an Intranet application for my company, but to work properly it must execute an ActiveX control to locally run a program.
+However, the only way I found for this to work was using Internet Explorer, and setting Intranet security to a personalized "very low" configuration for being able to execute ActiveX scripts without asking.
+You may want to look into setting up some policies for that. I would put that site into the trusted intranet zone and through policy again adjust those settings.

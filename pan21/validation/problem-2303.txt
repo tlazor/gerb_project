@@ -1,0 +1,7 @@
+For instance. Lets say Gig0/0 and Gig0/1 are routed ports that come on a 2901. Is there really any difference from using Gig0/1 along with sub-interfaces to uplink to the switch versus using Gig1/0/1, from an EHWIC and defining VLAN interfaces then assigning them to the interface as a trunkport.
+So it boils down to if you want to have routing/switching in one device or multiple. The only real use case I see for it is small office that doesn't need 24-p switch. You would only need to manage one device as well.
+On a Cisco ISR router - would you say there are any benefits from purchasing an HWIC or EHWIC to connect to the next set of switches within the branch network?
+The only benefit I see with using EHWIC card would be if you need to use LAN features like port security, private VLAN, DHCP snooping etc. However in the first case you mentioned you would use the router as pure router and leave switching features for a real switch.
+We only use them in our colo setup. Was cheaper to have an integrated switch in the G2 router that we supplied than to pay for another RU and a 1U switch.
+You can apply better QoS to the routed ports on the ISRs. QoS on a 'routed aka svi' vlan port on an HWIC-4ESW etc is not as simple
+I would use ESW card in router if I had small office that needs to have 5 users connected. Then I would have router and switch in same device instead of buying a separate 2960 or such.

@@ -1,0 +1,9 @@
+The Internet zone is for letting you surf the web. If you go on a bad site, it will be harder to attack them than with Intranet on. With Intranet, it'd probably be as easy as taking candy from a guy saying "free candies!" (Although, don't eat those candies; they may be poisoned).
+The intranet and trusted zones are allowed to run active x controls (mainly to allow in-house software be deployed without much warnings to the end users)
+Intranet is used for things that are probably more secure than the Internet. For example, those .mht archives on your desktop are probably more secure than  .com. Therefore, your .mht archives are given higher privileges (depending on your internet settings) to doing stuff. Another example would be other computers on the network, if you're in a company. Anything transmitted to you by a coworker might be more trustworthy (at least, to IE*) than  .com.
+*BTW, IMHO, IE is a lot less secure than something like Mozilla Firefox (aka "the most secure browser yet"). I use Google Chrome, though, but at least Firefox is better than IE. (Also, please don't downvote me just cause you're a Micro-softie; this is just my opinion.)
+3.Extranet  means a shared accessed content through a organization and also another organization if they permitted. 
+Basically, it is a way of internet explorer to let configure the browser so that different web applications are given different access control rights:
+As @digitxp said, it really isn't wise to use IE anyways, unless you are bound to use it by some IE only sites, intranet or not.
+2.Intranet means a single organization where share information can be accessed through a organization.
+An extranet is a computer network that allows controlled access from the outside, for specific business or educational purposes. An extranet can be viewed as an extension of a company's intranetthat is extended to users outside the company, usually partners, vendors, and suppliers. 

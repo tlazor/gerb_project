@@ -1,0 +1,6 @@
+Remote administration is performed on the machine via ssh over a different port, with root logins disabled and an exclusive hosts.allow list for ssh only.
+I have a standalone Ubuntu 10.04 server (+ gnome) with a wireless 3G internet connection that is used to download data from an ftp server, process it, and then upload it again.
+As a general rule in hardening a server, you should disable/remove anything that isn't required for the role the server is performing. If you require it at a later date, have it activated then.
+My question is, what are the security concerns that I should address? Should I close down port 80 and other ports? As I also have to be mindful of internal users getting data out, is there a way to only allow ftp connections to the correct host? Should I disable access to usb ports etc? Should I be concerned about the 3G internet security?
+'somewhat sensitive' is fairly subjective. Some military computers do all processing in side an encrypted CPU, so it really depends on what level of security you are required to provide.
+For example, are you required to be PCI-DSS compliant or compliant with any of the associated ISO standards?

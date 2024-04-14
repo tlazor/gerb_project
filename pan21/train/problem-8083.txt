@@ -1,0 +1,8 @@
+You can solve this problem by either truncating the table (effectively resetting the auto_increment counter) or by increasing the primary key to using a BIGINT
+The SIGNED BIGINT maximum size is 9223372036854775807 and the UNSIGNED BIGINT maximum size is 18446744073709551615 (or 8 billion times larger than a SIGNED INT)!
+Finally I tracked down the problem to a table (the one that was hogging all the connections).  The primary key was setup as a int(11) which is a signed 32-bit number.  The AUTO_INCREMENT had hit the maximum of 2147483647.  You can determine this by using SHOW CREATE TABLE like so:
+SOLUTION: Check your tables' auto-increment counter.  If you are using INTs, then you may have hit their max counter size.
+When Updated is changed, a 'row' in the index must be deleted from one place, and reinserted in another.
+I had this same issue on my database.  I had a table that was constantly being updated and used INSERT...ON DUPLICATE KEY.   The updates would take longer and longer and the connections would build up in the queue until mysql crashed.  I tested innotop, instat, reinstalled and restored the tables from a snapshot and nothing worked.
+It looks like you have indexes on the fields you are potentially changing.  This is probably part of the problem.  Can you do without some of the indexes?
+So inserts that updated the index worked fine, but inserts that tried to add a new row failed (actually they were added with the same auto-increment id)!

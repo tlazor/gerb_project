@@ -1,0 +1,9 @@
+We have a rule that users cannot use this file share for setting up roaming user profiles due to network latency and some other issues. 
+My department hosts a very large file share (~50TB currently in use) that is used by groups all over my company. We control the storage and backups, but each department is responsible for managing permissions, adding/removing content, etc... 
+This won't actively prevent setting up the roaming profiles, but a periodic "fix the non-compliance" email to the managers of the users in question should do the trick.
+Unfortunately, any method of searching for specific filenames will likely lead to unintended consequences regarding users backing up their home directory (I assume that this is okay) or programs/applications using similar names.
+From the point of view of the file server, a roaming profile is just a bunch of files stored on a share. There's no "this is a roaming profile" flag.
+If you have AD access, then you should be able to query AD for all users with a ProfilePath set to the server in question (replace "fileserver" with the actual server name):
+We do not manage the active directory for our company (we do have control of our departmental OU and group policy) and we don't mind users having roaming profiles. we just want to prevent them from using them on this particular share. Is there a server side setting or GPO that we can put in place to prevent users from pointing user profiles to this one share without modifying user gpo settings? 
+Ultimately, it sounds like you need to have words with whoever is configuring user accounts to store roaming profiles on your server.
+You might be able to use file screening to prevent files called "ntuser.dat" and "ntuser.dat.log" or somesuch from being written to the share. This will break roaming profile functionality, but it might not stop the client from writing other files and folders (eg Desktop) to the share.

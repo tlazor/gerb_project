@@ -1,0 +1,9 @@
+You shouldn't expose this internal information. Make it a private field and expose it through a getter. Also, as pointed out by others, String might not be the best data type for it. I'd actually prefer a List (Java 8):
+I also don't get the point of this method at all. You never seem to use it. It also seems odd that it only does something if the first parameter is null.
+However, no need to compare at all here. Strings have an isEmpty() method you can call. However, you might want to watch out for null values.
+Overall, to be honest, I don't really get the point of what you're trying to do anyway, so I'll restrict myself to comment on coding style and best practices here.
+This is horrible. It is virtually impossible to understand what these variables stand for. Always use meaningful names for everything you write – from variables to method names to class names.
+The absolute no-go in here is comparing Strings with ==. To compare strings, you always need to use equals() as == will only compare references which fails as soon as the strings aren't interned the right way.
+Also, make these fields private and, if possible, final. Always use the most restrictive level of visibility and only expose your public API. Everything else makes maintaining as well as debugging harder.
+First off, the same thing about names goes for parameters. You also don't need to explicitly call the empty super constructor, the compiler will do this for you.
+Why do you only create errorInfo at this point? You might as well create the instance right where you declare it. This also allows you to make it final.

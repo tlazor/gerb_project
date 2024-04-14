@@ -1,0 +1,6 @@
+Take a look at this tutorial that explains well how to proceed to setup samba as Domain Controller on CentOS.
+You can achieve what you want installing samba on your server and configuring it to acting as a Domain Controller, but keep in mind that though a domain controller configuration can be achieved with a simple configuration using the new tdbsam password backend, this type of configuration is good for small offices, but has limited scalability (cannot be replicated), and performance can be expected to fall as the size and complexity of the domain increases.
+You can run Samba as a domain controller on linux.  The recipe & details are here: http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/samba-pdc.html
+I have a linux server at my home with CentOS and I would like to make it a Domain Controller for Active Directory.
+I don't wanna use Windows Server 2008 R2 'cause it's Windows and I need some linux-only tools. Or I can make a virtual machine in linux to run WS2K8. If I understand how in VMware vSphere!
+I will just run Windows Server 2008 R2 for AD and a virtual machine with VMware for CentOS and another one for my test web server.

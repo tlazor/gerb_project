@@ -1,0 +1,7 @@
+There is a 'maxlogins' limit that can be configured on a per user or per usergroup basis. This won't disconnect previous sessions but will restricted concurrent sessions.
+You might look at /etc/security/limits.conf for these sort of limits. http://linux.die.net/man/5/limits.conf
+Any single one probably doesn't do all the things you want, but together you can do whatever you want, or even write your own module.  Like @DerfK said, you have to configure SSH to use PAM.
+Since you are using a special shell without remote execution abilities, you can't do a little hack in their login shell.  It would be pretty easy to just in the shell figure out if they are already logged in and if not, log them out.
+If it's because of accounting reasons as mentioned in the comments, you might want to look at the GNU Accounting Utilities. These will allow you to do everything upto and including seeing which users ran what process, for how long, and how much CPU and RAM they took. This does require kernel support, but most modern distros will have it compiled in already.
+We used to have idled, which did exactly this. (http://idled.sourceforge.net/ or http://www.ibiblio.org/pub/Linux/system/admin/idle/!INDEX.html), It doesn't seem that it's all that well maintained now, since PAM has come to life.
+The PAM limits won't catch scp or sftp connections because they are not allocated a pty or written to utmp.

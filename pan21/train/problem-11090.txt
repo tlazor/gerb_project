@@ -1,0 +1,9 @@
+If you have a "shadow" free LDAP (if you use ppolicy you most certainly will if you use OpenLDAP as both ppolicy and smbk5pwd don't update the shadow password ageing information) you need libpam-ldap or users won't be notified that their password will expire soon.
+One reason we have been forced to convert to libpam-ldapd is that we use SSL for our LDAP servers. Thanks to libgcrypt "brokenness" (see Debian bug 566351 or Ubuntu bug 23252, both entertaining), this means that sudo stops working when libpam-ldap & libnss-ldap are used with LDAP/SSL.
+I'm setting up LDAP authentication on my personal VPS, and Ubuntu has two packages for the same purpose: libpam-ldap and libpam-ldapd. Which should I use?
+Thankfully, you can mix and match them. I've been using libnss-ldapd together with libpam-ldap for over a year now without any problems.
+While libnss-ldapd is better than libnss-ldap in practically every way, the libpam-ldapd has one major deficiency: it can't handle LDAP ppolicy, and I couldn't find any information about password change using LDAP Extended Operation (it may handle it transparently). 
+I am very fond of libpam-ldapd, have been using it for a year now in production on quite a few Ubuntu servers. I can recommend it over libpam-ldap.
+Edit: In conjunction with libpam-ldapd on Ubuntu you should also look into the auth-client-config package to correctly configure PAM et al.
+The project is originally called nss-pam-ldapd and on its homepage you can find a list of its biggest advantages over the old libpam-ldap package.
+Your options if you want to use SSL with LDAP (and why wouldn't you?) are to recompile libpam-ldap with OpenSSL or use libpam-ldapd.

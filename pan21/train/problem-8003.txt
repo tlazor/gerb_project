@@ -1,0 +1,5 @@
+What do these errors mean? How can they be fixed? And if you say I have to reinstall Raspbian all over again, weeeeell. Yeah.
+And yes, these errors popped up right after or during update/upgrade/installing time, and, as you can see, I was using the sudo's right.
+Well the upgrade process still has locked the applications and the process might still be running in the background or glitched, try rebooting and then install a new version of raspbian, might save the update time.
+Sometimes, using sudo apt-get upgrade takes sooooo long you just close off terminal to stop the "upgrade".
+Oh well. Tried that, and now I'm getting problems when trying to install something else. For example, sudo apt-get update or sudo apt-get mesa-utils(A graphics library) didn't work. sudo apt-get upgrade didn't work at all, either, when I tried to try the upgrade again. I even went to the Raspberry Pi config (sudo raspi-config) and tried the update thing there (advanced options -> update), but they all outputted this or similar error messages.

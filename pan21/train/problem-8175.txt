@@ -1,0 +1,6 @@
+I've got some experience producing Flash games, and for all Flash's faults I find the designer/developer workflow pretty decent. 
+I can set up a template FLA with placeholder movieclips and code to that independently of a designer/animator doing their thing. When it comes time for integration, I can either compile their animations into my project by using a SWC or by loading SWF's at runtime.
+We have had quite a bit of success using Unity3D's iPhone Engine.  Unity has a similar workflow to Flash and we have found that all members of the team make the transition fairly well.
+I've had a quick look, but I can't see any tools that offer a similar workflow for iOS game development. Could anyone producing iOS games shed any light on how they're handling designer/animator/developer workflow?
+There is also Unity for Android coming later this year so if you build a game for iPhone and Unity gets banned by Apple, you could still put it on Android.
+A warning, however - it is still unclear if Unity projects will be allowed on the iPhone in the future due to Apple's new terms of service.  Unity is working hard to ensure that it will be OK, but who knows with Apple's track record.

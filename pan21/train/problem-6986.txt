@@ -1,0 +1,6 @@
+if it is not downloaded and let's say you are using Ubuntu get the tool first using the apt-get install command,
+and then you can compare the MAC address of the sender with the MAC address of the devices you allow and hope, that the sender did not fake its MAC address :)
+any other machine "using your network" has to be associated to your network which means it sends "associated beacons" (as explained here).
+if you can use Linux, there is a tool which is called aireplay-ng it is actually a set u will find, airodump-ng,aireplay-ng and so on...
+first, it helps to understand how WIFI works, read http://www.wi-fiplanet.com/tutorials/article.php/1447501 and/or http://www.cs.wright.edu/~pmateti/InternetSecurity/Lectures/WirelessHacks/Mateti-WirelessHacks.htm.
+then all you have to do is to grab a tool which sniffs WIFI-packets and then analyze, which of the received packets are meant to be used "in your network", you can find a list of tools over at http://www.topbits.com/wi-fi-software-tools.html.

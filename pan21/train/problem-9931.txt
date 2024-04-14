@@ -1,0 +1,5 @@
+I've formatted my machine (Used to run Ubuntu 13.04) and installed Mint Linux this time, it worked fine for a few days and now, again, having the same exact issues.
+If I take a URL of a page I cannot load via the browser and try to wget it though the console I get the file just fine.
+Last week I've suddenly had difficulties loading some websites or even more odd some parts of different websites. For example, I could load gmail.com, login and view the list of emails in my inbox but when I clicked one of them it would just time out. Another example is http://www.ynet.co.il, I can view the home page but going into any one of the articles fails (times out).
+Important to note that I have other machines connected either directly or via Wi-Fi to the router and they are all working fine (two win7 machines and 1 raspberry pi).
+Another strange behavior is that I can ftp or ssh to remote machines but cannot send files via ftp (times out) even if I set passive mode ON and when using ssh I can do just about anything but I cannot paste text into the remote machine, for example if I nano a file on the remote machine and try to paste anything from my clipboard it freezes.

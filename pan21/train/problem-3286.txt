@@ -1,0 +1,10 @@
+The general design pattern is one container = one running service - see the initial comment at https://docs.docker.com/config/containers/multi-service_container/
+Avoid creating files inside the container unless it is your storage engine - in which case use volumes (recommended by Docker and also common sense) - we use Elasticsearch for that. 
+We spent some time minimizing the footprint of containers, they can quickly get bloated. For example, we use a common base image for our python containers. Also, things like pip freeze do make sense only if you use a separate virtual environment for each repository/container.
+At the moment, a bash script is used that contains various if-else statements and it is getting more and more a spaghetti.
+Now, after spending about a year developing a multi-service application relying heavily on docker this is what works for me:
+What about applying DPs to creation of images, e.g. docker. In our situation we have the core, i.e. the application, application configuration (customization per customer), and different artifacts per customer.
+In general, we have one service = one repository, but sometimes you have to copy all the dependencies in order to just create one script. So we have one repository where these scripts are aggregated and I change the CMD with an environment variable like this:
+In Object Oriented Programming (OOP) there are Design Patterns (DP). DP are best practices for tackling certain problems. For example, a singleton is acceptable to be used in a logger class.
+It can be probably improved with a combination of ENTRYPOINT and CMD as described here http://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/
+If I need multiple custom configurations I am trying to either load it from somewhere (DB, Environment) or I mount the configuration as a volume like 

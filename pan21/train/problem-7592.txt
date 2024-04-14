@@ -1,0 +1,6 @@
+Have the same port (default 22) enabled for forwarding in your virtual machine network configuration
+Easy way: go to "network settings", "port forwarding" and add a rule to map VM port 22 to, for instance, port 9022 on the host. Then run ssh localhost -p 9022.
+Go in to network settings in Virutalbox and change the network adapter to either bridged or host only. Make sure the VM's IP address is on the same subnet as the host's.
+/etc/ssh/sshd_config if you go in it with different port number from outside or your router has a rule of forwarding it to another port
+I have an Ubuntu VM instance running on my laptop. Both Host and VM run the same OS - Ubuntu 12.04. I tried to ssh from host like
+Better way: install Ubuntu lxc package, then, on VirtualBox, go to the VM Network settings, set Attached to to Bridged Adapter, set Name to lxcbr0, reboot the virtual machine and it would get a new IP reachable from the host. Though, if you do that, never start an LXC container and a VirtualBox VM attached to the same bridge at the same time or the host might go nuts (quite ugly bug somewhere)

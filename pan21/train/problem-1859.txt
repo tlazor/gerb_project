@@ -1,0 +1,5 @@
+After logging in, the ctrl+alt+del worked. I opened task manager and restarted explorer.exe. The black screen still came back, but after restarting computer, it was gone.
+The black screen at login is usually cause by a service that starts at login timing out waiting for something to happen.
+I'm going to take a guess that you have an NVIDIA graphics card like the GTX 460 or 480? If you do, then add yourself to the list of people experiencing this problem for more than a year now (I'm on that list too). Check out this thread to see what people are trying: http://forums.nvidia.com/index.php?showtopic=171920
+Sometimes Windows can hang for awhile during startup if it has trouble getting a dynamic IP address assigned from your DHCP server.  Can you boot into Safe Mode with Networking?  If you get the same black screen, try resetting your cable/DSL modem.
+I had this happen when I enabled (but didn't configure) the NFS client in Windows 7.  As soon as I removed the NFS option it suddenly started logging in fast.

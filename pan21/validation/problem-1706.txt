@@ -1,0 +1,5 @@
+Sounds like the box was hung. Since the onsite support just bounced the box it's possible but unlikely that you will get anything from the logs.
+If you have the option enabled to create a crash dump file then this is another possibility, although it takes advanced analysis skills and/or a support case with Microsoft to get useful information out of it.  Usually the dump file will be saved to %SystemRoot%\MEMORY.DMP.
+You need to enable CrashOnCtrlScroll support (http://support.microsoft.com/kb/244139), reboot the box, and then next time it hangs have someone hold down the RIGHT Ctrl key and press Scroll Lock twice. This will bugcheck (blue screen) the box, writing the current state out and then reboot it.
+Otherwise, if there are system monitoring tools provided by the manufacturer such as HP OpenView or Dell OpenManage, then you should look in there for evidence of hardware failures.
+If it was a "Blue Screen of Death" that caused the failure, and the server is configured to save a crash dump (which is the default), you can debug the output. The best how-to resource I've found for that is "How to solve Windows system crashes in minutes".

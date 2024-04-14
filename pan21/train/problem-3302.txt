@@ -1,0 +1,6 @@
+For this use of SSH it could be very helpful to use a public key authentication instead of passwords. Then it is possible to run the commands without entering a password. See for example: Public Key Authentication With PuTTY or Key-Based SSH Logins With PuTTY.
+Thing is, I have to do a lot of stuff manually on different servers whenever I want to test something and I'd like to automate it, also to make it less error-prone.
+I'm on a Windows server, I'm looking for a way to run some scripts (through RSH?) remotely on Linux servers.
+You are already using great protocol for remote access (SSH). I would recommend you to use it for running commands remotely too. PuTTY you mentioned contains also a text console SSH client plink. If the remote scripts are not very interactive the best option would be to use plink:
+In this case you have to create a file (command.txt) and store the command to execute there. Here is more information about PuTTY command line.
+Currently I'm just logged in to SSH terminals with Putty and run the scripts locally on the Linux servers.

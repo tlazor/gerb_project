@@ -1,0 +1,6 @@
+(I've asked this in Super User, rather than Stack Overflow, because I'm just trying to use a program, if it is a program, and not writing a program)
+I can't tell whether, once the files are compiled, there's supposed to be an executable that I can run, or whether it's just a library, and I would have to write the main application myself (which I can't do, because although I program in Ruby, I don't currently program in Java).
+How can I determine if the files I've downloaded are capable of being compiled and being made an executable program that I can run, or if it's just a library?
+From http://www.bugaco.com/bioinf/clusterer/ , by clicking on "Download sources", I downloaded a zip file containing a bunch of files, most of which were .java files. The folders were com, conf, and META-INF.
+I tried reading the manual, but this is the entirety of the documentation with regards to running it as an application. (I also suspect that the person writing the documentation isn't a fluent speaker of English)
+How can I tell whether a bunch of Java files can be made executable, or is just a library, and can't be made executable?

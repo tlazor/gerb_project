@@ -1,0 +1,7 @@
+A classic example of this was a JPG exploit in Windows ba few years back.  Just opening a .jpg file could get you infected: http://www.f-secure.com/v-descs/ms04-028.shtml
+Now, if the file was crafted in such a way that it'd exploit a vulnerability in the unzipping program, then it could be used to attack the system.
+You can put any kind of data inside (what appears to be) a ZIP file. The file type is guessed from the extension when you double click it, but an attacker could even go as far as faking the magic numbers of a ZIP archive.
+Under OS X, can a zip file be embedded with malware?  My focus is on the un-zip process not the resulted files.  Says, I download a zip file and unzip it.
+One could also, as Ramhound said, have an archive file that isn't actually an archive file and have it executed by the system.  You should get some protection from this by Finder wanting to handle file types it knows about with the aforementioned unzipper program or a word processing program instead of executing it directly (based in its extension), but that can also be a downfall if there's an exploit in a particular file handler.
+Zip files are handled by unzipper programs and unzipper programs can, and have been in the past, be exploited.
+In any case, the user unzips a file by passing it to their favorite program (i.e. OS X' BOMArchiveHelper / Archive Utility, or unzip, or any other). The program parses the file.

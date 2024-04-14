@@ -1,0 +1,5 @@
+First I tried to connect to the machine with the auto assigned IP with no luck. Then I attached the previously created elastic IP same results. Amazon "built in" status checks are green.
+Is there any extra settings what I have to enable / create / pay to be able to run instances? Or is there any limit what I have to increase (I think I have default limits for everything)
+I am new in AWS. I have a few running EC2 instances in Virginia without any issue. Those where created mostly by previous sysadmin I only added 2 extra machines. Now I decided to start a few VMs in Ireland as well, but at the end of the process I can not reach them (ping, ssh etc).
+I am running several VMs in Ireland with elastic IPs and never had issues, except when the security rules were misconfigured (read: my local IP changed and I could not connect anymore).
+The security group has settings for inbound and outbound traffic. Did you perhaps only allow outbound traffic to all IPs for all protocols and forgot to enable inbound traffic?

@@ -1,0 +1,5 @@
+But how do you provide a password into that runas call? What triggers that routine? If you used /savecred to store the password then it stored within user's setting and you need to save it for each user. Even worse that the user can get this password in a plain text if he want to.
+I need users to be able to copy a folder on a network share to another folder on the same share. They need to copy security too. They cannot use their normal logged in account as it doesn't have enough permissions (the folder is a "template" folder and is locked down with restrictive NTFS security).
+As I know runas supports specifying UNC path as a program argument. robocopy I guess will handle it too. So you can just use UNC path as Zypher suggested.
+The runas fails with "cannot find file copy_folder.cmd". Z: is mapped correctly and I have tried runas without the /noprofile and /env switches but I get the same error. 
+Network shares are not brought over as part of runas even with the /env switch. I would use the UNC path to the Z: drive mapping.

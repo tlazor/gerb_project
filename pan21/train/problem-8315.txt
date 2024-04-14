@@ -1,0 +1,7 @@
+Would I have to install ANOTHTER Exchange server and migrate into? This would be very unfortunate.. 
+I saw a post with the same problem on a diffrent site, but none actually answered the problem and the post aged out.
+See there for Exchange version; https://technet.microsoft.com/en-us/library/hh135098(v=exchg.150).aspx
+You can issue a command to disable the ESE forced reboot, the cause is well explained by Don's answer.
+The server is virtual and exists in a clustered vmware environment with storage via iSCSI. None of the other Windows servers we have running (including the passive copy of Exchange) bsods. The passive Exchange is beeing backed up and clears the transaction-logs as it should on both the passive and active node. 
+I did it latelly for a custumer with a single server with esx, as the IO was overkilling the Exchange. (its still killing it, as it take age to simply open a management console in example, but atleast it dont reboot..)
+Add-GlobalMonitoringOverride -Identity ExchangeActiveDirectoryConnectivityConfigDCServerReboot -ItemType Responder -PropertyName Enabled -PropertyValue 0 -ApplyVersion “15.0.712.24

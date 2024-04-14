@@ -1,0 +1,6 @@
+Then use an app like teamviewer running in your "server" pc (that is connected with the disks) to access the data remotely.
+(I would prefer to have the main router with a dynamic IP but I have a spare one I could use for the server with static IP if needed.)
+The latter two make multiple disks act as one, while the first is like a data server (you probably can do combinations, or just make each disk usb external)
+I have 3 SATA laptop Hard Drives which I would utilise in some way, preferably I would like to join them together (though USB) to my old PC (really old - 500MB of RAM) and somehow use that as a home "server" so that I can access any of the files from the computers around my house (Linux and Windows). How hard would that be to do? Could you include some easy-to-follow setup tips?
+Also would it be possible to access the information remotely (outside of my LAN) through the internet? Is that something I would have to pay for?
+You can create a NAS (network attached storage), or RAID cluster whith these 3 drives if they are the same, or JBOD (just a bunch of disks). 

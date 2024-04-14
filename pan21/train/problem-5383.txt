@@ -1,0 +1,6 @@
+As an example on VMWare, we found that the VMWare Tools time sync will only correct time if it drifts backwards on the VMs. It wouldn't correct the time if a VM got ahead of its host.
+A chrony instance per VM with short interval poll updates from local NTP server(s) seems to be the only viable-reasonable way to go.
+My advice is to have an authoritative source of time that is based on a physical piece of hardware (in this case, your KVM host server) and sync your VMs using the standard OS time sync methods (in your case, ntpd) back to that server. Often a shorter resync interval is necessary if the vm guests are drifting excessively. In short, I think you're on the right track with ntpd.
+I've encountered numerous problems with timekeeping in VMs, and across several different virtualization platforms, I've also had problems with the native Host-VM time sync tools.
+http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5.4/html/Virtualization_Guide/chap-Virtualization-KVM_guest_timing_management.html
+Although chrony can broadcast time updates across LAN, it doesn't support listening to such updates and there're no plans to add it. Unicast is recommended with such a comment: "…

@@ -1,0 +1,11 @@
+If your underlying storage device (e.g. RAID controller) supports snapshots, you could use one of those too.
+If they're not, then you will have to do something else; if you're on Linux then you can use an LVM snapshot provided you're using LVM AND you have space for one (You'll still need a flush tables while you take the snapshot, but the snapshot is quick). 
+Restoring that backup on a box would then look like this (path of the mysql data directory may vary by distro):
+Are you using InnoDB?  If so, take a look at Percona's xtrabackup tool.  Or more specifically, use their innobackupex script which wraps xtrabackup and adds support for also dumping any MyISAM tables among other things.
+If all your tables are InnoDB then you can use --single-transaction. This will lock the database only briefly, relying on the internal consistent snapshot available in a transaction to complete the backup.
+I use it to backup extremely busy databases in the 500GB+ range without any issues at all and very little replication delay even when load is especially fierce.
+It also supports streaming the backups to other machines, incremental backups, and is just a very robust and useful tool.
+It can do online backups (zero locking for InnoDB) and the output is a valid mysql data directory you can copy into place to restore generally making restores much faster than restoring a dump.
+If all of your tables are InnoDB, then you can mysqldump with --single-transaction.  That will dump the database in a consistent state while still allowing other updates to your tables to occur inside other transactions.  I've migrated a number of systems to InnoDB just so I could have this feature.
+Here's a sample usage that takes a backup and then applies the logs in the backup to make it viable for restore:
+I agree with theotherreceive; the locking is probably what's causing the timeouts.  If that's the case, you could create a mysql slave and do dumps of that (preferably on separate hardware, but whatever).  This will prevent your master db from being locked while the dumps happen, and the slave will catch up with the master once the dumps are finished.

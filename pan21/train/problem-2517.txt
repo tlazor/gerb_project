@@ -1,0 +1,6 @@
+Another possible reason is I/O. If your jobs perform lots of file operations (e.g. open/write/close file operations), the disk in the system may not be able to keep up if too many jobs are running at once.
+On one machine (I don't know the cpu kind) the treshold is 11 jobs for 16 cpu's. On another one with the same number and kind of cpu's , the treshold is 8.
+I thought at first that this is a memory issue but each job takes about 60MB - 100MB and I have 16GB of ram on each of those machine. 
+Other reasons are other bottlenecks in the CPUs, for example shared caches or floating-point execution units.
+O know this is a long-shot but I'm clueless here. I'm running several computer simulations on High Performance Computation cluster (HPC) of oracale grid engine (sge). A single job runs at a certain speed (roughly 80 steps per second) when I add jobs to the machine, at a certain treshhold, the speed is recuded by two. 
+Although your jobs don't consume a lot of memory, they may be filling up the memory bus (which connects CPUs to the RAM). If the bus is full, adding more jobs will only create more pressure on the memory bus, causing everything to slow down.

@@ -1,0 +1,16 @@
+We have several dozen kiosk machines each with the same logon name who occasionally and briefly a file on a share.  The rate is several locks and releases a minute.
+3) If you MUST use a shared file... Create different usernames for each remote site so you can properly debug.
+If you are in need of a script or programmed application catered to your system, please feel free to comment and I will provide with contact info, a very low price along with tech. support on my application.
+Recently, we have experienced one of the clients locking a file exclusively, and then not releasing the file.  
+2) Access for the shared file will cause a race condition between clients.  Wasting valuable tick time.
+4) Open the file.txt and search for the line containing both your file name and the Read + Write permissions.
+I know that most of the payload is binary... However I would bet good money that they initial header to negotiate authentication for access to the file is in clear text.
+As long as you have Administrative rights on the file server, it will disconnect that system from the file and assuming your system is automated, should allow things to keep moving along as needed.
+The unreleased lock issue has happened several times in the last month. I've been looking for which kiosk device is responsible for the locking, and to detect it quickly when it happens. 
+If it was me and I had access to a linux machine on the same subnet... I would do a tcpdump on the share port in question to the box they are holding the file open on.
+1) Shared files is a bad idea!  Especially w/ remote systems that could leave a file locked if they drop connection or have slow connections. 
+3) openfiles /query /v > file.txt [ENTER] (This will create a file on the desktop with a list of all the opened files on the server.)
+Best scenario... get rid of file and merge into SQL or create a webservice that allows the clients to access the file or data.
+This will show you every far end host that connects to that box and where the filename is found within their packet data (if not encrypted or in binary).
+I believe you are going to want to refer back to Sky100's post as he is correct, not in providing you with what you asked, but in providing you with what you need to resolve your issue. You will need to reference the locked ID number via the "openfile /query /v" (verbose) command as it will supply you with the data you need. Search for the file name within the list given, the data will show which item has the read & write enabled, and along with it will provide a specific ID number. No, you may not be able to find which specific system has the file locked, but with the tools provided, you can disconnect that user from the file. Here is a step-by-step to simplify my ramblings.
+We can close the file when this happens, but several minutes or longer elapses, and this is an unacceptable outage.

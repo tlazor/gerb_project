@@ -1,0 +1,7 @@
+If I recall correctly, you can enter system deatils and the Product IDs in WAIK and it will automatically map Product IDs to hardware.
+I actually posted more details about this else where: http://starvinggeek87.blogspot.com/2013/05/useing-windows-deployment-service-to.html
+The only way I was able to get it to work correctly was by braking it up into 4 parts as shown and set RequiresUserInput to true (don't ask me why it just would work otherewise 
+Another option is to have the Windows 7 installer prompt the user at install time and teach the user how to find the Product ID when needed. Maybe Dell has attached the Product ID on a sticker somewhere on the systems.
+first you will need to copy the OEM cert and SLP.bat files from your Dell OEM CD.The OEM Cert is located on the CD under sources\$OEM$\$$\system32\OEM and is called OEM (XrML Digital License). slp.bat is located under sources\$OEM$\$$\setup\scripts.
+I understand about using the AIK to create the answer file but my question is about what "Product Key" to use in the answer file, if any ??
+We use Dell Computers here and we are wanting to create a standard Desktop Image for Deployment. We only have the OEM copy of Windows 7 Professional that ships with each system.

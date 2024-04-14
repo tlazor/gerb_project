@@ -1,0 +1,7 @@
+Its all dependent on software and OS you are using. Some software better working with multicores some with higher frequency. AFAIK best option would be to get quad core. I cant tell if that will work for video editing, but that worked well with 3d graphics(2x3.1ghz => 4x2.2)
+I am planning to buy a used computer for video editing, now I have found one with 2x E5310 CPU for a decent price. 
+And I havn't found any information which is better for video editing (Sony Vegas, Adobe Premiere apps): Less cores with higher clock rate, or more cores with lower clock rate?
+in the end, you are not doing a trival task, so I would look for a quad core at > 3GHZ, preferably with hyperthreading (giving you 8-threads of seemingly-simultaneous processing). I recommend the I7 2600 (4x 3.4GHZ HT).
+The big question regarding core count vs raw frequency is a question as to whether the apps are multithreaded, and whether the main operation the app can perform is multithreadable. A single thread app will only run faster if you increase teh frequency, but if the task is broken into multiple threads then more cores is better.
+in your case, those apps are all multithreadable, but the act of rendering is often a single thread, so frequency is very important. Having the right instruction set is also critical for this kind of task (SSE4 for instance). 
+In your case i wouldnt exchange for E5310, because that cpu is very old, and might not support some features, that would increase speed of rendering your video. 

@@ -1,0 +1,8 @@
+A Java 11 application is crashing in a manner that from my understanding is impossible with the settings I have.
+How much memory are these using? You can measure precisely by isolating them in their own cgroups (container, systemd slice).
+From my understanding, this sort of crash should be impossible, given that Xmx and Xms are set the same, so the JVM shouldn't be requesting more memory from the OS once started up.
+The application tends to use about 250MB of memory under standard loads, and about 400-500M under "unusually high" loads.  This includes the overhead from the servlet container and such.  The assignment of over 2 gigs of memory is to provide a small buffer in the event of a DDOS attempt.
+In addition, the application starts with the Xmx and Xms arguments set to the same value: 2136M, so the JVM should not be requesting memory from the OS, except at startup time.
+The application in question runs on Amazon Linux 2, utilizing Java 11.  The server is a cloud EC2 with 4 GB of ram.  The server has no swap space.
+This server is purely dedicated to this application, there should be nothing running on other than the application, things required by the application (such as ngnix), and things that monitor the application.
+mmap failures mean the (Linux) kernel failed to allocate memory. Often in a out of memory condition. It does not mean that a (JVM) process exceeded its memory limits.

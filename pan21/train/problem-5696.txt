@@ -1,0 +1,5 @@
+11 minutes, nice :) Keep in mind that taking some time to keep the code maintainable after finish also important which could earn you some extra points too on an interview.
+Overall, well done. I like your code. I would have solved it in the same way. Your coding style is consistent, which makes it easy to follow your code, even though I don't agree with the coding style itself.
+I might fault your code for excessive use of memory, which would probably prompt a follow-up question.  @rolfl has pointed out that you could use two one-dimensional arrays.  You could do better, with just one boolean to decide whether to zero the current row, and one boolean[] to keep track of the columns that you will zero.  (A simple exercise for you.)
+It is even possible to do it with two boolean variables (constant space).  It's debatable whether such a solution is better than a one-1D-array solution, though, since it probably has worse cache locality.
+At first when I took a look at your question I was thinking: Why do you first set values in a boolean matrix to true? I quickly realized, "Oh. That's why."

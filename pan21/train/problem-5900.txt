@@ -1,0 +1,10 @@
+https://docs.microsoft.com/en-us/exchange/email-addresses-and-address-books/email-address-policies/email-address-policies?view=exchserver-2019
+However, the recipient's proxy addresses show as your request, and in Outlook client sender sends a message to the email address 'm.k.baker@contoso.com' or 'mbaker2@contoso.com', the recipient all could receive it.
+How do we go about doing this?  Do we just add a second EAP with the priority set to 2 or do we create a second Email Address Format in the same existing policy or do I update the default policy?
+For example if Mark J. Baker start working for us and the email mbaker@domain.org is created then a week later his wife Mary K. Baker starts working for us when we create her exchange mailbox it'll create it as mbaker2@domain.org.  
+We currently have our Primary EAP set to first inital last name @ Domain.org, the problem is that when we get 2 people with the same or very similar first and last name it wants to create the email address with a 2 at the end.  
+We'd like to make it where in that instance if mbaker@domain.org already exists it'll instead use first initial middle initial last name so she would then get mkbaker@domain.org.
+With my research and test, you could customize the address type 'smtp' for proxy addresses. In the article above, it refers to "%i values Middle initial". You could add an email address parameter like "%1g.%1i.%s@contoso.com" The screenshots below are the testing result in my Exchange 2013 Lab:
+I created Mark.J.Baker and Mary.K.Baker in my lab, Since address format ' first inital last name @ Domain.org' is set as SMTP address, it still shows MBaker2@contoso.com.
+Obviously I don't wanna break anything or add a secondary address to all existing emails, I only want this to apply to new email boxes that would potentially have the 2 at the end because of not being able to have duplicates.
+In the article, it mentioned "A recipient can only be affected by one email address policy. After the recipient is matched by the filtering properties of the policy, all other policies are ignored." Thus, you don’t need to create two or more email address policies. 

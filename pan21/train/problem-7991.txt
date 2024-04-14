@@ -1,0 +1,10 @@
+Could you run "iperf -s" on your router to check how is the connection between your client and the router? 
+The cpu is not idling at all, one core 68.7% other 34.3% busy processing interrupts is not idle. The userspace is idle not the kernel.
+Not familiar with openbsd, can you set cpu affinity so that one core processes irq259 and the other irq260. Then see how busy each core is.
+If it is not the CPU, maybe something is wrong with some lower layers? I suggest checking if ethtool or mii-tool show 1000FD in both cases (with and without router-in-the-middle). Maybe your router board forces some link settings and maybe you have a duplex mismatch issue?
+Here are more detailed information on the benchmark performed: https://teklager.se/en/knowledge-base/apu2c0-ipfire-throughput-test-much-faster-pfsense/
+I have performed throughput testing on APU system on several operating systems. The results are different between BSD and Linux.
+It could be something related to the network cards and the path between them and the kernel/cpu (including interrupt processing).  You should look at verifying the various "offload" settings (sorry, I'm not familiar enough with FreeBSD to suggest the right tool).  Also look for any other network-card driver-specific settings that can be tweaked, and experiment with them .
+BSD-based operating systems (OpenBSD, pfSense, etc) max out at 622Mbit/s on APU, while Linux-based systems (IPFire, DD-wrt, etc) handle 1Gbit with ease.
+This is rather old topic, but I thought I would contribute anyway. The bottleneck in your case is the CPU. This CPU has 4 cores, you are probably maxing out one of the cores, and openBSD is presumably using single thread for routing.
+And here's throughput test for BSD: https://teklager.se/en/knowledge-base/apu2c0-pfsense-network-throughput-test/

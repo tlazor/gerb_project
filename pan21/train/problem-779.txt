@@ -1,0 +1,14 @@
+Two, it's clear who depends on what. I can easily see what classes need what services just from the class declaration.
+On the other hand, if you need a small functionality, only used at certain times, you should prefer passing references.
+If you had made an object a Singleton and later realize you need to be capable of supporting multiple instances of said object, imagine the sweeping changes needed if this class was something you used pretty heavily throughout your code base.  The better alternative is to make dependencies explicit, even if the object is only allocated once and if the need arises to support multiple instances, you can safely do so without such concerns.
+If you don't call that singleton in your application lifetime, it will not be instantiated. But I doubt you build singletons and not use them.
+I initialize my services in my main application class and then pass them as pointers to whatever needs to use them either through the constructors or functions.  This is useful for two reasons.  
+If you're like me, I prefer to be able to open a header file and briefly skim over constructor arguments and public methods to see what dependencies an object requires rather than having to inspect hundreds of lines of code in an implementation file.
+Programmers often rely on the Singleton pattern as a means of convenience and pure laziness rather than taking the alternate approach and being a tad more verbose and imposing object relationships between one another in an explicit manor.
+One, the order of initialization and cleanup is simple and clear.  There is no way to accidentally initialize one service somewhere else like you can with a singleton. 
+As you mentioned, singletons have no lifetime control. But the advantage is they have a lazy initialization.
+Singletons works, they never broke any application. But their lacks (the four you've given) are reasons you won't make one.
+It isn't uncommon for parts of a code base to be considered cornerstone objects or a foundation class, but that doesn't justify it's life cycle to be dictated as a Singleton.  
+As others have pointed out, use of the Singleton pattern also obfuscates coupling that often signifies poor design and high cohesion between modules.  Such cohesion is usually undesirable and leads to brittle code that can be hard to maintain.
+If you can handle your component with a totally different object (no strong dependency) and expect having the same behavior, the singleton may be a good choice.
+You may think it's annoying to pass all these objects around, but if the system is designed well, it's really not bad at all and makes things much clearer (for me anyway).

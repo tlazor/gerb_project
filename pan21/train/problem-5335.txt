@@ -1,0 +1,17 @@
+Is there a better strategy to deal with this fragmentation of indexes, or anything else I could look into to try and make the fragmentation less frequent?
+As pointed out by others, index fragmentation "per se" shouldn't be an issue. However, depending on various factors it can be an indication of other issues.
+Index rebuild (Online) is a resource intensive operation. During the rebuild there are locks being held which for a very short period of time can make a table unavailable (Very short time).Below link provides guidelines for online index operations :
+... periodically bad performance (statistics updating), index fragmentation resulting in slightly worse performance than when defragmented.
+If you would adapt that to your 2 Million row table, then the statistics would update roughly after 20% changes/rows * 2'000'000 rows = 200'000 changes on a SQL Server 2014 or older version.
+... varying performance, index fragmentation resulting in slightly worse performance than when defragmented.
+Yes, the indexes are fragemented, but they are still indexes and they will still work, regardless of the level of fragmentation.
+You might want to consider just bringing the statistics up to date for the indexes that have a high level of fragmentation. 
+The problem with that is while it's running, the app becomes very slow and unresponsive for about 2 hours while it does it's thing.
+I recommend you to read this article about it: SQL Q & A Database Consistency, Temporary Tables, and More by Paul S. Randal
+Our DB indexes fragment really quickly, to the point that after 3-4 days, a lot of our more used tables are usually over 40% fragmented. If left, after 2 weeks a lot would be ~90% fragemented. In our most used tables, we've got about 2 million rows.
+So, to sort this, we've got a script that runs every 3 days, looking for indexes that are >20% fragmented, and we rebuild these (with online on). 
+It would be recommended to have the script scheduled during minimal operations window . Identify the frequently high fragmented tables and treat them separately as per your environment convenience.
+We've got a SQL Server database powering our SAAS web app. It's a SQL Azure database, hosted on S3 Standard plan (100 DTU units - pretty suficient for what we need).
+Why? There is a built-in algorithm that determines when to update the statistics. Statistics are updated according to the following documentation:
+If you would adapt that to your 2 Million row table in your SQL Server Azure environment, then the statistics would update roughly after 2% of the data has changed. 2% changes/rows * 2'000'000 rows = 20'000 changes.
+https://docs.microsoft.com/en-us/sql/relational-databases/indexes/guidelines-for-online-index-operations

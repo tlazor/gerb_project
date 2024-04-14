@@ -1,0 +1,5 @@
+The short form is: one or more EAV tables can be useful in certain specific cases, usually when accompanied by other tables, but you lose most of the benefit of a relational database when you move to them.
+I would also ask: If someone wants to put everything in a single EAV, for what purpose does someone still want to use SQL Server?  What benefits does SQL Server provide at that point over other approaches, particularly transactional databases (one example is a simple structure where you have "key columns" then "data columns" and you always look up data via the key).
+Congratulations, someone has reinvented EAV (Entity Attribute Value).  Please study up on the subject with them.
+at a relational data model every logical relation is a single table with values and so on. I know someone who is this too much work and he wants to create only one table which contains all. This could be look like:
+A couple interesting notes from Wikipedia (the second of which applies in particular to the "only one Value column in the whole database" idea you listed someone as having proposed):

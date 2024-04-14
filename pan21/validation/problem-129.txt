@@ -1,0 +1,6 @@
+Well, to be frank I went the simple route and happily used iSCSI over IP over IB and it worked easily and performed well:
+I'm very early in the process, and at the moment I'm basically just looking for a tutorial on the level of, "You have two servers on your fabric: here's how to export a block storage device from one to the other."  Preferably on RHEL or variants thereof.  Any pointers?
+An iSER implementation for Linux is available via the tgt project and an SRP implementation for Linux is available via the SCST project. Regarding Windows support: at this time there is no iSER initiator driver available for Windows. But an SRP initiator driver for Windows is available in the winOFED software package (see also the openfabrics.org website).
+I recently configured SRP target/initiator pair on Linux, and had ~100% performance increase (580MB/s on 10Gbps SDR) over traditional iSCSI-over-IPoIB configuration (300MB/s on SDR).
+NOTE: AFAIK, SCST is now obsolete as Linux (kernel) is going with Linux-iSCSI (LIO), obsoleting STGT (previous in-kernel implementation) as well. Plan is to merge SCST features into LIO.
+I'm trying to figure out how to set up a simple storage system which exports block storage over Infiniband, using either SRP or iSER.  

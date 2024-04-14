@@ -1,0 +1,6 @@
+fail2ban doesn't recognize failed public key ssh logins and I assume that this can be solved by modifying the failregex of /etc/fail2ban/filter.d/sshd.config to match the following line:
+At least in openssh 7.3 the log messages also contain a port number. So I had to modify sebix's solution to the following:
+For me, this works better, as I get tons of legit log entries, matching the "Connection closed" regex, at least in OpenSSH 6.6.1 variations. Believe it also covers the new OpenSSH log format, which includes "port":
+But I can't find a decent introduction on how to correctly modify said failregex. As I don't really know what variables like ^%(__prefix_line)s include it's hard to get a working regex.
+On Ubuntu 18.04 with OpenSSH 7.6p1 I had to extend the "cmnfailre" rules in /etc/fail2ban/filter.d/sshd.conf by
+I understand that the most recent version 0.9.1 includes the regex to matche the "Connection closed by  [preauth]" line, but I'm using fai2ban from the Debian repository and the configuration of 0.9.1 is not compatible with the one I have.

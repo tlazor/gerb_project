@@ -1,0 +1,5 @@
+Is there a better way to accomplish any of this? Was thinking about just using the event to do it, leaving the delegate out, but don't know if that's better. Your input is very welcome 
+Here it receives a CallExecuted this is the delegate from the calling class. After serializing the JSON data it calls this delegate with the item as parameter cbDelegate(new CallbackArgs(item));
+Because it's making use of web requests it has to be asynchronous. From somewhere User.getTracks() should be called and handled. To do this I've come up with a solution but I don't know if it's a good one. 
+I'm making a WindowsPhone 8 app in C#. With this an API so I can convert JSON data into useful objects. I've found a method but am wondering if it is any good at all.
+I have an ApiCaller class which has a few different ApiAction methods, these methods receive a generic to know what type to eventually serialize to. The main method receives all the data, makes the web request and serializes the JSON to an object. 

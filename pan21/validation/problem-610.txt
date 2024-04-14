@@ -1,0 +1,7 @@
+If automatic login is enabled, the password of the login keychain is also stored in /etc/kcpassword encrypted with XOR cipher.
+As I know, Mac is also based on Linux (I could be wrong), can you check on the root folder for a file which is called "pwd" ? 
+sudo defaults read /var/db/dslocal/nodes/Default/users/$USER.plist ShadowHashData | tr -dc '0-9a-f ' | xxd -p -r | plutil -convert xml1 - -o -
+sudo ruby -e 'key = [125, 137, 82, 35, 210, 188, 221, 234, 163, 185, 31]; IO.read("/etc/kcpassword").bytes.each_with_index { |b, i| break if key.include?(b); print [b ^ key[i % key.size]].pack("U*") }'
+I know Mac keep hash (SHA) of the password in a file but i don't remember the location somebody can help me please ?
+In recent versions of OS X (I forget whether this changed in 10.6 or 10.7), the shadow hashes were moved from /var/db/shadow/hash/<generateduid> into the main user database as an attribute in /var/db/dslocal/nodes/Default/users/<accountname>.plist. You can get them from the .plist directly (with e.g. the defaults command), but it's probably best to go through directory services with the dscl command, especially because that can also tell you what format it's in (SALTED-SHA512-PBKDF2 in this example):
+The hashes were in /var/db/shadow/hash/ in 10.6 and earlier, but they are stored in  /var/db/dslocal/nodes/Default/users/username.plist in 10.7 and 10.8.

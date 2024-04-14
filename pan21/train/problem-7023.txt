@@ -1,0 +1,8 @@
+Just open the multi-page TIFF in Acrobat then save as TIFF under a new name - it will add "_nnn" numbered suffixes as one might hope it would. 
+It'll open the image as layers; simply hide all but one and choose "save as" then repeat for the remaining layers. 
+MODI is installed as part of Office 2003, and although I believe a version was included with office XP/2002, I think it was an optional install and may not have the TIFF writer necessary to carry out this task (can't test here, sorry!).
+Microsoft Office Document Imaging (MODI) can split a TIFF using the Page>Move pages to a new file option (select pages you want to split out from the original file first).
+I just came across this very issue and was able to solve it with Gimp (freeware, highly trustworthy)
+If you save as a JPEG you'll have terrible quality loss problems (but much more manageable file sizes). 
+Adobe Acrobat can do this natively (I'm using Acrobat DC on Win 10; I doubt the Acrobat Reader can do this but I have not checked). 
+You don't need software.  Just open the Tiff file with a photoviewer or something like that.  Then select "make a copy" or "save as".  Rename the file and change the format type to Jpeg.  Save it to any location of your choice.  It will make a copy of the current page you were working on but as a single page.  Hope that helps. It worked for me.

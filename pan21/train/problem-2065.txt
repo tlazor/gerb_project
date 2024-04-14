@@ -1,0 +1,6 @@
+One possibility: You may be attempting to make a connection to the wrong host. Have you verified, or do you know for certain, that 192.168.1.79 is the address of your new RPi? Try this: 
+i successfully enabled ssh with the Pi3 but had issues with the older model (0e) Model B 512MB.  i am using image 2018-03-13-raspbian-stretch.
+I used nmap to confirm port 22 was listening.  I connected the pi to a monitor, keyboard, and mouse. The configuration confirmed SSH was enabled but it still was not allowing incoming connections.
+An RPi MAC address will begin with b8:27:eb, so if there's any doubt that it's an RPi you're trying to connect to, the arp command above will help you verify that. 
+As you've noticed, you'll need to pull your microSD card, and re-create the empty file named SSH. When you make your next attempt, you should run ssh in verbose mode, as that may provide useful information: 
+I copied the /etc/ssh/ssh_host* files from a working pi3 to the older pi and rebooted. I can now successfully access the model B rev 2 raspberry pi using ssh.

@@ -1,0 +1,9 @@
+You can set a static IP address on your desktop; under the network adapter settings for IPv4, switch from "Automatically Assigned" to an manual, and set your IP to an unused IP (something like 192.168.0.20.  Set your subnet to you 255.255.255.0 and gateway to your routers IP address.  You should also be able to set your DNS servers to either your routers IP, or a public DNS service (Google provides this @ 8.8.8.8 and 8.8.4.4). 
+I suspect it is the routers fault but I don't know where to start looking to correct this issue. Any help or pointers are appreciated. Thanks!
+If you continue having issues after you do this, I suspect you have a bad ethernet cable, ethernet card, or port on your router.
+Without logs (from the router) to shed light on why it's happening in the first place, I'll describe what should be the simplest fix and also help troubleshoot a possible cause.
+Laptop and ipod behave as expected. They get an IP that stays mostly the same. for example 192.168.0.4 & 192.168.0.2
+At first all seemed OK. But then I started to notice that the desktop PC could not be pinged with the hostname. Only by IP.
+It keeps adding up. So if the ip was  192.168.0.8 it would then be 192.168.0.9 now it's at .0.100. It is a problem since connectivity is lost while transferring files, streaming, shared folders, etc.
+Currently I have a desktop PC(windows 7 x64) a dell laptop(windows 7 x64) an iPod(iOS 3.1.3) and a linksys wrt54g router (v8 with dd-wrt)
+I then noticed that the desktop IP address would change even though the computer was not shut down. Not even it's IP released/renewed. Sometimes it changes every few minutes. sometimes after a few hours and other times not at all for the whole day.

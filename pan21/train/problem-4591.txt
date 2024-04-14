@@ -1,0 +1,7 @@
+This setup works fine, however by inspecting the log files (and as I expected) the master is notifying the slave twice on every zone change:
+I've a small Master->Slave DNS scheme setup between two machines running Debian 8 + Bind9 in dual IP stack. 
+While it is redundant in this configuration, the overhead it leads to is minimal and typically no problem at all.
+Generally speaking, receiving multiple notify messages is not outside the norm, originally mainly from master + other slaves but now also dual-stack hosts, to the point where even the original spec expected this:
+The master and the slave both own an IPv4 and IPv6 used by bind, enfored by the configuration parameters listen-on listen-on-v6 transfer-source transfer-source-v6 notify-source notify-source-v6 query-source address query-source-v6 address.
+Is there a way I can tell the bind server that xxxx:xxxx:xxxx:xxxx::xxx5 x.x.x.5 are indeed addresses for the same DNS server and try to notify it first over IPv6, and if it fails retry over IPv4? Also, how to do the same thing on the salve masters declaration?
+I don't believe there is a configuration option that will do what you ask for. However, I also don't believe that the double notifications is really any cause for concern.

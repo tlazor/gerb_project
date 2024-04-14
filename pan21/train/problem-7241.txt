@@ -1,0 +1,8 @@
+HSExplorer does let me mount the device, so I know it exists, and can be accessed. Windows just doesn't seem to see the volumes as drives.
+I've installed Windows 7, the Unibrain FW driver, and the Bootcamp HFS driver. Windows recognizes other HFS volumes on local disks, and recognises the Drobo LUNS in the Device center, but it won't let me get to the actual volumes to browse them.
+I have a 2nd Gen (FW800) Drobo connected to my computer, which boots both Lion, and Windows 7. The Drobo has HFS+ volumes as I use OSX predominantly.
+It's definitely a file system problem. Could you move any data that needs to be accessible to Windows and the Mac to a volume that both understand, like a FAT-32 volume?
+I know it's slower, but if it works on USB you'll know that it's definitely a Firewire driver problem.
+On Windows 7, the only driver that I loaded was the one that comes with bootcamp and it mounts Drobo as a readonly drive, as it does with all the other external HFS+ volumes.
+You could at least use the trial of Paragon to see if it improves the detection of HFS+ volumes, as Paragon makes good products.
+I have a 2nd gen Drobo Firewire 800 as well, formatted at 16TB HFS+ (although I use 4x 2TB drives), I'm using Lion and Windows 7 on an early 2008 iMac 20".

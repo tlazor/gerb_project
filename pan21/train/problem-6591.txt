@@ -1,0 +1,6 @@
+(2) Fine, even when I start a vpn client software, how does it tell firefox to do things any differently such that it allows me to access office intra sites? i.e. how does this client change settings used by firefox...?
+I am trying to get some basic understanding of how this thing works. I have heard of keywords like tunelling, but not sure how and where these are coming into picture.
+My office laptop has a VPN client installed. At home, I start this client, choose one host out of given many hosts and connect using an RSA token. From this point onwards, my browser is able to access all the office sites, as if I was in office and I can ssh to my office machines.
+A VPN is an additional network interface. So your IP address doesn't change, but you have an additional IP address.
+Firefox, and other programs, don't need to do anything special. They'll always use the network device "closest" to the destination. If the IP address assigned to the VPN is in the same subnet as the machines at the office, the VPN will be used automatically. If they're in different subnets, then the VPN software just adds a route directing all traffic bound for the office subnet(s) to take the VPN.
+(1) After getting on VPN, does my IP address change? or is it still same as what is provided by by ISP?

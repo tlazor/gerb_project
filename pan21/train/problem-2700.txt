@@ -1,0 +1,5 @@
+The actual (alt+X) codes didn't work, so I went into Symbols (using MS Word), used the Unicode (211A) to find squareRoot, and then added a shortcut to the symbol for easy access. I used (CTRL+{).
+Alt 251 didn't work for me, nor did alt +... but alt 8730 did (0x221A in decimal), i.e. hold alt, type 8730 on the numeric pad, release alt. 
+Manufacturers of PCs have character sets in their hardware/firmware. These are called OEM code pages by Windows. Windows also has a standard Latin character set for english speaking regions called Windows-1252, which it uses for most non-unicode programs. When you type ALT 251 ¹ you use the OEM set which can vary between each PC (Mine is code page 850). When you type ALT 0251 û, it uses the Windows-1252 character set.
+I used charmap and seeked to the position where the character U+221A is, clicked the buttons Select and Copy, then I pasted it where I wanted to use it. 
+Some others were saying that ALT 8730 →or ALT 08730 <substitute (SUB) character> works but from my experience, any value above ALT 255 or ALT 0255 just gets converted back to a value between ALT 0 and ALT 255.

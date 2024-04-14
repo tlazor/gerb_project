@@ -1,0 +1,6 @@
+But cos(0) = 1, which should correspond with maximal illumination.  Here's what we'll do.  We'll turn lightDir AROUND, so then when -lightDir lines up perfectly with N, then lightDir is actually head-on with N.
+Your shader is for the case of direct light source (which is the approximation of a light source at infinity - like sun, and so intensity of a point depends only at its direction - not its position). In case of a point light formula might be more intuitive (assume lightPos, pointPos and normal in same space):
+That is, if the normal points at the light - intensity will be maximal. Imagine you are looking at the sun: your view vector is same as sun light direction, but with a different sign. So we need to inverse light direction to get correct dot product.
+lightIntensity of a point depends on the angle between the two vectors: one is normal in a point of interest and second is a vector which goes from point of interest to light source.
+And I don't understand why to invert the direction, it says in a comment line "invert the light direction for calculations", why is it necesary? 
+All what we're doing is manipulating the vectors so that the dot product (which is actually the cosine of the angle between lightDir and N) gives a maximal value when lightDir is head-on with N.

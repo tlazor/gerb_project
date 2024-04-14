@@ -1,0 +1,7 @@
+I search with the keyword is "paint" in Search Windows. It returns me a list as in the picture. I can't Right click, Left click or Enter on Paint, nothing happen. Other Desktop Apps are similar. But I can open Paint 3D. 
+I know it sucks to hear, but unless the problem is being caused by a third-party program (Have you tried a clean boot yet?) , there's no other way.
+see this thread and go to AnswerWells reply: https://answers.microsoft.com/en-us/windows/forum/windows_10-win_cortana/windows-10-creators-update-search-not-finding-apps/eaf70556-2344-474d-b633-e00140b0466d
+If the Shell/StartUI is damaged, repairing the image itself is your only resolution. You cannot reinstall non-provisioned applications without upgrading or repairing.
+This worked for me. I had blocked background apps and that actually prevents you from opening apps in search menu. However, a few apps (Trusted Windows App) can be opened anyways.
+If you try a clean boot and it works again, try adding programs back into your startup one by one until you see the break recur. Start with AV or DLP software.
+So if you changed privacy settings to not let apps run in background (like me) and then suddenly cannot start apps in menu, then this is for you.

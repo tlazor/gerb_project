@@ -1,0 +1,7 @@
+Fixing the name server records in the _msdcs delegation zones on each domain to point to the correct name servers solved the issue.
+Within DNS, under each domain's Forward Lookup Zone, is a delegation zone named "_msdcs".  This should contain static NS records pointing to the name servers on that domain.
+We tracked it down after noticing a couple of other related issues.  When trying to browse to a share on accserver16 a user would be presented with a credentials box and the following error message:
+On both domain A and domain B this was improperly configured.  On domain A the only name server listed had since been demoted, and on domain B it pointed to a server that no longer even existed on the network.
+Also, when trying to validate the trust on the domain controller from forest B, the following error message was displayed:
+This pointed to an inability to locate domain controllers in the other forest as the cause of the issue.
+Apparently this didn't cause a problem for internal DNS queries, and didn't affect queries between forests so long as conditional forwarding was being used.  As soon as the conditional forwarding was replaced with secondary zones, however, the trust between the forests fell to pieces.

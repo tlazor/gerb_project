@@ -1,0 +1,5 @@
+If the output has some sort of logical order, or even some arbitrary order that fits in with your 10 rows requirement, you could use the ROW_NUMBER() window function, like so:
+I need to hide the results if there are less than 10 rows, but return them if there are more than 10. Is there a clean way to do this? Any help would be great.
+The second method is the old-school procedural form, which has the possible benefit of being easier to maintain, if you are more used to procedural programming languages.  Essentially, you create a table variable, populate it with your query results and decide whether or not to emit it based on the number of rows:
+The first method is my recommended answer, because it may perform better when presented with a large result set.  It effectively implements @AaronBertrand's comment to @nateirvin's (incorrect) answer:
+I appreciate that measuring statistics isn't always optimal profiling but I found that, for larger datasets, my first method would start to spool results far more quickly, generally finished more quickly overall and performed fewer logical reads, than the other approaches.  

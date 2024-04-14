@@ -1,0 +1,11 @@
+Now I don't ask for answers to that exercise here (that would defeat the whole point of me joining this course and would teach me nothing).
+This method can be circumvented by a so-called "bump in the wire"—a fully trusted man-in-the-middle transparent proxy.
+And better yet, serve the proxy over HTTPS to hide the forwarded URLs (which I'll leave as an exercise up to you).
+My question is actually about this last point. I think it is possible to have a software that does that but it would have to:
+I would actually love to be able to demonstrate this PoC during the project presentation on the school guest network (which has similar restrictions) but I'd really like to avoid having to "develop" something on my own.
+The user will also need to pay attention to other SSL problems (e.g., invalid certificates, sslstrip, etc).
+For my IT security class summer project, we have to work on different ways to circumvent security measures setup on a school/company network and to explain how these hacks can be detected and avoided.
+Serve something completely innocuous (and believable) on http://benign.proxy.com/. If someone tries to "check the validity" they'll see some trustworthy page.
+Opening http://benign.proxy.com/ff will show the content from http://www.forbidden-forum.com/ and http://benign.proxy.com/wl will open http://wikileaks.org/.
+If the user does not have full control over the client host they will be vulnerable to a bump in the wire but can manually verify key fingerprints to ensure privacy and refrain from establishing a connection if the key doesn't verify.
+My developer skills are actually not that good and I wonder: is there a software that does something like that ? Perhaps an apache module or configuration ?

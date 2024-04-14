@@ -1,0 +1,10 @@
+Her's a little trick, you boot a livecd (take a look at backtrack) with read/write access to the ntfs volume, then you rename windows/system32/logon.scr to logon.bak and copy cmd.exe to logon.scr.
+However, now that the physical host server has restarted, I cannot logon any longer via remote desktop - as the domain is not contactable (due to the virtual machine being powered down) and the local administrator account is disabled.
+Also, don't virtualize all your basic networking services (like a domain controller). Install windows server on a old PC, configure it as a domain controller, global catalog, DNS and DHCP (if you use DHCP), and place the PC somewhere else in the building.
+I have tried connecting from another physical server (via Computer Management) to try and re-enable the local accounts, but I don't have permission (and/or RPC appears to be blocked - again, via Domain Controller group policy). I've tried connecting to Virtual Server 2005 to switch on the Domain Controller VM - but again, no accounts with access.
+I have a server using Microsoft Virtual Server 2005 that I recently had to restart, so I shutdown all of the guests Virtual Machines and then restarted the host.
+About a week ago, I also went around all of the servers (both physical and virtual) to disable the local accounts, including Administrator, as the domain appeared to be working fine.
+Petter Nordahl's Offline NT Password & Registry Editor can re-enable the Administrator account and assign it a new password. The safest method is to disconnect the network and give the account a blank password (by entering an asterisk ... * ), then change to a better password on boot, and then reconnect network.
+By the way i think it is a good practice to make a second local admin account and disable the original one
+You reboot the machine and wait a few minutes, instead of launching the logon screensaver , it will launch a shell under system credentials. then:
+Do-not-ever disable it again, assign it a crazy password, write it down on a note and lock it away if something like this happends again.

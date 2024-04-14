@@ -1,0 +1,6 @@
+I'm going to take a look at SNMPTools which exposes Perfmon counters via SNMP.  My understanding of Linux accessing counters via WMI is that it is either very processor intensive, or you need a windows box acting as a WMI proxy with some kind of agent.
+I am already able to snmpwalk my print server, but I can't find anything that is obviously a print queue in here.
+SNMP Informant is another (costly) way of doing it if SNMP is some kind of super-requirement. The first link mentions perf2mib as an unsupported alternative as well.
+I'll be annoying and say monitoring Windows systems should be done by tools who intimately know how to monitor Windows systems and what to monitor in the first place, but...
+...suffice to say, Cacti should be able to query WMI (hopefully, the Cacti forum seem to be down at the moment) which should work well in the case of print queue monitoring and most things Windows when thought of.
+I use Cacti to graph various things on my network, and I want to understand load on my print servers.  Cacti uses SNMP to monitor things.  Can I monitor the size of the print queue via SNMP?  If so, how.

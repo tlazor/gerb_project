@@ -1,0 +1,7 @@
+Install Hyper-V manager, if you don't already have that. You can probably Run "Programs and Features" to install this.
+When an HDD is offline, you cannot access it from Windows partition. So, after you are done working with the VM, and shutdown, go to Disk Management, and make the HDD online again, and then you can access it from your Windows partition.
+Go to Disk Management, and make the second HDD as offline(Right-Click on the HDD and from the context menu, select "Offline".
+On Windows 8, I was able to to it quite easily. Instead of using VMWare or Virtual box, I used the default Hyper-V program to do it. 
+Once you do this, fire up Hyper-V manager, create a new virtual machine, and choose the disk as the second HDD on your system which you had just made offline.
+http://blogs.technet.com/b/schadinio/archive/2010/07/09/installing-hyper-v-manager-on-windows-7.aspx
+If you create a new VM, when creating the virtual disk, choose instead to use a physical disk. Note: You have to run this process as an administrator, so launch VMWare with sudo or gksudo.

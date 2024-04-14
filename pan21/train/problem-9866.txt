@@ -1,0 +1,6 @@
+As a result commands are queued faster. Then the Read-Ahead setting of the Array will start populating the cache with a continuous stream of data. 
+You can see that Read-Ahead with the faster command queuing is helping quite a bit, if you look at the very small percentage differences between the Random Write and Random Read events which mostly remove the Read-Ahead boost especially at the smaller chunk sizes.
+It is likely that as the file is being written it is also being written as on continuous block on the disk. 
+One thing the previous solutions don't take into account is the difference between how write-back and write-through commands are handled on the controller.  
+Write-Back means when the controller receives a command, it immediately tells the OS handler that it was "ok", and to give the next one. Write-Though waits for each individual command to report a success before processing the next query. 
+Another thing that can affect the performance is the slice size and block size for how many different heads are involved in each read or write operation.

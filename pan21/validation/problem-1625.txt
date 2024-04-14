@@ -1,0 +1,5 @@
+1) If you are using DB2 for IBM i or z/OS, then you can create indexes based on expressions.  If you are using DB2 for LUW, then it seems you don't have this feature (at least as of v10.1):
+I was having difficulties in optimizing sql query. It takes hours to execute. Record set is also large enough. The query was not written by me. So just to find the bottle neck I tried removing conditional clauses but that doesn't make any difference. Indexing the ID's done.
+If you have low cardinality on some join columns, such as code values, then consider creating  Encoded Vector Indexes [EVI's].  You might, for example create an EVI on RD_LEVEL_ID.
+If you cannot join properly without using trim(), then consider creating an indexes on RD_POLICY_SYSTEM_NO, RD_LEVEL1_ID, TRIM(RD_LEVEL1_ID), and another on RC_POLICY_SYSTEM_NO, RC_LEVEL1_ID, TRIM(RC_LEVEL1_ID), or some variation of this concept.
+Can any sql guru here could throw some light on it. Is there any fine tuning room left in the query below? The server hosting the database in DB2. I'm not too pro in sql.

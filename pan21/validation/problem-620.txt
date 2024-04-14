@@ -1,0 +1,7 @@
+First, search histogram in Excel's built-in help.  You should have the ability to install the Data Analysis add-in which has a function to do just that.
+Finally, a plug for 'R' - this software could very simply import arbitrarily large data sets and give you histograms with the data you're looking for.  As an added bonus, it's open-source freeware and can import many data file formats.  See 'R' at cran.r-project.org
+I have a list of date/timestamps, and I would like to plot these to a chart in Excel.  What I'm looking for is a chart that shows "events per hour" or something similar.  Can this be done easily if I just have one column of data (the list of timestamps)?  I'm using excel 2007 and looking at two data sets.  One is 56k events and the other 750, both over the span of a few days.
+Either way - you may run into trouble with charting limitations (I'm not sure what 2007's limits are, but 2003 only will allow 65k rows of data and other restrictions on points in a chart).
+Otherwise, if you're willing to shell out the $30 - Addins.com has an addin for this purpose. (I have not used it so I can't say what is better or worse compared to the built-in functions.)
+Make a pivot table, group date field by hour as explained in http://www.contextures.com/xlpivot07.html, then insert a chart based on pivot table.
+Now create a Pivot Table with Timestamp used twice - once in the Values area (Count) and again in the Row Labels area.

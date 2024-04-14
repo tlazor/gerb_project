@@ -1,0 +1,5 @@
+The Database Upgrade Advisor can report that trace flag 8017 needs to be turned off during the upgrade process, and re-enabled afterward.
+Enabling the flag does not create these 'offline' schedulers, saving a few resources. It also means you cannot dynamically add processors for SQL Server by changing the affinity mask; you would need to change the affinity mask and then restart the instance.
+Trace flag 8017 controls whether SQL Server creates schedulers for all logical processors, including those that are not available for SQL Server to use (according to the affinity mask).
+In SQL server there are so many trace flags. Why some of them need to be turned off. Some where i saw that trace flag 8017 need to be turned off. So i want to know which trace flag need to be tuned off and Why?
+If you do not understand why the trace flag is present, do not remove it. There should be some documentation somewhere in your organization to say when and why it was added (and by whom). If not, well there's a process you should fix :)

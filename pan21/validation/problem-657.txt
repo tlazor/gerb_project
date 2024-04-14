@@ -1,0 +1,5 @@
+Each cell in the yellow area references the country name in the header, then does a VLOOKUP on the country in the exchange reate table, taking the value in the third column, then the usual arithmetic.
+Auto-fill can't do what you want. Use VLOOKUP with the correct mixture of absolute and non-absolute cell references and then auto-fill down and/or right will work nicely.
+So I want the equations inside cells C14 to F14 to be B14*C5, B14*C6, B14*C7, B14*C8 respectively. So I can obviously do that manually but I want to learn the faster way. So I know I should use absolute reference for B14, so I can input =$B$14*C5 for cell C14. 
+Auto-fill works because the country header is row-fixed, the USD currency amount is column-fixed and the exchange rate table is row- and column-fixed in the formula.
+But then when I do the CTRL extend method where you put the cursor on the bottom right corner of the cell and hold CTRL while you extend the cells. The problem is since I am extending the equation in B14 horizontally to F14, it is incrementing the equation horizontally. So the equation in D14 becomes =$B$14*D5 instead of =$B$14*C6.

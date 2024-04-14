@@ -1,0 +1,5 @@
+I'm looking for a solution that either uses sumproduct or an array formula and can handle blanks and arrays of different sizes. I would like to avoid VBA if possible.
+I've tried concatenating (A2:A6&B2:C6) in countif range parameter but countif didn't accept this. I've tried sumproduct but it didn't like that I was using arrays of different sizes (1 column vs 2 column) and much more.  I've spent the better part of two days researching and trying to solve this. 
+To prepare your data in Power Query (before using the Group By command), I would select the Category column and use the Transform / Unpivot Columns / Unpivot Other Columns command.  This will transform Label1 and Label2 columns into Attribute and Value columns.  I would Remove the Attribute column - that leaves just the Value column containing doe, zoo etc.
+I would use the Power Query Add-In for this. It has a Group By command which includes a Count Distinct Rows operation. It's documented here (although they haven't yet caught up with that operation):
+https://support.office.com/en-us/article/Group-rows-in-a-table-Power-Query-e1b9e916-6fcc-40bf-a6e8-ef928240adf1?ui=en-US&rs=en-US&ad=US

@@ -1,0 +1,7 @@
+My understanding is that the difference between .bash_profile and .bashrc is that the former is for login shells while the latter is for interactive, non-login shells. 
+https://unix.stackexchange.com/questions/170493/login-non-login-and-interactive-non-interactive-shells
+That means that depending on how are you accessing to the system this file loads the code inside or not.
+I've noticed that when I run a command directly on an SSH host using the ssh <host> <command> syntax, I see the output of .bashrc but not the output of .bash_profile (or .profile). 
+This is the same output I see if I log into this computer remotely via SSH, using the ssh <host> form of the command. (And if I stow .bash_profile somewhere else temporarily, neither of these lines gets echoed.)
+Are these conclusions correct? Why is ssh <host> <command> treated as an interactive, non-login shell? Isn't SSH still logging into the remote machine to execute the command?
+However, if I execute a command directly on the remote machine with the ssh <host> <command> form of ssh, then the output looks like this:

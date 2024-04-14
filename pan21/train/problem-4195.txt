@@ -1,0 +1,47 @@
+<script type="text/javascript" src="/themes/PRS030068/js/modules/blocktopmenu/js/superfish-modified.js"></script>
+<script type="text/javascript" src="https://www.hoerschiff.at/themes/PRS030068/js/megnor/owl.carousel.js"></script>
+I'd recommend you to start with testing of your web site on ssllabs. You will see that your Apache web server have serious security problem CVE-2016-2107, which can be fixed by updating Apache and OpenSSL software on the web server. Because of the security problem the web site gets the grade F only.
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blocktopmenu/css/superfish-modified.css" type="text/css" media="all" />
+<script type="text/javascript" src="/themes/PRS030068/js/modules/blocktopmenu/js/blocktopmenu.js"></script>
+So this is a really strange behavior but as nobody else is experiencing this, and it is a very low budget project, I'm not further investigating it. 
+Everywhere else (University, internet access of friends, customers etc.) it worked fine in every Browser. 
+<script type="text/javascript" src="/themes/PRS030068/js/modules/blocksearch/blocksearch.js"></script>
+<script type="text/javascript" src="/themes/PRS030068/js/modules/blocknewsletter/blocknewsletter.js"></script>
+After updating Apache software your server will support HTTP/2 protocol, which is very helpful on your web site. The problem is: your HTML page loads 27 separate CSS files (!!!)  and 26 separate JS files. The test on http://www.webpagetest.org/ site (see the results) shows the results like on the picture below
+<link rel="stylesheet" href="/js/jquery/plugins/bxslider/jquery.bxslider.css" type="text/css" media="all" />
+<script type="text/javascript" src="/themes/PRS030068/js/modules/blocktopmenu/js/hoverIntent.js"></script>
+<script type="text/javascript" src="https://www.hoerschiff.at/themes/PRS030068/js/megnor/custom.js"></script>
+<script type="text/javascript" src="/themes/PRS030068/js/autoload/15-jquery.uniform-modified.js"></script>
+I still couldn't find out what the problem is, but it turned out that it only occurred via my internet access at the office. 
+In the next step, I'd recommend you additionally to use loadCSS and requireJs to load the most CSS/JS files asynchronously. Moreover there are very nice tools like critical, grunt-critical, the demo or this one which allows to extract critical path CSS from 27 CSS files which you loads. The small subset of CSS rules which are really used on your web site will be extracted. You can include the CSS rules as inline CSS. You can loads all other 27 CSS files asynchronously using loadCSS. As the result the user will don't need to wait 7.890s till seen the starting rendering of your web site. The time will be dramatically reduced. Asynchronously loading of all other CSS/JS files using loadCSS and requireJs will don't block the user interface. It will improve the speed of your web site essentially from the users point of view. You can read more about critical rendering path here for example.
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blockcart/blockcart.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blockpermanentlinks/blockpermanentlinks.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blocknewsletter/blocknewsletter.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blockcontact/blockcontact.css" type="text/css" media="all" />
+<link rel="preload" as="script" crossorigin="anonymous" href="https://cdn.jsdelivr.net/jquery/1.11.0/jquery.min.js"/>
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blocksearch/blocksearch.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/js/jquery/plugins/autocomplete/jquery.autocomplete.css" type="text/css" media="all" />
+I recommend you to test your web site at least with respect of Qualys SSL Server, www.webpagetest.org and validator.w3.org. After that I'd recommend you to compare the configuration file of your Apache web server with Mozilla recommendations, which you can find here.
+The <link rel="preload" can informs the web browser (Chrome starting with version 50 and Opera starting with version 38) that CSS/JS/Image/Font can be loaded later. The web browser will optimize the loading of the files using the information. See here, here for more details.
+<link rel="stylesheet" href="/modules/tmnewproducts/tmnewproducts.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/modules/blockfacebook/css/blockfacebook.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blocktopmenu/css/blocktopmenu.css" type="text/css" media="all" />
+<link rel="preload" as="script" crossorigin="anonymous" href="https://cdn.jsdelivr.net/jquery.migrate/1.2.1/jquery-migrate.min.js"/>
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blocktags/blocktags.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blocklanguages/blocklanguages.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blockcategories/blockcategories.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blockmyaccountfooter/blockmyaccount.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blockuserinfo/blockuserinfo.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/modules/tmfeatureproducts/css/tmfeatureproducts.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blockcurrencies/blockcurrencies.css" type="text/css" media="all" />
+To optimize loading of your web site in Chrome you can include the following lines before the first <link rel="stylesheet" ...>:
+You can see that the most CSS and JS files loaded from your web site will be loaded one after another, which increases the loading essentially. The below lines from HTML files:
+I looked the web site https://www.hoerschiff.at/ and could see many different problems. I would separate the problem in groups:
+<script type="text/javascript" src="/js/jquery/plugins/autocomplete/jquery.autocomplete.js"></script>
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/tmcmsblock/css/tmstyle.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/tmhomeslider/css/flexslider.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/blockviewed/blockviewed.css" type="text/css" media="all" />
+<script type="text/javascript" src="/themes/PRS030068/js/autoload/15-jquery.total-storage.min.js"></script>
+<link rel="stylesheet" href="/themes/PRS030068/css/autoload/uniform.default.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/themes/PRS030068/css/modules/themeconfigurator/css/hooks.css" type="text/css" media="all" />
+It's strictly recommended to load common used CSS/JS files from CDN. For example you can replace the lines

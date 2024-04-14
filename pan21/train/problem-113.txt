@@ -1,0 +1,8 @@
+We have a situation where at least 2 (sometimes 3) people login to SQL using SQL Server Management Studio, and perform various functions.
+There's a few difference tools you can use.  If you have SQL Server 2008 or higher, there is built in auditing which can capture this information.
+I'm facing a situation today where it would be very beneficial to me and my company if we knew who had logged into SQL and performed some deletions.
+For this kind of thing we have Idera Compliance Manager although I'm sure there are other vendors with similar products. 
+If your database is in full recovery you can dig through the transaction log using Log Explorer, or LiteSpeed for SQL Server.  There are some undocumented commands which can be used if you want to write your own stuff.
+What we need is an audit trail.  If someone deletes records (mistakenly or otherwise), I'd like to know what was done.
+You can set up DML triggers, use the database transaction log to read transaction (DELETE) information, use native SQL Server features:
+ApexSQL has two auditing tools - ApexSQL Log and ApexSQL Audit. There are certain advantages to using one over the other, e.g:

@@ -1,0 +1,5 @@
+The problem is that Apache with PHP is working as it should, but I cannot add files with FTP. I tried to do chmod 777 mysite.com, and it worked, but now Apache gave me a 500 internal error. I suppose chmod isn't the correct way to go. I deleted my folder and made a new one.
+How can I give ftpuser permissions to read and write, while www-data should not loose its permissions. I don't have much experience with Linux command line.
+I have a www-data that was automatically set up when I installed Apache. I have a ftpuser that I configured myself to use with ProFTPd. I use a MySQL database with users that use this user to log on.
+Don't use chmod 777. It's something you'll often find in forums and there's always a better way than giving permissions to everyone.
+This will allow ftpuser and the group www-data (in which the user www-data resides) to read and write files in the directory mysite.com and to change to this directory. Those commands do not affect it's subdirectories, you'll need the recursive switches for chown and chmod for that.

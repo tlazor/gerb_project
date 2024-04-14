@@ -1,0 +1,5 @@
+If you are using e.g. MyISAM (which doesn't support transactions) and a failure occurs, the changes made by any previous step in the list above cannot be rolled back. This will also happen if e.g. a trigger on an InnoDB-table inserts a row into a MyISAM table. If a failure occurs in any later step, only the changes to the involved InnoDB-tables will get rolled back. 
+And if my sql statement was successfull and trigger raised and error, how will i know and rollback? 
+How does mysql triggers and rollback working together? I need to know how this is working together? I can rollback if i proceed with more than one sql statement because it is in same query but it seems different with triggers because it proceeds seperately
+So assuming you are using InnoDB, the statement and the triggers (and also any trigger that might be invoked by changes made by the triggers themselves) are atomic. If one fails, the other fails too and gets rolled back. This doesn't require an explicit transactions.
+If my sql statement fails and raises an error then trigger still proceeds? If it does how can i stop trigger?

@@ -1,0 +1,5 @@
+I have tried both answer described here which didnt help (with many index combination and lot of restart). I think problem was my USB device initialize after boot-up. Whatever, so my working solution is blacklisting other 2 sound device by updating /etc/modprobe.d/blacklist.conf as:
+While you can change the default alsa card by editing .asoundrc or the system asound.conf there are a couple of significant issues with this approach.
+I bought an USB sound card. I'd like to set up my Linux desktop so that it prefers the USB device, if it is plugged in and automatically switches as the device is (un)plugged. Is it possible, and how?
+Note: other methods did not work for me, as /proc/asound/modules does not exist and there is no hdmi audio module to blacklist or put to low priority, it is embedded into the kernel. It seems I would have had to recompile the kernel without hdmi audio support to disable it completely.
+If you want to switch cards on the fly then you really need to use a soundserver that abstracts the applications from the soundcard correctly such as pulseaudio.

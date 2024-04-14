@@ -1,0 +1,6 @@
+You changed source packet address for packet go through router from inner network, server application reply back to 192.168.1.1, and SNAT rule when receive reply, correctly map packet back to your client application on server. This solution work for all inner network computers, but on server you see all request coming from router address 192.168.1.1.
+3) Adding a.b.c.d address on server could be solution for some cases, but sometimes server daemon (and it is application specific) do not listen on all ip address or give another reply for other address.
+1) on router, if you can, set SNAT from packet comming from local network to your NATed public ip. If you have linux router, try something
+4) If you using hostnames and not ip address, you can redefine /etc/hosts on linux server - this is easiest and sometimes help (DNS return: linuxserver a.b.c.d) so in /etc/hosts you write line
+The problem is not in router. Router do what have been configured for - it translate traffic destination a.b.c.d:portxx to your linux server. It not work, but for understanding, you have to see what happen on network. For example your linux server is 192.168.1.2 and your router is 192.168.1.1 on your LAN network
+It redirect outgoing connection from your server to local port on server. I think, this could be best solution for your case

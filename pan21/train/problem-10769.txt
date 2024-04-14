@@ -1,0 +1,7 @@
+I am using Putty on a Windows machine to ssh into another server. Once there, I am trying to use X11 forwarding to pop windows onto my computer. The remote system is not the issue since it is a large system that is successfully used by many other users in this same manner.
+Recent Cygwin updates have changed its X server to not listen for TCP connections by default. Instead, Cygwin's X uses (the Cygwin implementation of) Unix domain sockets, and PuTTY (as a native Windows program) doesn't know how to use these.
+I log into the system via Putty without issue and then run startxwin in cygwin. However, upon running xterm in Putty, I am given the error xterm Xt error: Can't open display: localhost:##.0 where the pound signs are two integers whose value changes each time I log in.
+It's for xming, but perhaps this faq is of some help? The idea behind it is the same but using xming instead of cygwin on your local machine. https://wiki.utdallas.edu/wiki/display/FAQ/X11+Forwarding+using+Xming+and+PuTTY
+This is less secure than Cygwin's new defaults; it should only be used on a single-user system, and configuring your firewall to block connections to XWin may be wise.
+and replace it with a direct invocation of xinit with my desired options (add -listen tcp and remove -auth):
+Unfortunately, the issue persists. I've exhausted my Googling resources on this topic and so I would greatly appreciate any help. Thanks!

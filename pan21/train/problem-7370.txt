@@ -1,0 +1,6 @@
+Or, create a script on your DB instances that adjusts a Route53 DNS record with their internal IP on bootup, and use that DNS record to connect.
+Use an elastic IP address.  Make sure to refer to the server by the elastic IP address's public hostname, not the actual IP address.
+Elastic IP addresses will resolve to the internal IP address when the resolution request comes from the availability zone's internal network.  Otherwise, it will resolve to the public IP address.
+So when one EC2 instance resolves the elastic IP address's public hostname of another instance that is in the same Availability Zone, it will use the internal address.
+However, every time I reboot an instance, the IP address (and hostname) changes.  I could assign an Elastic IP address, but would prefer to use the internal IP address.
+I can't be the first person to do this, but I can't seem to find a solution.  There are a lot of "getting started" guides, but none of them mention how to handle changing IP addresses. So what are the best practices to manage master/slave replication in EC2? 

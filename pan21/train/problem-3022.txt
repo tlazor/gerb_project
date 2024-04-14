@@ -1,0 +1,7 @@
+However, there are far more advanced methods. Specifically, according to the WinRAR docs, the "new" RAR 5 format uses Reed-Solomon coding, which if I understand it correctly can recover a given amount of bytes anywhere in the archive data.
+The only way I can think of protecting against corruption at arbitrary position without copying the whole archive is XOR all "parts" of the data. Their XOR can then recover any one of the corrupted "part". 
+Does this mean the WinRAR divide archive into "parts" that we can not see and generate their XOR we also can not see ? And the larger the "percentage" we set the bigger the size of the "parts" ?
+Reed-Solomon is also used by Parchive/PAR2. There are other implementations; see these articles for general reference on advanced techniques:
+XOR is one way of doing it (also known as 'parity' in e.g. RAID5). According to WinRAR documentation, that is what the "RAR 4" format uses – although with a different structure than you described, in order to implement the custom percentage scaling, and presumably to ensure some recoverability even in the edge cases that you describe.
+I was trying to put up some protection against bit rot and WinRAR has the option to add a "percentage" of "recovery record" that claims to protect against data corruption.
+Does this also mean if there are two bit rots occur at the beginning and the end of the data, this protection will be useless ?

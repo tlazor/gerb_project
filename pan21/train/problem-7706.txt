@@ -1,0 +1,6 @@
+Configure and make can happen in your local folder but you'll need root permissions to install. That command accomplishes it.
+This way, the installed program is recognized by the package management and you can remove it again, should you no longer need it.
+One caveat is that some configure scripts will detect that they are running as non-root users and create makefiles that install into $HOME or similar.  In that case, you'd want to 'sudo ./configure' as well.  If you run either the configure or make as root you will have the annoyance of some root-owned files in your regular-user directory.
+Your 3rd version is correct, ./configure && make && sudo make install.  Make and configure can be done as a normal user since you aren't trying to write files in a system directory, make install will often try to copy the binaries to /usr/bin or /bin which requires root access to write.
+The && are parsed by your original shell.  Putting one sudo at the front only affects the configure.   The last option makes the most sense, because it will configure and compile as a regular user and then install the results for everyone to use.
+Make sure the application you're installing isn't in the package manager already. It's typically much easier to use the pre-compiled software for your system than trying to find all the dependencies to compile something. 

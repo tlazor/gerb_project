@@ -1,0 +1,6 @@
+Also note that you'll need to first set up separate iSCSI interfaces on the NICs associated with each new XenServer and assign static IP addresses to those that are unique and on the same subnets as those of your other hosts' iSCSI conenctions.
+And finally the corruption in the IQN name visible in iscsiadm -m session  has vanished completely.  This was possibly related to the MTU mismatch.
+Deleting and fiddling around with files in /var/lib/iscsi/* on the xenserver nodes had no impact on the problem.
+You should be at least able to ping the primary IP address of the MD3600i from your XenServers if you have network access.
+If the iSCSI discovery doesn't work, it's probably a matter of the IQN on the XenSerever host, the MD3600i or both not recognizing each other. Make sure the MD3600i is allowed access from all your IQNs on all your XenServer host using Dell's MDSM utility and then try to redo the iSCSI discovery:
+I had to use other means to reboot these newer boxes too - they would wedge up trying to stop the iscsi service.

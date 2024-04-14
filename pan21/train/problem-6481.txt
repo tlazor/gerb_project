@@ -1,0 +1,5 @@
+You could hook into one of the earlier phases in the mod_perl lifecycle and dump the requests at that point. Add a hook at the end to mark a particular request as completed (maybe add the response headers), and now you know what's currently running.
+I've since found out that one possible route is to stop incoming traffic to this website (iptables rule on the local box would be easy enough) then get a pid list of the apache children and send a HUP to a couple of the children, then do a localhost server-status (as you now have a few freed up children to serve requests).
+Not what you're lookng for exactly, but you could restart Apache, script fetching the status every (N seconds/minutes) until it crashes, and then look at the most recent?
+Im trying to debug why an app server of ours all of its apache children lockup and stop serving requests. These are mod_perl app servers.
+The problem is that to find out what the current requests are you need to make a http request to find out the server-status (using mod_status).

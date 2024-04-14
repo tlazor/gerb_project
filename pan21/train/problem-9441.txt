@@ -1,0 +1,6 @@
+I've done this, although it was running on a Micro (or possibly a Small) instance, and was only for 2 users so I could do some browser-based testing for a CI project.
+In the end we canned the idea after a month, because it was insanely expensive.  The end result was buying a Dell R520 and hosting it in Colo.
+I was looking at the AWS pricing guide and it seems very impractical to do this.  For even a small-medium deployment (say 15 users), I would assume I need at least 32 GB of RAM (2GB each + the OS).  This is assuming they are just running programs like Outlook and Browsers as  I see many users are able to use this easily.
+This would mean I would need a Quadruple High Memory instance @ ~$2/hr.  This comes out to 1468.8 per month.
+Has anyone ever done an a terminal services AWS deployment for RDP thin clients?  If so what was your experience like (plan, number of users, what they did, issues, etc.).
+Yes, people have run Terminal Servers on AWS. You don't need that much RAM for your intended user count. Security, performance and cost are the main reasons it's not a common solution.

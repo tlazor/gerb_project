@@ -1,0 +1,12 @@
+the code within this containment should be indented.  The number of spaces to indent by is not concrete and mostly depends on the environment and language.  In this answer, I will use four spaces.
+One bug is that your constructor initializes the clock to an invalid state: amOrPm is set to an empty string.
+There are two {, so the following code for each of those statements is indented.  You can now see what belongs to what, thereby increasing readability.
+You created an alarmclock, which is really just a time-representation. A Calendar has both a date and time component. I strongly, strongly suggest you use that so you can let your user define how he wants his date represented and let the API handle fancy stuff like timezones, summer hours, etc.
+You keep a seven state variables: hour, minute, amOrPm, alarmHour, alarmMinute, alarmAmOrPm, isAlarmRinging.  Maintaining hour and minute separately, doing the carrying manually, is troublesome.
+When you have a limited set of different possibilities, your mind should immediately wander to enums. This way you can represent your AM/PM by saying DayPart.AM and DayPart.PM instead of the literal string "AM" which could mistakenly be used as "aM", "am", "AX", etc. It will provide compile-time safety and is a lot more pleasant to work with.
+I suggest paring that down to three: time, alarmTime, isAlarmRinging.  Keep time as the number of minutes since midnight.
+Whenever you have something inside of {} that are on multiple lines, the code within the {} should be indented so that readers will know that the code belongs in this block.  In this code portion, it's hard to tell what belongs inside of what because everything is aligned towards the side.
+I'm not too familiar with Java, so I won't review any specific aspect of that.  I just want to address the lack of indentation in this code, which is very important.
+Watch the consistency of your capitalization in getAmOrPM().  Either getAMOrPM() or getAmOrPm() would be acceptable; I prefer the latter, especially since it matches the way you named your amOrPm variable.
+You don't even need an explicit constructor!  The default values will cause the time to be initialized to midnight.
+Stick to conventions. Some people indent a block with one tab (or 4 spaces), some with 2 spaces. This will keep the code readable for everyone.

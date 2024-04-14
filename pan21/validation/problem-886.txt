@@ -1,0 +1,6 @@
+But for some reason, my command keeps hanging. I'm not sure why this is happening. I'm running my dockeron a MacOS system.
+The execute command has the benefit that it can be used in already running containers. So for example you could check if a service in the container is gone after a period of time. 
+where bash can be replaced by any login shell for interactive mode. You can also directly pass a command here like this: 
+It depends on what you want to archive. If your container is intended to be accessed from outside, you need port mapping: -p $HOSTPORT:$CONTAINERPORT So you can use -p 80:80 as an argument for docker run to expose port 80. 
+for security reasons, in Dockerfile EXPOSE command is not working, you need to manually need to add -p host_port:container_port in docker run command & it helps connect your container outside your machine.
+If this is not the case (e.g. backend server that is accessed by a reverse proxy) you could simply use docker exec to execute your curl command in the container. This also has the advantage that no external IP is needed, simply use localhost. It's also an better option to expose port 22 for ssh.

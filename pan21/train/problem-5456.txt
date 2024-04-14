@@ -1,0 +1,8 @@
+Because the routes do not specify a valid gateway/nexthop, they are treated as local-subnet routes; in other words, you're telling M3/M4 that the destination (M1) is available on the local ethernet, even though it isn't. So when you ping M1 from M3/M4, they try to resolve M1's IP address using ARP (which of course fails).
+Your third problem is that your routes on M3 and M4 do not specify a gateway to send packets through. They only have the host's own address, but do not indicate in any way that packets "to M1" must actually go through M2.
+(With that, you wouldn't even need to add any routes on M2 – the local-subnet routes would suffice.)
+That won't happen. Both route entries will only forward the packet to M2's MAC address (as it's the host which answers ARP queries for both nexthop addresses), but M2 decides entirely on its own where to forward those packets next.
+If you have already fixed M2's IP addresses according to part II, then routes on M3/M4 should look like this:
+(Remember that Ethernet always works a switched medium, not point-to-point, so M2 will receive only those packets which were specifically sent to M2's MAC address (or broadcast). In other words, M2 must be specified as the gateway for route to M1.)
+I think your first problem is that you expect routes to be multi-hop – they will not be. For example, you used these commands on M1, and it seems you're expecting them to choose specific outbound interfaces on M2:
+Instead, because M2 is a router and belongs to all three networks at once, it should have addresses from those networks: that is, 2.2.2.x/24 on eth1 and 3.3.3.x/24 on eth2.

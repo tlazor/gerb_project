@@ -1,0 +1,6 @@
+The following task will run every 30 minutes (but only in the background! The use of /ru and /rp forces this to happen):
+It runs fine when I double-click the .bat file.  And I set up a scheduled task to run it everyday, but it runs in the background.  No Command line window anywhere.  I can see that it is indeed running.
+When you schedule the task, if you set it to run as the user that will be logged in at the time, It should run in the foreground. There is also a "Hidden" checkbox under the general tab. Ensure that is unchecked.
+However, if you run the following command, it will run in the foreground with your credentials (so if you want to monitor the job, you will be able to do that as follows):
+The schtasks command is quite particular in how it deals with users and background/foreground. I much prefer creating and managing scheduled tasks from the command line (much less hassle than the GUI and I can adjust things exactly to my liking very quickly this way), but foreground/background is a specific issue. To show how it works with examples:
+This is quite odd the first time I saw it, but once you know the rule, it's simple. As you say, oddly in the GUI, you have to set the username/password as the current user for it to work in the foreground, which seems opposite.

@@ -1,0 +1,8 @@
+I have been hit by a virus, i noticed the virus infection during the setup of infectious scam app. It installed so many other apps and registry keys, the usual viral changes.
+Everything is access denied, from copying it, renaming it, deleting it of course... as well as trying to view permissions or change permission to the extent of not being able to take ownership.
+Anyway, i think that's the only thing left if i remove this .sys file i'll be able to completely remove this infection.
+I mean how can such a file get so much priority in my windows? Or is it cheating locking resources or something like interrupting intentionally to disallow any way for windows to deal with it?
+i was able to clean my pc so far, but there's one file left in the system32/drivers folder ... eyfmunxx.sys file
+I still have two other solutions, system restore, or get some other booting system and connect to the harddisk and delete while windows is down.
+i can't find the corresponding service in the list of services, and i suspect it's the reasonthat trustedinstaller is being invoked after everytime i clean my pc and somehow without even internet access, two viral processes "winsrv.exe" and "winxsrv.exe" are recreated in my windows folder... 
+I'm asking here maybe there's another solution, coz usually this type of virus might corrupt/infect system restore.

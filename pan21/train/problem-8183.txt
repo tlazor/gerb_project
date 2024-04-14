@@ -1,0 +1,8 @@
+I just used the DD command to copy the contents of one partition over to another partition on another drive, like this:
+That it got to over 66GB is probably just a rounding error, it only has 66GB source data to copy, and so cannot copy more than this.
+Make sure you read up on this command before using it, and keep your source until you are satisfied everything is working with the new disk.
+sda2 partition was 66GB and sdb2 was 250GB. I read that by doing this the extra space on the drive I am copying to will be wasted, is this true?
+to view the current status of DD and it has written over 66GB of data, will it continue to write data until it gets to 250GB? If so, is there a way to stop the process without corrupting it as waiting for it to write blank space seems like a waste of time.
+Using rsync -ax instead of dd between different size partitions is often a better option - it also lets you select a different filesystem type for the destination.
+So yes, the extra space on the partition is wasted effectively.  This isn't just about partition size, but the size of the filesystem you are copying, which in your case is 66GB.  However, depending on the filesystem you are using, you can often expand the file system to the size of the partition.  For ext filesystems you can use 
+Note that you should use sync with noerror to ensure the data that gets copied ends up where it is expected to in the event that errors are found in the source.  It is best to do check the source media first to make sure it is error free before copying. 

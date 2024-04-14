@@ -1,0 +1,6 @@
+If it's tables or databases, let's discuss how to do that.  Please provide some hints of what your tables are.  Pending that, I will provide some generic suggestions.
+Caveat:  Much of what I have said will be invalid with version 8.0 and it's integrated Data Dictionary.  Lots of databases or tables or partitions is not much of a problem.
+Then, to get away from one-table-per, you will need a lot of disk space and downtime to copy the million tables into a handful, adding the id as you go.
+If it's partitions, let's discuss that.  More than about 50 partitions in a single table leads to inefficiencies.  Tables with fewer than a million rows should not (in general) be partitioned.  Please provide SHOW CREATE TABLE, since there are many possible issues.  I give some answers here .
+Instead of having one-table-per-entity, have one table.  In it have an id that indicates which entity is involved.  ("Entity" is "user", "company", or whatever you are creating new tables based on.)
+Patterns of database or table names may be obvious.  Names ending like #p#p200805 are partition names.

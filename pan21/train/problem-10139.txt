@@ -1,0 +1,7 @@
+When I was doing a similar script for my Redmine installation, I was adviced to backup the database and a single folder where uploaded files are stored. Are there such directories in the PrestaShop application as well?
+I have a PrestaShop installation on my server and I would like to write a batch script which would make backups of custom data every day.
+I know absolutely nothing about Prestashop, but I can tell you that only you really can say what you need to backup, and more importantly, what you'll need to restore for business continuity.
+The idea is that should anything go wrong with the production installation, I could simply delete it, do a new clean installation (and possibly some adjustments through the administration GUI) and then fill in custom data from a previous backup.
+So far I have only found articles which recommend making a copy of the database contents and of the complete directory. I cannot afford to make a copy of all those files every day and I am only interested in backing up custom data.
+Any specific questions about how Prestashop (or any other proprietary or non-distribution packages) should be backed up are best asked directly to the vendor/software author/maintainer.
+I'd start by looking at rsnapshot, which uses rsync and hard links to create a snapshot of a filesystem that you can use for an incremental backup.  The advantage of doing this is that you don't need to store a full copy of your data directories in every backup run.

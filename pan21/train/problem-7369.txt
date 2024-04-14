@@ -1,0 +1,6 @@
+I am attempting to port-forward a device connected to a Huawei B310s-518 LTE modem on the T-Mobile network. From looking around it seems that I can't connect through IPv4 due to T-Mobile enabling Carrier Grade NAT but is this true for IPv6?
+IPV6 doesn't really need NAT because it was traditionally used for the exhausted IPV4 address problem. (32bit addresses vs 128bit). My limited understanding of what T-Mobile has done seems to be a pure IPV6 network with "IPV4 tunneling". So, if that's the case, I don't see why you couldn't access a service hosted on a IPV6 device, as long as you are connecting with a IPV6 device.
+This really depends on T-Mobiles network configuration, and how they have setup their Network for incoming requests.
+https://serverfault.com/questions/184524/switching-to-ipv6-implies-dropping-nat-is-that-a-good-thing
+None of the ports can be forwarded in IPV4 carrier grade NAT, it's because you do not have control over the router that's actually doing the NAT. 
+If you try it and it doesn't work, you can always call them and see if they offer global IPV4 addressing by request. (It's a long shot)

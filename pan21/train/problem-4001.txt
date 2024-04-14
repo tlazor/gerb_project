@@ -1,0 +1,5 @@
+This is the cisco document you are looking for: http://docwiki.cisco.com/wiki/NAT_failover_with_DUAL_ISP_on_a_router_Configuration_Example
+Basically the existing nat is being re-used out the second ISP port and being dropped by the second ISP as a spoofed IP address.
+The important part of the config is the dual route-maps with the match condition on the outgoing interface:
+Now, for your internal hosts behind Gi0/2 to reach internet, you need to configure two nat rules, as already mentioned by Ron Maupin.
+First of all, your NAT rules are triggered only for the traffic which first arrives at nat inside interface - that is your Gi0/2. Since you're pinging from the wan interfaces (Gi0/0 and Gi0/1) as your source, this doesn't trigger any translation, and your source ip remains unchanged in icmp packets. What actually happens is probably related to lack of routing information at one of your ISPs. My assumption is, that your ISP1 known how to reach both 113.160.61.14 and 101.96.10.141, while ISP2 doesn't know how to reach 113.160.61.14, thus, when your default route is pointing towards ISP2, your pings are lost, when sourced from 113.160.61.14.

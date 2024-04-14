@@ -1,0 +1,6 @@
+For example, you could have it return OK when exactly 1 service is OK, CRITICAL if neither is OK, and WARNING if both are somehow OK.
+You can certainly use the hostname of your manual failover setup, but you might run into DNS caching problems. A better method would be to use check_multi.
+If your DNS works you can just as well specify the hostname (FQDN) in Nagios, no need to go by IP address. Nagios just needs to be able to resolve the hostname (FQDN) correctly, which should be a given.
+The address of a host can be absolutely anything, as long as the plugin knows how to handle it. Examples and documentation typically use IP addresses, to remove DNS as a failure point in the monitoring process.
+I have two hosts server1 and server2 where I do manual fail over. The C record master-server then points to the one which is the master. Only the master host should have a certain service checked.
+It seams that Nagios needs the IP address and hostname to check a service, which is a problem in this case, as the IP of master-server can be either the IP's of server1 or server2.

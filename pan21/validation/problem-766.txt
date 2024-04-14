@@ -1,0 +1,11 @@
+One option that'll be a lot easier than fiddling with mipmaps and adding texture coordinate fuzz factors is to use a texture array. Texture arrays are similar to 3d textures, but with no mipmapping in the 3rd dimension, so they're ideal for texture atlases where the "subtextures" are all the same size.
+I had my texture coordinates just fine, but by lerping the camera position (which changed my element's positions) like so:
+And the problem is that at u-coordinate 0.5, the sampler will interpolate the destination fragment using half of the left texel and half of the right texel. The same will happen at u-coordinate 0, and the same for v-coordinates. This is because you're addressing the borders between texels, and not the centers.
+The whole problem was Util.lerp() returns a float or double. This was bad because the camera was translating off-grid and causing some weird issues with texture snippets that where > 0 in X and > 0 in Y.
+In this case, you will always be sampling the center of each texel and you should not get any bleeding... Unless you use mipmapping, in which case you will always get bleeding starting on the mip level where the scaled subtexture doesn't neatly fit inside the pixel grid.
+The first problem is with mipmapping. In general, you don't want to naively mix atlasing with mipmapping, because unless all your subtextures are exactly 1x1 pixel sized, you will experience texture bleeding. Adding padding will simply move the problem to a lower mip level.
+Let's suppose an 8x8 texture. You're probably getting the top-left quarter by using uv coordinates of (0,0) to (0.5, 0.5):
+What you should do instead is address the center of each texel. In this example, these are the coordinates you want to use:
+This is called "half pixel correction". There's a more detailed explanation in here if you're interested.
+However, what I think is going on with your program right now is that you're probably not using the correct texture coordinates, and because of that your textures are bleeding.
+As a rule of thumb, for 2D, which is where you usually do atlasing, you don't mipmap; while for 3D, which is where you mipmap, you don't atlas (actually, you skin in such a way that bleeding won't be a problem)

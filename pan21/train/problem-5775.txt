@@ -1,0 +1,6 @@
+To expand on one of the points in the previous section, Card.UsedByPlayerID is a big red flag to me. The location of the card is a property of the game state, not a property of the card. The necessity to apply a filter in methods such as
+As should be obvious from my previous comments, I would eliminate SetCards in a major refactor, but for completeness:
+For a start, that outer if would be unnecessary if you refactored GetStraightFlush to return null as soon as it found that a straight flush was impossible.
+Then the rest of the method is also rather cryptic. IMO it would benefit from a complete rewrite along the lines of
+In some senses the reuse of methods to find more specific results is attractive, although I'd rather have one method of twenty or so lines with a few nested ifs. That would, I think, allow more reuse of logic. For example, 4 of a kind, full house, 3 of a kind, two pairs, pair, and high card all boil down to: group cards by face, sort the groups by size descending then face descending, and check prefixes of that sorted result.
+is horrible to read. Inverting the logic to new List<int>() { 14, 2, 3, 4, 5 }.All(face => set.Any(x => x.Face == face)) makes it more comprehensible, although (a) the inefficiency of the test still grates, and (b) the constant list should be pulled out, probably as a readonly static IReadOnlyList<>.

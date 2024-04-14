@@ -1,0 +1,8 @@
+To verify it is really the disk and not a problem with the laptop itself put another drive in the laptop and see if the Bios can see it. 
+As an additional check you can hook it up, as external drive, to another computer and run CrystalDiskInfo or another utility that can read SMART figures from the drive to analyze the SMART data.
+It takes much longer than normal to do it's initialization when booting, so it isn't ready yet when Bios does its harddrive detection routine. (And because Bios doesn't see it, it won't boot.)  
+If the laptop won't recognize another disk the laptop is broken and most likely needs a new motherboard. (In that case I hope for you it is still under warranty. That is a very expensive repair.)
+Anyway: Get your important files of that harddrive ASAP while it is still working as an external drive! It can go from partially dead to 100% dead at any time. I would even recommend to save your files FIRST and only afterwards do any further experiments. 
+When you connect it externally it has much longer to power-up, so by the time your alternative OS has done starting up and starts looking for additional disks (the Bios isn't used in this case) the drive is finally "awake" and usable.
+Chances are that if you leave the drive inside the laptop and boot the computer normally it wont work on the first boot attempt, but if you leave the laptop running and then reboot (without shutting down/powercycling the laptop) it may be possible to boot on a second (or third) attempt.
+If the laptop can see the other disk the laptop itself is fine, but your harddrive is most likely dying.

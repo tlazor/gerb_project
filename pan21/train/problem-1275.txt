@@ -1,0 +1,7 @@
+Basically, you set your production machines to automatically upgrade from your own local repo, and you only update this repo after you've upgraded your test environment to the newest version of whatever you run.
+Sometimes ago I wrote a low level/dirty automation Fabric script (fabfile) to meet similar requirements, you can check it at: 
+A co-worker discovered and has looked briefly into apt-dater, which is a "terminal-based remote package update manager".
+Without having really thought about it previously, my first idea would be something similar to what avery has suggested, especially if you already have a test envrionment. 
+You use a curses-based interface to manage updates on all of your hosts, or groups of hosts, etc. Supports logging of the full apt session, including any errors that may be encountered, etc.
+Apticron doesn't scale well, it's designed to be ran in pretty small environments, but it does have some good points:
+Since you're already using Puppet, the easiest way to do this (and the best for change control/tracking purposes) is to specify the desired version of packages you want installed in the puppet manifest.  You keep an eye on the security announcements list, and when something you use comes through you just update Puppet to say "install this new version of this package".  Assuming you're using revision control on your manifests, you then know when the "policy" was changed, and the reports from Puppet show you exactly when the change was actually made (so you can correlate that easily against any later log events).

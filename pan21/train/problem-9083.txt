@@ -1,0 +1,9 @@
+But again that is only telnetting to the port, if it is already configured.  If it isn't configured yet, it wouldn't be accessible by telnet.  I'm going to keep looking, but so far it doesn't look like it is possible.
+There is also this little bit of information about the 1o100:  http://h18004.www1.hp.com/products/servers/management/remotemgmt/lightsout100i-advanced/questionsanswers.html
+Looks like telnet is available, so you could probably use expect or something to manage automatically.
+dumps the current BMC configuration to the currentconfig.xml outfile. Just edit the file (basically IP, Telnet, SSH, HTTP/SSL and firewall configuration - see the user guide for the SmartStart scripting toolkit for details) to your liking and run
+I've been looking, and I haven't found anything.  I'm thinking that the lo100 series has no scripting capability, as it seems to be for a lower class of servers (the dl100 series rather than the dl300 series).  http://h18000.www1.hp.com/products/servers/management/remotemgmt/lightsout100i-advanced/questionsanswers.html
+No, the 100 i only supports IPIMI commands (you can download a tool here: http://www.intel.com/design/servers/ipmi/ipmi_tool.htm ).  the 100 series wasn;t designed for lights out deployment (thus the "Easy-access chassis and internal component labels")
+Enables remote control of vital system resources over a LAN or over the Internet using a standard web browser or telnet UI
+The LO100i BMC cannot be configured with hponcfg, as you already discovered. But it can be configured using the lo100cfg utility which is available as a part of the SmartStart Scripting Toolkit for every supported platform. The basic syntax:
+afterwards to read and import the new configuration. I was rather surprised to see that, but the scripting toolkit installed and lo100cfg worked flawlessly on Server Core and Hyper-V installations as well.

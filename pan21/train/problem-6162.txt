@@ -1,0 +1,7 @@
+2/ If not, is it possible to buy custom RBP's where the only difference is that they don't have those ports? 
+Yes, it is possible to remove USB and ethernet ports from a Raspberry Pi 3B and 3B+ if you have experience removing electronic components. Those are not surface mount but through hole components and are removable with tradtional methods. (Soldering iron, solder sucker, desoldering wick, etc.)
+OR, you can buy a Raspberry Pi 3A+ which has no ethernet port and only one USB and is physically smaller. The down side to the 3A+ is it has half the RAM of the 3B/3B+. Everything else is the same as the bigger versions.
+Be very careful, whatever your experience level, not to disturb the tiny surface mount parts on the Pi. They are much, much harder to repair than non-surface mount and require special tools and magnification.
+I'm using the standard Raspberry Pi 3 to make some prototype products, but don't need the USB or Ethernet ports.
+If you're new to soldering and do decide to remove the parts yourself I would highly recommend getting some experience on something already broken. In my youth I spent hours desoldering components from broken VCRs. 
+I wouldn't attempt to remove them manually.  You can see YouTube videos of it been done successfully but I reckon the guys have the right tools (and they don't say how many they have ruined).

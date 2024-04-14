@@ -1,0 +1,7 @@
+Is there any way you can partition chunks (some kind of 'subcontinents / countries' in you world) ? So maybe you can have some kind of index files that let you quickly find which sub-file / part of bigger file you need to load to have a chunk in memory ... 
+Then, when you want to load a specific chunk, you'll just have to search inside the index. When you got the position just set fileStream.Position = PositionOfChunkFromIndex
+With the above methode you can (and should) create an index of your files contents, containing some sort of description(a user specified name for the region/chunk, or just the coordinates) and as a second value the position in the file.
+BONUS: Add BZip2 compression to specific regions of the file / the whole contents (not the header!!), so you can unpack specific chunks from the file, for a very small memory footprint.
+The problem I'm having is how to store and access these chunks without having thousands of files. Any ideas for a preferably quick & low HD cost archive format that doesn't need to open everything at once?
+It's all about the design of the fileformat with the header describing the contents of the file most efficiently.
+I have a 2D platformer that currently can handle chunks with 100 by 100 tiles, with the chunk coordinates are stored as longs, so this is the only limit of maps (maxlong*maxlong).

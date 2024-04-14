@@ -1,0 +1,6 @@
+But I see no reason for this notify attribute not to be defined on the exported instances of nagios_service to begin with.
+Any ideas why the subscribe clause isn't working as expected? Can I subscribe to all nagios_service instances some how? Would a notify in the nagios_service bit work any better?
+So the service file is generated correctly, but the nagios service is not restarted, despite the subscribe clause in the service part above. (Well, sometimes it is restarted when the permissions on the file are updated, but that doesn't always happen on a puppet run, and sometimes happens part way through a puppet run, so only some changes get loaded, despite them all being in the services file.)
+And while there isn't a way to make service subscribe to all nagios_service, you can do it the other way around like this:
+The contents of the file are not being controlled by the file statement, which is the one with the notify. You should put notify on nagios_service.
+I've just set up puppet to generate nagios config files, which is great :) I have the services being put into a file named as $nagios_puppet_service_file and here is part of the nagios service class:

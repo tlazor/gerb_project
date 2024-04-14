@@ -1,0 +1,12 @@
+Your switches/router may also have features to watch for and catch people attempting to poison arp tables, that would be a pretty big givaway as well.
+Now, if he's smart enough to not enable DNS lookups, and prevents any ARPs for these devices, your task is much more difficult.  At this point, you should work under the philosophy that the network is always being sniffed, and enact proactive procedures to prevent any vulnerabilities that would arise under this assumption.  Several include:
+Higher end switches (for business use) may have special ports (Span or Management) which can be configured to replicate all traffic.  IT departments use those ports to monitor traffic (legit sniffing).  Detecting unauthorized sniffing should be easy-- go look at the switch and see if anything is plugged into that port.
+A clever hacker could turn off these lookups, but many wouldn't think to, and it would definitely slow him down.
+Hubs (or really old network setups, like Thinnet/Thicknet) transfer all data across the wire at all times.  Anyone plugged in would see every packet on their local segment.  If you set your network card to promiscuous mode (read all packets, not just the ones sent directly to you) and run a packet capturing program you can see everything that happens, sniff passwords, etc.
+Off the top of my head I'd watch switch SNMP interface data for interfaces that a host is receiving more data and/or sending less data than average.  Look for anything outside of a standard deviation on either and you'll probably find the people most likely to be doing something they shouldn't.
+Switches maintain a cache indicating which MAC addresses are on which port (sometimes there will be a hub or switch daisy chained off a port).  Switches do not replicate all traffic to all ports.
+You basicly do ARP poisoning, stealing everyone's packets, reading them and sending them to the right computer afterwards.
+Switches operate like old school network bridges-- they only transfer traffic out a port if it is either
+There is a simple way to detect most sniffers.  Put two boxes on the network which are not in DNS and are not used for anything else.  Have them periodically ping or otherwise communicate with one another.
+Now, monitor your network for any DNS lookups and/or ARP requests for their IPs.  Many sniffers will by default look up any addresses they find, and thus any lookup on these devices would be a solid warning.  
+The (I believe) only way you can sniff all traffic on a switched LAN is with a 'man in the middle' attack.

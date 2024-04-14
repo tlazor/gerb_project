@@ -1,0 +1,7 @@
+For users who wish to paste plain text in Microsoft Word, check out this resource. The other answers here only address pasting by matching the destination style or formatting.
+You can also do the paste copy inside the font box in Illustrator itself instead of the address bar. That also removes styling. Illustrator example below.
+This will get rid of rich text formatting. You could probably wrap this in a Service using Automator.app to have it accessible via keyboard shortcut.
+For support in Word 2016, delete or comment out the part of the script for no content on the clipboard, as described in this follow-up post.
+Usually, OS X applications allow you to paste without style using ⇧⌥⌘V. This is not necessarily supported everywhere though.
+The steps consist of creating a macro in Word and assigning a keyboard shortcut of choice to this macro. This process is fairly simple should take no more than 5-10 minutes in total.
+If you simply want to get plain text from whatever was in the clipboard, and then put it in the clipboard again, you could for example run the following command from a Terminal:

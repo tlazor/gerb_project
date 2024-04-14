@@ -1,0 +1,15 @@
+For question 1, why they are always the same, I can only guess. I think that they have some sort of lease time similar DHCP leases for certain MAC-addresses. The definite answer can only be given by your ISP.
+So my PC will talk to this dongle using dongle's own IP address 192.168.0.1. I can even telnet to it.
+We have some 3G dongles, plugged in with SIM cards from service providers. Upon properly configured (selecting the proper APN etc.), the laptop or PC will then have a static private IP (10.x.x.x).
+so when a connection comes, it will be forwarded directly to your pc and ping to 10.#.#.# will work again.
+(2) I have another dongle (ZTE MF823). This dongle, is considered new generation of dongles and is different from the old dongles. This ZTE MF823 will form it's own private address such as 192.168.0.x.
+@sweethome is right you are behind the modem's LAN and not directly connected to carriers LAN so even ping 10.#.#.# wont work.
+This IP is fixed. I.e., if I install the dongle on multiple devices, they can talk to each other (ping and etc.) by using this 10.x.x.x IP.
+so you must configure modems settings on its configuration web page probably running on ip 127.0.0.1 port 80 (try opening your assigned gateway in a browser) and add PORT FORWARD or NAT VIRTUAL SERVER or NET BRIDGE from modem to your pc.
+For question 2: It seems the new ones are implemented like a multi user modem with only one network port emulated over the USB port. So it is behaving like your WiFi-Access Point at home. Some of those sticks then even have a configuration web page running on port 80 (try opening your assigned gateway in a browser).
+I tried to telnet to ZTE MF823, and use ifconfig, but I cannot find any 10.x.x.x interfaces. IP route also doesn't show anything useful.
+So wh ythis new generation of 3G dongle is not working? I know this dongle may not forward everything from outside to my PC, but at least it should have some IP such as 10.x.x.x?
+Of course, this is not a public IP, so you can't connect from outside of the world. You can only connect each other from the devices install these dongles with pre-known IP addresses.
+TLDR: So basically they are like modems with one configured as single user and one as multi user in combination with CGN.
+(1) How is this working? The mapping of IP addresses seems to be static and not dependent on dongle (only dependent on SIM card), switching the dongles with the same SIM card will not change IP address.
+However, other devices cannot ping to this PC with ZTE MF823! It should have a static address of 10.x.x.x, but others just can't ping to this fixed IP address of this SIM card.

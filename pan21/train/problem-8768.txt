@@ -1,0 +1,7 @@
+Standard procedure is to pull the box off the network and do a full postmortem before plugging it back in. At the very least, if you've been keeping checksums with your backups, run the checksums of the entire filesystem. 
+You'd probably be safest to restore from your last known good backups - but that's only if you can positively identify the date and time of initial compromise from archived logs, etc.
+Our server was attacked and I need to delete a malicious code that was injected in lots of php and html files. 
+I would not assume that someone was able to inject malicious code into lots of scripts and hasn't totally owned the box. Sure, you get rid of malicious code in the HTML, but what about the botnet that's running from your box?
+Ultra Edit is one of the better editing tool. You can google and download a trial version to try it out. If there's a backup exist for your server then I'd recommend using Beyond Compare to analyze and restore the files. please note that these tools that I mention are not free ware. 
+There are lots of ways to find and replace text across multiple files.  Sed is a favorite, but whether it's the right tool or not depends a lot on what your files look like.  Can you give us an example of the malicious code in context?
+What is a good way to replace code from multiple files? I've tried using this script: https://github.com/terry81/Malicious-Web-Scripts-Search/commit/2cdb95adfb667455080468ccaa3e58c822c2bd32 but I cannot make it work.

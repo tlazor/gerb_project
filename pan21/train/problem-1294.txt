@@ -1,0 +1,5 @@
+Nope, you can't do that.  A router can only have one route in the routing table per exact prefix.  For instance, it's impossible to have both an EIGRP and an OSPF route installed in the routing table.  Administrative Distance (lowest) determines which route is used.
+I am trying to create static routes which are redistributed as E1 Type 5 External OSPF LSAs. If I check the routing tables on my other connected routers, these redistributed routes show up properly. However, the routes appear as static routes on the router where I created them. Is there any way to have this router where I created the static routes see them as E1 Type 5 External OSPF LSAs as well?
+What are you trying to accomplish with this?  Why would you want the router to use the T5 LSA instead of the locally-configured static route?
+Additionally, even if you did force the router with the static route to instead use the OSPF route (by AD manipulation or some other black magic), the router would then stop originating the T5 LSA.
+Do note that even though the router will use the static route in the routing table, it still knows about the T5 LSA in its OSPF LSA database.

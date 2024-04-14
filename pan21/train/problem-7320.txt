@@ -1,0 +1,8 @@
+Be sure to turn on all the screens before the computer is started. If some screens are turned on after windows is booting, windows might reset the default location where each app has to start to be sure it doesn't start out of bounds.
+the properties me.xcoord and me.ycoord are calculated based upon which sFileName process is being launched.
+My issue is that I have 4 pieces of software running on a quad monitor display station and my results are quite mixed with windows 7 remembering which one goes where.
+At risk of asking a "shopping" question, is there a third party utility that does a better job at this particular task?
+My only other option at this point is to write a console app to launch the processes but i'm not quite sure if it supports an x/y coordinate offset in the process.start overloads.
+I need to be able to reboot the machine and my 4 apps to always launch in the same place without any user interaction. Right now my testing has this only working about 7/10 times as desired. That would be acceptable if this weren't for a customer's facility.
+If you want to be sure that the apps always start in the right screen, best thing to do is to make a launcher for it, but then all screens must be turned on.
+I know that windows 7 has some built-in functionality that controls opening an app on a particular monitor. This proves to work great when only working with two monitors. Open chrome on monitor 1, drag it to monitor 2, close chrome, open chrome and it opens on monitor 2.

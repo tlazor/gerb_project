@@ -1,0 +1,8 @@
+sign will return one of -1, 0, or 1, which correspond to the sign of the number passed to it. This is basically what you were doing manually. Most languages have a sign (or signum) function for cases like this.
+Firstly, you used Object.keys() on dataArray (an array), which is not needed. If you need the array item index, all of the array methods provide the item index as second argument of the callback.
+Also, this is a bad use of array.map(). array.map() is used to transform values in one array to another array of values, i.e. a 1:1 transform operation. In this case, you're merely using it for looping, something better suited for array.forEach().
+This is what my code looks like what does what it should. I would be interested if it can be optimized using es6 syntax.
+For some charts, I'm in the need to sort the array data based on inner property value ("val"), further to get only the 3 highest (Hong Kooong, Munich, Tokyo). Finally, this data should be used for the creation of a new key/val object (newObj).
+Since you're "reducing"/"aggregating" an array of values into one value (turning an array of values into an object), array.reduce() is the better option.
+I also used a unary prefix - to negate instead of using * -1. As an alternative, you could change it to just:
+You were off to a good start here. One minor nitpick is to just chain the operations since you're just reassigning dataArray with sort's results.

@@ -1,0 +1,5 @@
+Consider using LVM - Logical Volume Management. It lets you manage the storage in a flexible way - online resizing of volumes and snapshots and else.
+For a standalone server, using RAID1 makes some sense - although you might consider using independent (non-mirrored) swap partitions on the 2 disks. If you ever get into swapping you're just slowing the system down by writing to both disks. If it's likely that you'll have a disk failure at the same time that the system has run out of physical memory, then the really you need more RAM or less memory hungry config.
+I don't know anything about the applications it will run, but suspect that split between user content and database favours the former too much - but then again I work mostly with database-intensive stuff.
+Using more partitions than you need seems sloppy - looking at your setup, I think it would be worth keeping /home on the same filesystem as /
+I disagree with Stephane that splitting your disk into different partitions is no longer necessary - it's a good way to protect your system from overflowing logs and partitioning reads / writes still brings performance benefits.

@@ -1,0 +1,10 @@
+Then there is a lot of services you can change to manual. But i'm sure you find em by your self. Windows give you a description too what the service do.
+I had the same problem but the solution was different. My CPU, Memory usage and everything looked normal but it seems my system had high page faults which was slowing down the entire system.  To check if this is a problem in your system
+thanks for your answers, guys, but the solution was actually something else. Turned out that the task "system and compressed memory" is not actually run by windows, but run by some malware which disguises itself as windows. I reset my PC completely, and now it's running fine again. 
+• Next step is to turn off services you don't need. To do this go again to Task Manager and then services and after that open services. 
+aspnet_state, BitLocker Drive Encryption Service, Connected Device Platform Service, Fax, InstallDriver Table Manager, Net.Tcp, XboxNetApiSvc, RemoteRegistry, Routing and Remote Access, Smart Card, Smart Card Device Enumeration Service, Smart Card Removal Policy, XblGameSave, XblAuthManager
+If you have confirmed that you have high page faults, now we need to find out which application is causing it. Follow the below listed steps.
+And restart you computer. I do this on all my computers fast or slow and it help somewhat for me. Windows do a lot of unnecessary things in the bakground that steal performans when you play or do some work.
+In my case, it was "KasperSky". My license got expired and I renewed it from the KasperSky app. Guess something got messed up with that. I uninstalled and re-installed KasperSky and my system was back to normal!
+in the new window that you see go to services and press Hide all Microsoft services. After that just uncheck all services you see. 
+You don't need it. If your computer need a software to start when you you start your computer it will start. Trust me. So when you are in task manager go to startup and disable all. 

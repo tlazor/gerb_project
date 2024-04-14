@@ -1,0 +1,5 @@
+is it possible for one interface to do both L2 switching and L3 switching? - There's no such thing as Layer 3 switching. When a Layer 3 switch is switching packets then it's acting as a switch. When it's routing packets then it's acting as a router. Layer 2 and Layer 3 are two different layers. Switching occurs at Layer 2. Routing occurs at Layer 3.
+If you already have a router then you don't need to use the routing (Layer 3) capability of the switch at all.
+I have a switch supporting both L2 and L3 Switching. It is connected to one router (so L3) and one device using L2 switching.
+So the question is, in case all the routers uses the same vlan, is it possible for one interface to do both L2 switching and L3 switching? What I mean is, does the standard allow this (I will not complicate this by including switch/router model, just trying to keep it on a theoretical level)? Both the router and the switch is needed, since the router is integrated in other hardware.
+In case this work I would then let the next hop address to the router be the gateway address to the interface on the switch. Would this be possible?

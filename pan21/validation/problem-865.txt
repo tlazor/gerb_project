@@ -1,0 +1,5 @@
+I've been looking for this too. My best solution at the moment is to use a combination of Firefox and PDFCreator. I've also tried the other main browsers, but they don't let you turn off their own headers and footers. If you want to be able to print grey/gray text as grey (rather than black) then be sure to enable the "Print Background (color and images)" option in the File | Page Setup | Format & Options dialog.
+Unfortunately, none of the main browsers seem to support the CSS @page rule for specifying things like headers, footers, widows, orphans, page sizes, landscape/portrait, etc.
+wkpdf worked perfectly for me when wkhtmltopdf did not, on OS X. It's a Ruby Gem, which was very simple to use on a stock OS X install.
+There is a tool called Prince that claims to be able to do all of that (and more), with good reviews, but I haven't used it because it's expensive. (There is a free version for personal use, but it adds its own logo onto the front page of the PDF document.)
+Consider the fact that no two browsers can render that HTML completely identically for a moment, and then realize that you're never going to get it. 

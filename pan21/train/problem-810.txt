@@ -1,0 +1,6 @@
+ntpd is out of the question (the host system runs it and the clock is always correct, but if you run it on the guests, the clock goes way out of whack).
+The best option for a precise clock on the guest is to use the kvm-clock source (pvclock) which is synchronized with clock's host.
+I'm having trouble keeping the system clocks sync'd on a number of kvm guests. I've googled a fair bit, and found a lot of different options, many of which I've tried, to no avail. So here I am.
+I've got "clock=pit divider=10" in the kernel boot parameters on the guest. It still drifts. We're not talking massive drifts, but there is some. 
+Fundamentally the clock is going to drift some, I think there is a limit to what can be done at this time.  You say that you don't run NTP in the guests but I think that is what you should do, just make sure that you aren't referencing the local clock (comment out server 127.x.x.x) and that tinker panic 0 is set so that it won't freak out if there are large jumps it has to correct for.  Thats basically the guidelines from the VMWare timekeeping paper and I would guess largely applicable to a KVM setup as well.
+Here is a link to the VMware paper "Timekeeping in VMware Virtual Machines" (2008): http://www.vmware.com/pdf/vmware_timekeeping.pdf

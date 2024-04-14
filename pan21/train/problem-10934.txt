@@ -1,0 +1,6 @@
+Both browsers can open the context menu with Shift+F10 or the context menu key - there's a search item on the menu.
+Firefox and IE have Caret Browsing, activated by F7. It lets you move a text cursor (caret) around to both navigate the document and select text, much like a word processor (except you can't edit). Select text in the usual way, by holding Shift and navigating.
+Both Chrome and Firefox allow you to search for a selected word or phrase through the context menu (as does IE 8). You can access the context menu not only with the second (usually the right) button on your mouse, but with the context menu key available on most keyboards made in the past few years. This assumes you're on Windows.
+Well in Firefox if you select some words then right-click, the context menu has "Search Google for ..." (or whatever search engine is selected in the search box)
+I frequently select text, right-click and choose "Search Google for..." from the context menu. So I made a Chrome extension, Quick Search: https://chrome.google.com/webstore/detail/quick-search/chgmjmpmfefgaiogdnnjbfcbgcflofgi
+Chrome has partial support for keyboard text selection using Shift + cursor keys, but it only works to expand or reduce an existing selection that's been made with the mouse :(

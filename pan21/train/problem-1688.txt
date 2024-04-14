@@ -1,0 +1,7 @@
+Omit the b in dir /b /s /a:-D > results.txt and the results should look like, (i.e. dir /s/a: -D > results.txt): 
+I had some trouble when running the command outside the folder that I want to analyze. So best both enter the command in the right directory ("C:\your_dir" in this example) and specifying it in the command.
+However, I could only correctly see the special characters in Notepad, not in Notepad++ (must be some ANSI/UTF-8 Encoding thing, no time to analyze exactly right now).
+This may be cheating on the OPs question.  However, the question is no longer relevant on modern Windows-based systems.  The Dir alias was used to help draw the logical link.
+Also I didn't find a solution to display the size after the file name. Use the "b" or "k" options instead of "h" to display size in bytes or kilobytes.
+I find the "du" command pretty helpful and it works on both Windows and Unix (used it to check if all files were copied when transferring lots of data from a Windows PC to a Linux Web Server):
+P.S. This is based on the reply by BillR (Alternative #1). However in my case it hangs  with @echo off.

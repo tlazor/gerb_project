@@ -1,0 +1,7 @@
+May or may not work, but... you could try setting /tmp to not be writable by users, and set export TMPDIR="$HOME/tmp" (assuming $HOME is encrypted) somewhere that will be used in the env of all sessions (like, /etc/profile, perhaps?). I think many things should respect the TMPDIR environment variable, but all of them won't necessarily honor it.
+Of course, data will not be readable after written... it is lost as is it being written... that is what is for /dev/null designed.
+Also if after /tmp is created and mounted, you just mount over it any path that is an encrypted container, it will do the trick.
+If you are sure all your apps only write to "controlled" paths, try first with mount over a path that has a mount on it (it overrides the mount until unmount).
+You could try to run firefox in a selinux sandbox which will not only prevent /tmp from other users but will also prevent your home files from firefox :-)
+Not sure how useful would that be on Ubuntu but after some customization works fine on my Fedora (15).
+After 1 the files/folders seen on /mnt/MyHDD are on drive sda on first partition, after 2 the files/folders seen on /mnt/MyHDD are on sdb partition 2, after 3 the files/folders seen on /mnt/MyHDD are on drive sda on first partition, after 4 ¿? it depends on what was mounted there before 1.

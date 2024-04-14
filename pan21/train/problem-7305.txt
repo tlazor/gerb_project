@@ -1,0 +1,6 @@
+As you can see this has two numbers, the trigger (here 2), and the eligibility (here 9). This tells BIND to refresh DNS entries for all entries whose initial TTL was greater than 9 seconds, if the remaining TTL falls below 2 seconds.
+No, there isn't. The cache is designed to automatically "record" entries when they are accessed for the first time for faster access later. There's no performance gain to "pre-caching" entries like you're describing.
+Thus it will not blindly refresh all entries, instead it will only monitor entries which have an initial TTL greater than eligibility, and once the remaining TTL for these entries falls below the trigger value it will refresh them. The values of eligibility, and trigger are in seconds.
+BIND supports a technique called prefetch. Using prefetch BIND will automatically refresh entries that are about to expire. The following is the syntax of prefetch.
+So, let's say example.com has a TTL of 60 seconds (i.e. TTL when the record was fetched), I want to ensure that if the remaining TTL falls below 10 seconds, the entry should be refreshed. The following will be my prefetch option in the config file.
+For example, example.com has a TTL of 60, i would like to automatically refresh it if it expires so that when users query example.com a fresh version is already in the cache.

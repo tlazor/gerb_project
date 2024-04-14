@@ -1,0 +1,10 @@
+(shutting down the p.c. or putting it to sleep, not just turning off the monitor with the power button unfortunately.)
+(Btw, this is useful when you're recharging e.g. a TomTom or other rechargable device through your computer!)
+I also have a Razer mouse and keyboard, both with plenty of lights. Great when gaming in the dark. But when I turn off my computer, the lights are turned off too!
+However, there is probably a way to tell your computer to cut the power from USB when it's off. I'm not sure, but it could be from a "USB wake-up" option in the Bios (giving you the possibility to wake up the computer from a USB device). So you could check your Bios about such option eventually.
+If you've put your computer in sleep mode instead of turning it off completely, this is expected. Otherwise, it could be a BIOS setting that will enable power to the USB devices.
+These mice take their light simply from the USB power, without needing to have the system on. It's on the electrical point of view, there is nothing to turn it off in the mouse itself.
+I think the problem is not the mouse but the computer, which doesn't seem to switch off completely. It's likely that it's set to awaken again after you press a key or move the mouse, or something silly like that. Some computers are able to turn themselves on again if commanded to do so from an USB device, thus they leave some power on the USB port. The mouse thus receives power and thus keeps the light on. It doesn't know that your computer is off.
+in the synapse program under lighting you can now have the lights turn off when your display is turned off. 
+Here we have fake razer Mice that will stay lit when the pc is off, real ones automatically turn off
+If not, then it is probably something with your motherboard, and besides turning off the back switch, or unplugging the computer, I don't see a way to fix this.

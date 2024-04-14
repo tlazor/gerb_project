@@ -1,0 +1,8 @@
+Authorized User 1 has a hallway conversation with Authorized User 2 about sending out a mail to Super Secret Group X.  Unauthorized User 3 overhears.  Group name compromised.
+This is email we're talking about - in the end, it's insecure by design. Get a secret document/communications system instead.
+Why isn't encryption and digital rights management of the actual message content part of the requirement? Wouldn't that be a lot more important? ^^
+One horribly ugly idea I'll throw out would be to write a custom transport agent to enforce some of the crazy confidentiality rules, as normal transport rules aren't at all flexible enough.
+Here's my suggestion. While it doesn't answer your question it does give you a direction to follow to either:
+Say I'm an authorized user.  I send an email to a super-secret group, and carbon copy someone who shouldn't know about it (or the message gets forwarded to them); "security" defeated.  This scenario is pretty much guaranteed to occur when there's no training allowed.
+Treating distribution groups with the sensitivity level of nuclear secrets is pretty much destined for failure.  As we've discussed in some of your previous questions, there are some means to hide groups on the Exchange side with a lot of wrangling, but when you're trying to enforce policy completely on the technical side and not on the human side at all, it's not going to work.
+Open a support case with the Microsoft Exchange Server support team. It'll cost you less than US $300.00 and is going to either help you accomplish this or prove to the PHB that it's not possible.

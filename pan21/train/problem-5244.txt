@@ -1,0 +1,6 @@
+True, but it's just a "bs near zero" part of the story. In the context of the question we should tell the "bs goes to infinity" part.
+One usage case where bs=10G may be useful is when you want to process exactly as much data and you use count=1 (or e.g. 5 times as much: count=5). However in practice with large bs you may get less, unless you use iflag=fullblock (see this answer). Because of memory usage I would recompute to a smaller bs anyway.
+But in your case it's kinda XY problem. The underlying issue (bad blocks) should be approached with smartctl and badblocks, not dd.
+In the real world the plateau actually collapses for some large bs. With bs=10G the tool will try to allocate 10 GiB of memory. It may or may not succeed (memory exhausted). Even if it does succeed, there are still issues:
+Of course this all depends on how much RAM you have and how much swap space you have, and on what other processes do.
+My personal preference is to use bs of a size that gets transferred in 0.1-1 second; or smaller bs if RAM usage may be an issue. This way I can interrupt dd almost instantly (this is the gist of the already mentioned answer). If hardware limitations allowed dd to exceed 10 GiB/s and I had more than 40 GiB of free ram, I would consider bs=10G. At home I hardly ever go above bs=64M.

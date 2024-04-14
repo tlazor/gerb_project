@@ -1,0 +1,8 @@
+You will need to deploy a load balancer to split the load on your sql nodes, resolve your DNS to the ip address of that load balancer
+Second issue that arises, let's say that the DNS resolved to 10.0.0.7, which is only one of the three SQL nodes: What if that node is down?
+The whole cluster is still fine, but now the application that tries to connect to that node see the cluster as "down", because that node is indeed down, hence I'm losing "high availability".
+The MySQL cluster has THREE MySQL/query nodes (the end-points of the cluster where applications connect to).
+What would you do to resolve the issue? Please describe in details, and, complexity doesn't frighten me :)
+Note that I would ask here about load-balancing or stuff like that but I prefer to keep this question "open" and hear a wider range of solutions. Thanks!
+Now, an outside app (say a web-server) wants to act (write/read) on the database. Here are the steps:
+This question is not about how to install the servers nor its capabilities, but more of a design question.

@@ -1,0 +1,5 @@
+I have also seen where the windows install broke and your only option is to reinstall windows again.
+http://social.msdn.microsoft.com/Forums/en-US/windowscompatibility/thread/cbbfde77-4def-4abb-8dd0-125c6eb9441d
+I suggest you see what mode your drive controller is in bios, verify the driver in windows matches and is up to date.  I have seen where the mass storage/optical drives are not recognised because the controller drivers are wrong/out of date.  once updated with the proper version/type uninstalling the cdrom and reinstalling allows it to properly determine. 
+If the first option did not help you can try booting off of a bootable cd to verify that the drive is working properly.  if it is then you can try removing the driver for the cdrom from the driver store. MS Technet article describes how to do so. I normally have to use this kind of procedure for usb hubs/devices when windows confuses the drivers there.
+Do you have the latest version of Lenovo System Update? It might be able to scan your laptop and install the drivers you need.

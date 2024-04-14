@@ -1,0 +1,5 @@
+What we currently do is simply add new 2TB HDD's each time the current drive gets full, then users upload data to the new drive...we have enough bays for 24 disks.
+We are getting I/O bottleneck on the most recently added HDD because all new media gets added to this drive, which is also the most popular...this could be overcome by spreading the data across each disk, however it gets complicated then when we run out of space and add a new blank drive.
+The reason I am mirroring my files is so that I have a 1:1 backup, failover in case 1 server goes down, and so that I can easily Load Balance my site with 2 machines.
+I read about Distributed File Systems the other day which sounded like it may fit, however they all seem to be linux only...converting to linux now would be a challenge to say the least as I have little experience.
+I have a fairly busy media website where MP3 audio files are uploaded by members and streamed / downloaded from 2 Windows servers which are load balanced at the moment...both servers simply mirror each other and are kept in sync.

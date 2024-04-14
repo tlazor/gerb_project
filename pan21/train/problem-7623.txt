@@ -1,0 +1,5 @@
+If you look closely, you will notice that some tiles are overlapping the other tiles. This because the tile extends 3px above the top of the tile (0, 0 + 0, -3). This is why I have those extra 16 pixels of padding on the top and bottom. It allows me to add depth.
+The tile itself is 64 x 32, but the actual image is 64 x 64 (there are 16 pixels of padding on top and bottom). This way I can add depth and height to certain tiles. I determine the resulting screen x and y coordinates like this:
+I am actually working on an isometric game right now. Here is how I did my rendering. I start by using images that are already transformed:
+As you can see, we didn't even have to use sin or cos, and it is much more simple. The reason we subtract TILE_WIDTH / 2 from the x, is because we want 0, 0 in our isometric world to represent the top left corner of the first tile. If we were leave that part out, 0, 0 (or any other coordinate) would actually point right here on the tile:
+As for the reason why you have gaps, it may not be inaccuracy, but instead the tiles aren't exactly the right shape. So if you want, you can use the tile I have above as a template.

@@ -1,0 +1,9 @@
+Relying on an untrusted certificate especially if the traffic is going over the public internet is a horrible idea.  Unless you verify the certificate every time you would likely accept a different mismatched certificate that could be a man-in-the-middle attack and not even know it.
+So can I some how use the existing SSL certificate to view admin.abc.com even if that means accepting a warning of a mis-match from the browser?
+If you are able to get more than one IP address added to the virtualhost, then you can use two SSL virtualhosts, with each using one of two SSL certificates. The virtualhosts would each need to identify which IP address they should be using e.g. in Apache Httpd:
+This might be cheaper than getting a wildcard certificate, but a wildcard certificate if you're willing to pay for, is the easiest to set up.
+As htpasswd is not really secure I want to be able to view admin.abc.com using https (unless there is an alternative).
+UCC Certificates are beyond your needs, and are usually very expensive, so I'd not recommend that over wildcard certificates.
+On the same server (linux) I want to setup a subdomain that is private for site admin, admin.abc.com.
+SNI (Server Name Indication) isn't supported on all browsers, so although this would allow you to serve multiple certificates using only one IP address, if they both need to be accessible in these browsers, it's not suitable. If only www.domain.com only needed to support older browsers, then you could still do this, as if the www.domain.com SSL certificate is the first one loaded, then users without SNI browser support can still get that certificate.
+Get yourself a free cert for the subdomains at http://www.startssl.com/.  The process is a pain in the butt, but free certs are free certs.  Skip the wildcard certificate and save a little money for now.

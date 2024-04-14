@@ -1,0 +1,8 @@
+Once this is done, fire up wireshark and plug the phone and switch to the PC and power cycle the phone. 
+One method (easiest but I'm not certain if it will work) : SPA942 Recovery Tool http://www.sipura.net/download/rec942.zip The 6ths post here http://homecommunity.cisco.com/t5/VoIP-Phones/SPA922-Factory-Reset-Procedure-Does-Not-Work/td-p/247166 suggests once it retrieves the profile from the phone it then deletes the previous config.
+The idea is to send a provisioning file to the phone, and use that to change passwords so you should be able to gain full access to the phone.
+To do this, we will need the phone, a switch, and we will need means to set up a DHCP server on which we can specify DHCP options, as well as a TFTP server. 
+For the TFTP server, find the directory you need to place the files to be served (often called tftproot), and create the following file (case is very important for this).
+You should then see the phone get a DHCP lease from the server, then pull the file we created via TFTP. If you see filenames not matching up (I believe certain firmwares changed the files the phones look for), then change the filenames as required.
+My suggestion would be to use any sensible spec pc, and load up an evaluation copy of Server 2008 R2, set the network card with a static ip and install the DHCP service, install Solarwinds TFTP Server (free), then install Wireshark (also free).
+This file only has settings for the webserver and passwords, it ensures the webserver is enabled on port 80, and clears both the user and admin passwords.

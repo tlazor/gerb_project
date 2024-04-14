@@ -1,0 +1,6 @@
+This is handled differently by different versions of Linux [ Ubuntu creates a lot more files then CentOS/Redhat for example ] and can be quite easily changed.  (Look at /etc/syslog.conf or /etc/rsyslog.conf).
+Compounding this is that some programs (fail2ban for example) monitor logs for activity and act on it - having multiple logs provides for better responsiveness and easier configuration.
+Similarly if a particular application is not behaving as expected, cranking the debug information up might be desirable, but you don't want this level of debug information mixed in with your logs.
+Ya they pretty important thing for bug fixing if you have problem with your user application,kernel,hardware or shell you can prefer using 
+In addition to different services (which can be logged to the same or different places) there are different levels of logging.  
+The rationale behind this flexibility must be to allow system administrators to get the right balance for their needs - for example if the system is a mail server, it may be useful to split off the incoming mail and outgoing mail from the general server logs to make tracking what is happening in certian cases easier.   

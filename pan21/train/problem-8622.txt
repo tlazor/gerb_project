@@ -1,0 +1,6 @@
+A small memory improvement, if there are a lot of negative numbers, would be to not store negative numbers in the set in the first place. It doesn't hurt performance since contains will still be constant-time, but there will be less elements in it.
+Then, you actually do not need to store the minimum and the maximum: since we want the smallest positive numbers, we can start searching from 0, and increment while the array contains it.
+There is no need to start at the minimum: we can start at 0. Furthermore, instead of using a for loop, it would be cleaner to use a while loop:
+is going to explode if you pass an empty array. This is not what I would expect from the method. The smallest missing positive number in an empty array is 0, because 0 is not the array and it is the smallest positive number.
+When you're iterating over an array, or an Iterable, and you don't need the index, it is simpler to use an enhanced for loop:
+This is a lot shorter and also clearer: while the set of all the numbers in the array contains our attempt, increment it. This will terminate when we find the smallest one.

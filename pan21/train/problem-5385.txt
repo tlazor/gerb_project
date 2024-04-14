@@ -1,0 +1,8 @@
+If you're in a console and can't even see what you're doing because of the messages try typing this.
+When the kernel cmdline includes the quiet kernel parameter the resulting console log level is 4 (i.e. errors and worse). Without it it is set to 7 (i.e. info and worse).
+If you are in a real jam you could just disable the syslog service temporarily in the case that there is such a flood that you cannot view or type anything properly.
+You can view the active kernel parameters with cat /proc/cmdline and your current console log level with sysctl kernel.printk. It can be dynamically changed with dmesg -n X (or even with sysctl -w).
+See also: https://askubuntu.com/questions/97256/how-do-i-disable-messages-or-logging-from-printing-on-the-console-virtual-termin 
+To make the change permanent you can add kernel parameters to kernel cmdline (e.g. quiet and/or loglevel=X) or add a sysctl .conf file under /etc/sysctl.d.
+What you see are kernel log messages printed to the console. What log messages reach the console depends on the currently set console log level.
+As this is a stack overflow related site, I'll start by saying you shouldn't switch off the output, you should address the errors.

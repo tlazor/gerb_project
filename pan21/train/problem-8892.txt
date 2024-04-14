@@ -1,0 +1,6 @@
+Cool project. The first thing that comes to my mind is combining an 802.11 device with a directional antenna and a solar panel. Ubiquiti makes some inexpensive 802.11 equipment aimed at the Wireless ISP market that would be perfect for your project. Specifically, their airMax product line is well suited for creating bridges over long distances.
+Me and a few classmates have been assigned a project on campus. The goal is to come up with a way to transmit information from a camera that's in a bat house about 500 yards away from the closest building. My group decided to go with an directional antenna. Any ideas on what eco-friendly technology to use? How would you go about it?
+1) MW antenna or unidirectional of other type with a ptp link. This could be eco-friendly since the signal has to meet allowed power limits and it's spreaded in a single directiob and a close angle of transmission.
+2) LTE modems with site-to-site vpn (ipsec or open vpn) with static ip from your ISP or  myddns domain on your dynamic public IP.
+But these are general ways, knowing what's in the middle between these two points could bring elements to create alternate solutions.
+The Loco M2 referenced in the link above would probably be more than enough for your application. You would need one on each end of the connection.

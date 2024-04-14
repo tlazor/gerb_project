@@ -1,0 +1,9 @@
+It is pretty easy to setup a VPN server in 2003 (Routing and Remote Access is what your admin is looking for), just don't load it on a DC.
+With the Windows VPN client you can configure connections so they won't send all your traffic down the one link and you can connect to multiple VPN servers simultaneously.
+Quite how you achieve this is down to your network topology, choice of VPNs and firewalls, IP ranges and route configuration. Are you in charge of these things, or is there a network administrator in control of the system?
+In which case, you need to configure your VPN connection and access rights so that, when you're VPNed from home to your office, you can reach your production environment via your office network.
+Can you just remote desktop into a machine in the office?  There's probably some reason you can't, but I figured I'd check just in case.
+Your question is not quite clear on how are you accessing production systems. If you need VPN for both, and RDP is out of the question, than you can run two VM's - one with vpn to work, one with VPN to production. 
+You would need one in each environment, they don't add a huge amount of load per user, but there are a few things that need to be setup.
+However, the performance of this might be worse than with RDP, depends on what kind of machine you have and what kind of network connection.
+Cons: you do need someone to setup the servers, firewalls and make sure the user accounts are configured correctly, additionally, DNS and IP ranges can cause issues in setup.

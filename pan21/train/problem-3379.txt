@@ -1,0 +1,6 @@
+That being said, I prefer to avoid the implicit conversions. A uniqueidentifier literal can be typed directly in T-SQL using ODBC escape syntax:
+You can not configure this but if you want your variable to fail conversion then you can try to stuff the variable into a table with CHAR(36) first, which will fail due to truncation:
+If you add those in the query the implicit conversion will fail if the original value is too long because the last } ends up in the wrong place.
+This is the same syntax SQL Server uses internally in execution plans when constant-folding a string representation to a typed uniqueidentifier:
+The additional characters are simply ignored (well, silently truncated) by SQL Server during implicit conversion. For example:
+Whether you can pass typed uniqueidentifiers to and from SQL Server may depend on the library you are using, but 36-character strings strikes me as the least desirable of the available options. If you must perform conversions, make them explicit, and use a 16-byte binary value instead of a string.

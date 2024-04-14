@@ -1,0 +1,8 @@
+Or, you use the fact that with a new buffer, the previous one becomes the alternate one, and use # instead of %:
+With :!, the external command is executed in a shell, and the fleeting output isn't captured inside Vim; you just see what gets printed to the terminal, then control returns to Vim after the external command finishes.
+If you want to pass the current buffer's filename (%) to the external command, you have to use :execute, so that it is already evaluated in the current buffer:
+To keep the output, you have to read it into a Vim buffer. For that, there's the :read! command. To open a new scratch buffer, combine this with :new:
+In the screen with vim you can edit the file and in the other screen you can execute it and see the messages and the code permanently.
+Now open a file in vim in one of the split screens. And jump to the other screen using ctrl-a tab. Notice that, in the second screen you first have to open a new screen (ctrl-a c) before you can use it.
+If you want to see the output asynchronously while it executes, you need an external multiplexer, or a plugin, as mentioned in @chaos answer.
+As far as I know, you cannot do that in vim. But use a terminal multiplexer like screen for that. Before opening a vim start the multiplexer:

@@ -1,0 +1,6 @@
+Otherwise it would be a dirty read, which PostgreSQL documentation states as "Not possible" in any of the isolation levels.
+A middleware routing queries from different connections from its clients to the same connection to the backend could produce the effect of a dirty read to its client. 
+So in order to make it work, you'd need to hack pgBouncer to bypass that check. That's technically possible, but in the end it would demonstrate a setup that never exists in practice. In this sense, it has more potential to confuse people rather than to help them understanding how isolation works.
+From the point of view of PostgreSQL, there is no second user, it's the same user on the same connection, which is seeing the effects of its own not-yet-committed INSERTs.
+In practice, your goal is out of reach with a normal pooler, because these tools actively forbird situations where a client would see uncommitted changes of another client. It's part of the effort to be transparent to users, to whom the results should be the same whether their connection is shared or not.
+In theory it's possible through connection sharing. Instead of connecting directly to PostgreSQL, psql would connect to a middleware such as pgBouncer, which has the ability to reuse the same backend connection across its multiple clients. 

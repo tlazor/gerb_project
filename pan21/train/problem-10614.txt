@@ -1,0 +1,6 @@
+You should not restore from a dump a database of any service while it is running and restoring a specific database to a server instance hosting other databases should not issue any locks hindering these other services.
+If you want to import the data without issuing any locks as stated in your question then I am afraid that's not possible, because DML (inserts, updates, deletes) just have to lock to keep things ACID.
+Loading a dump is not generally possible in a single transaction because many CREATE statements do an implicit commit.
+It is often not even desirable because for a rollback to be possible, the transaction needs to keep undo logs and if you import many rows over many tables, the logs will grow too much, eat memory and disk space and slow down the import and all other operations.
+--single-transaction is used to ensure the dump is consistent when dumping, it has nothing to do with import/restore.
+If your issue is import speed, check that extended inserts are being used in the dump (that each insert statement inserts multiple rows at once) and you have proper buffer pool and log size configured for InnoDB.

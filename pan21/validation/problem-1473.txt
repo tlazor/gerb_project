@@ -1,0 +1,8 @@
+The key factor to consider is how much time your NAS will spend running, and how much time it will spend powered down.  Most consumer grade hard disk drives are designed to spend less than a third of their lifetime spun-up, whereas server / RAID drives are designed to cope with 24x7 run time.
+You should also consider a small UPS to protect your NAS, to ensure data write operations can complete in the event of a power failure.
+I imagine the most common issue you might find is that the drives will not spin up in the amount of time the NAS expects, at which point it will kick the drive out of the array, causing a costly rebuild of the array once you add the drive back into it.
+If you intend powering your NAS down when you don't need access to the data, or if the NAS device has very good power saving capabilities which actually spin-down the drives when not in use, you can probably get away with consumer grade disks - but still expect to have to replace them sooner than you would if they were installed in a desktop PC.
+It depends on your needs, and whether or not the NAS is designed for consumer drives as well as raid drives.
+The NAS might also have options that allow you to tune these kinds of timeout values so that this issue doesn't arise.
+From the drive's perspective, whether the RAID implementation is in Software or Hardware is largely irrelevant - except for that a hardware implementation may complete read / write operations a little faster allowing the drive to spend more time spun-down.
+If the drives will be constantly spun-up, you would be better spending a little extra and getting server grade drives.

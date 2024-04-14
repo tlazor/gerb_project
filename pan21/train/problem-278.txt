@@ -1,0 +1,17 @@
+Basically I need to copy travelling packets from eth0 interface to interface eth1 so that Wireshark on box B can sniff them (for some reasons I don't have physical access to LAN eth0).
+Something like rinetd might work (redirector/server for TCP only I believe, so no ARP, Layer 2, etc.), but in all honesty, getting some managed switches that have port mirroring capabilities or if that box is solely used for wireshark, you could add another NIC to it, bridge the two interfaces, put it in front of machine A's eth0, and have a dedicated sniffing machine.
+Now have on one side a traffic shaping policy, and on the other side packets marking. To connect the two, we need a filter.
+I have a Linux system (let it be A) with 2 ethernet cards, namely eth0 and eth1 which are attached to two totally unrelated LANs.
+Is there a way to achieve this using iptables alone? Or do i need to write an application to make this work? What should I do to "copy" the packets?
+Netfilter can be used to interact directly with the structure representing a packet in the kernel. This structure, 
+I could also need to specify which packets to copy from eth0 to eth1 according to some rule (based only on TCP/IP fields by the way).
+Going to create a tree that represents our scheduling policy, and that uses the PRIO qdisc (packet scheduler) (can try other available ones).
+You can apply filtering rules to bridged traffic using ebtables, which is an analog of iptables for layer 2 traffic.
+Basically eth0 is used for normal application traffic and eth1 is used only for debugging purposes. Debugging means that eth1 is linked using a cross cable to another linux box (let it be B) which runs Wireshark. I want Wireshark to be able to process application packets travelling on A's eth0.
+Also note that A's eth0 don't need to be put in promiscuous mode because I only want to copy a subset of packets which have A as destination
+(stealing) the packet it receives. Mirroring is what is sometimes referred to as Switch Port Analyzer (SPAN) and is commonly used to analyze and/or debug flows.
+tc filter add dev eth0 parent 15:0 protocol ip prio 1 handle 0x2 fw action pedit ex munge eth src set ${MAC_ADDR_ETH1} pipe \
+A device that copies ethernet frames from one interface to another is a bridge.  You can configure your Linux system to act as a bridge.  Some documentation can be found here:
+the fw filter allows to classify packets based on a previously set fwmark by iptables.  If it is identical to the filter's 'handle', the filter matches. iptables allows to mark single packets with the MARK target, or whole connections using CONNMARK.
+iptables -t mangle -A OUTPUT -s ${IP_ADDR_ETH0} -p udp --match multiport --dports 329,330 -o eth0 -j MARK --set-mark 2
+In my setup multicast TX traffic was marked by iptables but policy routing using new routing tables never worked. Though it worked for unicast TX packets (redirecting originating packets from eth0 to eth5). Using tc i could get eth0 mcast traffic to eth5 The src mac and src ip address are changed t that of eth5 so will no create issues with switch learnings. All kernel support for kernel packet scheduling CONFIG_NET_SCHED must be enabled  

@@ -1,0 +1,6 @@
+You should not be able to get a job as a production DBA without production, on-the-job experience as a DBA, so don't start applying for any DBA positions.
+Your best bet is to start at a company as a SQL developer -- chances are there is no dedicated DBA and as you work more with it you can grow into a dedicated DBA.
+You may be able to be a junior DBA on a team if and only if you show some experience administrating DBMS's combined with lots of knowledge and/or certifications.
+How do you know you want to be a DBA without any experience admin-ing a database management system? That's like saying "How do I be an auto mechanic but the closest I've come to working on them is driving to and from work each day"... I'd take a long look at why you like database systems and see if it's on the production (SQL) or the support (DBA) end...
+Focus on backup/recovery, performance tuning, etc. and that'll be enough to at least get you in the door for a junior DBA position.
+Or, run a production multi-user application that uses a DBMS as the backend. Run your own website that uses MySQL and keep the DBMS running 24/7 and you'll get enough war stories to prove that you know what you're talking about. Hang out on user forms (such as DBForums) and provide support to other users for production DBMS issues.

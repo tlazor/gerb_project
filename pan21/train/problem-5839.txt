@@ -1,0 +1,5 @@
+This is no longer a problem for me. I've reinstalled using a different disc. Also there seems to be no clear answer.
+If single user mode is really what you want (a plain black console) you should choose another live cd that is specially made for that.
+I have an ubuntu live image booting onto on my eeepc. I copied it onto one of the harddrives. I can't log into it. However, there's a file from another partition I want on it. I thought I could log into single usermode. However editing the 'install ubuntu' or 'try ubuntu' boot menu options and adding 'single' etc, didn't work. The installer boot loader isn't grub, is it? Is there someway to boot into single user mode on it?
+GRML is my favorite for this task. It has many tools and it is not bloated like Ubuntu. It does not automatically start a graphical interface, but you can if you want to.
+If you can boot in from the CD again, you should be able to mount the root filesystem on the eeepc to /mnt/root or whatever, then chroot over to it. That should let you recover whatever you need. 

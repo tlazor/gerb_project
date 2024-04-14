@@ -1,0 +1,7 @@
+Don't.  Just join the new server to your domain as a member server, promote it to a DC, transfer FSMO roles, switch client DNS to the new box, then demote the old one.
+No, give your manager a printout of this page and demand a second DC. Risk analysis will tell you you NEED duel DC's. The secondary might not have to be able to handle the day to day load of your primary perfectly, but it is also essentially a live failover backup of AD (in case of HW failures), and that is priceless, really.
+I'll second what everyone else has said about having a second DC.  True, it costs money, but what's the cost to the business if you lose a DC that's a single point of failure?  And which cost is lower?
+For anything else - specify what data you talk of (as it is obviously not related to the DC functionality then).
+I also have to stress the importance of redundancy at the DC level. If you are using the DC as DNS, then even that won't work if it goes down.
+Now, that's assuming that by "all data" and "all user information" you mean what's in your Active Directory.  If you're also using the DC as a file server/print server/email server/whatever you'll need to transfer that too.  Can you confirm (or deny) this?
+This is how I do upgrades on domain controllers. I have always a minimum of 3 dc's - even of 2 of them are virtual.

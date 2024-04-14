@@ -1,0 +1,8 @@
+You will need a filesystem driver in Windows that is also present in Linux.  If there's a free one out there, I haven't found it yet - and if I did, I would be jumping up and down and pointing to it ;)
+To my mind, a better solution would be to use a network mounted file-system. The RHEL servers mount either an NFS or SMB/CIFS share from the Windows servers, and use those directories to pass files. Lower overhead than a database.
+Am I correct to assume that clustered filesystem is a solution?if so, what would be a best one to use?
+There are a few commercial clustering solutions, including CXFS which is owned by SGI, and Symantec (aka Veritas) Cluster Server.  Neither are cheap.
+OpenAFS is probably your best bet here, although I doubt that it will provide the exact answer you're looking for.  At the very least, it would allow you to have some redundancy, and a unified filesystem image.  It has had support for byte-range locking in Windows clients for some time now, which is a critical feature for using shared-file databases (Access, FoxPro, DBase, Paradox, etc.)
+To my knowledge there are no free solutions that do this. In fact, I'm dubious that such a file-system based cluster even exists that allows both Windows and non-Windows systems to talk to the same file-system.
+We have frontend RHEL Linux servers and backend Windows 2k3 servers that pass files via database that is not a best solution.
+If you're talking about a filesystem cluster, then CIFS will not provide what you're after, although CIFS will provide some load-sharing via DFS.

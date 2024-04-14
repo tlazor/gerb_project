@@ -1,0 +1,6 @@
+Well this is stupid. I use cobbler which already have support for setting hostname, ip, subnet and dns information. You have to add it as a system, like this:
+Cobbler then have a snippet that applies this for you, called "post_install_network_config". Let me know if anyone have any questions.
+It looks like you're trying to set them with static values. If possible, use DHCP to set these items instead.
+cobbler system add --name=[...] --profile=[...]--ip=10.1.1.2 --gateway=10.1.1.1 --hostname=yourhostname.exmaple.org --name-servers="10.1.1.1" --static=true --mac=00:50:56:af:56:22
+I know this is an old question, but I wanted to contribute this answer for any one finding this by search:
+You mentioned trying to do user interaction during kickstart. I don't think that is possible, although I could be wrong. I do know that user interaction during RPM installations is impossible; this would make it impossible to script. The same could(and if I were the head architect , would) be impossible and for the same reasons. Instead, place these values on a floppy disk.

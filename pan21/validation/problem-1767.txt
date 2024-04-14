@@ -1,0 +1,10 @@
+You might say, "hey, but I said in software", well, many BIOSen also allow configuration to be done from the OS of the BIOS configuration.
+This is commonly becoming a feature of anti-virus packages. Symantec Endpoint and Trend Micro Worry Free both provide the ability to disable access to USB drives.
+What about a scenario where there is a local privilege exploit which allows the user to then enable USB ports?
+On Windows for example I know I could disable the relevant hardware in device manager, and users would not be able to override this. This would work for the most part.
+Is there any way to disable USB ports or removable drivers at a lower OS level, or to raise an alert if one is inserted?
+For specific operating system methods of disabling USB ports/mounts (which are typically revertible from the OS level), this is one of many many things which the DoD STIGs mandate and check, so you can get ideas from that.
+You might say, "hey, but I said local privilege exploit", well, the same BIOSen which allow configuration typically might allow password protection of the BIOS. So you could, at the OS level, disable in the BIOS and set a password/  Then you are protected against being re-enabled without knowing the password or taking the machine apart.
+In any case, many BIOSen do allow USB ports or removable media to be disabled below the level of the OS.  
+You neglected to mention what OS or hardware you were talking about ("Windows for example" is not a specification.
+There are various pieces of software that will disable USB and/or log enabling/use of USB ports.  But like mentioned above if it's a piece of software then in theory it can be disabled.  One possible idea is a client/server solution (like how a lot of corporate anti-virus software works) where software enforces policy on the client and the server polls the client to check it's current settings.  So there are remote logs that aren't on the compromised client.

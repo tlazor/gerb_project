@@ -1,0 +1,6 @@
+Let's say I have a pivot table with a 100 rows. Make sure these reference columns (Columns E and F) drag the formulas down to 100. Now, once you filter, using a slicer, you'll notice only some of Column E and F are populated, and the are zero (because the filtered pivot table doesn't go that far down.
+This will give you two columns of data, and you can use the instructions from the above post to make it into a scatterplot. 
+So, to fix this, change the formulas in column e and f to, for example for B2, make D2 contain =if(B2>0,B2,NA())
+The problem? Now you're table will have a bunch of Points at (0,0) which might mess up trendlines, etc. 
+The cool thing about NA() is that it is not included in the graph. Thus, you have a pivot table you can filter and the scatterplot graph automatically gets updated without any unnecessary zeros. 
+If you want to make the graph able to change with the pivot table filters, you can create a pivot table with the 2 columns of data (Let's say Column A has the label, and B and C have the data), and then reference those two columns in another two columns( ex. make the cells in Column E, for example make E2 contain =B2 and then make the cells in Column F, for example make F2 contian =C2). 

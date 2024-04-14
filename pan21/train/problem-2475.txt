@@ -1,0 +1,6 @@
+After this (even without exiting Word), I could immediately add a new e-mail account through Mail in Control Panel, with no rundll32 crash!
+I had a similar problem with Outlook 2016, and when adding a new account through Mail in Control Panel then rundll32 would crash.
+"Outlook cannot log on. Verify you are connected to the network and are using the proper server and mailbox name. The Microsoft Exchange information service in your profile is missing required information. Modify your profile to ensure that you are using the correct Microsoft Exchange information service."
+I have created a couple of new users and when starting Outlook for the first time, all seems to work ok up to "Searching for xx@yy.com settings". Outlook then crashes with the following detail. Next attempt to start Outlook results in a message 
+When the autoconfig failure dialog is dismissed, a second dialog box appears stating "System resources are critically low. Close some windows." Less than half of the available RAM is in use and no other users are logged on.
+The problem, bizarrely, was hardware graphics acceleration.  In Word I went to File, Options, Advanced, Display (heading), then ticked "Disable hardware graphics acceleration".  This seems to change the option for all of Office, not just Word.

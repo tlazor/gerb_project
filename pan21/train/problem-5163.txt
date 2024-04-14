@@ -1,0 +1,8 @@
+If you are running *nix and you installed MySQL with apt-get the correct method to remove it is apt-get remove <package> (where  was the name of the MySQL package you used to install). If you want to make sure you even get rid of the config files and all the rest of the files, then add the --purge option to the command.
+To find out what a service is running, go to your Services control panel (Control Panel > Administrative Tools > Services) and locate the MySQL Service. Right-click it and go to properties.
+However the correct method of un-installing a MySQL server is to go to Programs, locate MySQL, right-click and go "Un-Install"
+That should remove the services, and you can delete any remaining MySQL directories and files manually before reinstalling.
+There will be a "Path to Executable" (just above the "Startup Type"). This is where Windows is finding its MySQL server. The field is even highlitable so you can just copy and paste it straight into Explorer to locate the file.
+I assume you're installing on Windows, what version?  For XP/2003, first stop any listed MySQL services under the [control panel > administrative tools > services] MMC console.
+Then [run > cmd] to get a command prompt (must be logged in as an admin), and type the follwing to delete the MySql services:
+I can only assume you're running a Windows server here, given your usage of the word "service" and the reference to the password wizard.

@@ -1,0 +1,9 @@
+If you have so many if checks, it would be better to sort them in some way. For example, first all the x - 1 ifs, then the x ifs, then the x + 1 ifs:
+Doing this requires basically the same code, but depending on whether you're getting number of values or making changes more frequently it may be faster since changes only happen when a tile actually changes and then only happens at that one 3x3 spot around it.
+You can also count neighbors by having your cells contain their number of neighbors all the time. When a cell becomes "alive" it updates all surrounding cells by one and when one "dies" it decrements all surrounding cells.
+The answer by rolfl is great, I will just add that what you have here is a nice use-case for enums. If you define an enum like:
+If checking for neighbors is all you need, this will not be a drastic improvement. However, it has the potential of making a lot of API a bit nicer; you could introduce methods with signatures more like like:
+This way, it's easier to see what you are checking, and also easier to see if you made some mistake.
+Personally, if I wouldn't want to refactor the code too much (because the project is too small or whatever the case may be), I'd go with:
+(you could also have a method that adds two vectors and this could be cleaner, but would also produce a lot more garbage).
+Or you could make it more general by introducing a type Vector2D which could be very similar to Direction enum; it would have public static final fields holding instances pointing north, south, etc:

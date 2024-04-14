@@ -1,0 +1,8 @@
+The answer above would probably work with a workbook other than the active workbook, which is what I needed to do.  Here's what I used
+To open 2 instances double click the first file you wish to open. Once that is open go to start/programs/msoffice/excel and just open another instance from there. Then you can use File/open
+Unfortunately, if you like to double-click on files to open Excel, you'll have to break that habit for the second window, which is my usual problem. But with some forward thinking, there's no easier way.
+It works for me. If it doesnt have a look at the Folder Options>File types, XLS, Advanced & check the Open form.
+If necessary you could use a custom command line when opening the new instance to transfer instructions, etc, to the new instance. You could also consider the pro's and con's of hiding the application window for the new instance.
+I don't have a way to "tear off" a sheet into a new window, but if you know from the start that you'll want two windows, this is the quickest way:
+Open your first file as normal. SHIFT + CLICK the Excel task bar button (at the bottom of your screen, between the Start button and the clock). This will force Excel to open a new instance as a separate window. Go into that new window and click File -> Open to open the second file. Rinse and Repeat as needed for multiple windows. 
+This code goes in the ThisWorkbook module, so that when the workbook is opened it immediately checks to see if it's the only workbook open in this instance, and if not:

@@ -1,0 +1,10 @@
+Both are big topics. But focussing on the latter, server location is very important. There are two implications for this:
+There's no end of service providers touting for your business, however I'd recommend you think about whether you really need a dedicated server (or multiple dedicated servers) from the start. One or more VPS, or perhaps even shared hosts may suffice, indeed I'd expect to get a lot performance by using a couple of VPS in different contitents rahter than a single dedicated machine.
+From the rest of the money you should go with a CDN, for example CacheFly http://cachefly.com is affordable, to balance the distance to the US.
+While these days bandwidth is cheap, the limiting factor in end-user performance experience for web-based apps is latency. And by far the best ways to address latency are:
+Firstly I would suggest starting with a virtual server. A decent virtual machine with 512Mb RAM can support 50-60 RPS (requests per second) YMMV. A virutal server will cost you $20-30/month and can be upgraded at any time.
+While you can roll your own solution to the latter, its a lot simpler to use a location-aware DNS service. There's an article here you might find useful - try google for more.
+To help pick a good hosting company, I would suggest you take a look at Netcrafts top ranked most reliable hosting companies. If you are planning to host in the USI suggest you go with east coast.
+The same server is cheaper than in your county and they are fully excellent for your needs for a long list of reasons.
+Your third question is about the maximum load after which you will see a performance degradation. Well there is no way of telling. Have you done any benchmarking of your application? Use apache bench (ab) or siege to test your site in your dev environment. That will help get an idea of your hardware requirement.
+Regarding the former - you'll save yourself an enormous amount of time and effort if you design your application around multiple servers from day1.

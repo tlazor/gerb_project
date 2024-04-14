@@ -1,0 +1,5 @@
+If you have only one other program besides VirtualBox on the taskbar, and you use Win-M to minimize the active window, that can explain the flashing.
+I don't use VirtualBox, but I do use Windows, and I do know that an innocent and inactive program can start flashing on the taskbar.
+I see this too, but it happens only when VirtualBox was running over night. Invariably in the morning, the taskbar button is orange. Both the virtual machine's window as well as the control window of VirtualBox need to be brought to the front once each to stop this. No popup or similar ever shows up, and no harm seems to be done. No other application I run does anything similar.
+Version is VirtualBox 3.2.6 on Windows 7 (x64), with a single virtual machine running Windows Server 2008 R2 (x64).
+This is normally associated in my experience with using the Win-M key combination to minimize all windows. In that case, Windows sometimes loses its context and decides to start flashing some other program, even if it was already minimized.

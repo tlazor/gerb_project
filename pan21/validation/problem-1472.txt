@@ -1,0 +1,7 @@
+I have setup DMARC for our domain and within the reports i'm seeing some emails from google/yahoo etc passing SPF and failing DKIM and vice versa, does this mean the emails are getting delivered?
+I have been doing a lot of reading around SPF, DKIM and DMARC and i think i have digested most of the information and how all three work in the email world. However one question i couldn't find is, What will happen to an email if SPF failed and DKIM passed and vice versa? Will that email be delivered normally?
+So long as EITHER SPF or DKIM is both authenticated and aligned, the message will pass DMARC tests and be delivered to the recipient inbox. 
+Should BOTH SPF and DKIM fail alignment, DMARC will fail and the sender DMARC policy will apply (p=none | p=quarantine | p=reject). 
+Requiring that only one of SPF or DKIM pass DMARC alignment tests provides a bit of a 'failsafe' for properly authenticated messages. For example, properly forwarded messages will fail SPF, but a message with a valid DKIM signature can survive forwarding, pass DKIM DMARC alignment tests, and be successfully delivered to the ultimate recipient inbox despite SPF failure due to forwarding. 
+DMARC policy is the recommendation of the sending domain as to how the recipient mail agent SHOULD treat the message if it fails both SPF and DKIM alignment (e.g. deliver to 'Junk mail' or quarantine, or potentially outright reject the message). 
+DMARC compliance requires that one of SPF and/or DKIM pass both SPF/DKIM authentication AND DMARC alignment tests. 

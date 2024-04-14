@@ -1,0 +1,9 @@
+You have some awkward-feeling repeated code in here (the prompt for input). This can be refactored into a cleaner, more natural feeling do/while loop:
+Doesn't belong. It should be extracted into a separate method that accepts the milliSecs variable. As for returning, it could probably return a custom class that looks like this:
+You have two entirely separate conditional statements just to add a single character? That's a waste, and it makes your code look ugly.
+Those 0's there don't harm the UI at all. Instead of having that huge conditional chain in your code, you should just use System.out.printf and print out all the time values you have.
+By changing this to a do/while, we were able to remove those clunky if statements along with the two flag variables.
+Again, you are over-complicating the time printing section. In my opinion, it is perfectly okay to have something like:
+If you want to be extra OOP-y, you can put the method that generates the TimeData in this TimeData class, make it static, and have it return an instance of TimeData with filled data.
+Instead of using a loop to shorten the above code, you could use the Scanner's built-in next(Pattern pattern). This will ensure that you only get input that follows your specified pattern.
+The above regex should only pass for either y, n, Y, or N. Also, it may be better to compile the regex in the main method itself.

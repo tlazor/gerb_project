@@ -1,0 +1,6 @@
+Now I have a central data server at home where I want to attach an external media to, to which I want to save backups of my most important stuff, like years of self-written scripts, database dumps, you name it.
+I've not run backups for the past dont't remember anymore years for my personal stuff until waking up lately and realising contrary to my prior belief: Actually. I care! :)
+Hints to tools that can help solve only part of my problem (like encryption) also greatly appreciated.
+For versioning I use subversion.  I don't know if you're looking for some kind of versioning filesystem, but I believe those exist as well (haven't used any myself).  I use subversion within my TrueCrypt volume to keep versions of financial documents.
+I've tinkered with rsync+ssh over the last two years, also tried tar over ssh, but don't know the simplest and most easy to maintain way to do it yet. Heres my workload:
+I use True Crypt to encrypt sensitive files.  Once you create an encrypted volume, you can mount it and write files to it like any other disk.  Then unmount it, compress if desired, and back it up.  It helps if you don't have a huge amount of data to encrypt (my volume is only 100MB, which is very manageable, and I only use about 5% of that at the moment).

@@ -1,0 +1,7 @@
+I did not have the line saying: To prevent automatic generation of this file, remove this line.in my /etc/hosts.
+I am using Ubuntu 16.04.5 LTS as a Linux subsystem under Windows. My /etc/hosts file under Ubuntu says 
+I had problems with hostnames resolving in windows Linux-subsystem so I removed /etc/hosts and wrote new version of it. That solution solved my problem, but after every reboot system started overriding /etc/hosts by a some default version, so I need setup hosts again and again. 
+Afterwards you have to add sudo addHosts.sh to your bashrc and (optionally) create an exception for sudo password prompt for this script in /etc/sudoers:
+To prevent WSL from automatically generating the /etc/hosts file on every bash startup, you need to remove the following comment line in /etc/hosts:
+The grep prevents adding the entries multiple times if you open separate instances of your linux distro. 
+Is it possible to setup linux subsystem so it copies original windows hosts file or at least doesn't delete already written file ?

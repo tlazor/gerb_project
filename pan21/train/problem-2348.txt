@@ -1,0 +1,6 @@
+Given what you have shown, your problem is almost certainly related to your use of sudo nano at some point in the past to edit a file.  Nano created a history file in the home directory, but with root permissions.
+Many programs you run with sudo may have a side-effect of creating root-owned files in your home directory if you are not careful.  If you know this is going to happen with a particular program like nano, you may be better off using sudo -i to start a new shell with a root environment, and then running your commands. 
+permissions are fairly simple to understand.  there are 3 places in each 'group' for permissions.  read, write, execute.  so, you can think of it as 3 sets of 3 bits.  
+Use sudo rm /home/thomas/.nano_history or sudo chown thomas:thomas /home/thomas/.nano_history to fix the permissions on that file.
+shortcut way: the 'execute' bit (x) adds 1 to the octal value, the 'write' bit (w) adds 2, and the 'read' bit (r) adds 4.
+as an example, the permission set -rw-rw-r-- equates to -110110100.  you can break those up into groups of 3 bits (so rw-, rw-, and r-- => 110, 110, 100).  Convert those groups of 3 bits into octal ( since 2^3 == 8 ) and boom!  you got your number code.

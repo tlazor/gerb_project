@@ -1,0 +1,5 @@
+From there, it should load a simple interface and there should be sub menu where you can change the booting priority, good luck.
+I tried to install windows 10 OS in my laptop, during the process I deleted the old OS and when I tried to install the new one, the computer found out that there is wrong in my bootable drive so I boot it again and when I insert it into my laptop, I can't get in in the bios, it always say "Operating System not found" I tried to press different keys but I still can't get into the bios. I used ACER laptop.
+The Acer is looking to boot up the OS from the hard drive. That's the problem. You need to change it to boot from the DVD drive.
+You need to get into BIOS and change the booting priority to the DVD drive. To get there, turn on the computer and press one of the function keys, not sure your model, mine was F10, before it looks on the hard drive and says "Operating System not found".
+I'm presuming that, by deleting your OS, you're implying that you reformatted your hard drive and it's completely erased.

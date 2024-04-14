@@ -1,0 +1,6 @@
+Yes, if the cable is a crossover cable. Otherwise you'd need a switch of some kind. Some NIC's autosense and can switch over for you, or you can get a device that "adapts" the connection for you. Otherwise make your own cable with the crossover wiring.
+I ask because it's not working for me and I'm not getting very useful search results. If someone can confirm that this should indeed work then I can check and re-check the system settings and specifications.
+If two computers are connected by ethernet directly (ie, with no router between them) can one computer wake the other using the magic packet?
+Shut down the computer that needs to go down/wake up. If the network-light on the back is still burning while the computer is off you are good to go.
+(On Windows make sure in the device properties of the LAN card that "This device may wake the computer" is enabled.)
+Auto-negotiate is only properly defined for computer to switch connections using standard (non-crossover) cables. The Gigabit standards adds support for cross-over cables and automatic cross-over when needed, but only if BOTH sides of the connection are Gigabit.

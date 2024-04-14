@@ -1,0 +1,7 @@
+I've seen these paths before but never understood them, and searching for them didn't yield the information I wanted to find.
+The AppData\Local and AppData\Roaming locations are the preferred locations for applications to store data which is not required to be exposed to the user. In a domain environment the Roaming folder is used to copy the user's environment as they log on to different computers.
+What does the percent sign mean in filepaths on Windows (as opposed to navigating via C:\Users\etc), and what are the folders AppData and LocalAppData?
+As others explained, these are Environmental Variables which can be listed at the Windows Command Prompt using the SET command.
+Just enter %AppData% or %LocalAppData% in the address bar of File Explorer and it will take you to the folders.
+I just recently followed some instructions to reset GitHub for Windows by deleting two folders in the explorer found under %AppData% and %LocalAppData% respectively.
+%WORD% is how cmd.exe (and Windows in general) does variables. So %AppData% is the variable name for the application data directory.

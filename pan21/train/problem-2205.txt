@@ -1,0 +1,7 @@
+The amount of overhead shouldn't be significant.  I'm assuming part of the reason you want to have these two tiers is for scalability; in which case you would most likely see, relative to apache, that varnish and nginx aren't working very hard.  
+As an alternative, why not varnish + nginx with passenger?  I've used this setup in the past and nginx using passenger is relatively light, and ran pretty well.  Might be worth thinking about if you're not married to apache running your rails stack.
+We have a high memory use application and the app was using around 15-20gigs of RAM per webnode and once we put varnish in front it is now around 8gig of RAM per node. They have never spiked. 
+I am the sys admin for a startup ecommerce platform. We use varnish+nginx in front of our PHP/apache stack and it has worked wonders. 
+If you all three tiers on one machine, there should be less of a performance impact before you reach the capacity of the server itself.  
+Yeah, it's valid. My personal approach would be to use Varnish up front and use VCL to split the traffic between static NGINX requests and your heavy lifting (whether that be Apache or Passenger or... it doesn't matter).  This is especially true if it is on the same machine as you don't need the extra overhead. It doesn't necessarily buy you anything. 
+I'm thinking about the architecture for a new Webserver. Would having Varnish as a cache in front of Nginx as a reverse-proxy and serving static files in front of apache for all heavy lifting be a good idea?

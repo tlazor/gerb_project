@@ -1,0 +1,10 @@
+That is possible if you work with a large workbook and the Calculation setting is set to Automatic. 
+Here is additional information which might be helpful as well - What can cause slow copy and paste in Excel?
+I frequently want to copy data into every other row, so I end up hitting paste repeatedly on the same set of copied data, until Excel freezes and I have to wait for it.
+Using paste from the clipboard repeatedly may cause performance lag or freezing. To avoid this, use multiple select (Ctrl + Click) to choose all the cells you want the content in, then paste. 
+Please try to temporarily switch to the manual mode (Options->formulas-> workbook calculation -> manual) and paste again. 
+I'm hoping someone else has encountered this same problem and has a workaround or solution for this, as when I have to fill in a hundred columns of data this really slows me down.
+I've had this problem on three different computers, in both Office Excel 2013 and Office Excel 2010, so it doesn't seem specific to any particular computer setup. 
+I have had a frequent problem in Excel 2013 and Excel 2010 on several different computers, where Excel would freeze for 10-20 seconds when I copied a few cells into 3 or more locations. 
+I cleared the conditions (Conditional Formatting / Clear Rules / Clear Rules from Selected Cells) and it worked. I even reinstated the original rule and it still works :)
+Try to copy and paste in a new workbook. If it works, look into the problematic book – VBA macro, many conditional formatting rules, links to other workbooks...

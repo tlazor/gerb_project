@@ -1,0 +1,6 @@
+Also... your TTL is 3 hours (10800... seconds;) in the "old times" that was OK... in my dns servers  I use no more than 30 minutes, with not a terrible load on the server :)
+The simplest method is to use the $ORIGIN directive twice, combined with @ to reference the current origin:
+You need different left-hand-side labels to support the prefixed names for production and staging.  As written there's no way to distinguish m etc between the two, because you've created two entries for m.domain.org, etc.
+(your can see that you defined api, m, and www twice pointing to different places... when you read these syntax, api by itself --and not dot after it, really reads api.mydomain.org... when you have api.staging --not dot at the end, what you are "saying" is api.staging.mydomain.org.)
+I've got separate physical production servers and staging servers and I'd like domain.org to point to production, and staging.domain.org to point to the staging server + have m/www/api prefixes for each server.
+My domain provider's config tool doesn't seem to support what I'm trying to do and I'm unsure of the proper BIND syntax for the below - any pointers appreciated!

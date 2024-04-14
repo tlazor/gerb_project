@@ -1,0 +1,5 @@
+It could be discernable but not annoying for browsing/applications/VOIP/webmail/remote server admin.
+It would only be consequence if playing an online game where reflexes are vital - and only then at a professional level to servers located close to you.
+A few things to bear in mind - Many locations you interact with will not be in your state. 15ms represents - very roughly - 2000 miles distance. Sites halfway arround the world will have pings over 300ms, so 15ms is not important.  It is not unreasonable, although wifi need not add more the 5ms in typical networks.
+What might be more relevant is throughput, packet loss and jitter (ie the difference between fast and slow pings). If you have close to no packet loss, and low jitter, a slightly higher latency is probably preferable to a lower latency, lower throughput connection - especially as latency will increase more when a slower connection is in use.
+Any application where response time is critical might see issues. What those might be depends on the application. A usual example would be VOIP where noticeable delays can annoy users or make VOIP unusable as you won't be able to talk in a sensible way.

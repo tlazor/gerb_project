@@ -1,0 +1,10 @@
+To be specific, as stated above in a couple posts, i could find default pre-installed applications but not anything new, eg. when I installed Adobe Acrobat Reader DC, I would get no results when searching "Adobe" or "Acrobat" or "Reader".
+After trying a few solutions from here and there I finally created a new local Administrator Account and now everything works very fast and perfect.
+For those who make their way here, but for whom the accepted answer doesn't work, I got this type of application searching to work with the following steps: 
+as apparently only the  to  programs were copied during the installation, but the missing ones could be found in "All Users".
+I have to add that in my situation Calculator apps and other win settings and builtin apps were shown in search by any other installed apps were not searched no matter how hard i tried.
+I realised that the issue was specific to the builtin local administrator account. When I tried the same thing with multiple new users on the system my searches were working as expected. I suspect it's related to how some UWP apps (calc, edge) can't run under the local administrator account, maybe Cortana / Windows Search is broken for the local administrator.
+My Problem starts when my previous windows 10 with anniversary updates and my connected windows live user account encountered lots of BSOD and because of mix of maybe following events 
+I was building a Windows 10 Pro SOE based on x64 1607 when I came across the start menu search not finding any applications.
+I even prematurely removed all the contents of the Windows.old folder, but managed to recover the contents of the folder using Recuva. You can use it too if this is the case for you too. However, useless for SSD. Fortunately I copied the contents first to a HDD before I removed and I could recover the files from there. 
+And because I have recently reset my Windows 10 with keep my files option and everything was new it was not a bad solution and I forgot my previous Windows live account and started enjoying a clean and fast new user. 

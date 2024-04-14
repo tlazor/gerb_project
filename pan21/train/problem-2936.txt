@@ -1,0 +1,9 @@
+net user administrator /active:yes in an elevated command prompt, switching to Administrator user, trying to take ownership through Windows Explorer & repeated above steps.
+Or it could be that the system security policy doesn't grant Administrators the right to take ownership of files (either because it was changed or because it became corrupted); run gpedit.msc, go to Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> User Rights Assignment and make sure the Administrators group has the Take ownership of files or other objects privilege.
+A single file, at /MyFolder/images/file1.png, has become, suddenly, a god entity as I've never seen one before. I'm the only account on the PC, full admin rights. UAC turned off always, ever since the beginning. What has failed:
+Try step 2 again, still no go #NOTE: This assumes you have PSTools installed and added to your PATH variable.
+Right click each file with the Unlocker windows explorer extension – Delete on next reboot. This works!
+If you can be bothered trying to get your head around windows syntax, icalcs might work. Not being a windows user, I couldn't tell you how.
+NOTE: You used to be able to run “at (time) /interactive cmd.exe” #Where (time) is the current time (HH:MM 24 hour) plus 1 minute. The /interactive switch has been depreciated though.
+1a. First navigate to the directory in Windows Explorer. Hold down CTRL + Right click – Open Command Window here. You may have to close that CMD prompt and open CMD as administrator.
+icacls file1.png /grant administrators:F /T: file1.png: Access is denied. Succesfully processed 0 files; Failed processing 1 files.

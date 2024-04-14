@@ -1,0 +1,7 @@
+Here's a great example: Importance of how often you take full backups,  check out the Example Strategies section
+The differential database backups provide the recovery to the time when the differential backup was taken
+If you're using differential backups, a full database backup created before the first differential database backup is a must. It starts the chain. But the transaction log backups are not necessary. They only provide recovery to an exact point in time. 
+Restoring a differential backup is essentially the same as restoring all the log backups in the period covered by the differential backup.
+The advantage of having differential backups is reducing the restore time. The downside is that they can take up more space than log backups, as they are cumulative, not incremental. They contain all the data that have changed since the last full backup, not since the last differential backup.
+That is called Log Shipping and is built into the product. You must change the recovery model to full (or at least bulk_logged) and start taking log backups. There is just no way to avoid this. 
+Differentials are useful only in the presence of log backups. A restore starts from the last full, and then all log backups are applied. In a typical scenario of backing up the log, say, every 15 minutes, the number of log backups to be applied can quickly escalate. Having differentials allow the sequence to be shortened to last full -> last differential -> all log backups after that.

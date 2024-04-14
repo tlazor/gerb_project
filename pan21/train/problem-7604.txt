@@ -1,0 +1,6 @@
+Extended file attributes is a file system feature that enables users to associate computer files with metadata not interpreted by the filesystem, whereas regular attributes have a purpose strictly defined by the filesystem (such as permissions or records of creation and modification times). 
+I am deploying a Rails application using Capistrano. That Gemfile is not copies, although it is committed in the SVN repository. Very strange.
+The "@" sign -- which is not documented in the manual page for ls(1) indicates that the file has extended attributes. You can use the command 'xattr -l ' to show them
+Assuming you're using OS X (newer than 10.4), the @ symbol denotes the file has extended attributes associated with it. (See Stewie's answer for detail.)
+ls command now displays a "@" character after the permissions string for each file that has extended attributes
+-rwxr-xr-x for a regular file whose user class has full permissions and whose group and others classes have only the read and execute permissions.

@@ -1,0 +1,7 @@
+This may help, OS X 10.5 had similar problems with our Samba until a magic set of smb.conf permissions was applied that stopped the same sort of no permissions issues. Try replacing/amending your values with these:
+Finally, when you are doing the cp -r and the Tymek directory is created, what permissions is it created with?
+Is it a specific requirement to do this in Nautilus?  If not, why not use RSync instead?  I find it more reliable than cp for this sort of job.
+I can't guarantee this will fix you, but it took a lot of tweaking to solve the same problem for these Mac clients.
+When you mount the CIFS mount, its mounted with the permissions of the account you used to mount with.
+There is a difference between the file permissions users and the samba users under older versions of samba. What version of Samba are you using? How did you create your samba user account? What samba groups did you add your samba user to on the CIFS server?
+Setting uid= and gid= in fstab or at mount time will not override server side permissions with local permission.

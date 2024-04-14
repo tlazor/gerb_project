@@ -1,0 +1,5 @@
+Does "discard=on" only affect drives backed by image-files, and not by actual physical SSD's? If so, how would I be able to accomplish TRIM commands to the device on the guest os to be passed to the physical device on the host? Is using a image file on the host the only solution? I'm hoping for something better, since having a file-system on that disk would only create overhead, and I don't need it for anything else.
+I was hoping that the guest-OS TRIM commands would actually be passed-through to the physical drive on the host, but this seems to not be the case.
+I don't know if discard=on is supposed to work. I have discard=unmap on all my qemu command lines. And this is what everything I can find on the Internet says to use.
+I am running Windows 7 in a Qemu/KVM with a passed through GPU which I use for work-related stuff. I recently got fed up by it's unprecedented slowness due to it running off a mechanical drive, so I added an SSD to my box to 'give' to my Windows-KVM. I'm using the following qemu command-line options for the 'passed through' disk: 
+    -drive file=/dev/disk/by-id/wwn-0x5002538d4002d61f,if=none,id=drive-scsi0-0-0-0,format=raw,discard=on" \

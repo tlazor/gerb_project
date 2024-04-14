@@ -1,0 +1,6 @@
+Actually if your clients are Outlook (I'll assume that because you said they are looking up autodiscover.xml) you want to use Guessmart for autoconfiguration if you're using POP/IMAP and SMTP.  Guessmart is basically Outlook using your email address and password to try various hostnames using common POP/IMAP/SMTP ports until it finds one it can successfully log into.  It's the same user experience in Outlook as Autodiscover but meant for non Exchange servers.
+You can test all this in Outlook by ctrl-right-clicking the notification tray Outlook icon and selecting "Test Email Autoconfiguration".  Uncheck the Autodiscover and test Guessmart to see how Outlook works.
+Is there a way to create such a file by myself and serve it on a usual Linux server, pointing to a usual mail Linux server?
+Just finished configuring autodiscover on my Linux server. Now mail is setup automatically in almost all possible clients. 
+It looks like when setting up a mail account the device/mail client looks for a autodiscover.xml file.
+http://www.msexchange.org/articles_tutorials/exchange-server-2010/management-administration/exchange-autodiscover.html

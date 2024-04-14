@@ -1,0 +1,6 @@
+As you haven't explained what the code is supposed to do I'm going to go out on a limb here and assume that it is a filter for a text box that will show suggestions/predictions for what you are about to type.
+As the documentation explains, an ArrayMap may be more memory-efficient, at the expense of speed, and when using fewer than hundreds of items. As for the values, List<Integer> is natural and reasonable.
+On the other hand, copyList seems to be a member, but it is not named accordingly. Use a consistent naming scheme, either prefix all fields with m or none of them.
+You haven't shared enough code to debug that, and in any case we review working code on Code Review. If you need debugging help, try Stack Overflow instead, and make sure to read their posting guidelines.
+If that is the case then there is a data structure called a Trie (wikipedia) which is commonly used for this. By using a trie you will get faster performance and less memory usage than your current code. 
+It would be better to avoid such duplications, by saving repeated values in local variables, or by extracting common code from conditional branches to before or after the conditional statement.

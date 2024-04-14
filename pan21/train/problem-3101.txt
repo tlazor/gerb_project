@@ -1,0 +1,7 @@
+Verify the pinouts are correct for the proper application of cables. Replace the cable with a tested good cable. Wait 30 seconds for the port LED to turn green.
+For the comnectivity issue, maybe you have used the incorrect ot bad cable, or STP (Shielded Twisted Pair) checking for possible loops.
+Remove the SFP module from the switch and replace it with a Cisco-approved module. Use the irrdisable recovery cause GBIC-invalid global configuration command to verify the port status, and enter a time interval to recover from the error-disable state. The best advice is to use the Cisco original SFP or 100% Cisco compatible SFP (If you decide to use a third-party SFP, please ensure that your supplier is assured) that is adapted to the switch.
+For the first one, the possible cause of this problem include that cabling distance is exceeded or port statistics show excessive frame check sequence (FCS), late-collision, or alignment errors.
+Reduce the cable length to within the recommended distances. See your SFP module documentation for cabling guidelines.
+For the third issue—corrupted software, this include three situation including the port is placed in error-disabled state after SFP is inserted, device does not recognize the SFP module, and excessive errors found in port statistics.
+As far as I am concerned, the most common SFP problems are Poor performance, No connectivity and Corrupted software.

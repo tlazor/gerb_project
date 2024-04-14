@@ -1,0 +1,40 @@
+I have a new Opscenter installation. After adding my "existing cluster" to opscenter, I get the following error dialog boxes:
+2014-07-27 08:51:19+0000 [my_cluster]  INFO: Successfully loaded event plugin conf /etc/opscenter/event-plugins/email.conf
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:19+0000 [my_cluster]  INFO: Loading event plugin conf /etc/opscenter/event-plugins/email.conf
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:19+0000 [my_cluster]  INFO: Successfully loaded event plugin conf /etc/opscenter/event-plugins/posturl.conf
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:21+0000 [my_cluster]  INFO: Snitch: org.apache.cassandra.locator.Ec2MultiRegionSnitch
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:19+0000 []  INFO: Stopping factory <opscenterd.ThriftService.NoReconnectCassandraClientFactory instance at 0x279bbd8>
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:19+0000 []  INFO: Adding new cluster 'my_cluster': {u'jmx': {u'username': u'', u'password': '*****', u'port': u'7199'}, 'kerberos_client_principals': None, 'kerberos': None, u'agents': None, 'kerberos_hostnames': None, 'kerberos_services': None, u'cassandra': {u'username': u'', u'seed_hosts': u'54.x.y.z', u'api_port': u'9160', u'password': '*****'}}
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:22+0000 [my_cluster]  INFO: Node 50.x.y.z has multiple tokens (vnodes). Only one picked for display.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:22+0000 [my_cluster]  INFO: Node 55.x.y.z has multiple tokens (vnodes). Only one picked for display.
+2014-07-27 08:51:22+0000 [my_cluster]  INFO: Keyspaces: {'system_traces': CassandraKeyspace(name=system_traces, column_families=[], tables=[u'events', u'sessions'], attributes={'strategy_options': {'replication_factor': '2'}, 'replica_placement_strategy': 'org.apache.cassandra.locator.SimpleStrategy'}), 'system': CassandraKeyspace(name=system, column_families=['IndexInfo', 'NodeIdInfo', 'schema_keyspaces', 'hints'], tables=[u'peers', u'range_xfers', u'schema_keyspaces', u'schema_columns', u'IndexInfo', u'schema_triggers', u'sstable_activity', u'peer_events', u'paxos', u'batchlog', u'NodeIdInfo', u'compaction_history', u'compactions_in_progress', u'schema_columnfamilies', u'local', u'hints'], attributes={'strategy_options': {}, 'replica_placement_strategy': 'org.apache.cassandra.locator.LocalStrategy'}), 'OpsCenter': CassandraKeyspace(name=OpsCenter, column_families=['events_timeline', 'settings', 'rollups60', 'rollups86400', 'bestpractice_results', 'pdps', 'rollups7200', 'events', 'rollups300'], tables=[u'events_timeline', u'settings', u'rollups60', u'rollups86400', u'bestpractice_results', u'pdps', u'rollups7200', u'events', u'rollups300'], attributes={'strategy_options': {'replication_factor': '2'}, 'replica_placement_strategy': 'org.apache.cassandra.locator.SimpleStrategy'})}
+2014-07-27 08:51:22+0000 [my_cluster]  INFO: Node 54.x.y.z has multiple tokens (vnodes). Only one picked for display.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:21+0000 [my_cluster]  INFO: Partitioner: org.apache.cassandra.dht.Murmur3Partitioner
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:19+0000 [my_cluster]  INFO: Loading event plugin conf /etc/opscenter/event-plugins/posturl.conf
+2014-07-27 08:51:19+0000 [my_cluster]  INFO: agent_config items: {'cassandra_log_location': '/var/log/cassandra/system.log', 'thrift_port': 9160, 'jmx_pass': '*****', 'thrift_ssl_truststore': None, 'rollups86400_ttl': -1, 'api_port': '61621', 'use_ssl': 0, 'rollups7200_ttl': 31536000, 'kerberos_debug': False, 'storage_keyspace': 'OpsCenter', 'thrift_user': '', 'provisioning': 0, 'metrics_ignored_column_families': '', 'metrics_ignored_keyspaces': 'system, system_traces, system_auth, dse_auth, OpsCenter', 'jmx_user': '', 'cassandra_install_location': '', 'kerberos_use_keytab': True, 'rollups300_ttl': 2419200, 'thrift_pass': '*****', 'jmx_port': 7199, 'metrics_ignored_solr_cores': '', 'metrics_enabled': 1, 'kerberos_use_ticket_cache': True, 'thrift_ssl_truststore_type': 'JKS', 'rollups60_ttl': 604800, 'ec2_metadata_api_host': '169.254.169.254', 'kerberos_renew_tgt': True, 'thrift_ssl_truststore_password': '*****'}
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:19+0000 []  INFO: Starting factory <opscenterd.ThriftService.NoReconnectCassandraClientFactory instance at 0x279bbd8>
+My cluster is a Ec2MultiRegionSnitch cluster, I gave an external IP address. The file /etc/opscenter/clusters/my_cluster.conf is created, and the following output is in /var/log/opscenter/opscenterd.log, I don't understand why Opscenter is not showing my cluster:
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:22+0000 [my_cluster]  INFO: Version: {'search': None, 'jobtracker': None, 'tasktracker': None, 'spark': {u'master': None, u'version': None, u'worker': None}, 'dse': None, 'cassandra': u'2.0.9'}
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.
+2014-07-27 08:51:27+0000 [my_cluster]  WARN: Ignoring scheduled job with type=best-practice, which is only supported with DataStax Enterprise.

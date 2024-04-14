@@ -1,0 +1,8 @@
+If you really want to have that seven-day delay, consider using rsnapshot.  It uses hard-links to conserve space for all identical files.
+Look into rsnapshot.  It uses rsync to do the transfer but on top of that it manages point in time snapshots using hardlinks.  It will let you determine how often and how many snapshots to hold onto as well.
+I know that I could just write a script that manually uses rsync on each file in the folder and then determines if the file on DEST should be deleted, but it would be kind of dumb to do this just to learn later on that rsync has this feature already. I cant find it though.
+When a user deletes a file it is kept on the server. This is fine since it might have been deleted by mistake, but it would be nice if it did not stay there forever.
+So how do I make rsync delete files on DEST when they have not been precent on SRC for a certain amount of time (say, 7 days)
+I have to backup a set of userdata with rsync. There is just one little thing I cant figure out how to do.
+There are other solutions out there that do the same thing-- rsnapshot just happens to be one I have personal experience with. (I highly recommend using the "sync_first" option if you do decide to use it...)
+Rsync won't do this on its own. Something like rsnapshot will let you maintain multiple generations of rsync-based backups (hourly, daily, monthly, etc) such that you can retrieve an accidently-deleted file. By using hard links, rsnapshot lets you keep a number of snapshots laying around without using a lot more space than the "cost" of a full backup.

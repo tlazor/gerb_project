@@ -1,0 +1,5 @@
+But also consider that, assuming you're not using some array configuration for your HDDs (ie. RAID) why not move one HDD to the new card and connect the DVD drive to a motherbooard port?
+There is also the option of going completely external with the USB and putting the DVD writer in an external USB housing, but that adds clutter, so I guess yuo want to avoid that.
+That will depend on the SATA card, if the card has the appropriate firmware it may be able to (but without testing with your other components you will not be able to confirm this).
+Somone (not a user of this site as far as I know) just pointed me to The Plop Boot Manager. This can be used as a workaround in case your CD/DVD ROM drive cannot boot , and for other things besides. I'd never heard of this program before now, so thought I'd add it here. The introduction says:
+Also, if your motherboard and target OS supports it, consider booting/installing from USB stick (this will, unless you have a particularly slow USB stick) also be quicker.

@@ -1,0 +1,10 @@
+For extreme reliability, you want to look at multiple power feeds into multiple racks, in multiple globally diverse datacenter locations, each rack having all of the above redundancy built in.
+Ok, so you have a server.. And you want pretty good availability and redundancy, so you connect it with one NIC to a single switch.
+You can also do lots to make your application layer reliable.  Multiple servers on multiple switches, connected to multiple routers.
+Better redundancy would be to connect 2 NICs to the same switch, using STP Bridging to make sure you don't get a loop in the network.
+Some of your servers might need to run something such as memcached, to allow you to share session information and allow your users to seamlessly transition between servers.
+In a datacentre, this is probably best done by getting some IP space, and announcing it via BGP to your upstream transit/peering providers.
+Better still would be to connect 2 NICs to different switches.  Now you can lose a single NIC and a single switch.
+This allows one NIC to fail, still leaving you with connectivity. (Depending on the bonding mode of the NIC)
+For greater redundancy you need to look at how the network gets beyond the LAN.  WAN redundancy provided by more than one diverse route.  By diverse I mean the traffic takes a different route entirely out to the internet. (say, ADSL vs Cable in an office)
+(as well as making sure that your servers have dual power supplies and at least 2 disks in a RAID level >= 1 !)

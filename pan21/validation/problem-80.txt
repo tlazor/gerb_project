@@ -1,0 +1,8 @@
+Not only is it fast and responsive but it has the exact same features you could find in MacVim, as long as it makes sense in a terminal. Since then, using MacVim and/or Vim makes no difference for me and whether I use one or the other is dictated only by the context. Not by one being better than the other.
+I've also encountered a slow terminal MacVim in iTerm2. I've tried everything I could get my hands on, but nothing seemed to help. Eventually, I narrowed it down to a setting in my .vimrc:
+So, I removed it, and my terminal MacVim was significantly faster when navigating files. Maybe someone else, who's tried everything else, and has this setting turned on, will find this useful.
+I've tried a good dozen times to compile Vim on my Mac but I've never managed to obtain a usable Vim: each time it worked but it was unbearably slow and laggy.
+After loosing too much time trying to make it work I simply dropped the towel and created an alias to MacVim's bundled CLI executable.
+I hadn't noticed a problem with it until one specific file started rendering at .25 fps, but disabling cursorline sped things back up.
+Ideally, I want to use Vim from Terminal or iTerm2. However, it becomes unbearably slow so I had to resort to using MacVim. There is nothing wrong with MacVim, however my workflow would be much smoother if I used only Terminal/iTerm2.
+I've tried running without any plugins or syntax highlighting. It opens files a lot faster but still not as fast as MacVim. But the other two problems still exist.

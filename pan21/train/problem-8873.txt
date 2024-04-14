@@ -1,0 +1,7 @@
+Give Grocery a constructor so you can condense the creation code to be a succinct one liner rather than a half-dozen assignments. (And a constructor can be more efficient since you can avoid a default construct of properties just to immediately assign to them.)
+The way you're using the names to do a linear search implies that you're using the wrong data structure. Any time you scan searching for one or more items with an exact match on a key, you need either a map (or mutlimap for one to many).
+You've way over complicated some of your loops with unnecessary special cases for when head is null. Just let a for not loop is head is null:
+Rather than having the user pass in name and quantity, have the user pass in a Grocery. You complete throw away any sense of encapsulation by having the user provide the components rather than the object.
+Your differentGroceries and totalGroceries names are a bit confusing. I would consider calling them numGroceries and quantitySum (with similar changes for the method names).
+Either keep a tail pointer or insert at the head of the list. addGrocery should not be linear time. That defeats the purpose of a linked list.
+What in the world are the parameters? A string and a size_t. Alright... Maybe a name and quantity? Maybe a name and cost in cents? Maybe a name and the aisle the item is found on? Give your public declarations meaningful names!

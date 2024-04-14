@@ -1,0 +1,10 @@
+Choose Import from another program or file, followed by Comma Separated Values. Point to your CSV file, and choose whether you'd like duplicates (Safest option is of course Allow Duplicates, although your new folder should be empty anyway). Choose the destination folder to be your new Contacts folder called Group1 and hit next. Now, on this screen, choose Map Custom Fields... to verify your fields are mapped correctly:
+I have Outlook 2016, so the process will be a little different, but the overall steps should be very similar.
+7.Press CTRL+V to paste all contact information or use the Paste button on the Ribbon or on the Toolbar.
+Finish up here to import your contacts. Now create a new Contact Group, add new members and navigate to your Group1 folder. Add all the members and give it a name, you're done.
+c. I tried exporting my current contacts into a .csv spreadsheet, deleting everything but the headers, and then filling in the information using the Outlook generated headers. When imported, the result was spotty with some blank contacts and no e-mail addresses.
+Next, head to Outlook and go to Contacts. First, I'd recommend creating a new folder in your contacts with any name you want, so they aren't mixed with all your other contacts (at least initially, whilst making the new Contact Group). I just called it Group1.
+A good answer would explain how to format the column headers, which file type is best to use, and any tips on using the "Import from File" or alternate method from Outlook. I have access to MS Word, MS Access, MS Excel as well as a text editor to do this.
+Of course, you can use any spreadsheet as long as you map the fields correctly in the step before (Drag the column header from the left column to the matching field on the right column).
+Scroll down and make sure the mappings are visible in the right hand column (Name - Name, Company - Company and E-Mail - E-Mail). If you named your columns as above, this shouldn't need any changing.
+First, get your Excel data. Change your column headers to Name, E-Mail, Company. This way will save you having to remap them later, although that's still possible.

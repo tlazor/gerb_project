@@ -1,0 +1,6 @@
+I installed Python 3.6.1 windows 64-bit.  But my edit with idle is missing when I use the right click.  Can somebody help?  I already reinstalled a few times, but the problem still there.  =(
+I don't know where your context menu items went but you can fix them by following the steps here “Edit with IDLE” option missing from context menu Only do that if you're comfortable messing around with the registry though.
+The problem most likely stems from overwriting the Python.File filetyp with a user choice on how to open a file. I could fix it on my system using the registry editor of Windows (Win+R, then enter regedit and press enter) as follows:
+I do not have a Windows computer to try this on, but your other option is to re-install Python and look for an option to install the context menu/shell extensions.  It's probably in there, just off by default.
+If you tried the above steps and it did not work try this (Thanks Eryk) : https://bugs.python.org/issue29014
+Then you should get a working option "Edit with IDLE" whenever you right-click on .py or a .pyw file in the file explorer. Double-clicking or opening the file involves the python launcher and directly starts the program.

@@ -1,0 +1,7 @@
+That is not so complicated, but you will need a router (or switch with router capability) to do so, just for basic connectivity tests.
+This will also act as the router so you may want to setup a VLAN capable switch to provide the 5 subnets as VLAN's + 1 additional trunk-port onto which you configure the router-PC as a router on a stick. No expensive hardware-router required.
+You can't really test the VPN's themselves, unless you have a bunch of VPN capable routers at your disposal. Even then your setup will look nothing like the real thing. I wouldn't bother with that.
+Simulating slow/bad latency on a WAN link can be done through a Linux box as mxrx already mentioned in his answer.
+Of course you will have only 1 router-hop where in the real setup there will be many, but for the connection logic of the VM's that won't make any difference. You can test all your VM's and/or applications in this way.
+If you are not interested in doing simulated WAN performance tests you can take this approach too, using pfSense as a software router.
+Just setup 5 LAN's on the router, one for each subnet and configure the router on each subnet to behave as if it is the WAN/VPN router for the site.

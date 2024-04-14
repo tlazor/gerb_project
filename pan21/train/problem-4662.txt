@@ -1,0 +1,7 @@
+Also, 18GB should be more than enough to house Linux.  You probably would have to try pretty hard to get it to take up more than 13GB or so, so 18 GB is plenty.
+Anyway my real question is: is it safe to delete(or move) the 4 GB OEM partition and have the SSD completely available for Linux? I would love that but I'd rather ask before corrupting something important. I believe having the two OSes on two different drives could also avoid me any bootloader hassle (I suppose I could just switch to the startup drive in the EFI).
+If you really, really want to delete it, however, I would recommend going to http://www.disk-partition.com/blog/how-to-delete-an-oem-partition/.  They have full instructions on how to do it.
+This layout is rather weird to me since I would have expected Win8 to be installed on the SSD (only the OS, the C: partition also includes many programs) but that is not the case. (Bonus points: any particular reason for this?)
+I bought an ASUS laptop (S550C) and I was planning to install Linux alongside Windows 8 (Win8 comes preinstalled) in dual-boot.
+If I were you, I would not delete that OEM partition.  It contains system recovery and factory default data.  If you are never going to restore your computer's defaults or try to recover it from something, you can probably delete it safely.  It just depends on how much risk you want to take.
+Bottom Line:  18GB is more than enough for Linux, so I would not recommend risking your computer just to delete the OEM partition.

@@ -1,0 +1,6 @@
+I'd like to question why you need all admins to have root access. All 3 methods you propose have one distinct disadvantage: once an admin runs a sudo bash -l or sudo su - or such, you lose your ability to track who does what and after that, a mistake can be catastrophic. Moreover, in case of possible misbehaviour, this even might end up a lot worse.
+Of course, this is purely theoretical at this point, and might be hard to set up. It does look like a better way to go tho. At least to me. If anyone tries this, please let me know how it went.
+Also, if it's such a hassle using sudo in front of every task you can invoke a sudo shell with sudo -s or switch to a root shell with sudo su -
+The second option is the best one IMHO. Personal accounts, sudo access. Disable root access via SSH completely. We have a few hundred servers and half a dozen system admins, this is how we do it. 
+Perhaps I'm weird, but method (3) is what popped into my mind first as well. Pros: you'd have every users name in logs and would know who did what as root. Cons: they'd each be root all the time, so mistakes can be catastrophic.
+This way, martin would be able to safely handle postfix, and in case of mistake or misbehaviour, you'd only lose your postfix system, not entire server.

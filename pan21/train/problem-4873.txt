@@ -1,0 +1,7 @@
+Basically the name.dll generates a little menu when you hover over a user's name in sharepoint that allows you to see if and where he is available and allows for the scheduling of meetings and such. Presence info is only available when you have Office Communications Server running in your domain.
+Method 2 from the Microsoft article means that patches they make to the Init.js file will never make it into your InitNoPresence.js file. The way they describe commenting out the .js file also results in JavaScript errors.
+Microsoft has a knowledge base article describing this problem and how to resolve it from both the client and server side.
+Add the SharePoint site to the Trusted Sites in Internet Explorer 7 on the Microsoft Windows client computer. To do this, follow these steps:
+A nicer alternative IMHO is to add empty ProcessImn and ProcessImnMarkers functions that override the existing to the master page:
+Add the SharePoint site to the Trusted Sites list in Internet Explorer 7 on the Windows client computer
+This error is caused by the functionality shows a presence icon against people's names. The downside of adding the site to the Trusted Sites list is that it reduces security but is the only option that retains this functionality (unless you can devise the correct custom IE security settings).

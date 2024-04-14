@@ -1,0 +1,7 @@
+Putting using namespace std at the top of every program is a bad habit that you'd do well to avoid.  
+The code needs to treat an invalid operator differently from a valid one.  This suggests the use of a boolean flag.  I'd write bool valid{true}; and then set it to false if an invalid operation is detected.  Then the printing can be wrapped in an if..else statement as if (valid)...
+Using std::endl emits a \n and flushes the stream.  Unless you really need the stream flushed, you can improve the performance of the code by simply emitting '\n' instead of using the potentially more computationally costly std::endl.
+The variable names a, b, and c are not at all descriptive. Better names might be num1, num2 and op.  Doing so makes your code easier to read, understand and maintain.  Also, printResults is a very generic name and doesn't tell the reader much.
+The function does an operation based on the operation passed in.  That's an ideal case for a switch statement.  In addition to the clarity this brings to the human reader, it can also provide optimization possibilities for the compiler.
+Right now the code is hard-coded to only emit to std::cout.  It may be better to pass in a std::ostream & as a parameter to allow any output stream to be used.  Better still, leave the printing to the calling code as in the following suggestion.
+A C++17 feature is std::optional which is very useful for code like this.  Here's how it might be used:

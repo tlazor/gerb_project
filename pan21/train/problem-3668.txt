@@ -1,0 +1,6 @@
+I am running a virtual private server (Debian/Linux running apache+tomcat+jruby) and from time to time it becomes unreachable (I am not even able to ping it). I blame this on our service provider. When this happens the server has to be rebooted via the provider's management console and everything is back to normal. I have tried going through the logs in var/log but found nothing extraordinary there. What are the next steps in investigation such incidents?
+There's probably not a lot you could do here. But you might try setting up a basic internal watchdog - using cron (or preferably a daemon) to fire and log events at regular, short intervals - then check if it ran continiously until the reboot.
+It might have been helpful if you'd mentioned what you were looking for in the logs and failed to find.
+Presumably you are paying the service provider - you should be asking them to provide details of their investigation
+Do you have a KVM you could use to try to establish a remote console session? In any case, you will want to see what is going on from inside the server at the time of failure. 
+When the logs do not indicate errors and when you do not have the ability to establish a remote console setting, you could settle for a cron entry that regularly echos output of your network/firewall settings to a file that you could check later.

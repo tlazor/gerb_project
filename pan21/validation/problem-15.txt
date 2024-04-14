@@ -1,0 +1,9 @@
+I have a toggle button with 3 pins. I want to use it to turn 2 leds, when it's in one position turn on one led (red) and when it's in the other position turn on the other led (green).
+You can connect any LED that has a forward voltage of > 3 volts directly with a GPIO pin of a Raspberry.
+I found a lot of information about push buttons, but no about toggle buttons. I tried it using the 5V GPIO like in the schematic below.
+Now I want to use 2 GPIOs as inputs to know what led is receiving the current. I'm sure it's possible, i'm sure it's easy but i'm a noob.
+Normally 10 mA is reasonably bright for a LED. However, if you want the maximum, check the Raspberry documentation for the recommended maximum current per output pin.
+For the other LED, you perform the same steps (probably the red and green LED have different forward voltages). Also it is high likely that 10 mA for a LED red looks more or less bright than 10 mA for a green LED. 
+The last condition from your program is strange: you check for both LEDs to be green and write Red led active. I think you probably mean:
+It is common not to write == True or == False in boolean expressions, you can leave the == True away, and instead of == False you can write not in front of the expression, thus:
+You must not connect a Pi GPIO to a voltage outside the range 0 to 3.3V.  If you do so you will eventually destroy the GPIO and then the Pi.

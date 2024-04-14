@@ -1,0 +1,10 @@
+But you also said you needed to use specific earlier versions of some software - not sure if this product will let you do that.
+It costs a little money ($125), but I've gotten a lot of good use out of WampDeveloper Pro. For someone like me who is not much of a WAMP admin, it greatly simplified the process of getting everything to work together so I could concentrate on the web applications I was installing on top of the server software stack.
+** -- Upgrading to 2.2.22 was my most recent attempt at solving this before coming here, so that's what I'm running at the moment.  I'd gladly step back to 2.0.64 to better replicate the prod environment, but like I said, I figure the language version is more important than the web server.
+I'm trying to install an Apache web server with PHP on my Windows XP Pro box, but I'm not having any luck.
+When I comment those three lines out the web server starts, so I'm quite sure the problem lives there.
+I've been following the instructions on this page, and they consistently fail when it's time to add this code to the httpd.conf file:
+'* Why?  Because the download page indicated that I wanted VC6 (not VC9) if I'm running it under Apache, and the archive page doesn't have VC6 for 5.3.6; 5.3.5 was as close as I could get.
+The directory paths are correct, and c:/php/php5apache2_2.dll is a real file.  When I try to Restart/Start the Apache server, I get a "The requested operation has failed!" pop-up message.  The logs/error.log file is no help; nothing is getting written to it.  (For this failure, I mean.  The file exists and isn't empty.)
+I'm fairly sure the PHP install went just fine; I get the output I'd expect when I run php -v from the command line.
+I'm trying to mimic a production server, so I'd rather not have the latest.  The prod environment uses 5.3.6; I'm settling for 5.3.5 on my Windows box.*  For Apache, the prod environment uses 2.0.63; I've tried both 2.0.64 and 2.2.22 (I figure matching the language version is more important than the web server version) and gotten fundamentally the same failures.**

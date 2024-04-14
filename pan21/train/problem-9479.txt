@@ -1,0 +1,6 @@
+Remember, this is a tree of varying depth, there are many sub-directories within sub-directories in it. 
+So what is left, basically, are the configuration files. A look at Wikipedia's page on the Linux file system hierarchy shows that all essential configurations are contained in the directories
+Altogether, this is much less than backing up the whole system. This amount of info could be distilled even further, but this order of magnitude decrease (i.e., approximately by a factor 10) should make it affordable, or so at least I hope.  
+If you have installed more packages in your home directory you should take care of those; the directory of installation has been chosen by you, so you should know what to back up. lastly, there are the million files which modern Linux hides in your home directory. Thus 
+I think the question is (correct me if I am wrong): should I lose my current configuration, what is the minimum amount of information I need to recreate it? This means that there is no need to back up files in /bin, /usr/bin, /sbin, /usr/sbin, and so on, because these are the essential components, which are already described by the list of packages installed, which can be obtained with
+I have the impression the question asked by David Given is different from the one to which Kelbizzle is providing an answer.

@@ -1,0 +1,8 @@
+Unfortunately this appears to be, per your description, a network issue. I believe it to be so whereas you imply the error goes away and the replica set effectively believes it does have a master.
+Another issue I have experienced is if I have a wireless connection and a hard connection active. Apps and servers et al, pending on how your IT dept set up your network, could experience issues due to competing connections. It sounds crazy but it is a common thing I've learned to check over the past year.
+Caused by: com.mongodb.MongoException: can't connect to new replica set master [shardA01:27017], err: couldn't connect to server shardA01:27017
+As requested, some things to investigate would be to check the mongo logs for connectivity errors. I have experienced, in Azure, a scenario where I had to use the hostname for the secondary members in a replicaset if the secondaries were not in the same Region. It is a better practice anyway. I was able to identify that as the issue via the Mongo logs.
+I try to look for anyone who might has similar issue, but i found nothing. This happens about 1 of 1000 request.
+I have a shard, using mongo v2.4.11. It has to mongos, 3 config, and 8 replica set (2 replica for each set, means 16 node for shard)
+the problem seems to be the version of mongodb. Somehow for mongodb < 2.6 socket problem will intermittently occurs. When it occurs, you have to restart your mongos node.
+You may also want to write a little script that pings the other members of a replicaset from one another and log the results. Let it run overnight or longer and see what it yields. At least you will be armed with some tangible proof to show your own IT folks if there are internal network issues or AWS if it is their issue.

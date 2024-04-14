@@ -1,0 +1,7 @@
+This script will check every 5 seconds if your service is running, and won't consume much CPU. This is more precise than a job in a crontab.
+Runing this script as root instead of putting some password as clear-text on the script itself may be more secure and no less efficient.
+I found this on a website but I don't fully understand what it's doing so I'm unable to modify it to my needs.
+Instead of creating a service in a crontab, you can add a small daemon to check if the service is running a reload it when it is not. Using the check condition of Suku, you can script a small daemon like this:
+Sure I should check why the service is stopping but for a quick fix I don't mind to let a cron run every half an hour to check if the service is still running.
+Anyway, you can try monit. It is a daemon that can be configured to monit your services and restart if required. So, no need to write any script for this. Also, logging helps you know when the service is stopped and restarted.
+status command should be supported by all rc.d scripts. You can use this script to restart dead daemons:

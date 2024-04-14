@@ -1,0 +1,8 @@
+However it is possible to reduce the time window for snap-shotting the system significantly (e.g. by removing a mirror from a RAID set then remounting it elsewhere). And the shorter the time it takes to generate the snapshot, the less likely that transactions will span the operation.
+This will dump the fs on your source machine, copy it over ssh and on the target machine it will restore it.
+You'll end up with a virtual image of your server when you're done, rather than a raw disk image, but it's usually good enough for most work, depending on what you want to do with it once you've done it.
+Its impossible to get a consistent snapshot without stopping all operations which may change the state of the system.
+And most filesystems / DBS will support some sort of journalling which should allow most broken operations to be either recovered or rolled back.
+Unless the application has been explicitly designed to accomodate this kind of operation (i.e. all processing handled via queueable messages) it is be impossible to get a consistent snapshot without bringing the system down (or at least disabling the transactional component).
+VMWare Converter can do most modern OS's without shutting the server down, but as Dennis pointed out, we really need to know which OS you're running.
+Which VM platform are you migrating to? VMWare has a converter for Linux. It'll convert a powered on machine.

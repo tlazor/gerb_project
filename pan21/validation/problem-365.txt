@@ -1,0 +1,6 @@
+Plug in a 100mbit connection with the appropriate latencies you're seeing, and you'll find that your speeds are actually matching up (Approximately) with what you should expect to see.
+Check it on tcp_reordering at /proc on Linux. On long pipes, it is common a multipath effect to cause false packet loss dectection, retransmission and the drops in speed you sent in your chart. It causes a lot of duplicate Acks too, so it worth to be checked. Do not forget you must tune both sides of the pipe to have good resuls and to use at least cubic.
+As for Windows delivering poorer performance than Linux, I can't offer any good suggestions there, unfortunately. I presume you're doing an apples-to-apples comparison with identical hardware (NICs, specifically)?
+What you're seeing looks pretty normal to me, based upon the latency you're reporting to your various sites. Latency will murder through throughput almost any single connection, regardless of available bandwidth, very quickly.
+An interactive protocol, like ftp can harm any tcp for long pipe optimization you can do. Unless you are only transfering large files.
+Silver Peak offer a quick and dirty estimator for the throughput you can expect to see with a given amount of bandwidth a given level of latency here: http://www.silver-peak.com/calculator/

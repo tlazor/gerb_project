@@ -1,0 +1,8 @@
+I'm being asked to downgrade some non critical database environments from Enterprise Edition 2012 to Standard Edition 2012. Due to ongoing licensing costs. 
+Is there a process similar to upgrading I can do? Can I just run the standard edition install as an upgrade?
+Copy the master, model and msdb data and log files to a secure location. You'll need these later so you don't have to recreate all the jobs and logins.
+You can also run the following query to check for any version specific features you are currently using:
+First, before doing anything, get a quick configuration report. You'll want to put everything back 'as is' when you configure your new Standard installation. Here's a useful script I use to get some key configuration settings - feel free to amend:
+Are you using any Enterprise specific features, such as partitioning, snapshots, some aspects of Always On Availability Groups, Resource / IO governance, compression...?
+I do not believe there is a "downgrade path" that's officially supported for what you want to do. Nothing that is full proof or baked in, in other words. I would take full backups of all databases, then uninstall and reinstall (also reinstall required SPs). Microsoft's supported upgrade paths: https://msdn.microsoft.com/en-us/library/ms143393.aspx
+You can not perform a downgrade in the same way SQL Server allows you to do an in-place upgrade, so you're stuck with having to manually move your database(s) between two installs. If you've got a named instance, you'll need to back it up, perform an uninstall of the Enterprise edition, and a fresh install of Standard - restoring the databases thereafter.

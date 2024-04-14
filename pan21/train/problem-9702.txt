@@ -1,0 +1,7 @@
+The only real incompatibility in OS X <> Linux sharing is that non-ASCII filenames in OS X must use UTF-8 in decomposed (e.g. ö must be written as two codepoints: o and ¨). Linux doesn't care, so the solution is to always create and check in such files on OS X. 
+If you want Windows compatibility, then you will have to ban use of symlinks. They're theoretically possible in NTFS, but they won't survive any network sharing.
+For real shared access you must use sharing via network, and then filesystem doesn't matter much (disk is never touched directly by more than host OS).
+You can get drivers that allow Windows and Mac to read EXT2 or EXT3 partitions, so that might be an alternative.
+You can't have the same partition directly mounted in more than one system (at least not without risking loss of data due to incoherency of each OS's caches). You'd have to unmount disk in one OS and mount it in another, which is hardly any better than svn commit/update.
+Also, if you have multiple developers working on the same code base, you really should be enforcing version control. If you've having pain with Subversion, you might want to check out git instead. It's distributed (which means there's no longer a central server hosting the one-true-copy of the code base) and has much better support for branching and merging. It's available for all major development platforms.
+For sharing between Linux and OS X you could use NFS, which preserves most of underlying filesystem's semantics and—compared to Samba—it's fast and painless.

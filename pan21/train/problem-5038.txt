@@ -1,0 +1,11 @@
+When I view the site in IE, it loads just fine, without any errors or warnings. When I view the certificate I see that it doesn't expire until 2010 and the certification path goes back to thawte.
+Well, a "revoked certificate" means that it is on some certificate revocation list (CRL). Maybe FF and IE use different lists?
+Go to the site, and look at the certificate properties and see if it includes the URL where the CA publices their certificate revocation lists.  Retrieve that list and see if the certificate is listed.
+I found the issue. I don't know why the certificate has been revoked, but it has been added to our local CA and set as trusted. FireFox must not be referencing our local CA for certificates, but IE is.
+I suggest that you check your certificate on the SSL Labs web site -- https://www.ssllabs.com/ssldb/. It should give you more information about your certificate status (in addition to performing a detailed security assessment of your SSL server). If that does not help, feel free to write to me privately (I run SSL Labs, so you'll find my contact details on the Contact page) and I'll help you resolve the matter.
+I've seen revoked certificates in IE before and it usually flat out denies access to the site. What could cause FireFox to have a hernia about it, but IE does not detect anything wrong?
+Our exchange web access is secured by an SSL certificate. When I try to visit the web access in FireFox (v2 and v3.5), I get:
+There are two mechanisms that control certificate validation. CRLs are one way, but OCSP is often more convenient because it can be used in real time. One possible explanation for your Firefox problem is that it had been configured to reject certificates it cannot confirm as non-revoked (whereas IE is not as strict).
+In my standard FF install, no revocation lists are configured, so maybe you have a customized install?
+What version of IE are you running?  In older versions CRLs where not checked, I forget what version Microsoft added CRL support in.  I think you can disable CRL checking in IE, which make me wonder if CRL checking is disabled on your system.
+In Firefox, the revocation lists are configured under Preferences/Advanced/Encryption/Revocation lists. Unfortunately I do not have IE handy here, but I believe CRLs are configured somewhere under security.

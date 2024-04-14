@@ -1,0 +1,6 @@
+I am happy enough to remove all user tables and reimport the needed data but can't touch any of the database security settings.
+In object explorer, navigate to the database you're interested in. Expand it out and click on the Tables folder. Hit F7 to bring up the Object Explorer Details. Select the tables you want to delete and press the delete key.
+Is there an easy way to delete multiple tables in the database without dropping the database and recreating it? In this case we have over 100 to remove.
+If you just want to do it manually then simply repeat the statement a few times untill the tables with the reference are dropped (e.g. if Table2 has a reference to Table1, then at first run Table1 cannot be dropped while Table2 is dropped, and at second run Table1 can then be dropped since Table2 is no more).
+Any reason not to do it directly in T-SQL (with DROP TABLE)? Then it's just a case of creating the appropriate SQL script (quite possibly autogenerating it if you've got a list of the tables you need to delete) and you're away.
+However, if you try to drop a table that's being referenced by a foreign key, you'll get an error like

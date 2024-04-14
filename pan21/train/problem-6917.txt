@@ -1,0 +1,10 @@
+I have a nice little USB light which has no off switch, it is 'on' for the duration of being plugged in.  
+I couldn't find any of the USB hubs he had mentioned in the US, and after getting in touch with me confirmed that the D-Link DUB-H7 will work - you can get it on Amazon for example.
+My question is, is there a way of disabling the USB port so as to turn off the light while it is still plugged in? Preferably, this could be done from the command line, but if it's possible at all that would be really cool regardless. I use Mac and Linux, but am interested to learn if this is possible in any OS, or if physical hardware prevents usage like this.
+I haven't yet found a way to do this on Windows, but it looks like you're mostly interest in Linux anyways.
+7-port USB hub D-Link DUB_H7 revision 2 (black) does NOT have Per-port power switching, it only supports Ganged power switching.
+Since these fake USB devices aren't actually talking to the computer at all, the only way to turn it off would be to completely unpower that USB port, which as far as I know there is not usually a way to do in software.
+Take a look at http://www.gniibe.org/development/ac-power-control-by-USB-hub/index, he is doing similar things, and includes some background on the topic, a list of supported hubs as well as the C source code to build the utility.
+I haven't actually tried this myself, but from the research I have done on the topic (to accomplish exactly the same thing as you), you will need:
+The way USB works for real devices is that they get a little bit of power to start, enough for them to turn on.  Then they enumerate with the USB controller and request more power.
+In most cases, USB accessories like fans and lights aren't real USB devices - they just want a little bit of 5v power.

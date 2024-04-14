@@ -1,0 +1,8 @@
+If you don't need the protection of RAID and have a way of protecting your data go with the desktop and save the $$$.
+We've been happy with the Dell desktops and laptops we've used, so were thinking of going with Dell again.  When I checked out their website, I found a Small Office desktop Vostro with a dual core CPU and 2gb RAM for $399 (Canadian).  An equivalently configured Poweredge 100 server was nearly double the price.  I know that the Vostro will run Windows Server 2003, having already installed it on another Vostro.
+Vendors server solutions typically offer better service responses than desktops and their components are supposedly higher quality with longer MTBF (mean time between failures).  In your situation with a low usage web server, the desktop would suffice.
+Also, think about virtualizing the solution.  Put the Windows 2003 Server and IIS in a VM.  That way you can back it up pretty easily and if that Vostro fails, you can restore the VM to another box pretty quickly and have it up and running with a minimum of downtime.
+Does the Poweredge model you're researching include a RAID controller?  That plus the disks could be contributing to the price difference.
+VMWare is offers their VMWare Server and ESXi free.  Of course VMWare is not the only virtualization solution available, there are several others.
+I realize it's not a huge amount of money, but why the big price difference?  What would you recommend we purchase?
+Our small company is planning on setting up a web server.  The website will have a SQL Server Express back end, and will probably be used a few times daily by about 10 employees logging in from the field.  It will run 24x7, but occasional interruptions of a couple of hours or a whole weekend will not be a problem.

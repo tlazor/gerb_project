@@ -1,0 +1,8 @@
+Switching between versions could get tricky, especially around the web server integration. Even if the packages don't flat out conflict, you may have problems running both.
+So be ready to spin up VMs or containers with each version. There are many ways to do that. If you don't have an automated way to create a reproducible build environment from a blank host, you probably should be exploring something like this anyway. 
+Since i'm pretty much a Linux newbie, i have no idea on how to do this properly. I've setup some bash scripts that are aliasing things around and it works, but i doubt that this is the best way of handling things and i'm pretty sure some package manager out there offers a good solution.
+Is there a package manager that helps do this in a better way? I'm pretty sure my solution is going to backfire soon.
+There will be third party packages for various versions of PHP for the common distros. The advantage is other people use these builds and may be able to assist.  On Debian, a fairly popular repository is  https://www.dotdeb.org/ 
+I need 3 PHP versions intalled: 5.6, 7.0 and 7.1. What i did was a custom compilation of each version and made a small scripts that aliases my /usr/bin/php to a different folder. I call my script: select-php 7.1 and it aliases a bunch of stuff to the correct 7.1 folder. 
+I'm trying to setup a sane development environment after joining a new company that has projects running on 3 different PHP versions, without resorting to VM's (like Vagrant) or containers. I really hate those solutions.
+Nowadays we have many kinds of *brew scripts. You could try phpbrew https://github.com/phpbrew/phpbrew for different PHP versions.

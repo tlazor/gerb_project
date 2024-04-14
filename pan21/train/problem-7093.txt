@@ -1,0 +1,5 @@
+I would say this is absolutely NOT the case in my experience.  In fact I don't believe I've ever heard of this except for perhaps something very small.
+User Aaron Bertrand made some comments that align well with my thoughts on your question.  This is more of a frame challenge than an answer to your specific question, but I think it's valuable to consider in this context.
+I would agree with the commenters above in that even if it's not established, you need to establish that first before you start writing queries and other code.  Otherwise you're just potentially letting yourself in for a lot of wasted effort in a re-write right off the bat.
+If you have to change platforms at some point, there will be changes needed to the application, the database, and probably many other things.  If you can be somewhat "platform agnostic" without too much effort, that's fine.  But it's really a bad business decision to use that as a design goal.
+There are many places online where people discuss the downsides or programming this way, here's one of them that I find pretty compelling:

@@ -1,0 +1,10 @@
+I've understood this should work as long as I also have it connected to two ports on the modem, but I can't get it to work. Do I need different cables? Or is this a method that just doesn't work anymore?
+If the connections are right, it should simulate a 10MB/100MB connection, as 10BASE-T and 100BASE-TX only require two pairs (pins 1–2, 3–6) to operate.
+But it depends on what splitters you have. Do they have the connections documented somewhere? Compare with the T568A/B pinout.
+I'm working on a home set-up where I can split my network cable to use two computers on one side, and two ports on my modem on the other side (so a 2-1-2 config). I have the following set-up:
+But looking up prices on Amazon, there are simple switches for 10 EUR, and the splitters also for 10 EUR, so I don't really see how you save money with the splitters ...
+To run two Ethernet lines down the same cable you need splitters specifically designed for the purpose that route two pairs of the cable to each Ethernet port.
+As far as I know, the ISDN RJ45 splitters are not made for two ethernet LAN cables, but for one LAN cable and one ISDN cable. So I'd expect one port to have the wrong pin connections.
+I understand this is also not a preferred method (and something like a switch would be better), but I am trying to run this cheaply for a short period of time, and running two long cables is not an option unfortunately.
+However, whenever I have both cables connected on my modem and just one cable (to one PC) to the splitter, my PC cannot get a connection (it just shows unplugged). Whenever I take out one of the cables on the modem side, it starts working again.
+It sounds like what you have is a splitter that just connects all pins on the two sockets to the same pins on the plug. Such a splitter might be used in phone or ISDN applications to connect two phones to the same line. 

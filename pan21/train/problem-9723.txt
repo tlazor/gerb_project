@@ -1,0 +1,10 @@
+How you would set up an automated nightly backup for the whole disk (boot and data partition) running Ubuntu Server?
+RAID is not an option, as when something is broken/deleted on the first drive, this happens on the other drive too (I know I should have RAID + the backup solution).
+That said you really should plan for having offsite backups as well.  BackupNinja can copy your backups to an ftp server or more efficiently to another server with rdiff-backup installed.
+You should really consider backing up to an external storage outside of the server - or better, outside the building and additionally put in some RAID hardware. 
+The other problem is that that I need the clone of the whole disk (both partitions - ext2 and lvm + the boot record).
+If you don't have the money or want to save the dollars you would spend on, you can use tools like rsync or rdiff. There are plenty of tutorials on how to use them and what you can do with them. You can do rotating incremental backups, backups on filesystems that support snapshots(like zfs or btrfs), just whatever fits you best. 
+Copying the whole 1TB would take some time, so I'm looking for a tool which is able to find the daily differences and just update them.
+I was previously running dd to have partition backup. But now I'm looking for some bulletproof solution to have a HDD clone to switch to in case of crash.
+I have a 1TB drive (current usage 200GB) and I want to have daily clone of this drive on another drive (the same capacity and model), on the same machine.
+If you want some cheap failover inside the server without hardware raid, you could also use zfs oder software RAID mirroring, but in the end this is no real replacement for a good hardware RAID controller with a BBU and a large, fast cache.

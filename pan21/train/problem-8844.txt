@@ -1,0 +1,8 @@
+Yeah, uname and checking $SHELL are the easiest way (and only portable way I can think of) to do this. 
+Of course, this is very contrived, but much better than maintaining multiple sets of code for each operating system, and also supports OSes that you hadn't thought of;
+When developing a shell script that should run on various unix/linux derivates, i sometimes have the problem that some tools have to be called in a different way compared to other systems. For example if the arguments are different. I wonder what's the best way to solve this.
+Should i use uname to check for the operating system name and rely on this to execute the tool in different ways or are there any "better" ways, some kind of "ability" check for shell commands and tools?
+The systems in question are for example Linux, Mac OS X, Solaris and Irix -- all quite different when it comes to abilities of tools and shell commands.
+gem install facter should be sufficient to install it on any system with Ruby available, if it's not in your system packages already.
+You are much better off writing portable code.  Almost anything is achievable using plain POSIX, and then you won't need to worry about which utilities take which options.
+You could use the facter tool which is part of Puppet (but can be used independently, if you don't have Puppet in your environment) to get basic facts about the target system.

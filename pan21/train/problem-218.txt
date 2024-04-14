@@ -1,0 +1,8 @@
+I'm sure there is a more complicated way of doing this, but I was impressed with this tools ease of use.
+Have you checked is Windows Firewall is on? If it is, you should either disable it or (better) allow incoming traffic to port 80.
+BTW, you can check if IIS is listening on the external address with netstat -a -p tcp -n within command prompt on the server in question.
+Try with opening IIS management console, right click on the web site, properties, click on the "Directory Security" tab, then pick Edit button for "IP address and domain name restrictions".
+Aside from the other answers, check your network interface bindings to make sure that IIS is bound to your external interface.  
+Last chance, even if you have no firewall on your server and it's actually sitting on its public IP address, there actually could be some firewall in the middle, so you should check that with your provider, too.
+After going through all of this, and setting everything up how I wanted, I was able to have complete control over everything on the server.
+Also, are you behind some NAT? You can check it quite easily: run IPCONFIG on the server and have a look at its IP address; if it's different from the external one, then there's some NAT in te middle, and you need your provider to properly configure it.

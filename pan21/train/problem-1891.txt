@@ -1,0 +1,6 @@
+There are few reasons why a server would disable keep-alive, so I suspect it's probably admins at fault. One exception are the a-child-per-connection servers (apache), where releasing that child/thread as soon as possible offers advantages, even if the total browser experience (and bandwidth usage) becomes poorer.
+Keep-Alive connection feature in HTTP protocol is meant to reduce TCP connection hits to web server. It should be able to improve web server performance. However, I found that some web servers deliberately disable KeepAlive feature from server side.
+Keep alive is meant to reduce the number of tcp-setups, which are chatty and are heavily influenced by latency. It's main goal is to improve client performance - as for a modern server-os there is a low cost in setting up tcp connections.
+In my understanding, some reverse proxy, i.e. HAProxy, disables HTTP keep-alive in order to reduce memory usage which is more critical than CPU usage in some situation.
+Some proxies/loadbalancers lean disable keep-alive to the webservers because they assume the actual servers and are on a LAN with neglible latency, and therefore neglible tcp setup penalty.
+It also lessens the complexity of the balancing software, as there is not necessarily a one-to-one relationship between incomming and outgoing (from the LB's perspective) connections.

@@ -1,0 +1,11 @@
+On a side note... the onboard controller that comes with most motherboards is also called a 'fake raid' by some. There is more details on this provided in Ubuntu help area:
+Try going to SuperMicro's [support site] to download raid drivers for linux. It doesn't specifically support Ubuntu but I would think you can install another distro's driver. they have one listed under Suse Linux 9, and probably other places. 
+In my experience, the absolutely best way to set up a RAID solution in a Linux distro - except for a high-end RAID controller of course - is with MD-RAID.
+I tried going ahead and installing to one drive just to see what would happen, and as expected, not much. 
+I try to install Ubuntu 9.04 server, however when I get to disks detection phase, Ubuntu reads all 6 drives as separate  160GB drives instead of a single RAID 10 480GB set.
+On other systems where I was using a different kind of raid controller, I never experienced this. The raid set always came up as a single drive. But I was never trying to install Ubuntu to the raid sets in the past.
+what you describe sounds very much like there is soft-raid not a 'real raid' in use. those works fine with windows but do 'heavy lifting' [ xoring for raid5 ] on your main cpu instead of dedicated controller.
+Hate to say it.. but the Supermicro X8DT3-LN4F and all their new motherboards don't have Ubuntu support. The only drivers available are for RH or Suse. 
+I have already put in an email to tech support, but I wanted to see just how deep the rabbit hole goes here at serverfault :) 
+I am running a Supermicro X8DT3-LN4F motherboard with onboard Adaptec RAID controller with six 160GB drives attached to form a RAID10. Status of the RAID set is OPTIMAL.
+It's far more stable than, say, Intel Matrix Storage, and gives some options not available with such RAID solutions - mixing different types of disks, using left over space on a "too large" disk for other arrays or standard partitions, etc.

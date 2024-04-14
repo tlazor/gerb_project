@@ -1,0 +1,7 @@
+Also, of course if you were to use the same CA for other purposes (including other VPN servers), the impact is obviously even more direct in that  everything else does not also get compromised with that one VPN server.
+The "Per the official OpenVPN documentation" reference in your quoted text probably refers to this paragraph in the Security section of the OpenVPN Howto:
+Aside from the general rule of thumb that you usually wouldn't want a CA server on the edge of your network/internet accessible, are there other security concerns with an OpenVPN box acting as it's own CA? Thanks!
+But having the CA elsewhere would at least remove some options for an intruder (like if they were sneaky and went for just copying the CA and then had the ability of creating their own certs offline at any time to gain access), and recovery would not necessitate starting the whole CA setup from scratch, only setting up a clean VPN server.
+I've never seen that warning before and have seen plenty of other (e.g. StrongSwan IKEv2) VPN solutions setup on a single server where it is both the VPN listener and the CA in SMB environments. These environments had no other CA, and the VPN server CA's only purpose was for VPN authentication. 
+I think you have the right idea that it basically boils down to the general idea that a CA ought to be made as inaccessible as possible.
+I was reading the Digital Ocean guide to setting up an OpenVPN server on Ubuntu in anticipation of doing exactly that, and saw this tidbit:

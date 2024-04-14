@@ -1,0 +1,9 @@
+What tends to throw people off is that the user may already be a member of the local Linux group, but as far as SMB is concerned, the group you 'connect as' from Windows is what matters here.
+I just tried to add a winbind user to a local group via usermod. This failed. Perhaps user are managed either completely by files or completely by winbind (referring to nsswitch.conf) but not by both simultaneously.
+What I'm looking to do at this point is configure Winbind to automatically add users to a local group based on their domain group. So, for example, say my username on the domain is "DOMAIN\coledot" and I'm a member of the domain group "Arbitrary Group". In my /etc/group file on the Redhat machine, I have the local group "testgrp" defined:
+However, when I run the groups command, even though my user shows up as part of the "Arbitrary Group" group, "testgrp" is nowhere to be found.
+If this works then you could get the group members via "getent group" and add them to a local group. This could be done regularly (if you don't have access to the DC) and would leave just the time between account creation on the DC and the first access to the member server (if this access is before the next regular check) problematic.
+I have a Redhat ES 6 server that's successfully joined to a domain via Winbind (i.e. I can login to the Redhat server using domain credentials with no issues).
+If my understanding of the Samba/Winbind groupmap documentation is correct, I should be able to map the local group "testgrp" to the domain group "Arbitrary Group" by using the net groupmap command:
+AFAIK this mapping from SMB groups to Linux groups is done on the domain controller, only. Member servers do this automatically (either globally by LDAP or locally different by idmap).
+If your local Linux permissions are correct, you can use the "force group" string to make sure you're connecting with the correct group membership. 

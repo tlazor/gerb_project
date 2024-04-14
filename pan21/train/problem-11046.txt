@@ -1,0 +1,8 @@
+You do need three tables - Employees, Languages and Employee_Languages - but you could choose to use the Language Name as a natural key instead of Language ID as a surrogate key.
+Your question is less about whether to use many-to-many relationships and more about the choice between a surrogate or natural key.
+So, when I want to show employee languages, I have to get language id, then correlate that id to language name and then show it to the end user.
+So, Language name and Proficiency would be populated in front end and would be shown as a drop down list. 
+First solution (3 tables) allow you to search of employees with given language in efficient and unambiguous way. The same language name is assigned to different employees (without literal errors like "english"/"Engliish"). It's a better way for developing new functionality in the future.
+You can apply a two column key on the lookup table, making it impossible for employee John Doe to learn English twice.
+The choice of whether to use a natural or foreign key is a pragamatic one made of the basis of familiarity, irreducibility, stability and simplicity. Your question indicates that use of a natural key may be the best for your circumstances. You should analyze all the uses of Languages within your application and decide, given the criteria above, whether the use of a natural or surrogate key would be the best for you.
+Languages table has two columns: Language ID column and Language name column. This table, basically is a list of all languages.

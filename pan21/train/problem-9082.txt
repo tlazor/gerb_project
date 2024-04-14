@@ -1,0 +1,5 @@
+Is there any way to quantify an impact of a single day data (e.x. 2005-07-01) on the regression result?
+I suppose you are trying to understand those data points in your sample that could impact your regression results to a large extent. These are called influential and high leverage observations. It is a practice to ensure that you do not have these sort of observations in your training sample as it would impact the final regression result significantly. The way to identify these observations is through the means of Cook's distance. You would need to further analyze those data points that high a high Cook's distance.
+Don't forget about the value of plotting data! Anscombe's quartet is a great reminder of how important this is. https://en.wikipedia.org/wiki/Anscombe%27s_quartet
+Let's say I perform multiple regression where y = income, x1 = educaiton, x2 = sex, and x3 = religion from 2003 to 2018, where the data is measured daily.
+It is hard to quantify exactly what a single point is doing, but you would benefit from plotting data to look for suspicious points and then measuring differences in statistics if you remove it.

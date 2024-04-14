@@ -1,0 +1,5 @@
+That being said, HTTP Basic Auth over an unencrypted connection is crap: Both the username and password are sent in the clear and can be intercepted by any motivated attacker.  Think of it as the Telnet of HTTP authentication protocols.
+http://httpd.apache.org/docs/1.3/howto/auth.html has some more details on all of this (old, but still valid), and you can probably turn up more by googling "HTTP Auth security" and flipping through the results.
+In either case, I would suggest using Digest authentication instead of Basic authentication (even over SSL, due to my inherent paranoia).  Again, you're still as vulnerable as your most guessable password, but that's a policy problem for you to solve :)
+Any password protection scheme can be bypassed if your users are using lousy passwords.  No technical details can make up for using "password" as your password.
+If you're running all of this on a https:// (SSL-secured) server with no way to get to the password-protected bits in pain-old-http:// mode you're better off, as everything is encrypted traveling over the wire.

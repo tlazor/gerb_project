@@ -1,0 +1,7 @@
+So for those looking to make Windows recognize their USB Bluetooth dongles, try uninstalling the drivers.
+Go to Device Manager (Right click on Start Menu and choose Device Manager or Search for Device Manager).
+This is what I have discovered from experimenting over a long time - for windows GUI Bluetooth features to activate, there cannot be any other installed drivers or interfaces. For me in my case, windows didn't active the features until I had uninstalled the stock drivers (CSR Wireless Stack). Basically, Windows needs to be using the "Generic Bluetooth Radio" drivers for the features to be activated.
+Right click, choose Uninstall and remember to choose "Delete the driver software for this device" (I tried without this and it did not work).
+Find your device on the list. My device was on Universal Serial Bus Devices (I think), named CSR8510 A10.
+Change the Bluetooth Handsfree Service and the Bluetooth Support Service to automatic (on properties) and start them.
+After that it started to work. You may need to remove the dongle and insert it again or to restart the computer after step 2, but if I recall correctly, it started to work right after step 2 for me.

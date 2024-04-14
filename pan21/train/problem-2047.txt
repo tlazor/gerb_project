@@ -1,0 +1,6 @@
+However, his net use "\\10.0.0.5\c$" "badpassword" /user:"baduser" command is way too slow, especially when the client has to wait up to several seconds for the server to respond with a rejection, which is terrible and inconvenient.
+For my use case, I was able to use the Win32 API to map the network share \\Server\Share to the S:\ drive. It disconnects the drive first and then prompts the user with the Windows network login dialog so that the person can logout and login as a different user.
+that seems to overwrite the old credentials and forces explorer to attempt to use the new bad credentials.
+It'll open up a window where in the stored password & usernames will be stored, you'll be able to delete from there.
+I have also discovered from @rocketsarefast's answer that Windows will clear the old network credentials when there is a new login attempt.
+If you authenticate with a username and password to a network location, that username and password will remain cached for your logon session. You will need to log off and back on before you can re-authenticate.

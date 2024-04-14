@@ -1,0 +1,7 @@
+My website is hosted by the same company from which I bought DNS. This company also takes care of my emails.
+from the DNS records you've provided, you shouldn't experience any issues with moving your site to: webapp-XXXX.pythonanywhere.com. 
+You can however, change the A record for domain.sk. to point to the IP Address where wepapp-XXXX.pythonanywhere.com. points to.
+Maybe you can set up a simple http-redirect-service somewhere and let domain.sk. point to that. The redirect would then redirect to www.domain.sk which can be a CNAME.
+From the MX records we can see that all mails sent to your domain will be received from: exohosting.sk.
+Now, however, I want to host my website on a different service, while the other services (email, ftp, smtp...) would remain on the old host. The instructions at my new host are to add my domain.sk and www.domain.sk as CNAME records pointing to their server.
+As the CNAME would redirect all RRs for domain.sk. This will also override your NS and MX records and will break things.

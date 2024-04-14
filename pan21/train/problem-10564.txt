@@ -1,0 +1,7 @@
+Apparently, there is no (simple) way to do this, no neat UI. It could be possible debugging Firefox.
+Optimizing and disabling the cache both use the about:config interface.  Type "about:config" into your address bar and hit enter.  If you haven't done this before, you'll be presented with a warning.  Click "I'll be careful, I promise".
+Second, if you don't have nscd installed, you can try restarting your router. Some routers will cache dns entries.
+Third, there are steps you can take to disable dns in Firefox, but I'm not sure how to clear it other than switching to offline mode and then back to online. You can do that by choosing File -> Work Offline.
+First, Ubuntu doesn't cache dns by default, but there is a dns caching deamon available (nscd). If you have that installed you can try running the command below to flush it:
+There is a DNS Cache add-on you can use to manage it.  I haven't tried it so I can't speak to how well it works.  It sets and adjusts the two values shown below, although it may have other tricks.  It is also possible to optimize or disable it by hand.
+We'll create two entries by right-clicking on the page and selecting New > Integer.  Do this once for each of:

@@ -1,0 +1,7 @@
+No, ISOs can't be run from a harddisk. However, you can often transform an ISO image to a USB stick, and boot from that. For example, see 
+beware that in the mount command, you will see something like sdx1 mounted but you want to use: of=/dev/sdx if you are running from a mac, disk utilities has a way to burn images to disks, i believe you can burn an iso to a flash drive from there as well.
+Most distros now-a-days, you can simply bit copy the iso on to a drive and it will boot. If you have dd (linux or probably mac) you can do the following
+Hello can I install Linux by downloading the iso, then copying it on my 2nd hard drive, then booting on the 2nd hard drive ? 
+Once you are done, you will need to go into fdisk and remove all partitions from the disk you copied the disk onto. then you can repartition. Gparted is graphical tool for doing this from linux as well. 
+I believe I have something to do, since the 2nd hardrive is "controlled" by Windows (though Windows is on my 1st hdd).
+Select your ISO and hard drive in Unetbootin, and click OK to write the contents of the ISO on to your hard disk. After rebooting, you will be offered whether to boot into Linux or Windows. From here, you can run it in live mode and install it.

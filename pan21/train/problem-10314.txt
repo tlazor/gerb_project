@@ -1,0 +1,6 @@
+When I install a Firefox extension, I am prompted a list of permissions required for the extension to work. I've accepted them.
+Well, I've asked on Twitter and someone answered that these permissions are also displayed on the page of the extension itself (without requiring to reinstall it)
+Today, I've heard about the spylish issue: one of the extension (Stylish) seems to be a big spyware (hence I've removed it).
+But I'm wondering if some other Firefox extensions could do the same. Therefore, I would like to see the permissions I've granted to each of the extensions I already have installed. Is there a way to do such check? I don't remember the permissions each of these required, and I'm willing to recheck them now.
+An easy way to review all add-on permissions in Firefox Quantum is with the extension Project Insight. It displays all permission of enabled add-ons:
+Sorry I was dumb enough to not even notice this (and I admit, to haven't read the entire page at all)... I guess I'll need to open the page of every extension I've installed and see what permission each uses.

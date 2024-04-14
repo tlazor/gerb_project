@@ -1,0 +1,5 @@
+C. We need to predict data based on height and age. It is a linear  regression problem because we create graph height vs age will find out the test case. It is supervised learning.
+Below are few questions where I unable to find out where I am wrong. I added screen shot of image and explanations of the each options that I am understanding. Questions are purely discussion based and short. Please help me out.
+A. We need to predict the author gender and it can be either male or female. I think  it is  classification problem, so it is supervised learning. 
+B.  We have given group of spam emails and need to predict does there sub-types are spam or not. I think  it is  classification problem, so it is supervised learning. 
+In below question, I had checked C and D options because feature scaling creates our dataset in same range which helps to predict the best theta in less iterations and contour graph will be more cleared and symmetric. Ref : https://medium.com/greyatom/why-how-and-when-to-scale-your-features-4b30ab09db5e 

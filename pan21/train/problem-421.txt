@@ -1,0 +1,10 @@
+Some virtual machine's have an even longer initial delay due to the way it bridges ethernet adapters, the host has to learn and forward after a spanning tree delay to protect against loops.
+I ask because we get questions from a customer about why it takes so long to respond to ping after creating a Virtual Machine. I'm sure this is just an artefact of the OS boot behaviour.
+If the mac-address is not in any arp-caches there is an added delay in responding to the first ping as it has to learn the mac address for it's final ethernet hop to the host.
+Everyone knows that Windows and Linux have have totally different architectures so lets treat them separately.
+Once DHCP has taken place (or the nic has been brought up by a static IP) it will then listen for arp who-has requests for it's IP. In linux, this is once the interface configuration scripts are run, which vary in order from configuration to configuration.
+In the boot order, the OS will start everything necessary to operate the network adapters, and then it brings the network adapter online before it brings any services dependent on networking up. This is usually in the "middle" on most machines that I've encountered.
+The answer I'm looking for is "After XXX is running, pings will be returned." It would be helpful to know where in the boot order this is too. i.e. at the start or end.
+I'm assuming that the software firewall has to be up before pings will be returned as there might be a setting to disable ping responses.
+I'll just add that it's not the firewall that responds to the ping request. It's the network card. The firewall only acts as a filter for an example - blocking your side from answering an ICMP ECHO request.
+In windows, it's when the network related services are started. (Exact service name isn't coming to mind at the moment)

@@ -1,0 +1,10 @@
+Actually, your Squid server will have 2 NICs.  One NIC will accept the unprotected Internet, the other will service your private network.
+I've set up several businesses similar to the configuration you describe above and never had an issue.
+It seems nitpicky in light of the above, but be aware that the business cable has all the issues of shared bandwidth versus dedicated (as you'd get with a T1).  We've got a T1 to host all customer-facing servers - yes it's slower, but a predictable 1.5 (-ish) all the time.
+Since you plan on an expansion up to 15 users, don't settle for a consumer-grade router.  At the least, pick up a soho router with QoS support.
+Assuming that the 25GB of data is the total amount you will be backing up rather than a nightly amount, a 6MB connection should be ok.  At most, Skype will use 16k per connection when in use, so the connection should be sufficient for this as well.  One thing to consider is how often Skype is going to be used, and if that usage combined with your projected bandwidth usage for backup will exceed any caps imposed by your ISP.
+The only issues you're going to see are when you have several people talking on Skype and someone attempts to download a huge file (bittorrent, etc).
+I'd recommend taking a look at IPCop or pfSense.  For your situation I like IPCop as it has almost everything you need built in and the interface is very easy to use.
+The business cable line can and does fluxuate fairly wildly, depending on what other businesses on the line are doing.  I love it, and the price can't be beat, but I've got it set up exclusively for user browsing - where the variations aren't truly disruptive.
+I second Russ's recommendation for Untangle, although if you are set on Squid, I would suggest looking at this tutorial for setup instructions.
+If you're looking for another security device similar to Squid, I would check out untangle.  It has a great open source community and terrific enterprise support.

@@ -1,0 +1,6 @@
+Then I tried uninstalling and reinstalling the setuptools with pip. Re-installation worked but the RemoveError persisted. I have no more clue of what is going on below is my conda list output and conda env list .I have also tried switching from the base environment but the error was still there.
+I had conda running for some time ... tonight I updated, and then resulted in every conda action resulting in:
+After that I tried updating all conda packages, uninstalling matplotlib, installing setuptools with conda and I always get the same error:
+Note: It's possible that if setuptools was installed before using pip instead of conda, you need to apply easton's solution before this one.
+After which sanity was restored. In between correction attempts I tried to create a new environment which always failed with the same error. After the fix above, I found that the desired environment did not exist in 'conda env list' but it refused to create it giving an error that it already existed. I needed to go into my ~/miniconda3/envs directory where I found the offending directory, deleted it, and was able to create a desired.
+Adding the potentially obvious, which is the only solution that worked for me (I tried all of the above to no avail):

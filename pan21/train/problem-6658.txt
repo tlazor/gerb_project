@@ -1,0 +1,7 @@
+if your static directory is already in /var/www/static and you get forbidden error - make sure that those files are readable for user under which apache runs:
+Apache allows to specify php.ini settings on per-directory basis, so you should be able to disable php for user dirs with something like this in your httpd.conf file:
+I have Apache2 and PHP5 installed. My DocumentRoot is /var/www/. All .php and .html files are served form / and its child directories well. However when I request, say, .png images I get Forbidden notice.
+should fix readability issue. depending on distribution username might differs. check it by running ps faux|grep apache 
+You can also prohibit serving certain parts of an otherwise 'webservable' tree, for exmample to prevent include files containing DB connect strings, passwords, usernames, etc.
+In order for content of a directory on the filesystem to be 'webservable', you gotta have a Directory directive that encapsulates it, and the files have to be accessible by the user that your webserver executes as.  Most default installs have one Directory set up and all of the content falls under it (ie. /var/www/).
+This is not mandatory, you can have content served from underneath other directories, as long as you have another Directory section defined for it.  You can take multiple directories like that and make it seem like one happy tree with an Alias directive.

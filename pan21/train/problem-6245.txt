@@ -1,0 +1,6 @@
+The default PostgreSQL configuration is very conservative in terms of resource requirements. Which means that during bulk-loading, it has to perform very frequent checkpoints (your Postgres logs are probably full of checkpoint warnings).
+I suspect that PostgreSQL on Windows might not correctly flush everything to disk, thus checkpoints don't affect performance much. If true, this is of course bad for database integrity.
+If my assumptions are true, bumping checkpoint_segments up to 50 in the Ubuntu configuration should make it perform similarly to Windows. (There are lots of other tunables, but this is the most important one for bulk-loading)
+Edit: I missed that you said the dump is merely 21MB, and not even compressed. Even 1 hour is a very long time to restore that amount of data. Could you shed some light on what the dump contains? What sort of table structure, how many indexes and what kind? Functional indexes? GiST/GIN indexes? How much data is generated after the dump is restored?
+Even one hour is very long for a small dump file of 21 MB. We are restoring databases of 2 GB compressed dump file in about 30 minutes but we might have better hardware ;-)
+Also, what does SHOW wal_sync_method say on your Ubuntu installation? It should be fdatasync for optimal performance, but some versions defaulted to open_datasync.

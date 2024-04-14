@@ -1,0 +1,14 @@
+I wrote a parser for the IRC RFC 2812 spec and would like input on my use of the strategy pattern for this.
+this will remove the condition at the end and also the need to set the TrailStart if  no colon had been found.  
+This xml documentation explains that the given name ICommandResponse isn't the best. One would expect e.g get a response from a processor. So a better name would be ICommandProcessor.  
+I created an IrcMessage class that is responsible for taking the server response string from the (examples below) and parsing it. The server response format is:
+here the documentation is lying. It talks about the parameters userInfo and args which aren't there.  
+While we are at this method declaration, you don't use the connection in any of your samples. Maybe you should remove it.  
+I've seen most people handle the response codes in a giant Switch(responseCode) statement. I didn't want to take that approach. With this, I can now take each one of the response codes that the server sends me, and handle them as objects.
+I wrote a unit test that checks to ensure the parser parsed the data properly. I've got a few other tests for different string combinations, but this one was covered all of the IrcMessage in a single test for a complete response string.
+I take the content sent to me from the server and pass it to an IrcMessage instance via its constructor. I then pass that instance to a ProcessMessage method that finds an ICommandResponse object that can handle the command code that the server sent. I don't include the CommandResponseFactory code as it just searches for ICommandResponses that have the command given within the ICommandResponse.CommandCodes collection and returns the correct one.
+The following is my ICommandResponse, which is what I am using as my strategy pattern object. Each implementation of this correlates to a server code (or series of codes/commands) that can be processed with a result given back for the client UI to consume.
+This class takes the string and passes it to a MessagePrefix, MessageTrail and MessageCommand class. Each parsing the string and building their respective component.
+You should use an auto property for IsPrefixed which should have a private (or proteced) setter which is filled inside the constructor.  
+I would expect only 2 classes - a Message class and a Command class. The Message would encapsulate the entire message and the Command would encapsulate the command and parameters.
+No it doesn't. MessagePrefix represents the prefix of an IRC message. The constructor is the thing that is parsing a message for a prefix.

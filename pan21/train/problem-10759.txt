@@ -1,0 +1,6 @@
+If your VM uses NAT mode, you need to set up your NAT to forward a specific port back into your VM. In VMware, there's a nat.conf file you edit to do this. I cannot speak about how you'd do this in other virtualisation products, though.
+Is SSH enabled on your Linux client? Even if the process is running it may not be configured correctly to allow remote SSH connections.
+For instructions for using ssh to connect in this case, you can follow these instructions for KVM or these instructions for VirtualBox.
+I think that you most likely need to have Workstation listening on the host for port whatever and forward it into your guest as port 22. This would keep your host's own port 22 open while delivering traffic into your guest. However, I only see port forwarding as part of NAT. Must your VM be using bridged network?
+Which VM product are you running? Also, check your VM's network settings. If it's running in bridged mode, it has an IP address in your host's LAN, which means you just connect to its IP address that way.
+But many types of virtualisation software (including VirtualBox) default to not being able to access the guest from the host. However you can access the host from the guest.

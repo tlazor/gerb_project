@@ -1,0 +1,9 @@
+Is the wireless router setup to use and pass on DNS servers to its clients? I's suggest that'll fix the problem.
+The behaviour you are seeing sounds like the wireless router is giving out an external DNS server which doesn't have internal resources.  Alternatively it may be giving out the correct servers but not specifying the correct dns domain suffix.
+First, I wouldn't extend a wired LAN with APs unless strong authentication mechanisms are used (802.1x).
+Concerning your issue, is your "wireless router" providing its own DHCP service? Make sure you turn it off so your clients will gather the good DNS configuration from domain controller(s).
+We have a local office network running through Windows Small Business Server 2003.  All computers connected to the LAN work fine, and are able to connect to the domain controller and network shares using their hostnames.  (ie. I can mount \\myfileserver\myshare).
+We also have a wireless router, which is connected directly to the office network.  Computers connected to the wireless can use the internet, and can connect to the fileservers at \\192.168.x.x\myshare, but not at \\myfileserver\myshare.  They also can't connect to the exchange server by name, or anything else.
+If you run the "ipconfig /all" command are the DNS servers displayed the same as those shown when the same command is run from a PC on the wired network?
+does connecting to the share using the fully qualified domain name of the server work e.g. "\\myfileserver.mydomain.com\myshare"?
+My suspicion would be that the DHCP server on the wireless network does not have the same configuration as the DHCP server for the wired network.

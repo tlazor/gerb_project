@@ -1,0 +1,6 @@
+For instance. This would pass VLANs 20 and 30 on that cable. Put a similar config on the second switch, and the pair should handle both VLANs with no problems. 
+Alternatively, I may add the second switch for the Storage VLAN, and leave the other for LAN. Thats just lots of downtime and unplugging though, and under pressure to complete tomorrow.
+For the sake of simplicity, there are 2 VLANS configured, and the ports are roughly equally split between them. VLAN1 (LAN) is for server LAN connections, VLAN (SAN) is for an iSCSI SAN.
+So long as the two VLANs are passed on the cable between the two switches, both VLANs should be visible on both switches. Turn on tagging for the port that'll be connected to the other switch.
+You can avoid running a patch cable for each VLAN by using a trunked port (not sure what the HP terminology is).  Each VLAN will be tagged as it traverses the trunk.  This way you free up some ports.  It would be wise to use a LAG as well, for redundancy.
+If I add the second switch (same model) with the same VLAN configuration, and run a cable between each switch on each VLAN, will the VLANs then automagically span the two switches? 

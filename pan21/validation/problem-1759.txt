@@ -1,0 +1,6 @@
+My issue is that, when I make a mesh face two different directions, it's like the materials collide and I get a black appearance instead of the material I'm expecting:
+I am trying to show both sides of a mesh. I understand this question has been asked a lot, but all of the answers I've found seem like they're written for Unity 5 and I can't find a "Cull" setting on the shader. 
+Again, I would expect each to get culled appropriately such that all I see is the correctly rendered material, but that's not happening. I've tried all kinds of settings in the material, but I can't find a cull setting (not that I want to go that route anyways) and I can't find anything that gets the material to render correctly. 
+You can use any material if you want, but here's the .mat file for the laser material I've got (it's a generic material that's slightly transparent and red):
+To recreate, create an empty game object. Add a MeshRenderer and a MeshFilter, then add the TestMesh script:
+Beyond that, I'm actually okay with extending the mesh to render both sides. In what I've read online, this may actually be the "correct" way to do it in that this should get all the lighting, shadows, etc. to render correctly.

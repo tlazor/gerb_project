@@ -1,0 +1,6 @@
+But what I can not figure out is why my browsers (Firefox, Safari, Opera) can not resolve the domain. I am on a Wifi connection. What could be the problem?
+I have had the exact same problem, where a number of websites would allow me to traceroute, but I could not access them or ping them (receiving the same icmp_seq timeout error).
+I am trying to figure out an issue. My internet is working fine, but this one website is not resolving. It works via a proxy, traceroute works:
+Ask them if they are running mod_security - perhaps your IP is on a list of spammers.  This can happen by accident if you're testing code that sends email from your own system in an invalid way.
+The issue turned out to be my home router (Netgear DG834G) and a simple restart now and again fixes the problem. However I am none the wiser as to why this is happening, assuming its just a bug in the software, as it is usually after roughly the same uptime.
+If you cannot resolve the domain, the problem is most likely with your DNS servers and not the site.

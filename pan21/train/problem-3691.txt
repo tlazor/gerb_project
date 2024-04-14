@@ -1,0 +1,5 @@
+I have two queries that I want to compare and get the extra rows found in in the first query that are not in the second plus 1. I need the DocEntryCN to perform some work.
+NB. Comments in query 2 stores Invoice numbers that should be unique. If any two comments in the OINV table are the same, it means there is a duplicate error. The JrnlMemo field in the ORIN table stores the OINV invoice numbers. For any invoice repetitions no. k, the correct number of credit notes to reverse should be k - 1.
+I should point out that the results will be slightly different from what you indicated in your Desired Results section because you have a Rita there with a DocEntryCN of 90, but no Rita entries in ORIN.  Otherwise, the results are the same.
+For my testing, I just created a couple of temporary tables (#CN for ORIN and #INV for OINV).  You should be able to replace them with your above queries without too much difficulty.
+In the first query, there are 5 duplicates for "kaka-19". In the second query, there are 4 duplicates for the same "kaka-19". I would like my results be as above where (5-4)+1 = 2 for that "kaka-19" and so forth. 

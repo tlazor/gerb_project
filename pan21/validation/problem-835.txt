@@ -1,0 +1,8 @@
+If it is ok that the settings will be wiped at next logon (as opposed to at logoff) you can create a so-called Mandatory User Profile for this: 
+Its a real shame Windows removed the bulletproof accounts they had in the RC. I'm sure you can find payware to do it, but places like schools use bash scripts to delete and re-create profiles, or DeepFreeze payware. 
+Theoretically you can do workaround since like other said that feature was removed in final version. The way to go for this would be to:
+Next time user tries to login temporary folder will be created and used which will be deleted on logoff. 
+This also works for the Guest account, at least on XP (so I assume it should also work on Windows 7).
+I don't know anything about possible drawbacks of this action as I found this by trying to clean one profile, and in Windows 7/Vista you have to do it by removing registry key as well. Removing only directory creates this temporary situation which in your case might be what you need without buying anything. But please do test it before implementing this as usable solution. 
+In fact, it can be useful that the profile is not wiped at logoff in case the user accidentally logs of and has not logged on again, some other administrative user can still log on and retrieve files he accidentally saved inside the user profile.
+Microsoft's solution was called Windows SteadyState (formerly known as Shared Computer Toolkit), but it has been discontinued as of Windows 7, so the only solution is setting it up yourself or using 3rd party software. See the Wikipedia article's Discontinuation and alternatives section.

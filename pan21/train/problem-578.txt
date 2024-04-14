@@ -1,0 +1,10 @@
+The trick here is to use a tool that will scan the entire drive in read/write mode, and thus force any pending sectors to be remapped by the drive logic.
+Use a free program to wipe free space on the drive (which should force that remap if the problem is in free space). Then try again.
+it's just possible the first test can corrupt a file if it got a bad read on a sector and wrote the corrupt data back to the remapped one.
+let the long test run it reads each sector, writes to the sector (which will make the drive remap it if it's bad), then writes the original data back.
+I would question the safety of using a drive with bad sectors to store important data on though. If your data is valuable enough to encrypt, it should be valuable enough to put on a good drive that isn't likely to fail at any time. Beyond the hassle of recovering from a failed/unreliable drive, a 500Gb drive is about $60 ATM (Apr 2013). How much is your time worth?
+If you have access to a linux machine, I'd try running a long offline test with smartctl. I'm sure there is an equivalent tool that works under windows, although I don't know the name of one.
+Try again, Truecrypt should complete, unless your drive ran out of spare sectors, in which case it's in dire shape and needs replacing.  In this condition, assuming SMART is enabled, you'd also be getting SMART errors at start-up, telling you to back up your data and replace the drive.
+I believe using SMART the disk does the error-checking itself. I use SpeedFan under Windows to view the drive's SMART data, but AFAIK SpeedFan can't trigger the error-checking of the drive.
+Truecrypt halts at the read error, and doesn't attempt to write the sector, so the drive never gets chance to remap the sector (which it only does on writes).
+Since a normal CHKDSK /F shows no errors, the problem sector is probably in free space, you have a couple of no-cost options with increasing complexity and increasing chances of success:

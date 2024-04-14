@@ -1,0 +1,8 @@
+What I'm looking for is true continuous backup software, i.e. software that can transparently back up files immediately before they are written to, so that I can be certain I have all the versions of a file that ever existed.
+Every backup software I've seen (even the ones that claim "continuous" protection) only backs up files periodically -- say, every 5 minutes.
+There are several implementations for various operating systems (see the Wikipedia article for a list).
+If you have text files which change often and are sensitive to change, you could put them in some sort of source control. The drawback is that saving the file becomes a two step operation - you would need to implement a check in as well so that all versions of the file are stored.
+Note that this kind of "backup" will be stored inside the filesystem, this will use the same media (harddisk) you files use. So it will help you recover an old version of a file, but will not help in case of filesystem, media or system failure.
+The only way I can see of doing this is to use a file system that automatically keeps old versions of files when you change them. This is called a versioning file system.
+There are few that come close, but they all replicate after the change and there is always a delay involved (though with some apps the delay can be reduced to under a second).
+I was looking for the exact same thing for myself just last month and the executive summary is that such software requires a file system filter driver to be truly real-time. No existing software implements this.

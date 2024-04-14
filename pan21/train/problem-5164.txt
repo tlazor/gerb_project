@@ -1,0 +1,6 @@
+I don't think AVI is generally considered to have much of a future, so I doubt anyone will be adding support for that container format.
+It's possible to play MP4 and possibly MKV using the HTML <video> element, although you haven't explained your setup, so it's hard to say whether this will work for you.
+Firefox brower can handle and stream flv files with help of Adobe Flash Player,it is well known to us.But can we play MP4,AVI,MKV file on Firefox without downloading?
+on the sub-feature tab are listened supported video/audio formats and their support matrix across the browsers.
+As an example, you can simply drag an MP4 video into a Firefox tab, and it will play (assuming H.264 video and AAC audio, anyway). I don't have an MKV file handy at the moment, but that might work too (on Chrome, I've successfully played both MP4 and MKV by dragging the file into a tab). I'm not sure any browser vendor is officially supporting the MKV container, though; it may only work as a by-product of supporting WebM.
+Yes, it's possible to play video (mkv, mp4, ogg, etc) with the modern browser without a plugin. You can do that with using "video" tag.

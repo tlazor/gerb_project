@@ -1,0 +1,9 @@
+So I thought I could create objects for every tab , but I have to name them , I use something like this :
+Maybe you have a look at Backbone. A small library (about 7k in production) with lots of nice functionality for those kinds of tasks.
+is in fact a model with a key called "content" (e.g. {content:"blah!"}), which is used to render the template, 
+You could embed each tab in another view, such that you have one embracing view to control the whole tabbing system and nesting views, which represent each individual tab.
+Models have events to which you could subscribe. Most used is the "change" event. So you could bind a function to a general change by just declaring
+Every tab you need to display is a view to which belongs a template to determine its html as well as a model, which represents the content of the tab.
+otherwise I think is a really bad solution. Notice that I will call every object by his id clicking on the tabs.
+I have some tabs and each one contains input forms with different values. I need to switch beetween these tabs and see the different contents of each one. 
+You could write a custom show() method to show an individual tab and a method which coordinates which of the tabs is shown and which should be hidden.

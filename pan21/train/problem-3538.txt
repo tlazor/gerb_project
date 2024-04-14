@@ -1,0 +1,5 @@
+I threw it at one of our web servers, using the 64 bit oids, and I was surprised to discover that the server reports many more inbound octets than outbound. (I made sure I was querying the proper interface.)
+I need to track traffic in and out on our servers.  I have a nagios plugin that monitors either 32 or 64 bit counters for ifXXOctets.
+If you want to figure this out in more detail, try grabbing the counters from your switch as well as the server and see if the deltas move at the same rate (the absolute values will be different as they started counting at different times).
+This is not uncommon. Your server might be accepting large uploads from clients, or making a request to a service on a different machine that then receives a large set of data. You need to understand your application model to know if this is unusual or not.
+You can use things like Netflow if you want a more in-depth view of exactly what you are talking to, and which protocols it is using. ntop-ng is a neat tool for visualising flows, and supports more than just standard netflow.

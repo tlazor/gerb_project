@@ -1,0 +1,8 @@
+My setup is a significant edge-case, mind, and I have complete control of the environment. Your mileage will vary, especially in enterprise environments. 
+Basically said one has nothing to do with the other. Vlans are l2 segregation/separation while subnetting achieves the same for l3.
+For example when running ha cluster-protocols like hsrp/vrrp, securexl and such or something like PIM/igmp. 
+There are ip addresses for certain traffic which are shared for all ip traffic independent from a specific subnet.(multicast&limited broadcast addresses etc.). 
+This means I often end up with two IPs on these devices (for instance, my workstation on my desk is 10.200.8.13 and also has some publicly routable IP). This has the benefit of preventing hairpin routing via my (relatively slow) firewall/router when I am accessing something local because all the devices share the same Layer 2 domain. I also do not need to mess with VLAN config on my desktop and it even works over WiFi for my laptop!
+I do this on my home network: I have a RFC1918 /24 which is what gets DHCP'd out to my internal network and is used by default for anything on my home LAN - this the entirely normal, common scenario you're used to in home/SMB networks.
+I also have a public /29 on that VLAN (PA space from my ISP). I don't DHCP that, because... well, I only have 6 IPs to use. Instead, I statically allocate IP addresses on my servers/workstations/other devices I want accessible from the internet sans NAT. 
+So you can use it when needed but in general better try to avoid it. In bigger networks it can cause more headache than it is worth.

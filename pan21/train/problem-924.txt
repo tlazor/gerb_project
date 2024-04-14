@@ -1,0 +1,9 @@
+I accepted an answer that I like a lot, however, if anyone else is reading and want a simpler answer, here is mine.
+Try this: when you are on a remote shell, every time you are about to type the "return" key, stop for 5 seconds, with your finger hovering on the "return" key, and reread the command you are about to send.  Is it OK?  Are you sure?
+For shutdown there is molly-guard. You just need to install it and when you try to shutdown via ssh, it asks you to type the hostname.
+This might be silly but it is simple and it works. I do appreciate answers with better ways to do this however!
+For shutdown (reboot, halt and related): I have a copy with ask me if I'm really sure (and it does nothing anyway). I store such scripts in in /usr/local/sbin. On Debian this has priority other /sbin (it is the first directory of PATH).
+And you can test what files you're changing/deleting/... with the maybe program. That's pretty cool when testing something.
+System scripts use full path, so such hack prevent me to stopping a remote server instead of local machine (a bad behaviour from Awesome WM), but has not other indirect effect, and I can still use them as /sbin/shutdown when really needed.
+For deleting files there are solutions like libtrash, which emulates a trash bin via a LD_PRELOAD library.
+This seems harsh, but, on the other hand, we shouldn't be spending a lot of time on remote shells.  We should find all ways to automate our maintenance work so that we rarely, if ever, need to log in to a remote server at all.

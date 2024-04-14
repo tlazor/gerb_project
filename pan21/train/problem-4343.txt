@@ -1,0 +1,6 @@
+Until now, using an internal mail server, we simply had to whitelist the internal host IP to enable unauth mail relay. However, Outlook is now marking these email as spam/junk.
+A customer of mine recently moved its mail infrastructure on Office365 and Outlook on the web. All is working properly, but we have a problem with automatically sent log/alert email.
+As each email contain a predictable subject, with well defined words (which we use to fine filtering our logs), I thought to use incoming mail filter rules to mark as "clean" or "not spam". However, I can not find such an option (conversely, I found the "mark as spam" action).
+Basically, we have a number of servers/printers/firewalls/switches configured to send alert log using user@host.domain.com as sender (for example, root@test.example.com. Not all of these senders support SMTP auth and/or SSL (some are very old).
+https://support.office.com/en-us/article/How-to-set-up-a-multifunction-device-or-application-to-send-email-using-Office-365-69f58e99-c550-4274-ad18-c805d654b4c4
+You will need to configure your SPF record to include the public IP address of the on-premise SMTP relay server.

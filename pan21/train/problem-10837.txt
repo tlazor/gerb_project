@@ -1,0 +1,7 @@
+Select the application.  From the application window select zoom.  The window should be visible on the screen.  From the application window select zoom again to set the size of the window as previously defined. 
+You could also try Mercury Mover, a software that allows you to control window movements using the keyboard.
+I've encountered this specifically with Microsoft Word for Mac, and none of the other solutions worked. I was able to solve it by clicking Window and selecting "New Window".
+It may have been a different problem than the issues described by others, as when I click F3 Word wouldn't show up there, even though it was open in the dock.
+Check System Preferences » Displays if you have multiple displays connected (could be virtual) and whether a button Gather Windows is available. Click it.
+Open AppleScript Editor and insert the following script code, replacing Safari by your application's name:
+If none of this works, try plugging your laptop to a screen (or TV) using a HDMI cable. That resolved my issue.

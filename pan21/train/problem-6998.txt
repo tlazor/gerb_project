@@ -1,0 +1,9 @@
+It is currently rather pricy, but the hope is that other providers would start offering similar certificates and reduce prices.
+You can get a wildcard (*.domain.com) but you will also need *.www.domain.com as a alternative subject name entry to get this to work. The only companies that I know offer this are ssl.com and digicert. There may be others but I'm not sure. 
+If the Wildcard SSL certificate is issued on *.sub1.domain.com, in that case you can secure all second level subdomains which are listed under the sub1.domain.com
+This certificates says it will support yourdomain.com, *.yourdomain.com, *.*.yourdomain.com and so on.
+If you want to secure limited number of sub domains and second level domains, then you can choose multi domain SSL that can secure up to 100 domain names with a single certificate.
+What you can do is something like *.domain.com and then *.www.domain.com or *.mail.domain.com. I've never seen *.*.domain.com on a production site. 
+I was just doing some research on this as I have the same requirements to secure sub subdomains as well and came across a solution from DigiCert.
+Internet Explorer behaves in the way outlined by the RFC, where each level needs its own wildcarded certificate.  Firefox is happy with a single *.domain.com where * matches anything in front of domain.com, including other.levels.domain.com, but will also handle the *.*.domain.com types as well.
+When Wildcard SSL certificate is issued for *.domain.com, you can secure your unlimited number of sub domains over the main domain.

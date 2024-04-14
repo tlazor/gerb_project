@@ -1,0 +1,11 @@
+If $n_{on} = 1$, then we are looking for the probability that $km$ hashes fall in the same bucket, the first one can mark where the others should go. So we want to find the probability that $km - 1$ hashes fall in a specific bucket.
+I'm not exactly sure how to make this formula more amenable to computation. Naively implemented, it would result in exponential time execution time, though it's trivial, via memoization, to achieve linear time. It's then just a case of finding the most likely $m$. My instinct says that there will be a single peak so it may be possible to find it very quickly, but naively, you can definitely find the most probably m in $O(n^2)$.
+I have used this in practice, and as long as your filter does not exceed its capacity, the error is generally less than 0.1% for filters up to millions of bits.  As the filter exceeds its capacity, the error of course goes up.
+That's the really simple cases over. If $n_{on} = 2$ then we want to find the probability that $km$ hashes land in $2$ distinct buckets and at least $1$ falls in each. There are $n_{total}(n_{total} - 1)$ pairs of buckets and the probability that the hashes land in any specific $2$ is $(2/n_{total})^{km}$ so the probability that the hashes fall in up to $2$ buckets is:
+If you have inserted $i$ elements into a filter of size $n$ using $k$ hash functions, the probability that a certain bit is still 0 is 
+Let there be $k$ keys, $n_{on}$ bits on, $n_{total}$ bits in total and $m$ elements inserted. We'll first try to find a function $P(k, n_{on}, n_{total}, m)$ which is the probability of a state occurring. 
+Let X_i be a discrete random variable which is 1 if the bit at i'th position is 1 and 0 otherwise. Let X = X_1 + X_2 + .... + X_m. Then, E[X] = m * P.
+For each bit, the possibility of being zero after t insertions with K hash functions is: $(1-\frac{1}{N})^{Kt} \approx e^{-\frac{Kt}{N}}$. 
+$P(k, n_{on}, n_{total}, m) = {n_{total} \choose n_{on}}(n_{on}/n_{total})^{km} - \sum_{i=1}^{i<n_{on}} P(k, i, n_{total}, m)$
+We already know the probability that they'll fall in $1$ bucket so let's subtract that to give the probability that they'll fall in exactly $2$.
+If total number of set bits are S, then: E[X] = S which implies m * P = S. This could be solved for n. 

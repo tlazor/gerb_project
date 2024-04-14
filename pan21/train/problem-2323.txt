@@ -1,0 +1,7 @@
+There are a few extensions that do this, but not quite how you're explaining you want, if I'm not mistaken.
+I found NCollector Studio to be the best tool for making fully offline browsable copies of websites (or parts of them). Most sites renders perfectly, but some special sites using ajax look a little strange.
+You want a cache browser that'll save your browsing history in a manner a little differently than how it's currently used- specialized for browsing again later.
+Using File -> Work Offline option you should be able to view pages only if you've visited them before. 
+There's WinHTTTrack, which is a standalone offline browser, but it takes manually saving each site you want a mirror of- and is kindof involved. Not at all automatic.
+For me the simplest way is the good old CTRL + S which is the shortcut for saving the page. It's quick and reliable, just remember to select Web page, complete (not HTML only). But if you insist not using that then you can use an add-on such as ScrapBook or ReadItLater as suggested before.
+Selecting that option forces Firefox to read from the cache. However your cache should have enough space allocated. Check it from Tools -> Options -> Advanced -> Network -> Offline Storage and make sure it is at least 50 MB. Also make sure that you or any other application haven't cleared it because you can't reading anything from an empty cache.

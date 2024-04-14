@@ -1,0 +1,5 @@
+I do have folder options set to show me 'hidden and system' files; I've tried using WExp to tell me about large files on the disk of machine 1, sorting for anything from the last month or two, but haven't seen anything significant.
+I'm hoping someone can give me other things to check and/or a way to chase down where the disk space is being used up. 
+Some of it, I expect, is from the difference between bytes in the file (which SpaceCheck counts) and space occupied on the disk (which WinExplorer may be counting). But I don't think that would account for such a large difference on either machine, but especially machine 1. 
+I have two Win7 laptops, and I'm comparing disk usage using different programs and getting different answers.
+Below are the figures; the first comes from a right-click on the disk in Windows Explorer and selecting "Properties" and reading off the "bytes" figure (not the "G" figure that evidently uses the 1024 bytes-per-K type reckoning); the second comes from a program I wrote that goes recursively through the directories and counts up all the file sizes per each directory.

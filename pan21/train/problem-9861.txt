@@ -1,0 +1,8 @@
+It needs to be so: because an encrypted disk must not be too slow, thus the actual, speed-critic algorithm needs to be fast.
+And second: the sectors (blocks) of an encrypted hard disks need to be encrypted/decrypted from eachother independently. It were a big joke if we needed to decrypt a whole disk to find out what is in its last block. :-)
+Of course a lot more could be written from the actual things to do in case of a damaged disk, but it all depends on the actual used technology.
+In short: if you clone a such hard disk with bad blocks with a sector-level data rescue tool (for example: gddrescue is a good idea on the opensource world), the clone will be decodable (and then fixable) nearly always without any major problems.
+What makes this whole thing so complex, is the handling of the encryption/decryption key. This is where the RSA, the multihundred character long prime numbers, etc. are working.
+Hard disk encryption algorithms can be complex, but the actual block-level encryption is mostly a very simple, symmetric algorithm. DES, 3-DES, and its followers are all very-very simple algorithms, mostly they are permuting the location of the bits and then its values.
+On the handling of the key, it is better to use some opensource solution: of course it also can't be allowed, that you will be unable to decode your data only because the developer company simply doesn't support rescue mechanisms.
+This last, which makes your life so simple. The only thing you need to save, is the encoding/decoding key. If a bad block comes, this key will be enough to decode the whole hard disk.

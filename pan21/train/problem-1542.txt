@@ -1,0 +1,8 @@
+(https://chrome.google.com/webstore/detail/full-page-screen-capture/fdpohaocaechififmbbbbbknoalclacl)
+Yes, there is a workaround. What we'll do is manually zoom the document with CSS until the contents fit appropriately.
+I'd like to print a web document on a single page, but Chrome famously doesn't have this feature normally called fit to page or shrink to fit.
+Currently, I use ShareX to do the screenshot of the whole page. There are also Greenshot, Awesome Screenshot and Fireshot which worked for me.
+Whenever I want to print a whole webpage to a page of paper I do a screenshot of the page and use Windows to print the image.
+Now close DevTools (F12 again) and hit Ctrl+P to launch the print dialog. Check to see if the page is fitting well. If it isn't, retry with another zoom value until it's good!
+Hint: don't type the colon (:) else you'll inadvertently launch something else; instead, just hit TAB after typing zoom.
+Press F12 to launch Chrome DevTools. Make sure it's on the tab Elements and the <body> element is selected. Now move to the Styles tab (on the right) and, in element.style, insert the following: (just click after the opening brace {)

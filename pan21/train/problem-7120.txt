@@ -1,0 +1,6 @@
+Is there some good way to block the spam (ideally reject it at the SMTP level, without even looking at headers), while avoiding false positives: blocking non-spamming owners of custom mail domains who use Google for sending mail?
+(Of course, a user@gmail.com sender could also spam, but that doesn't seem to be a big problem at all; I can't remember the last time I saw a spam that directly identified a gmail account in any way. That makes me unconcerned about @gmail.com senders.)
+I find that almost all SMTP traffic from a mail*.google.com host which is not from a @gmail.com sender, however, is spam.  There is not a lot of it, but it's a nuisance.
+Absolutely. This is what SPF records are for. Read the Introduction to the Sender Policy Framework and implement SPF checking on your e-mail servers.
+These mails with custom domains don't seem to have any clue as to the Google identity of the originating user, so it is impossible to report the user to Google. You also obviously can't just blacklist Google servers because it's a very popular e-mail service with a large number of legitimate users.
+Some legitimate users use Google's mail service with custom mail domains. In other words, they do not use a user@gmail.com sending identity, but their own.

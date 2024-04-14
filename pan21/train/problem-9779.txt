@@ -1,0 +1,9 @@
+For example, an NPC wants to eat, and planned to drive across town, go shopping for ingredients, find a stove, bake a pizza, and eat it.
+Updating every frame means Planning runtime budget can fit in the AI-per-frame budget. What is yours? Then test your planner offline with problems from your games (as many tests as you can) and see whether this fits. If it doesn't, optimize your planner, as today, Game AI Planning is an established solution which can be called up to 50 times per frame (e.g. Shadow of Mordor).
+If your AI is currently executing an expensive and complex plan to achieve something, it could be that an event in the world suddenly opens up a much cheaper way to a goal.
+And if not, if I have multiple goals but pre-requisites for one goal are only met in the middle of a plan for another goal, when would be appropriate to re-evaluate?
+I've recently discovered GOAP and interested in implementing it for the AI in a game I'm developing. Something I'm stuck on at the moment, is determining when to plan. I've read through an MIT paper on it:
+But a few seconds later, a passer-by drops his uneaten hamburger. Not carrying out the original plan seems a lot smarter.
+GOAP implementations (F.E.A.R. games, Shadow of Mordor, Deus Ex, Tomb Raider, etc) generally update every frame.
+For instance, the Killzone series AI Update is every 200 ms (i.e. 5Hz); this series of games (Killzone 2 and Killzone 3) uses HTN Planning (i.e. not GOAP).
+However, I would also re-plan every few seconds, even if the goal did not change. This will make your AI react better to changes in the world.

@@ -1,0 +1,5 @@
+I am still curious to know if it is possible to handle this at the Firewall with application filtering.
+The basic way to approximate what I wanted was to split the application host into two separate sites 
+I have a system that involves several service applications and I would like all of these services to be bound to the same port. But one of these applications is the external entry point (name it [public]) and the other applications are supporting applications (let's name one [private] for discussion).  
+Can someone point me in the direction of documentation, examples, tutorials, etc that would accomplish this?  My research is turning up sparse results.
+I tried stacking 2 Inbound Rules, One that denied application [IIS:\com\private] and one that opened port 9713, but in a test from a separate machine, both applications were made available across the external interface. I tried fiddling with the order of the rules to see if the Allow Port rule was precluding the Deny Application rule but the result was the same. 

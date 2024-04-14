@@ -1,0 +1,8 @@
+I don't understand this line at all, and I think it might be buggy. Why compare an index into this list with the length of the other one?
+Also, this has the same problem of turning a linear method into a quadratic one by using searchNode inside a loop.
+If this were instead if (originalSize == 0) return; then the rest of the method could save one level of indentation.
+There are two big problems with that line. Firstly, list.get(i) on a linked list inside a loop. This turns a method which should take linear time into a method which takes quadratic time. Secondly, the cast: this would be unnecessary if the argument were properly typed (as CustomDoubleLinkedList<? extends E>).
+Was this really what the spec asked for? java.util.Collection.remove removes one instance (and returns a bool indicating whether it found one to remove or not).
+While I can't be sure what the interviewer meant by "academic", I think it's very probable that they expected to see every method implemented with the best possible asymptotic complexity.
+The reasoning in the comment assumes either that the class is somehow leaking its nodes (in which case you should fix that problem instead) or that the garbage collector is broken (which is highly unlikely). So this turns a method which should take constant time into a method which takes linear time for no good reason.
+Same problem. In fact, worse: it seems that you commented out the correct solution, which might make the interviewer think that you couldn't get it to work.

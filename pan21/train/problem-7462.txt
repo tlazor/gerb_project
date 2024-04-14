@@ -1,0 +1,6 @@
+We have two data stores each having vms. The second data store is now giving the insufficient disk erro. I have to put off some of the VMs in order to allow the critical vms for domain and email running. When I log onto the VMs, there is still available space however, on the storage configuration part, there much less space. The spaces are being used and we have to free the disk on the Vms although on the VMs there is space and then scan the data store to free space.
+Lastly, check your datastores for wasted space, old VM's that haven't been deleted properly, and ISO's are common culprits.
+If they are thin-provisioned, then its worth going through the VM's to look for any space you can reclaim.  old installers, log files etc.  Another tactic can be to reduce the page file size of any Windows VMs (you need to restart the VM to apply).
+Double-check that your VM's are thin-provisioned.  If not you can convert them, but you'll need to migrate them to the other datastore in order to complete the conversion.
+Make sure none of your VM's have snapshots running.  If so you'll need to delete/merge them.  However be aware that this can require more disk space to complete if the VM is powered on when snapshot is deleted.
+Check the VMTools of your VM's, depending on their config you may be able to shrink the VM's disk usage (though usually not by much).

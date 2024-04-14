@@ -1,0 +1,7 @@
+In the early 90's there was the concept of a "Maths Co-Processor" that was a plug-in chip for cheap 486 SX's and that kind of era. It was a dedicated chip for doing floating point maths if I remember correctly, and the cheap SX did not have this by default. The better DX did.
+There are some tasks / applications that do implement support for this. If you've got a specific task in mind you might benefit from doing some looking around. Examples that come to mind are:
+In the general case, no, clustering is generally only good for running applications designed to be run on a cluster. There are issues with dividing tasks across separate nodes (latency is a non-trivial factor) that simply aren't considered in most desktop applications.
+Plus, a netbook's processor is hopeless at almost everything except browsing the web and chatting on facebook. I doubt you would get any additional benefit out of it even if you could link/cluster it.
+... The closest thing would be using it as a separate machine for programs that are capable of splitting workloads such as rendering, however the improvement of using an Atom (guessing) would be marginal.
+Even if you use a multi processor motherboard, I have seen none that support anything less than a server class (or very high end) CPU - such as Xeon or Opteron.
+Both are very much limited to specific domains, but other examples probably exist if you wanted to do more research.

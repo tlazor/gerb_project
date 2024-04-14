@@ -1,0 +1,7 @@
+Again it might be worth writing a utility method something like this (I'm not sure of the type for pinState), where direction is either 1 (incrementing range) or -1 (decrementing range):
+As you seem to commonly write the same string to both Serial and MyBtooth, it's probably worth defining a function that simply does that and using it instead:
+Then you would have a function that converts this version into the format that the pins expect. That way you have an easy way to edit and construct the LED patterns.
+There may also be scope for doing a similar reduction in your large case statement.  Something like:
+There might be a cleaner way to represent the output going to the LEDs. Can you encode the letters into a 2d 8x8 grid like:
+I'm not sure if this will work because I don't know the interface between the output pins and the 8x8 LED array. Do the letters come pre-programmed into the 8x8 array or do you have one pin for each LED?
+It looks like you started off using Serial2, then defined MyBtooth to make it more explicit when you were talking to blue tooth vs serial.  There are some lingering references to Serial2 in the code that should be updated so that it is consistent throughout.

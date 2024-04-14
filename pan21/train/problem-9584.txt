@@ -1,0 +1,10 @@
+If you can not find jetty.sh just download last one http://dev.eclipse.org/svnroot/rt/org.eclipse.jetty/jetty/trunk/jetty-distribution/src/main/resources/bin/jetty.sh
+There should be a jetty.sh script into the bin directory. I don't know if it works under Debian, but it should be a good starting point.
+Also this means systemctl start command lines for simple services will report success even if the service's binary cannot be invoked successfully
+If you want service start after reboot do not forget add it to default startup level with update-rc.d
+In this project I'm trying to provide the best possible way to interface to systemd. The "simple" service type may not be the best in some situations because the service manager will consider the unit started immediately after the main service process has been forked off. (from systemd docs)
+If there are dependent services, they may start sending requests to jetty before it's ready to receive them.
+meaning that if for some reason jetty couldn't start because of its configuration, it would anyway report a healthy state to systemd.
+For CentOS 7 Linux I have downloaded the latest Jetty distribution and  created the file /etc/systemd/system/jetty.service:
+Additionally, in the provided example, I'm also trying to reproduce some useful functionality which is usually found in jetty.sh.
+What Alexander Farber suggest is basically correct and usable but I'd like to point to my little project https://github.com/cosenmarco/jetty-systemd-notifier which signals systemd about the life-cycle of Jetty.

@@ -1,0 +1,5 @@
+The solution here was to turn on IE's proxy - we're behind a MS firewall. Earlier this hasn't been a problem for applets, as Microsoft Firewall Client for ISA Server has handled the traffic.
+After many attempts, I managed to solve the problem by full removing the version 8 of Java and install Java 7u80.
+I just had what looks like the same problem, after upgrading to Java 7 Update 51 (32-bit), in IE10 on 64-bit Windows 8. With logging and tracing on, the last 10 lines of the log are essentially the same as yours, except in my case the .jnlp cache entry was out of date rather than missing. As Tim B spotted, it was trying to connect to http://java.com:443/ with proxy=DIRECT.
+I've had KB2876331 for over a month, so that's probably not related, but I did get a bunch of other MS updates the other day.
+This says to me that you are connecting using http (although on port 443) but trying to open an SSL connection. Try https instead of http? Try connecting to that site yourself with a browser and see what actual connection you get.

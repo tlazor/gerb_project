@@ -1,0 +1,6 @@
+The ruby(1) man page says that -c causes ruby to send the message "Syntax OK" to standard output if there are no errors. It appears from testing that syntax errors are reported to standard error. Therefore you could suppress the "Syntax OK" message by redirecting standard output to /dev/null and suppress the echoing of the command by using :silent, like this.
+I have this line in my .vimrc, which means "when I save a .rb file, run it through ruby -c" (the ruby interpreter's error checking).
+When I save that file, I always see output at the bottom of the screen, so I get used to it and start ignoring it. What I want is to only see output if there are errors.
+By the time Vim sees the exit status of the command, the command has already sent its output, if any, to the terminal, so you can't conditionally suppress the command's output by testing the exit status.
+I can see that when there are errors, after it says what they are, at the bottom, it says "shell returned 1."
+How can I modify this line so that it only shows a message if the shell returns 1? Is there a way to conditionally surpress output from a shell command run in vim?

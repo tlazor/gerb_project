@@ -1,0 +1,6 @@
+2) Do I need the public IP? (https://unix.stackexchange.com/questions/49730/ssh-to-a-remote-computer-having-only-the-public-ip)   
+I checked this link out, but I'm okay with port forwarding if it is safe. How to connect to raspberry pi outside of local network without port forwarding 
+I have a Raspberry Pi, and I can connect to it and remote acccess it while I’m on my local network just by doing ssh pi@10.10.xxx.xxx.  But now I want to be able to access it when I am on a completely different network, e.g. when I’m at home, or in a different state or something.     
+This is more of an exercise for configuring your router, not your Raspberry Pi.  But to keep it simple, here's what I do.
+1) a static ip address? (http://sizious.com/2015/08/28/setting-a-static-ip-on-raspberry-pi-on-raspbian-20150505/)  
+I know there’s something about an internal and external IP address.  I’m completely new to this, and I generally don’t have much networking knowledge.   I can connect to the raspberry pi using putty, etc., so I have that enabled via these instructions: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md   Obviously ssh pi@10.10.xxx.xxx just times out (and I didn't expect this to work anyway

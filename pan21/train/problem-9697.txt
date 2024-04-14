@@ -1,0 +1,8 @@
+To reverse back to normal output (e.g. on a MacBook), right-click on another output (e.g. the standard speaker or integrated output) and choose “Use this device for sound output” from the Action pop-up menu.
+Not without another A/D conversion, and some way to pass that down to the Ethernet level, and matching software on the other side.
+If you're trying to de-protect your DRM-ed AAC files from iTunes, it can be done, but no one here will tell you how.
+If you're not tied to any particular audio application at the Mac end, I suggest using VLC Media Player. It could function as the Macintosh's music player and playlist repository, the Mac's digital audio streamer, and the streaming audio receiver/player for the Ubuntu system powering the good speakers.
+With XBMC installed on a Linux machine and without any other software on my Mac, I can stream anything I want (I run it under Debian so it should work also under Ubuntu). 
+There are advantages to using VLC besides avoiding the need to combine the functions of several programs. Because VLC offers pre-compiled binaries for operating systems from BeOS to Zaurus, as well as source code for (nearly) everything else, you could easily adapt to future changes in OS or hardware setups without having to worry about compatibility. Moreover, VLC can play every format you're likely to have on hand -- or likely to have ever heard of, for that matter.
+Can you revise your question to explain what you're actually trying to do?  We can be more helpful then.
+If you're looking to stream your audio files, there's a billion methods. Sounds like, however, you have a specific source of audio you want piped out. Could you elaborate on that?

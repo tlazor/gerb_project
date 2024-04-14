@@ -1,0 +1,7 @@
+Asteroids was a vector based game, so shapes were most likely described as 'turn left 30 degrees and move 10 forward'. As in the Logo programming language. So you draw your shape as in the sketch, convert it to a series of vector commands, set a scale, position and rotation and start the drawlist.
+I can't say I have any inside information, but given the finite number of shapes (note how even in your screenshot two of the large-asteroid shapes are repeated), I always assumed it was hard-coded. You could certainly reproduce it that way if you were going to build it today.
+My algorithm was: For each of 8 equally spaced angles around a circle, choose a random distance and draw a point at that angle and distance from the center connected to the previous point.
+Oh yeah, I assume they're hard-coded, as, like others noted, the ones in the game match the ones on the sketches. 
+It appears that the four asteroid types you have posted drawings of do match the asteroids in your screen shot (if you look at the red lines of the drawings as the correct lines).
+It also appears that the lower-left "medium-sized" asteroid is an example of asteroid drawing #2, and that drawing also appears as the two left-most large asteroids.
+So it looks as if there are four asteroid images which can appear at 3 (?) scalings.  Nice sleuthing.

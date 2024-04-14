@@ -1,0 +1,5 @@
+Using the converter was the most consistent approach to this solution.  Manually copying files in ESX-i was easy, but takes the same amount of time as using the converter, and does not always let you add the .vmx file to the inventory (it can be grayed out).  Keep this information list up; it's old, but it helped me :-)
+Now you are at the server's command prompt; if you want to enable SSH access, edit /etc/inetd.conf and remove che comment symbol ("#") from the SSH line.
+You need console (or SSH) access to the ESXi server, and then you can copy your VMs around using standard UNIX commands (cp).
+From memory the vCentre Server ( vmware.com/products/vi/vc/features.html )  will let you convert a machine into a template and then deploy multiple copies of that template into virtual machines. I believe there is a 60 day trial available ( vmware.com/tryvmware/index.php?p=vsphere&lp=1 ).
+Unless I'm sorely mistaken, you should be able to run the Virtual Infrastructure Client, connect to your ESXi server, right click on any stopped virtual machine and choose "Clone" which will duplicate the existing VM into another VM. 

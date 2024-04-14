@@ -1,0 +1,6 @@
+I'm just setting up SPF records on our DNS server and have run into the problem that there are too many DNS lookups occurring.
+Given that this is far too many - am I better off just not listing any SPF records at all, rather than providing one which is too long?
+My SPF records include the mail server (outlook), Mailchimp (for email campaigns), Zendesk (our helpdesk system), sendgrid (for mailing from our web services), and Xero (our accounting software).
+Is there any way to get around this 10-lookups-only limit, or something that i can use that supercedes SPF?
+For example, Dmarcly (https://dmarcly.com) has a feature called Safe SPF, which automates SPF flattening for you. It keeps checking the underlying IP addresses, and if there is any IP change, Dmarcly picks it up and updates the flattened record. This way, there is no more outdated IP address, and of course, one will never run into the too-many-dns-lookups issue. In addition, you don't have to do anything manually!
+Manually "flattening" SPF records might work at first, but if the hard-coded IP addresses change (which is reasonable enough), some automated SPF record flattening services go a long way.

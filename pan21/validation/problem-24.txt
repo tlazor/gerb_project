@@ -1,0 +1,6 @@
+Another issue is the choice of the pivot. Choosing the first element will give quadratic performance for sorted inputs. One option is to shuffle the input array before sorting; another is to choose the pivot at random (these are not the only options).
+One advantage of QuickSort is that it can be done in-place, which is not happening here. If you're OK with allocating more memory, why not use Merge sort with its worst-case \$O(n \log n)\$ time guarantee?
+When you know there is going to be one or zero matching items, you should use SingleOrDefault(), not FirstOrDefault(). That way, if you have a bug and there is more than one item, you're going to get an exception, instead of incorrect data.
+Array already implements IEnumerable<T>, you don't need to copy it to a List for this. And if you did want to create a single-element list, you don't need to create an array for that: new List<T> { list.First() }.
+I know it comes out a little longer-looking, but extracting a few variables made it clearer (at least to me) as to what was going on:
+Robert Sedgewick* has a great page on QuickSort which touches on a lot of implementation issues. He also has a couple of implementations in Java, which translate easily to C#.

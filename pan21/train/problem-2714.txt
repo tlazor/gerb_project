@@ -1,0 +1,19 @@
+I have been trying the sp_blizt procs in a dev environment. A key area I'm trying to focus on is understanding Waits.
+For eg. When I see asyn_network_io, how can I show which client app is causing this and what is it running at the time to cause this?
+MS Access applications tend to surface this wait event.  It's been a while since I've played with Access, but if I remember correctly some of their controls that paginate data initiate a query, but don't consume all the results immediately.  Instead it will consume the results as you page through.
+I'm starting to take on more of a DBA role and trying to get tooled up with scripts and knowledge to help with this.
+Using sp_whoisactive gives you a current point in time of who is actively running a query.  Tools like sentryone and spotlight collect wait stats historically for queries.  We combined the two approaches into one.  We collect query level wait stats historically, but sample session activity (similar to sp_whoisactive) and store it historically so you can see the sessions tied to the query that experienced async_network_io_wait and see all the details (i.e. program name, user, etc) of the sessions involved on a second by second basis. We have a completely free version of SQLGrease you can use to troubleshoot your problem without being spammed or marketed to. 
+Queries returning really large datasets can result in this showing up - especially on slower networks.
+Network latency, errors (i.e. retransmits) will cause this to surface.  If you query data over a VPN this is another common source of this wait.
+Yes, you can use the one at Brent site i think called sp_bltzwho or sp_whoisactive written by Adam Mechanic and get more info on host name plus other related data on current running queries causing those wait types or queries waiting on
+My question is when you see a list of Waits how do you relate them back to a proc/query that is causing them? 
+A client that is 100% cpu constrained or experiencing some other performance degradation can cause this to surface on the database.  Be sure to look at if your client calling SQL is having issues - problem might not be in SQL Server, but on the client.
+If you're already using one of those and having a hard time, you should schedule a call with a vendor representative to walk you through the product.
+You also can't use most scripts to figure out what happened later. You have to catch things while they're happening. Some easy ways to do that (for free):
+Waits is good point to start troubleshooting but that does not mean you have performance problems as the data being gathered matters since the more granular that wait stats data is i mean aggregate much better
+Just a few notes on async_network_io wait.  There are several scenarios that I see these commonly pop up:
+If you're on SQL Server 2017 or higher, and you have Query Store enabled, it will track aggregated waits stats.
+I hate to use this to shill our wares, but I think it deserves mention since you are discussing two different approaches above and we tie the two into one tool.  
+In addition to above there is a wealthy of information by Paul at https://www.sqlskills.com/blogs/paul/wait-statistics-or-please-tell-me-where-it-hurts/ which should get you going to see top waits
+Since you are using sp_blitz , info at Brent's site itself is very helpful and should get you going https://www.brentozar.com/sql/wait-stats/
+You can't, generally speaking. You mention in a comment on another answer that your monitoring tool shows you a jump in wait stats. If your monitoring tool can't correlate resource spikes to what was running at the time, you have a bad monitoring tool.

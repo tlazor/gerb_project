@@ -1,0 +1,10 @@
+The native issue w/ this method is the fact that the password will either a) need to be entered manually (if user isn't an admin user), or b) the password will be exposed on the runas command.  
+The same command syntax above still applies to passing command line parameters with spaces in them as well:
+As you can see from the above quote, you simply specify the appropriate user from the list there, and boom, u run as that user.
+The %1, %2, %3 syntax refers to the actual parameters passed to the program, this can include file names, programs, etc, as long as the information drops into the window as a valid file name or text entry.
+To answer your second question; when passing information to the script, you have to use the proper command argument syntax:
+However, if you are dragging/dropping, you should get into the habit of actually quoting the %3 or whatever parameter yourself (always try first, some systems do pass with the quotes already embedded, some do not, so best to test first.
+The runas command is what provides this ability for you.  It will allow you to run any program AS someone else:
+I'm writing my first batch file and have two basic questions. I'm using Windows7 and wondering if there is an easy way to run something as an administrator? At the moment I just type cmd into the search bar and hit ctrl + shift + enter. I can right-click on the file and choose to run it as admin, but I was wondering if I could make this part of my batchfile. The second piece of my question is how to pass arguments to a program that I am opening. At the moment I am using the following code:
+My batch file code gives an error on a new terminal, but it disappears before I can read it, and I don't know what is going wrong.
+I have run this file by pasting the following into the command line, after cd-ing to the following dir: C:\Program Files (x86)\PostgreSQL\9.1\bin

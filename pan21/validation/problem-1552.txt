@@ -1,0 +1,6 @@
+Also check you are connected properly, and Windows isn't automatically applying any proxies for you. If it is, then try and apply these to the Linux install too.
+On Xubuntu I have set the default browser to Chrome and Firefox. Neither will ever access the terms and conditions page.
+You need to access the captive portal. Try to navigate to captive.apple.com (A generic captive portal used in Apple devices which usually redirects - just something to try first), something like Google or Yahoo, and if not, then the Utah trains website . This should ask it to go to the captive portal and then to the webpage you need.
+Linux connects to the network, but never gets a notification for additional authentication. I am connected, but when I open my browser I am unable to connect to the internet because the terms and conditions window never opens. 
+I have a computer dual booting Windows 10 and Xubuntu 16.04. On Windows I can connect to the WiFi and I get a notification saying that additional authentication is needed. When I click the notification a new window opens in my default browser asking me to agree to terms and conditions. I do so and I'm able to access the wifi.
+I ride the train every weekday morning, and I like to work done on the train. I require the internet, and luckily the train (Utah Transit Authority Frontrunner) provides free WiFi for passengers.

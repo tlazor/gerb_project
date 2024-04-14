@@ -1,0 +1,5 @@
+You can also create your macro and save it as an add-in (PPAM) file. Once you load that, it will continue to load when PPT starts and will be available to all open presentations, but you need to also create a user interface ... ribbon buttons, for example .. to trigger the macro.  That ups the complexity of the game.
+You can make a macro available to all open presentations by storing it in a PPTM that you keep open whenever you're working with PowerPoint, but it would take as many keystrokes to invoke the macro as it would to change the font normally, so that's kind of a non-starter.
+You might need to add more code to set the font when a shape rather than text is selected, and to do nothing if there are no open presentations and so forth.
+[Disclaimer: Not my product, I have no financial interest in it whatever, but the author is an acquaintance of mine. Honest, good guy.]
+PowerPoint doesn't let us assign keystrokes to macros the ways some of the other Office programs do, unfortunately. If you use Windows PPT, there's a third-party add-in that enables you to do this: http://officeoneonline.com/ppsctmgr/ppsctmgr.html

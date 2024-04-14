@@ -1,0 +1,9 @@
+Largely, 3D is going to introduce more difficulties than simplifications. But I just feel like adding a few things that might actually be easier in a 3D game:
+Allow me to offer one interesting consideration for mobile devices where 2D performance can actually lag behind low poly 3d models:
+It's much easier to build a 2D game ground up. But obviously you can (and should consider) using sprite, sound, portability libraries as well. No point in reinventing the wheel except for education purposes. 
+The good news: 99% of the time, you don't really need it. Think of any 3D game you can. Take the camera, fix it on the ceiling looking down so that you're now looking at a 2D plane. Doom becomes Gauntlet. Civ IV becomes Civ I. Metal Gear Solid becomes the original Metal Gear. None of these games are "bad" just because they're 2D; they are perfectly playable and generally have much of the same gameplay.
+Lots harder. If you're not comfortable making a 2D game, you will REALLY not like what it takes to make a 3D game.
+2) Texture memory requirements for a fully fleshed out 2D game are actually much higher if you're using frame based animation. Each and every single character frame blows out your total texture budget in a linear way. This means that if you use simple flipbook animation you actually have a more constricted animation budget than you would with skeleton based 3D animation.
+The other thing to consider ... with a 3D game you probably want to consider using a pre-existing engine and concentrate on making a game not an engine.  It can go someway to reducing the time and difficulty taken in a 3D game (as excellently identified by munificent).
+1) Fill rate can cause quite a bit of performance trouble when dealing with many sprites on screen at a given time.
+So, considering this, and the ease of access of Unity and UDK which both extract much of the complexity of game development that existed years ago for 3D, the answer is not so straight forward.

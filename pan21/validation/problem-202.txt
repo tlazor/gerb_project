@@ -1,0 +1,7 @@
+VGA is simply not included in a lot of recent devices. My TV does have a VGA input, but I use HDMI from the receiver for sound output reasons.
+It's largely an issue of what your input and output devices support. For example, I have a dual-DVI video card, and an HDMI HDTV (via receiver), and DVI-capable monitor. So I have a DVI->HDMI cable for the TV and DVI to the monitor.
+HDMI, as it can pass audio, lets you consolidate cable clutter if your PC has HDMI-capable sound output. Laptops with HDMI out generally support this, for example.
+Because of the noise tolerance in a digital signal, you can buy cheap cable and it will work just as well as the expensive stuff (don't listen to the "Pros" that try and sell you the expensive stuff). You can also run the signal over a long distance without introducing a lot of noise. 
+On a digital line, the receiver simply needs to determine if the signal is a 1 or a 0 (high voltage or low voltage). 
+On an analog line, to get a perfect picture the voltage at the receiver would need to match the voltage at the sender. Noise can get in there and distort the signal.
+Also, remember that many DVI ports also carry an analogue copy of the screen image in some of the extra pins. This is why DVI->VGA adaptors work - they simply carry these pins (that a DVI device would ignore) to a VGA style connector.

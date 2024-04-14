@@ -1,0 +1,7 @@
+You could also try mounting it using autofs (see here or here for a technical white paper from Apple). 
+This points me to think that there might be issues with your network connection to the NFS server. Perhaps routers, hubs, or switches, the in-between devices may be dropping your packets (had this issue with both FTP and SVN on different occasions with different hardware). If you can, I would try setting a static IP for both server and iMac, and use one good, tested ethernet cable to connect them directly together. See how it performs then.
+It is possible that spotlight (OS X index/search service) is trying to index the new mount points, which means trying to go through the whole directory structure and every single files in it. You can disable indexing on those mount point doing following
+If the problem still persists, perhaps there is 3rd party NFS mounting software you can use on the Mac, that would pin-point if it is Apples NFS implementation causing issues.
+It's an IO bottleneck, not a CPU bottleneck. This is why you are not seeing high percentage usage with a task manager.
+Perhaps try installing Linux in a virtual machine on the Mac and see if you can connect to the NFS on that. That would rule out any sort of hardware issues on the iMac side.
+That way, the share is only mounted when accessed and automatically unmounted when not in use. If you make sure to add the soft option so the system does not hang waiting for the share to respond, you might have solved your problem.

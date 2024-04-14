@@ -1,0 +1,7 @@
+I have a battery that is a bit messed up and probably needs to be replaced.  In the meantime, I would to use it without it automatically going into sleep mode.  Sometimes this happens after about 20 minutes, without any warnings.  It doesn't seem to matter at what level I put the alarms.  After about 5 minutes of being plugged in again, the battery seems fully charged.
+This is with Windows 7.  When I using XP, I could turn off the battery critical event handler all together, and just use the laptop until the power literally ran out. Yes, it's like a crash and requires a reboot, but if you are expecting it, not the bad at all actually, especially to maximize the usuge of your PC when on battery.
+When you use powercfg -setdcvalueindex SCHEME_CURRENT SUB_BATTERY BATACTIONCRIT 0 you are telling it to do nothing when your computer is not plugged in.
+I would recommend also doing this for when the computer is plugged in, because, by default it will want to hibernate when it sees that critical battery level.
+I also want to point out that these commands will only change it for the current power scheme, (hence SCHEME_CURRENT). Something to keep in mind if you decide you might want to change your "power plan" later.
+I would have commented on tlwhitec's great answer, but I cannot since I am new. I have a little bit to add to that.
+P.S.  My laptop also has an overheating problem, and the issues may be related, however, I don't know which came first.  I may make another post on the overheating.  But basics of preventing overheating have been applied.

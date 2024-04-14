@@ -1,0 +1,6 @@
+I expected that server_name specifies the server name to match for the HOST value in the HTTP request. 
+I have two virtual hosts on my nginx server with their respective domain name. One is http only because it’s a static site (siteA), the other is https only (siteB). For siteB I have a permanent redirection from the http access to the https access. 
+Your case is one, where a Host header is sent, that matches none of the server_name directives in the configuration.
+The problem is that when I access https://siteA.example.com I get back https://siteB.example.com. How may I avoid this ? 
+If you have different IP addresses for the hosts, you can just chose to filter the listen directive, but if you share IPs the canonical way is to create a dedicated default_server item with a rewrite rule that will always return a "Host not found" page and a HTTP error, often 404.
+Nginx (as well as Apache) will resolve this by answering the request in the context of the default_server item which if not given is chosen from the first virtual host read.

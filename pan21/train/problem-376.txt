@@ -1,0 +1,8 @@
+I figured out the solution. I'm not 100% sure if this should be a separate answer (this is a really isolated problem/answer scenario), but someone can correct me on that.
+So, I got another idea. I know how to add entries to the Windows bootloader. I was thinking that using a bootloader entry, I could boot from an ISO file on the hard drive.
+My computer lacks a DVD drive, I can't make it boot from USB, and I don't have another PC to PXE boot. 
+I can't even take the hard drive out of my laptop, because of how it is designed. I'd have to remove about 20 screws, and rip off the keyboard with enough force to remove it, but not enough to bend it or destroy wires. (basically, it's nearly impossible to disassemble without damaging it) 
+I want to install Linux on my laptop (UEFI, Windows 10). This is proving quite difficult. I've seen similar questions, but those are for Windows 7 and below.
+The real problem was that I used an SD card to USB adapter, but the SD card was really bad. (randomly corrupts itself) Everyone knows that SD cards have a really bad lifespan, so that was the problem. I did this again with a less worn out card, and I did successfully boot the computer from it. 
+Just a side note, I have heard of Unetbootin, and EasyBCD, but those appear to not work with UEFI and Windows 10. 
+Anyway, the problem had nothing to do with software. Secure boot was off, I used Rufus properly, and I made empty space.

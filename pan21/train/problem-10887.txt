@@ -1,0 +1,9 @@
+But as far as I can see, Xdmx doesn't require the two X servers be on different machines.  Just run a normal X server on display :0, Xvnc on display :1, and then use Xdmx on display :2 to multiplex them together.
+It should be possible to script this so you don't have to start everything manually, but you'll probably have to write the script yourself, because I've never heard of anybody else trying this.
+By "extend" I mean one that would, say, for example, add another X display with a given resolution and position and serve that over VNC. I have yet to find any programs that will do this.
+I think your best bet is Xdmx.  Note that it is possible to run an X server on a Windows machine.  Cygwin has an X server, and there are others.
+However, I cannot use Xdmx (as suggested by all the threads I found), as I would like it not to require me to manually start the x server and viewer, and have all the machines must be running a *nix OS, which won't work for me, as the secondary machine is running windows.
+What I need is a program that will extend a X-windows display over a network, similar to nvidia's TwinView (which I am already using on the main machine for its 2 current monitors). 
+Sorry if this has been asked before, but I have extensively searched for an answer and found none that meet my requirements.
+I would also like it to hopefully use VNC to share the desktop, as I would be connecting to it from a windows machine over ethernet.
+Also, it needs to be able to achieve good speeds, which considering the machines will be connected via gbit ethernet, shouldn't be a problem.

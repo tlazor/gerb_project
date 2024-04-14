@@ -1,0 +1,6 @@
+Some users know that Microsoft needed to change the Windows internals to improve Windows and that means to break compatibility with old Windows apps.
+Virtual PC bundling is a big deal, but I think XP Mode will be bigger. Most people don't care about the fact that they're running in a VM, they just want their old programs to work.
+2) Yes, that's the point of having the virtual OS running alongside the main OS - the user won't be able to tell the difference.
+My problem with two instances of windows is security. Nowadays I have to secure both the host and the virtual instances and I don't think this will change with windows 7. The problem is that for a common user, it might be hard to understand the need to keep two antivirus running.
+1) Yes, Microsoft has always provided backwards compatibility, but it comes at a massive cost, shipping a virtualised OS significantly reduces this cost.
+But most users just used Windows Vista and were shocked that their app was not working properly so it's a good news that it'll works as Windows XP.

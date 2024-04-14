@@ -1,0 +1,6 @@
+I use SVN 1.4.3 and the merge works fine. The versions in my repositories are comparable to yours. While it is a possibility that this could be a version-related limitation (resolved by an upgrade) it might still be a good idea to look at how you are branching/merging. Is it possible to give some more details? Are you saying that the exact same merge (for eg., between the same revisions/branches) but on another server takes much less time. Incidentally how long does the merge report take exactly? 
+Large Merges are painfully slow in the best of circumstances with SVN. To fix this, you switch to git. ;)
+Are you sure it's the server? I've noticed that my merges are sometimes slow, but it's the client that's IO bound rather than the server.
+It may be nice to know how the merge is being performed just to rule out any other kind of issues before taking up upgrades.
+In Subversion 1.6 lots of changes have been made to speed up merges, and this will probably continue to be improved in newer versions. The best thing to do, is to update your client(s).
+In Subversion 1.5, merge tracking was added, to make it easier to apply merges, and see what needs to be/can be merged. This always takes more time ofcourse, because there's more processing going on.

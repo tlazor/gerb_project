@@ -1,0 +1,6 @@
+Hopefully, when you check the table (after some time), you should be able to see the database size and at what point it started to grow with the relevant message indicating the problem? 
+I have a database that is set to Simple recovery mode. There is 99% free space in the log file and I can manually truncate the log file right down to 500 MB.
+Why isn't the log file naturally shrinking? Also, how can I find what SQL queries are causing the log file to grow to such a size?
+You must check log_reuse_wait during the import process. Most likely you have a some long running transaction started at the beginning of the import that is pinning the log for the entire import duration. Simple Recovery model log is automatically truncated, not shrunk. See How to Shrink the SQL Server log.
+I suspect it's the 'size of your transaction / import process' -  "...the log cannot truncate on checkpoint for any of the changes that are still in open transactions or that have started since that transaction started." Is there scope to break this import process into smaller chunks?
+If I check log_resuse_wait in sys.databases it returns 0 which would indicate nothing is blocking a shrink operation.

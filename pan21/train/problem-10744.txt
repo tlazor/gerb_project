@@ -1,0 +1,7 @@
+The links posted on the documentation are redirects that (somehow?) cause problems with the download. Did what the thread said and then the rest of the EPEL docs worked out.
+Right, because those features aren't available on CentOS 5.  From the perspective of yum you've asked it for magic unicorns.  It can't find any.
+What do the lines rpmlib(FileDigests) <= 4.6.0-1 mean? is rpmlib out of date or FileDigests out of date? Whats with the syntax of something followed by parentheses?
+On this page https://bugzilla.redhat.com/show_bug.cgi?id=665073, they say my rpm is out of date but then say I should request an rpm file that works with my version of rpm (which is 4.4.2.3) but I don't want to do that. How do I make my system compatible with this rpm file?
+This suggests you're trying to install the epel-release rpm on a system for which it was not designed.  In fact, in your question, you state you're installing this on CentOS 5, while the package you're attempting to install is designed for CentOS 6 (or RHEL 6).  For CentOS 5, you want epel-release-5-4.noarch.rpm.  You might want to read the EPEL documentation before you proceed, which would have answered this question as well as others you might have.
+Im trying to install an rpm file on CentOS 5 and Im not sure how to resolve this issues it brings up:
+Install the EPEL signing key.  If you read the EPEL documentation -- it's amazing what you'll find there -- you'll get a link to https://fedoraproject.org/keys, which includes instructions on installing the public keys used by the Fedora project.

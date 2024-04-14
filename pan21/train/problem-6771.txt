@@ -1,0 +1,11 @@
+Use Ultimate Boot CD to wipe the drives and reset the BIOS. That's all you can do from a software standpoint. The reset is to take it apart physically.
+(Ohhhh, btw, should the OS you actively have on your drive be unix-based, you can actually use rm rf with root privilages on the terminal to make the OS wipe the whole drive :) )
+From there, you can enter the diskpart command, then select disk 0 to select the first hard disk (use list disk to find the correct disk number). Now enter clean all to completely erase the disk (overwrite with zeros).
+The reason i suggest UBCD is because it has a secure wipe which will prevent the data on the drives from being recovered whereas windows format, you can still recover the data is you so choose at a later date.
+If you want to "reset" a computer as near "pre-assembly specs" as possible, you need to wipe the drives, reset the BIOS and disassemble the individual parts.
+You mentioned that you have the Windows 10 installation media on a USB drive. If you press Shift+F10 in the Windows Setup program, it will open a Command Prompt.
+Use a bootable media (USB, cd, dvd, even a network boot would suffice) to live boot the computer with an OS of your choice. 
+Wiping the drives, so that they are completely empty or filled with random bits can be achieved with a bootable (USB/CD-ROM) system like DBAN: https://dban.org/ (instructions to create media, etc can be found under Help / Installation Questions).
+Some BIOSes offer a disk wipe option (mostly laptops, though), so it might be worth checking that out too.
+If your computer(s) are already disassembled, you need to connect the drives to another computer (via USB or internally via SATA) and do the wiping there.
+Once in the OS of your choice, use disk utilities or the terminal to completely erase any drive connected to the system.

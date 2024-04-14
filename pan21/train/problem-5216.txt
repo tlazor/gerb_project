@@ -1,0 +1,7 @@
+What is the best, most secure way of running a program as a root user of course without entering a password if I run it via sudo?
+safest option would be to find out what group openvpn is owned by and add a non privileged user with access to it - the recommended way is to create an openvpn user, and give it privileges to use openvpn using sudo.
+I have to run it under root user because the whole VPN config is under /etc/openvpn. For this directory I need root privileges. On the same machine I have Glassfish application server and it will call the mentioned Java program. Glassfish is run under non-root user.
+I have a java program that I use to automate the process of creating VPN settings for clients. The program calls couple of bash scripts, create and copies files around.
+This would still require a password for the COMMAND, since (ALL) ALL is specified after NOPASSWD line.
+Adding the user you run this program under to the group (probably with just read acces) to give it access to openvpn, and giving it the necessary sudo privileges (to run openvpn - identical settings to what the openvpn user uses) should do the trick safely.
+If we would put username ALL=(ALL) NOPASSWD: COMMAND before group definitions then sudo -l would yield:

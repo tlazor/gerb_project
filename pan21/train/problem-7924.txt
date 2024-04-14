@@ -1,0 +1,5 @@
+Registered servers also allows you to export the file, and share that listing with colleagues - so they don't have to type the list in.
+I have written SSMSBoost add-in for SSMS and have noticed that feature you have requested is desired by many developers. So I have added to last release "Sessions" functionality. You can define which documents should be opened and with which connections. I hope it is what you was looking for.
+Using SSMS, register the servers you're interested in and group them in a folder. Then you can connect to them all at once like this:
+Nick's recommendation about registered servers is spot on.... and if you click New Query on a particular group, you can run a query across that group. It's great for admin queries like checking each database is recently backed up etc.
+And when you are ready and need to, the next step is possibly a Central Management Server (CMS). It's a "special" SQL Server where all your servers can be registered, and this list can be used by all your DBAs and developers. A CMS can help with Policy Based Management as well.

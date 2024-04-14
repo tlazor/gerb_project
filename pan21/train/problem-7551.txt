@@ -1,0 +1,5 @@
+If the URL doesn't resolve correctly then it could be looking externally. Get the Autodiscover URL corrected first, then test again. Do an Outlook Autodiscover test to ensure the correct information is being returned to the client. 
+Not all of the URLs are visible within EMC, some have to be corrected by EMS changes. http://semb.ee/hostnames2013 (written for Exchange 2013, identical on Exchange 2016). You need to make the changes on all Exchange servers. 
+When outlook is opened, the cert errors are thrown and I'm advised that name does not match that of the certificate.
+I've got a solution whereby the outlook client is throwing 3 certificate errors each time it is opened.
+I have tried amending the InternalURI to 'https://mail.mydomain.com/blahblah' for all the components in the virtual directories and have applied an entry in the DNS to ensure local machines are routed to the internal IP and now out through the internet, however no matter what I do, the cannot get the requesting host to stop being exch.domain.local and instead be mail.mydomain.com.

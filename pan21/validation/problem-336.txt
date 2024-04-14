@@ -1,0 +1,9 @@
+Please see my docker image here with instructions on how to use it, this will show you how to configure two siteshttps://hub.docker.com/r/vect0r/httpd-proxy/
+As jihun said you will have to make sure you have your vhost configuration set. My example uses port 80 to display a test site example.com and 81 to display test site example2.com. Also important to note that you will need to specify your content and expose required ports in your Dockerfile, like such;
+Hope this helps explain the process a little be more. Please feel free to ask me any further questions on this, happy to help.
+It is possible. You may use apache (or better yet, haproxy, nginx or varnish, that may be more efficient than apache for just that redirection task) in the main server, to redirect to the apache ports of each container.
+But, depending on the sites you run there (and their apache configurations), it may require far more memory than using a single central apache with virtualhosts, specially if you have modules (i.e. php) that require a lot of RAM.
+I thought about installing only Apache on the server, that would redirect request to the dedicated Docker instance based on the server name, but then I would have to install Apache (again !) andMySQL on any Docker instances.
+From what I understand, you can expose Docker instance via their ports, so if you run two docker instance on the same server, you'll have to expose two different ports.
+I manage servers where users have their own websites on it that can be accessed by FTP (like an hosting company) and instead of working on isolating LAMP stack processes, I was wondering if it was possible to implement Docker and use an images per website.
+I know this has already been answered however I wanted to take it one step further and show you an example of how this could be done, to provide a more complete answer.

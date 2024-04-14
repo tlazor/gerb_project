@@ -1,0 +1,6 @@
+If it does and you are sure your file server isn't handing out a gateway through DHCP, then type ipconfig /release then ipconfig /renew at the command prompt.  This will force your computer to retrieve new settings from the DHCP.
+Lastly, look at your routing table.  You can do that by opening a command prompt and typing netstat -r.
+On the output, you should see an IP4 routing table.  Look at the network destination 0.0.0.0 and mask 0.0.0.0.  The IP address under interface should match the IP address of your wireless connection.  If it isn't then double check the wired lan connection doesn't have a gateway attached to it.
+Go to the Menu bar and click Advanced and Advanced settings.  Make sure your wireless connection i at the top of the list of Adapters and Bindings.
+Make sure your wired LAN connection doesn't have a default gateway on its IP settings. If your local file server is doing DHCP resolution, then you need to edit the options to not include a gateway.
+You can tell by going to the command prompt and typing ipconfig /all. Or look under the Network Adapter connections, then clicking Properties then Details.

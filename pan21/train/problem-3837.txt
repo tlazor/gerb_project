@@ -1,0 +1,10 @@
+You may want to set up your own router as a VPN gateway, so that you know that the only way out is over the active VPN.
+As a consequence, don't send or receive important unencrypted data across the internet. For important websites, use https. For sending and receiving email, use the SSL or STARTTLS options in your email client.
+If you also want to hide the DNS requests, and thus the names of the sites you visit, you can also use a VPN to somewhere else. Unless your VPN server is exactly the destination you want to reach, the information will be visible elsewhere, between the VPN server and the final destination.
+My landlord has chosen to provide a wi-fi network with no security (no WEP, no WPA/WPA2). If I choose to go ahead and connect to this for Internet access, what should I keep in mind and be careful to do or not do while on this open wi-fi network?
+This network appears to have all of their amenities' devices including smart TVs and public PCs and Macs for tenants to openly use.
+If your landlord had encrypted Wifi, he could still capture everything at the router. If you had a dedicated connection to your carrier, the carrier could still capture everything in their network.
+Treat an open Wifi as not trusted, exactly as you would if it was encrypted, and exactly as you would any other part of the internet. In other words, assume that everything you send across the internet is intercepted.
+In the old days of wi-fi, I recall being cautioned against connecting to open and public wi-fi networks not knowing who might be on there listening to connected computers, stealing credit card info, etc. Also to avoid connecting to WEP networks as it's essentially no better than an open network.
+And of course, if you want to use a VPN, don't start your network applications before the VPN is up.
+Nowadays I would imagine connecting to public coffee shop networks to be very common with all sorts of assorted devices, and pretty much everything communicates over https so it would seem to be less useful for someone listening in to get anything useful.

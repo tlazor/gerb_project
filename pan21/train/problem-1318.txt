@@ -1,0 +1,9 @@
+As for the idea with PC — take in account, that hardware router, takes only few seconds to fully reboot, while even trimmed down Linux/*BSD router distribution would take a minute or so. Unless you need sophisticated firewall, transparent proxy etc., there is no point.
+For my home network, I have had good luck with the Apple AirPort Extreme 802.11n access points (both single and dual band models). It does a great job with 10 devices connected (ranging from 802.11b to 802.11n at 5GHz). 
+My experience with Linksys routers in networks of exactly that size has been stellar. Two WRT54Gs each running at hundreds of days of uptime. A WRT160N that would stay up all the time if the modem didn't keep dying (and the end users try to reset the router to solve the problem.
+If you really want to segregate your wireless users, connect the wireless APs to a DMZ subnet / VLAN of their own.
+Consider if it's worth your time to go through the trouble of configuring pfSense for your situation or if a mid-high end consumer router will do the job.
+pfSense certainly looks desirable but I'd be concerned about the ease of setup. More importantly, WAPs (unless you spend a decent amount of money) are generally junk. If you're going to spend enough to get a good WAP, you might as well invest the cash in a higher-end consumer router and save yourself the setup.
+For my own home LAN I run a WRT54GS with Tomato firmware. It's been running for over a year without an issue.
+For my own personal use I use Apple's Airport Express units (CA$109) - the little ones with iTunes streaming capability built in and 802.11n.
+They'll operate in bridge mode very happily, and also support handover / wireless extension pretty well, so if you need to cover a larger area, just plug more into the LAN.

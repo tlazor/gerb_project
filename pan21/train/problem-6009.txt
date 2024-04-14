@@ -1,0 +1,7 @@
+I wonder if it is possible to either connect Outlook 2007 or Windows Mobile Device Center to an Outlook Web Access site?
+For Activesync, simply enter in the address of your OWA server, enter your authentication information, and enable SSL.
+Background is that I would like to sync my calendar with a Windows Mobile device, but do not have a direct connection to the Exchange Server available.
+Then select the Exchange Proxy Settings box and in the URL type in the address for your OWA server.  Check the two SSL boxes assuming SSL is configured correctly on OWA.  Then turn on the setting for HTTP on slow networks.  OK your way out of the menus and you should be set (Outlook may require a restart).
+If you need help with the server-side, then we will need to know what version of Exchange you are running.
+For Outlook, if you do not have the autodiscover service working, then you need to manually configure Outlook.  To do this go to Tools > Account settings and double-click on your account name.  Click the More Settings button, go to the Connection and check the box under Outlook Anywhere.
+These are both possible.  For Outlook 2007, the process is called Outlook Anywhere and for Windows Mobile, it is called Activesync & Direct Push.  Both of these are available "out of the box" with Exchange 2007 but do require a little configuration on the server side (Exchange 2003 SP2 also provides these capabilities).

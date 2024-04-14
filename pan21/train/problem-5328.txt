@@ -1,0 +1,7 @@
+Sample Size or Bit Depth is a measure of how many bits a sample contains which is directly a measure of quality. But this applies only to PCM Sampling, For lossy formats like mp3, Sample size doesn't really define the quality. 
+Sample size= The sample size is determine the maximum dynamic range of a digitized sound. Dynamic range is the ratio between the highest amplitude and the lowest non-zero amplitude in a signals and usually expressed in decibels (dB)
+But I'm confused with the terms sample rate and sample size. Are they independent of the bitrate or quality of sound? or Can it be explained in some understandable terms?
+In a MP3 audio file, I know theres a bitrate of audio which tells the number of bits in seconds are being used by the player, in other words a measure of quality of audio.
+Doing the pure math will reveal that these files would be very large, however there are a number of compression algorithms employed to keep the files lower without losing significant quality.
+So at this point, we have to do some math and see that bit rate is bits per second (usually measured in Mbits/seconds), so bit rate = sample rate x bit depth. As far as I know, your sample size would simply be one of these one-second chunks of data.
+Here is a great article on all three terms you're asking about. To summarize, here are the three definitions:

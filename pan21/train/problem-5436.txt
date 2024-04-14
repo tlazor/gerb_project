@@ -1,0 +1,9 @@
+While this may seem to come down to a mere visual annoyance at first, it actually affects how you save attachments.  If they're in the header of the email, you can right-click the header and Save All Attachments.  If they're imbedded in the body, though, you have to save each attachment individually.  This is very tedious when you regularly receive emails with up to 10 attachments.
+This will create an HTML file and folder (with the same name of the HTML file) with all files needed to view the message independently. In the folder created will be all the attachments.
+Outlook 2010 seems to be inconsistent with how it attaches files to emails.  For example, create a new email and drag multiple files into it.  They will show up in a field labeled Attached beneath the Subject field.  However, when attaching files to a reply to another email, Outlook behaves in one or two ways:
+http://office.microsoft.com/en-001/outlook-help/why-do-some-attachments-appear-in-the-message-body-HA101992449.aspx
+Without using VBA you can save the entire message as HTML by using FILE > SAVE AS. Choose HTML as the message format.
+"When you reply to a message, by default, the format of the received message is used for your reply."
+In Office 2013, you can click "File" => "Save Attachment" to save all attachments in an email with RTF format (where attachments are embedded in the body of the email).  
+If you want to use VBA, here is an article witch might get you started - Saving/Deleting All Attachments With One Click 
+Microsoft knows what's best for you, so they removed this functionality because you can not be trusted to receive safe email. This helps prevent inadvertent downloading of malicious code embedded into items.

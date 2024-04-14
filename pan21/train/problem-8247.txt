@@ -1,0 +1,7 @@
+Bind mounting /dev from the running system into the chroot allows update-grub to run, but results in
+After you're done installing grub to the "mbr" of the loopdev, you should rm the device.map file because it won't be accurate from the image's perspective once it actually boots.
+The correct answer is to mount /dev into the chroot, and use a $CHROOT/boot/grub/device.map file to tell grub that (hd0) (from the image's perspective) is actually the loopback file that you've "partitioned" (and then mounted into your chroot with kpartx et c).
+Here's the problem: kpartx (the tool used to map partitions), doesn't create symlinks in /dev/disk/by-uuid, which grub uses to verify that it can use the detected UUID when generating the config, so it falls back to the device path. To rectify that simply symlink the device yourself (ln -s /dev/sdX /dev/disk/by-uuid/$(blkid -s UUID -o value /dev/sdX)).
+I need to update the kernel boot parameters for some of the newly created images. Normally one would
+I hope this helps, if not you then maybe somebody else who stumbles upon this question the way I did, because man figuring this out took quite some time.
+sneak's answer works for Debian wheezy which runs grub 1.99, but not for grub2. You'll want to use UUID's (as recommended by the grub devs) to reference devices/partitions.

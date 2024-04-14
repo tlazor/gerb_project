@@ -1,0 +1,6 @@
+I have a laptop and it has black screen , i tried BIOS flashing with usb, tried to fix the GPU but nothing, It start with just black screen, no BOOT is initialized at all since the keyboard doesn't respond and of course the system doesn't start! I have the linux server already prepared and installed but it doesnt boot!
+The latter won't really last, so I'd say you should go for the first option. If the replacement is in a reasonable price range, and if it makes sense to fix the laptop at all.
+It's laptop you want to use as server, not recommend that, however you could try to connect laptop to USB external GPU card (if you have one, however they are very cheap) and see if it helps, of course if you sure it's GPU
+Try to identify all working components and strip them from the machine. Buy yourself a good second hand to start your new pet project.
+The GPU is integrated on your motherboard. As a result a problem with it will escalate to the functionality of the motherboard.
+On the other hand it could be BIOS problem, I had problem like this in past, I can recommend to detach laptop battery and try to remove BIOS battery as well, then see if it boots after you plug the power

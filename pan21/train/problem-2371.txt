@@ -1,0 +1,6 @@
+What I need is to have LAN clients within 192.168.1.128/25 have all their traffic redirected to 192.168.1.5, even when their IP is set by the router's DHCP and their gateway becomes 192.168.1.1. In other words, clients within 192.168.1.128/25 should work as if their gateway was 192.168.1.5.
+I'm currently using this hack as a proof-of-concept;  I'm still online, and a table query shows that the /1 route is being used.
+I have a Debian Jessie box at 192.168.1.5 connected to the router (at 192.168.1.1) running an OpenVPN client (it's actually a Pi using this setup. The only part different is that the Pi's eth0 IP is static because of the router, i.e., the Pi is using the router's DHCP).
+While DHCP supplied default route remains in place, either of the /1s will be preferred for IPv4 traffic because of their shorter prefixes.
+A quick way to override the DHCP-supplied default route (which is a /0) is to add two /1 routes to the VPN gateway:
+What's the iptables and/or route add setup the router needs to have to do this (the router runs Tomato 3.4-138)? These are the router settings:

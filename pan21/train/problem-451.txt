@@ -1,0 +1,7 @@
+When an application is doing the insert, however, the trigger does not fire. I.E. no rows are inserted the table B, and the audit logs are not showing inserts created by the trigger (i.e. the inserts to table B), but are showing the inserts to table A. 
+I've created a trigger on INSERT to table A, that performs an insert of the same data (with some massaging) to table B. 
+One of the more likely reasons for this is (as you confirmed) Bulk Insert.  By default, Bulk Insert does not fire triggers.  You can change this behavior in the options for the bulk insert when your application/code is setting up the operation.  
+Using Azure SQL Server, on a managed instance (i.e. a single server running multiple databases, where the db in question is one of them).
+How to do that can vary by the specifics of your code, Powershell, .Net, etc.  But this other answer may be able to help.  https://stackoverflow.com/questions/12366510/trigger-not-firing-for-multirow-bulk-insert
+So revoke or deny ALTER TABLE permissions for the app to prevent bypassing triggers and constraints.
+When checking the sys.triggers table, it seems that the trigger is there and is not disabled. When performing a single manual insert into the table for testing purposes, that trigger works. When looking at the audit logs for that database, that insert is indeed there (i.e. the insert created by the trigger).

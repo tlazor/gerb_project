@@ -1,0 +1,5 @@
+Meraki makes some really sweet hardware (and software to hook it all up).  The prices are competitive with Linksys, etc.  The software to hook them together is powerful and simple to setup.
+As hardware becomes cheaper and wifi connectivity more pervasive, it won't take much time before mesh network of private citizens start to pop up like mushrooms, isolated from the internet or with a gateway. What is the state-of-the-art of personal wifi networks built up by private citizens in terms of technology, effectiveness, actual deployment and tools (hardware and software) dedicated to this purpose ?
+I would have thought an additional layer of user-facing software will be required on top of this feature to make it all work.
+The IEEE standard for mesh networking is 802.11s (an ammendment to 802.11, which is the wireless LAN standard almost everyone uses). The Linux implementation of 802.11s is already upstream, and can already be used with some drivers.
+As I understand it, it will essentially allow mesh networking by virtue of the fact that the "real" wifi card will be able to associate with more than one SSID.

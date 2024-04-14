@@ -1,0 +1,7 @@
+First of all, I'd make the texture and position fields private. They're set from the outside, and the outside doesn't need to change them.
+Then I'd extend that. Anything your class needs to be given, add to the constructor. If Asteroid makes it itself, make it private. If something needs to look at it, make a get only property to access it. If it needs to be modified, make it an autoproperty.
+If your teachers have been telling you to make everything a public field, ignore them. They're wrong. Maybe follow their advice on assignments for the sake of credits, but never in production code.
+I'd probably go one farther - if this class has an immutable state in that number (I don't know the use case for your actual class), make it immutable as such:
+The only thing that seems like a good candidate for a property to me is your Origin. Something may want to sort Asteroids by Origin.
+If it is a simple value that can change, make it mutable and add the property setter. If there is some other action that happens when the number changes, make a method SetNumberForPinballInitialization(int number) or some such.
+If, following my advice, you reach more than 4 parameters, you should make a new class to either use as the parameter or deal with those values in the Asteroid.

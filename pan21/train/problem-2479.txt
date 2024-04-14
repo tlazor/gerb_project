@@ -1,0 +1,9 @@
+Yes.  Microsoft's signtool.exe will print a summary of digital signatures on a previously signed file, including which standard was used to create the timestamp, when invoked with the following syntax:
+You might be able to infer the method used by inspecting the signature, if you can map CA certificates to protocols and they are distinct, but there should be no reason to do this.
+/t can specify an Authenticode timestamp URL and /tr is supposed to be used with an RFC 3161 compliant timestamp server.
+In short, the signing is standardised.  The only thing different between /t and /tr should be the protocol used to get the timestamp signature.  Signtool does its own thing with the signature in both cases: copies it as a countersignature into the PKCS#7 message that is the authenticode signature.
+Implementation details are here: https://msdn.microsoft.com/en-us/library/windows/desktop/bb931395(v=vs.85).aspx
+Is there a way to analyze the timestamp on a file to figure out if /t or /tr was used? If it is Authenticode or RFC 3161?
+Once you complete the procedure, view the summary of digital signatures with the signtool verify command as suggested above.  The timestamp standard will be shown in the "Timestamp" field.  For example, here is what you will see if you dual sign a file named MyDigitallySigned.dll:
+When signing code with Microsoft's Signtool, there are a couple different options when specifying a timestamp URL, /t and /tr. 
+To illustrate, subject one of your own files to Symantec's procedure for applying dual signatures.  That will result in 2 digital signatures on your file, each with a corresponding timestamp.  One timestamp will be applied using Authenticode, and the other with RFC 3161.

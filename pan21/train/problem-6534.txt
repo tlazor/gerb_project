@@ -1,0 +1,8 @@
+Router B is connected to a Dynamic DNS service to constantly update my domain with my current external IP. It broadcasts a WiFi signal, and also is connected to Router A's WAP.
+This is kind of messy. DNSMasq does not provide me with a way to be port-specific with internal requests, but I would like Router B to handle 
+Router A assigns a static IP and forwards all ports to Router B. (I don't want to put Router A in bridge mode because I don't want all of my personal devices on the open net.)
+What I have been doing is adding a DNSMasq rule in DDWRT on Router B to send all internal requests for MyDomain.com to Main. Main then does some secondary routing which boils down to forwarding a few ports to Development. 
+This entire setup is meant to be very mobile. The servers are a cluster of Raspberry Pi 3s which use their integrated WiFi to connect to Router B. (Running a minimum installation of Debian.) 
+How can I accomplish this? (Keeping in mind that as this setup is meant to be very mobile, I cannot manipulate Router A any further than forwarding all ports to Router B and assigning Router B a static IP.)
+The problem I have here is accessing certain services at my domain from INSIDE Router B's network. Hairpin routing will obviously not work because Router A will "get confused" even if Router B is configured to do hairpin routing.
+I have a setup like this at my house. Router A is my ISP's router. It's the one I use for personal use, etc. Router B is a router for my servers which is flashed with DD-WRT. 

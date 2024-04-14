@@ -1,0 +1,5 @@
+This might not exactly be the right solution but there is a mechanism within Salt for generating pillar data by calling external pillar interfaces. Which allows you to use any information that is defined outside of salt. Note that you will need to updated the ext_pillar option in your salt-master config to configure the ext_pillar interface to run.
+In order to use the module in a pillar file, it must also be made available to the master. In the default configuration, this should be possible by copying the module to /var/cache/salt/master/extmods/modules. In order to avoid having to maintain the modules in two locations, one might simply add a symbol link:
+The pillar compilation happens on the master, not the minion. This means that modules only available in the salt://... tree (e.g. in salt://_modules) cannot be used inside pillar files.
+Depending on the values of the extension_modules and module_dirs options in /etc/salt/master, the actual path that has to be used might be different.
+For a full list of available ext_pillar functions see: https://github.com/saltstack/salt/tree/develop/salt/pillar

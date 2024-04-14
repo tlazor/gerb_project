@@ -1,0 +1,12 @@
+I have tried adding a registry key of: HKEY_CURRENT_USER\Software\Microsoft\Office\11.0\Common\Internet\OpenDocumentsReadWriteWhileBrowsing to '1' as suggessted here: spsstuff.blogspot.com/2006/07/office-2003-documents-open-in-read.html but that change did not work.
+Domain admins, power users, and users granted local-admin rigths to the box can accomplish this task without any abnormal behavior. 
+I have also attempted to locate a key of: HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Office discussed in this article: www.tech-archive.net/Archive/SharePoint/microsoft.public.sharepoint.portalserver/2006-08/msg00458.html but it does not exist on my systems.
+If they simply open the file and don't check it out to their local drafts folder, it will be copied to:
+I have a Window Server 2003 domain running Sharepoint MOSS 2007 SP1 v12.0.0.6219. My problem is that all users on the domain that lack local-admin rights to their currently used machine open all documents in Read-Only mode. 
+Can you check that as the end user you are able to create files in these locations? You may need to drop to the command prompt for Temporary Internet Files and enter a command such as:
+By the way, the OpenDocumentsReadWriteWhileBrowsing registry key should have no effect on a SharePoint site, according to KB 870853. Behaviour 'by design'.
+This is obviously a problem for me as I need users to be able to change documents through the check-out process. I am unwilling to blanket-grant all users local-admin rights for obvious security reasons. 
+We have no idea why these local policies were only causing problems on the Dells, nor could we find the specific rule or policy that was the 'one' culprit. 
+We ran a script to completely remove the local security policy, rebooted the machine so the domain policies would reign supreme, and that fixed the problem.
+I'm not sure what other information I can provide to be helpful, but any help or tactical application of common sense would be GREATLY appreciated.
+As you're probably aware, when clicking on the file it is downloaded to the local machine and opened from the file system. Depending on how the document is opened from the browser and the client OS used, there are a few places that the file could be copied to and the user will need write access to these places.

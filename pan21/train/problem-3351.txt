@@ -1,0 +1,7 @@
+We ended up using the application pool identity user, because in our company we have a user for each website running the site.
+Now we've created a "domain-name" virtual directory pointing to a dummyftproot folder on the same level as wwwroot.
+Now I thought this would mean the application pool identity user is accessing the CIFS share and reads/writes to the folders. And not every user with his own account. Is this the case?
+For FTP-Authentification we've disabled anonymous and activated standard authenthification with our domain set as default domain.
+I've created a FTP-Publishing on our webserver and have a problem getting it to work. Some users get a 550 error on uploading files. Reading access seems to work because they can browse files.
+How can I monitor which user is actually accessing the share? I see my files written as my domain user.
+Under that virtual domain folder we create "username" virtual directories pointing to a folder on the CIFS share in our project. We set pass-through authentification to connect as application user.

@@ -1,0 +1,6 @@
+LVM is great for that when you're not in a virtual environment. When the disk can be cloned and grown from outside the environment, that benefit is greatly reduced.
+Suppose you're running ESX without a SAN, and run out of space in the datastore holding a particular VM that needs more space; if you add more physical disks, they will typically create new datastores, which you can add virtual disks to; those virtual disks can be added as new Physical Volumes to your LVM Volume Group.
+We use ESX, and have the ability to increase the size of a disk.  Instead of using LVM he proposed this scenario:
+Another case for LVM, even on a virtual host: it allows you to extend a filesystem across multiple disks or disk sets.
+A co-worker asked me why we should use LVM. With my limited LVM knowledge, I said because it allow you to easily resize/manage volumes!
+This seems fine.  I'm not sure though.  What's wrong with this scenario as opposed to using LVM's?  What's a better option for allowing disk expansion?

@@ -1,0 +1,6 @@
+Key: HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList\Applications\application_name
+Next you need to create a new key inside Applications for each application you want to host as a RemoteApp named to describe the RemoteApp:
+To clarify, I need a link (ending in .rdp) that when you click it, opens an application located on another RDP desktop, not just the whole desktop itself (for example, opens Quickbooks on another server in the same domain).  I know there's a way to do it because the previous sysadmin in for my environment did it, and I even knew how to do this a few months ago but did it so rarely I forgot, and Google searches have been completely useless in finding this out.  Anyone Windows admins know the answer?
+This is called a RemoteApp. You have to setup a Remote Desktop Services farm, and then publish your RemoteApps on a collection :
+Then you must at least create a string value named Path for each application to point to the application you want to host as a RemoteApp:
+This might be a stupid / simple question, but I need to create a new RDP application link in Windows server 2016, and I just can't remember how to do it.  

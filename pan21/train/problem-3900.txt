@@ -1,0 +1,8 @@
+If you've got a smartphone that can act as a wireless hotspot/access point you can connect from your laptop to your phone which routes it through 3G and is therefore 'external' to your office.
+I've solved this internally by running two instances of OpenVPN, one that listens for connections from inside our network and one that listens for connections from outside.  They have substantially similar configurations but slightly differnt routes.
+Are there any tricks or methods to testing the OpenVPN clients and their connections from inside the network?
+You might want to add --route-nopull, this will allow the connection to be made without mucking up your local routing.
+If you want a "trick", you could put your local system behind a NAT gateway (so that it no longer shares a network with the OpenVPN server).
+I'd like to be able to test the OpenVPN connection on the employee's laptop(s) when I am setting it up for them. However, I've noticed that I can't make a successful OpenVPN connection while I'm inside the network (it sounds like a silly concept). Of course I'm able to successfully make the OpenVPN connection when I'm outside the network. I figure this is just some limitation of OpenVPN maybe because why would you want to create an OpenVPN connection if you are already on the network?.
+Is it possible to somehow create an OpenVPN connection to some outside location and then make a 2nd OpenVPN connection back into your network?
+There's nothing about OpenVPN that will intrinsically prevent this from working.  It usually boils down to a routing issue in which the routes pushed by OpenVPN conflict with the routes already configured on your local system.

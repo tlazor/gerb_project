@@ -1,0 +1,8 @@
+Don't forget to disable or modify the Media Centre Update entry (As per soandos's answer above) if you haven't done so already.
+Apparently the new culprit is Windows Defender, scheduled to wake up at 3AM, this does appear to be a recent development, maybe a Windows 7 update did this?
+Also, try looking at the scheduled tasks in the task scheduler MMC plugin - there may be something set to run there.
+I had the exact same problems with the exact same symptoms.  I looked at the scheduled tasks and did not see any task that was configured to wake the system up for execution.  
+To stop this, click the start Orb, type "taskschd.msc" in the search box at the bottom. Within the Task Scheduler, open the "Task Scheduler Library" tree branch, then the "Microsoft" branch, select "Windows Defender" and then double click on the "MP Scheduled Scan" entry in the top centre window pane.The rest is self explanatory, i.e. changing its run time. Alternately don't double click it, right click and disable it.
+I know you mentioned looking into the Event logs, but what have you seen in there? At the very least, you should get an idea of WHEN it wakes up. That may point out a Scheduled Task, or as Bobby points out, a Windows Update resumption.
+I had used Task Scheduler to turn this off too i.e. Media Centre Upadte. However last night, I noticed it woke up at 3AM (and hence woke me up too) after a break of a few months.
+Since then the system has not woken up by itself.  Its only been a day, so it may have been a fluke.  If it works in the long run then it obviously raises the question of why would Google updater wake up the system when it was clearly configured not to do that in the scheduled tasks.

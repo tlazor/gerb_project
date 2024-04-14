@@ -1,0 +1,5 @@
+As far as I can tell they are both using the same execution plan, so I'm not sure what would be different.
+When copying and pasting the query from Profiler into sql server management studio, the query will run in less than a minute vs 15 - 20 minutes executing from the application.
+The only thing I've discovered makes the query run correctly is to run sp_updatestats on the database, which we run every morning at 5:00 am.  What's strange is by 7:00 am the query will still running slow again.  If I run sp_updatestats again, the query will finish in less than a minute.  Once again, all execution plans look the same.
+Our application uses the .net sql driver, and the queries end up looking something like this in profiler:
+To add to the strangeness, we also have a testing sql server which is basically a copy of the production server.  In our testing environment with the same code and mostly the same data (a few days out of date from production), the query runs in less than a minute in our application as well as in sql server management studio.  Once again, profiler is capturing the exact same execution plan for all of them.

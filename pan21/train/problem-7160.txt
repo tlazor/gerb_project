@@ -1,0 +1,8 @@
+But I have no idea (and haven't found much information on the internet) how I can get my web server to actually use these ciphers. 
+I can certainly fix this by altering the software on the client and replace the https URL with a HTTP one, removing all the HTTPS stuff from the connection. 
+Could using one of the SSL ciphers without authentication (for example, TLS_NULL_WITH_NULL_NULL or TLS_DH_anon_WITH_AES_256_CBC_SHA possibly make this device accept my fake connection? Maybe it accepts these fake ciphers ...
+In theory, if the device accepts these ciphers, that should work with the fake server since these ciphers don't authenticate the server, do they?
+I'm currently using Apache and tried configuring these ciphers, but it didn't work and the documentation states that the null ciphers have been removed because they are insecure. However, I know that they are insecure and would like to use them anyways ...
+Is there another web server which I could use to negotiate a null cipher with that client and hopefully make it connect to my server even though it has no valid cert?
+I have an old device that connects to a HTTPS web page and downloads some content. I want that device to download content from a domain I control, but the client has a specific Root CA embedded and only connects if the SSL connection uses a certificate by this CA. 
+However I'm searching for a way to make that work without modification of the client (only DNS edits) and now I've read from the "SSL null ciphers". 

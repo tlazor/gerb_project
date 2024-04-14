@@ -1,0 +1,7 @@
+The most common approach would be to just add the column to the table and accept that the columns in the table aren't going to be grouped together by function.  
+Additionally, you really need to make sure you don't lose any data during the copy and replace, so using the least concurrency friendly isolation level (SERIALIZABLE) is going to be necessary.  This means that access to modify the existing table will be blocked until the operation is complete.  So you can add long periods of blocking to the list of downsides.
+As the tables get larger, doing this "copy and replace" operation is going to take longer and longer, and utilize more resources (I/O, memory, CPU).
+SSDT publish uses this sort of code automatically when re-ordering columns like that (from my blog post on the subject):
+On top of that, if you're doing this manually (not with SSDT schema compare), then it's really easy to make a mistake (put data into the wrong column, copy / paste errors, etc) - especially on a table with a lot of columns.
+As someone who used to try to keep columns together like this, I highly suggest that you go with option #2.  
+The debatable upside of keeping the columns visually together (in the SSMS column list / when you SELECT * from the table) is absolutely dwarfed by the downsides of option #1.

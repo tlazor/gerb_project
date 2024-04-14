@@ -1,0 +1,10 @@
+If you use XNA, the same data is available. Use ILSpy and reflection to get access to it. The kerning information in is simply ABC data returned from GetCharABCWidths in the win32 API (it's the same data for both XNA and MonoGame, but stored slightly differently).
+What I do is ignore the built in SpriteFont's in MonoGame and roll my own. If you use a tool like BMFont to generate the texture, writing a basic font renderer is pretty easy.
+If you look at DrawInto and MeasureString in MonoGame, you can figure out what is actually being done with the kerning data. It should be reasonably straightforward to reuse/reference that for your own string drawing.
+First you'll need to grab a BmFont XML Serializer so that you can load the font file into C#. You can find one on pastebin here.
+In MonoGame you can directly access the gylph data (see this source file). The Gylph structure contains the kerning information you need to layout your text correctly.
+Drawing multi-colored text or highlighted text in XNA/MonoGame is pretty annoying, and the standard way I've seen to do it is to just to make multiple SpriteBatch.DrawString calls, and place them using the x-coordinates given by SpriteFont.MeasureString. This is fine if you're highlighting whole words or blocks of text, but if you only want to highlight select letters inside of a word, you get a kerning nightmare:
+Therefore, I would like to know if there's either a better way to draw highlighted text like this in XNA/MonoGame, or a way to pull kerning data out of a font so I can space the letters properly or some other fancy way to do it using masks or whatnot.
+Sometimes this looks alright, but not consistently and I can't think or find a good way to space out the letters properly.
+The font format for XNA/MonoGame still stores the required info for kerning - obviously it needs it to draw text itself! You just need to get at it and use it from your own code.
+Obviously you'll also need to make some changes to allow each letter to be a different color. Once you've got the basic framework in place that should be pretty easy.

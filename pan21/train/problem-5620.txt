@@ -1,0 +1,5 @@
+Try modprobe apm before rebooting next time. APM is the thing used before ACPI came and this module may be able to do proper reboot via APM. If that modprobe helps you should add 'apm' to the list of modules to be loaded on boot (this is Linux-distribution-specific).
+Check for mounted network dependencies - are there any NFS, CIFS shares or iSCSI, nbd, AoE targets initiated?
+When HT was enabled in the BIOS, init 6 would fail to reboot. With HT disabled, automatic reboot would work fine. I don't know if the problem is fixed now, but for a couple of years (while the servers performance was still relevant), it continued to be a problem.
+I had this exact problem on some old IBM x86-64 Netburst Xeon architecture systems running Red Hat 3, 4 and 5. 
+A funny workaround you may try is "kexec". The Debian package is fine. It will replace the actual reboot. Instead, the kernel image linked at /vmlinuz will replace the running kernel and boot. You will see no BIOS screen, no bootloader screen and it's way faster.

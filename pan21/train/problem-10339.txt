@@ -1,0 +1,8 @@
+You can type live then press Enter to boot. This only gets around the issue and does not fix it as you have to do it every time you boot the USB stick..
+In the boot: prompt after you hit the error above, type live and press Enter, to start the Live USB session.
+This is a bug. It happens when you create a bootable USB stick with an older version of Ubuntu than the version being installed on the USB stick.
+I cannot use "nomodeset idle=nomwait", or disable ACPI (I think, as there is no grub, and as it loads almost directly the Ubuntu loading screen).
+I want to install Ubuntu with the Live USB. So far, I have tried with the 15.10 version and the 16.04 beta version, but the problem is always the same.
+To fix the USB installation so you do not have to type live and hit Enter every time you want to use it to live boot:
+Important! replace <device> in the command below in the terminal with the device in the output of the last command above. Which will be something like /dev/sdb1
+I have just bought an MSI PE60. I have installed Windows 10 in Legacy boot mode, so I have to install Ubuntu in Legacy mode, too.

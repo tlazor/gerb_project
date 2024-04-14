@@ -1,0 +1,5 @@
+Electrically, the signals on wires 1 and 2 are based on differential signaling. It means that the signal is the difference among the two wires instead that the classical signal in one wire and ground in the other.
+One is you break the electrical connections required for gigabit Ethernet (which needs all 8 connections) but leave the ones required for fast Ethernet (which only needs 4).
+Because of differential signaling if you exchange wires 1 and 2 the cable is still usable, however is out of certification norms that guarantee noise reduction and crosstalk reduction, so it's prone to electromagnetic interference, specially at high speeds. 
+Ethernet and Fast Ethernet over UTP cabling use wires 1 and 2 to transmit and wires 3 and 6 to receive. 
+The other is if you mismatch the pairs, even if all 8 wires go through correctly. The matching of differential signal pairs to physical twisted wire pairs is needed for proper noise rejection. If the mapping is incorrect, performance can suffer due to data errors, particularly in electrically noisy environments.

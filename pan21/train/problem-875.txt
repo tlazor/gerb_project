@@ -1,0 +1,6 @@
+There's also software used for orchestration/load split that would take into consideration R/O status of the servers in pools they have configured for proper requests routing among those servers.
+Why it's important — it's better fail with write than regret with an improper writes that could effectively render slave unusable due to simple data muck up or things like keys conflict that would break replication (no more actual slave again).
+If I want write on slaves, because it have several schemas and I need do writes on this schema, so the read_only command must be more intelligent, and let us do a read_only for schema.
+Yes, you'd better run slave servers with R/O modes available. Previously privileged users could modify such a slave's data anyways but later then they also got theirs R/O restriction "knob".
+The problem here, included MySQL 8.0, is that MySQL don't force you to set read_only = ON when you execute the start slave command.
+Why is a problem? Because almost all MySQL DBAs use their slaves on RO, to prevent data corruption, and always exists one dba who accidentally run wrongly an SQL that modify data on a slave, or an app that won't change his conf.

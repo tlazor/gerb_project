@@ -1,0 +1,6 @@
+If your database has been constantly growing, or if you are monitoring a lot of objects with Enterprise Management Console, then your SYSAUX tablespace will slowly fill up.
+A list of objects that reside in the SYSAUX tablespace can be retrieved using the V$SYSAUX_OCCUPANTS view. This view displays the following information:
+The largest portion of the SYSAUX tablespace is occupied by the Automatic Workload Repository (AWR). The following size recommendations are provided by Oracle to determine the AWR size and to a large portion the size of the SYSAUX tablespace:
+If you can reduce the size of the data being stored by the components, then you can reduce the size of the required SYSAUX tablespace.
+The SYSTEM tablespace always contains the data dictionary tables for the entire database. So if your database grows in size due to new objects, then your SYSTEM tablespace will require more space too.
+You may also want to query dba_segments filtering by table space name, looking for the largest object. You should look specifically at the sys.aud$ table.

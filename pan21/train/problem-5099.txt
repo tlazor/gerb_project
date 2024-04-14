@@ -1,0 +1,7 @@
+My CIFS server is a Synology NAS box with DSM 5.2, with symbolic link support enabled in its CIFS/SMB options.
+For me, the problem is related to whether the target of the symlink exists at the point in time where you try to remove the symlink. If the target exists, it works. If the target does not exist, removing the symlink fails.
+I guess the problem was a combination of Samba and bad ln calls.  Thanks for all your help getting this sorted.
+My CIFS client is a CentOS 7, using the cifs-utils package. That CentOS is a guest on VirtualBox on a Windows 7 host, but that should not matter because the network device is virtualized in this scenario, and not the file system or storage device.
+Looking at Mystery files, "not a directory", I found someone with a similar problem.  They were able delete the "mystery file" by ssh'ing into the machine that was doing the sharing and delete the file from there.
+I don't have ssh privileges to that machine, but I can FTP.  And, amazingly, I was able to delete the link.
+The same test when performed on a local file system, works fine (i.e. the broken symlink can successfully be removed).

@@ -1,0 +1,5 @@
+psexec -d \remotecomputername -u myusername -p mypassword cmd c:\Belarc\BelarcAdvisor\BelarcAdvisor.exe
+The belarc advisor managed software works out to about $5US per machine to have much more sophisticated HW/SW reporting than what the free, standalone version offers, so I will go with that option instead.
+PSEXEC only redirects output for command-line utilities. Belarc Advisor uses a GUI for choosing options, then outputs its report to an HTML file. Therefore, PSEXEC will not be able to show you the interface for Belarc Advisor when it is running on the remote machine - in fact, it is possible that the utility may be instead popping up on the current user's desktop, on the remote machine, unexpectedly.
+I installed belarc advisor on the remote computer, restarted and tried again, but it kept prompting for various inputs and their proprietary bcx file in the command line, so I went back the the belarc site so I can get something going asap.
+I monitored the processes on the remote computer and realized psexec was spawning the installation for belarc advisor because the remote computer did not have belarc advisor installed as I originally thought.

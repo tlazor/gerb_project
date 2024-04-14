@@ -1,0 +1,5 @@
+Rather than using the low level database APIs like managing Connection, PreparedStatement, ResultSet, yourself, I strongly recommend to use a framework for this, such as Spring's JDBC template or Apache's DbUtils. Once you step on that road life will get easier and you won't look back.
+When using Hibernate, you have the ability to tell it all about the one-to-many/many-to-many/one-to-one/many-to-one relationships, and tell it when to cascade operations for you. Here's an example of how your UserInfo could look.
+I think you want to use transactions. Within a transaction, you can certainly do INSERT + INSERT + SELECT the UserInfoID + the final INSERT. Commit the transaction at the end, after all successful, rollback on any exception.
+Hibernate is a very commonly used ORM framework (Object-Relational-Mapping). By using Hibernate and the proper entity classes, you can do all this with only these lines:
+One formatting issue with your current code is that you're not indenting your code properly. Each { should add one indentation, each } should remove one. This makes things so much readable.

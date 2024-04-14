@@ -1,0 +1,8 @@
+ZZZ.ZZZ.ZZZ.ZZZ is the primary HAProxy server, and WWW.WWW.WWW.WWW is the secondary HAProxy server (and not relevant right now to this problem).
+It's probably the health checks that are triggering the ban, as they're not sending a hostname.  You can try using 'httpchk' or 'ssl-hello-chk' instead, which might resolve the issue and allow you to re-enable fail2ban. 
+Apache and the vhosts configs on the web server, are configured to listen to port 9009, as per the HAProxy config. Everything is running fine up to this point.
+Is it so, that HAProxy needs additional ports open on the web server (this is what I suspect) and if so what would those undocumented ports be, or does anyone know what could be wrong here?
+I have a fairly standard HAProxy / Web Cluster setup, which is running perfectly fine - as long as I don't enable the Shorewall firewall on the web cluster servers.
+There are other rules in the rules file, which for instance allows SSH on a certain port from a specific IP address, and those rules all work, so I assume (although I could be wrong) it has little to do with the Shorewall firewall rules per say.
+Now, I switch on Shorewall Firewall on the web server, with a firewall rules file that looks like this:
+As soon as I do, error messages appear in the HAProxy server's syslog, and the websites served via HAProxy returns 503.

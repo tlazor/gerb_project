@@ -1,0 +1,8 @@
+If the file contains the key as well you've blown any chance at security - your entire encryption model is compromised, and you need to change keys.
+The Apache mod_ssl documentation for the SSLCertificateFile and SSLCertificateKeyFile directives states that it is 'strongly discouraged' to store a private key and an SSL certificate in the same file.
+This is especially true if you do not have a passphrase on your SSL key (many web servers don't, to allow them to automatically start up in the event of a crash).
+If an attacker compromises the single file they have everything they need to successfully impersonate your website (the certificate, and the private key).
+Now obviously the private key file should be kept secure, but assuming that is the case, are there any specific risks in storing a certificate in the same file? I am curious to know why this behaviour is supported, and yet strongly discouraged without explanation.
+(To my knowledge no such bug exists, or has ever existed, but Apache is a large, complex piece of software. It's entirely possible.)
+If Apache dumps this file and all it contains is the SSL Certificate (the lock) there's no problem: Everyone gets a copy of that certificate when they make an SSL request to the server anyway.
+What you're defending against by separating the files is an Apache bug that causes it to dump the contents of the SSLCertificateFile (something that should be publicly available) to a web client.

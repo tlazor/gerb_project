@@ -1,0 +1,10 @@
+Your EmployeeData class could benefit from being immutable. I would also rename the updatePerson method to ToArray (as that's what it does) and it also simplifies a lot:
+The properties are a nice to have, but as they are private you could replace them by local variables.  
+The methodname updatePerson does not really reflect what the method do. A better name would be GetAsStringArray[].  
+You should then add a method which updates the view (here gridview). Right now you are doing this at 2 places. First in the eventhandler and then in the updateEmployee() method.  
+So you would need to check if the radiobutton is checked. If this is not the case no update should be done. 
+Here's another take on the code you shared. Note use of private setters, numeric age property and generic List class.
+Age is usually a number and not a string, so you should change the datatype to int. As you need for the updatePerson method the age also, you can just call ToString() on it.
+If these are really radio buttons, the checkedchanged event would be fireing for each radiobutton (if they are placed on the same control ( I assume your form )) because the nature of a radiobutton is that it is unchecked if another one is checked.  
+You should create a method which takes two parameters, the emploeyee to add and the datagridview where the employee should be added to.  
+Instead of class employeeData, I suggest using class Employee. Class can encapsulate both data and behavior.

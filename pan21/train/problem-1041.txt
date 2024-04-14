@@ -1,0 +1,6 @@
+If you can find the worst performing of the queries, post them here or on a good SQL forum and someone will definitely help you. As it is, the question's way too broad to have a simple answer.
+That's not a simple question and doesn't have a simple answer. Entire books have been written on the subject of performance optimisation.
+Maybe try starting with these articles which go into (in the first part) finding the performance problems.
+http://www.simple-talk.com/sql/performance/finding-the-causes-of-poor-performance-in-sql-server,-part-1/
+We have a Classic ASP web-application that we are hosting with a 3rd party hosting provider (Rackspace).  We have ~ 100 databases on a SQL server and around the same number of websites on a Web-Server (IIS).  Does anyone have any tips for optimizing performance.  We occasionally see memory and CPU spikes throughout the day.  We are setup with a simple SQL server and Web-server pair.
+http://www.simple-talk.com/sql/performance/finding-the-causes-of-poor-performance-in-sql-server,-part-2/

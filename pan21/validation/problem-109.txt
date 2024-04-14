@@ -1,0 +1,7 @@
+You have the right idea in mind by limiting your ssh reachability - but you might be taking it too far.
+This would be a good start that would eliminate basic threats to your SSH, while allowing proper usability.
+Important Note: The EC2 instance is up, and can be accessed over port 80 via HTTP - meaning I can go the URL of the site I set up, and everything is hunky-dory. Cleared cache - still loads perfectly.
+Usually, when I sit outside of the 2 IPs I mentioned in the security groupt I create a new inbound rule in my default security group for the EC2 instance, which allows SSH access over port 22 from the IP in which I'm currently sitting.
+I'm also using an RDS MySQL DB Instance for my database needs, and have set up security groups to allow the following:
+Today, for some odd reason, I cannot connect over SSH to the EC2 Instance. I'm trying to from the public WiFi in the Cafe I'm sitting at. Tried various methods - PuTTY, Sublime SFTP, Filezilla. Nada.
+You could have your SSH rule open to anywhere (0.0.0.0), but with some limitations to provide some security

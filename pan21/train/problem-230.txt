@@ -1,0 +1,8 @@
+also, re-assigning the System.out is a really bad idea. If the test does fail, you don't complete the re-assign. Also, it is not thread-safe, and leaving System.out as null is not exactly friendly..... :(
+The order of execution of a static initializer is complicated, and the best way to ensure it works is to write it out in the same order that you would expect it to run. In your case the code works, but, in more complicated cases, your code may not work.... for example, what would you expect the following code to output?
+I agree, there is no reason/way for the getMessage() to return null... and, why are you calling it twice? You should just kill the null-check.
+The method is private, and it returns a static constant field. The method should not exist at all, and all references to getMessage() should be replaced with MESSAGE
+On the other hand, in this case, why? You should be testing the toString() method and the getMessage() method. You are not testing getMessage() directly at all, but relying on main to do that test work for you.
+If you expected Output: Hello Bilbo Baggins, then you would be wrong..... because the output is Output: Hello Bilbo junk.
+I object to this being called a hello-world problem at all... by definition (wikipedia) a hello world program is supposed to illustrate the simplest way to do it.... and is not supposed to be used to illustrate complex processes. I would call your program, and the text it outputs, as something else.... based on what you are trying to teach... but I can't figure out what that is. Are you using this as an example of:
+it may not make sense off-hand, but static initialize blocks should appear after the declaration for the variables they declare.

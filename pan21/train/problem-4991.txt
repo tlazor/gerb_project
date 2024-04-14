@@ -1,0 +1,6 @@
+SO the questions are - Will CentOS 5 run off a usb ? Whats the quickest way to make a live usb ?(i have Ubuntu and win 8 installed so can use both)  
+As with most other Linux distros, it will run off USB if your machine supports Linux running off USB.
+Note: of means Output file, sda means your harddisk and sdb means your second hard which here is USB.. But to ensure what is the letter in sd"letter", after plug usb in execute dmesg | tail command. It will show you.
+The easiest way to get it to work is to pass "expert" to the installer at the boot screen so that it allows you to select the USB device as an installation target. Don't forget to install the bootloader to the USB device and not the hard drive.
+I see in some places its mentioned that cent os is not designed to be run as a live distro from USB sticks, but surely just for the sake of testing a single program, it would run right ? 
+There are other graphical softwares which can create LiveUSB from your image in Ubuntu or Windows.. i.g UNetbootin.

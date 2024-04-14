@@ -1,0 +1,7 @@
+Once you've run that, depending how badly the image is damaged, you might be able to pull files of from a liveCD (Knoppix, for example); or you might have to use a specialist tool. The data recovery guy I work with swears by GetDataBack (NTFS version, in your case), it's not free, but if it can pull of your data, it's a worthwhile investment, as this may happen again sometime..
+There are other data recovery tools but I haven't had to use any so I can't recommend one. A Google search for "data recovery software" shows that there are a lot of products out there.
+If no other changes have been made to the disk (beyond marking the bad sectors) you might be able to get the data back.
+The first thing to do is to image your drive to a new one, so you're not working on the bad copy. GNU ddrescue is good for this, because it copes with bad sectors.
+My guess would be that if files are (partially) in a bad sector, the recovering software will have a hard time retrieving the files in a perfect state. Meaning they will probably be corrupted.
+SpinRite is probably the best tool I've used for doing this sort of thing. Regarding data recovery, the website has this to say:
+All I could find so far to do anything about bad sectors would be a low level format, but that would also erase the data... Though perhaps it's more important that you fix the bad sector than retrieve the files on the disk.

@@ -1,0 +1,5 @@
+After 60 seconds of no activity, the connection is terminated by the server (moved to the FIN_WAIT2 state).
+I am investigating ways to mitigate a server against DoS-type attacks. In one scenario, I've opened several hundred TCP connections to my webserver. I do not send any data after the initial TCP handshake; it is an idle connection after the TCP handshake. The server shows this connection in the ESTABLISHED state.
+It's good that the idle connection does not have to wait 7200 seconds to get terminated, but I want to understand why it happens after 60 seconds.
+Why does this happen after 60 seconds? Is there a kernel value that controls this? I expected the connection to terminate after "tcp_keepalive_time" seconds (currently set to 7200).
+Handling of idle connections has nothing to do with TCP keep alive but is only related to settings inside the server process. TCP keep alive cares only about detecting broken connections on time, i.e. where no packets can be exchanged because something in the middle is broken or one peer crashed. When a connection is idle no actual data will be exchanged, but TCP keep alive packets with zero payload still can be exchanged.

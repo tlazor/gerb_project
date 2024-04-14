@@ -1,0 +1,7 @@
+You could achieve this effect using parallax scrolling by making the earth and each shade of green a separate layer.  With a parallax effect, no 3D calculations are required, and you get to stay with the pixelated, simple color style you're using.
+Layer 2 is the middle layer, drawn between the other two, and it represents the 3D highlights. The background in this layer would again be transparent (represented by a purple colour in the following image) to let the cyan background show through. The clouds would be drawn slightly brighter than the normal cloud colour, and should drawn offset upwards vertically from the normal position of the clouds.
+Though it is not exactly in the style of what you are doing, take a look at http://www.nevermindthebullets.com/strip.html#1-1 for an interesting example of using parallax in both X and Y for some interesting visuals.
+There will be some performance loss due to setting the depth in the pixel shader but shouldn't matter for a 2D game on PC.
+Note that parallax doesn't have to be limited to just horizontal motion.  Vertical movement (when the camera goes up and down) can also be handled by shifting layers up and down relative to each other.
+Layer 3 is the top layer, drawn last. It contians the clouds drawn normally, but with a transparent background (the transparent background is represented by a purple colour in the following image).
+The idea is that clouds on Layer 3 will obscure most of the clouds on Layer 2, leaving just the highlights visible. The cyan background will show through the transparent bit, too.

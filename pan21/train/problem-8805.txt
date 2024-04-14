@@ -1,0 +1,5 @@
+My question is, why is there such a difference in the time taken if the originator and destination are same.
+Whereas if I type Google.com in my browser it takes less than 10 seconds to show the home page or infact any search results too are displayed in less than a minute(just to remove the cache & proxy doubts).
+Because when you go to Google, you're just fetching data from Google.  Not stopping at every hop along the way to query those systems too (which tracert does).  And since some of those systems won't respond to ICMP queries, your tracert runs into timeouts, where as your connection to Google's web servers on a protocol they're intended to respond on does not.
+Also in browsing you might be looking at your local cache in which case very little work / time needs to be done.
+You realize that the programming for display a website page is different than a tracert.  The speed in tracert is most likely due to all the DNS lookups/ICMP timeouts being processed for all the intermediate hosts involved in the trace.

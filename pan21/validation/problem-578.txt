@@ -1,0 +1,6 @@
+That works fine, except one thing: I have to log in and stay logged in with my own user account every time after a reboot so that Docker and the gitlab runner actually run.
+How do I get both Docker and the gitlab CI runner running independently of any user being logged in?
+I have a Mac Pro 2012 (OS X 10.11) which I'm using as a server, set up with Docker for OS X and the official gitlab CI runner installed according to https://docs.gitlab.com/runner/install/osx.html.
+Be aware though that as I am discovering, if you are leveraging FileVault (disk-encryption) for users, then the files of that that user are not accessible until after that user logs in.  And if you are using full disk encryption, then it is likely that no files can be accessed until after at least one person logs in.
+You probably need to launch Docker and GitLab as a system-wide LaunchDaemon in that case, as opposed to how it is currently launching (as a user-specific LaunchAgent).  See here for a bit more info about the differences:
+https://apple.stackexchange.com/questions/290945/what-are-the-differences-between-launchagents-and-launchdaemons

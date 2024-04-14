@@ -1,0 +1,6 @@
+The property getter is a template function that casts the property from the map into the appropriate type.
+The way I differentiate between item types is to have an ItemType property, usually some sort of enum with entries like WEAPON, ARMOR, etc. Other properties contain damage ranges, references to images to use to render it, name description, etc.
+My own inventory management systems don't have different types for items. Instead, I use a "Descriptor" class, which has a set of properties (Name-Value pairs, stored in an associative container [in C++ you would likely use std::map])
+There is something you are doing right now that you may find that you regret later, even though it seems like a logical thing to do.
+Now, these descriptors aren't for item instances. They describe the item type as a whole. Item instances contains some sort of reference to the descriptor as well as a similar map of properties for values needed for an item instance (like individual durability, for example). In this way, one avoids repeating the same information over and over again.  After all, one sword is about the same as another sword, it just might be closer to wearing out.
+You are likely to find that making each type of item its own class hard to manage once you have more than about twelve of them.

@@ -1,0 +1,8 @@
+I've tried putting a pull down resistor (made from the 3 resistors I have lying around, in series) but the values are only totalling about 250 ohms so it's not having the same effect as it would if I put, say, a 10K resistor in.
+I've also tried switching the raspberry pi's own pull down resistor to on, with no effect (though I don't really know how to test if that's working or not)
+I am trying to use a transistor to switch a button on a remote control, by bypassing the remote control button for the collector and emitter of the transistor.
+If I use the 0.5 sec for both on and off, the remote light just stays on permanently, until I kill the program (upon which after a few seconds the remote light flickers on/off about 6 or 7 times but much quicker than half a second. I have NO idea why this is happening!!)
+I am running a program on the pi to turn the button on and off every 0.5 secs, by turning on one of the GPIO pins every 0.5 secs. I know this program works, because if I connect the output pin to an LED it turns on and off spot on 0.5 secs.
+Does this sound right? Is there possibly something obvious I'm overlooking? I'm quite new to the electronics side of this.
+I'm thinking of possibly putting a pull down resistor to try and help the 0/low output from the pin hit the transistor a little quicker and hopefully switch it off more instantly.
+But when I put that same pin onto the base of my transistor, it seems like the 0/low that I give out of the pin doesn't seem to register, either that or there is some sort of delay in the transistor switching off.

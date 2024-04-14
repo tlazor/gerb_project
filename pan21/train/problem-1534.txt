@@ -1,0 +1,6 @@
+Note: You deployment topology and load balancing strategy will also make a real difference. I'd say, use a NGINX as RP in front of your node-server and let it handle all the load-balancing between your multiple node instances! 
+2. Mongodb Connection Pooling: Creating new authenticated connections to the database is expensive. So, instead of creating and destroying connections for each request to the database, you want to re-use existing connections as much as possible.
+I'll leave basic performance tweaks like client-side-rendering, parallelism, caching, nginx etc. to your googling skills and skip to some exclusive ones,
+If you’re familiar at all with real-time network programming, you’ll recognize this algorithm as a common socket tweak. This makes each response leave the server much quicker.
+The tweak is available through the node.js API socket.setNoDelay, which is set on each long-poll COMET connection’s socket.
+You can find a lot of other performance tweaks on airpair or medium but in your case, these two will affect the most.

@@ -1,0 +1,10 @@
+Additionally - Below I have included a few bullet points for other unresolved errors listed within my errors_log file as I don't know if any of this is helpful.
+If you've not already done so, configure your server to save core files and get a stack trace from a crash using gdb, e.g. 'gdb /usr/sbin/httpd core' then enter bt at the prompt.
+I have gone through the httpd error_log as the web host suggested and I did find a bunch of issues being reported by php for each of the 5 wordpress 3.0 sites. Mainly related to missing php include files and things like that all which I ended up resolving.
+Naturally I would like to know exactly why this is happening so I can not only resolve this problem right now but also know how to correctly diagnose a problem like this in the future.
+The dedicated server I have is running Linux and Plesk 9.5 and has 1gb of ram and is only really running 5 websites which don't get a significant amount of traffic.
+Unfortunately, none of the issue I fixed seem to have been related to apache crashing so my question to you guys here is what do I do next.
+In any case I am just looking for the exact steps you experts would use to diagnose and resolve this.
+My web hosts solution was to just add more ram but although this "may" be the actual reason I can't believe these 5 sites are sucking so much ram.
+The problem is that PHP (or I guess Apache) seems to be crashing randomly and almost on a daily basis.
+Its probably a very specific request which is causing the error - IIRC, both the access and error log are written after processing completes - IIRC mod_security can log requests when they arrive (including post vars) - switching this on would be a good idea until you know what causes the crash.

@@ -1,0 +1,5 @@
+I used to have debian on my laptop. Then I removed the old hard drive (with the debian OS on it), and put it in a USB external hard drive box. And installed a new SSD hard drive into the laptop, installed windows 10 on it.
+Something else I would do is plug the hard drive into a computer. And try to boot it from a virtual machine to see if the drive is corrupt. Look at tutorials for VirtualBox too do this.
+Are you sure that the OS on the HDD is bootable? You could try using a tool such as UNetbootin to install Linux, in this case Debian, to the drive via USB, preferably after taking a backup.
+Now I am trying to boot into the debian system on my USB external hard drive when I connect it to my laptop and set the USB external hard drive as the top priority boot device in BIOS. The BIOS however cannot seem to detect the debian system on the external hard drive.
+It is really hard to know what exactly the problem is because we don't really see any error messages. Although, if there is an option in your BIOS called QuickBoot you should probably turn that on.

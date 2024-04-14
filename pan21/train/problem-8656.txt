@@ -1,0 +1,8 @@
+Interestingly, the inner type is already a monad, corresponding to ReaderT String (WriterT (Sum Int) Maybe a), or alternatively RWST String (Sum Int) () Maybe a. Now standard monadic >> should correspond to andThen and return to the identity matcher. And also mplus to leftOr. Such an interface will give your matchers all the power monads offer with very little effort.
+From software engineering point of view, I'd suggest to make Matcher a newtype. This better separates its API from the implementation, and allows to do changes later without breaking the API.
+Another Monoid instance would be leftOr, whose identity would be a matcher that's always failing const Nothing. This is very much like there are two monoids for natural numbers - multiplication with 1 (andThen) and addition with 0 (leftOr). We'll back to this later.
+Looks like you're on the right track, and this might eventually evolve into a parser, or converge to an existing one.
+This leads you to creating a monadic interface of your parser. So your type could be something like:
+If you don't need any user state, you can just ignore it. And the m argument allows you to run your parser in another monad - ParsecT is a monad transformer. If you don't need it, just use Identity, which is exactly how Parsec is defined.
+This looks very much like a monoid (see also Monoid on Haskell Wiki). And this is what you indeed want from your parser - to be compositional, and to adhere to certain laws: associativity and identity. So it'd make sense to have a Monoid instance for Matcher. Note that then andThenList becomes just mconcat.
+The next thing you might consider is to return a value from your matcher. For constant matchers this isn't that useful, but there are multiple reasons why this can be useful:

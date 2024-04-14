@@ -1,0 +1,8 @@
+Like @storminteractive said: if you can login to the server, then there probably is no problem with the virtualisation layer. 
+The machine hosts a website running on Apache 2 that is exposed to Internet. Also it runs SSHd to allow us to connect for support.
+I would look into the sleep / hibernation settings of Ubuntu. As far as I know, it is possible that the server can go in a sleep mode where it is not available via http and not writing logs, but as soon as there is a ssh connection attempt, the server will wake up. This is depending on the network card settings, but have seen this already. 
+To be honest if your vm would be suspended you wouldn't be able to ssh there either. Is there any firewall/rev proxy in between? If so did you try to access the site from local network?
+Did you check your ESX VM logs to validate the theory? Here you have a good guide where to look for: 
+This looks like the machine enters into a paused/suspended state after a while and is re-enable by just loggin in again.
+I'm receiving calls from the owner of that website telling the site is unreachable. What I do to re-enable it is simply loggin-in using SSH and that's it, everything is accessible again.
+Today I tried to see if the website is working and found it wasn't reachable, so I logged in to the VM, but also did a check on some logs our app registers on it, and found nothing was logged since yesterday. But after a minute logs started to be generated.

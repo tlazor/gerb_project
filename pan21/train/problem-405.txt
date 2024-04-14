@@ -1,0 +1,10 @@
+If you assign CREATOR OWNER as the Owner, you are doing something that is allowed, but is not very useful. In this case, any CREATOR OWNER permissions from ACEs will apply to the CREATOR OWNER SID. Since this SID is a group with no members, the CREATOR OWNER privileges never apply.
+IF CREATOR OWNER is the Owner and there are no CREATOR OWNER privileges, this is the same as if the file were owned by any other member-less group.
+NTFS uses Owners, and ACLs with sub entries for other users. You can have several users or groups that have any combination of permissions to a file.
+It has no special meaning when used as an Owner. So in that context, it is just a SID for a group with no members.
+In case people are wondering, after research with Microsoft, the following is the best I can explain what is going on.
+However, what does it mean for a folder to have an owner of "OWNER CREATOR"? This seems odd. I also noticed that this is not supported consistently between my local file-system versus various network file-systems. For example, NetApp seems to support this type of ownership but Isilon does not. Copying files to Isilon is causing problems.
+The permissions support tied to a file is dependent on the file system that you have formatted your storage with. When coping files between two different file systems, the host system you use may be significant. You did not specify what file system you network storage was using, but that would help to give better answers.
+I see folders with an owner of "OWNER CREATOR" and group of "DOMAIN\Domain Users". When I copy these files, the ownership is being transferred to me. That is not the behavior I want. 
+CREATOR OWNER has special meaning when used in an Access Control Entry (ACE). In that context, it's permissions apply to the SID of the Owner and not to the CREATOR OWNER SID itself.
+Most linux/Unix built file systems are built around one user (Owner), one group, and everyone else (other).  

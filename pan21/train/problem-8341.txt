@@ -1,0 +1,6 @@
+Yes, you can have the Thinkpad go into hibernation from the sleep state. If the machine in connected to power, you can make it work by setting for sleep in 20 and hibernate in 25. This causes hibernation to kick in 25 minutes after sleep has started.
+Allowing things like USB and Wireless to wake the laptop also has an effect on sleep. If these things are not important to you, then disable them. That will allow it to sleep for much longer.
+However, if you are running on batteries (as most people are who wants a sleeping machine to hibernate), it does require a BIOS configuration change. In the BIOS choose Config, Power and enable "Timer Wake with Battery Operation". 
+I don't think that it can switch from Sleep to Hibernate without switching on, so it may be worth checking if your power settings are configured as well as they can be to make the sleep consumption as little as possible.
+Warning: Lenovo do not recommend you do that as it may damage your hard disk if you are moving the machine around when it decides it is time to go from sleep to hibernate. Also you have to be sure about other scheduled tasks so they don't risk waking the machine and draining your battery.
+Lenovo have a utility for this: http://forums.lenovo.com/t5/Windows-7-Knowledge-Base/Automatically-fix-power-consumption-in-Win-7/ta-p/237456

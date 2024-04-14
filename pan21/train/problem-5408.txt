@@ -1,0 +1,8 @@
+The areas that SSDs shine are load times.  An SRT has to guess.  Using the SSD as a fixed disk however means you have to plan ahead.  And changes are tougher to implement.
+Another piece of information you did not mention is the amount of RAM.  Superfetch won't do jack if you have only, say, 1GB of RAM.
+If you are the kind of person like me, who can't even remember the last time they booted their machine, the SRT route makes more sense.  Plus, if you are like me, you realize RAM is cheap.  
+Now, if you are the type of person to shutdown their computer often (as in more than once a week), then the fixed disk option is the way to go. Load the OS files there.  Softlink the Program Files to the Harddrive. 
+Since you have not given enough information about overall performance for your specific scenario, we will have to speculate.
+If I were to take the fixed disk route. I would look at what applications that may take over 30 seconds to load.  Programs like Visual Studios comes to mind.  Then just move their files from the harddisk to the SSD and softlink them.
+It's better you list the profile of your workload.  Using words like overall performance yet trying to get information tailored to your specific scenario sounds like the most contrived plan I've heard.
+I've pushed hard to get lots of RAM loaded for my users. They, of course, don't notice the speed differences. Without a benchmark, it is hard to do anyways.  But with more RAM, that means I can tell my users to quit closing their applications like it's 1999.

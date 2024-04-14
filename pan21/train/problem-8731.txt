@@ -1,0 +1,8 @@
+Applies drivers, changes the install from d:\to c:\ (by setting OSDPreservedDisk=FALSE, and Specify logical drive letter= C:)  then installs 15 applications(java, acrobat. etc)
+As for the cause of your error, as you probably know if your msi doesn't return 0 (successful) or 3010 (restart required) then the task sequence will fail, unless
+Then I installed windows 7 enterprise to a virtual machine, fully windows updated it, sysprepped and captured, It was installed to d:\Windows
+Microsoft's recommendation is this: Import the install.wim file into sccm as an Operating System Installer, (not Operating System Image). Create a new task sequence to lay this installer down, update, install apps, etc, then sysprep and capture. For best results, let sccm sysprep and capture the image.
+A thread being ran by your msi is returning a 32 which appears to cause the msi installer to return a 1603 back to sccm, which kills your ts. It is probably hardcoded to delete something from C:\Windows\Installer, or an environment variable is returning that path, either way I would redo it, because patching this could be like playing whackamole, with other problems cropping up in the future.
+****NOTE!!!:** if I set 'OSDPreserveredDisk=TRUE' . the new image is installed to d:\ and all apps are added, so its in the process of placing it on the c:\ something is wrong**
+I'm going to go out on a limb and say the real problem is trying to work around the wim being installed to the D: drive. This is because the install.wim from the DVD is being used for installation. 
+Then, import the wim created from this task sequence as an Operating System Image, and use this for deployment. This wim should install to the C: with no hacks workarounds, and the error above should go away.

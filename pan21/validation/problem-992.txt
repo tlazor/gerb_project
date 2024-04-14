@@ -1,0 +1,7 @@
+I doubt that ZoneEdit will be able to enable the forwarding/cloaking for only a subfolder, however - it's usually done for the entire domain. 
+Many DNS providers (including ZoneEdit) offer URL forwarding features these days - these can work as a simple 301/302 HTTP redirect (most commonly) or there is sometimes the option to enable "URL cloaking" which usually works by loading the destination page inside an HTML frame, keeping the original address in the address bar.
+If you target a true URL rewriting then it must be configured at your web server level. Check the wikipedia page for the most common URL Rewriting web framework.
+The closest results you could achieve with them is using the WebForwards feature to forward any call to subdomain.ourdomain.com to www.ourdomain.com/subdomain (or to any other URL).
+The best solution would be to create your own HTML frame file on the main domain's web server that then loads the subdomain into itself.
+So you're wanting a rewrite rather than a redirect, correct? This means the user will see the original URL and not the destination URL in their browser address bar.
+The example they gave simple redirects the port.. But it can be used to rewrite and aspect of the URL..  Even to cloak it!  Amazing for a free service level...  Frankly I have no idea how / why they do it, lol.

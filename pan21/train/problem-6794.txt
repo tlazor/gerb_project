@@ -1,0 +1,6 @@
+Going all around the internet without an answer, I had to keep testing till I found out the problem. 
+I'm not sure from your update if the NAT rules fixed it totally and you have removed it in order to get it working another way or if its still not working with the NAT rule... If NAT fixes it, add the access list and you should be good. if there are still more problems let me know.
+If adding the NAT and inspection rules have resolved the issue but you don't want to open the port up to the internet why not add an access list to the WAN interface to allow only traffic on port 5060 from your SIP providers range of IP addresses? you would need something like:
+I've seen issues on multiple 881's I've deployed with doing the nat overload and using the Interface.  For the most part making the wan link a static IP and changing the IP nat overload command to that has fixed most of the issues with calls and even phones freezing.  Good luck
+Where X.X.X.X/24 is your SIP providers range and 1.2.3.4 is your external IP. Then apply that to your external interface with:
+I've had the same issue for a whole month jumping between two VPSs I have, one is under powered but works flawlessly & the other is overpowered and suffering the same issue.

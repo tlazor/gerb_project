@@ -1,0 +1,5 @@
+If you had LACP configured on the server but not the switches, that the sort of behaviour I would expect to see.
+I understand that when you did this last time your network went down but this will more than likely be to the fact that you did not setup an LACP trunk on your switch. You will need to make sure you configure this on the switches before connecting them to the servers.
+You can start of with just one link plugged in for continuation of service and add the other once all is configured. Just be aware that there will be a brief outage while the links are aggregated. This should only be a few seconds.
+If you have the HP2920's stacked together and they are being seen as one switch fabric, you can plug an Ethernet cable to each switch from each server and use LACP trunks to setup link aggregation.
+This will tell the switch to send LACP control packets and try to establish a LAG between the switches and the server. If your server does not support LACP, you will need to use something like

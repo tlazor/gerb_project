@@ -1,0 +1,9 @@
+Have you investigated your query execution plan to see what is happening under the hood of your poorly performing query?
+Once you're ready to start building reports on that data an alternative (or supplemental) approach would be to pre-aggregate your data.  If the reports don't need the same level of detail as the table then it would be a good idea to do periodic loads to some snapshot tables or an SSAS cube that the reports would directly connect to.  
+The machine (W2008R2 64bit with MSSQL2008R2) has 192 GB RAM but I still feel it is slow when retrieving data while using the clustered index. I plan later on to use this data with SSRS. What should I consider to increase performance ?   
+I have a table that has around 12 billion rows (row size 32 B) which grows each month by 300 million rows. I have setup partitions for each month and each month has 8 data files (since I currently have only 8 CPU's), to store the data I have a SAN attached. 
+Does your query use the clustered key(s) as part of the search predicate?  If not, you are going to get scans, as opposed to seeks, against the partitioned index.  
+What else is the server doing? Is there some other query causing your cache to get dumped? Perfmon the server for some extended periods. 
+Don't forget to check to obvious stuff too, make sure your NIC's are giving you the speed you think they should, I've lost track of the times I've seen GBit cards set to auto that negotiated 100MB speed. And your HBA settings too.
+Depending on your processor, are you using hyper-threading? There's still a lot of debate whether it is good/bad.
+Directly reporting off of a table that size with that much growth I suspect will be problematic no matter how much tuning you do.  Performance tuning with indexes & partitions will only get you so far and will work best if the table is used primarily for either writing or reading, not both as you'll have conflicting needs.

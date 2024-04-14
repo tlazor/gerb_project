@@ -1,0 +1,5 @@
+Firewalls slow down the network (a firewall needs to check every packet before it's decided if it is allowed or blocked). Hopefully it will not be significant.
+However, a bad firewall software, even if it's properly configured, can limit your network speeds (including the internet) signifcantly, this happended to me a few years ago with a well-known firewall software, called ZA or similar :)
+It will find the closest testing point to you, and will run some tests. very good one, by the way. I suggest you try this test site with and without a firewall, to see whether it makes a difference. And as I mentionned, if you use the throttling, or QoS, this may affect the performance of some applications, such as video streaming, or Voice-over-IP.
+Some firewalls also have options to throttle some types of connection, such as video streaming. Check the advanced options in your router configuration. Also, you should be able to run some tests using some internet benchmarking sites, such as: 
+Make sure you have a good firewall software, or, better yet, if possible, no firewall software at all.

@@ -1,0 +1,7 @@
+I haven't found a solution to that problem and I can't seem to find any other references that could possibly fix this issue. I believe Microsoft may have changed something in the executable that requires it to have some level of trust for it to work.
+Well, everything except Active Directory Administrative Center (ADAC). When started it produces an error: Your account or computer is not joined to any domain. Join to a domain and try again. All other AD-related management tools work just fine.
+Yes. Most of the built-in tools to manage things relating to your domain require that they are being run as a domain user.  That necessitates the machine they are running from be joined to that domain.
+I've been using the following to manage untrusted domains. It worked without any problems until I attempted to run the Administrative Center on a Windows 10 workstation. Windows 7 and 8, no issues.
+Is it impossible to run ADAC outside an AD domain or am I still missing some configuration? I do not want to join the host machine to the lab domain.
+That said, there are 3rd party tools that can be used to manage a domain.  For example, any LDAP browser can manipulate objects in the directory.  You just don't get a lot of the GUI niceties like check boxes and radio buttons for certain properties.
+I'm setting up a Active Directory lab environment on a Windows 8.1 laptop. I now have a Windows Server Core 2012 domain controller running inside a VM. I installed Server Manager for Windows 8.1 and have set things up so I can manage everything from the Win8.1 host machine.

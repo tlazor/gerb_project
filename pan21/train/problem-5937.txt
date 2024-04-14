@@ -1,0 +1,10 @@
+Furthermore, your syntax was not correct. --dport can use only one port. You need to use the multi port module or chain multiple rules to do so.
+Also, check your init implementation if there are init scripts available to make your changes persistent over power cycles. (Normally your tables are lost after reboot).
+iptables is the right command to do the job. But generaly you would use a reasonable amount of commands to set up a complete table. 1 command is one alternation to the table.
+However, blocking all outgoing connections for this user, will cause many applications to fail because they depend on the lo connection located at localhost or 127.0.0.1. (Eg. if you are using KDM/KDE, your system freezes up during login.)
+First we needed to make sure you have a basic firewall up and running. Now, you can add your rule to your script to take effect. Please take in account suggestions from the other answers: an user can easily by-pass two blocked ports with a proxy or alternate ports.
+So you need to exclude the lo network interface from your rule. If still you want to allow the user to access only certain services, just create a rule before the DROP rule allowing those ports. I would suggest the following:
+To find out the tables already in place and the default policy if no rules are matched use iptables -L. Usualy ine would write a bash script containing all the iptables setting. Where, at first you flush all the chains and then put everything in at once. This is to prevent losing track of what's in and out.
+Note that there may be a need to access certain network resources (e.g. local network shares), so you may need to whitelist those (or perhaps whitelist the local network block).
+And then I do ssh myhost.somewhere.onthe.internet.example.com -D 12345, point my browser to use SOCKS proxy localhost:12345, and on I go on my merry way.
+In other words, blacklisting specific ports is not sufficient; you may want to block all network access:

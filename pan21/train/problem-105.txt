@@ -1,0 +1,5 @@
+OS X will only use Microsoft-proprietary name services (NetBIOS Name Service, WINS, LLMNR) when connecting to Microsoft-proprietary protocols/services like SMB/CIFS. It generally won't use Microsoft-style name services when resolving host names for standard Internet protocols like HTTP. 
+I modified the bindings in my IIS instance to run on PORT:COMPUTERNAME and also added a rule to the firewall to allow inbound requests on that port.
+Note that to Windows machines, .local means Microsoft's LLMNR, not the IETF standards-track ZeroConf mDNS (which Apple calls Bonjour). To Macs, .local means IETF ZeroConf mDNS (Bonjour).
+When I navigate to http://COMPUTERNAME:PORT on a windows laptop over LAN, I get my webpage, however the same thing on my OSX never connects. I've tried http://COMPUTERNAME.local:PORT and http://IP4ADDRESS:PORT to no avail.
+So to solve your problem, add an entry for your IIS COMPUTERNAME in the /etc/hosts file on the OS X machine, or point the OS X machine at a DNS server that has a proper mapping for COMPUTERNAME.

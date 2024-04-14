@@ -1,0 +1,11 @@
+Having 100 game objects with 100 behaviours each one running an own update function isn't actually that much, even on mobile. There might be some performance to gain by using the rather new Entity - Component - System architecture, but intuitively I am not that sure that this will even be necessary.
+I'm developing a mobile game and one of the gamemodes has 100 gameobjects(basic cubes). And they all have same material. I need to know how to change their color one by one with script.
+I'm not very good at programing, so only idea that i have for this situation is declaring 100 objects to var, and then change their color one by one.
+A comment here mentioned that you can use an empty object (you can call it CubeMaterialManager for example), and you can store the reference array in it. 
+It's really hard to give advice with so little information about the language and what exactly you are trying to do. But still, there's some ideas you could like:
+When you end up with 100 cubes which each have their very own material, then you might indeed run into performance problems.
+But like a said it's a mobile game so i need to do it with simplest code so performance would be perfect.
+You didn't mention if all the cubes will change to the same color. If they will all have a different color, the CubeMaterialManager can store another array with the new materials. Then just go through the loop.
+If the cubes are created dynamically, you can add them to the array while they are created. If they aren't, you can use something along "find all objects of class", but that's usually not recommended. 
+What could, however, become a bottleneck is if you update the color of each cube with GetComponent<Renderer>.material.color = new Color(r, g, b). Whenever you modify the material of a renderer, you actually create a completely new material in memory and assign that new material to this one object. This also breaks certain optimizations the rendering engine can do when multiple objects share the same material. 
+You can most probably add a tag to the object and search by that. And if you know that they are located in some proximity, you can even use some kind of collision to find them (in UE4 it would be MultiSphereTrace).

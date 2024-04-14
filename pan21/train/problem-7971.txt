@@ -1,0 +1,5 @@
+My own experience is that timing the length of the echo gives correct measurements.  Timing from the end of the trigger would introduce a fixed error of about 7 centimetres.  Of course as the error is fixed it could be removed from all results, however the offset might vary between acoustic rangers.
+is waiting and ensuring that the code does  not confuse the "pulse" as the return echo.  When you yell in a canyon you want to ignore the first sound since it is your own voice, not the voice that returns after bouncing off the distant wall and returns.
+The trace above shows the 10 µs trigger pulse on GPIO 5.  GPIO 12 is connected to the echo output.  On my sonar the echo line goes high 430 µs after the trigger.  In the example shown it goes low again in 4725 µs for a range of 80.4 cms.
+and then print out all three time stamps.  test.time and pulse_start may be very close together.  You can even calculate the distance for these two times. 
+By the way, the code you copied contains several errors which I' sure you will discover in the fullness of time.

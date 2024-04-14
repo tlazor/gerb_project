@@ -1,0 +1,9 @@
+On the FTP server side, several FTP servers have methods for running a program once an upload has terminated (it could have been finished or the client could have been disconnected, the FTP server has no way of knowing if it's really done or not).
+Granted, it's possible the network could have a 10+ second blip whereby it hasn't finished transferring everything, but that is a pretty rare occurrence, and that is what checksums such as MD5 are for.
+If your OS supports it you can take a look at incrond. The events that can be monitored are defined in the incrontab  Perhaps the event your looking for is 
+I have a customer that upload files through FTP, I made a script that basically monitor the ftp folder and move the file on a production machine.
+Files that haven't gotten bigger in 5 minutes are probably as done as they're going to get.  Doing this in bash is left as an exercise to the reader.
+If the client uploads a lot, then the lockfile may be there every time you run your script and nothing will get done. In that case, you'll have to check the timestamps of the files against the lockfile.  Files older than the lockfile should be complete:
+To do it right, the best solution is to have the client upload the file with a temporary name, then rename the file once it's finished to the correct name.  Then you exclude all the files named "whatever.tmp" from processing.  Otherwise, have the client upload a zero byte lock file, upload the real file, then delete the lock file.  You can then check for the existence of the lock file 
+How can I check if the file has been completely transferred from the customer through ftp before start my scp command in order to avoid to transfer partial files?
+The solution I use (which admittedly isn't bulletproof, but has worked for me 100% of the time so far) is to query the file size every 10 seconds, and if it hasn't changed since the last query, assume it is done and begin the transfer.

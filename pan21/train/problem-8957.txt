@@ -1,0 +1,6 @@
+If these files were found in any other folder instead of C:\Test, their default applications open them:
+You can store the files in a database, and then have your program call them out of the database instead of the Windows file system.  Alternatively, you can have your app make a pass across the folder and change the file extensions to ones that it alone understands, and set those associations in Windows. 
+If this could happen, then a single program could hijack entire folders in your machine.  File permissions would be mismanaged, and the file system would be a fantastic target for malware. 
+But since these files are in C:\Test, when I double-click on them on File Explorer, I want them to all be opened by default_app.exe:
+Also, the likelihood that your one app could read all file types and make sense of them to the user is unlikely. 
+I have a specific folder with different file types (txt, pdf, docx, anything) which when doubled-clicked on File Explorer, I do not want the default applications to open these files. Instead, I want a specific application to open these files that only reside in this specific folder.

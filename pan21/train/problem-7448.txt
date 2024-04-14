@@ -1,0 +1,5 @@
+The app he's logging into has extremely low usage, and we've ruled out that someone else is logging in and confusing things. So far he's the only user with this problem (out of ~1000). 
+Someone in our desktop support department has a strange issue. He logs into his PC using his normal account (domain\UserA), but when accessing an internal ASP.Net web site using IE 7, the IIS and application logs show that he's accessing the app as domain\UserB.
+He's on a Windows XP machine, using IE 7, logging into a Windows 2000 Server running IIS (the web app is ASP.Net 2.0).
+I'm curious if anyone can suggest how this might be possible. I've been in IT and software development in one form or another for almost 12 years, and I've never seen a case where a user could login as themselves, but "accidentally" get the privileges of another user.
+Crazy Theory #1: Another user logged into the web application from his desktop and selected to option to save his username and password for future visits.  Have you tried clearing saved usernames and passwords?

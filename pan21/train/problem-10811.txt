@@ -1,0 +1,6 @@
+You may decide that a 10% minimum isn't enough and you need to increase it. Just be measured in your approach.  I personally have never found the need to touch the Maximums, though I suppose there are use-cases.
+If Bad Users were all running CPU heavy queries, and the Good User's query came along, it would throttle the Bad so the Good would be guaranteed to at least have 10% of the CPU.
+The trick to Resource Governor is thinking about what you want to protect rather than what you want to throttle.  You set minimum/reserve resources for your good users which protects them from the bad users.
+My advice is to start conservative and slowly turn the knobs. You'll likely just need one Resource Group for your "Good Users". You would set their minimum CPU and/or Memory to, say 10%.  Everything else, including your Bad Users, will go to the Default pool. 
+Another thing to be aware of is to make your Classifer function very simple. Remember, this function will get called on every connection so SQL will know which Group to route the connection, so don't put a lot of crazy logic in there. 
+Also, the Resource Governor DMVs provide some great information. You can create your "Good Group" and just leave it at the defaults to see the stats. They are quite interesting on their own.

@@ -1,0 +1,7 @@
+First packet will hit the first "hop", and come back, you will get the ping time to this place. Same for second packet, which will stop after the second "hop", and so on. Each "ping" you get in a traceroute is the time to each intermediate router, from you, and not the time between two routers.
+When you do a traceroute, you are actually sending several packets, with incremental TTL (time to live).
+Aside the hard-to-inderstand question, the thing is: ping measures the time taken by a 32bit packet to do a round trip. The TTL is just the final value after the hops...
+In traceroute, only the final packet, the one which reached the destination and came back, is the actual ping from you to this place.
+Check this by tracert in windows or traceroute in unix. Will see avg max and min time for each hop...
+Also, often intermediate routers (internet backbone routers and such) are configured to not respond to ICMP (ping) packets, which is why trace route times out on several of the hops for traces across the internet.  So summing the hop times is not possible when any intermediate router refuses to respond to ICMP.
+No because the trace route time is to that hop and back again. So if you add them all up it would be You -> Hop 1 -> You -> Hop 2 -> You etc which is not how you get from You -> other PC.

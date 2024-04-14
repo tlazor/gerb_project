@@ -1,0 +1,9 @@
+ImportantThis section, method, or task contains steps that tell you how to modify the registry. However, serious problems might occur if you modify the registry incorrectly. Therefore, make sure that you follow these steps carefully. For added protection, back up the registry before you modify it. Then, you can restore the registry if a problem occurs. For more information about how to back up and restore the registry, click the following article number to view the article in the Microsoft Knowledge Base:
+To configure Outlook to ignore the name mismatch and connect to a specific HTTP endpoint, you can set or deploy a registry value. To do this, follow these steps:
+To add more HTTPS servers to which AutoDiscover can connect without displaying a warning, repeat steps 4 and 5 for each server.
+Type the name of the HTTPS server to which AutoDiscover can be connect without warning for the user, and then press ENTER. For example, to allow a connection to https://contoso.com, the first String Value (REG_SZ) name would be as follows:
+Windows 10 and Windows 8: Press Windows Key + R to open a Run dialog box. Type regedit.exe and then press OK.
+Where xx is 12.0 for Outlook 2007, 14.0 for Outlook 2010, 15.0 for Outlook 2013, and 16.0 for Outlook 2016
+You do not have to add text to the Value data box. The Data column should remain empty for the string values that you create.
+Start Registry Editor. To do this, use one of the following procedures, as appropriate for your version of Windows.
+I think if this were possible it would be a massive security vulnerability with DNS - you could put some static entries on host files if it's a small office or suppress the warning.

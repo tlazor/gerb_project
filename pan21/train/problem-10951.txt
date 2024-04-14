@@ -1,0 +1,8 @@
+So check that all the cables for the drive are securely attached to the drive and the motherboard and power supply. Also, try swapping the cables for others (SATA data cables are easy to come by, and your power supply probably has spare SATA power connectors perhaps even on a separate line).
+Unless there is some sort of message there that gives more clues, the only thing I can think of is that you hare a dodgey or lose power or data cable and at some point there is a disconnect which Windows sees as an attempt to hot-unplug the device. If the device doesn't support hot-plug then it will not reconnect properly until you restart your machine.
+On my laptop, the drive bay is a bit finicky and I have to reseat it occasionally when it doesn't detect.
+On a desktop, the biggest thing that would cause it would be a loose cable.  Or your BIOS is forgetful, I had that problem on a really old ~1998 P133 Acer with an ALi chipset.  But I doubt that would occur anymore.
+I used Process Explorer from Sysinternals to see what DLL was doing this and disabled the dll and it worked fine after that.
+if you go to the device manager when the drive disappears, can you "scan for hardware changes" and have it detected?
+I had something similar with audio drivers with a laptop once. It was a driver that would conflict and then would say I didn't have any audio deviced installed, which wasn't true as I got the Windows Startup sound and after 5 minutes the device would work.
+Do you see any warning or error messages in the system logs? (right-click "my computer", select "manage", and in the utility that loads look in the "Event View" section under "System").

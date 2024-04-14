@@ -1,0 +1,6 @@
+You haven't assigned a user ID number (what dscl calls UniqueID) to the _jira user, and since file ownership is recorded by user ID, there's no way to chown files to an account without one. Add something like:
+If you want to stick with adding a secondary membership in the _jira group, you should assign some other group ID as the primary, and then add the secondary membership with dseditgroup:
+So I am attempting to create a new user and group, and then change ownership of a directory to that new user/group. However, when I do, chown comes back with an "illegal user name" message.
+Note: I can list all the existing users and groups and can see the _jira user and _jira group, and also see that the user is assigned to that group.
+This not only adds "_jira" to the group's GroupMembership list, it also adds the user's UUID to the group's GroupMembers list -- doing both is recommended, and while it's possible to do with dscl it's simpler with dseditgroup.
+You should also set the user's PrimaryGroupID, and I'd use that to assign it to the _jira group rather than adding the user to the group:

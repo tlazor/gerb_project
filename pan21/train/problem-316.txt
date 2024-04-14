@@ -1,0 +1,5 @@
+You can model the data in a Bayesian way to capture the robustness of parameter estimates.  Construct a probability distribution for each estimated CTR. Each distribution will have the same mean but the page with fewer samples will have greater variance (i.e., less confidence that the population parameter is near the observed data) than the page with more samples.
+I have a collection of articles and for each articles I have the number of clicks and views, so I can measure the Click-Through Rate (CTR) as the number of clicks over the number of views.
+However, the CTR is not a very informative quantity because, for instance, two pages with CTR 10% can have very different values for the clicks and the views. For example, page A can have 10 views and 1 clicks and page B 10 million views and 1 million clicks.
+Just CTR is not important. Also, cost-per-click should be applied. Hence, to rank sites in an ads auction, using $CPC\times CTR$. 
+So I was wondering if there was an algorithm that can rank pages based on their CTR that also account for the absolute value of clicks and views because in the previous example page B may have a better ranking than A.

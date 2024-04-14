@@ -1,0 +1,5 @@
+I suggest reaching out for consulting help as load/performance testing is non-trivial and 1-2 hours of consulting might save you days of trial and error.
+Or am I missing the boat - is there a way I should be profiling the app now before I even consider putting the changes live?
+I have an ASP.NET MVC web app running in Azure.  I'm making a change to some of the resources it uses in the background but I want to be sure it's not going to have an adverse effect on the performance of the app.
+Is there a way I can run any kind of benchmarking on the app as it currently is, over the period of a day or a week, so that once I put the changes live I can then run the same process and see if the app is running slower or faster?
+Azure in general can be very much slower than local solutions, the only answer is to simulate loads and test various configuration.  It will also depend on your goals, costs, performance, scalability, etc. will impact your choices.  If you need high performance at low costs, then dedicated SSD/nvme servers are in general going to be significantly faster than Azure.  If simplicity is more important then appharbor might be a better option.

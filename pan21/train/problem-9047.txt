@@ -1,0 +1,6 @@
+executing the script as ./myscript requires execute permission for file myscript while sourcing does not require any execute permission. That is why chmod +x myscript is not required before source myscript
+So if you have configs or function definitions you should source and not execute. Executions are independent from the parents environment.
+Executing a script runs it in a separate child process, i.e., a separate instance of shell is invoked to process the script.  This means that any environment variables etc., defined in the script can't be updated in the parent (current) shell.
+sourcing is essentially the same as typing each line of the script in at the command prompt one at a time...
+Sourcing a script means that it is parsed and executed by the current shell itself.  It's as if you typed the contents of the script.  For this reason, the script being sourced need not be executable.  But it has to be executable if you're executing it of course.
+Execution starts a new process and then runs each line of the script, only modifying the current environment by what it returns.

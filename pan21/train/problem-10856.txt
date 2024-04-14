@@ -1,0 +1,6 @@
+If you are doing large scale math computation and simulations and hitting certain deadlines are important, that it might be worth going with a Xeon, or getting a Xeon server and offloading your work to that. 
+If this is for home, don't get a Xeon, chances are you won't make the most efficient use for it, and it isn't worth the money. If this is for work, and the sky is the limit for price, then go with a Xeon.
+Clock speed is not the only factor which determines what makes a processor expensive. For example, the cache is nearly double the size, which reduces calls to RAM, which will significantly speed up the processor, as well as a significantly higher memory bandwidth. The underlying technology is much more advanced than a regular CPU.
+The i7 series is focused at end-user computation in desktop environments where the Xeon processors are for non-consumer high performance computing, often used in servers, and are optimized for such. For example, see that the Xeon processor can handle around 1.5TB of RAM.
+For regular home computer use ranging from running games to running small-scale CAD projects, and i7 would be sufficient.
+Typically workstations only have Xeon processors and/or workstation GPUs if you are doing high quality simulations or renderings, necessitated by your industry.

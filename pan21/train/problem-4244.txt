@@ -1,0 +1,9 @@
+So when your book tells you to lower the threshold, it is simply saying that you require a smaller level of confidence to choose e1 over e2. This doesn't mean you are choosing one with smaller likelihood, you are simply making a conscious choice to adjust your precision-recall curve. 
+I believe you can try with range of cut offs to see which one gives highest accuracy or F-score in hold out set.I've seen winners in kaggle stating to do experiment with cut-offs to get best result.
+Suppose our model predicts the most likely outcome of 2 events, e1 and e2. We have e1 occurring with a predicted probability 0.52 and e2 with a predicted probability 0.48. Using the standard 0.5 for e1 cutoff we would predict e1, but using an alternative cutoff of 0.56 for e1 we would predict e2 because we only predict e1 when p(e1) > 0.56.
+My question is, does it make sense to also readjust the probabilities when using alternate cutoffs. For example, in my previous example using 0.56 cutoff of e1.
+I apologize if there is something obviously flawed with my logic but it feels intuitively wrong to me to predict e2 when p(e1) > p(e2). Which probabilities would be more in line with the real-world probabilities?
+There are other ways to combat class imbalance, but changing the threshold to be more sensitive to any indication of confidence of one class over another is certainly a way to do that. 
+I am reading Applied Predictive Modeling by Max Khun. I chapter 16 he discusses using alternate cutoffs as a remedy for class imbalance.
+Also in your example, if the events are mutually exclusive (like classification), just think of them as "event 1" and "NOT event 1". Something like p(e1) + p(~e1) = 1. 
+First of all, you cannot always consider what a machine learning algorithm outputs as a "probability". Logistic regression outputs a sigmoid activation on a (0, 1) scale, but that doesn't magically make it so! 

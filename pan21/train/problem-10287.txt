@@ -1,0 +1,8 @@
+Hannu's answer covers it but if you're new to Excel, the syntax might seem odd.  I'll expand the explanation.  
+All of this depends, of course, on your question accurately describing what you want to do.  Also, be aware that the list and argument separators can vary by locale.  In some locales, a semi-colon is used rather than a comma.  If you use the function wizard to help build your formula, it will insert the correct separator character.
+You give it a list of conditions.  OR returns TRUE if any one or more of the conditions in the list is TRUE, and FALSE if none are true.  
+Those conditions can be anything that returns a TRUE/FALSE result, including your AND expressions.  So each AND expression can be a condition in the OR list.  You get:
+This entire OR expression produces a TRUE/FALSE result, so it can be used as the condition in your IF test:
+From your description, you have two different AND expressions, and you want the same set of TRUE/FALSE results if either is true.  You can use OR for that.  Like AND, the syntax is: 
+Each AND expression returns a value of TRUE or FALSE, so the entire expression can be used in places where you want to make a decision based on some condition or conditions being TRUE or FALSE.
+The various conditions that must all be true are a list inside AND, separated by commas.  AND returns a value of TRUE if all the conditions in the list are true, and FALSE otherwise.  So your two AND expressions would look like:

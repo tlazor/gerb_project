@@ -1,0 +1,5 @@
+I did a little search online and found nothing but a somewhat out-dated linux loader - loadlin.exe, which one could run from within Dos or Windows 95/98 to boot Linux. So at least the concept of switching OSes without rebooting is not new. Anyone know of a current tool that does this?
+So I was wondering if it is possible to skip these initializations and just "return" to GRUB once I have booted Linux. Ideally I would also be able to do the same from within Windows but my hope is not very high there :)
+UPDATE: A friend of mine just told me about Kexec. Using that it seems to be possible to start a different Linux kernel from within a running kernel, but is it possible to go back to GRUB or start a windows installation directly?
+I am dual-booting Windows and Linux on my SSD and find myself often switching between the two OSes. The SSD is really fast and both OSes boot in about 3 seconds once selected in GRUB. However, it takes forever (about 30 seconds) for my BIOS, RAID and second SATA controller to initialize before I'm finally in GRUB.
+If not, is there a technical issue that prevents us from writing such a program or is there simply not enough demand?

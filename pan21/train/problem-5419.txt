@@ -1,0 +1,8 @@
+Writing a plugin for this is not exactly taxing. But there are several offerings available which cover this - e.g. check_mem.pl
+What you probably really care about is how often your system has to go to the disk for swap-- i.e., if it starts thrashing.
+I used vmstat and some regex (or maybe python with regex) to look at the pages in and pages out, and to see if they passed a certain threshhold.
+If you wait until your webserver starts paging before you know about the problem then it's much too late.
+This took rather a bit of tuning and monitoring, but this is what I best used. It's not difficult to write plugins for {nagios | big brother | xymon | mon}
+Fundamentally, most OS' memory reports are a bit faulty-- stuff is held by applications but can be released at any given time if needed.
+Searching for Nagios plugins that checks for memory usage on gives a lot of results, so it is hard to know which to use, as the Nagios plugin package doesn't contain a plugin for checking memory.
+I disagree strongly with Glen M - the amount of memory available for cache and buffers is essential to ensuring good performance on nearly every type of application on nearly every type of server OS. 

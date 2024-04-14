@@ -1,0 +1,8 @@
+Also since RMAN does compression starting in 10g, why not just let RMAN do the compression? You probably won't have smaller backup files if you backup as compressed data set. Make sure that your backup script is compressing the backup of the data files and archive log files.
+You can prove this by doing an MD5sum (or equivalent) on the file before zipping, and then zip it up, unzip it again and do another MD5sum.  They should be identical.
+The backup files are just files.  As long as your tool doesn't do anything stupid with the files when it decompresses them, then they will end up identical to what they were at the beginning.
+You should have more than one backup on disk. As a part of the backup process you should crosscheck your backups and prune off older backups. Hence your control file and recovery catalog will track what backups are online and available every time you do a crosscheck backups. If you compress and rename your backup files your database will not know that they still exist. If you leave the files where they are when they are backed up, you won't have to move them to restore or duplicate your database.
+Since the backup is just a file, you can use whatever file tools there exists, including any and all compression tools.
+I have used Winzip to compress backup database file. Most of time it compresses 40% to 70% of original file.
+I don't compress my backup sets, because that increases time to restore even further (e.g. now there's an extra step that includes "decompress backup files", which could take a significant amount of time.
+A far better solution is to use any built-in compression of the backups from whatever sql engine you use. That saves both IO, space and time.

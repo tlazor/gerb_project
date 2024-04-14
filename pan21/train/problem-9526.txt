@@ -1,0 +1,7 @@
+In Local Security, grant the service accounts that run the instances "Lock Pages in Memory" and "Perform Volume Maintenance." 
+These tips apply to a dedicated server. Consider the impact of these on a server running other services
+Autogrowth should not be relied on for growing databases, it will cause fragmentation if left over time. If possible, databases should be grown by hand and autogrowth should only be relied on as a fail safe.
+Perform Volume Maint - This will allow SQL to write on the fly without having to pre-allocate the space by writing zeros. This can increase write speed.
+Some of the basics include using domain service accounts to run the instances to allow for replication and certain local policies to apply.
+Check out Brent Ozar's collection of information. Brent now works for Quest, which own SQLServerPedia, and there's more practical information there. You might also check the 24 hours of PASS sessions, like Andy Kelly's, which use wait stats to help you pinpoint where the issue might be.
+Lock Pages in Memory - This will allow SQL Server to maintain data in RAM instead of paging it if there is contention with another process.

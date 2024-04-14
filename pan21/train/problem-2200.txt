@@ -1,0 +1,7 @@
+You are describing the proper algorithm. If you loop while you have remaining movement left, it wont matter how many segments you have to cross over. All of the calculations you describe are O(1) calculations so performance isn't an issue.
+Keep in mind that all terrain is triangles under the hood, so Trig and/or Dot Products may possibly offer some calculation advantages, but still within O(1) domain.
+I guess terrain is 2d from the picture. If it is terrain the {x} axis distance between every vert should be constant. I also condider both players are grounded.
+I have a character. For floor collision, it uses a single point (the red X). When the character moves, it conforms to the terrain; note how the blue line (its movment per frame) is the same length regardless of the slope.
+as the player 1 is behind player 2 we find that we need to take the front vert from the segment from player 1 and the back vert from player 2. So as finding this we can start calculating the distance.
+I have the top three situations working fine. The issue is the bottom one, where the character is crossing over a change in slope. I handle the single-slope case just by rotating the impending movement vector, but obviously that won't work here.
+The problem is that it doesn't seem like this will chain very well if the character has to cross over three or more segments at once (maybe it's moving very fast over round-like terrain).

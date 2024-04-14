@@ -1,0 +1,6 @@
+The other option is to tell the printer. In that case it will be a selection somewhere under printer Printing Preferences and/or Printing Defaults. Many high-end printers support this option, but it is sometimes hard to find. In your case, you say it's not supported, but try clicking all the tabs and buttons in Preferences.
+As you said, applications like Word let you specify a different tray for the first page, but most other app do not. I do not know of any PDF reader that does.
+This setting does not appear in the "Printer Properties" dialog but can be accessed in some apps, such as ms word under the "page setup" dialog.
+There are only 2 ways of getting what you want: either the application sends different pages to different trays, or the printer does it itself.
+The first page of each document needs to be on letterhead paper and the rest on regular paper, so mixed input paper / cassettes.
+I've tried using a program called "print conductor" found on google and I've also looked at using adobe reader from the command line but there do not seem to be any options to specifiy this.

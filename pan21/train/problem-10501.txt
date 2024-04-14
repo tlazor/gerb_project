@@ -1,0 +1,6 @@
+And, indeed, that includes SCCM. It's hard for any of us to say what will definitely work in your environment, but you could certainly pick worse places to start.
+Of course, this is all easier said than done, but trust me when I say I've nearly every 'level' of educational IT.
+But once you are over it, it will help a lot - the whole System Center suite. 800+ machines is WAY too big to run around to install stuff.
+Forget you're a school and look at your numbers critically. You have 800 computers and nearly 2000 users. That's not a small company and I wouldn't really say "midsize" either. Schools IT is often neglected, but the truth is you should be using good quality enterprise hardware and software.
+There's very little that's truly overkill for a network of this size - plenty that are too expensive, though!
+I would not call 800+ computers "mid sized". I was successfully deploying the successor of SCCM in a bank with 850 employees. In your case it is a lot more likely nowt knowing your tools that will be the problem - somehow I have a problem imagining the team of 3 people in a school being the highly competent people that companies employ for a lot more money. The learning curve WILL be brutal for you.

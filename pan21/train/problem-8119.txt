@@ -1,0 +1,7 @@
+Which purged  all files related to virtualenvwrapper. The reason I uninstalled it was to use pip's version instead (more up-to-date), which can be installed globally using:
+If none of the answers work like for myself, just create an empty file at the location giving out an error and shebang to it.
+The script references the file /etc/bash_completion.d/virtualenvwrapper as pointed out by arcticfeather.
+In my case, I had previously installed virtualenvwrapper using apt-get install virtualenvwrapper and later uninstalled it using apt-get remove virtualenvwrapper, which left the 'configuration' file /etc/bash_completion.d/virtualenvwrapper behind. This bash completion definition was sourced by bash (it had nothing to do with my .bashrc) and caused the error message.
+Following these instructions, I found that the error occurred when sourcing the virtualenvwrapper bash script, i.e.:
+I hope it help someone, in my case i was trying to create the virtualenv being inside a screen (screen -S whatever), the solution was closing the screen and executing the virtualenv command again being outside.
+This is where the non-existent file is being referenced. Simply replace /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh with /usr/local/bin/virtualenvwrapper_lazy.sh and you should be good to go!

@@ -1,0 +1,7 @@
+My thinking is - if I could get this disk to really defragment completely then I could compact the image and get that filesize back. And since the end goal is to distribute this to some coworkers, that would be a big plus.
+I tried to defragment the disk using the built-in defragmenter for XP and it shows an enormous gap in the layout of the disk - probably all that stuff I removed.
+I have a Windows XP VirtualPC machine with a virtual hard disk. It's a dynamic disk, which means it expands as needed.
+Jeff blogged about making Smaller Virtual Machines and suggested using Whitney Defrag. In the comments John Mitchell suggested using SDelete, (to write zeros in the empty space to aid compression), as a free alternative to what Jeff recommends in his step 5.
+They have versions specifically for virtual environments but I have only used the stand alone versions.
+However, after defragmenting the giant gap is still there, although obviously some defragmenting did occur.
+I'm partial to jkdefrag to do my defragging work.  I've never used it in a VM for exactly what you want to do, but it might be worth a shot.

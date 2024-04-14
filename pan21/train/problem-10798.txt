@@ -1,0 +1,5 @@
+My guess is that psql treats each INSERT line in the dml_script.sql as a separate transaction. If that's the reason, is there a way to group INSERT statements in the dml_script.sql file into one longer transaction (or perhaps treat the whole file as one single transaction) so that at its end (when the scope of the SET CONSTRAINTS ALL DEFERRED; terminates), no constraints are violated?
+The table constraints have been created with the DEFERRABLE option and the script itself (file dml_script.sql above) issues the following before an offending INSERT:
+Otherwise some other method (other then changing the order of the INSERT statements which I have reasons I don't want to) to allow me to load the table with a series of INSERT statements so that constraints can be temporarily deactivated ?
+I've checked that the specific constraint on the table in question has been created with the DEFRRABLE option:
+I am using PostgreSQL 9.1.5 and the psql to run a scipt containing a series of INSERT statements in various tables:

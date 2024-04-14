@@ -1,0 +1,7 @@
+I know this is very simplified, but is X11 not using these methods? Does it behave in a bitmap-ish or a non-differential principle at some level? And if not, why does it take up so much bandwidth?
+In the case of .bmp vs .png, for example, a large black square image will take way less in .png representation because information is not stored for every single pixel, but in a range-ish way as far as I understand. 
+With my 25mbit connection, I can stream HD video to my computer absolutely without a problem. On the other hand, the unresponsiveness of remotely launched GUIs with X11 forwarding happens even over a 100mbit LAN, where the latency should be near zero.
+Whenever I remotely launch large GUIs with X11 forwarding, even including the -C switch, the experience is very unresponsive. My question is, what does, at the concept/protocol level cause this?
+I understand that as opposed to video streaming, the latency will be at best doubled (as the input needs to be sent to the remote machine and only after that can the appliction respond), but internally, are there other factors which increase the latency even further?
+Secondly, the bandwidth. Why does it eat up so much of it? When it comes to picture and video formats, many methods are used to drastically reduce the size.
+In the case of videos, a whole lot of information can be saved by sending the difference between frames rather than the whole frames.

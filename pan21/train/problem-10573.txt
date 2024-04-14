@@ -1,0 +1,5 @@
+I've searched this site and google, and I CAN find information about how to back up Hyper-V virtual machines by using Windows Server Backup from the Hyper-V host in Windows Server 2008. You have to set up a registry key to enable the Hyper-V VSS writer, and then you can take online backups of your VMs.
+I went ahead and scheduled a windows server backup for 9pm tomorrow. It said it would take 86 GB, which means it MUST be counting those VMs. But will this backup fail?
+... but it said that it was not applicable to my operating system. So I am thinking either Windows Server 2008 R2 already has its VSS service for Hyper-V enabled, or it still needs to be enabled but the FixIt package doesn't feel comfortable operating on an OS that wasn't RTM at the time.
+However, all the information I have found is about a year old, and none of it has been updated for Windows Server 2008 R2.
+It appears that a Windows Server 2008 R2 Hyper-V Host can back itself and all its Hyper-V machines up right out of the box. The shadow copy service appears capable without any additional help.

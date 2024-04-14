@@ -1,0 +1,12 @@
+However with the singular table name "user" the container reference is not there in the name. eg "user_container" would likely be acceptable for people who prefer plural names.
+If you are doing the project solely and there's no real reason to go either way do whatever you feel is best, or just preference. Apply the same when in a dev team and just come to a unanimous decision.  
+It seems wrong to people as they mentally link the table name to the contents (multiple rows needs a plural name) rather than mentally linking the named container to the contents (a container allows for multiple).
+I think this is also because of years of plural being common practice and in most online teaching material.  
+An "egg carton" can have multiple eggs in it but that's obvious as the container reference is in the name, providing potential for multiple eggs. 
+It's a very personal thing. I have been using singular form for 30 years. But I can see why people like plurals. The books - authors is interesting as I think booksauthors is not wrong. A book can have one or more authors. And authors may have written one or more books (e.g. co-written). It also just depends how you handle books written by more than one author. I agree with other answers; choose one and be consistent. In regards to reserved words issues. I think it is not hard to come up with workaround names. user -> app_user , session -> app_session, order -> customer_order
+As always though there's often not a right and wrong, and it's more about what suits the scenario, and importantly being consistent with whatever you choose.
+The person who makes a correlation between the table name and the fact it represents a container, which can contain multiple rows. 
+A table of book records should be called books.  The ORM should use the same convention.    The Books object is a collection, and presides over all records in the Books Table.  A Book object presides over a single record.
+All this said, I think that technically speaking the singular is more accurate given that we're naming a single container, and containers can contain multiple (or single) rows.
+Those seem like common words that might go in line-of-business database. Plural words seem to be less common as key words than singular words. Therefore, it might be beneficial to use plural table names so as to avoid conflict with SQL key words. 
+The person who does not make the correlation between table name and that fact it represents a container. Of course they know it is a container, but it's not there in the name.  

@@ -1,0 +1,5 @@
+http://blogs.msdn.com/b/ieinternals/archive/2012/03/23/understanding-ie10-enhanced-protected-mode-network-security-addons-cookies-metro-desktop.aspx
+In an x64 architecture of Windows 8, is it possible to run the Metro IE 10 application in 32 bit mode? I know it is possible in the desktop version of IE, but I am wondering if it is possible in the Metro-style app?
+As for pure JS web apps, there's nothing that would prevent them from running in 64-bit IE, Metro or Desktop version.
+The "modern" version of IE 10 on Windows 8 is 64 bit only. Please see the following MSDN article that details 64 bit along with why dealing with EPM (Enhanced Protection Mode)
+Even if Metro IE did run in 32-bit mode, you still wouldn't get what you want if it is plugin support you're after. Why? Because Metro IE is plugin-free, as detailed by this article: Get ready for plug-in free browsing. Other than Flash which is a built-in component and uses a regularly updated CV blacklist (it used to rely on a whitelist earlier), no other plugin is allowed access to Metro IE.

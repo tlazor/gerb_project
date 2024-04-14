@@ -1,0 +1,6 @@
+start menu > run > diskpart > list disk > select disk 1 > list disk > clean > create partition primary > assign letter g: > format fs=ntfs
+This might seem a little nieve, but I just inserted my unusable SD card into my digital camera, and it seemed to reformat it to a condition where I could proceed with another partitioning.  You also might want to use the minipartion disk tool on windows or the SD card formatter (https://www.sdcard.org/downloads/formatter_4/index.html) to just put one big FAt32 partiton on the card before other Linux partitioning.
+I recommend to you to list disk again before clean command to check disk 1 is selected (you can see the exact sizes on list so you can understand which one is your sd card and which should be selected)
+console show you disks available on your pc generally disk 0 is local disks (C:,D: etc) and disk 1 points to others like usb flash disk sd card vs
+so you have done with the cleaning stuff and assigned the card as g: as a virtual drive you can chose any letters that does not stands for any other virtual drive
+You can use a third party software to format your SD card like AOMEI Partition Assistant Download here on Windows or GPARTED on a Linux Distrubution

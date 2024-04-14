@@ -1,0 +1,8 @@
+If you have also done an MD5 of the original file, check it too. If it is okay, you can untar your file, everything should be ok.
+Although it adds a bit of overhead to the situation BitTorrent is actually a really nice solution to transferring large files. BitTorrent has a lot of nice features like natively chunking a file and checksumming each chunk which can be re-transmitted if corrupt.
+Default SCP and Rsync (which uses SCP) are very slow for large files. I guess I would look into using a protocol with lower overhead. Have you tried using a simpler encryption cypher, or non at all? Try looking into the --rsh option for rsync to change the transfer method.
+I've done that in the past, with a 60GB tbz2 file. I do not have the script anymore but it should be easy to rewrite it.
+You can try removing the 'z' option in both tar command for a bit more speed seeing as the file is already compressed. 
+Give netcat (sometimes called nc) a shot.  The following works on a directory, but it should be easy enough to tweak for just coping one file.
+For each piece, compute an MD5 hash (this is to check integrity) and store it somewhere, then start to copy the pieces and their md5  to the remote site with the tool of your choice (me : netcat-tar-pipe in a screen session).
+A program like Azureus [now known as Vuze] contains all the pieces you will need to create, server & download torrents in one app. Bean in mind Azureus isn't the most lean of solutions available for BitTorrent and I think requires its GUI too - there are a lot of command line driven torrent tools for linux though.

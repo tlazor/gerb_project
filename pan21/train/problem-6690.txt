@@ -1,0 +1,6 @@
+I identified the problem to be the mismatch of the available trash (or deleted items) mailbox with the mailbox defined in "where to send deleted items" field. I resolved it through the following steps:
+Also had another issue where I had hidden messages. I had to type in the search bar "UNREAD", which then shows the hidden unread messages that seem to be lost in the exchange server.  This brought them into my machine so I could work with them.  I found that on the Superuser site a few weeks ago. I can't take credit for either of these fixes but thought I would add to the info on this question.
+I have had this happen to me twice now.  One solution is posted here (see Tog from November 25 2010, "I had a collapsed day that had some unread messages in it." 
+I had this issue in Outlook 2013 using Outlook.com (Corporate) .  I right clicked my inbox, and chose properties.  Then clicked the Clear offline items.
+I had the same issue with Office 2011 for MAC. Finally resolved it. If you do an advanced search based on "read status" you will find those unread messages in your one of your mailboxes.
+If possible try to connect to OWA (Outlook Web Access) and mark all items as read in the OWA. This will help to sync this back to your local Outlook.

@@ -1,0 +1,5 @@
+At the end of the day, if they work for you, use them. In the past I've made a video game that was using android's Activity, without any subclasses. Why? Because I found it a fun thing to do.
+I don't have much experience with fragments, but from what I remember, they are very tied to android's app lifecycle. Using fragments means one has to develop primarily on android, and be familiar with how it works. In theory, that works, and if someone is familiar enough, they could use fragments.
+From my experience in game developing, when making a game for multiple platforms, its easier to organise everything in such a way that works for most of them.
+In this case, using a SurfaceView is like telling to android "Give me a rectangular area on the screen, where I will draw custom graphics". This is very similar to how game development is being done on other platforms, by creating a window, or otherwise asking the OS for an area on the screen to show all the graphics.
+However, most people out there use libraries or tools, that already work in a platform-agnostic way, which would make it more cumbersome to make them work with fragments instead.

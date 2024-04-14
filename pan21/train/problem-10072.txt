@@ -1,0 +1,6 @@
+In PFSense I setup the WAN as normal for the first subnet then for the second i had to had a new gateway through "System > Routing > Add new GW"
+Have your provider route you the second subnet, then add the routed block's IPs as type Other VIPs. I wrote about this in much greater detail in https://pfsense.org/book
+They should really route you the second subnet, assigning it to their routers is dumb and a waste of IP space. That doesn't change things too much either way though. A VIP on WAN will suffice in that circumstance unless they did something really stupid with your new subnet, like putting it on an entirely different router and forcing you to route that through it. 
+My colo provider has allocated a /29 subnet to me of which I can use 3 IP addresses (for some reason they need to use the others). I've tried setting the three IP's as various forms of VIPs but that doesn't work.
+Can anyone point me to info on what to change on a pfSense device for a 2nd subnet on a single interface?
+Route them via 1:1, NAT etc and remember to route your internal IP's on your Outbound NAT so the internal PC's / servers present the correct IP outbound.

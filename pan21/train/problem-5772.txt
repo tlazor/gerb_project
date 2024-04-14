@@ -1,0 +1,6 @@
+The plugin adds an new item in the window menu called "Disable Refresh on Regaining Focus", if you check it then things get nice and speedy.
+I was wondering if there was a setting that would make it faster to focus the cursor in TextMate without the 3 second wait each time.
+Also of note, if I open the files one at a time and not as an entire project, I don't get this problem, so I assume it has something to do with the number of files loaded in a TextMate project.  
+There is a great little plugin that might help called ReMate. It stops TextMate from automatically checking all the files in the project for changes when TextMate gains focus again. I use it for working with remote drives mounted with FUSE as that had the some problem.
+Every single time I lose cursor of TextMate to do something else like checking the web browser... and then try to click on TextMate again it gives me a spinning beach ball for 3 seconds.
+While it is active if you want to manually refresh the files right click in the sidebar and choose "Refresh All Projects"

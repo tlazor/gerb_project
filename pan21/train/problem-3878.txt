@@ -1,0 +1,5 @@
+If they are both spinning at the at the same rate, and the the 1TB drive has twice the data density (as it must), it should have a transfer rate of twice as much (although seek times will be comparable) or am I missing something.
+So increasing from 500GB to 1000GB you double the density per area of the drive, but the density per track is only increased by a factor of 1.414 (the square root of 2), so the transfer rate is only increased by a factor of 1.414.
+If I take a 500GB hard drive and a 1TB hard disk otherwise identical, why is the 1TB drive not twice as fast as the 500GB drive?
+I suspect the real factor may be a bit higher because it may be easier to increase the density per track than the number of tracks.
+Actually, the capacity is proportional to the area, whereas the transfer rate is proportional to the radius. Assuming that the number of tracks increases in proportional with the amount of data per track, the transfer rate should increase with the square root of the increase in capacity.

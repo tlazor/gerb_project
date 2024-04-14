@@ -1,0 +1,5 @@
+Not a Windows guy so I can't make any direct recommendations, however http://en.wikipedia.org/wiki/List_of_SFTP_server_software may be a good starting place.
+You may also want to look into Syncplify.me Server! which scales up pretty well, even in multi-node HA (high-availability) deployments, and supports local as well as Windows and Active Directory users and groups.
+For 40 (or even 100) concurrently connected clients the machine you have (64 bit Windows 2008 with 32 GB RAM) will work just fine, but it can easily scale up to several hundreds of concurrent clients with a proper HA deployment.
+Another software on that Wiki list is GoAnywhere Services. I've installed it at a number of client locations and they have loved the Active Directory integration, rock-solid performance on a small foot-print, security controls and that you can do everything via a browser. 
+Glancing at the list I can tell you that Serv-U has been around pretty much forever - I remember using it under Windows 95 way back in the stone age - so it's probably fairly well debugged at this point and may make a good choice.

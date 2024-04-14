@@ -1,0 +1,10 @@
+64Bit: http://www.microsoft.com/downloads/details.aspx?FamilyId=4fe566bd-31b1-4413-8c4c-412b52533669
+This is optional so you may have to look for it in Control Panel > System and Security > Windows Update > Show all available updates > Optional, and manually install it.
+I've stopped Windows Update, deleted the file, rebooted, but when I do that Windows rebuilds the file until it's a few hundred MB in size.  Once Windows is happy with whatever it's doing, it stops and my disk usage and cue drop down to normal levels and the system does whatever you want with plenty of speed.
+I've booted into SafeMode and run several virus scans and Kaspersky's RootKit killer tool and nobody finds anything offensive.  
+I tried a number of things and ended up on the phone with the manufacturer of the device that this computer was within.  It turns out that they have a bug in their implementation of Windows that causes this to happen.  The only solution to the problem is to re-image the machine and hope it doesn't happen again.  
+Anyway - I'm sorry to waste everyone's time.  For some reason I wasn't getting notifications about this thread until today, December 9, 2015.  
+I don't know why this says that I posted this in January 2013, this problem was only a few months ago in 2015.  Ha!
+Expanding upon @mafbailey 's answer (And a big thanks to you, as well!) make sure to open the command prompt as an administrator when utilizing the following command line action to have the appropriate file permissions. 
+32Bit: http://www.microsoft.com/downloads/details.aspx?FamilyId=fcd6bf5d-f004-4ca3-aa7e-1de462b91dd0 
+When the system boots up it spends a ton of time reading and writing to the DataStore.edb file which is located in Windows\SoftwareDistribution\DataStore directory.  This makes the system run really slow for several minutes, probably about 10 if I'm honest.  If you stop the Windows Update service, within a minute the system will stop reading and writing from the file and everything runs smoothly.  

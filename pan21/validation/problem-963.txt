@@ -1,0 +1,5 @@
+Found the issue. Although I am setting JENKINS_JAVA_OPTIONS, it wasn't getting set when Tomcat itself was starting. I went into $CATALINA_BASE/bin/setenv.sh and added:
+We have a Subversion repository located on an https connection. I am able to connect to it locally (no proxy needed):
+As you can see, I have JENKINS_JAVA_OPTOPNS set for my proxy, and I have https_proxy set. Proxy doesn't require a login although our Subversion repo does:
+Okay, I can through wget to connect to my repository. That means I do have network connectivity to our repository from our build server.  Unfortunately, my system doesn't have a Subversion command line client for testing. I'll have to ask our IT department to install the RPM for it, but right now, I can't test that. Fortunately, Jenkins does not require the command line client since it uses svnkit.
+I create a Jenkins Freestyle job, select Subversion as my repository, and in the Repository URL field, I'll put https://svn.corpwad.com/repos/potzrebie/branches/build-test. I setup a gloabal credential with the user qazwart and password swordfish. However, while still on our build configuration screen, I get this:

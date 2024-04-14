@@ -1,0 +1,8 @@
+But Office 2013 annoys me: When I open a file in my local Folder (which is synced to SkyDrive) it will try and download the file again, even though it already sits on my hard drive.
+Although in theory it sounds good I don't like this behaviour either and so I've disabled this option in the skydrive settings and in the office settings.
+Both changes seem to be required to get back to the way it worked in Office 2010, ie always a transparent background process (but probably less bandwidth efficient)
+I understand what you mean. I just thought recently. Why not you uninstall skydrive and install dropbox instead?
+Even more annoying is saving the file (or save as): I just want to save the file to my local folder (and let the SkyDrive sync handle the upload), but Office 2013 insists to upload the file itself, which takes Ages and using save as the choices are some online folders when I just want the Standard save as Dialog.
+http://www.liveside.net/2012/07/31/microsoft-explains-how-skydrive-and-office-2013-works-best-with-each-other/
+Under HKEY_CURRENT_USER\Software\Microsoft\Office\15.0\Common\Internet there is a key named LocalSyncClientDiskLocation. I changed it's value from the OneDrive location that to some random blank directory.
+So how do I revert Office 2013 behaviour for local files to the old, even when the local files are being synced to SkyDrive?

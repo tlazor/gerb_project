@@ -1,0 +1,7 @@
+If you try to format a partition larger than 32 GiB (32768 MiB), Disk Management offers exFAT instead of FAT32, because FAT32 is technically incapable of addressing partitions larger than 32 GiB. 
+After messing around like others for hours, Searching other forums I found two methods that appear to work.  One involved downloading a 'free' program called "fat32format" - DISCLAIMER: I HAVE NOT DOWNLOADED OR TRIED THIS! 
+That's correct. Format options doesn't have an option for FAT32. It doesn't have options for NTFS or other file systems, either.
+THE METHOD I USED - because it was easy and simple for me and fortunately available was to just insert the stick into my sons XBOX360 and it formatted the 128Gb stick to FAT32 in seconds. 
+I also had trouble trying to get Windows 10 to format my external 1TB USB drive in FAT32. (I wanted to copy some TV recordings on to it from my Humax HDR Fox T2 hard disc recorder which only reads FAT32 file sytems.)
+I'm always a bit uncomfortable downloading programs, but the reports seemed positive. A good security/antivirus program is obviously recommended here.
+I have some Disk Manager screen shots to illustrate this, but this site won't let me post images until I gain 10 "reputaion," whatever that is. So I'll summarize with words:

@@ -1,0 +1,10 @@
+Unfortunately, there aren't many things to do. If you believe your Radar Chart is not readable enough, then you can only change to a bar chart or a lollipop plot.
+Humans are able to understand the difference in horizontal or vertical axis linearly. However, when it comes to the area of a shape, it becomes quadratically. As a result, it's easy to overestimate a difference between two points in the Radar Chart.
+You need to be really careful with the order you will put your categories. Readers meant to focus a lot on the shape of the radar which will change significantly when you change the order of your categories.
+About the Radar or Spider Charts, you can find some drawbacks here. Let me summarize them for the readers.
+It's common in Radar Charts to compare different variables with different scales at the same time. In those cases, you need to clearly specify the scale for each of them, otherwise, readers expect to have the same scale and unit everywhere.
+This is a common problem in every circular layout. The human eye can easily understand and compare data in a single vertical or horizontal axis, but not with the same convenience in circular plots.
+Whenever it comes about a specific graph critique, I check the data-to-viz.com (I have not affiliation with it)
+One series of data is nice. A second one adds some eye-catching details. If you need more than that, it will become unreadably quite easy.
+In your example, you might try to put the scale outside to keep the inside area more clear. Like this one
+Bar charts and other similar plots, such as lollipops allow you to instantly graph the ranking of the data. Which is higher and which lower. This is not easy at all in Radar Charts where the are no starts and ends.

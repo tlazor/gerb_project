@@ -1,0 +1,7 @@
+Something like iotop will help, there are various versions so look at THIS one an google some others too.
+You should not install this version, its binary incompatible with the files it creates. Just copy the pidstat program it compiled and stick it in /usr/local/bin instead.
+Note that you need to be running a kernel that came with at least CentOS 5.4. Frankly if your not update anyway, there are numerous security reasons to do so and CentOS 5.6 was released very recently.
+Whilst sysstat is available for CentOS, the particular package you want doesnt come shipped with CentOS 5.
+I have a server (running CentOS 5) and I need to figure out which programs (MySQL, Apache, etc) are doing the most Disk I/O? Is there a command that will allow me to calculate an average over time?
+What you'll need to do is download sysstat from the main page which is  here. Configure and compile it. The latest version comes with a program called pidstat. This program will give you what you want. It works much like other *stat utilities like iostat, mpstat and vmstat. Note to pass the -d flag.
+You might try installing the sysstat package and use SAR and iostat.  They give better visibility over a range of time if that is what you are looking for.

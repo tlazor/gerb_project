@@ -1,0 +1,6 @@
+Preferably, I don't want to install any software. I just want to browse around the contents, add and delete as if a mass storage device.
+At present, there's no non-fussy way of transferring data to iPod Touch from linux machines, Ubuntu included. There is limited support in various add-ons and media players, but these are tenous at best, and quite often work with one specific version of the iPhone OS. 
+I have jailbroken my iPod Touch 2.0 and then you can actually mount it over the network with sshfs, and with libgpod4 convince rhythmbox to transfer songs. However I needed the very unlikely combination of fresh libgpod4 with rhythmbox < 0.12 (0.11.x)
+Another way, which might very well be overkill is to run XP as a VM, under VirtualBox, and install the iTunes software under it. This is one of the main reasons why I did not want to buy any of the iPod series of devices, because Apple did not make iTunes to run under Linux. 
+After connecting the USB, I get a window showing "Apple, Inc. iPod", with no contents but I cant browse using nautilus :(
+Just to put the above in perspective, there's not much the linux community can do to improve this without Apple's help and co-operation.

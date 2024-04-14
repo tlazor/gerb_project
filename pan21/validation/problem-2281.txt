@@ -1,0 +1,7 @@
+I tried most of these solutions, but the one that worked for me was setting the system compatibility mode on the files I found in the following location:
+To force all java executables to have "properties > compatibility > dpi scaling mode" set to "System", in an administrator powershell (win-x, a), run:
+Instead of HKCU you could use HKLM, but then you cannot change the dpi-scaling setting manually anymore in the properties > compatibility dialog of the java*.exe files.
+Elderry's solution is good, but what if you want to run a jar file on Windows and it doesn't have compatibility options?
+I found that -Dsun.java2d.dpiaware=false does not work in Java 9 or 10. Also for Java 8 and 9 my swing app is small, but Java 10 sizes properly in windows!
+Go to C:\Program Files (x86)\Java\jre\bin and find javaw.exe. Right click, properties, compatibility tab, check "override high DPI scaling behavior" and select "System" (Note that "System enhanced" did not work for me).
+Now jar file windows should scale properly with readable text. If not, it might mean that Windows doesn't link jar type files to javaw.eve like it should. A third party fix is available at: https://johann.loefflmann.net/en/software/jarfix/index.html

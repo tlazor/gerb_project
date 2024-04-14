@@ -1,0 +1,5 @@
+I wouldn't use the word labels, since you are predicting the next XYZ coordinates, therefore it is a regression problem, not classification. However, you should also apply the scaling function on those values too, since they have the same units of measurement as the input.
+What I am trying to do is train an LSTM network, whose input is a sequence of N steps in a XYZ space (i.e 3 features over N point per sample, each point is part of some coordinate in space) and i want to predict the next point in the same XYZ space.
+Even though your samples come from different databases, they represent the same physical quantity, i.e. 3D coordinates. Since the units of measurement are the same for the samples of both databases, you should apply the scaling over all 150 samples, not separately.
+I have a few questions regarding the topic and I hope someone might have experience with any of them.
+Exactly, usually you fit a scaling function to your training dataset and you apply the same (already fit) function on the testing dataset.

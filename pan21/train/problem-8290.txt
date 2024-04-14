@@ -1,0 +1,6 @@
+I tried mySQL with the tokuDB engine and this seems to be very fast but is extremely slow when I try to do a COUNT query when the rows reached about 5-8 million.
+Basically I want to know some strategies/solutions for storing billions of rows of data so that I can easily search it (about 6-8 indexes on the table) and get fast counts based on queries.
+I was looking at some noSQL alternatives but since I want to be able to search this data this is probably not the best solution. I was using dynamoDB. I would have had to store the data is many places in order to account for all the searching on the data.
+What I am storing is a row in the database for each click on an AD that occurs. This table will grow very fast, especially when this site gets large.
+My goal is to give an advertiser the ability to search and display in a paginated way all their clicks. They should be able to get data between a time period and filter by about 5-8 other indexes if they want to.
+Another solution would be to separate this data per advertiser. This means each advertiser will have their own table where all their data goes into. This means it will be much smaller and the COUNT queries will be much faster. I can even split it up by advertiser and month.

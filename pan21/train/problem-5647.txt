@@ -1,0 +1,5 @@
+Scouring the internet, the difficulty lies in not having a uniform format standard for annotations in PDF files, and so far Adobe has supported FDF/XFDF export/import. Other PDF readers have their own ways of tackling annotations.
+(And if anyone has an idea, how are annotations stored anyway in PDFs at the file-structure level? Can it be exported? I'm on Linux by the way and am comfortable with advanced command line tools if need be.)
+So, as of this moment, we're stuck to FDF/XFDF. Adobe XI/DC delivers that with some loss of formatting. Yet if there are other alternatives, PDF-XChange Viewer (or it's newer cousin, the PDF-XChange Editor) works with exactly the same limitations. But they have a real upside: They don't slow down at all even at 2k+ annotations, which is so unlike Adobe Reader.
+Is there a way for me to export my annotations from the old version of the PDF and import it to the new one?
+I have a few hundred pages of highly annotated PDF file, which is mostly text, in the form of underlines, highlights, and (more) text annotations.

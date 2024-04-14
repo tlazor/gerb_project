@@ -1,0 +1,5 @@
+All of these answers pertain to the DNS side of things, getting the users to the server. Within IIS you still have to specify how to determine which request goes to which site. Basically, when you create a binding in IIS you have to specify port but most people don't notice there is an option for hostname as well. Assuming that you don't want to use multiple ports for the different sites, you just need to set the binding for each site including the hostname. When traffic hits the server it will check the requested hostname and return the appropriate site.
+I believe you then have to configure IIS to accept www.xyz.com. as a valid inbound name for the site defined as test.mydomain.com.
+Alternatively, if you are merely doing this for your development/testing purposes, you will only need to edit the hosts file on your computer. You can handle the CNAME records when the time comes to make it public.
+Specifics of how you actually do that depends on what software your DNS is running and/or how your DNS is being managed.
+The DNS side is pretty easy.  A CNAME is a record that basically says "look up this other name instead and use the results of that."

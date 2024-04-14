@@ -1,0 +1,6 @@
+If you need to remove lots of files this is several times faster than xargs + rm, and many many times faster than a shell loop.
+Just for the hell of it, just make the file into a script and execute it handles whitespace and most other awkward characters and is simple.
+Current answers are sufficient - xargs may fail if you have too many files though - in that case you'll need some kind of loop.
+I've thought about just cating it inside a for loop, which would probably work, but wanted to know if there was an easier, or even a better solution to doing this.
+Also - when performing this kind of thing it's not a bad idea to , rather than delete, move the files to another folder, so you can manually verify that some weird filenames haven't made some kind of mistake.  Then, when you are confident you are okay, just delete the folder.
+I have a file that exported a bunch of file names that need to be removed.  I need to know how to go about removing each file without having to issue it one at a time at the command line.

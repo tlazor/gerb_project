@@ -1,0 +1,6 @@
+Now the next time you start an X session (logout or reboot), it should set your desktops a few seconds after login.
+Raspberry pi autostart of LXDE does not work has background information about starting programs when the X server does.  It appears though that when the autostart script fires, the desktops still aren't ready for wmctrl to control.  So the best thing is to write a small script that introduces a short delay.  I used 10 seconds and it was fine.  You could probably get away with less most of the time, but I wouldn't think you'd need much less.
+Wrap your command into a basic bash/shell script and then follow the instructions above. If you need further assistance, just comment and I can walk you through it.
+Tell the X session to run the script.  Add the path to the script with an @ symbol at the beginning of the line.
+The problem is that wmctrl needs to talk to the X server.  So you don't want it to run at startup (at least not when rc.local runs), you want it to run when the X server launches.  In addition, you need it to know what DISPLAY it should be talking to.  
+Put a script containing the command in your /etc directory. Create a script such as "startup.sh" using your favorite text editor. Save the file in your /etc/init.d/ directory. Change the permissions of the script (to make it executable) by typing "chmod +x /etc/init.d/mystartup.sh".

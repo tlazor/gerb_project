@@ -1,0 +1,9 @@
+The ping between the two computers takes about 20 ms which is clearly a ping through the internet given that a ping through a private LAN takes 1 ms or less.
+Depending on your ISP, some will supply you with multiple IP addresses. Mine only allows 1 lease at a time though. Your router is likely configured to allow the use of multiple IPs if available, although you can change it to only use 1 if you'd like.
+After that I connected my PC to the router, and to my surprise my PC got a public IP as well (a new IP, different from that of my laptop).
+If I ping from my laptop to my PC (and vice versa) I get a successful response, meaning my PC and laptop can reach each other, but not through a private LAN (which doesn't exist in my case because both computers were given public IPs) but through the internet.
+I also tried a D-Link DI-604 for testing, but that didn't happen. With the DI-604 my two computers were given private IPs as normal, so clearly the DIR-300 router is making the difference here.
+The first weird thing I notice after connecting all the wires and cables was that my laptop had direct connection to the internet (public IP) even though it was connected to the router (not the cable modem).
+So my question is... How is it possible to have two different public IPs behind a cable-modem and a router?
+It's possible that NAT was disabled on the DIR-300. Is your internet service configured to provide you with more than one public IP address?
+I have a cable-modem connection to the internet and I bought a router in order to share my internet connection betwen my laptop and my PC.

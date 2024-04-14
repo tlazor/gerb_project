@@ -1,0 +1,9 @@
+Depending on your system, Windows may limit you to only 5 parallel process, but this should still give you a reasonable speed up.
+    aws s3 mv s3://bucket/folder/s3://bucket/%destKey%/%subDestKey%/ --recursive --include "*.json" -profile etl
+I'm having an issue in that a PowerShell Script takes 10 times as long as a batch file to download files from AWS S3. 
+I'd rather do this in PowerShell as I'd like to apply a lot more logic and I'm more comfortable in PowerShell. 
+I have an existing batch file script to move files from one S3 Bucket to another, it takes about 30 seconds to move 1000 files. 
+AWS CLI is much faster because it uses multiple threads (up to 10 by default), and so is doing multiple simultaneous operations.
+However in PowerShell this script takes about 300 seconds to move 1000 files, has anyone else has this same experience? Hopefully the answer is that I'm taking the wrong approach here as I'd love to be able to use PowerShell for this task!
+On the other hand each PowerShell's Copy-S3Object and Remove-S3Object call opens a new HTTPS connection, does the SSL handshake, etc. That is a great overhead if you have to do it 1000x.
+You can speed things up by changing your script to use the -parallel option, limiting the number of concurrent operations.

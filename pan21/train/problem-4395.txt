@@ -1,0 +1,9 @@
+I used to have that problem, it means that your IP changed. To solve it, just check it by either going to http://www.whatismyip.com/ or like me, make this batch file:
+Next go to Dynamic DNS, you should have the subdomain you created there. Right click Direct URL, and copy the key that appears in the url. Like,
+Next install inadyn, this is a DNS updater, what it will do is to make sure it maintains the DNS you choose, just type,
+Quite probably the problem is that your external IP has changed since yesterday. Can you check that this is not the case?
+i think i can assume the router/port forwarding is working ok - so is it something with the raspberry pi?
+Now, we need to ensure that the Inadyn runs automatically after every reboot, run this on the console,
+In this case, the easiest way to get things up to date is to configure a Dynamic DNS client on your RPi so at every boot it will update the IP assigned to a hostname of your choice, then you'll be capable to reach your Pi from the outside by using this hostname, regardless of the real IP. 
+You can also get a dynamic DNS, there is several ways to do this, I'll give you an example of a free one.
+Search for "DDNS Raspberry pi" and you will find a lot of ways and public,free services that provide DDNS.

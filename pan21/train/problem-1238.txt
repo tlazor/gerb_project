@@ -1,0 +1,11 @@
+So I am trying to get OBJ loading working in my raytracer. Loading OBJs works fine, but I am having some trouble with getting the texture mapping working.
+I noticed that you are generating UV of the hit in the triangle by the (normalised) weighted sum of distances from the vertices.
+What you should do is get the distance to the opposite edge. So d1 = distance to edge created between v2 and v3.
+When I load the OBJ, each vertex has a UV coord associated with it. What I do to get a UV coord when a ray hits the shape is as follows:
+Then UV(hit) = UV(1)*d1 + UV(2)*d2 + UV(3)*d3 where d1=1, d2=0, d3=0 which gives exactl y the right answer.
+This is called barycentric coordinates. It may not solve your immediate bug, but it will fix your uv generation.
+Does anyone have any ideas what might be going on? I can post parts of my code if you think that would help.
+My prof said that it looks like the normals are backwards, but I don't think that is the case because the shape is still being hit - and the color of the "wrong" triangles is the color of background color of the texture (ie. black in this case). 
+What kind of shading do you use. I assume some kind of blinn-phong. If that's the case, your shading depends on the dot product of your normal and the half vector of reflected light: (http://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_shading_model)
+The dot-product will be below zero on your triangles if your prof is right and your normals are pointing in the wrong direction. Blinn-Phong assumes no reflection in this case making your triangles pitch black.
+Here is an image of my result. It is supposed to be a black sphere with colored "latitude and longitude" lines, with a black spot in the middle. But it seems like every second triangle is left black. You can see the result here:

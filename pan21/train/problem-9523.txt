@@ -1,0 +1,6 @@
+In a fight between two armies consisting both of al types of these basic units, all spearman would attack cavalery, all cavalery units would attack archers and all archers would attack spearmen. If for example one side had no archers, the other sides cavalery would select the next best type of target (being the enemy cavalery units)
+You could simulate the battle internally until one army is wiped out or retreats(depending on your game's possible outcomes).
+For each iteration of the battle, all units are opportunistic, so they try to do the most damage they can. Each unit selects an enemy unit it is going to attack this round, based on the known advantages/ disadvantages.
+After all the individual fights have been resolved, remove all units which have been critically damged or destroyed.
+Each unit-attacks-unit event is resolved seperatly, with the losing unit being damaged or marked as destroyed.
+Let spearmen be effective against cavalary, cavalaray effective against archers and archers effective against spearman.

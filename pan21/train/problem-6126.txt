@@ -1,0 +1,6 @@
+In my case, I simply re-installed Irfanview, my image viewing application. All thumbnails generate properly.
+I had this problem for two years for pics transferred from my old Canon camera. And I just found a solution: Disable the codec "MJPEG decompressor". Which is simply done by running the free application NIRsoft InstalledCodec, right clicking "MJPEG decompressor" and select "Disable". Done! I think the thumbnails load faster now as well!
+The original problem may have been caused by installing a second image viewing application and switching back to Irfanview as my default program. (The default program generates the thumbnails / detailed info / preview page images.
+I had the same problem, years later, and this question kept coming up on google. So here's another fix that worked for me. Reinstall the program that handles thumbnails, then delete the caches. 
+A bit weird how a Microsoft codec is the problem. And how an MPJPEG codec affects JPEG. Maybe the problem is not the codec itself but some conflict, what do I know. And Uninstalling IrfanView (and reinstalling it) didn't help for me.
+For me this is a solution since I never use MJPEG anyway. If you do use MJPEG videos I don't have a solution tried out but I think you can download e g the free codec pack "K-Lite Mega" and then use ffdshow, or the free image viewer "IrfanView" (and use DirectShow).

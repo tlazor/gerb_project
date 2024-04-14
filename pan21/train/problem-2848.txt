@@ -1,0 +1,6 @@
+You can change how this situation is presented to the user with Data -> Edit Links -> Startup Prompt...
+So it seems like there's a hidden formula or something that runs like a backup to the VLOOKUP formula? I have Unhid all sheets, columns, and rows, and I found nothing that explains this. Anyone know what's going on? Thanks
+I have an Excel file that was created a long time ago, and one of the columns uses a VLOOKUP formula that references a file that does not exist on any computer. Formula:
+When dealing with external data sources, Excel usually saves the current values of cells referring to linked data in case the data source isn't available when the workbook is reopened later.
+Also, when working with data connections (similar to linked workbooks but usually database queries) you can choose whether or not to embed the external data in the workbook as shown below.
+As you can see from the second option (above), it's entirely possible to open the workbook without updating the linked data and not even alert the user.

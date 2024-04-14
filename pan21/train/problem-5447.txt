@@ -1,0 +1,6 @@
+Do you use a database? MS SQL Server has the equivalent of exec() command that would allow an attacker to run shell commands. Even with MySQL, there are ways to run shell commands, provided you have a directory that has write/exec permissions. See this article - http://www.greensql.net/publications/backdoor-webserver-using-mysql-sql-injection
+Then, check your fopen, fwrite, error_log and file_put_contents calls. Is any using a user input to create the file path (the $_FILES array is user input) ? Another possible attack vector.
+Check your include and require : do you use user input to create the path of the files you're loading ?
+Do you know what kind of commands are being run? If yes, you can probably look into your web access logs and determine if there is any suspicious activity.
+I would say look for evals taking unvalidated user input.  In general, look for unvalidated user input.
+Check if you have any call to the eval function in your code. When you have it, check what's in the eval, if any user input is used it's your culprit.

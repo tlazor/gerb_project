@@ -1,0 +1,5 @@
+Regarding the final point, GPU determinism - this is a very new thing in the context of deep learning and many people believed it was impossible, but there is good progress being made. Check out these video/slides from Nvidia GTC conference this year.
+I am making an ensemble of deep models for solving a classification problem. The initial weights follow the default distribution of keras layers. Each time I run the model(train the 'n' models, make predictions and then get their mode), I get a different result. What could be the possible reasons(rather errors) for this? And how shall I handle them?
+These are really just the components of each individual building block i.e. each deep model. You could also introduce random behaviour perhaps in the way you chain these models together to create your ensemble.
+There are however many sources of random behaviour that could be creeping in. From most obvious to most obscure:
+Getting varying results at the level of F1 score is possible but should be high, as your are essentially taking the average over many values (assuming a reasonably sized dataset).

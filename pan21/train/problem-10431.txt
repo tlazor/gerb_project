@@ -1,0 +1,6 @@
+AWS has the ability to add more nodes based on some trigger. It can't add more CPU/memory to a running instance.
+So what would be the better choice? Double the machine performance, or double the machines. Please disregard the advantage of redundancy gained from using two small machines.
+i.e. 2 small instances are the same price as one medium instance (which has exactly 2x the performance specs).
+Scale horizontally.  It splits up the points of contention (GC, network, memory singletons), allows you to scale better (an app that can go  horizontal can be scaled larger then vertical), and a node failure doesn't take out your entire app.  
+My approach is scale vertically first and then horizontally. Scaling horizontally comes with maintenance overhead, so I usually start with two instances, scale them vertically for as long as it makes sense and then start adding more instances. However, this is not an universal rule and it may not be applicable in your situation.
+More machines also will tend to force you to think about proper deployment / monitoring regimes instead of having a Special Snowflake that you're scared of losing.

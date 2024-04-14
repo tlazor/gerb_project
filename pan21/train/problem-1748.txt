@@ -1,0 +1,6 @@
+Then, you need to add the Jessie repositories to your Pi's sources. Create a new file in /etc/apt/sources.list.d called jessie.list. Add the following into it:
+The easiest solution would be to get the Jessie version of raspbian back, I feel. But is there a way to install the Jessie version of Chromium without apt updating it?
+You may be told of some conflicts. You will need to resolve the dependencies (possibly by installing those packages also with the older versions) and also it may be wise to 'pin' the old version so it doesn't get auto-upgraded again/
+I've got my rpi set up as an alarm clock with python/flask and a chromium front-end. When it wakes me up it plays two html5 audio elements simultaneously: some music and a news podcast. I did a fresh upgrade from Jessie to Stretch, and now Chromium will play both audio elements, but I'll only get sound from one. Volume is up on both, and from the console it looks like they're playing, but no luck.
+Then, you need to tell apt to use the Stretch repositories by default, unless asked. Do this by creating a file called default in /etc/apt/apt.conf.d:
+Yes, you can install specific packages (in theory) from older versions of Raspbian. There is the chance that packages may conflict, but apt will let you know if there are any serious conflicts that need your attention.

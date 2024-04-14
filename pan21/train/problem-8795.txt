@@ -1,0 +1,6 @@
+If it does work, the video file should appear on your desktop on your mac.   If it spits out errors, please copy paste them here so we can help further or take a screenshot and add it to your question.
+You should see something similar to this (although your disk most likely wont be called CDROM, replace the word CDROM with whatever the name of the disk is on your system or this wont work at all.
+See where it says CDROM?   There should be an item named after the name of the disk you have inserted into your computer.   The ls -la command shows the contents of the /Volumes directory in long listing format, and the -a flag will show you all files in that directory.
+Again, change the word CDROM to whatever your disk is named in the Volumes directory or this wont work at all.
+When the button info does not clicked, I saw the copied file (unfinished) at finder. Just half of the total process
+This last command copies the AVSEQ01.DAT file to your Mac's desktop.   The only reason I am hoping this might work is it probabally wont throw an error that you have to click OK on (hopefully) which stops the file transfer.   Let me know if that works.

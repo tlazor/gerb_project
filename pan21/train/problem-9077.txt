@@ -1,0 +1,8 @@
+I tried accessing IP camera with the public ip, but the webpage does not take me anywhere.It can be accessed through the WAN ip which the router gave me but from the pc which is on the same network as IP-camera not from the outside network.
+I have an IP camera and i want to access it from anywhere around the world. I have configured my NETGEAR-router JNR1010 for port forwarding but the WAN IP it gives me is different from the public ip when viewed from the local pc on the same network.
+This is a solution if you're want to stay on a dynamic public address. Static addresses will cost you more a month (where I'm from, it's almost 1/3 of total internet cost). If money is no issue, ask for a static IP-address, makes it much more easier.
+Can i configure my IP camera to send stream to some external server and by logging on to that, i can access the IP camera stream ?
+Either way you're paying more, but the latter will give better performance in most cases and is simpler to setup. You can evaluate pricing yourself. 
+If i opt for static ip, internet provider will charge more, IS there any way by which i can access my IP camera through internet without having to change my internet plan?
+I get this in return (too many hops comes in between, till it gets to some static ip) the image link is attached:
+I have an ACT FIBERNET internet connection and i think they havenot provided me the static ip, instead they provided me some local ip using NAT.

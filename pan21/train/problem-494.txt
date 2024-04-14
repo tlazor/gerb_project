@@ -1,0 +1,8 @@
+The timezone is set at the server level, so there isn't a way to override that per site.  The way to handle that would be from your code.  Set a timezone in your web.config and calculate the timezone on the fly based on that.
+I totally miss to understand what the question is here - pertty much a web application should not have a concept of a local user timezone to start with, programming wise.
+Anything else is not IIS running a timezone, but your application relying on some user settings, which is bad style to start with. All presentation should not use a server side info, but a user specific setting for handling presentation, or hardcode timezone information.
+You'd then need to play with the OLEAUT date and time registry settings, and hope that it works OK... The following articles document some of the ins and outs. (in short: impersonate someone that uses the settings you want, before you try to interpret them). YMMV.
+Alternatively, if the app Just Doesn't Like GMT and timezone offsets, you could try to coax it into using different time zones by running each app in different application pools, running each app pool as a different user, and setting the regional settings for each app pool identity to the time zone.
+The ONLY thing that IIS does with timezone is pretty much using it to determine how to writet he log file, IF you wan them no to be written in UTC anyway, which is highly recommended.
+Is there a way to have multiple websites running within IIS that have different time zone information?
+For example: The local Windows Server is running in CST. I would like one website (application) that runs in CST and a second website (application) that runs in EST.

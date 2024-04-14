@@ -1,0 +1,6 @@
+At the beginning of the website launch I expect that a single EC2 instance will handle the load easily, with perhaps peaks of two or three EC2 instances during holidays.
+I spent a lot of time looking into Docker Cloud/Tutum (seems expensive), Docker Swarm, Rancher, and others (most of them "beta"), but still am confused which way to go.
+For production this application will make use of Amazon SES and some database like Amazon DynamoDB. In that combination the containers itself don't need any persistent storage. Because of those services, my first thought is obviously to use Amazon EC2 to host the application.
+I'm pretty familiar with other types of clusters (mostly Proxmox-based) but still the Amazon Web Services looks complex (at least the configuration console).
+I have a relatively simple web application that consists of two Docker containers working together. One container hosts the web server and the other one hosts a image rendering software.
+Amazon's own Docker hosting solution (with load balancer and auto scaling) looked very promising, but being an Amazon newbie I haven't been able to get this thing working, also because the configuration looks very complex and you have to get the pieces together yourself.

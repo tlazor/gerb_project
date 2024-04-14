@@ -1,0 +1,5 @@
+Second, are you certain your laptop is in a different subnet from your wired clients?  What are the two IP ranges of the wired and wireless subnets?  Both of these must be defined on the router for it to be able to route between them.
+Most likely you need to add a rule to forward from the wireless interface to the ethernet switch interface on the IP.
+First of all, this looks more like an ACL list than a routing table.  Routing tables define subnets and what interface to use to get from one to the other.  This config doesn't have any of that beyond labeling zones - and I only see a 'lan' and a 'wan'.  Where is the 'wlan'?
+Are you using the White Russian or Kamikaze release? I believe Kamikaze does not support wireless on Broadcom devices.
+Third, assuming they are defined, (it would be very strange if the router were handing out wireless IP addresses it was unaware of how to route) ping isn't the best test of connectivity across subnets as it may be blocked by the router/firewall inherently after flashing with default settings.  Maybe you could try ssh or something you know you have let through.

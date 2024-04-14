@@ -1,0 +1,7 @@
+A Samba server will communicate with any attached clients every once in a while.  You can probably look through your Samba logs and /var/log/messages to confirm this.  84kb per hour is rather minimal (that's like 20b per second).
+I am strictly a Windows admin and have just installed Ubuntu Server for the first time.  I am using it as a file server/ftp server (for the IT Dept only) and I am hosting a website (which is also available to the IT Dept only).
+I have noticed what appears to be traffic when the machine should be not in use.  I have installed and am running VNSTAT, which shows about 82kb rx and 84kb tx in about an hour.  This may or not be accurate.  It looks like there is more traffic on the switch for that port.
+Understanding network traffic, while part of my daily job, is probably my weakest area.  I try to learn something new everyday/week and it seems there is alot out there on this subject, but nothing specifically written for a newby to see satisfying results immediately.
+For a Ubuntu Samba file server running Apache and an ftp client what amount of network traffic would be normal when no users are connected? 
+You can use tcpdump or wireshark to see what kind of traffic it is. But it's probably some level 2 traffic like ARP, it seems totaly normal.
+I guess my questions are- 1) how much traffic is normal for the situation listed above and 2) whats a good starting point (that I can build on) for understanding traffic 

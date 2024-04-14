@@ -1,0 +1,9 @@
+I used dd to erase the MBR of a microSD Card in my built-in Card Reader, which only accepts the large SD Cards - so I was using one of those microSD Size Adapters (by Kingston.)
+The Kingston Adapter stopped working right after the MBR deletion. It's not working with other microSD Cards anymore, neither. It's just metal and plastic. Did I really break metal and plastic, no active components, using a dd if=/dev/zero of=/dev/sdb bs=512 count=1?
+stefandz makes an interesting point about the write protect switch, but the failures I have seen were ones where the host system could not detect the presence of a card at all.  The same card would then work in another adapter.
+There is absolutely no way that you damaged a microSD to SD card adapter using a software command. They are simple interconnect devices.
+However, stupidly (IMHO) they often keep the slide switch that enables card lock on a full size SD card (this switch does not exist for microSD). If this switch is in the down position (switch towards the middle of the card) you will not be able to modify the card contents (although you should still be able to view the contents of the card). 
+Every adapter I have seen has been a simple assembly of physical contacts with no other circuit elements. 
+However, I have seen a lot of them (including name brand ones) arrive or subsequently go bad, which is presumably a failure of the contacts to contact.
+I had been using the Adapter all evening, and for a few weeks before that, and it had always worked. 
+Now, right after the MBR deletion, I could not read the SD Card anymore - of course I thought it was the missing MBR, but it turned out I could read it with a different Size Adapter (a Verbatim one.) 

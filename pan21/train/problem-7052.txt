@@ -1,0 +1,7 @@
+Because right now you have no clue why you'd get "The three arrays do not have the same length." and you would need to investigate which of the entries on the page doesn't follow the expected format. Whereas if you know that the culprit is one particular block, you wouldn't waste time on finding the source of your problem: you could immediately focus on the problematic block.
+You wouldn't even need to change that much: identify the tag that "defines" such a block and then use HtmlElement.GetElementsByTagName to retrieve its parts instead of HtmlDocument.GetElementsByTagName. Store the resulting data in a custom class:
+I'm not familiar with the code of the page you're parsing, but I'd be surprised if each of the three elements you need isn't contained in one block (a div for instance, or a tr). Then you could focus on extracting the relevant data for one entry from said block, thus ensuring it does belong together.
+There are other naming issues besides the ones Heslacher mentions in his review. For instance: the return value of wb.Document.GetElementsByTagName("span"); is stored in a variable named links -- shouldn't that be spans? 
+But I'm more worried by the logic of the code: process the three types of data separately into List<string>s, and then combine them at the end. 
+Or if you want to re-use this variable to store the return value of wb.Document.GetElementsByTagName("td");, why not name it elements?
+I would even consider using the correct types for Date (DateTime) and Amount (decimal), though that seems to be a bit OTT for your purpose.

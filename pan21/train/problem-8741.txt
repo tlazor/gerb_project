@@ -1,0 +1,5 @@
+While an indexed value can contain many keys, it is possible that you may "add" a value that has no key (in my case: adding a text which does not contain any of my words, so the (tsvector) value I'm adding is just empty). In that case the GIN index won't create a key corresponding to "empty". So my line is just not added in the index.
+I believe that the best to do so is to use full text search, based on my own dictionary and configuration, with a GIN or GiST index. That was for some context.
+Does it mean that if I query the word 'hello' it is possible that a line which text contains the word 'hello' could be not returned?
+It was actually pretty clear. If you scan the whole index (I don't know how you would do that), it is not guaranteed that you'll find every row that's in the table.
+I'm a RDBMS newbie and I have a PostgreSQL database of more than 50 millions lines, growing everyday. There is a column 'text', which contains human-generated text of around 20 words. I need to be able to retrieve the texts containing a word or two belonging to a pre-set, almost 'constant', list of words.

@@ -1,0 +1,7 @@
+to solve this problem you should switch your user and log off the user from another user using task manger. then com back and copy the file and change the extension from .tmp to .flv then open the file. I know that km player can read the file.
+The video will be there in the cache only as long as you are seeing it in the browser, after which it is deleted automatically.
+just write %temp% in the address bar then there should be a file which its name contains "fla" and had a reasonable size (depends on the opened video).
+the problem is that you can not copy the file because you will get an error stats the file is being used... and soon after you close Firefox the file will be disappeared. So what to do?
+I'm trying to find youtube video (just watched) in Firefox cache folder, but I cant find the folder.
+One of the easiest ways to download streaming videos from any site containing it, is passing the url to jdownloader. There are some addons like Flash Video Downloader too.
+I've maid a simple script (I'm a learner) for linux to cache pictures and videos (but doesn't work with firefox unless I start a download with Flash Video Downloader first):

@@ -1,0 +1,8 @@
+Connect the new SSD to the PC, clone the HDD to the SSD and now shutdown the PC, remove the old drive and set boot order to use the SSD. That's it, totally easy.
+Samsung provide a clone tool called "Samsung data migration", which I've had success with in the past for cloning a system from a HDD to SSD.
+What else should I try? The system has Windows 10 home installed and is brand new, straight out of the box.
+I usually use a USB boot disk that is installed with WinPE + Symantec Ghost. Boot your PC with WinPE from the U disk, then use Ghost to clone the disk.
+I've tried disabling secure boot in the bios and then doing the clone, but this doesn't make a difference.
+Having tried it on the dell, the disk is not bootable, Leaving me with an error that no bootable media can be found. I've tried using a recovery usb to fix any boot system errors, but this fails with an error.
+I've recently bought a Dell Inspiron 3650, and would like to clone the disk onto a samsung SSD I have bought for it, in order to speed up boot times etc.
+Booting into windows on the old HDD, the system recognises the disks have the same ID and disables the SSD, so it looks like the clone was successful.

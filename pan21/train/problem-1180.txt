@@ -1,0 +1,6 @@
+If you have more than one network interface on RemoteLinux, then trace everything on one interface and send the packet traces out the other interface to your windows box.  
+Keep in mind that whatever solution requires that you do not log the packets to the logserver because that would make an infinite loop.  trace a packet from node Z and then send packet trace to node L (LogServer).  Send packet trace to node L.  Send another packet trace of the packet trace sento node L.... ad infinitum.  
+Here is my question, Is there an easy way of capturing packets off of my linux box? I've been reading through some blog posts, didn't really find an easy way of configuring either tcpdump of Tshark so I could remotely monitor the network traffic. 
+Well The scenario is that I have a Windows machine(at home) and a Linux box running headless Ubuntu server(without GUI) on a remote location.
+I was wondering if there's a similar way so I could configure my remote located linux box to listen on port 2002 and start capturing remotely here in my windows mahcine?
+I also realized that it is easy to capture packets remotely off a remote windows machine with simple remoter interface configuration.

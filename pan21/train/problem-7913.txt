@@ -1,0 +1,10 @@
+In your case, you are using an exclude, so you are only going to see the files and folders that you specifically list in your filter. To block bin and obj folders, you would need to know the names of all of the other folders you might want to see, so they can be listed in your filter.
+If you use an exclude filter, it excludes, from the file listing, everything not listed in the filter.
+If you use an include filter, it includes, in the file listing, everything not listed in the filter.
+I don't have WinMerge installed, and I'm not familiar with  the RegEx engine in it, but you could try using a negative lookup to include all sub-directories except "bin" and "obj":
+Change the first def: to be include, and remove the second def. I think you can only have one def. Your d: rules would then be
+As others have mentioned, you can only have one def: line, and the filters actually peform the opposite action of the def: directive (ie when def is exclude filters actually include files).
+I had some limited success with @heavyd's answer, but later found this is much easier in WinMerge's apparent successor WinMerge2011.
+FYI WinMerge appears to no longer being developed. See overview notes in https://en.wikipedia.org/wiki/WinMerge.
+Include and exclude refer to what is shown in the list of files and folders after the comparison is made. The filters are including and excluding things from that list.
+I find, for code, it's easier to use an include filter. That way, I can block out folders and files that I don't care about.

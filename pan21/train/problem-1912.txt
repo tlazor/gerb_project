@@ -1,0 +1,6 @@
+It seem that the packager did not bother to sign that package. This make the system unable to authenticate it, and theoretically it can contain malicious code. There is not way to tell.
+gpg: Gnu Privacy Gard is an cryptography tool that support PKI (Public key infrastructure). PKI allow (among other things) to digitally sign, i.e. to have confidence about the authenticity of a digital artifact.
+Whoever created that Google Chrome packages for FC 10 probably just didn't bother to sign it, but there's a possibility that what you got was an impostor package that could contain malware.
+RPM packages support digital signature with gpg. For that, the package needed to be signed, and you need to import (trust) the key of the person who signed that package.
+GPG is GNU Privacy Guard.  It's an encryption package that can be used to cryptographically sign things like software packages so you know you've got the real thing and not something that's been tampered with or had malware added to it.
+it's a way to 'sign' a data (think of it as stamping/branding) that goes over network and it kinda proves that it was you who sent the message and not someobody else... here you can see how it looks, and read more about the whole GPG thing

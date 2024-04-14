@@ -1,0 +1,5 @@
+I run into these very classic errors trying to install SQL Server 2012 Express under Windows Server 2012 R2:
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+I've got this error too while trying to restore my ACL's with "icacls" command. But when i ran PowerShell as administrator (i dunno why i should do this, coz i've already was logged on under "Administrator" account) it just begins to work normally. Maybe it helps you.
+Years ago I found similar SQL Server installer errors when the installer file was located on another volume than C:
+Upon some more research I found the answer. Im not sure why but the admin account didn't have ownership of the program files File. this was causeing a problem when installing the SQL Server 2008 R2. Here are the steps that ultimately fixed my issue. 

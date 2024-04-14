@@ -1,0 +1,11 @@
+Cloning the drive and format/ re-install will do it, too but it's a lot of work as you say in your question.
+Had your exact problem. To solve it I used TechTool Pro's bootable DVD to perform free space consolidation (they call it volume optimization).
+I'm running Mac OS X 10.6 (Snow Leopard) on a mac with a 320 GB drive, 167GB free space, and I can't get Boot Camp running. The wizard starts creating the Windows partition, but fails with a message claiming it cannot move some files. The message suggests to back up my hard disk, reformat it, restore my files, and re-run Boot Camp wizard.
+I found a thread in some forum discussing this problem. The suggestion was to defragment my volume with iDefrag, and lots of people claimed that solved the issue. So I went ahead and got iDefrag 1.7.1, created a bootable DVD and chose the "compact" setting recommended before partitioning - but still no luck with Boot Camp! So how do I get this working?
+Might be worth checking there aren't any problems with the drive by repairing in Disk Utility too before the defrag.
+**I booted in safe mode. ( do this by rebooting and holding down the shift key after you here the chime)
+now windows runs so smooth, almost smoother on a mac than a PC. I used windows 7, free download through the college. Roll Tide! Hope it helps! This is free instead of using iDefrag. 
+Fun note: last year, I briefly set up Boot Camp with 10.5, and it worked perfectly. Probably I did not use that much hard disk space back then...
+Compact just removes the spaces between the files - (directory fragmentation) you want to defrag the files too.
+**The solution that worked for me was repairing disk partition with disk utility on mac in safe mode. (Open disk utility and Under utilities in your applications folder.)
+The problem is: Though I do have backups (Time Machine), I don't feel like formatting my hard disk right now :-)

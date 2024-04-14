@@ -1,0 +1,9 @@
+inetres.admx was updated for Internet Explorer 11 (presumably for every other previous version of IE as well).  What version of IE is running on the Windows 7 workstation?
+The problem affects all Windows versions, which are using a language setting different than en-US, as soon as KB3093983 is installed.
+The problem is that KB3093983 installs an updated inetres.admx file and only includes and installs the corresponding en-US inetres.adml updated language file. Leaving inetres.admx and inetres.adml mismatched for any other language.
+You did not speficy what language you're seeing this with, but I can confirm that at least the en-US version of the latest release (August 2014) contains a string with identifier VerMgmtAuditModeEnable
+The culprit is KB3093983 Cumulative Security Update for Internet Explorer versions 7, 8, 9, 10 and 11, released on October 12, 2015.
+The top few lines of the ADMX XML document specify the minRequiredRevision="11.0"  I suggest you check and see if your language file matches the ADMX in this regard.
+Go to Microsoft's Download Center and download the latest release of the Administrative Templates for Internet Explorer. 
+Certainly sounds like somebody updated the Administrative Template without updating the corresponding language file.
+If you have deployed an update to Internet Explorer updates as part of your integration work, did you use the IEAK and did you specify any particular locales?  

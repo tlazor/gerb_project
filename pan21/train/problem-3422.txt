@@ -1,0 +1,5 @@
+If we shutdown t01 server, will my application automatically use the t02 databases, Streaming replication will provide HA in this case or not?
+If it does connect to the replica, that connection will be read only, unless you do something to promote the replica.  Autopromotion is not an inherent feature of PostgreSQL, you would have had to install and configure something to make it happen.
+Recently our /var directory of t01 server got full and app team was not able to access the application. My understanding was if t01 /var was full, the connection should be made to t02 and application should start using that as t02 /var was not full.
+This is not an inherent feature of PostgreSQL.  Whether your application will connect to the replica (or even knows that a replica exists in the first place) is up to your application, framework, library, connection pooler, or networking.  And their respective configurations.
+We have recently setup streaming replication in our Postgres server (t01, t02). t01 is master and t02 is the slave. I want to understand the below two issues:

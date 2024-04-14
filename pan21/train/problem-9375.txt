@@ -1,0 +1,5 @@
+Funny you should mention 5.1 stereo, I had a similar problem that was caused by a media player playing 5.1. Sounds likely to be a similar cause. 
+Is your problem always with the same media player? If so, look into audio settings and try to turn off any 5.1. I've looked at Windows Media Player (for example) and can't see a setting for this, but there must be one somewhere...
+Have you tried another media player? Try GOM, VLC or Media Player Classic. If the same issue is present on all players, then the OS thinks you have 5.1. Again, I don't know how to fix this through the OS, but it can help to diagnose the issue. 
+It really sounds like one of your audio channels (left vs. right) is out of phase with the other.  This would cause things that are panned center (the way that actors' voices usually are) to cancel, where things that are panned left or right not to cancel as much (and thus appear louder).
+You could also try and run the MS Sound Diagnostics page. It can sometimes help in pin pointing audio problems: http://support.microsoft.com/mats/no_sound/en-us

@@ -1,0 +1,5 @@
+The default configuration for php-fpm only allows php files to be processed. Can the php-fpm conf that be changed? How? Is it a good idea?
+I've dockerised a wordpress application, now I'm being a purist and don't want to include nginx in the docker container and don't want to share any state between the nginx container and php-fpm container.
+I want to run php-fpm as a standalone webserver (like unicorn in ruby or gunicorn in python) serving all the content (html, css and images) for the wordpress site. And run a nginx reverse proxy in front off it (caching static content). That way I can keep the separation of concerns and I don't have nginx forwarding traffic to and nginx server.
+You can use a TCP socket connection between nginx and php-fpm, then you can run those in different containers. Just specify fastcgi_pass fastcgi://php-fpm-ip:port in your nginx configuration.
+You could, but the performance would be terrible, since everything would go through the PHP interpreter. This would also introduce an obvious, massive security problem.

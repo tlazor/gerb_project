@@ -1,0 +1,12 @@
+Burn to the Brim cuts corners whenever possible (without missing anything). Folders can be split up to a set level for more versatile splitting options.
+Burn To The Brim is a utility for grouping files and folders together in the most efficient way to fill up an entire CD, DVD or other medium. It can output the resulting structure to an ISO 9660 file, ready to be burned with most CD-burning tools.
+I just noticed Windows Media Player can do what I was asking for. I'm using version 12, but older versions probably could do the same thing.
+Right underneath "Burn", there's "start burn" "clear list". To the far right, there's a small box, click that, and you can choose either
+The first priority of the program is to fill the media as well as possible, second is to minimize the number of items (so the larger, harder to fit items have preference and more items to choose from are left for the next burn).
+Users can define their own custom disk formats so they can also use the program to fill other media like Zip disks and the like.
+Burn to the Brim is an open-source freeware program designed to make selection of files to optimally fill a CD a breeze.
+And since you did not mentioned what platform you are on I am asuming Ubuntu/Linux and then tar could help you.
+Burn to the Brim (Open source, GPL) seems to be the program you want. You can then use Imgburn (freeware) to burn the grouped and arranged files.
+So maybe it is easier to create a script that fills a dir util it is 700Mb and then transforms that into a iso, and then repeat until you are done.
+Burn To The Brim is a utility which selects the group of files or directories (documents, mp3 files, whatever you like to burn) which optimally fills a CDR or other medium (or multiple CDRs/media).
+Burn to the Brim is optimized for quick performance and considers the most promising options first. It also minimizes the search length by fast detection of dead ends. 

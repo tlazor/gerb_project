@@ -1,0 +1,8 @@
+  In the PowerEdge Bios, change the System Profile to Performance Optimized.  This will disable C-States and C1E.   Instructions:  http://www.ponjavic.com/wordpress/2014/09/30/disable-dell-poweredge-m620-cpu-throttling/
+Had identical problem, after examining DSET logs while issue was present and then after cold boot fix, Dell support claimed power surge, server powered by APC 1500kVA SmartUPS at the time.  
+I would start with updating all firmware versions to the latest available, including the BIOS, iDRAC/Lifecycle Controller. This is more likely an issue with the power usage & performance settings in the BIOS though. Check out the Performance and Power Tuning doc for Dell 12th gen servers for details.
+Dell support recommended cold boot to reset sensors (power unplugged, hold down power button for more than 3 seconds).  
+This happened to our T320.  It was a bug in the bios.  Dell released an updated bios and the issue was fixed.  A workaround is to set the bios as follows:
+Dell tech recommended Going into the BIOS on the T320, go into System Profile Settings and change 'Performance per Watt' to 'Performance'
+Support also suggested patching iDrac to latest available 1.66.65 either through Lifecycle (requires reboots) or from Windows system (does not require reboot).  
+I have 2 Win2K12-R2 T320's with same hardware, firmware and drivers. Yesterday one became painfully slow - no Windows updates installed in weeks.  After running a DSET with no hardware errors:

@@ -1,0 +1,12 @@
+Note that I'm only talking about the 5GHz 802.11ac performance by itself, I'm not falling for the marking BS where they add their 2.4GHz 802.11n performance to their 5GHz 802.11ac performance.
+It may be the USB drivers that is causing the problem. Until recently there was a bug in OSX Mavericks that caused 802.11ac file transfers to slow down. Try updating any of the usb drivers on the PCs. Also different protocols tend to get different speeds. Try using AFP or FTP but avoid SMB
+This device only does a 650Mbps data rate, which probably means that not only does it not do 3 spatial stream, it also doesn't do MCS 8 or 9 (256-QAM).
+It may very well turn out that the D-Link DIR-820L has a crappy 802.11ac AP implementation. Most 802.11ac APs are top-of-the-line, flagship devices for around $180, that hit the 1300Mbps data rate, which requires:
+If all goes well, and they're all able to sustain the 650Mbps signaling rate that your AP tops out at, I'd expect you to see a max throughput of 260Mbps, which is 31MiB/sec.
+So anyway, associate your 802.11ac iMac and 802.11ac retina MacBook Pro to the 5GHz network, and run IPerf on each. Make the iMac the IPerf server, and make the retina MacBook Pro the IPerf client. On both ends, add the -w 2M option to the IPerf command-line so that you have a nice big TCP window to work with.
+To really see what that AP is capable of, you need to do a performance test that eliminates the overhead of disk I/O and remote filesystem protocols like SMB and AFP.
+I usually recommend that one endpoint of your performance test be on a wired Ethernet LAN port of the AP, but since this AP's wired Ethernet isn't Gigabit, that'll be the bottleneck. The best you could possibly do is 94 Mbps = 11 MiBytes/sec.
+Anyway, the fact that they can't do 3 spatial streams and can't do 256-QAM is a sign that they made some deep compromises to hit that $75 price. I also note that it only has 100Mbps, not Gigabit, Ethernet LAN ports. Further evidence of corner-cutting that hurts performance.
+So to see something better than 11MiB/sec, you have to do a wireless-to-wireless test, but that will cut your Wi-Fi performance in half.
+Make sure all three devices are at least 2m apart from each other so they aren't saturating each others' receivers.
+Slightly less expensive ones only hit the 867Mbps data rate, which requires all of the above except just 2 spatial streams instead of 3.

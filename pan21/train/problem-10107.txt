@@ -1,0 +1,7 @@
+Apache, and other daemons, typically reload configuration on SIGHUP.  Userspace utilities often die.  Application performance linked to signals can be unique to the application.
+For BASH, this depends on the huponexit shell option, which can be viewed and/or set using the built-in shopt command.
+When you fork a process into the background it will still be the child process from the shell executing it.
+The other option is to use the screen command. The benefit of using screen is that you can reconnect to the process later.
+If you didn't launch the command via a tool like screen, then when the session ends, so do all jobs/tasks associated with that session.
+You can use the command nohup to launch the command and redirect output into a nohup output file.  From the nohup man page:
+All child processes running under a shell are sent a SIGHUP upon exit.  Performance varies slightly depending upon the exact situation, which is detailed verbosely in bash's manpage.  Other shells likely have similar descriptions.

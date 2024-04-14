@@ -1,0 +1,7 @@
+Top of my Christmas list? A time machine to go back and add properties, real exception handling and actual WORKING polymorphism to C++, and get rid of the f"d up arrow syntax crap that the parser can figure out on its own. I wrote a preprocessor for that 10 years ago because it's freaking stupid. 
+Short answer: C++ compiles to native code, so performance is up to the developer,not a runtime or VM. 
+, and get efficient, freestanding executables. The choice of language was a matter of personal preference and market forces. 
+Java is structured in such a way that it would be very difficult to implement without the JVM. Oddly enough, C#, commonly, and incorrectly, assumed to be roughly equivalent to Java, already compiles to native code on several platforms, including iOS.  
+C++ being "faster" has nothing to do with C++. At the moment, it is one of very few languages available that are supported by tools that produce standalone, native code for multiple platforms. 
+These days, the assumption that "C++ is faster" is essentially a self-fulfilling prophecy, though LLVM is in a good position to change that as it makes whatever goes into the parser moot, as it once was. 
+Borland had it right: Multiple languages that were parsed, first optimizations applied, then passed to a common backend compiler and linker. Which is effectively one of LLVMs major accomplishments. 

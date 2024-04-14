@@ -1,0 +1,5 @@
+What can I tell about the number of different path the automaton could take for accepting a word ? In particular, I want to know if this number is bounded, or if for every $c$ I can find a word $w_c$ that is accepted in at least $c$ different way by the automaton. 
+I have a question that seems to me really natural and have probably already been studied. But keyword search on this site or google does not seems to help me to find any relevent paper. 
+I have got a finite non deterministic automaton $A$ over an alphabet $\alpha$ without epsilon-transition.
+By clarity, I'll define the way I cound the number of accepting path. Let $w\in\alpha^*$ and $q$ a state, I can define the number of path to $q$ by inuction on $|w|$ by $N(\epsilon,q)=1$ if $q\in I$ else $0$, where $I$ is the set of initial state and $F$ of final state. $N(ws,q)=\sum_{q'\in Q\atop \delta(q',s)=q}N(w,q')$. 
+Right now, I can find some necessary, and some sufficient condition, but not any necessary and sufficient condition, for the number to be unbounded 

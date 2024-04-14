@@ -1,0 +1,9 @@
+I believe that you can approximate that functionality by enabling a serial console on the VM, then by choosing "Connect via Network". I'm not certain that you'll be able to access it via ssh (I've only found examples using telnet, telnet over SSL, and tricky netcat stuff, but it might be possible in the latest and greatest versions. You may also need a full enterprise license. Here are some links to get you started:
+On Dell and HP servers, it is possible to enable SSH to the DRAC/iLO console so that you can keep logs of what transpires on those consoles respectively, provided you are either using a jump host that logs all ssh connections out, or your SAs have logging enabled in PuTTY, or whatever ssh client they are using.
+I did try to google for this but all of the results I got were regarding how to access (and enable) the host's text service console.
+If you want to SSH to a VM, you give it network and configure an SSH daemon. If you want to SSH to the hypervisor, you enable the SSH service and connect on its management port.
+https://pubs.vmware.com/vsphere-51/index.jsp#com.vmware.vsphere.vm_admin.doc/GUID-462B8B04-29DF-406B-9585-12D2588A6A48.html
+The console has a separate IP from the OS (the DRAC/iLO IP usually), that is typically allocated on a non-routed subnet and VLAN.
+The question is NOT regarding how to access the "hidden" console of the ESX/ESXi HOST OS running on the bare metal.
+The question I have is: Is it possible to enable this same sort of IP address assignment and ssh functionality to the console of a guest VM, provided that the guest is running some variant of unix/linux/bsd with a text console?
+The ability to connect to the VM is entirely up to the guest OS configuration on that VM. There's no special text console access provided by the hypervisor (ESXi in this case) other than the virtual display (GUI) console. Even on a text based OS, the console is still basically VGA-over-IP.

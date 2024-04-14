@@ -1,0 +1,7 @@
+http://www.windowstechupdates.com/an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted/
+I do not have this problem with actual Windows server operating systems but it is a problem with client versions of the OS.
+Does the domain user have a "Log On To..." restriction set within the account tab for the user setup?  I've received a similar error when using such an account.
+Usually you don't have to check the policy Allow log on through Remote Desktop Services because the Remote Desktop Users are already added to this one.
+I had the same error on my Azure virtual machine and a local virtual machine. I resolved this error by following the under given URL:
+I haven't found a way around this if I'm not already logged into the machine, but I usually just put my machine to sleep when I go from work to home and I avoid the problem--waking out of sleep lets me connect via remote desktop.
+Also I've had a case where a content filter appliance would not allow inbound requests (from a remote user with VPN) to Windows 7 computer but would allow outbound connections from host computer to remote laptop.  Once the outbound connection was established then the inbound request could be resent and the connection would function as expected.

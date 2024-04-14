@@ -1,0 +1,9 @@
+The reasoning behind this is that we need to upgrade our current installation of exchange 2007 to SP2 so that the exchange plug-in for windows server backup will be available to us. From this I can then actually take an exchange aware backup weekly and take it off site. Ideally then also we can migrate to this new server and keep the old one as a fail over.
+Essentially what I have been asked to do is perform an off-line file backup of our current exchange server and replicate this onto a new 2nd server.
+Is there a way I can copy across the files required onto a second server, although I doubt very much it is that simple.
+If this is just for a one off backup you could use a trial version of one of the mainstream backup suites.   I've backed up Exchange 2007 using Backup Exec 12.5 without any problems, I think Symantec offer a free 30 day trail on their website.
+Exchange 2007 didn't support using NTBACKUP (the built-in Windows backup software) before service pack 2, but it supports it finely after applying the service pack.
+After doing a lot of reading, Microsoft have decided in server 2008 unless you are willing to spend a great deal on a 3rd party solution you are pretty stuck!
+I may be barking up completely the wrong tree, however I have very limited knowledge with Exchange and any help and advice on how I would resolve this would be much appreciated.
+Just update your Exchange to SP2 (you should already have done it anyway, as it has been out for quite a while...) and you'll be able to use NTBACKUP to back up and restore its stores.
+Otherwise if this new server is to replace the existing one, the alternative would be to install them side by side and then migrate the mailboxes across using the Exchange management tools allowing you to turn off the existing server once complete.

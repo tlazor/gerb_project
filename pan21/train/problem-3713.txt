@@ -1,0 +1,6 @@
+If so, try installing your old driver, and after that go to PCEE4 folder, DS1, or just look for any folder containing one or two msi file that says DolbyDigitalPlus. Install it, go to control panel -> Hardware and sound -> Dolby Digital Plus, click the power button icon to turn it on, then off. That might be able to fix the sound problem.
+I've had this issue on the last two updates to windows 10.  Both times windows had changed my audio settings from stereo to Dolby 5.1.  Switching back to stereo fixed the issue.
+First, try running the audio troubleshooter. It might be able to fix the audio problems automatically. 
+I have had this problem with my Lenovo Yoga 720. I researched it on Google and the fix that worked for me is:
+Select the Start button, type troubleshoot, and then select Troubleshoot from the list of results. Select Playing Audio > Run the troubleshooter. 
+Open Control Panel, go the Sound section. Click on the Sound control panel which is usually on the top right. Then right click on the device and there will be a Properties option. Click the Enhancements tab and tick the Disable Sound Effects box. This worked instantly for me. 

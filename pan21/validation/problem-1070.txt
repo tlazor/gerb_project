@@ -1,0 +1,8 @@
+When authenticating a user, MySQL needs to do a reverse DNS lookup to resolve the client IP address to a host name and match it in its mysql.user database.
+What language is your application developed in? I realise you've said it's not coding related, but can you put some breakpoints or debug points in to find out where it is stalling?
+To check this, you can try something like dig -x <client_ip_address> from your mysql server (or nslookup <client_ip_address> if you run it on Windows).
+If that request doesn't respond fast enough, there are plenty of solutions (I can't afford to write all them down right now).
+I've done similar things in a language that didn't support remote debugging. Before and after every major function I wrote the time (to the millisecond) into a log file, then when it had finished, checked the log, found the gap in the timestamps, delved into that function, did a similar thing, and eventually found that the delay was caused when calling an authentication service.
+If you run into the scenario where all your timestamps are with acceptible limits, then the delay is most likely happening at the web server daemon/service. It could be a misconfigured Apache, or a bad filter in IIS, any number of things...
+A guess that pops to mind is that perhaps the query is being buffered into one result rather than sending data as it's found?
+Something that should not be overlooked is the physical network infrastructure. I've seen similar problems before that were eventually traced to a bad network cable. Queries ran fast enough but the network throughput over that cable was unbelievably slow. Replaced the cable and all was well.

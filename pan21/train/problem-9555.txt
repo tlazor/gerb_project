@@ -1,0 +1,5 @@
+I haven't found anyone who talks about this way of doing it and I don't find any obvious disadvantage to it. What are your thoughts?
+It's not unheard of, and your example looks fine to me. However, problems may arise when you have a method with multiple arguments (now you've lost context since you don't have an indication given via argument names). You also may have issues in the future where you'll slowly be tacking on more and more methods/configuration to the constructor. Of course; if that does happen, it's not too difficult to extract it out into an interface.
+I was thinking about using function delegates (Action and or Func) instead of interfaces as it essentially accomplishes the same thing. 
+I understand that following the dependency injection principle, a class should ask for abstractions in the constructor and should not create them itself. This way they are not dependent on concrete types and this means loosely coupled code which we all love.
+In order to tackle the first problem; I'd recommend using a delegate as an argument, rather than Action/Func. For example:

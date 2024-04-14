@@ -1,0 +1,5 @@
+I would have thought AWS had something in place to link regions but from a lot of Google yesterday, I've only found ways using linux systems to route the traffic. I'm fine with that if it's the only way, but part of me thinks there must be another simpler way?
+You aren't really overlooking anything.  There is no built-in way to connect VPCs together across regions.  
+It's arguably more simple than using instances, since redundancy and route propagation among the availability zones on the AWS side is fully handled by the VPC infrastructure, but has costs in transport, latency, and is a potential single point of failure.
+I've seen ways of connecting 2 regions to be a private network using AMI's but is there not a way to do this via VPC or DirectConnect. 
+One other option... if you have a physical data center and an appropriate VPN device there, you can use the hardware VPN capability of VPC to build tunnels from each region into that central device, then hairpin the traffic through that device, interconnecting the regions externally through back-to-back tunnels across the Internet, hub-and-spoke.

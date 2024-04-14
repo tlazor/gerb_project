@@ -1,0 +1,6 @@
+Framed-MTU workaround = https://technet.microsoft.com/en-us/library/cc771164%28WS.10%29.aspx and https://supportforums.cisco.com/discussion/11087011/eap-tls-authentication-failure
+Having a tough time here getting EAP-TLS to work. I am converting from a EAP-PEAP solution to EAP-TLS and have done the steps required for PKI so as to be not a certificate issue. (server and client certs signed by same CA) 
+Why I'm thinking this is a Fragmentation issue = http://www.cisco.com/c/en/us/support/docs/lan-switching/8021x/118634-technote-eap-00.html#anc18
+I believe there is an issue with MTU sizes based on the logs below and the following Cisco Forums I've found. Listed below are the posts. However after performing the Framed-MTU = 1344 and changing it to different sizes, I see no difference on the Cisco 3750s logs. Always errors with Invalid Eapol Packet length = 1492.
+Basically my set-up = http://networklessons.com/wireless/peap-and-eap-tls-on-server-2008-and-cisco-wlc/
+This may help. Take a look at this article if you haven't already figured this out: http://www.cisco.com/c/en/us/support/docs/lan-switching/8021x/118634-technote-eap-00.html

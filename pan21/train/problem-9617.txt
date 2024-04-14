@@ -1,0 +1,7 @@
+What I was think was that I could assign all virtual servers to the same owner and group. Then all I have to do is make sure that user's UID and GID matches that of my Mac user.
+I'm attempting to setup NFS on my Ubuntu server so that I can access the virtual server directories from my OS X client.
+I've done a bit of reading and it seems you have to match the GUI and UID of the files on the server with that of the logged in user on the Mac to be able to read / write. This kind of make sense and it means that the Unix server thinks I'm the same user as the original owner.
+For this to work I think need every virtual server to have the same owner and/or same group otherwise I guess I would have to setup a new user on my Mac client every time I wanted to edit a new site.
+I'm having issue with getting the permissions right so that my Mac user can write to a virtual servers' public_html directories.
+To be honest I've never really understood unix permissions so it might be getting this completely wrong. But I really need to be able to read/write to ALL the virtual servers via NFS on my Mac client.
+I have a local Ubuntu development web server and a Mac client which I use to access and edit the files on.

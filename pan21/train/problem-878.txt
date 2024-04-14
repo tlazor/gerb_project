@@ -1,0 +1,6 @@
+Is this at all possible? The next best thing I can think of is just using a local VM with no assigned networking capability, but it would be nice to do this just on my machine.
+In theory you would setup a fake nic (MS Loopback adapter for instance) or maybe just one that is already unplugged if the machine has 2 nics.  Then use ForceBindIP to bind the nic to the app.  But realize you have to "call" the app using the ForceBindIP command.  It isn't as simple as just running the app itself.
+The program has a relatively brief lifespan, too, so this would need to happen either just before or at the startup of the program itself.
+I would like it to appear to a certain program as if the network cable is unplugged, or there are no available network adapters.
+You could potentially use something like ForceBindIP for this.  But I haven't seen that used in real "netadmin" worlds...just gaming, and that was YEARS ago.
+I don't know of any way to make the program think the NIC is unplugged. But you can create a Firewall rule to disallow all communications to a program, or select communications.

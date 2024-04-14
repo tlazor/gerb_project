@@ -1,0 +1,6 @@
+(note, I have about 10 IP addresses on the webserver, but all of them are shared between many domains/virtualhosts)
+But in general, you can put the following directives in each virtualhost block to log that virtual host separately, and then just parse the logs with whatever you use:
+Then just adjust log rotate if you need to.  Then, if you had daily logs, you could do something really simple to get the hits like looping over the logs and calling wc -l on each of them.
+Every once in a while there will be a situation where the server load goes really high, or the network response is very slow on the webserver, and I would like to have a way of viewing the current activity on my varions virtualhosts, to see if a particular domain is perhaps responsible (ie. DOS, etc.)
+(Larger article about it here: http://www.howtogeek.com/howto/ubuntu/monitor-your-website-in-real-time-with-apachetop/
+mod_status is great for this, if you turn on ExtendedStatus it shows you the list of URLs currently being serviced.  Turn ExtendedStatus off when you don't need it, though, as it does cause a (slightly noticeable, in extreme cases) reduction in performance.

@@ -1,0 +1,5 @@
+SkyDrive itself doesn't seem to think there is anything wrong. Its icon in the File Explorer shows it's syncing, and the SkyDrive app pretends everything has been synced "6 seconds ago". Since I'm running Windows 8.1, there is no app for me to reinstall. What can I do to fix this?
+when SkyDrive tried downloading a file that was currently in use on my system. Ever since then, SkyDrive has been silently crashing* as soon as it tries communicating with the servers. The only time SkyDrive doesn't crash, is when my PC is offline.
+Since the files aren't exactly "moved", but instead are copied to the target then deleted from the source, this process can take a while depending on the size of your SkyDrive folder and the speed of your storage drive.
+Simply right click on the SkyDrive folder, select Properties, go to the Location tab, click on the Move... buton and select another folder1.
+If you wish, you can "move" your SkyDrive folder back to where it belonged2 using the same method as described above, once the files have all been copied over.

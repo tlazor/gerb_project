@@ -1,0 +1,7 @@
+You could definitely add more samples and tag it as other with your classifier. However, realistically this might not be an option. For this exact purpose, you could use confidence values with the output of your classifier to predict the "other" class. You could bring in confidence thresholding to support this, i.e if your classifier is not confident > 0.8 (as an example) with its prediction, then you tag it "other" class. 
+Let's suppose that I have a classifier which detects whether a script of code is written in Python or C++ or Java.
+What is the best value to threshold with, you can identify by running a number of experiments with different threshold values and plot a graph for correctness i.e classification error rate graph.  
+Therefore, my classifier has 3 outputs which give the probabilities that a certain code script is one of these 3 programming languages above.
+Does it make sense to add another class called 'Other' which would contain code scripts of various other programming languages (Javascript, Ruby, PHP etc) or even irrelevant text to cope with that? 
+If I leave my classifier as it is then it going to classify these code scripts as being in Python or C++ or Java and this will be certainly pretty wrong and misleading.
+However, unfortunately, there is the chance that the test data my contain some code scripts written in other programming languages such as Javascript, Ruby, PHP etc.

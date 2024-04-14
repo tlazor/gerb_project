@@ -1,0 +1,8 @@
+You might have a look at Splunk for a software-based solution.  Q1 Labs also makes hardware-based solutions.
+Depending on your needs syslog-ng might be what you want. Setup a central logging server (or many of them), and make your farm of servers log towards your logging server. Then just run the log analyzer at the logging server whenever necessary without affecting your actual servers at all.
+I need a fast, high availability solution. I've looked into Facebook's Scribe. Can anyone suggest other alternatives? The servers are WCF services.
+It might be helpful to be more specific about your needs (i.e.: # of potential transactions, additional log file types, etc.)
+I have a load balanced farm of servers that need to log various messages to an audit log, which will be processed off line at a later stage (This is a medical app, so all access to patient records must be audited). Currently, logs are being stored as XML using NTEXT data type to a SQL Server database, but I am looking for a more performant solution. Don't really need SQL because the logs are not queried by the servers, only processed at a later time.
+syslog-ng is also able to receive syslog events from Windows servers, you just need to install a small service to Windows. I don't remember the name straight away, though, since I'm not normally a Windows user. 
+I've decided to look into Flume (http://github.com/cloudera/flume). If I can build it on windows. It provides guaranteed delivery, which is important to me. Unlike Scribe.
+Although I have to admit I'm a bit surprised that the way you're currently doing things isn't able to keep up.

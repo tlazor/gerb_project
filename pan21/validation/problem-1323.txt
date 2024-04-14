@@ -1,0 +1,7 @@
+This is a user dashboard with several functions like media library, google maps integration, google places near and so on.
+You need to be very careful about running a webpage that includes system manipulation. Make sure you're familiar with the concept of injection attacks. Python is slightly safer in this regard than SQL, but be extremely wary of any input that comes from user space. Just because your website doesn't have the option, doesn't mean they can't access a public API directly.
+we ara planning to make a program for raspberry pi 3. We figured out that maybe it would be better to write this program as a website with python. 
+If the button is a website element, and the website using python, can i control linux functions thru website on raspberry? 
+You can also play with subprocess, reading and feeding application in real time with subprocess.Popen(["someapp.sh"], stdout=PIPE)
+Yes, basically you can do this with these python functions :  os.system("someapp.sh") (launch a task),commands.getstatus("someapp.sh") (launch & read exit status code) or commands.getstatusoutput("someapp.sh") (launch and read both return code and result as a string)
+The great thing about programming is that you can do pretty much whatever you want to do if you have the right level of knowledge. What you're talking about has two primary components.

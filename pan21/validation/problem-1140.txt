@@ -1,0 +1,6 @@
+Client:  Windows XP SP3 running under VMWare Fusion 2.0.1 with Bridged Networking under MacOS 10.5.8.
+From the server to this client, I can't access \clientname\c$ or \clientip\c$.  If I use the client's name, I get Access Denied errors (logged on as Domain Admin on the server).  If I use the IP address, I get "The network path was not found." (Error 53)
+I can ping the server, I can RDP to the server.  I can't "net view" the server, or connect to shares on the server, and I get "The network name cannot be found." (Error 67).
+The server shows many shares in the Server Manager, and everything is accessible from other clients.  I can access shares on the server logged on under my credentials from other hosts (i.e. my Citrix servers).
+Every time the VM reconnects to the work LAN from sleep I get "duplicate name exists on the network" errors but its never been a problem.  This reachability issue for this single host started yesterday.
+"net view \servername" or "net view \address" returns "Windows cannot find the network path." (Error 51)

@@ -1,0 +1,8 @@
+The key contribution of MapReduce is that surprisingly many programs can be factored into a mapper, the predefined shuffle, and a reducer; and they will run fast as long as you optimize the shuffle.
+Mappers and reducers run in parallel, and independent of each other. They usually do really stupid operations, such as in the word-count example. The shuffle phase is where all the heavy lifting occurs. All the data is rearranged for the next step to run in parallel again.
+The shuffle step occurs to guarantee that the results from mapper which have the same key (of course, they may or may not be from the same mapper) will be send to the same reducer. So, the reducer can further reduce the result set.
+I'm looking at a diagram of map reduce where there is a map step, a shuffle step and then the reduce step. Why shuffle?
+The shuffle step involves transferring data from the mappers to the reducers - this is necessary simply so that you have input to the reducers. You can find a more detailed answer at this Stack Overflow question.
+It's also where people fail in writing good mapreduce. For example by producing too many copies before shuffling, or putting everything into the same key (shuffle does not make a lot of sense then anymore).
+The shuffle step is actually the most important step. That is where the MapReduce system takes over and you get all the performance if it is well implemented.
+That's why you can extend with custom map and reduce functions, but not with a custom shuffle - that part needs to be written by experts, you can only modify the keys used by it. You can live with a "just ok" map, you can live with a "just ok" reduce, but you cannot have a "just ok" shuffle, it needs to be top notch.

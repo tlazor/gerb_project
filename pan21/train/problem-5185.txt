@@ -1,0 +1,5 @@
+In a single domain environment without Exchange you don't need a GC, even with multiple sites. GC has got nothing to do with locating domain controllers in this scenario.
+As many have said, I can't understand why you want to do this. If you have multiple domains in your forest, you really need a GC per domain for them to communicate effectively and if you only have 1 domain in your forest, then your GC really doesn't add much overhead.
+The GC is the system against which you actually authenticate.  If you have no GCs you can't authenticate.  Hit TechNet and you will see this pervasively throughout the documentation.
+You need at least on GC, your first domain controller is setup by default as a Global Catalog server.
+This is a bizarre request.  According to the TechNet article on GCs, in a single-Domain environment the only absolute requirement for a GC seems (and I do say "seems") to be for GAL lookups in Exchange, but all the same I'm failing to understand why creating a GC could be something you would want to avoid.

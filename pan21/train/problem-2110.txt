@@ -1,0 +1,7 @@
+You could also try rsh if you want something that comes with the operating system but isn't Powershell, though I don't remember if it will use your existing authentication context. Since it relies on WinRM just like Powershell remoting, I think it will, but I'm on my phone and can't test it. 
+By default negotiate or kerberos authentication will be used so the command will run as the user who is running Powershell, without having to specify the credentials. 
+I may be missing something here, but when you logon to a remote machine and execute a command, the command does indeed run under your logged on user credentials.
+psexec, on the other hand, establishes a connection to a remote computer, and runs a command using credentials you specify in the psexec commandline - but your question sounds like you are already logged in via (RDP???) and just need to execute the command?
+Enable Powershell remoting on the target server, then use Invoke-Command -ComputerName RemoteSeverName -ScriptBlock { some command } from Powershell on your computer. 
+I want to run a command on a remote Windows server as the user that I am logged on as in Windows.  How do I do this?  
+I suggest reading the documentation and the couple of pages linked to in the documentation. There are a few gotchas, and psexec can be quite a powerful tool.

@@ -1,0 +1,6 @@
+In classic deployments the IP, and the reverse DNS entry were part of the cloud service that held your VM's, and so as you mentioned all the configuration was done there.
+In the new resource manager world cloud services don't exist and public IP's have become their own independent entity which you then associate with a VM or a load balancer. The reverse DNS setup is now associated with the public IP. 
+You can create a reverse DNS entry when you create a new IP using the New-AzurePublicIpAddress PowerShell command using the -ReverseFqdn switch which takes a string value. Unfortunately there does not seem to be a way to create it through the portal.
+The problem is the doc is for virtual machines created in classical mode, not for virtual machines in resource mode.
+Does anyone have experience with that? How do you use your mail servers on Azure without PTR record? ...
+I have also try to change DNS servers form azure to external and then try to add PTR record but after 8h I don't see any changes.

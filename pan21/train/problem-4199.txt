@@ -1,0 +1,6 @@
+When it comes to virtualization, I really, really would like to hear about a solution which would allow full-speed gaming through it. Every virtualization I've tried have been severely lacking when it comes to gaming. 
+Cedega from TransGaming designed specifically for running Windows games on Linux, also based on Wine.
+A few times, even faster than windows. I used to play Eve online on wine and it was faster than on the same machine in windows (dual boot). It's longer to load, the fps is the same but the interface response on menu, buttons, clicks is faster on wine and voice is a lot better.
+The more popular game, the more chances you have running it through Wine. For example WoW and The Sims are very playable through Wine. 
+However, if it is not supported, you can try Sun Virtualbox if you don't want to pay - it offers basic DirectX and works - but for anything better, take a look at either VMWare Workstation or the free VMware Player which offers much improved graphics performance.
+If a game is supported on Wine (Take a look here), it should play the same as on Windows (sometimes there are minor problems such as fonts, but usually it works well).

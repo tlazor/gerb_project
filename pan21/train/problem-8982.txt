@@ -1,0 +1,9 @@
+PS: I migrated my OS with the software "Paragon migrate OS to SSD" from my hard disk to my SSD. Maybe I have this errors because I did this....
+If you are using a SCSI hard disk, make sure you have drivers available for your storage device on a thumdrive and it is connected. During Windows 10 setup, click the Custom Advanced Option and use the Load Driver command to load the appropriate driver for the SCSI drive. If this does not work and setup still fails, consider switching to a IDE based hard disk.
+If you are updating through Windows Update, when the download reaches 100% disconnect from the Internet LAN (Ethernet) or Wi-Fi then proceed with the installation.
+I have had the same problem: couldn't update Windows 10 to anniversary edition / creators edition with this error: The installation failed in SAFE_OS phase with an error when BOOT operator, error code : 0xC1900101 - 0x20017. I has used the paragon migrate os to ssd tool as well.
+If you are upgrading using the .ISO file, disconnect from the Internet during setup, if you are connected by LAN (Ethernet) or Wi-Fi, disable both then attempt setup again. 
+That response won't load just now.  I also had what appears to be the same problem.  After trying all the other suggested approaches, I succeeded by replacing the SYSTEM volume:
+After fixing the Windows boot loader with Neosmart Easy Recovery Essentials for Windows 10 everything worked.
+get an administrater-level command prompt  (I booted via Windows 10 usb stick, selected "repair" option)
+If you have any external devices attached to the machine, disconnect them (example, gaming controllers, USB keys, external hard disk, printers, non-essential devices).

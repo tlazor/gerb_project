@@ -1,0 +1,5 @@
+rsop.msc (resultant set of policies) can be run from the run box or search box and gpresult can be run from the command prompt. To check local policies type gpresult /H gpresult.html and this will output to either the root drive or somewhere in your My Documents. This will generate an HTML file listing all policies applied to you or your computer.
+Maybe you should delete that exe file and create folder with the same name to prevent it from being downloaded and run. Also you may try to revoke access to it using
+It really depends where it starts from as windows will load services before things in the startup folder for example... Within task manager you used to be able to schedule tasks to run after logging in - see if you can do this with a time delay after you logged in, say 10/20 seconds (really depends on your startup speed).
+It may well be that the program startup is defined in Group Policy. In order to find this out and as long as you're not locked down there are two ways of finding this out: rsop.msc and gpresults.
+If there's a policy set it's likely to be in Computer Configuration, Policies, Adminstrative Templates, System and then Logon.

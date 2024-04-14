@@ -1,0 +1,9 @@
+I run daily backups with Bacula since a couple of days and I was wondering if I can do this kind of thing.
+I've already specified the UseVolumeOnce = yes directive in the configuration files, but now I want to know if I can make Bacula move the tape to slot 24 (I/O slot) when the job finishes.
+Can bacula do this or do I need to script it? If I need to script it, do you have experience with that?
+Take a look at the "Run Before Job" and "Run After Job" 'Job' parameters to call your the script you've written.   We've tended to favor calling a script that runs a command into bconsole (through input redirection) to unmount your tape volume, and then call MTX to move the tape around.
+Without having the same environment to test with, I'm not certain this will work, but a script like this called via the RunAfterJob directive in bacula-dir.conf should work:
+You do have to script it, but the combination of Bacula and a recent version of MTX makes this not too painful.
+If you want to avoid calling external scripts, you might experiment with the AlwaysOpen, RequiresMount/MountCommand/UnmountCommand, and/or OfflineOnUnmount directives. All of these are in the Device resource of your Storage Daemon configuration.
+I have set up an admin job called Eject that runs the following script at priority 1000, so it is executed once all of the backups are finished:
+Also, can you clarify why this is desirable for you? Perhaps there's a solution to the root problem we're overlooking.

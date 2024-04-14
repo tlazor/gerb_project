@@ -1,0 +1,5 @@
+mount or df will show you the filesystems that are mounted.  fdisk is just showing that the devices are physically attached (which is of course, a good first step :))
+Additionally, if you want this mount to happen automatically upon reboot, then you should add an entry in your /etc/fstab.
+There are a couple things that can get in the way here.  If /var/www2 doesn't already exist, you have to create the directory.  If it does exist, you don't want any content in there, because once you mount a filesystem at that location, the original contents won't be accessible any more.
+are they both already mounted? Since it looks different than it usually does. And if the second one isn't how can I mount it to a var/www2 folder?
+Your filesystem is formatted as NTFS, which typically means you'll need a package for ntfs utlities (ntfs-3g on fedora, don't know about debian).  If this drive is only going to be used on this box, I'd recommend formatting it w/ EXT, because using windows filesystems on linux is going to be a pain as the permissions are completely different.

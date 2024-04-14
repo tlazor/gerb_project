@@ -1,0 +1,7 @@
+                foreach ($fl in $Db.LogFiles) {$fl.FileName = $fl.FileName.Replace("C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA","F:\SystemDB")}
+$wmisvc.StartupParameters= '-dF:\SystemDB\master.mdf;-eF:\SystemDB\ERRORLOG;-lF:\SystemDB\mastlog.ldf'
+The Restore-DbaDatabase in dbatools right now blocks the ability to restore the system databases. It is on the roadmap at some point to work out the process. The block in that command is why Copy-DbaDatabase would fail as well, and you can't move any system database by simple detach/attach method.
+$('model','MSDB','mast')|ForEach-Object {Move-Item -Path $('C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\'+$PSItem+'*') -Destination F:\SystemDB\ -Verbose}
+$wmisvc = $(New-Object Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer 'localhost').Services | where {$_.name -eq "MSSQLSERVER"}
+                        {foreach ($fl in $fg.Files) {$fl.FileName = $fl.FileName.Replace("C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA","F:\SystemDB")}}
+Overall it could be worked out to perform the whole task in PowerShell using dbatools commands with a mix of just "manually prepared" code around SMO.

@@ -1,0 +1,5 @@
+Pleroma uses Elixir/Erlang/Phoenix, etc. It has its own service set up. It's working just fine, but if I type either of my other two domain names, they go to the social site. Example setup:
+NOTE: These three sites were all working just fine and resolving separately before I had to reflash the SDCard...
+I recently tried one too many things and had to re-flash the SDCard in my Raspberry Pi. Started over with Raspbian Stretch Lite. Added nginx, PHP7.0-fpm and a self-hosted social media service (Pleroma) and two basic web sites. I have typically used my /etc/hosts file to point my local browsing directly to the Pi's IP address. But now after copying back over some configuration files (from backup) and re-setting and re-configuring everything, I am unable to get to the two web sites. They constantly resolve to the social media site.
+The nginx error log has a lot of these entries - at first they all show to be coming from my Ubuntu PC desktop:
+But the last several entries show the upstream client IP address to be different every time. Not sure if that means anything.

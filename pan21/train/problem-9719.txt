@@ -1,0 +1,5 @@
+A solution that worked for me was to disable system services which I considered junk: sevices from vendors other than Microsoft that seemd not critical (ie. Java Quick Start, Google Update, Serviio, Intel services and about 10 others). I don't know which of them exactly caused the problem but after doing so my unhibernate is fast again (10 seconds). I've found this article very helpful.
+So your issue is slow reading and writing to the hiberfile.sys. So check your Western Digital WD Blue WD6400AAKS for issues. Run a diag tool.
+That got me this, and also a link to 'perfomance diagnostics' in the Event Viewer (none the wiser though, neither of these have been updated in the appropriate timeframe)
+I had a really really slow hibernate & un-hibernate on a laptop in the past, and putting my image on a different drive fixed it completely.  Turned out that the original drive was just starting to fail.  But I would suggest just trying a disk check & defrag, and see if that helps, before going into further diagnosis.
+I had the problem with slow unhibernate (6 minutes/2GB RAM) after moving system to brand new Seagate Thin SSHD 500GB on Toshiba laptop with Windows XP.

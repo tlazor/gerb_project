@@ -1,0 +1,5 @@
+Not that going to revision 1 is a problem, I'm just sure I've done it differently before and I'm looking for the best practice.
+On a fresh checkout of a new repository, I create and add the three directories - tags, trunk, and branches. I commit those three; the repo is on rev. 1, and I switch to trunk and get to work. Not much to it, really.
+You can create all directories at once (resulting in one commit) without even checking out the repo. See this Windows example:
+I have executed svnadmin create --fs-type fsfs /home/firefli/web/projects/subversion and have myself a blank repo. If I create, say, the trunk directory using svn mkdir file:///home/firefli/web/projects/subversion/trunk it works fine but I go to revision 1.
+When we create SVN repo's at work we svnadmin create and then svn import a skeleton folder of the 3 directories and commit that at once pushing it to revision 1 (We have a bash script automate all of this). I don't think there's a better practice than to just have the initial commit?

@@ -1,0 +1,6 @@
+The basic should be some version of mod_rewrite for www_public/index.*  www_my_new_public/index.*, yes?
+Most posts I'm finding on the apache url mods reference cleaning up URLs of dot-php. or redirecting old content to a new location. I could really use some advice to know what to be looking for.
+I'm moving a site to a new shared host. I want to have a folder of php includes below the live directory and available to public php pages. What directives should I add to the .htaccess file in www_public?
+Mod_alias will send all traffic to one directory to another directory, yes? Should I do that instead?
+And that should fix the issue - then you can simply change the DocumentRoot of your web site.. If you still want to make the redirection, use mod rewrite and something like that (not tested, but it's close to what you need):
+You don't have to make it that complicated - if you only have a folder for include files which you don't want accessible, make a .htaccess inside it with the following code:

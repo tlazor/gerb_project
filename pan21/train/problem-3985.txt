@@ -1,0 +1,5 @@
+You can add -n in to those rsync options if you want to do a dry run and see what would be copied over without actually doing it.
+Since we cannot replace these directories outright, I've been trying to come up with a way to replace the contents of these directories (and recursively the contents of all subdirectories), but not the directories themselves. I think there has to be a solution using some combination of flags for cp, but I cannot figure out what that combination is.
+The way I would do it is to create a copy, remove all the .svn directories from the copy, run the upgrade on the copy and then use rsync to copy all those changes from the copy to the original.
+We're trying to update an installed software which we have under control by subversion. The update instructions for the software require replacing several directories that have .svn directories in them.
+I looked at using cp -aR directory/ existing_directory/, but I cannot use -a because timestamps are not to be trusted for updates. I have no problem replacing all the files. Additionally, I don't believe the trailing slash will be carried through subdirectories recursively.

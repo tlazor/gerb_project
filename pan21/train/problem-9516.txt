@@ -1,0 +1,5 @@
+Gmail won't even put the email into junk - it just never appears in my mailbox anywhere. Their tool though marks SPF as ok (though I assume that tool is if I want to relay to the gmail server and they'll send it for me - is the include:_spf.google.com useless in my case? I just want to forward emails from people to my personal address).
+I have my own postfix server, that serves only as a forwarding mail server, i.e. if you send email at admin@mydomain.com, it will arrive into my gmail/whatever else.
+In outlook then, the mail is marked as junk. Any idea of what's wrong both with SPF and marking the mail as junk? I also have reverse dns so that my hostname can be resolved to the same ip as above. According to this SPF tester tool, my SPF should pass as well.
+A workaround has been proposed under the label of SRS (Sender Rewriting Scheme), see http://www.openspf.org/SRS .
+Consequently, the SPF check on the recipient server will try to verify your server's IP address against the SPF record of the sender domain.

@@ -1,0 +1,7 @@
+A friend, who is not tech savvy had a hardware RAID of two disks. That means he had either RAID 0 or RAID 1.
+With hardware RAID, the RAID controller presents the disks to Windows as whatever the configuration on the RAID controller is, so for RAID 1, that is still only one volume (despite it really being mirrored disks), so Windows only sees it as one disk.
+I have a SATA dock (USB) and i used it to test the drives. I tried in windows and mac but in both cases the drives wouldn't show up even as devices.
+Be careful just to look, and not change any settings unless you are 100% sure of what you are doing...making a wrong decision can cost you his data.
+Is this check i did correct? if the drives are not listed during booting or in the OS as device i assume their controllers must be fried.
+All of a sudden, the RAID disk disappeared from his windows, wasn't listed in Computer Management and during boot the hardware RAID card was reporting any disks.
+If you really have questions about its health, you need to boot into the RAID controller as the computer is starting (on servers there are often applications that let you check health while running, but not sure about most home systems).

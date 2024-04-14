@@ -1,0 +1,5 @@
+The router has to sit between the switch and the modem, yes. You can't plug the modem directly into the switch.
+My problem is that well, I have no idea what I'm doing.  I tried to hook up everything to the switch and have the router act as a peripheral on the switch, but I couldn't make it work.  I am turning to you for help.
+So that the router would act as a hotspot on the network.  I have no idea how to set this up and am looking for some general guidance.
+Currently, the router is set up for DHCP. Can the switch handle that or does my router have to sit between the switch and the modem?  Does it matter which port on the switch goes out to the internet?  How do I access the management consoles on the switch?
+The switch doesn't know how to do DHCP or NAT or any of the other things that make a router a router, so you need to have the router doing that. Plug the modem into the WAN port on the router, and the router into the switch. Then plug everything else into the switch (whatever ports you need for the speed you want).

@@ -1,0 +1,7 @@
+The only thing you can do is try them all, one at a time, and see which ones are accepted. I am not aware of a tool to do this, though it should not be hard to cobble one together from scripting tools and openssl s_client.
+Nmap's ssl-enum-ciphers script can list the supported ciphers and SSL/TLS versions, as well as the supported compressors.
+By default, it only supports AUTH SSL on FTP, but a simple search and replace can fix that. As a bonus, it also claims to support SMTP with STARTTLS and RDP.
+While the client advertises which ciphersuites it will accept, the server simply picks one and uses it or fails the connection if it finds nothing it likes.
+While looking for something that does AUTH TLS on FTP, I discovered this tool: ssl-cipher-suite-enum
+It also offers a basic evaluation of offered ciphers and protocols. It’s somewhat like SSL Labs tools, only for home use. :)
+It's similar to what SSL Lab's does but I find that having a command line tool that you can automate and parse is much more useful.

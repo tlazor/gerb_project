@@ -1,0 +1,11 @@
+Bitlocker can be compromised even with a TPM. Sure it's unlikely but it all depends on how much your data is worth to you and who's interested in it.
+https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-use-bitlocker-drive-encryption-tools-to-manage-bitlocker
+For CEO level security I think I'd be looking at adding an extra layer of encryption at the very least.
+The two existing attacks against bitlocker are quite a stretch. Gaining access to the victims computer TWO TIMES is a very unlikely event. What will happen in most cases? The Laptop/Workstation gets stolen alltogether or just the harddrive. BitLocker will keep your data "safe" (of course there is NEVER a 100% security).
+I know this question is old but I tripped across it in related questions while looking for an answer of my own for this.
+You might be able to do this in one command, I just don't have a good means to test it on a fresh endpoint, but am curious enough I'm about to run it on my old laptop and let you know if you can do this in one command and will edit accordingly based on what I see.
+If both of them were stolen by the same thief, which happens to have some knowledge of how Bitlocker works, you can pretty much assume your file system has been broken into.
+You may want to consider using TPM if your data is extremely important, or even TPM + PIN. It's better to have to rely on stuff that's in your head rather than a USB key which anyone can get their hands on if they really want to.
+You can use manage-bde to require both the USB and a password in order to unlock a device.  That effectively turns unlocking the machine into a 2FA ordeal. Unlike the Bitlocker UI which doesn't give you the option to apply multiple protectors, the manage-bde tool allows you to specify multiple protectors if you have 'Require additional authentication on start-up', which you likely already have figured out. My guess is the commands would run as follows:
+If you are unable to teach the employees basic security bahaviour, most of your precautions will fail.
+Only CEO data is important? Really? I think I can do a whole lot of damage with some random employees files. 

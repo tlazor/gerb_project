@@ -1,0 +1,9 @@
+I put the 0 case first, as that puts them in what I'd consider ascending numeric order.  This will make no functional difference, so it's fine to do it whichever way makes you comfortable.  
+As a general rule, when I put the default case last, I do not put a break in it.  This helps make it stand out from the others.  Putting the break in does not hurt anything though.  It's just unnecessary.  
+Another issue is that you create and release a lot of scanners.  Why not just do that once at the beginning of the program and keep it until you're done?  If you make it a class field, then you can have it available to every method without constantly creating one.  
+The return will have the effect of leaving the method.  You do not need a separate break with the return.  
+Also, you don't need to declare your variables at the beginning of the block.  Declare them when you are ready to initialize.  The exception would be if you need them have greater scope than the block where they are initialized, but that's not true here.  So 
+I find this a bit clearer about what you are doing.  But in this case, I think that I'd actually eliminate menuItem altogether.  
+The same thing may be true of the database connection, although there may be reasons why you should release that more often.  
+This saves you a variable declaration and puts all the input processing in the switch.  The original version actually processed the input twice in the case of a 0.  Once in the switch and then again in the while.  This will only ever process it once.  
+Since this is outside any try block, it will crash the program if it fails.  But you exit on failure anyway.  Which makes sense, after all, what are you going to do if you can't read input?  

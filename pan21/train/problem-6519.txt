@@ -1,0 +1,12 @@
+Mediawiki is by far the most flexible and supported wiki software available today. As it's a trivial and painless thing to install and configure, taking just a few minutes, why not just do it? If you use the Apple supplied wiki and later find it doesn't really suit your needs or desires it will be a much bigger job to switch. With the massive number of mediawiki plug-ins available I would image there will be one to authenticate against most systems. There are definitely a bunch for authenticating against LDAP and Windows Active Directory.
+I recently installed Snow Leopard Server and am trying to get the most out of the services it offers, but one thing that currently seems pretty barebones is the Wiki it provides.
+It's because Apple bundled a lame version of PHP (5.3.1) that corrupts function arguments that are passed by reference.
+I also installed SL server only recently and can not comment on the wiki server quality yet. I will migrate our Mediawiki there soon and see how it works.
+Is there even a good name to refer to it as when searching for it? "Snow Leopard Wiki" just turns up a bunch of wikis about SL.
+One advantage of Apple's wiki server might be that it's access control is integrated with Apple Open Directory, so permission management should more straightforward than with MediaWiki.
+I find that MediaWiki 1.14 will install and run on Snow Leopard, BUT many of the MW extensions I use do not, because they use pass-by-reference. This is really annoying, and has caused me no end of grief, as I have people paying me for this stuff.
+Also, I have been unable to load a different version of PHP. I tried Marc Liyanage's bundle of 5.3.0, but as installed via his excellent directions, websites that use PHP freeze, although command-line PHP tests are fine. I next tried MacPorts to download PHP 5.3.2, and MacPorts won't even run on Snow Leopard Server.
+For searching you could try "apple wikiserver", though this finds some pre-snowleopard articles as well (wiki server has been around since 10.5/Leopard).
+If you have not done so already, you could also have a look at these pdf-s: WikiServerAdmin & WikiDeployment
+So I've been pulling out my hair trying to get MediaWiki to work with Snow Leopard Server. Be careful.
+Alternatively, how hard is it to install MediaWiki(or some other more advanced wiki engine) on SL Server? Could you plug it in to the same authentication mechanism?

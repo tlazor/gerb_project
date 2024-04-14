@@ -1,0 +1,7 @@
+Go to Default fronted--> Scoping and edit the IP addresses from “All Available IP” to its Specific IP(v4 in my case)
+and under server -> Server -> dns-lookups I changed the default to individual settings and entered the direct address of the DNS server.
+In my case, the server tried to connect via ipv6 to the domain server in a network that had only ipv4 routes, as result failing the connection as invalid when the DNS returned an (unreachable) ipv6 IP.
+ As the internal network works on ipv4, I temporarily disabled ipv6 in the network settings, and in the EAC under message flow:
+After turning on the Frontend Send/Receive connector logs (found under %exchangeinstallpath%/Transportroles/logs/frontend/protocollog) I saw several message statements that had 
+Instead of changing the DNS you might also want to try adding the fqdn of the mailserver to the etc/hosts file, since apparently even internal mail submission is handled via DNS lookups.
+ as well as "internal sendconnector" errors in the SmtpSend logs, e.g. "Failed to connect. Winsock error code: 10061, Win32 error code: 10061, Destination domain: client proxy"

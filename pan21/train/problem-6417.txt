@@ -1,0 +1,8 @@
+Then the port on your router facing the port on the ISP router should be 192.168.1.(anything but 1)/24 Gateway 192.168.1.1
+I'm assuming you are using a layer 3 switch. If so, you should be able to configure multi SVI's (Switched virtual interface) you will need to create a SVI for each VLAN. You can do this by running the following IOS command:
+You need to add interfaces to the gateway/router for the 10.0.100.x, 10.0.200.x. and 10.0.300.x networks. Otherwise you can't route from those networks to a different (in this case a 192.168.x.x) network.
+The addressing on the Ubiquity should match addressing for your Vlans IE 10.0.100.1, 10.0.200.1, 10.0.300.1 and should match the VLAN ID for each one of the corresponding VLANs.  
+https://help.ubnt.com/hc/en-us/articles/205197630-EdgeMAX-VLAN-Walkthrough-with-EdgeSwitch-using-Sample-Enterprise-Topology
+If you are using a L2 switch you will need to enable a trunk port between the L2 switch and your router. You will then need to create a virtual interface on the router for each Vlan, each interface must have an ip address on the same subnet. 
+Before we start you need to ensure you can ping your Ubiquity router's LAN interface, I am assuming it is 192.168.1.1. You will need to ensure the interface from your switch to your router is in VLAN 1 and then add an IP address to your Vlan 1 interface by entering the following command. The IP address must be in the same subnet (192.168.1.X/24)
+Based on the fact they are getting IP addressing already means that you have setup the trunk properly on the cisco.  

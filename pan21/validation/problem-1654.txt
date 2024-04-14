@@ -1,0 +1,7 @@
+I have used the software RAID on occasion, and so I have used dynamic disks, I have never had any issues.
+My question is, has anyone here actual suffered failure/corruption/other problems of a dynamic disk?
+Unless you need a dynamic disk for to use software RAID, I am not sure why you would use one.  As far as I know there is no real advantage to sue them.
+The one thing that may be a minor issue for some is that accessing dynamic disk from other disk imaging environments and older Linux systems is not possible.
+I used to use Dynamic disks, even if it was just a single volume with nothing special. Never again. It was a nightmare to recover. MS-DOS can't see it, Norton Ghost reads it as a RAW volume, you can't access the data on it from anything but another Windows machine (which is great... if you have another Windows machine).
+I'm adding a second disk, a RAID1 virtual disk, hardware managed, to a development server hosting Virtual Server.  As this is a development server, reboots can happen during working hours with proper notice, so making changes without rebooting isn't critical.  I'm leaning toward "basic", because I'm "afraid" of dynamic because of the stories too.
+Okay, we've all heard the apocryphal stories about problems with server drives configured as "Dynamic", but the ability to make changes without having to reboot is clearly beneficial.

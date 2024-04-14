@@ -1,0 +1,11 @@
+The tool can be configured per key, e.g. by copy/pasting symbols once from a site such as http://copypastecharacter.com.
+keyxpat could be your solution. You get the accents and other diacritics on the keys you expect them to be. The character you get only depends on the time you take to release the key (a metronome helps you determine that moment). I wrote it for myself first and a lot of people appreciated it so I'm proposing it now online.
+In the bottom right corner of the window there will be a code that correlates to the Alt+### code you use to type that character.  Alternatively if you DOUBLE-CLICK on the character, it will append it to the text-box at the bottom left of the application, where you can easily copy & paste it into the program you needed the character.
+There's also a more Mac like approach which I haven't tried here: http://www.autohotkey.com/forum/topic30440.html.
+See https://github.com/mjvh80/SymWin for details, it's free and open source, but must (currently) be compiled. If there is sufficient interest I could add a pre-built version.
+Not really, Windows doesn't allow accented input as easily.  However, it is generally pretty easy to locate the codes you need by using the 'Character Map' utility.
+I've been using this awesome AutoHotkey script from this forum http://www.autohotkey.com/forum/topic570.html by 'jak'. Just set this script to run at startup:
+Some software has a special-characters insert built right in (Word for example, under Insert Special Character).  Do note however, that if you use a non-standard font you may get something other than what you expected (Wingdings is a great example of this).
+I will shamelessly plug a little tool I wrote for entering symbols in Windows as I find any solution usually presented too cumbersome for daily frequent use. My personal use case is typing the Swedish å for example on an international US keyboard without having to switch layouts or resort to (shudder) alt key codes.
+It allows the entering of unicode characters through a popup window not dissimilar to how this works in Apple OS X.
+In there, you will be presented with a font selection at the top and a grid of characters that font provides.  I recommend picking a good standard font (e.g. Times New Roman).  Locate the character you want and SINGLE-CLICK on it.

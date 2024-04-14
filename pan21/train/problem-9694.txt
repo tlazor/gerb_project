@@ -1,0 +1,9 @@
+But in productive work, this will happen (and it already happened). E.g. if somebody wants to add a key he will open that folder with his server admin account, he will be asked to gain permissions, he will say "yes", and there you go: it's broken.
+I need to offer a SFTP connection to a Windows Server. The protocol and the OS is fixed, unfortunately.
+But my issue is the very strict requirement on the permissions for the authorized_keys file within the sftp users profile.
+If neither of those sound good to you, I'd probably try to find a different SFTP software that doesn't have the limitations causing you grief. There are plenty out there since native OpenSSH support is still pretty new on Windows. There's even an old, but locked, ServerFault thread with some suggestions that are still relevant. What is a good SSH server to use on Windows?
+As soon as more users than the sftp users do have permissions for this folder/file, openSSH will stop working.
+It's simply not possible to but all risks into some kind of documentation, therefore we have an important service running that just breaks if you open a specific folder.
+I'm struggling with an issue I can find a lot of information on the internet, but unfortunately no solution.
+Sure, worst case I could run a script X times a day to set the proper permissions, but obviously this does not feel right.
+This is definitely a user education issue. To prevent this behavior, teach your server admins how to edit the file from an already elevated process so Windows doesn't prompt to change the permissions on the file. As a backup plan, I'd probably add group policy to override the permissions on that file. But that's only going to happen during the GP refresh interval.

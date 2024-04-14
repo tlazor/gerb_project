@@ -1,0 +1,8 @@
+To make this work you'll have to at least move these messages into a MailDir like structure. My Dovecot maildir looks like this for the account ahoy@iswhale.com
+I would like to make them accessible, read-only, over IMAP, preferably using dovecot, without changing the structure/naming if possible. It would be great if all the emails can appear together in the inbox, but separate folders by month (as they are structured on disk) are ok too.
+I think I found a way to set up a maildir structure without making any changes to the folders and files I have. I made a separate maildir folder in a different place, and used symlinks to point to my mail-containing folders, like this:
+The tmp, new and cur are directories created by Dovecot when you make this new folder in a client (eg: Roundcube). When a new sub-folder of Archive is created the directory structure becomes:
+For the dovecot configuration (I'm only serving these files on this server, nothing else) I set mail_location = maildir:/path/to/my/maildir and used a static passdb and userdb.
+Then, once these directories are created you'll copy the '.eml' files (which I hope are just plain-text email of the type expected by Dovecot) into the target 'new' directory. Connect with your preferred IMAP client and all is well.
+I gave dovecot write permissions to the maildir and its subdirs so that it can write its index files, new and tmp folders and whatnot, but it has no write permissions for the actual mail archive folders.
+I have a lot of eml files, archived from an account, and stored in a bunch of folders, one per month. It's not a standard maildir structure, and the files don't have special names, they're just like:

@@ -1,0 +1,9 @@
+Not using the first possible slot but working with a probability is way to get a fairer distribution of traffic. It greatly reduces the possibility for a busy sender to hog the medium.
+Also, if the channel is initially found idle, why should the algorithm wait? Isn't that an useless waste of resources?
+So is this considered the correct algorithm? Shouldn't it be changed to wait only once with a probability of 1 - p and then send? Otherwise the transmission could be deferred a possibly infinite number of times.
+A probability of 0 doesn't make sense unless you don't want to transfer ever. You need to choose something between 0 and 1.
+But this doesn't sound right to me. If the chosen value of p is 0, it means that the algorithm is going to defer the transmission with a probability of 1, always. So it will always defer and never transmit anything.
+The algorithm waiting for the start of the slot time reduces the chance that someone else has just started transmitting but the carrier hasn't reached you yet. Overall, it increases the effiency of CSMA by reducing the penalty of a collision.
+Just to mention one of the many sources: Computers Network (A. Tanenbaum, 5th edition) provides the above algorithm at page 267.
+just expresses that you either send now (probability p) or on the very next slot (probability 1-p). You don't throw the dice for each slot again and again.
+After reading some books and sources I understand that the CSMA p-persistent protocol works like this:

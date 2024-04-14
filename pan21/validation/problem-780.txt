@@ -1,0 +1,8 @@
+The replication in LDAP makes it even a better candidate for redundancy. But again don;t make it a bottle-neck of your network. Careful planning and metrics need to be done before selecting any tool.
+one use that is very important for me seems to be that you configure LDAP to handle system authentication. then you dont have to create same accounts in all computers.
+LDAP is an excellent hierarchical object store. Things that could be done with a key-value or relational store, but would require more power. That's why it's great for a directory. An authdb just happens to be a degenerate form of a directory.
+You can authenticate your users, configure your mail server to use it, with list sharing in mail clients, and even use it to store your DNS entries.
+Lots and lots can be implemented via LDAP for its directory structure. Like Automount, Postfix and sendmail, homedirectories, DHCP etc.
+It supports monitoring, ACL, and a lot of optimizations. LDAP is very good for reading and a little bit slow in writing but, on actual hardware, there is no problem.
+You can put LDAP in a machine where some other services are available : it doesn't take a lot of RAM nor CPU.
+and should LDAP be in an own machine? cause i guess its not good to put it in apache or database servers since these are performance dependent.

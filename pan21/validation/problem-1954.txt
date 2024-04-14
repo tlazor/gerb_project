@@ -1,0 +1,8 @@
+ That's all that i've discovered for this issue so far , i tried it to be understandable for anyone, sorry for annoying references to things you well know  If anybody else have something more for this matter please share it .
+Strongly make sure your /etc/resolv.conf is not a symlink pointing to some directories commonly at /run/resolvconf/ or etc ..
+Especially for windows user running xammp or wammp by disabling PHP_OpenSSL extension you might be unable to connect through @fsockopen
+Find the dns-nameservers and make sure nameservers seem fine ( preferably put whatever nameservers that are on your /etc/resolv.conf file  - ex: dns-nameservers 8.8.8.8 8.8.4.4
+If you have an ftp access go download your /etc/resolv.conf then rename the current one on your server to something line /etc/resolv.conf-----bk ( to have it just for backup ) and then upload the one you downloaded from your system to server /etc/
+https://www.google.com/search?hl=es&ie=UTF-8&oe=UTF-8&q=php+php_network_getaddresses%3A+getaddrinfo+failed&meta=&gws_rd=ssl
+due to amount of information you provided it's really hard to help you, but I'd start by checking /etc/resolv.conf and check each of nameserver to see if it works properly:
+Nginx doesn't use the system's resolver. You have to define the resolver using the resolver directive.

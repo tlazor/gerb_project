@@ -1,0 +1,7 @@
+Google Chrome 6 now does precisely what you asked for.  It was released yesterday (2 September 2010).
+The HTTP:// string is not a prefix of the URL, it's part of the URL. Which is why you can't (and shouldn't) hide it, since the application is displaying the URL.
+This is not possible with any browser that is currently shipping, even if it was, you wouldn't be able to control that setting via the javascript DOM. 
+I'm guessing you're thinking something like the iPhone css tricks which scroll the page down a dozen pixels to obscure the url header. 
+If you're unhappy with the browsers out there, roll your own.  Firefox and Chrome are both open-source, so most of the work is already done for you.
+99% might use the HTTP protocol, but there's a lot more than 1% that use HTTP over TLS (ie HTTPS) and they're on different ports, so the browser needs to know which port to open.
+The closest I can think is with a javascript driven popup, which can suggest to the browser that it should hide the url bar. However popups are very much out of vogue.

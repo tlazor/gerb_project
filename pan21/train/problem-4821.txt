@@ -1,0 +1,10 @@
+As an aside, is it just me or is QuickBooks one of the most poorly-programmed popular client-server applications in existence? Isn't Intuit making enough money that they could actually write a real client-server app instead of having the users access the storage directly via SMB?
+And, I agree with your aside; Quickbooks is by far the most problematic software that I am asked to support.  The fact that is supports multi-user environments seems to be an afterthought.
+Late to the game on this, but the solution that we found a while back was to use a scheduled task that kills the Quickbooks process.  Although "kill" sounds strong, it appears to gracefully close the application.
+I am superstitious and believe that the backups would work every time if all users were logged out. I have never seen the backup fail when users are logged out.
+The users use RDP Server running on Win2k8R2 to access the company file, which lives on a separate server dedicated to hosting files.
+The problem is I only know how to taskkill to log the users out programatically; I know there is a button in the program to do that but I need it to run as a scheduled task right before the backup takes place. I don't want to use taskkill every night as I feel this could lead to data issues.
+For our implementation, we use Group Policy to apply this scheduled task to all of our Quickbooks users.
+And we run it as the locally logged in user; because it is in the user-context, I think it will do what you want without disturbing the user's login to RDP.  We actually schedule two tasks, one for earlier in the evening, but that doesn't trigger if a a user is actively working on the machine, and does not use the /f argument.
+Unfortunately, the backups will ocassionally fail - but the error messages provide virtually nothing in the way of helpful info - and I am fairly certain there are no network/NTFS permissions/sharing permissions issues preventing the backup as if there were, the backup would fail every time.
+I am helping administer systems for a small business that (unfortunately) uses QuickBooks 14 to manage its accounting.

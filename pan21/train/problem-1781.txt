@@ -1,0 +1,6 @@
+To fix the that non-standard port number, you could purge PostgreSQL (i.e. uninstall and remove configuration files) and install again. Alternatively, you could fix the port number entry in your postgresql.conf and restart the PostgreSQL server.
+I have installed postgresql 9.6 in Ubuntu 12.04. Only Postgresql 9.6 version is there, I have removed old version totally.
+If you are lucky all these assumptions are true (really just a wild guess!), then the following command should work:
+Since you are connecting via Unix socket instead of TCP, you might wonder why the port number matters. However, in PostgreSQL the port number is encoded in the socket file name as well. So "connecting to port 5433" instead of 5432 means to connect to socket /var/run/postgresql/.s.PGSQL.5433 instead of /var/run/postgresql/.s.PGSQL.5432.
+Command doesn't raise any errors but there is no process started for this. Then I have started server manually by the following command.
+It seems that your PostgreSQL server is up and running, and you have just trouble connecting to it. Maybe you installed the new PostgreSQL version before removing the old one. In that case, the new PostgreSQL server can't use the default port 5432, as that is still used by the old PostgreSQL server. It is then usually set to 5433 instead. (Or to 5434, if 5433 is also already used, and so on.)

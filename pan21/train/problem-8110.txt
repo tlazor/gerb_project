@@ -1,0 +1,6 @@
+This will do what you want, but it is kind of hacky, since it isn't exactly the same thing as walking through windows (although for most cases it should behave pretty much the same).
+What I would like here is that the last event occurs before I release the Alt key (or any other visual feedback occurring immediately on the selected window). In some screen/window configurations, I do not have this feedback and this is quite disturbing to select a window and do not see anything happening to it.
+The last selected window get the focus and its titlebar is highlighted (e.g. turns from light grey to vivid blue)
+The effect you want is exactly what https://github.com/ohjames/kwin-window-switch does. It works with Plasma 5.
+I have been searching through the many different KDE settings to achieve a particular behavior when switching window with key shortcut, but cannot find it : I want that when cycling through windows, the selected window get the focus immediatly before I release the modifier key of the shortcut.
+You can do this, but as far as I can tell you cannot have it and the feedback working at the same time.  To do this, go to system settings (or configure desktop) -> 'Shortcuts and Gestures -> Global keyboard shortcuts -> kwin -> lower window and set its shortcut to Alt+Tab (or some alternative if you prefer).

@@ -1,0 +1,7 @@
+In 3D you can know which side of a surface is a point using dot product and cross product. But as I guess your problem is a 2D problem, this should not be required.
+For example in your scenario you take collision with certain points to mean that the object has collided against a certain side of the object.
+The SignedArea will be positive if ABP are oriented counterclockwise around the triangle, and negative if oriented clockwise.
+I have a two objects colliding with each other. I am testing for the collision with if(ob1.hitTestObject(ob2)){//do something }. Is there a way to determine which side of the object was hit, i.e. if ob2 is a square, which side of the square was collided with?
+What the .hitTestObject() function does is compare the position and transformation of objects to see if the object's bounding boxes overlap at all. If you require more precise collision than that, it is usually better to test for collision between an object and various points on the other object using the .hitTestPoint function.
+Another option is to have "sensor" points on your object, eg. top, left, right, bottom, and do a hit-test for each of these points against the other shape.
+If you have two squares, you can simply calculate the vector between their center-points and use that to determine the side. For arbitrarily shaped objects, this won't work though.

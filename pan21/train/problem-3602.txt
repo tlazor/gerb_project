@@ -1,0 +1,5 @@
+https://blogs.technet.microsoft.com/volume-licensing/2014/03/10/licensing-how-to-when-do-i-need-a-client-access-license-cal/
+So if it is the front end you don't need a CAL but if it is a back end process running on the server itself then yes you do.
+Also, is there any limit to how many different websites I can put on this server?  Not in terms of needing more space or RAM or anything, I'm just wondering if IIS8 has some kind of built in limitation that I need to be aware of.  I'm assuming it doesn't, but it's better to ask than to assume.
+I just purchased a used Dell server with Windows Server 2012 Essentials on it.  I noticed that the Wiki page states it has a 25 user limit.  What, exactly, does that mean?  I'll be running this as a web server, does this mean I can have no more than 25 different users connecting to the website simultaneously?
+The user limit is for CAL's. A website technically only uses one user, whichever one you have the website run as. This OS should be fine for a small webserver.

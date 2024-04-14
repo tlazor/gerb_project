@@ -1,0 +1,6 @@
+Our US users have got wind of this and are hoping we can do the same for them.  (They're mostly on AT&T)
+We have recently installed Blackberry Express Server for our UK Blackberry users (who are on Vodafone, not sure if the network matters)
+You can use any carrier you like with a Blackberry server, and if it is Express you only need a BIS/consumer data plan.... not the more expensive enterprise version. (Your Vodaphone rep is trying to pull a fast one.)
+I can't see why it would be a problem.  Last time I managed a BB server I had users with phones from Verizon, AT&T and T-Mobile on it without an issue.  Remember that all BB phone traffic between the phones and your server goes from the provider to the blackberry servers, then to your BB server.
+When I did it there was only one Exchange server, but as long as the exchange servers are in the same org and same domain I don't see how there would be any problems.
+If both Exchange mailbox servers are in the same domain, this shouldn't be an issue at as long as you have good connectivity between the two. If not, just install another BESx on the other side of the Atlantic.

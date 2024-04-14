@@ -1,0 +1,6 @@
+I am learning Gulp and node.js and want to use it to transfer file from my local machine to a remote shared server. I've installed rsync and have set up my Gulp command ready to go.
+If you want to access the server from your client, you must generate a private/public key set on the client. The private key is secret. It is in is_rsa and should never leave the (client-)computer. Your public key is in id_rsa.pub and that is the key that must be transferred to the server.
+I have been directed here from Stack Overflow, so please be aware that I am coming from a web dev background with limited knowledge of DevOps.
+On the server, put the contents of id_rsa.pub that you uploaded from the client in .ssh/authorized_keys.
+I've generated a public and private key on CPanel and have downloaded the id_rsa file to my PC (MacOS). But I am not sure what to do next.
+I thought I should add this id_rsa file to the system's .ssh directory but there is already an id_rsa file there (that I set up for Github awhile back). How can I use both files?

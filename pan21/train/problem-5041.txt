@@ -1,0 +1,9 @@
+That will clear the udev rules and tell init to use the ifcfg-eth* files for interface identification.
+try creating a config for eth1, even if it's just a minimal one with ONBOOT="no", suse might be doing some insane default automagic crap if there's no config file.
+I was unable to determine the cause behind this mystery of two NICs getting configured the same IP and subnet on boot.
+I get the sense that it may be a forcedeth module or perhaps a BIOS issue, but I won't be spending any more time on it, as we're building servers with totally different hardware these days and moving from SLES to CentOS, so I don't expect the problem to manifest again.
+you say you don't have a config script for eth1.  why not?  is it supposed to be configured or not?  if it is, then what IP is it supposed to have. static allocations or dhcp?
+At least on RHEL that will just bring up the interface with no IP configuration, and the networking init scripts look similar on SuSE 11.  The other solution regarding SuSE networking configuration is to clear out the 70-persistent-net.rules with something like:
+The final solution to the problem however, was to move the cable from the first NIC to the second NIC, i.e. from eth0 to eth1.  Then I configured ifcfg-eth1 and "unconfigured" ifcfg-eth0.  Now my networking and network-dependent services come up perfectly.
+Making the config files more specific should help. Add the following directives to your ifcfg-ethX files:
+to /etc/sysconfig/network-scripts/ifcfg-eth0.  You may also want to create an ifcfg-eth1 that contains something like this:

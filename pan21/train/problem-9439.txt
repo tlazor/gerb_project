@@ -1,0 +1,12 @@
+The genre is Metroidvania, the game features a single map Super Mario style, where the player can only move backwards and forwards and jump (and throw attacks). Modern games, such as Hollow Knight just to give an example, allow the player the same type of movements and they are very smooth.
+I have never developed a game with these features, and from my first attempts now it looks like developing these smooth movements is harder than I thought it would be.
+But if you go for maximum realism, forces are the way to go. And you do have the option to use very high forces too, to hide the inertia of your game objects.
+I have thought of several alternatives in order to move the player, but I am not sure which of these approaches is the best one or if there are others that are even better:
+For the smoothest control, you set force, which leads to acceleration, which leads to velocity change which leads to position change.
+You should use forces to play nice with your physics engine, but you've got to be careful about how to apply them.
+In conclusion, it kind of depends on your game genre. A game like PONG would definitely require setting of positions for optimum responsiveness. A racing game should only use forces, otherwise the physics will look very fake.
+I guess the answer would also depend on how to handle the user inputs properly and link them to the player movements, since they are very strictly related to each other. 
+This indirect steering via forces, will make feel the control less responsive to the player, though.
+Setting forces will also be a lot friendlier to your physics engine. If you start setting positions or velocities, the physics engine will get confused. At the very least, you'll be very prone to setting the objects into a colliding state.
+One point I'd like to make is that if you do use forces, you should do so to servo to a desired velocity, rather than applying a constant force. What the player expects in a platformer that their character will move at a constant velocity in the direction they desire (maybe with very slight delays). They don't expect the character to get faster and faster. They also don't expect the character to have a lot of inertia when stopping.
+So, each time you get input from the player, interpet it as a desired velocity. Compare this to your current velocity, and apply a correcting force proportional to the difference between the two. You can then adjust how "smooth" the change in velocity is by filtering or clamping the forces.

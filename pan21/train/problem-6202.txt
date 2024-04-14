@@ -1,0 +1,6 @@
+If you use ghost and do a sector by sector copy you dont need to do the mirror process and you can do data as well but it took me 5 hours for 1.5 tb x 2 drives I replaced mine with 2x3tb drives
+I did the same yesterday, after breaking my head about the fact that replacing both disks at the same time does not work. There seems to bee some kind of linux software on the drives that make them "network". replacing both drives at the same time means the device is NOT accessible anymore.
+The trick that did it: replace one drive by the bigger one, go to the admin page to the RAID section and add this new drive. the drive is being added but no change in total disk size.
+Do I need to use their drives or can I get my own?  (Their customer support pushes me towards their drives)  I'm assuming the device can format the drives for me when I add them in.
+I know that Lacie sells a 1TB drive designed for the 2big Network but it would seem to me that these drives are standard drives with the Lacie holder included.
+You DON'T need to use Lacie spare drives - You just have to swap ONE disk at a time, just like "SalF" wrote.

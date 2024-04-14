@@ -1,0 +1,10 @@
+I have only moderate experience with PIX's, but to the best of my knowledge, the following is all the commands that control the VPN setup.
+If you don't have an access-list applied to your outside interface, then go ahead an apply that to your outside interface as you have said above.
+You might find yourself in a world of pain if you apply 'acl-out' to your outside interface! If there is already an access-group applied then there is a risk that you will remove all of your existing inbound access.
+If you do have an access-list applied to your outside interface then you'll want to add to that one rather than creating a new one
+There is also potentially a PPTP fixup command that may be needed, but it sounds like that is only needed for inside to outside PPTP.  Does this look correct or will I need anything more?
+Before you do anything do a show access-group to check what acl's are already applied (if any). I don't have a PIX v6 to check exactly what the commands would but it'll be something like:-
+I've looked at the PIX v6.3 command reference and I do not seen any information on disabling it.  The tftp-server commands reference using a no command to disable the tftp-server, but the vpnd command reference has no information on it.  To disable, is it as simple as using a no vpdn enable outside command or doing a no for all of the above commands, or is it something else?
+Our plan is to just disable the VPN connection on the PIX and pass VPN through and let the DC manage it.  Problem is, I cannot find any information on disabling the existing VPN setup on the PIX.
+The company I work for has a client that has a Cisco PIX 506e firewall running v6.3.  The PIX is currently set up to manage PPTP VPN connections using the local Windows domain controller as a RADIUS server.  The PIX does not support MSCHAP v2 connections, so users cannot connect from Windows 7 workstations.
+Similarly, if you want to completely remove all of the vpdn config, just type 'no' in front of the configuration line you'd like to remove

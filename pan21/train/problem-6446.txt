@@ -1,0 +1,5 @@
+Plugins in user's AppData directory are disabled - to enable in Notepad++ version 5.9.7 onwards place an empty file called allowAppDataPlugins.xml in the Notepad++ directory.
+I followed the instructions and created the allowAppDataPlugins.xml file, and put it into the Notepad++ directory. It didn't work. 
+I am told to navigate to Plugins --> Plugin Manager --> Show Plugin Manager and then scroll to NppExec. Whenever I click it and select Install, it gives me an error message saying "Installation of NppExec failed." I later clicked "Settings", which says: 
+Even now, the error message keeps popping up and disabling me from installing the plugin. Though I've gone on to an IDE, I'm still wondering in the back of my mind why this didn't work. Does anyone know why I couldn't install NppExec? How would I be able to? Thanks in advance!
+I was trying to install the NppExec plugin for Notepad++ so that I can compile Java in it and run it. After the installation failed to work, I did some more research on compiling and decided to move on to using an IDE for Java. However, I still would like to know why Notepad++ did not let me install NppExec. Here's the issue: 

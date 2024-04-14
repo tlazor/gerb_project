@@ -1,0 +1,6 @@
+I'd highly suggest learning comprehensions. The simplest is a list comprehension. This allows you to change say:
+Going forward, I'd change your code to encode and decode with the same code. This is as the Caesar cipher is a symmetric cypher, so simply using key = -key allows you to decode the encoding.
+is not only a horrible construction (it is best to avoid the eval() function as much as possible) but the result is not what you wanted. You wanted simply
+However, you can get better memory usage by using a generator comprehension, this works in roughly the same way as a list, however you can't index it. Which for this code is fine. To do this replace the square brackets with curved ones:
+I don't like list = [] being outside the if statement. There's not much of a need for this. However it's fixed when using comprehensions.
+Purge all memory of eval, it leads to poor code and has severe security vulnerabilities. Instead cast the users input to an int. This can simplify decoding too. However you have to make sure the user does actually enter a number.

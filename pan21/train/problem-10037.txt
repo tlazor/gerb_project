@@ -1,0 +1,6 @@
+However, what no one here has yet mentioned, is that you can change the time step that is used and thus change the amount of "rounding" that can potentially be applied to an appointment entry. This isn't a perfect fix, and does restrict you to certain step sizes, but is the best option that is natively available in the software.
+Please note that this does have the (potentially negativE) effect of "zooming in" the calendar if you select a shorter time step.
+To make this change you simply right-click on the time-scale next to the calendar and select the desired step size:
+Items in the calendar are rounded "out" (away from the middle of the appointment, effectively) to the nearest time step, which by default is 30 minutes. So, if something finishes at 9:22 it will round "out" to 9:30, while something starting at 9:27 will round "out" to 9:00, as so they overlap.
+Seems like not possible to me - this still happens in the preview of Outlook 2010 and I'd guess it's because it wants at least 30 minutes of "height" to render the text in the appointment box.
+If I enter two meetings which are longer than 30 minutes it works in Outlook 2010 - they'll stack properly. Like booking meeting 1 at 11:00-13:22 and meeting 2 at 13:27-15:30.

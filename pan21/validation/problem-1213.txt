@@ -1,0 +1,6 @@
+https://chrome.google.com/webstore/detail/freshstart-cross-browser/nmidkjogcjnnlfimjcedenagjfacpobb?hl=en
+I would probably alter the solution a bit by having the chrome function point to a time stamped directory in /tmp/. That way a new instance could be created each time by typing in only chrome rather than chrome /tmp/junk/.
+This one: http://techparade.blogspot.com/2011/03/multiple-user-profiles-in-google-chrome.html allows you to set up a full-fledged Application for multiple instances of chrome.
+I've also been using http://watir.com/ which launches new Chrome instances. Would be nice to look into watir's source to see how they do it.
+Found this marvellous solution: https://sites.google.com/a/yarina.org/dougs-notes/home/mac-os-x/multiple-instances-of-chrome
+I often need multiple browsing sessions for logging into multiple services with different accounts at one time. I don't want to have to use multiple browsers, nor do I want to use a different release of Google Chrome. I would be open to running multiple instances of Google Chrome. However, I've tried using open -na Google\ Chrome and it won't open a second instance. Is there a way to do this on a Mac with Google Chrome?

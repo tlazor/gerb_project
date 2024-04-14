@@ -1,0 +1,9 @@
+I have come across what looks to me like a slightly odd pattern in a SQL Server 2005 database I'm taking care of, and was wondering whether it's just me, or whether it really is odd.
+Surely, the whole point of a checksum is that you create an index just on the checksum, so a SELECT will retrieve the records that match the checksum, and then compare the underlying value as a safety check? Doesn't putting the underlying value in the index waste a bunch of space for no real gain?
+A company that I worked at did something similar where they hashed the strings in the table using checksum and there are all sets of duplicates that we started getting.  We ended up having to switch to MD5 which was better, but still not perfect.  
+In this case I wouldn't bother with it.  GUIDs are only 8 bytes, INT is 4.  You aren't saving that much space, and the CHECKSUM values will be just as random as the GUIDs are.
+There may be high volume cases where the both the id and hash/checksum are entered and the CPU cost of calculating the checksum is high enough that having the derived values in the database is useful.
+There are a number of tables with uniqueidentifier primary keys, which also have a computed column which is the CHECKSUM of that key, e.g.
+Before removing the hash and checksum from the database, check to see that code is not referencing them.
+Hash/Checksum should be constant for a given GUID or Customer#.  They won't aid in uniqueness (unless broken). It will slow down unique queries using them as they will need to be calculated before being used in the query.  Hash and Checksum should be derivable from the corresponding key, and thus really don't belong in a normalized database.  
+This pattern also pops up with Guids that are not primary keys - e.g., an Order table with CustomerGuid and CustomerHash for each order, and an index on those two columns for looking up orders by customer.

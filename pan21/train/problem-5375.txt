@@ -1,0 +1,10 @@
+Well, I know that it is a very old question. But, I would like to share my insights for this. This error is also displayed as:
+Now, you need to write the correct POP3 mail server information and click on the Next button. Then, click on the Finish button
+If the above method is unable to rectify the Outlook error message 0x800ccc0f, then it may be due to PST or OST file corruption. Microsoft provides an inbuilt Inbox Repair tool i.e., Scanpst.exe. The software is capable to recover minor level corruption from Outlook data file. But, the major disadvantage of the application is that in case of badly damaged OST file, it fails.
+If the internet is working fine, in order to perform Microsoft Outlook error 0x800ccc0f – The Connection to the Server was Interrupted troubleshooting, then simply disable the Anti-virus and Windows Firewall. It includes steps as shown below:
+The initial step is to check whether your system is connected to an Exchange server. For this, type a URL in the browser, if its not opening that means there is some issue with the internet. To resolve this issue, right-click on Wi-Fi connection, a pop-up message will come showing “Troubleshoot Problems”.Click on it and then resolve this issue.
+Spam emails contain website carrying malware or virus corrupts the Outlook that might result in Outlook error Your Server has unexpectedly terminated the connection. Hence, it is essential to delete these messages by reporting to Microsoft. Or you can delete the junk folders as this will clear up space from your Inbox.
+Now manually add incoming POP server name (pop.gn.apc.org) and outgoing SMTP server name(smtp.gn.apc.org) in the email account using the below-mentioned steps:
+Note: Each Outlook version has got different settings, so it is necessary to check and read about correct profile settings before you make any wrong change.
+If the same Outlook error 0x800ccc0f persists despite following the above methods. Then, you need to start Outlook in safe mode by the below-mentioned steps:
+For more details, you can also check out this blog. I found this over the internet. It is quite helpful that's why I shared it here. 

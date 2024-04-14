@@ -1,0 +1,7 @@
+First, I tried downloading the source tarball openssl-1.0.1s.tar.gz from openssl.org and doing a ./config && make install, and although it seems to have completed the process successfully, I don't know where the compiled code went or if it got installed at all, because I still have a very old version of openssl linked in /usr/bin/, sothat didn't seem to work.
+When you install from a tarball, many times the binary is installed in /usr/local. Probably your new openssl binary can be found in /usr/local/bin. Yet it would be easier to just install an rpm.
+You installed a source rpm, which contains the sources but not the binaries. You need to look for openssl.x.y.z.rpm (and not openssl.x.y.z.src.rpm).
+For what it is worth, it generally is a bad practice to compile custom packages on enterprise-level distribution. Most of the time, you should stick with the default distro packages, or only use trusted repositories.
+I suspect you have multiple openssl versions installed. 'which openssl' will tell you which one your shell is using, and rpm will show you where the RPM version is installed.  You will probably want to remove all but the RPM installation, but since I don't know the state of your system this may be dangerous.
+The problem with compiling custom packages, and to directly use RPMs, is that each update is much more labor intensive and error prone than a simple yum update
+Then, I tried downloading the rpm package and installing with rpm -Uvh and it seemed to install correctly, but with a ton of warnings, and the same exact result as above,

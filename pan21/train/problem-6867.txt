@@ -1,0 +1,5 @@
+My main concern about this is the servers that the 3 servers forward to. If I forward 20 devices to X.X.X.X, I wouldn't assume there would be any issues on the backend as each UDP packet will contain multiple flows and 1 flow won't traverse multiple packets. Thoughts?
+With this setup, I can easily grow the amount of flows on the server end as long as the F5 can support it. I also do not have to worry about 1 server going down as the F5 would take it out of the loop. 
+Also, I am planning on either using samplicator or flow-tools as the Netflow collector/forwarder. Originally I wanted to us nfdump but it does not appear to have the option to spoof the source IP address. Are there any other tools you would recommend I use instead?
+I'm currently working on replacing our existing Netflow collector that is EOL with a new one. The goal is to support around 4 million flows/minute and have HA capabilities. Below is my initial thought:
+Network devices  --> F5 Load Balancer --> 3 Linux servers running a collector --> Forward Netflow to other devices as needed

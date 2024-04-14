@@ -1,0 +1,7 @@
+In top, try commands F o to sort by virtual (total) image size. Then you'll see the largest processes up on top.
+Is there a silver-bullet method to determine what's going on here?  I'm watching 'top' and while I see the available real memory decline over time I don't see an obvious culprit.
+I keep a Ubuntu 7.04 VM running at Linode.com to host a few web sites, e-mail lists, etc.  It was working flawlessly for a long time.  I don't patch it or really pay attention to it.
+Perhaps configure a cron job to mail the output of something like ps auxh | sort -r --key=4 | head -5 to you every 30 minutes or so?
+You can also remove the requirement for reboots by installing swapd which will automagically create swap files in case of low memory. 
+Recently (past few months) and with increasing frequency, the box runs out of memory and I have to reboot it.  Its configured with 350MB real memory, plus 64MB swap.  It runs Apache, Mysql, Postfix, and mailman.
+That will let you know the top 5 consumers of memory on the thing, which may help track down the culprit process. The 4th column is the percentage of memory consumed by the process.

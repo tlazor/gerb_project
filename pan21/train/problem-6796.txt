@@ -1,0 +1,6 @@
+First of all, I do find this a bit odd: by default, zsh uses emacs-style (escape followed by a key) key combos, unless it is in vi-mode, at which point emacs-style key combos are disabled. zsh also puts itself in vi mode if you use a vi-like editor as your default editor. So, it would seem to me that you were probably not originally in vi mode, until you edited your zshenv. 
+First of all, the inclusion of the "vicmd" bit prevents this from working in insert (normal) mode: it only works if you first press escape (by itself) to leave insert mode for command mode (as you would do in vim). So, you can't press "esc-/" as a chord (try pressing escape, releasing it, then pressing "/"). 
+Or, maybe I'm wrong completely, and I should just focus on your bind statement, which is incorrectly written. 
+It may be that you really would be better off in emacs mode (bindkey -e). On the other hand, it may be that you'd like to be in vi mode, but would be better off with some emacs style bindings.
+So, I would first ask: are you 100% sure you have always been using vi mode? That is to say, does bindkey -e solve your issue (try it in an open shell)?
+This works well when you are using 'vi mode' in ZSH, but I recently added vim as my default editor in my .zshenv file. Now when I press "/", I see this:

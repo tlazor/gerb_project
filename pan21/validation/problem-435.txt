@@ -1,0 +1,7 @@
+In general, it's always a good idea to have a test environment.  Even with small projects, whenever possible I try to keep a copy of my environment in something like an EC2 image so that I can break things without fearing for production.
+Absent a test environment: running apt-get --just-print upgrade should show you the list.  Upgrade only the packages you don't expect to touch your application.
+This is why we have a test server with the same environment and the same applications, so we can see what happens when we upgrade, and make sure everything will still work.
+Without that, you're going to have to get apt to tell you what packages it wants to upgrade, and see if those packages are used by your mission critical applications.  If this is a webserver and it wants to upgrade apache, then you'll need to expect at the absolute best a minute or two of downtime while it stops the server, upgrades the files, then starts it again.  Some libraries require restarting some servers, others don't.
+I see you are using 10.04. Everything they put in those repo's is tested profoundly, so you should be safe.
+It is best to carefully choose and test the updates prior to applying them in your production environment. Before I run and updates on production machines they first get applied in a QA environment and run through a suite of tests to makes sure that they work as expected.
+If you run apt-get --just-print upgrade and apt-get --just-print update he would show you the packages.

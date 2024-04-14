@@ -1,0 +1,6 @@
+https://social.technet.microsoft.com/Forums/en-US/27072b07-6d54-47c4-a724-eaecd9e5aebd/transport-rules-and-message-tracking?forum=exchangesvrsecuremessaginglegacy
+Since the event type is fail and the source is agent, it refers to the transport agent, which is being blocked by a transport rule.  Have you had a look at the transport config yet? Here's a similar thread for your reference:
+And a similar complain is made by another user. So, I check a few things and found something in Message tracking… 
+A few of exchange users are complaining that they are not receiving emails from a certain domain's certain users. I have checked the sender domains and domain is not found in any BL and domains SPF records are good as well. 
+Please advise what i need to check to make sure that my user always receives mails from a certain domain.
+If you notice I have already set some domains in "BypassedSenderDomains" and externaldomain.com has already been added and my spam agent logs are showing that as well, and here are some spam agent logs 

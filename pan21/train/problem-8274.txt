@@ -1,0 +1,12 @@
+(I hope vou've solved this by now, but I'll try giving some advice about how to find Mercurial anyway.)
+to see if you can import the mercurial package yourself. If that works, then you'll see where the package lives and you can add the parent directory to your PYTHONPATH:
+Something like this happened to me in OS X when I gave the system Python first priority over the version of python I had installed with Homebrew. I should have prepended the Homebrew version to PATH instead of postpending it. More info at https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python.
+...this should do it. If you have several versions of python installed (2.5, 2.6, 2.7), use the latest one.
+So my advice would be to remove the Ubuntu package and remove any other versions of Mercurial. Search for directories and files called mercurial and delete them (but delete the package first, of course).
+I'm not sure about the precise reason for this, but I've worked around a similar problem by installing Mercurial from source (you may want to remove any Mercurial packages first, though).
+Then install the package — if the version in Ubuntu's normal repository is too old, then use the Mercurial PPA. The first error you got means that Mercurial cannot find it's libraries (this is of course strange and unexpected when you install Mercurial from an Ubuntu package). Try running 
+If that doesn't work, then search for commands.py. That is a file in Mercurial and the grand-parent directory of that file should be on your PYTHONPATH.
+First: please come to the IRC channel if you run into this kind of problem. That's much better than trying random things to make it work — installing things here and there will only make you and your system more confused :-)
+It sounds like you've tried many different things to install Mercurial. Be very careful with mixing different ways of installing Mercurial (or any other Python program, for that matter). The second error you get is because you're starting one version of Mercurial (version 1.7.2) and it's finding older libraries. So you've probably got two more or less working installations by now.
+I had exactly the same issue and this is what seemed got it working (could be that there was something else which i did but I cant recall now):
+That should get you up and running... but, again, it's not expected that you have to fiddle with this yourself when you install Mercurial using a package manager.

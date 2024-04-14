@@ -1,0 +1,8 @@
+What I'd like to do is grant mike1 full access to data1 and then repeat this for more users and databases, making sure that the users only have access to one (or possibly several) databases of my choice.
+Besides revoking connection privileges from PUBLIC by default, and granting them as specifically desired, the other level at which you can control access is through the pg_hba.conf file.
+If you want this setting for all future databases, revoke CONNECT on the template1 database (default template database for creating a new database):
+I must be missing something with regards to setting up PostgreSQL. What I'd like to do is create multiple databases and users that are isolated from each other so that a specific user only has access to the databases I specify. However, from what I can determine, any created user has access to all databases without any specific grants being given.
+If you choose to use this mechanism, there are embedded comments which may be enough to get you started.  The docs are here:
+PUBLIC has access to the database by default, but it can't access the data. You can REVOKE the PUBLIC:
+I came across this thread looking for a way to prevent users from even listing the other database names. The REVOKE CONNECT does not prevent this.
+It seems that new user "mike1" has no problem connecting to database "data1" and creating tables etc. And this without running any GRANT command at all (and the owner of "data1" is "postgres" since I didn't specify an owner in step 3). Is this really how it is supposed to work?

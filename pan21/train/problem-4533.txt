@@ -1,0 +1,5 @@
+Like you say, the only real workaround is to change the rights the user has on the client side to those drives/folders/mounts.
+The RDP session treats it as if whatever rights you had on those devices/drives before you connected will be the same as when you connect and get them redirected.
+Another alternative would possibly be to not allow drive redirection (disabled on the server side) and put all of the PDFs you are referring to in a read-only folder on the server or another drive mapping upon login/RDP.
+There isn't a way to do this within RDP via policy/setting/regkey/etc.  The only option is to either enable or disable drive redirection, which doesn't really solve your issue.
+Why can't you just adjust the permissions for the folder in the windows share? Login as domain admin or local admin to the windows box, then adjust who has security access to the share and edit the settings to where it's read-only? They would still be able to view and copy the files out of the share, and it wouldn't allow them to paste or over write the data when they attempt to push the file back?

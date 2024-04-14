@@ -1,0 +1,10 @@
+Now how would you know your interface name? Easy! Just run ifconfig without any parameters like this:
+While your question implies the usage of a mouse in a GUI to get the IP address, an easy way from the terminal/command line is to use a combo of ifconfig and grep like this; note I am showing my actual output but changing IP addresses connected to me to 123.456.789.1 for this example:
+Typing "IP Address" in spotlight gives you "Network" as an option under "System preferences". Clicking that takes you straight to the appropriate window inside the correct pane in System Preferences. Amazing. Try doing that with the "Find" option in Windows.
+But that can be confusing if you definitely just want a clean IP address. If you know the interface name of the connection you need an IP address from you can just run this command; let’s assume you want en0 which is the main Ethernet port on my Mac Mini:
+The first address of 127.0.0.1 is the localhost loopback address, 123.456.789.1 is the address connected to en0 on my Mac Mini (aka: the main Ethernet port) and the 192.168.56.1 is vboxnet0 which is connected to my local install of VirtualBox.
+Use the "Network Utility" app found in the Applications -> Utilities subdirectory (or launch it using Spotlight).
+In addition to @DaveParillo's answer, you can use the Terminal command ifconfig, which'll give output like this:
+Open the System Preferences app and click on Network. Click on the appropriate connection on the left hand side and it will show you the IP address right under the connection's status.
+Choose the network interface (wired/wireless) on the "Info" view and it will show you the IP address and other details of your network connection.
+And yes, that can seem like a daunting wall of gibberish, but basically look for the items like en0: and then look for the inet connected to that. Once you have confirmed with interface name you need an IP address from, the whole setup of ipconfig getifaddr en0 will it easier to get an IP address moving forward.

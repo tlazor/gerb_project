@@ -1,0 +1,7 @@
+I am trying to transfer a 6 GB file from one computer to another - I tried doing just a normal copy onto my external hard drive, but apparently FAT32 doesn't support files that large. Both computers are running Ubuntu Linux, and they're on the same home network.
+Alternatively if you don't want to do this or reformat / partition, as alpha1 said, split it into smaller chunks using a zip program, it should work well. However 7zip is windows only, I cannot advise one zip over another on Linux but I quickly found p7zip which looks like a *nix command line version of 7zip.
+It's a simple problem with probably an easy answer, but I was curious if anyone had any particularly elegant or insightful solutions.
+Personally, I don't always have a lot of luck with anything other than standard Linux networking. When I need to transfer large files, I always end up installing a FTP server (usually there are tons to choose from within an available respository / apt-get) then just share the folder and transfer.
+It actually may not be as fast (unless GB networking) however once you have set this up, it is available to use every time and it works very well
+Just use SCP, which will transfer them over SSH. SSH is on by default on Ubuntu machines I believe (unless something has changed in the last few versions)
+Split the file into various tar/rar archives that can be recombined? (this was my first attempt but totally failed with command line tar syntax since I suck at reading man pages).

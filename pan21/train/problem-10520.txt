@@ -1,0 +1,7 @@
+While you are doing this, try to remember to Tell, don't ask. What this means, simplified, is that you shouldn't do something like this: this.getSomeObject().getOtherObject().doSomething(); (sorry for the Java-syntax there, I hope you understand it). I think your current code handles this quite good, just remember to keep it that way :)
+It is also important that you understand how Objective-C deals with, and how you should deal with, memory management. (Objective-C handles this a bit differently from other languages that I am more used to)
+I must say that I'm not an expert in Objective-C. I have used it though so I will review what I can and hope that others will fill in for the rest.
+The utility methods that you are mentioning, if you are copying those methods to each class that is using them, then you are doing it wrong. Instead put them in one file and use #include for that file in the other files where you are going to need it.
+Your indentation of the code is mostly good, but in the end of the renderTileMap method, things seem to go wrong. This seems to continue to the entire renderTile method which is indented one step too much.
+Speaking of the renderTile method, it can be improved quite significantly since there's a strong pattern for cases 1 to 6. It's been a while since I wrote Objective-C code but I think this should work, and if not I hope you get the idea of how it should work:
+First of all, to address your questions about variables and properties. Here's how I think about it: 

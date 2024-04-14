@@ -1,0 +1,10 @@
+5) Use fdisk /dev/sdc to create partitions on /dev/sdc that exactly match /dev/sdb, including boot and system flags.
+10) Reinstalled new SSD in windows computer and it runs checkdisk (I had left the tutorial & didn't notice he does this).
+-- -O or --overwrite option is used to set the destination, making the command appear backwards. Kudos to Linux Mint live CD having ntfsclone, as I hadn't heard of this command before & I didn't have to get on the network.
+This how-to for cloning a Windows drive worked splendidly for me. Since this is the first time I've been able to transfer a Windows install to a new hard drive, I'll share my procedure here to help the next Googler to visit.
+8) Use ntfsclone -O /dev/sdc2 /dev/sdb2 to copy the windows "C Drive". This took a few beers to complete.
+3) Used # fdisk -l /dev/sdb from the tutorial and copied the source partition window's information to Gedit.
+-- Note, the tutorial includes the -u option, however for me, fdisk was already displaying blocks (the desired output) so including that switch gives the wrong information.
+IIRC, Trinity Rescue Kit contains the necessary software as well as many others (ssh, partimage, fdisk, fdisk, cfdisk, parted, gparted, testdisk, ntfsfix; ntfs-3g mounting, rsync etc. etc.)
+I have two SATA drive docks but linux didn't recognize both at the same time, preventing an easy copy between them.
+I am about to set up a dual NIC firewall, so I installed the source SSD in this computer. Destination 240G SSD went into external dock.

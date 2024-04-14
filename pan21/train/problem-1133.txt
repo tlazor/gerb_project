@@ -1,0 +1,10 @@
+After you mount the image, you need start the setup.exe file, it will open a window that allows you the install the newer version on Windows. 
+Actually, it would work even if you were running on the drive you wanted to install to. I used DameonTools to mount an ISO and installed to the same hard drive i was running on with no problems.
+The error was insufficient memory of Ramdisk. I'd assume that if you're running a 64 bit system this will work.
+If you trying to install Windows, chances are you already have a older distribution of Windows working.
+gronostaj's answer almost worked. I tried that out when I wanted to install Window 7 64 bit when I was using Window 7 32 bit. I have enough RAM (hardware wise) for the Iso but it seems that Neogrub (booted from the Window 7 32bit's partition) only recognizes 3.2 GB RAM, which is not enough.
+Reboot your computer, choose NeoGrub from the boot menu and type those commands in the GRUB command line:
+There is only one downside, it doesn't allow you to format the drive before installing (for that you need to boot from the DVD).
+First install NeoGrub (using EasyBCD, how-to here, skip the Configure button), then put your ISO image in the root of some partition. Drop memdisk onto that partition too (download it here, you want just the file memdisk from folder memdisk).
+Wait until the image is loaded into RAM (you need at least as much RAM as the ISO size + 1 GB) and type boot.
+You can create a virtual drive from ISO image using GRUB and memdisk, but it doesn't always work. Still worth giving it a try anyway.

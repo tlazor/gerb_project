@@ -1,0 +1,5 @@
+Well, how easy it is will vary from person to person. I can speak from experience, as I made the same switch (well, kind of) a couple of months ago (due to the same rumors).
+This will mean that you will have to implement more things for yourself, so creating an abstraction layer yourself is probably a good idea (LWJGL doesn't have the SpriteBatch class, for example).
+I decided to learn how to use the OpenTK library (definitely worth checking out if love C# as much as I do), but that kind of has the same learning curve as LWJGL (I have created some applications using that as well, but I always struggle with Java).
+The first thing doesn't mean a lot, since XNA is an abstraction layer, and you don't have to use Direct3D directly yourself, XNA will take care of that. With LWJGL, however, you will have to have some knowledge about OpenGL, since you will be directly interacting with it.
+Apart from that, it won't be that difficult. Interacting with graphical hardware works in a similar fashion for all frameworks, so if you already know  the basics of vertex buffers and shaders, you'll probably be able to master LWJGL in a couple of months of off and on coding.

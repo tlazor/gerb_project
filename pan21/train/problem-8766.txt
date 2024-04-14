@@ -1,0 +1,9 @@
+If not a local administrator on the machine, make sure your service account has full permissions on that backup directory
+I was having the same problem. Looking at the Agent log gave me more clues. (The agent log is not the same as the log file specified during creation of the Maintenance plan). In my case it contained a warning:
+Look in the default log directory for the text output of the maintenance plan log which should give you a better error than the SQL Agent:
+Look in the application log and SQL Server Agent log if you haven't already. Also, turn on the reporting options in the maintenance plan properties if they're not already on, and check the log directory (as mentioned above) for a more detailed error.
+Check you SQL version, if SQL 2005 then you need to have SP2 for this to work w/o Integration Services.  SQL 2008 requires Integration Services regardless.
+Try backing up just the one to start with, rather than selecting "all user databases". Also, do you have any databases marked as "offline"? This prevents our maintenance plans from completing.
+If you can at least get an error code, look it up with "net helpmsg" or another method. Once you find the actual error that is happening, this should be pretty easy to fix.
+In short, in SSMS, go to SQL Server Agent -> Jobs -> Backup.Subplan_1 -> Properties and set the Owner to a non-domain user; I use sa.
+SQLServer Error: 15404, Could not obtain information about Windows NT group/user 'xxx\xxxxx', error code 0x54b. [SQLSTATE 42000] (ConnIsLoginSysAdmin)

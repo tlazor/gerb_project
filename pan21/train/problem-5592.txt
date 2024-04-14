@@ -1,0 +1,7 @@
+I include a subfolder ( /etc/nginx/confs ) and create a new file for each subdomain. I'm running rails apps so I need a fair bit of configuration in each subdomain. I have a background beanstalkd worker that when someone signs up installs the application, creates the nginx conf and reloads nginx.
+However I need to set such parameters as number of simultaneous connections and maximum connection bandwidth and values of that parameters will be passed to my script.
+The proper way to handle this with Nginx is to not have a catch-all server block but rather have a server block for each subdomain. Creating these by hand is obviously tedious so writing a script that will generate them is highly recommended and not too complicated. 
+Concerning the rest of the parameters i'd recommend you use mod_qos and set them in .htaccess files in the directory where the files to be served live.
+I can create folders in root /var/www/example.com/ using a script and nginx will create appropriate subdomains for me.
+There is no way to do exactly what you want. Nginx is not written with mass hosting in mind but rather written for high traffic sites.
+If I'm getting this right what you have now can be achieved with mod_vhost_alias on apache so you have the exact same behaviour as you have on nginx as per this manual page.

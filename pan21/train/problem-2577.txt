@@ -1,0 +1,8 @@
+This sounds like a stupid question but when posed with it on an exam yesterday, I wasn't entirely sure how to answer...I mean I know you have to put indexes on certain fields to speed up slow queries, and I know you have to make sure to load test it to 
+Tuning is a balancing act - you have to compare the expense involved with 'tuning' against the expense involved in 'not tuning'.
+I know it has the end goal of making the database faster for read / write access from it's users but the test had alot of ways of putting this:
+Database tuning is an expense in itself.  It costs money to tune.  That's where the 'reasonable' part of my statement comes from.  
+Does it make sense to spend 40 hours to tune something that runs every second million of times a day?  Probably.
+I think searching the Internet for 'What is the purpose of Database Tuning?', you'd find statements similar to this Wiki article.
+"So, why am I doing this??? Because of this. And why is that important??...", I think you'll ultimately come down to 'money'.
+results are an expense.  Tuning 'may' allow us to reduce memory, cpu and disk space requirements, saving money.

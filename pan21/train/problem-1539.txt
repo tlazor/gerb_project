@@ -1,0 +1,6 @@
+This is probably the best online tutorial that I have found on using the s_client feature of the openssl toolchain.
+Also, when not using SSL the application works fine, and nothing should be wrong with the application itself, as it use to work up until a little while ago (when the old certificate expired) and it can run fine on other servers.
+So, there are two servers, one is used for email relaying and the other runs a website. The website will use .NET to send a message through SMTP with UseSSL flagged. However it fails due to the error 
+So we double checked, and the certificate on the email server was expired. Someone created a new self signed certificate on the email server, and it was imported to the trusted root certificate authority on the web server. That didn't fix the error.
+All of Paul's guides are great, but this one stands out for giving you a great walk through of all the tools that you can use to manage and/or troubleshoot your SSL certificate issues.
+You can also use http://www.sslshopper.com/ssl-checker.html to make sure that the server is giving out the correct intermediate certificates and doesn't have any other errors.

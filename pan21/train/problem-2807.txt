@@ -1,0 +1,6 @@
+I'm using PXELinux so I'm not sure if this will help. I was getting a headache setting all the flags etc to boot winpe from files. So I told it to forward the iso instead. I'm not familiar with macs. If there is something like a pe disk you could theoretically send the pe disk to the mac and theoretically have it establish either a nfs or smb share, then install over that.
+To take advantage of this and have only one boot server for your windows and macs you'd need to get away from WDS (my understanding is that it requires MSFT to manage DHCP service, I may be wrong), deploy an isc-dhcp server, and configure it to support both windows/linux clients via traditional PXE and macs requiring BSDP.
+I was under the impression that macs were bsd like, so it could possibly work like a linux pxe share. I got most of what I needed from this site -> http://www.serenux.com
+I'm working on a similar multi-OS netboot environment currently with WDS and FAI (debian linux). The way I handle the issue is using an independent DHCP server (using the isc-dhcp-server package running on Debian) as a switcher between OS provisioning servers.
+I used my router to redirect the pxe to my server. Not sure if any of this would help, it's just a start.
+The UEFI in modern Macs does not support PXE as an older BIOS does.  Macs netboot using BSDP (Boot Server Discovery Protocol), not PXE.

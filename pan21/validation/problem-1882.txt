@@ -1,0 +1,5 @@
+It seems for the cost of running 2 large instances, I can run about 40 micro instances. In a distributed system (MongoDB in my case), 40 micro instances sounds a lot faster than 2 large instances, assume the database file is on EBS in both cases.
+Finally and in general consider this blog post from a 10gen engineer http://www.snailinaturtleneck.com/blog/2010/08/09/sharding-and-replica-sets-illustrated/ Step 1: Don’t use sharding -- MongoDB sharding is a complicated topic and you are in for a lot of surprises.
+Micro instances have very coarse scheduling that manifests as very unpredictable latency. In a simple words the micro instance can freeze for up to a second, which is not good for transaction processing.
+Depends. You presume that all queries will be parallelized across the instances and so although one instance is a (lot) slower you still get a massive speed boost. This is not true, http://www.mongodb.org/display/DOCS/Sharding+FAQ this depends on what kind of query you run.
+Also, you would need to find a very very good sharding key -- your shards are RAM-starved and so you need to be superb careful to make sure there is not much data on each. 

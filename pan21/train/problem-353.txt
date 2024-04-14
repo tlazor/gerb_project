@@ -1,0 +1,6 @@
+This code is heavily based on this function by Andrew Poulsom found here: http://www.mrexcel.com/forum/excel-questions/424309-macro-wrap-text-hard-returns.html#post2097820 
+Basically if the string is longer than the wrap at variable, it jumps ahead to the wrap point, and marches backwards looking for spaces.  When it finds one, it replaces that space with a newline.  Then it repeats for the balance of the string.
+This was one of the top hits in google when I searched "hard wrap text excel macro"... so here is my solution for wrapping a cell of text based on a width:
+I often convert word documents into excel and prior to converting, I replace all the hard returns in the word document with pound signs (@@) so that the cell integrity is maintained on the paste function in the excel document (if you don't remove the hard returns, a new cell is created at each return).
+After the paste into excel, I then need to replace the "@@" signs with hard returns and I cannot find the "hard return" as a choice under "replace".  I believe a macro is needed to do this.
+How would I write a macro that would search for a specific symbol (in Excel) and replace it with a hard return in the same cell and maintain the cell integrity?

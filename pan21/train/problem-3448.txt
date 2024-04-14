@@ -1,0 +1,9 @@
+I was concerned about this fact as well.  I am running using the Amazon EC2 virtual server system with a micro instance that only has 613Mb of "memory".  I can say from our testing that it can handle at least 50 children running concurrently without any noticeable problem.  I cant explain the behaviour but can tell you that it still works.
+For me that looks good. Your PHP + MySQL is taking only around 100 megabytes of RAM, leaving lots of room for the operating system to breathe.
+For your "how many users this VPS can handle?" question: it depends. With proper caching and other best practices I think it should handle at least dozens of requests per second, if not more. 
+If the content is highly dynamic and not very well cacheable and the database structure happens to be complex and/or the database is big, then the performance will suffer. 
+Usually the memory will be the first limit you'll hit whenever your traffic grows, with highly dynamic content the CPU will be tortured, too.
+As a web server I use nginx 0.7.67 (PHP 5.3.3 with php-fpm). An average memory consumption is about 100-105MB. Here is what Munin graph shows:
+Before migrating some bigger projects to this VPS I'd like to know if this is a normal memory consumtion for this kind of server configuration? How many users on the website (let's say, built with Zend Framework) this VPS can handle?
+I recently bought Xen VPS (linode.com) with Debian 5.0 Lenny (i386), 512MB RAM. At the moment I have only three small websites (built with Drupal) with about 600 users per day in total running on this server.
+It isn't good, your php5-fpm process take around 35Mo. With this configuration you may have 50 process (max_children = 50), with each one of them allocating 35mo. thus, your machine which have only 512Mo will swap. I think that your limit is around 10 process of php-fpm (max_children = 10). 

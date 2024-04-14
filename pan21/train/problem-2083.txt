@@ -1,0 +1,6 @@
+As for your second question: You will find that sometimes vendors will supply an MSI wrapped in an executable, so if you run the .exe you might be able to dig out the MSI from a temp directory.
+Using the Wixtool makes the creation of an MSI quite convenient instead of writing lots of xml containers ;)
+The type of tool you're looking for is called an Application Repackaging tool.  The process would include capturing an installation (take a machine snapshot, run your installation and make customisations, then run a second snapshot to calculate the differences) then compiling the captured data into MSI format.
+IMO WiX may be the best way, since repackager working with snapshots tend to record unrelated changes, as far as you don't spend some time setting exclusions...
+It's not free but if you have any Visual Studio licenses, that has a great MSI packager available in it.
+I'm also going to look at The AppDeploy Repackager. It looks like it will do pretty much the same thing as Joseph mentioned.  I'll see which one does the job with less stress on my part :)

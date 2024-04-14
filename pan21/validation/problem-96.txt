@@ -1,0 +1,8 @@
+Username: The database user you wish to connect as. Considering your circumstances, sys or system would be ideal (these users are created by default)
+Connection Name: The name you want the connection to appear as in the SQL Developer connection manager. 
+The New Connection tool in SQL Developer has the following fields as input for the basic connection type. I will describe what to input in each field.
+Alternatively, for Service Name, if you login to SQL*PLUS and issue "show parameter service_name" you can see the service name of the database and plug that in. 
+SID/Service Name: Tick one of the radio buttons. For SID, it is the name of the database instance. If you run the following on your server, you can find this:
+Hostname: The name of the server which the database instance resides on. In your case, this would be VM1. 
+There are many other options visible, but that will give you a database connection so you can start running sql statements in SQL Developer without issues. 
+Password: The database user password associated with Username. From the SQL*PLUS client you can reset this password using "ALTER USER  identified by ;"

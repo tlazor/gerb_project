@@ -1,0 +1,8 @@
+(We also tried other performance monitoring tool for Android apps, e.g. APT, and the result is similar to what Emmagee reported. The extra memory usage problem remains.)
+As shown above, Unity Profiler reported 112.8M memory is totally reserved for running the app, but Emmagee tool reported >200M PSS memory is used. Obviously, more than 90M memory taking up is happened somewhere by something that Unity Profiler does not take into account.
+The ADB profiling works fine, when the app is running, Unity Profiler reports its memory usage as following:
+Meanwhile, we are also running another performance test tool (i.e. Emmagee, https://github.com/NetEase/Emmagee) to monitor the app, which can monitor CPU, memory, network traffic, battery current and etc. However, the memory usage of the app reported by Emmagee tool is much larger:
+We noticed that the Unity Profiler itself would take up ~15M memory, which is included in the profiler’s report. Also, we knew that PSS memory includes proportional shared libraries with other processes, but 90M+ extra is such large amount considering that Unity Profiler only reported 112.8M totally.
+Used Total: 100.4 MB  Unity: 40.5 MB  Mono: 10.1 MB  GfxDriver: 34.9 MB  FMOD: 3.9 MB  Profiler: 14.8 MB
+Our puzzle remained: Where does the 90M+ memory come from? How are they used by the app? Why Unity Profiler does not report the extra memory? What can we do for reducing the extra memory and the total PSS memory of the running app, and/or get it close to what Unity Profiler reports?
+We have set up ADB profiling following the official guide: http://docs.unity3d.com/Manual/Profiler.html

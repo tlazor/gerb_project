@@ -1,0 +1,15 @@
+It may be tempting to replace dirname "$path" with ${path%/*}. That requires a bit more careful thought, because the return value won't always be the same.
+At this point I wonder if you really wanted to print a blank line in this case, or if it's a bug. (I let you decide!)
+From the posted code it's not clear if createSubtree is guaranteed to get safe input. It seems to me that path is expected to be valid relative path from worktree, but I don't see how that is actually enforced.
+I doubt any of this would have a measurable performance difference except in extremely deep paths, I thought it was an interesting exercise to share.
+In many places in the code these features are not needed, either because the strings don't use special formatting features, or because the strings are only used in $(...) context, where the trailing newlines will be stripped anyway.
+Since at this point $path is not empty and will never be, we can simplify the while statement, eliminating one unnecessary evaluation per iteration:
+This might be a bit faster because substitution is native Bash, while basename is a program, with the overhead of executing another process.
+If the basename of $path contains spaces, then the result of $(basename "$path") will be subject to word-splitting. Correctly quoted, the above line would be:
+This is still not ideal, since this condition will always be true for the first time, and the last computation of entry will not be used. We can rearrange the loop to improve on both of these points:
+I'm not sure the following will bring significant improvements, but if you want to squeeze out every bit of performance, I have a few ideas.
+And I think the result should be equivalent, because the path separator / is not allowed in file and directory names.
+Now let's try to simplify it. In the else branch we know that $path is empty, and it cannot possibly change, so we can drop the while loop:
+You might want to add some sanity checks and fail fast (and with a big bang) when receiving something unexpected.
+To eliminate some redundant paths, sometimes it helps to first increase the redundancy. This is logically equivalent to the above code:
+Instead of duplicating the pattern %(mode) %(type) %(hash)\t%(name) in multiple places, it might be a good idea to create a helper function for it.

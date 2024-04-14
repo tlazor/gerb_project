@@ -1,0 +1,6 @@
+Stupid mistake, I were trying to load a key in .ppk format by specifying it in preferences, the solution, use Pageant and set as "Try autologin" in preferences instead.
+Encountered the same problem from Windows could not connect to remote linux client with SSH Key.  Even Auto Login with Pageant running from PuTTY directly or running the included X2GO Pageant would not use my Windows PPK formatted ssh key.  I had to use my linux formated style ssh key.  Once I used that in the X2GO client config, I was able to successfully connect to my linux client again, using the more secure ssh tunnel instead of password authentication.
+In windows if I use the ssh-keygen of cygwin to generate the keys, then x2goclient keep asking me for a passpharse..!!
+So apparently, the new ECDSA keys aren't supported by x2go. Also, I believe the old dsa keys are no longer supported due to security flaws.
+solution: I followed the oficial manual and I can now connect to ssh using keys. the problem was that we have to use the ssh-keygen that come with x2go in windows and not other (at less in windows).
+I know this is a few years old, but I found a solution to the problem here. http://www.procmind.com/blog/2015/11...sh-ecdsa-keys/ It seems the problem is that newer versions of openssh produce an ECDSA key when the following is executed.

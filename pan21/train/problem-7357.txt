@@ -1,0 +1,7 @@
+OK, I know I just posted this question, but that was at the end of several hours of frustration and it turns out that the one other thing I was going to try actually fixed this issue. 
+Test by removing the the USB decoy drive, and restarting Outlook. You should find it no longer complains about not being able to find the OST file. 
+After doing that, I exited back out to the main Account Setting dialog (which opened in Step 4). When I went back into the Offline Folder File Settings box, Outlook had already filled it in with the correct path (C:...), and appeared to have re-enabled offline use (the "Disable Offline Use" button was available for clicking again rather than being greyed out). 
+That allowed me to access the Data File settings that I was previously blocked from. I then disabled Offline Use because Outlook won't let you change the location of an OST file currently in use. Then I exited and reopened that dialog and found that Outlook had automatically switched it to C:. Seems to be working now. 
+... but since you did, you should now see a small settings dialog box with the incorrect pathname listed (D:... for me):
+So, if you're having this problem where Outlook is looking for an OST file in a location that does not exist, do the following:
+Because Outlook was hellbent on looking for the OST file in D:..., I put in a USB drive and renamed it D:\, then added the path that Outlook was looking for. When I restarted Outlook, I saw an OST file get created in that folder. 

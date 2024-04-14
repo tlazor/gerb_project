@@ -1,0 +1,10 @@
+Or you could even consider doing what most games do, which is to simply use methods instead of events. Have an Update method and (if you like) a KeyPress method. Then just call those methods. Very, very simple. This is preferable over events for frame-based simulations (anything with an Update/Draw loop).
+(Personally I like to make key-press information available globally (not architecturally perfect, but extremely practical), or passed into an Update method as an argument, rather than as a separate method call.)
+Although you can use the existing event model in C#, it might not always give you the flexibility that you require.
+To signup for an event the object needs a method with the same signature as the CallbackMethod delegate.
+You can for instance not sort events based on their priority, clear events of a specific type or add a queued/delayed event.
+everything looked great until i realized that no class can implement more than 1 IGameEvent because it would cause duplicate declaration,
+If you don't like using hardcoded eventIds everywhere you could introduce a property on your game event classes.
+Along the lines of the of methods, if you're finding you have too many methods, you might want to consider a component-aggregation architecture.
+Im trying to implement an Event System for a game, where there are classes that can fire or handle an event wheter or not they implement these interfaces:
+You're basically re-inventing event here. Your entire system is basically an ugly re-implementation of the existing event infrastructure in C#. You should try and use event directly instead.

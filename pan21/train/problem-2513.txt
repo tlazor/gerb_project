@@ -1,0 +1,5 @@
+It's basically a tradeoff between security and performance. A 128-bit cipher will provide better performance (concurrency) than a 256-bit cipher but at a reduced level of security. In general though a 128-bit cipher has effective security.
+Also, there are 4 different 128-Bit ciphers that are commonly implemented (RC4, 3DES, AES, and Camellia). Each has pros and cons. RC4 is the fastest, and probably least secure. 3DES has problems up and down, and should be disabled in my opinion. AES and Camellia are fairly secure, though FIPS requires AES currently.
+No reason not to do it, unless you know you have customers with ancient or government-restricted browsers that cannot do 128-bit encyrption. In 2012, you probably don't.
+Is there a downside to that? Are there any reasons not to do this, or good reasons to always do this ? 
+Most browsers have supported at least one 256bit cipher since  2006-2008. You can't assume 256bit for the general public yet (though you'd be blocking out a very small minority at this point), but you can safely assume 128bit is supported these days. 

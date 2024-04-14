@@ -1,0 +1,6 @@
+If you're talking about dynamically generated content, you could use Application Gateway to have a single point to control access. This service can additionally be protected with Azure DDoS: https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview
+You can set budgets and if your cost exceed these limits it can trigger workflows that shut down, scale down, notify you, anything you want really.
+Obviously Shield Advanced comes at a cost and is not worth it for small or hobby deployments. On the other hand these small scale services are not that likely to be targeted by DDoS and if they are the architecture would probably not withstand the load and crash, effectively stopping the DDoS and protecting your bill.
+Azure and GCP may have services similar to Shield, I don't know. If they do they will very likely come at a cost too. The general trade-off points are valid regardless of your cloud provider.
+As always it's a trade-off - either you want to keep your services up during DDoS and are ready to pay for it, of you prefer to protect your wallet at the cost of your service going down. You can't have it both ways sadly.
+if you're talking about making static content available publicly, you probably want to use Azure CDN. This contains basic DDoS protection free of charge: https://docs.microsoft.com/en-us/azure/cdn/cdn-ddos

@@ -1,0 +1,5 @@
+I can create another subdomain at DNS Manager with Replica db-instance's end points. But, how to achieve connection on both db-instance as well as replica-db-instance.
+Now, Instead of Route 53 configuration for network connectivity, I want to configure directly through Godaddy DNS Manager. Because already a subdomain is configured for a production server with RDS db-instance endpoints.
+I had created AWS RDS, MySQL db-instance successfully with the help of Github Pages Documentation. Thanks a lot 18F/OpenFEC Project.
+What you are talking about is called Read/Write Splitting.   This is not a capability directly provided either by MySQL Server itself, or by RDS for MYSQL. It is an advanced technique for which there are no magic solutions, as I have mentioned elsewhere. 
+If you are not modifying your application (and assuming your framework does not have such functionality built-in, which is a reasonably safe assumption), you will need to deploy one or more read/write splitting proxy servers to divert each query to the correct target as appropriate.  

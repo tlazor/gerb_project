@@ -1,0 +1,6 @@
+The web host will be an IBM xseries 345. However, the disks are really expensive so we would like to put the files onto a less expensive server. Now here is the question. Should I use an NFS mount on the IBM server of a path on the storage server? Or should I write some scripts to upload the files to the storage server instead. Both the storage server and the web host are on the same network. Only the web server is visible to the world.
+You could also use iSCSI.  iSCSI Enterprise Target on the storage server, iscsi-initiator-utils (RHEL/CentOS) on the web host.
+I have a web application that can store lots and lots of files on the server. i.e. users upload data to it. The files are stored below a particular storage path.
+I've seen many cases where an hourly cronjob will sweep through and transfer everything to another server, and then it deletes anything over a day old. 
+NFS performance would be fine, but if the volume of files (and the delta) is that low, then an occasional sync would probably be the best way, particularly if they don't need to be stored on the web server. 
+I only say that because NFS has issues with hanging due to network problems. You don't want your users to be unable to upload because the network is temporarily unavailable. By syncing, you eliminate that potential service loss. 

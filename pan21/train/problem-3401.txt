@@ -1,0 +1,7 @@
+My question: Is there a way to listen/accept all ip addresses for a specific port? It would basically be a *:8080 entry so that I can have all external computers access my TFS.
+In order to do this, i had to go into netsh and make it so IIS only listens to 127.0.0.1. The problem is that I have Team Foundation Server on IIS on port 8080 and would like to be able to remotely access it. This means that I need to be able to have IIS listen for all IP addresses on only port 8080.
+The optimal solution would be if I can have IIS listen to all IP addresses period EXCEPT 127.0.0.2. Is there some exclusion list?
+IIS listen on all interfaces by default. Any interface that is already taken will not be listened on.
+I'm running both IIS and Apache. I have Apache set to 127.0.0.2 and IIS to 127.0.0.1 so that I can have them both on port 80.
+Just make sure Apache starts before IIS and you should be set. Are you actually using port 8080 in apache as well?
+If push comes to shove, I'll just ask all members who will access my TFS for their address and I can enter them in manually.

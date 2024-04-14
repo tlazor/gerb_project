@@ -1,0 +1,7 @@
+Subsequent attempts at sudo apt-get upgrade and sudo apt-get dist-upgrade resulted in no packages being upgraded or installed.
+dist-upgrade will (un)install dependencies as needed. As far as I know, it’s equivalent to install [list of all explicitly installed pkgs] (but there may be differences). This is good, dependencies are bound to change, and you want your system to reflect that, obviously.
+As for packages being held back: This probably due to (at the moment) unresolvable dependencies, but should go away once those deps are available.
+Occasionally, my Raspbmc upgrades itself, downloading and installing new kernels and xbmc. How would I keep the other packages up-to-date?
+Assuming you don’t use your Pi for mission-critical stuff, dist-upgrade does exactly what you want, so you’re good. There’s no need to run both, by the way, because d-u will do what u does and more.
+I'm not sure if it's recommended, but I tried sudo apt-get upgrade followed by sudo apt-get dist-upgrade. It seems like some packages are put on hold, although surprisingly, others were still uninstalled. Should I not have run these commands?
+upgrade will never alter which packages are installed, it will only update those that are installed to the latest version it can. It will not upgrade a package if that would require installing new dependencies, and it will not remove unnecessary packages.

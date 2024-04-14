@@ -1,0 +1,5 @@
+I don't think there are any issues with storing your backups on a ext4 formatted disk. I think the Kernel supports ext4 since 2.6.28 so you might run into issues with ancient 2.0.26 Kernels. However I think most boxes should be upgraded to 2.6.32. And as far as I know CentOS6 also supports ext4, so if you don't plan to downgrade to CentOS5 or anything, I think you should be fine.
+I was concerned that in the event of an emergency that an off-site backup has to be obtained quickly, the available servers might be older and not support ext4?
+It's worth noting that you can mount ext3 as ext4. Do you need journal? Maybe that's a waste of time? Do you store backups in tars?
+To be honest storing backups on standalone disks (which I guess are moved?) is not the best solution in the first place. What happens when someone - in rush! - drops the drive? Please consider tape/online backup etc.
+We have been using ext3 for Linux server off-site backups. With everything else on CentOS 6 being ext4, I'm wondering if it would be a better idea to also have the off-site backups in ext4 too? The off-site backups are often LaCie rugged drives.

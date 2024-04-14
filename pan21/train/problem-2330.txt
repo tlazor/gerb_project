@@ -1,0 +1,5 @@
+I've probably made many errors but it's working and that's important for me at this point of my game development. Criticism and suggestions are welcome.
+If you then want to blur it, you will need to filter your image using one of many blur functions and a convolution matrix. This is typically done as a post processing step in engines, and it involves rendering a quad the size of the screen to a texture, while sampling the original back buffer image as an input.
+A note here, this isn't a trivial thing unless you have sufficient experience with your rendering pipeline, and it would be far too much code to simply demonstrate the entire process.
+I have no source code to provide you, but I will point you in the correct direction. "Taking a Picture" is a simple task when rendering a game, you simply need to make a copy of the back buffer before it is swapped at the end of the render stage of your game loop. 
+Here is a link to the theory behind a Gaussian filter, and how it can be used to produce a blurred/smoothed image in the general context of computer vision.

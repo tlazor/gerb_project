@@ -1,0 +1,8 @@
+What happens, is that when your program runs, for the class family, a virtual function table, or vtable, is created for virtual functions.
+Long story short: The compiler will not allow instantiation of a class which does not implement it's parent class's interface.
+This is a table of pointers to functions. When a function is called, the table is referenced, and the pointer to the appropriate function retrieved, and then executed.
+Java is object oriented, that is, it makes heavy use of inheritance, but the syntax is a little different.
+The virtual keyword tells the compiler to create a vtable entry for the class, and the override keyword tells the compiler that for that class you are overriding any previous implementations of the foo() function
+Thus, when you try to compile your code, you will be given an error telling you that you have created a child class (Player), which does not implement the interface specified in GameObject.
+So, armed with that information, we can see that in your child class, you have not provided a declaration, nor implementation, of the tick() pure virtual function declared in your base class.
+Every child class declaration must provide a definition for any virtual functions declared in a parent class, and if using a *.cpp (definition file), the header must also have a declaration of the function.

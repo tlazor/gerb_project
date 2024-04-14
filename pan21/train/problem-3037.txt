@@ -1,0 +1,7 @@
+I need to install on several of our old WindowsXp workstations (only 1GB of RAM, 40GB for harddrive!) a Unix server for allowing our developers to perform some preliminary test on Unix.
+I never managed to make kmap works on a XVesa session: typing "tinycore kmap=azerty/fr-latin" or adding "loadkmap < /usr/share/kmap/azerty/fr-latin9.kmap" to the /opt/bootlocal.sh (and then restarting while backing up my config) was enough to get an azerty keyboard... 
+Considering the different Linux distros, I decided to go with the fairly recent and very small TinyCore distribution (3.7).
+Considering the change of keyboard in * instantaneous* (as opposed to the loadkmap), this seems to be a better method.
+See "Frugal Installation of TinyCore", using the virtual disk of the VirtualBox "TinyCore" session, based on cfdisk and grub.
+When TinyCore is installed on hda1, the next reboot will still use the CD first, but you can launch the right TinyCore by typing at the "boot>" prompt
+Once a first TinyCore session is opened (a "live" one from the CD iso), the installation on hda1 can proceed, but with the default keyboard (us).

@@ -1,0 +1,6 @@
+More detail and a better explanation can be found on the openHAB architecture page and it's worth reading a bit on the ISO systems architecture model .
+Home automation systems (and systems in general) make use of several layers. Each one doing a different job to bring all the functionality together as a system.
+A heavily simplified example of what happens is that all the endpoints (devices connected to lamps/door/windows) start up and register/advertise themselves and their capabilities and status (e.g. I'm a lamp and I can turn on and turn off, my current state is off). The will also start listening for messages, and regularly reporting their status.
+Some 'control module' will then take your input from a UI, or a set of rules and change those events (button pressed, or temperature too high) into (protocol) messages.
+The endpoints will receive these messages and if it was for them it will interpret the message payload into some physical action (e.g. message for lamp01, turn on will be interpreted by the device as set pin X to high).
+When you think of turning on (and off) a LED with GPIO pins you are thinking of the physical layer of the architecture.  

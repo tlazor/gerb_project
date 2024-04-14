@@ -1,0 +1,6 @@
+On disks with really big files I've found that all of the free tools move the big files around when they are not fragmented - never understood why. With small files you don't really care too much but shifting several 50gb files every day is a bit much.
+Works very well, has a command line version and includes a handful of stock scripts that should handle most of your requirements.
+I generally use defraggler for any servers I manage. Its simple and it works. Never had any problems.
+I've got Defraggler from the piriform guys (also do CCleaner and Recuva) for the occasional time I do want to do a defrag. Does the job well enough, for free, and supports HTFS and FAT32 partitions.
+However it doesn't have some features which I'd like to see. Having said that neither do any of the other free ones.
+It is convenient to have large and high activity files (like vhd  or sql db, sql logs, normal log files)  placed so that there is a space for expansion after the file. None of the tools I've tried allow this.

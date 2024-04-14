@@ -1,0 +1,7 @@
+When I test network throughput, it's best to remove as many variables as possible such as disk i/o or CPU limitations.  Here's the procedure I use, which can illustrate the typical max you will ever see in your network.
+Adam & the full-duplex guys are right. Also, don't forget that your underlying hardware might not be up to the task of saturating 1Gbps/100Mbps as well. Unless you have a decent RAID config, decent SSDs, or some kind of RAM-based drive, you're probably not going to see those kind of transfer rates for extended periods.
+I've never seen more than about 50% utilisation on a copper GigE link but I have seen high-90%s on saturated trunk ports between Cisco switches over fibre.
+If you want to use the full throughput of Gigabit Ethernet, you'll need to ensure that Jumbo frames are configured throughout your full network -- or at least on all machines and switches on which you're measuring the performance.
+However, keep in mind that a single hard drive's maximum transfer rate is usually 30-40 MByte/sec, which is not close to a Gigabit/sec.
+Both these utilities should be available on most modern *nix systems, either preinstalled, via packages, or able to be compiled from source.
+This method gives predictable results in a well designed network with properly functioning equipment.  For that reason, it is a good tool to help discover if the network itself or the networking equipment is contributing to the perceived "slowness".

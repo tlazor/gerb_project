@@ -1,0 +1,7 @@
+Alternatively - is it possible to set a static ip, that I can map onto different servers, without the client needing to update their records. Digital Ocean has floating IP's - but they must point to DO instances. 
+When as a hosting provider you need to be able to (frequently) change ip-addresses and you don't have full control of the domains your customers use, the  typical solution is that as the hosting provider you ask the domain owner to set up a CNAME record to a hostname in a domain that you do control completely. 
+I have a client that wants to maintain control of his domain (fair enough) - he also wants to maintain control of his MX records (fair enough). 
+In turn you point  customer-xyz.hostingprovider.example. to the correct ip-address with an A record and can change that as frequently as needed without needing any intervention from your customer(s).
+Your customer sets up www.example.com. IN CNAME customer-xyz.hostingprovider.example. and will only have to do that once. 
+Essentially I can maintain the A Name records (via Digital Ocean) and he can maintain the MX records (via CrazyDomain).
+Or rather an authoritative name server must hold the complete zone info and can't be configured successfully such that A records are on a different DNS server from the MX records. 

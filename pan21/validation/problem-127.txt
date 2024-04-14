@@ -1,0 +1,14 @@
+Quick sort is only faster if the list is completely random, for mostly-sorted lists you're better off with an improved bubble (insertion) sort as most of the time your stormTroopers will still be in the proper order the next frame.
+Because everything moves at roughly the same speed in roughly the same direction full blown quadtrees might be overkill. The quadtree maintenance itself could become more intensive than the cost of plain Y-ranged, Y-sorted collision.
+By sorting both fireballs and stormtroopers, checking only the overlap, and ranged scanning on every iteration it can end up faster than maintaining a quadtree.
+This works only if the list is ordered, meaning the first stormTrooper of the list has the highest "y" value.
+This leads to my question : in order to enhance the performance, I tried to break the loops, but for that I had to add a new operation : sort the list of the stormTrooper. Is it worth it? 
+For sorting, a bubble or insertion sort will be faster than a quick sort if you reuse the same mostly-sorted array every frames.
+You can probably keep your fireballs sorted as well in reverse order, especially if they all move at the same speed. You'll only have to check the overlap.
+I am developping a spaceinvader-like game. There comes the problem of how to handle collision detection.
+The problem in my game is that all stormTroopers don't have the same speed, so I need to sort the list each time.
+So I tried to break the loops whenever I had the chance, changing the forEach loops to for loops at the same time : 
+But then when playing I had the feeling the game was slowing down at some point, and I tought it had something to do with the multiple elements and the double loop.
+With this you can also try sorting them in X, the sorted & ranged scanning will cause your two inner loops (backward and forward scan) to do very few iterations as it will resume the inner-scan from the values found in the previous outer iteration.
+You can also do a pseudo-binary search (warmer - colder) in your sorted arrays on the Ys as the next fireball will be close to the previous one it can help skipping to a relevant stormTroopers, then scan forward AND backward in the stormTroopers array until you're outside the Y range in both directions, start scanning stormtroopers from the range's proper extremity for the next fireball.
+If the fireball isn't on the same "y" as any stormtrooper, the fireballs following are not going to be either, so no need to check. Same for the stormtroopers loop.

@@ -1,0 +1,12 @@
+Do not use Windows Media Player; install an alternative.   Windows Media Player allows media files to prompt the user to download things. "You need a special codec to play this video. Click to install FOO.EXE."
+NoScript can be obtrusive, and requires user education. (If the user just blindly says yes to all scripts, it is pointless.)
+Configure windows/softwares and then "Freeze" the windows partition using something like faronics deepfreeze.
+What steps should a paranoid user take to make his Windows 7 setup as secure as possible, aside from cutting the network cable?
+I'm more than a little nervous. I'm very skilled in hardening Linux systems, but I'm a fish out of water when it comes to Windows. I've installed Microsoft Security Essentials and have Windows Firewall enabled, but I still feel like that's not quite enough (I saw a few viruses get past Security Essentials before I switched my wife from Windows Vista to Linux. Granted, she probably helped them by...she's quick to click things).
+This way, any suspicious activity will require an Administrator password at the elevation prompt (sudo equivalent)
+Install Evince for reading PDF's; stay away from Adobe. (There is a way to get Evince to show embedded in Firefox: http://www.libertexto.org/libertexto_en.html .)
+Set up Windows 7 with a normal user account beside the Administrator account, just as you'd do on Linux. It's virtually impossible to really screw up the entire PC with just a normal user account.
+This will definitely protect you from all kinds of malware by preventing any lasting changes to windows files or settings.
+Train your users not to download and open any untrusted attachments received over e-mail and never to say yes to any unexpected dialog box.
+I am historically a Linux guy, and only use Windows when I absolutely have to via VM. However, I recently purchased a new rig so that I can keep a dedicated Windows 7 machine up for hard work (cough,gaming,cough) and for software which just won't run on Linux.
+If a Windows machine is being used as a web client, a good idea is to use Firefox with the NoScript add-on. (And of course Adblock Plus; that goes without saying.)

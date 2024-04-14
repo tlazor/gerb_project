@@ -1,0 +1,8 @@
+How "ugly" this ends up looking is largely a factor of how cleanly your code interfaces with the other API (and in how many different places). It may behoove you to try to minimize the surface area shared by your API and the one you're wrapping, so you have to do this coordinate system transform in as few places as possible.
+I have an engine that uses either three.js (3D WebGL rendering library) or pixi.js (2D rendering library) depending on the game.
+The problem is that pixi.js has y-axis pointing downwards (same as in most 2D applications), while three.js has it up, like most 3D rendering systems.
+Pick the coordinate system you prefer, and in your abstraction over the API that uses the other system, transform the Y coordinates provided by your users to the expected values.
+Some APIs allow you to set global, override-like transforms when setting them up, which you can use if available to reduce the effort on your part. I don't know enough about either of the APIs you mentioned to know if that's true.
+Are there any known solutions or engines doing something similar? My first guess would be trying to invert all coordinates, but this seems like an ugly hack that won't necessarily handle all situations.
+That's the solution. You have to reconcile the coordinate systems at some point, and if your users aren't expected to, it becomes your burden to bear.
+I am wondering if there is a way to gracefully handle the difference in the engine, so that the user doesn't have to remember to invert everything depending on if they use 2D or 3D.

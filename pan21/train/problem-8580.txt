@@ -1,0 +1,5 @@
+I'd like to separate 2 & 3 by granting groups rights correctly (e.g. site team full access to apache but nothing else). Problem is I also don't want to grant the user accounts rights , i'd like to them to enter "admin mode" like is done now because it's easily loggable and makes people realise that they can cause damage now.
+The problem is that we currently open a root shell (sudo -i) for 2 & 3. This introduces risk because of full-access. Also we encounter errors from people with root access who overestimate their abilities (non-profit organisation so it's generally meant well).
+We have 1 user account for everything (which is configured with detailed and correct groups for almost everything) in the NIS and generally it goes well.
+Is it possible to create multiple levels of power instead of just the normal user/root differentiation?
+You have two options, the most complex but most secure is mandatory access control (MAC) which can be accomplished via SELinux. The second is to configure your /etc/sudoers to grant a subset of control.

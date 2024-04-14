@@ -1,0 +1,12 @@
+There isn't any that I know of, but it theoretically shouldn't be hard to get something similar. Strace can be used to intercept networking syscalls. 
+Perhaps a program already exists, I don't know. But if one was written you could call it nettrace (for example) and Usage could be like
+then sniff the interface it uses and add routes (maybe it does the automatically) to your real interface
+Assuming that you are the only person on the box attempting to connect to google at the time, I'd think something like this should do the trick:
+Alternatively, you can also intercept the nice useful socket, bind and listen syscalls. It might be possible to write a small program that used ptrace on these calls and libpcap to dynamically change the capture filter every time a new socket is opened. 
+If you are not the only connection attempting to connect to google on the box, then if you can identify the IP/port you are connecting from you can also specify the src port/src ip.
+To my knowledge applications are not aware for what interface they talk over and I believe this is by design; they shouldn't have to worry about such things.
+I strongly suspect that you can specify both src and dst ports with  netcat so if it was really google you were interested in, you could do your GET (manually) through netcat.
+For more general applications, you may need to use netstat to identify the port(s) used by the application and then Wireshark/tshark/dtrace with a filter to capture just that traffic.  Not the one line answer you were looking for though...
+Specifically for a web browser / web page something like the Firebug plug-in for Firefox may give you some of the information you are looking for:  http://getfirebug.com/net.html
+A more ideal solution, I suppose, is to do what VMWare does in terms of how it specifies how it chooses an interface to talk over. I think its magic comes from the kernel modules it uses, in this case, probably vmnet kernel module.
+This will give you information about the data sent between the kernel and the process. The output of strace isn't exactly what you'd want. However, strace uses the ptrace syscall to intercept system calls. It might be possible to write a program to output the data a little more usefully. 

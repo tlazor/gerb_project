@@ -1,0 +1,5 @@
+Run the installation of the SQL Server from the command line.  The whole thing can be done via a bunch of switches.  Save that as a batch file and simply run the batch file.
+As for configuring the SQL Server, just write a T/SQL script to handle all the config.  Anything you can configure from SSMS you can configure via T/SQL.  Just takes a little research.
+If both cases I had it configure the default database locations, database mail, create basic maintenance jobs, set alerts, create SQL Agent operators, etc.  The one for MySpace also connected to the central database server and got the most recent copies of the databases and restored them with the correct names.
+I used a similar script at another company as well to setup the SQL Servers and it worked really well.  It's just a matter how how much you put into the script, and what you have it configure.
+When I worked for MySpace the SQL Server installation was done this way.  Then they would manually configure everything within the SQL Server.  This took about 3 hours.  I spent a couple of days writing a SQL Script to handle all this, and got it down to about 5 minutes per server.

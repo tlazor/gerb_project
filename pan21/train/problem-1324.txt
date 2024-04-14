@@ -1,0 +1,5 @@
+In case you can't re-run sysprep /generalize and re-clone, I have also had success with adding a machine to the domain, reboot, remove it, then delete the machine account via AD Users and Computers.  Then reboot again and add the machine again.  Sometimes, it takes 2 attempts.
+I'm trying to join a 2012 R2 server to a domain controlled by another 2012 R2 server.  The domain is a test domain, but it works.  I joined a different server to this domain.
+But when I tried to join the machine to the domain, it failed.  I didn't get the SID duplicate error immediately, but eventually it showed up.  So I ran the PsGetsid64 executable from Microsoft, and sure enough, this server's SID is the same as my domain controller (also created from the same template).
+I reran sysprep, and re-imported the VM, and still had the same SID. So I ran sysprep in place, and I still have the same SID.
+But I've been trying to create a VM image that could be cloned, and it seemed to work OK.  After boot, the OOBE occurred, asking for a product key.

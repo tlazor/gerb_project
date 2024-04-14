@@ -1,0 +1,5 @@
+First, most people won't be able to view your web site if you don't have address records and only rely on the SRV record proposal.
+Second, it won't really protect you from any but the most idiotic of morons, as it's quite trivial to query the DNS and locate your server's actual IP address, and using only a SRV record makes it only slightly less trivial; you have to do two lookups instead of one. Big hairy deal.
+The problem is that none of these proposals have gotten any real traction, and to the best of my knowledge, most browsers don't even implement this. Until today, the last I'd heard was that no web browser implemented it. Even Mozilla's own bug tracker shows it as unimplemented in Firefox, so I'm not really sure what your friend demonstrated.
+An example SRV record that might locate an HTTP service for example.com running on port 2673 might look like:
+Yes, this is theoretically possible. There have been multiple proposals on how to locate HTTP sites with SRV records, the most well known of which is RFC 2782. Indeed, many other services already use SRV records in similar ways.

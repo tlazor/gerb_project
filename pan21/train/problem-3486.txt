@@ -1,0 +1,10 @@
+I've read several posts on here about this topic but every solution I find seems to be a one liner where you run one command.
+So in this case I ran uptime on the other side.  You can replace uptime with what you want to run.  Whatever you put there is where the exit needs to be.  uptime exits once it prints its output, but if you are writing the script you may need to make sure it eventually exits so the for loop can continue.
+If you're doing anything complicated I'd recommend creating the script in a separate file and then scping it to the server you want to run it on then ssh in to run it.  Trying to get something complicated into ssh via quoting and escapes is more challenging than it is worth usually.
+If you are trying to run commands on multiple hosts in parallel, that is what rsh was created for.  These days, rsh is considered to be very low security, so the more current and correct option for this would be pdsh. 
+I've done this hundreds of times and it works fine when you want things to run on one server at a time.  If you want things to run in parallel there are other options, but I'd look at ansible first.
+You would rewrite your shell script to be what the run would be on a single host, then use pdsh to execute that script on many hosts. 
+I'd recommend looking at pssh for what you are trying to accomplish - it allows you to easily handle the nuances of opening/closing connections across machines, and can even run in parallel to reduce execution time.
+I'm creating a script where I ssh to several different hosts one after a time. The goal is to ssh to a machine, do some local commands, execute a a script, wait for it to finish and then exit the ssh session and move on to the next.
+Are you trying to do the same thing to many hosts in parallel, or are you using results of commands run on one host to decide what to do in the next host?  
+It still uses ssh as the transport protocol, so it's obviously just as secure as a looped ssh connection. 

@@ -1,0 +1,18 @@
+This will extract the file. Gunzip only supports extracting to the source directory, or to standard output so
+ gz archives into a single tar archive. Alternatively, you could just stop using formats that require double 
+This puts the terminal into the inputfiles directory since zip creates an archive from the current directory, and saves to it.
+without decompressing, or reading the entire archive. I don't do much archiving under Linux, but on Windows I like to use 7-zip to create zip archives with lzma compression. It's worth noting that either of these methods when used with comparable compression to your tar.gz, will yeild a larger archive due to lack of solid compression, which is why tar.gz is very popular in the linux world compared to zip for distributing software.
+format doesn't support random access. Zip archives use a centralized catelogue so random file access is possible
+If what you want is individually compressed files in an archive with random access, then dar ("Disk ARchive") may be what you are looking for. Newer versions support LZMA compression, the algorithm used by 7-Zip. It is also possible to define filters to store some file types uncompressed and save time, e.g. media files and archives that already have their own compression. My favorite feature is compressing existing (uncompressed) archives so I can quickly make a backup now and run the CPU intensive LZMA compression at a more convenient time or on a more powerful machine:
+You want to have files put into individual tar archives, and then all stored in one gz archive. This won't 
+This puts the terminal into the directory you want to extract to since tar extracts to the current directory.
+This extracts the contents of the gz archives to the current directory /home/me/example/extractall/ and removes
+This will copy the files you wish to archive to a different folder. Gunzip doesn't allow keeping the
+This will create a seperate gz archive of each file, and use max compression. If your system can't handle that
+This will mount the tar archive so that you can extract the desired gz archive. I believe it is possible to extract individual files from a tar archive with tar, but I don't know the command, hence why I'm using this approach.
+(Yes, I know this question is old. This is for the people who, like me, googled "tar compress individually" and got this as the first result.)
+This will create a zip archive of all the inputfiles directory contents, excluding hidden files, and use max compression.
+I've read your question multiple times, it's very difficult to understand, but I think I've got it now.
+As shown above, encryption is also possible, all while still allowing extraction of individual files. However, dar does not seem to have an equivalent to the --to-command. It's hard to tell from your question whether you intended to used that feature for anything but decompression. 
+Compressing the files inside a tar will still result in sequential access of the gz archives, because the tar
+before compressing with gz. You could do the opposite, put each file into a gz archive, and then put all the

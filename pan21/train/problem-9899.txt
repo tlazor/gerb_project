@@ -1,0 +1,5 @@
+Yes! Why not? You can hook as many PCs through the Ethernet bridge as there are physical ports and later use a wireless ad-hoc network to share even more.
+What you are doing now is using the switch and access point parts of your router, and ignoring the WAN interface and routing complete.  You don't need it, as your neighbor's router will have DHCP and what not running.
+On your PC, bridge the wireless and wired interfaces.  Then, take the wired interface and plug that into one of the LAN ports on your router.  Hook everything else up as normal.
+You can do it in reverse with ONE ethernet port and as many wifi devices with Virtual Router or Connectify.  OS has to be Windows 7 or Server 2008 R2...
+Yes, you can do it, as others have said - or consider a wireless bridge, such as the Linksys WGPS606 which can be setup to connect to your neigbor's wifi and then has a 4-port switch on the back for connections to client machines or your own access point. The 606 also has a built in print server that supports two USB printers too. This would avoid having to have a PC switched on all the time for internet access.

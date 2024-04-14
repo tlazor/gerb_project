@@ -1,0 +1,8 @@
+I'm looking for specific answers with regard to using the toolkit features, not a comparison of available features. E.g. Destructable terrain is easier in toolkit X for reasons Y and Z.
+I didn't use the same assets for both prototypes (I used assets that came with the development kits), but neither prototype was demonstrably better than the other, they were virtually identical.
+The tools for Unity are a lot more intuitive all around, and because of this I was a lot more productive.
+A very useful tools within Unity for prototyping are Action Box and Prototype. It is also essential to use the snap (sortcut: Ctrl) and snap polygon (sortcut: v) to place the blocks precisely
+UDK did have a iOS controller, where you could send inputs to your Windows PC from your iPhone or iPad - Unity did have this but it was mac only.
+The existing classes for use in Unity and the overall component-based structure is a lot more consistent than UDKs, where it's very difficult to know the exact responsibilities each object has and which objects it communicates with, without doing research or digging through the code.
+But Unity is very intuitive and easy to work with and also has a store with a lot of tools at low price for various tasks.
+I set up a simple platformer prototype for iOS with both UDK and Unity from having zero experience with either.

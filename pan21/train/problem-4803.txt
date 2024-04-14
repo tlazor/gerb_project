@@ -1,0 +1,7 @@
+Only adding room mailbox to user mailbox account will work for reminder on calendar. Here are the test result:
+User1 adds room mailbox as additional account. Then user3 books a meeting on room1, And user3 will receive this
+The idea is, that everyone should be able to send a meeting request to the calendar and this should be accepted automatically. If a team member has this Exchange account configured in his Outlook profile, he should get the corresponding reminders.
+We are using an Exchange 2013 environment with Outlook 2010. I've already re-created the account multiple times and gave a few PowerShell cmdlets a shot, set DisableReminders to $false, set the DefaultReminderTime to something other than 15 minutes and so on.
+Then user3 book a meeting on Room1, on user1's mailbox, reminder is configured to none on this calendar.
+Unfortunately, the room mailbox seems to automatically set the reminders of accepted meetings to "None", rendering my whole effort useless.
+Even if you got the reminders to stay on, it wouldn't work. You only get reminders for your mailbox, not additional mailboxes.

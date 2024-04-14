@@ -1,0 +1,6 @@
+It might be under /var/folders, which is apparently Snow Leopard's preferred location for caches and temp files now. Unfortunately, some of the folder names under /var/folders seem to be somewhat randomly generated, so I can't give you a static path. Try this:
+And each App will have a separate Random Folder, all you have to do is, to wait for the Updates to show, and they won't show until they're totally finished, so you can rest assured they're complete, and all you have to do is to copy them right away, because they'll be automatically removed after they're installed.
+When software update runs and downloads in the background for you before you choose to install... where are those files stored?
+I had thought it was /Library/Packages however I can't find that directory in my Snow Leopard machine. (even with terminal)
+I don't have any downloaded-but-not-installed updates right now, so my software-update-related directories under there are mostly empty at the moment, so I can't confirm for sure if this is the right place.
+I believe they're actually stored in /Library/Updates and then are deleted as soon as they're installed.

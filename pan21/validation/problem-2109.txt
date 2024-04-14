@@ -1,0 +1,10 @@
+The content of the connectionstring is right out of ADExplorer, but whether that makes it right or not, I don't really know, AD is not my speciality.
+The really frustrating thing is that neither Sharepoint's logs ( set to Verbose and my god to they mean that ) nor the system Event Log seem to give any indication of a problem, they just don't do anything.
+to the provider string.  Typically I use "userPrincipleName" for user@company.com and "sAMAccountName" for "domain\user" setups.  At least I think that's the relationship, but I don't have the code handy to double check.   There could be other reasonable settings for related scenarios, but I'm not certain what they'd be.
+When I try to add a user to the site that I am configuring this authentication on, I cannot make it find anyone from the domain. I have tried the following ways of saying it:
+I recently set up FBA for my site. I followed this document and it was absolutely flawless. I faced the similar issue you faced but i found out later that i did some mistakes in configuring it the CA's configurationn file.
+This will need to be set in the web.config for the application and the necessary entries made in the web.config for the WSS admin application if you are trying to set up anything there.
+Is there an obvious problem here and if not, is there an easy way I can break things down a little to figure out where in the process it is failing?
+I'm having a really difficult time trying to get my Sharepoint site to use Forms Authentication. I've tried using an ActiveDirectoryMembershipProvder and the LDAP equivalent but both of them seem absolutely unable to find any users from ActiveDirectory in any of the "peoplefinder" type of areas.
+I have tried having the user specifed in the <provider> tag and not, neither of which appears to have caused a problem.
+Have you ensured your provider name is set in your PeoplePickerWildcards element in the web.config? i.e.:

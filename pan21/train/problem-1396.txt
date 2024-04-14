@@ -1,0 +1,5 @@
+I opted for this, with two non-RAID HDDs for data (plus an external drive for backup), which works well.
+It may be worth considering using an SSD as the OS/applications drive, for excellent performance (see Anandtech for a review of the latest Intel X25-M drive).
+If data loss is your concern, please remember that RAID is not backup. I suggest you invest in some form of backup, whether it's a 'cloud' solution or a simple rsync job to another computer. 
+Use a small drive as your system drive, and then mount your larger drive within your smaller drive under a folder. Then it looks to your programs as if they're storing data on the C drive, while it's actually getting stuck on your big cheap media drive.
+I generally buy two fast drives (10K RPM) that are relatively small and run them in RAID 0 (stripe) for my OS partition and two large drives (7200 RMP) in a RAID 1 (mirror) for my data partition.  That way, if I lose a drive in the striped array, I just rebuild my OS and my data is protected by the mirror.  Of course, that requires 4 drives, where you could do a RAID 5 with 3 drives, but in my mind, it's the easiest.

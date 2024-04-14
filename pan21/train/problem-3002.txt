@@ -1,0 +1,7 @@
+I bought a Lenovo Y700-17ISK and it came with FreeDOS on a separate partition in the beginning of the hard drive. It looked like that:
+What should I do? I want to remove that unnecessary 1 GB partition (I regret that I didn't do that while installing Windows), it is a primary partition and it's also annoying for that reason.
+Then, I installed Windows 10, creating a new partition beforehand, so it looked like that afterward:
+If you want to remove this partition, I suggest you do it from Windows itself, that way if it might break anything Windows will tell you.
+Physical position of partitions has nothing to do with the boot sequence. The boot code is stored in the MBR, and it then calls the bootloader at the right position on the disk, not caring about partitions.
+I wanted to install Xubuntu alongside Windows 10, so I ran a Xubuntu installer and I was given the information that the disk is divided in the following manner:
+I am wondering if I am able to boot Windows 10 after installing Xubuntu, for I can clearly see that no operating system was found on /dev/sda2. That's why I began thinking about removing the partition with FreeDOS and merging it with the Windows 10 partition, but I am uncertain if doing so might remove the possibility to boot Windows 10, too. After all, the FreeDOS partition is in the beginning of the hard drive. I am using the MBR partitioning style.

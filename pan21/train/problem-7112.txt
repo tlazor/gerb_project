@@ -1,0 +1,11 @@
+Having done that, you should find it easy to display red and blue minutes for negative and positive values; the correct cell format is :
+Type in 2:47, which is your objective jogging time. The cell is going to take a custom format of h:mm, for hours:minutes, but in reality excel stores any "time" as a date and time value. In this case, January 1st, 1900, 2:47 AM, but we don't care about that. Although convenient when keying in your data, we will need to take that into account when doing our formula.
+Type in this formula: =SUM(C1:C50). This is a total of all your jogging times that you are going to enter during your month in the column C. There's no problem in adding positive datetimes, since they will never get below zero.
+If you change the format of the cell to a decimal number you will see the time displayed correctly, but as a negative fraction of one day. 
+Here's the catch. The excel help under the article "Present the result based on a single time unit" suggests:
+I've picked minutes, as timing jogging seconds might be a bit excessive. In A3, just type =(A2-A1)*1440. Then set your A3 cell custom format to this: [Red]-0;[Blue]0.
+Say you want to record your jogging times and set yourself an objective of 2h47 hours of jogging per month (you are a precise person).
+13 minutes is 0.0090 of a day - it is this negative value that is giving you the problem when the cell is formatted as time.
+To display minutes, multiple this faction by 1440 (the number of minutes in a day). When you have done that, you will see that the number displays positive and negative minutes correctly.
+Voilà! Now you just have to go run outside and come back to write your times in cells C1 to C50. Good luck.
+The problem is that you are attempting to display an excel cell that contains a negative value and that is formatted as time.

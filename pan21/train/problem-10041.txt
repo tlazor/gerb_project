@@ -1,0 +1,10 @@
+I like the name diagonal_count better than num_diags.  I use plural variables names for arrays and other collections, e.g. heads.  
+You iterate over the heads array, but you don't need to do that.  You can calculate that directly.  
+The first loop is a bit different.  Because we want i to be available outside the loop, we have to declare it outside the loop.  We could separate the declaration and the initialization, but that's not recommended.  So I moved both outside the loop.  
+Note that unless you are writing to be compatible with an old C standard, you can define variables in a for loop like in C++.  
+The advantage of this is that you can display the heads values as many times as you want now.  Or find them without displaying.  The two functions are more flexible than the original one.  
+The original was \$\mathcal{O}(\sqrt{n})\$, where \$n\$ is the size of the matrix.  This version is constant time.  
+We don't need to return heads.  The array is effectively passed by reference.  The function modifies heads directly.  
+And the int j; suggests that you aren't compiling to an old standard that requires variables to be defined at the beginning of a block.  
+Your find_heads function fills the heads array and it displays it.  Usually you'd want to separate these.  
+We don't have to define a head variable until the second loop.  Until then, the values of head and i are the same.  

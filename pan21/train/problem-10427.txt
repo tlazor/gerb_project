@@ -1,0 +1,5 @@
+You probably created the file "wpa_supplicant.conf" using a Windows format for end-of-line characters which the Raspberry Pi can't understand. Check to see if "wpa_supplicant.conf" has a Unix format for EOL characters. You can check this and convert ifd needed to Unix format, using a advanced editor like Notepad++ (which is free software for Windows downloadable at https://notepad-plus-plus.org).  
+Dropping the wpa_supplicant.conf along with the ssh file into /boot should have worked. (I honestly don't know why it wouldn't, in your case)
+Anyway, on the bright-side, you do have SSH working which is all you need to configure and control a headless Pi. Try a manually configuring wpa_supplicant directly by editing the file in /etc/wpa_supplicant/wpa_supplicant.conf. The command in the ssh terminal is as follows:
+Went with PiBakery (which is awesome). Just installed Jessie Lite and I am now hooked up to the WiFi. Completely headless.
+I have found that the syntax of wpa_supplicant.conf is very picky. For example the line "priority = 1" fails whereas "prioriy=1" works. Any syntax errors will cause failure.

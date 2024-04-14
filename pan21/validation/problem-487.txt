@@ -1,0 +1,5 @@
+Most documentation for GRUB2 can be found at: http://grub.enbug.org/ (in case anybody wants to try fixing such an issue "the hard way")
+For completeness sake: it should be possible to boot Windows from that GRUB "rescue prompt", but it requires knowledge about GRUB and how your disks are partitioned etc.  Overwriting the MBR as explained by Shiki is certainly a quicker solution if you (only) want Windows to boot ASAP...
+It is not possible to recover Windows from there. You'll need the Windows DVD (Windows 7 DVD for example if you have Windows 7). Boot the DVD up, select Recovery. When it offers to repair it automatically, say no.  
+After you have done this, close the prompt with the X, and close the Windows 7 installer. Reboot, there you go.  
+(As a side note: Wubi is not really recommended. It's really just for playing around. As you experienced, the system may break very easily even with some updates. You should just resize your main partition with the Windows partition manager or some commerical software like Acronis Disk Director and install Ubuntu to a new partition.)

@@ -1,0 +1,7 @@
+What is the way out of here??What are the commands that I can run here in the repair filesystem prompt?
+After repairing the root filesystem, you may want or need to repair more filesystems.  If so, just run the command again for each filesystem that you are checking.
+If fsck can't figure out what the filesystem type is, you can tell it what to expect by adding the -t option, as shown here.
+Depending on the version of Linux, you may have been given the specific fsck command to run in the text displayed prior to entering the (Repair Filesystem) shell.  The root filesystem is mounted read-only to prevent further damage and to permit repair.
+Don't forget to replace '/dev/rootvg/root' with your system's device and 'ext3' with the expected filesystem type from /etc/fstab for that filesystem.
+Take a look at /etc/fstab (/bin/cat /etc/fstab), find the root ('/') filesystem entry.  The device to check is in the first column, something like /dev/hda1 or /dev/rootvg/root.  The filesystem type that is expected is the third column.
+In this filesystem repair prompt, I am unable to run most of the commands. Most of the files are also in read only mode.

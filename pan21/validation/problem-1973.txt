@@ -1,0 +1,6 @@
+Running that on my own Linux box (which only has 1 Serial port) produces a single ttyS0 output line. Try it on your own, you will see what I mean.
+If you need to do this programmatically reading the output from dmesg can be troublesome, instead the folder /dev/serial/by-id has sym links that are named after identifiable data of your device and point to the specific /dev/tty* they are connected to.
+If something is connected and driving the lines CTS, DSR or CD (these are input lines) you can even be pretty sure that there actually is something... Same is true for the rx-byte-count.
+ttyS0 through 3 correspond to COM1 through 4, respectively. They usually have the same hardware resources and are not always detectable, so they always exist.
+See which UARTs where detected in /proc/tty/driver/serial. A line with uart:unknown means: nothing detected (and likely not existent).
+I'm not sure if this is some special udev rule that is distribution specific, but it works well in Ubuntu, let me know if it works.

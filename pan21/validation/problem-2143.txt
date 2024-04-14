@@ -1,0 +1,8 @@
+Both manchester and palindromic tree are a bit harder to implement and definitely not easy to understand, so as long as performance is not needed its good to avoid them. 
+I had to look it up, but i found that the way that you are doing its the right way using In-built functions, and its pretty much good for almost all cases, but if you want to improve a little the performance you could use something like:
+The only thing that seems odd at first glance is how you reverse the string to compare subString.split('').reverse().join('');
+Checking for a duplicate in the results array is one slow point. It adds one level of complexity because each contains call has to loop over the whole list. Instead use a Set (if you can use ECMAScript 6) or store the strings as a key in an object (this however requires counting the keys at the end which can be a bit bothersome unless you can use Object.keys() which in turn requires ECMAScript 5.1):
+(I just realized you are using let so you can use Set, too. I'm just leaving this in, in case it interests someone else.) 
+This even could be taken one more step: There is no reason to create the substring for the palindrome detection, except to put it in the result set afterwards.
+There is no reason to actually create the reverse string in order to check for a palindrome. Instead simply loop over the first half of the string and compare the nth character with the (length - n - 1)th character.
+You code looks pretty neat, i do not think that using recursion would improve it very much, but i have some minor suggestions;

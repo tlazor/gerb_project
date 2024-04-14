@@ -1,0 +1,7 @@
+Only, instead of pinging the modem (10.0.12.2 in the Cisco documentation example), you will have to choose some external address, preferably somewhere "close" to you, preferably some address in the ISP's network
+Cisco RV340 router supports WAN failover and load balancing features under Multi-WAN setting. Please follow the RV340 Administration Guide for further details.
+[there is no way to configure the two modems to work in "bridge" mode. These are simple consumer devices]
+Is there any way make the router check the connection through each WAN interface by - say - pinging a remote address or similar?
+The problem is that the router fails to detect when one of the WAN links fail since the connection to the internal 11.100.101.1 and 12.100.101.1 is always good).
+The modems are configured for NAT and the router gets its addresses from each using DHCP (i.e., one serves 11.100.101.1, the other serves 12.100.101.1 and the router DHCP server serves addresses 10.100.101.2-200 to the internal LAN).
+Our Cisco RV340 router is connected to two WAN modems for redundancy (the two are from different ISPs).

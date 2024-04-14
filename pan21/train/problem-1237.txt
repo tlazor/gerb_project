@@ -1,0 +1,5 @@
+By lazy unmounting it, the folder dissapear from my hierarchy, and is hidden. And when the background process end, it is successfully unmounted.
+I use lazy umount in cases where it was obviously stuck for various reasons (such as nfs server down), also when I need to see the original content of the directory that was mounted over by the mount. In both cases the mount is busy. I think there are other edge cases but these 2 are the most common reasons I used the option.
+You're using rsync to perform your backups and walk away. You can umount -l the drive and once it's finished copying and synched, it unmounts, so that when you come back after a break (that you know will take longer than the backup) you can just unplug the drive instead of having to fiddle with the keyboard again.
+When the disk is mounted, nautilus build up previews (I think, I am not sure), and lock the files. When I want to unmount it, it says that it is locked by another process.
+If you have a daemon on your system that constantly interrogates /proc (I'm looking at you ksysguardd), then you will be unable umount /mnt/proc.  Lazy will let you umount in this case.

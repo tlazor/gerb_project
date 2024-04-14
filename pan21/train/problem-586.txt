@@ -1,0 +1,5 @@
+LiveUpdate frequently fails, but that's a configuration issue on our end (proxying the updates) that we are working to resolve.
+We have Symanted Endpoint Protection deployed to approximately 1500 PCs with no issues. Virus infections went to practically zero, but there are a handful that it does not get (mostly malware, as you found with SAV it's not that great, but SEP does a better job).
+We had some mixed feelings about putting in SEP because one of the larger issues was malware and it's not that capable of removing it. We found after installing SEP on a computer that had malware SEP would not remove it, but on PCs that have SEP installed beforehand they do not get malware.
+Unlike SAV, I have found that SEP rarely performs the "total Symantec fuckup" which takes out all TCP connections on 80 and 443. This means less troubleshooting and reinstalling the aplication.
+The PCs are mostly 3.0GHz Celerons with 512MB of RAM, 40GB 5400 RPM IDE HDD. If you are strapped for performance, change File System AutoProtect to "Scan on Modify" rather than "Scan on Access".

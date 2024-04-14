@@ -1,0 +1,7 @@
+Over the weekend (Sunday March 27th) Daylight Savings Time kicked in here in Ireland and so all the servers (all win2k3 server) in our Production Environment updated their Times +1 Hour. However something which I cannot explain caused 2 of our cluster nodes to update @ 02:08 and 02:38 rather than @ 00:59.
+So I am completely stumped why these 2 cluster nodes decided to wait 68 minutes & 98 minutes to do their DST updates.
+All Non-PDC Servers are setup to use the Windows Time Service to get time updates from their PDC if there's any variances
+In DOMAIN1, everything seemed to work perfectly with all machines moving forward 1 hour at exacly 00:59:59 -> 02:00:00. This can be confirmed by viewing timestamps in logfiles on any of those servers, or viewing timestamp data written to DB tables by those servers.
+The only thing that comes to mind is that you have different sets of updates installed on some of the servers and they have different timezone data.  In general, you should use WSUS to ensure all the servers in a cluster of supposedly identical servers have the same updates applied.
+All Servers (PDC, Physical & VM) have the exact same Locale & Timezone Settings (GMT, Ireland(English))
+Same goes for DB Inserts on both instances that relied on the SQL GetDate() function. Data shows the getdate() inserts jumping forward +1 hour at 02:08 & 02:38 respectively on the two instances.

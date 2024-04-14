@@ -1,0 +1,8 @@
+You can't just access the same field from multiple threads at the same time and assume it will work correctly.
+This is especially problematic, because the compiler might make this optimization only in the Release build, so it the issue won't show while you're debugging.
+As already pointed out by ChrisWue, incrementing a value is not an atomic operation, and you could fix that by using Interlocked.Increment() instead. 
+Also, consider using SemaphoreSlim instead of Semaphore. It's a newer and faster version of the same concept.
+Another problem is that when you're reading the value of avail in a loop, the compiler is allowed to notice that the field doesn't change on this thread and optimize the repeated checks into something like:
+But all of this is pretty hard to get right. The safe way to access shared state (especially if you're just starting with multi-threaded programming) is to use a lock whenever you're accessing the shared field.
+To fix this, you would need to mark avail as volatile, which (among other things) disallows that optimization.
+The advantage of this is that it handles exceptions: if the code inside the lock throws, the lock won't stay locked, stalling your code. (Though some consider this behavior dangerous: if your code throws, it means the data can be in an invalid state and letting another thread in could cause even more damage.)

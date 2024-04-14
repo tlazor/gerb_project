@@ -1,0 +1,7 @@
+In addition: Make sure that you have X log and data files for every database, with X being the number of virtual processor cores. Standard SQL procedure.
+Consider creating two NTFS partitions on your SAN and storing the files there. Storing high-traffic files on a virtual partition on VMFS just adds another layer of I/O.
+I have a VMware vSphere 4 system and I'm in the process of creating my new virtual servers, one which is a Windows 2008 Server (x64) for use with SQL Server 2008. I have a SAN.
+I decided to install the operating system on one virtual disk file, and created separate vmdk-files for the [SQL Server] data- and log-files. I set these disk to be "independent" of any snapshots.
+I don't really see the point to separating the data and log-files if they disks are not physically separate [as is normal for SQL Server], but then again this makes it easier to manage for backups.
+That is pretty much all you can do from WITHIN the server. A typical virtual server will never be a good db server because you will be SERIOUSLY io limited. Nothing against virtualization here - but using virtualization turns off the brain of many people. Where "real" SQL Servers got carefully planned disc layouts to optimizie their IO capabilities, many virtual servers run X computers on a shared relatively low performance SAN - and wonder why it is slower ;)
+I have read all the resources at VMWare.com that I could find on running SQL Server on VMware. I'm not quite sure if I understood them correctly with regards to partitioning.

@@ -1,0 +1,5 @@
+The PHP error log outputs nothing at all. kernel and syslog show nothing related to Apache or PHP. I have also tried installing suphp and checking its log just confirms the user is executing correctly:
+I have a file showing me phpinfo() which confirms these variables are set correctly for the environment. I have increased memory_limit to 256M (which should be more than enough). Yet, the only indication I get is a status 500 code in the apache access log and a blank white page from PHP.
+Drupal itself changes the error reporting and display settings which happens after the ini file (where your settings reside) is processed. To change the settings after drupal does you can add
+Drupal is complex. The blank white page is affectionately known as the "white screen of death" (WSOD) in the Drupal community. See http://drupal.org/node/158043 for more troubleshooting help.
+I am trying to debug a broken page in a Drupal application and am having a hard time getting PHP to spit anything useful out. I have the following set:

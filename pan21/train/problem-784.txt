@@ -1,0 +1,6 @@
+Either method will produce a pure SQL dump of the MySQL grants. All there is left to do is to execute the script on a new server:
+While it appears @Richard Bronosky's answer is the correct one, I came across this question after trying to migrate a set of databases from one server to another and the solution was much simpler:
+Here is a small variation which was useful for me. It is helpful for transfering users e.g. between two Ubuntu installations running phpmyadmin. Just dump privileges for all users apart from root, phpmyadmin and debian-sys-maint. The code is then
+At this point, all my data was visible if I logged in as root, the mysql.user table had everything in it I was expecting, but I couldn't log in as any of the other users and found this question assuming I'd have to re-issue the GRANT statements.
+However, it turns out that the mysql server simply needed to be restarted for the updated privileges in the mysql.* tables to take effect:
+Execute from within a bash shell, assumed is you have a working .my.cnf where the password of your mysql root user can be read.

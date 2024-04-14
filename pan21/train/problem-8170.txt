@@ -1,0 +1,5 @@
+Try renaming that folder now.  Do it several times in quick succession and hopefully you'll find that the folder renaming issue is gone.
+Chances are that you're only experiencing this with folders that contain content that generates thumbnails (photos and the like).  A lot of people have speculated that this is to do with indexing (which I'm not going to try to dispute), but in my experience this is usually down to thumbnail generation.
+For example, in the bottom left-hand corner of your explorer window, if you select your problem-folder you should see the folder icon show a preview of the contents.  It's kind of a nice addition to the GUI, but seems to be directly related to the problem.
+Turn this off by going to ORGANIZE > FOLDER AND SEARCH OPTIONS > VIEW (tab) ... and then tick "Always show icons, never thumbnails".  Click Apply/OK and you're done.
+It depends on the sharing mode, I believe. (I'm not referring to that kind of sharing -- I'm referring to the FILE_SHARE_DELETE kind of sharing.) If the file is opened with delete sharing mode, then theoretically you could write a program to:

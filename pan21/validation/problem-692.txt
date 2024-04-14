@@ -1,0 +1,7 @@
+Not quite as cheap as Amazon S3 but personally I do like their feature set a lot more. One reason is that you do have a basic SSH account available, another is rsync and a third is there is no file size limit with rsync.net as opposed to Amazon S3 which limits to a maximum file size of 5GB
+I've found their service to be good enough.  I would rely on them 100% for my business, but as an easy offsite backup, they've worked well.  Of course, any hosted provider would work just as well and they are currently offering lots of space for cheap.
+I'd try rsync.net (FAQ Page). They offer quite a bunch of nice features including geo redundant storage.
+Provider wise, I have used BqBackup for a number of years without issue, they provide you with a Unix shell on one of their BSD servers so you can transfer via FTP,SCP,RSYNC, etc.
+I have a couple of Site5 accounts just for backup.  They are really cheap and offer ssh access, which means you can use things like rsync over ssh as well and the standard protocols.
+I use an Amazon S3 account for backups.  I haven't tried to FTP stuff there but apparently it can be done.
+Worth noting that FTP is inherently insecure due to it's habit of passing passwords across the network in plain text. You may not be able to avoid using it but if can do so!

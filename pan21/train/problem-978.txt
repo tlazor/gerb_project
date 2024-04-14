@@ -1,0 +1,7 @@
+When VirtualBox is turned off, there will be no perceivable difference in your system - everything will be as if it did not exist. 
+I would like to install VirtualBox on my Windows 7 laptop. I am planning to run Redhat EL in the VirtualBox.
+I would like to know how installing VirtualBox on a Win7 laptop would effect the general performance of the computer, such as boot time, disk access and networking. Would my Win7 be slower after VirtualBox installation (when VirtualBox is NOT running )?
+I had some bad experience with VmWare which has installed several drivers on my system, the whole system got bloated. 
+I generally don't notice running a VM on my core 2 duo laptop with 4GB RAM.  YMMV, however,  depending on the amount of resources your laptop has, the amount you plan to commit to the VM guest and how much you have dedicated to other non-VM tasks.
+VirtualBox is perhaps the lightest and most performant virtualization client [available for Windows].
+I've been using VirtualBox in both desktop and server environments since it was born. When VirtualBox is running, you will obviously notice some system slowdown because you essentially have 2 operating systems running simultaneously. 

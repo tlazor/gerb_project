@@ -1,0 +1,11 @@
+More than that, if we are not aware that the n features in the on hot encoding are exclusive, our vc dimension and our hypothesis set are larger.
+Note that we can represent the same values in the same methods. The one hot encoding is less efficient, requiring n bits instead of log n bits.
+Again, xgboost, unfortunately, does not. Therefore, you must convert your categorical variables to binary variables so that it can do: If(Car[Mercedes] >= 0.5).
+xgboost usually performs better after one-hot encoding. Otherwise, it will treat your categorical variables as numerical variables.
+In general, if the values are indeed very distinct in behaviour, the algorithm will probably won't deduce such rule and you will benefit from the more efficient representation. Many times it is hard to analyze it beforehand so what you did, trying both representations, is a good way to choose the proper one. 
+In a single feature representation the algorithm might assume order. Usually the encoding is arbitrary and the value 3 is as far for 3 as from 8. However, the algorithm might treat the feature as a numeric feature and come up with rules like "f < 4". Here you might claim that if the algorithm found such a rule, it might be beneficial, even if not intended. While that might be true, small data set, noise and other reason to have a data set that mis represent the underlying distribution might lead to false rules.
+Same can happen in logarithmic representation (e.g., having rules like "third bit is on). Here we are likely to get more complex rules, all unintended and sometimes misleading.
+But most other tree packages support categorical variables; in other words, they support rules such as: If(Car = Mercedes).
+So, we should had identical representations, leading to identical results in ideal world. However, in some cases the less efficient representation can lead to worse results while on other cases the badly deduce rules can lead to worse results.
+The encoding leads to a question of representation and the way that the algorithms cope with the representation.
+The problem is that in the single feature representation and the log representation we might use wrong deductions.

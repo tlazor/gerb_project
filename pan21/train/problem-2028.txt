@@ -1,0 +1,8 @@
+Well, what if you had a single core/thread processor? How could Excel use more than 50% of that? If you have 2 cores, and each can run one thread, and Excel runs on one core, then it can use up to 100% of that core.
+With hyper-threading, you don't have 2 "real" threads per cpu core, but 2 "virtual" threads. The 2 threads have to share their execution resources. So it's possible for one of the threads to use more resources than the other, which may show as usage above 50%.
+Is it just a rounding/estimation error on the part of Task Manager?  Or is it something to do with HT allocation i.e. I wouldn't see this happening on a genuine dual-core or dual-CPU machine?
+I'm waiting for Excel to finish a recalculation and I notice that the CPU usage as reported by Task Manager occasionally spikes to 51% or 52% on a Pentium 4 with hyper-threading.  How is a single-threaded application like Excel 2003 doing this?
+I would be surprised if Excel 2003 is single threaded. It's likely to have at least a UI thread and a worker thread. Does the UI repaint while the calculation is going on? If so, Excel is not single-threaded.
+Marking it specific to one core or the other will let you see (again in taskmgr) that it's running only on one core.
+MS Windows does not by default lock an application to one core, so what you're seeing is the manifestation of Excel being executed on one core or the other.
+If you have Excel running, start taskmgr.exe, go to the Process list, and right-click on the process, you can elect to set the Affinity for the process.

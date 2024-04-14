@@ -1,0 +1,7 @@
+I've read about the Unmap command but I am not sure if it applies to actual VMDK or whole Datastores.
+When using the VCenter MIGRATE operation on a selected VM Machine inside the linked ESXi host (only one host connected to VCenter per DataCenter(3)) we are able to select the migrate storage only, see pic: https://imgur.com/a/zdXP99T
+When using the VCenter MOVE operation on a select VM Subfolder in the Datastore File explorer and moving it to another datastore, the VMDK file which was thin provisioned and used 35GB was converted to thickly provisioned disk weighting 100GB after the move to the new Datastore.
+I am currently running Vcenter 6.7 and ESXi 6.0 with VMFS5 in our infrastructure. And I often have to move VM disks from a DataStore to another in order to free up space.
+It is possible to convert thick to thin only by copying VMDK file to different datastore/folder or within the folder with proper cmdlet - vmkfstools -i "/vmfs/volumes///test.vmdk" "/vmfs/volumes///test.vmdk" -d thin -a lsilogic
+What we have done is after move, we then cloned the vm and select thin during the cloning process, and then after it is up and running and passes all checks, we delete the older Thick provisioned one. 
+and obtain the VMDK migrated and still thin provisioned. BUT we are only able to perform this MIGRATE operation on VMs that are inside the connected Vcenter's Esxi host and not other VMs folder hosted on different ESXI host.

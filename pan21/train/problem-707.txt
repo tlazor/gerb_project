@@ -1,0 +1,9 @@
+Third, only "the very last packet received" being received by your Linux guest VM, is a known issue with certain VMware NICs and versions.
+First, this behavior varies by L2 (it only happens with the wired traffic as opposed to wireless). That in itself is suspicious and suggests that there is a problem at the interface level.
+Lower the MTU on your host from where ever it is now (probably about 1500) to somewhere around 1380. If the problem goes away, keep increasing it until you reach about 1468. Leave it.
+Second, packet fragmentation is a symptom of MTU misalignment. Packet fragmentation is not a problem per se but it is not optimal as it creates overhead and additional points of failure.
+Run ping -f -l (your host vm adapter mtu, which is a #) your.guest.ip.or.name , like ping -f -l 1500 myguest.
+There are known issues with certain OS and certain vNic and certain hypervisors. I include some research of known vmware issues below but just try to use a different vNIC driver on the guest. If you are using E1000, try one of the newer ones. If you are using vmxnet3, try 2 or E1000. Etc. If this fixes it, you can either keep it or look up the specific driver you had before to find out how to fix it from vmware.
+In a general sense I suspect MTU (frame size) is the root of the problem. I have a few reasons and a few suggestions.
+Now, since the host is receiving any case, and since MTU size only affects packets sent, you cannot change your MTU on the VM and expect anything different. You can however do the following:
+If it works when you use a -l value of your current MTU, then I am wrong and ignore. Otherwise, keep lowering the -l value until it does respond, then set your host virtual adapter to have that MTU. See http://www.thincomputing.net/2011/06/28/mtu-size-mismatch-a-major-cause-of-disconnections/

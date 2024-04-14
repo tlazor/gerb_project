@@ -1,0 +1,5 @@
+I don't know if there's a way to just do a remote session through regular PowerShell, but it's a small install to get the Azure PS.
+Azure AD Connect is typically a one-way sync, so there's no additional data written back to the AD Object.
+I think the closest way to get what you want is the Azure Powershell module. You could use that scripted and locally to check if the user is online. The properties in the local active directory that Azure writes to is limited to group membership and password hashes. I don't believe the information you are looking for is stored on premise.
+Our AD Connect runs every 30 minutes and in general, as long as the account is in an OU (or group if you have it set that way) that is configured to sync, it goes up without an issue.  I get emailed via the Technical Contact address for any DirSync errors that would prevent a synchronization. 
+Is it possible to find out from on-premise AD whether user is synchronized with AzureAD (Office 365) or not? And whether when the sync for that user happened? 

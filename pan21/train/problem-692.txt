@@ -1,0 +1,10 @@
+Like the person said earlier, I think you'll need a default anyways and could curb certain traffic through one route and the rest through another.  Just don't think load-balancing like you would on a LAN will work here.
+Therefore I would probably only split some of your traffic onto the other interface using none equal cost routes, may be by application, destination or protocol. Just something that will keep your traffic paths consistent. 
+Reason being is splitting both traffic across 2 separate networks doesn't seem like they would make it back.  If you had 2 pipes from 1 ISP it might make be possible.
+The url mentioned below is specifically meant for win 7 but you should get an idea from it. It changes the metric of default gateway depending on the load on the interface, thus leading to load sharing.
+Incoming traffic in reply to your requests should also be balanced as it will return to the interface (Public IP) that the request came out of.
+A close-ish topic, for linux, would be the 'metric' setting for routes. Lower numbers are preferred over higher numbers. If you give both routes the same metric, then I would think they'd be chosen with equal probability.
+I don't think this will be possible without doing something like all traffic going out is one ISP and traffic coming in is another ISP.
+The problem with this would be session persistence, for example you view a website via one of your links, but the next page view is load balanced out of your other interface, this would confuse some applications as your source IP address would be constantly changing.
+You could use a routing metric system where you install both internet connections in your routing table with an equal metric. The operating system should then use both of these routes equally, effectively splitting your outbound traffic across both links.
+I think the technique you're trying to achieve is called multihoming. I don't have any direct experience with it. However, a few things you'd probably need to keep in mind.

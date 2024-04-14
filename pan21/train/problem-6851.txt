@@ -1,0 +1,7 @@
+Additionally, good, actually... perfect DNS and reverse DNS and the lack there of, are at the root of a good NetBackup deployment. 
+BRU has a GUI console that works on most *nix machines as well as OS X. Zmanda has a web based gui. BRU abstracts the idea of tape management away from you, instead you define a pool of tapes you want to backup to for a particular job or jobs and it will put data where it can while following your retention rules. Zmanda is just as configurable. 
+I'd recommend Symantec's NetBackup if you can afford it.  BackupExec from Symantec is pretty good until you add the Unix clients.  It doesn't do that nearly as well.  
+As far as cost is concerned you can get zmanda for free, but BRU will cost you at least $299 for 30 hosts. Both are simple if you've done backups before. 
+While NetBackup is infinitely configurable, (with Multiplexing, Multistreaming, Storage Units, Storage Unit Groups, etc) for an easier life resist the urge to configure it infinitely!
+NetBackup has an excellent command line interface, as well as a GUI that is good.  I will say it has a few pitfalls in the setup phase, but if you follow the documentation and best practices guides, rather than just jumping in blind it's great. 
+HP Dataprotector scales well in a multi-OS environment.  Just check the flavor of Linux you use,  they certify some flavors but not all.  We use it for HP-UX, and Windows.

@@ -1,0 +1,6 @@
+But most device mapper mechanisms also allow you to specify an alias for your mapping. Check out ls -l /dev/mapper/.
+The lsblk command is a convenient way of displaying information about block devices including which device mapper device goes where.
+The number dm-X basically was just an arbitrary free number when the device was initialized. On hosts without many changes in the block device layer during runtime these numbers are just allocated in natural order at bootup.
+For a given dm-x with major M, minor m, there is a corresponding /sys/dev/block/M:m/dm/uuid file. If the content of the uuid file starts with part, it is safe to assume it is a partition. The corresponding whole device is found in /sys/dev/block/M:n/slaves/. For instance:
+In your example dm-1 could be mapped to anything, a raw device, a dmcrypt device abstraction, a logical volume on a MD-RAID-backed, multi-pathed, dm-crypted volume group.
+To then visualize the hierarchical relationships between block devices you can use the lsblk (List block-devices). Shortened example output below:

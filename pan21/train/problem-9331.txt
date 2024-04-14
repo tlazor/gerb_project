@@ -1,0 +1,7 @@
+I do not have much experience here, but general advise seems to stay far away from this. Either use plain software RAID, or use hardware RAID.  I realise that this conflicts with your need to make a clone of the windows server, but if you are setting up a second server then now is a good idea to do it properly.
+(IRSSI, Intel fake RAID etc.), then make sure the motherboards are the same. Again, you wrote that both identical hardware, but check. Different motherboards, chipsets and possibly BIOS/UEFI versions matter here. 
+You wrote both identical hardware, but double check if the RAID cards are of the same manufacturer. Most (all?) seem to put their RAID configuration on the drive. Which means you can swap one drive and insert another empty drive. Then rebuild/clone.
+Note that I would not feel comfortable doing that. Esp. if the original server uses large disks in RAID5.
+You will either need to use some form of backup- and restore-software. Or recreate one disk at a time by pulling a live drive out of the original server, and replacing it with a clean drive. Then do that for all bar one drive.
+If they are not the same then it becomes a gamble. Same brand but never model will probably be fine. A different brand might be a challenge.
+Assuming your disks are a mirror. (If you do not know what that is, read this post on this site It explains what the RAID levels are).

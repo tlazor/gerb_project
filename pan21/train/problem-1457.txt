@@ -1,0 +1,11 @@
+So my idea is to have a single iTerm tab with a tmux session opened with multiple tabs. To do the transition I have a basic feature I need to configure on tmux: switch the the tab 'n' by using cmd + n (like Firefox, Chrome, iTerm2 itself, etc)
+However I can't find a way of mapping the cmd key on the mac keyboard. I first tried to implement cmd as a prefix key, with no success. I've tried setting
+That way, when you press Cmd-D to split the screen iTerm2 will split the tab for you. This is great, because the split is native, so you can drag the edge in the middle to re-adjust widths, or you can select a pane by clicking. Ditto for new tabs/windows (but the shortcuts are slightly different -- otherwise you'd have no way to add non-tmux tabs).
+Now just type in prefix-p into the input box where prefix is whatever you have set for tmux (I use cntrl-a so the box displays \001p). Note that if you make a mistake, delete characters will be inserted instead of actually deleting characters, so hit the "Delete one character" button to move backwards, in case you mess up.
+Go into Preferences > Settings and click on the "Keyboard" tab. Now you need to add a new keyboard shortcut by clicking on the plus icon below the box. Now you want to set a key combo that "Sends string to shell."
+but nothing works. Is this possible? I don't really need to bind the prefix to cmd, but I want to be able to change tmux tabs with cmd+n. 
+You might also look at this blog post that has very detailed explanations about tmux/iterm integration:
+You can also modify cntrl-anything and shift-anything, but do remember that these could interfere with your $EDITOR or other programs, so be careful about what special functions might be rendered useless.
+You may also want to consider the native (but very experimental) integration that iTerm2 offers with tmux:
+Special shortcuts can be made with Terminal.app. I just found out the other day, but this may have been possible prior to lion. 
+I'm used to iTerm2 (or Terminal.app for this case) on OS X. But I want to move to use tmux (or screen, but the problem is similar to both apps).

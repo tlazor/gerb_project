@@ -1,0 +1,7 @@
+Now here's the question: Is there an easy way to find the plugin that causes the problem? I'm particularly looking for an easier way than to disable plugin after plugin and waiting to see what happens.
+what you need to do is update the firefox to max and install all the update of the pulgins who come in... 
+A little easier. Disable half the plugins. If symptoms continue then do the other half. Once you have shown which group has the problem, repeat by halving that group. This reduces n steps to log n.
+I'm using firefox with a handfull of plugins, probably like everyone else. Now somehow, firefox locks up a few times a day, with CPU usage going up to 100% and staying there.
+Is there some way I could attach a debugger (this being on a linux box), or detect what's going on "inside" in another way?
+There's no easy way to to do other than what Richard said. But from now on, try adding add-ons one at a time. It's easy to get excited, add many, and not be sure what is messing up.
+It lists some of the plugins that I'm using as problematic - Firebug, DownThemAll, Adblock Plus - with some good hints and workarounds for some of the problems.

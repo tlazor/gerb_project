@@ -1,0 +1,7 @@
+In zsh (which, is to my knowledge a super set of bash) if you set the following variable in your .zshrc file: 
+To have the time added before every command that you execute on the shell you can do something like this
+Include \t in your prompt string.  It will include the time in your prompt at the point where you include it.  See:
+If you don't want to sacrifice your Enter Key you could make a 'second' benchmark-enter Key like F12 by binding the command like this
+The background of all this is that bash uses GNU readline to read commands. So readline would be a good starting point for further command manipulation, etc.
+Every command that takes longer than 5 seconds (I'm pretty sure) will display the output of time. All commands that complete more quickly don't. And in those cases one doesn't really care, so it's nice to not clutter things up. There are also a lot of other cool features in zsh that you might enjoy while you're at it. 
+This will rebind the return key. Now every time you press return instead of writing a newline \n it will go to the beginning of the line, enter the text 'time' and a space, go to the end of the line and enter the newline \n thereby producing the desired effect.

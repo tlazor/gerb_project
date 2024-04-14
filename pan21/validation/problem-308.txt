@@ -1,0 +1,7 @@
+I don't think this question has a real answer, unless someone's done statistical analysis on which type of error is likely to occur. It could be anything.
+Corruption implies random damage to your data.  Corruption doesn't usually look like anything -- not in the way that you're implying by your question.
+As Artem has already answered, there really isn't a definitive answer.  It all depends on what your system is doing and what it's meant to do.
+And when you do get an error, how much corruption do you usually see? (just 1 or 2 bits or a whole block).
+I've seen all your examples, sometimes several at once. But I wouldn't use the term 'patterns', corruption really can occur anywhere in a file and look like anything you can imagine.
+Basically, you need to learn what is normal for your system.  When your system starts exhibiting behaviour outside of normal, you need to look for the root cause of the problem.  One of the causes you should consider is data corruption.
+When you have corrupted data: through packets, or hard drives, what kind of errors do you usually find?

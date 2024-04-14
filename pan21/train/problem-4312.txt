@@ -1,0 +1,8 @@
+...but that doesn't really solve the problem, and will affect all environments they connect to, including their local instance(s).
+(Go ahead, try it - even a query that is somehow artificially limited to return 100 rows can bring your system to its knees.)
+No, there is no policy for this. You could perhaps figure out a way, e.g. via Group Policy somehow, to set this value to 100...
+Is there a policy or special configuration to make SQL Server show limited results (i.e. 100 rows) on huge tables? If so, which SQL Server version does that?
+You can prevent SELECT * by adding this computed column to the table (or to a view that references the table):
+But again, that doesn't prevent them from selecting all rows. I have to agree with Thomas here - why are these developers allowed to run whatever ad hoc queries they feel like against critical systems? Do you really want them to even be able to do this:
+The issue is that many developers are executing such SELECT statements on huge tables, which slows down SQL Server performance.
+What you could do is deny them direct access to the tables, and force their access through stored procedures - which take parameters for row counts etc., and the code could cap how high those could go (either by checking or using a parameter of type TINYINT).

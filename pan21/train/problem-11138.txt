@@ -1,0 +1,7 @@
+Pretty much. Flash can't take keyboard input unless you've clicked in it. You could probably throw something together with autohotkey, but honesty, there are easier methods. Many players (Foobar does, at least) allow you to point them to a file on an external server and stream it, complete with hotkeys and everything.
+Is it some limitation of flash that prevents keyboard shortcuts from working? If not, are there any websites containing a flash media player, where these shortcuts do work (preferably ones that can look at rss feeds and play podcasts)? Perhaps there is a java-based player that might work?
+I use netvibes to listen to podcasts when I am home. It can stream a podcast so I don't have to download it, or subscribe to it like iTunes, Zune etc. It uses a flash-based player to do this.
+However, as CTRL+P is print I would have expected that you'd have noticed the print dialog appearing. If that's not the case then it must be that the Flash player isn't coded to accept CTRL+P as valid input.
+Hopefully the flash player is coded so that it works on any browser on any os.  If that's the case, what's the point of emulating the player control shortcuts of just one of those oses.  That would be confusing to the people using the other oses.
+Unfortunately, the kind of player control shortcuts to play/pause, stop, skip track, etc. don't work. The same problem exists on youtube, odeo etc..
+EDIT: Oh, and the flash players TOTALLY could have those shortcuts if they had focus - they just don't, most of the time. They're not built for long listening, really.

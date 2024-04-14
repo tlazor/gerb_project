@@ -1,0 +1,7 @@
+We've verified that the services that are used by the project server have read access to the Active Directory.
+There is also a message saying "The synchronization failed because the Active Directory group was empty or not found." in the "Synchronization status".
+When we try to add a distribution or security group to the "Active directory group" field the group can be selected in the autocompletion without any trouble, but when we then try to use "Save and Synchronize now" button, nothing happens.
+Are both in same domain/forest ? and resource inside the group too ? If not, switch it to universal as a test.
+"Make sure the PWA url you are accessing is Alternate Access Mapping default zone. For me it was in custom zone and it started working as soon as I added the URL in default zone under Alternate Access Mapping."
+We're trying to configure Micorosft Project Server 2013 to synchronize our Active Directory users through the Active Directory Enterprise Resource Pool Synchronization tool.
+http://www.msprojectnow.com/Blog/tabid/142/entryid/752/Project-Server-2013-Active-Directory-Synchronization-Issues-and-Resolution.aspx

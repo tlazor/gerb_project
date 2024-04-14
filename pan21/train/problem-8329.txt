@@ -1,0 +1,7 @@
+The best way I fount for manipulating the system volume level on Windows without the need for installing additional software is to use VBScript in one of the following ways:
+To get this working in restrictive fullscreen windows, it was sufficient to call the #UseHook directive at the top of my script.
+Although it's a very old question, I want to report my findings on this topic. I stumbled across an AutoHotKey_L library whilst trying to overwrite my keyboard's Volume_Up and Volume_Down global hotkeys. The purpose was to be able to control master volume while running restrictive, key press consuming fullscreen applications/games (Bethesda's games as an infamous example).
+My favorite way of controlling the master volume use the scroll wheel while the cursor is over the taskbar via AutoHotkey:
+In principle, this code contains everything you'll need. It overwrites both keys to do the same as before, but instead of relying on the OS to catch the keypress, AHK sets the volume by itself. Of course, you can specify any other hotkey. Since there doesn't seem to be a built-in function to change the volume relatively, you'll have to get the current volume first and then in-/ decrease it at will (here: 5). VA_SetMasterVolume accepts values between 0.0 and 100.0, inclusive.
+Now you can press your shortcut keys and the volume control box will popup. Then use the UP and DOWN arrows to change the volume, and ESC to close.
+To make it possible to control the volume wherever the cursor is (while capslock is pressed), you can add the following:

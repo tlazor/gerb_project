@@ -1,0 +1,7 @@
+When you think you've found the spot in the CSS code, you can modify the page directly in your browser by using its developer features. (In Chrome you press Ctrl+ Shift + I to launch them.)
+The key thing to look for is @media print. Web sites often have complex structures and it may help to save the page locally and inspect it with a recursive text-searching tool. 
+Try to enable "Print background (colors & images)" option in Page Setup and check how it looks in Print Preview (It's for FF).
+Similar to James - use "Sources" tab in Chrome Developer tools, and replace all instances of media print with media speech.  Thus all the css changes to hide navbars etc will not be applied when printing (but will be applied when text-to-speech is used)
+One reason this problem is common is that web sites using the popular Bootstrap framework use the ubiquitous bootstrap.min.css file, which contains the CSS style above.
+Sometimes web sites use CSS to specify that different styles should be used on-screen and when printing.  This is often good, but it can also be confusing and problematic. Inspect the source code of the page and look for something like:
+Search for the CSS code and just remove or invalidate the rows causing the problem. Verify that the operation worked by using "Print preview".

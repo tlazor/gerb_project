@@ -1,0 +1,6 @@
+My downstairs router is ip 192.168.1.1, so do I force it to server DHCP from .10 to .50 for example and then upstairs router configure it to be 192.168.1.2 (same network now ?? ) and get it to servre DHCP 51 to 100 for example. SO no conflicts.
+So everything is working great, I have strong internet in all cases but downstairs is on 192.168.1.x and upstairs is on 192.168.0.x
+Any advice or better way to do it ? Not sure if this would work or is the recommended way of doing it.
+The easiest thing to do would be to give the upstairs router a static ip.  Open up a web browser and punch in the current IP of the upstairs router and change settings from there. Make the subnet mask and default gateway the same as the downstairs one.
+I recently installed another router upstairs because the downstairs one didn't reach via WIFI. The second router takes its WAN connection from downstairs (I only have 1 physical connection to the internet via an ADSL router ( downstairs) ).
+And yes you can set the DHCP to be staggered a bit so you don't have any computers trying to take the same IP.

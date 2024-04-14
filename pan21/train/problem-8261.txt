@@ -1,0 +1,7 @@
+For taking over control, I really like DameWare. But it is expensive. If you are paying, LanSweeper is a nice tool for deployments and some actions.
+It is very difficult to be able to remotly control without opening firewall ports. By default remote control ports are closed for security matters. If you are planning this on environment with Active Directory, you can easily open ports with a GPO.
+To get an idea, these are programs such as Kaseya, N-Able, etc. They cost a fortune too, but they are something you want to consider when you manage at least 500 pc's and need this kind of access. In any other case, the answer is simply: not possible.
+But you should know that there are IT-Corporate software available made to manage 1000 workstations at once. They collect information, send it to a general server, and through them, you can usually remote control and/or do things without the user knowing. For this to work, you need to install an agent first, but all is done through a website so managing works on most if not all Operating systems.
+Now, given that Software recommendations is Off-topic here at SuperUser, I'm not going to tell you which options are available.
+It is very bad practice to be able to control a pc without a users consent and users usually really dislike the idea of anyone being able to view their pc without their knowledge.
+For that reason, most programs will have some form of protection against "taking over a pc, or notifying the user in one way or the other"

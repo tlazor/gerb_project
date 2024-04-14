@@ -1,0 +1,6 @@
+or permutations hereof. It's important to buy and use pairs of those things as there is no standard which pairs are connected between plug and socket. The one thing you can be sure is the sockets only have pairs 1-2 and 3-6 used.
+That's a cable saver. A pair of these devices is meant to be put in a pair of wall outlets connected by a single 4-pair Cat5 (or better) cable.
+Another cable saving method is connecting a single 4-pair cable to outlets with two Ethernet ports and do this wiring trick inside the outlet harness. These devices cannot do the same again, so they wouldn't magically give you another fast Ethernet then. They only work if the individual outlets have all four pairs connected.
+Fast Ethernet (100MBit) does only ever use pairs 1-2 and 3-6. The other pairs may be used for telephone, Token Ring, or another Ethernet connection.
+Now you posted a picture of the opened thing, I change my answer: This particluar device isn't an Ethernet cable saver but simply an ISDN 2-on-1 adapter. 
+And the latter thing is what these adapters do. They connect the other two pairs to the usual Ethernet ones so you can use them with devices that have the standard wiring.

@@ -1,0 +1,30 @@
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/urllib3/response.py", line 494, in stream
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/cli/base_command.py", line 176, in main
+So I assumed that my memory disk size for ubuntu VM is low so i installed GParted to allocate more memory. But it turns out that I still have unused memory of 1.47GiB on my dev/sda1 partition and the size of package is much smaller than that. Is there any solution for this problem? If you need any additional information please let me know.
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/resolve.py", line 242, in _get_abstract_dist_for
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/commands/install.py", line 315, in run
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/download.py", line 878, in unpack_url
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/msgpack/fallback.py", line 845, in _pack
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/download.py", line 946, in _download_http_url
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/operations/prepare.py", line 334, in prepare_linked_requirement
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/cachecontrol/filewrapper.py", line 52, in _close
+I am using Oracle VM for ubuntu and trying to install a python package called 'torch'. However, whenever I try to install the package by typing 'pip install torch', it gives me an error message saying 'MemoryError' at the end. The exact error message is as follow:
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/msgpack/__init.py", line 47, in packb
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/utils/ui.py", line 159, in iter
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/resolve.py", line 131, in resolve
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/cachecontrol/filewrapper.py", line 65, in read
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/msgpack/fallback.py", line 947, in _pack_map_pairs
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/msgpack/fallback.py", line 790, in _pack
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/resolve.py", line 294, in _resolve_one
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/utils/hashes.py", line 62, in check_against_chunks
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/urllib3/response.py", line 442, in read
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/cachecontrol/serialize.py", line 72, in dumps
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/msgpack/fallback.py", line 845, in _pack
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/download.py", line 607, in written_chunks
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/download.py", line 639, in _download_url
+  Downloading https://files.pythonhosted.org/packages/31/ca/dd2c64f8ab5e7985c4af6e62da933849293906edcdb70dac679c93477733/torch-1.0.1.post2-cp36-cp36m-manylinux1_x86_64.whl (582.5MB)
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/download.py", line 596, in resp_read
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_internal/download.py", line 702, in unpack_http_url
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/msgpack/fallback.py", line 947, in _pack_map_pairs
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/cachecontrol/controller.py", line 300, in cache_response
+  File "/home/edwardkim/syseng/venv/lib/python3.6/site-packages/pip/_vendor/msgpack/fallback.py", line 854, in pack

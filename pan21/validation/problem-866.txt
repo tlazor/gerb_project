@@ -1,0 +1,11 @@
+You are throwing an error at entry yet ignore the very same as you recurse. Why is the error not handled before you call the function. Having the error there means you need to wrap the call in a try catch. Are you unsure of the object you are passing, Where is it coming from and why would it not be as expected? Surely if its not as expected you would expect an empty array returned, rather than having to deal with an error.
+You have repeated the same code for "Objects" and "Array" items, the only difference is that the array index is wrapped in [] and the object key is not. You can create a function to wrap the key depending on the object type.
+The different object types are handle via an object containing named calls typeFunc. Eg typeFunc.Date will handle Date type objects.
+Every line of code counts as a locations for a bug. Reducing the number of lines of codes is the best way to reduce the number of bugs.
+The example ignores the throw and iterate recursively via an internal function. If the start object is not the correct type it just returns an empty array.
+Each time you you recurse you call getTypeOf on the object you pass. But you already know the type or you would not be recursing. Pass the object type when known, it will make things a little simpler.
+The function is recursive so you have the danger of encountering cyclic references. If you are sure that they will not happen then you should be OK just don't call this function from another recursive function as the call stack is not infinite.
+There is a function to convert object to the GET parameters for the ASP.Net controller. Is it possible to minimize the redundancy of the code, but not to the detriment of its readability?
+It is more efficient to close over a recursive function with objects that are shared. You create an new  array urlPairs each time you recure. Then on returning you create yet another array when you concat the result. You can eliminate that overhead using closure.
+The iteration start via typeFunc.Object or typeFunc.Array These functions also pass on how to deal with the object path via iterate function wrap argument.
+First, I would step away from the code and look for tools in the ecosystem that already deals with this or other viable approaches. You could:

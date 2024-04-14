@@ -1,0 +1,8 @@
+The other key metric to watch is the "load average".  This is an indication of how many processes are currently waiting to get on a processor.  This is a very good indicator of how slow your system will feel to use.
+If you want, you can run top -b -n1 | head in batch mode in cron and save the output somewhere, to keep track of top processes.
+There is no logging of process utilization, you might want to install something like atop for this. There used to be a GNU "system accounting" package, too, but IIRC it's less suitable.
+The sar utility collects some statistics about your system if it is switched on.  The simplest way to access them is to type sar on the command line.
+CPU utilization is measured relative to a single CPU. The maximum is 100% for each CPU, so a four-CPU system would have a maximum CPU utilization of 400%.
+Generally, these will not tell you which process was using all the CPU at any given time.  For that, top or htop at the time is your best bet.  Bear in mind that 25 Apache processes using 10% CPU each shows up differently in top to a single MySQL process using 250% CPU.
+A far better option is to install a monitoring system such as Cacti, Munin or Zabbix.  (Although Nagios can do graphing, this is not its forte.)  There are plenty of questions on ServerFault already about which monitoring system is the best.  Once you install one of them, you will have trouble remembering how you lived without it.
+Another note on CPU utilisation, virtual machines can dynamically alter the CPU capacity in response to the needs of the VM.  I have seen a single process showing up as using 9999% CPU in top from within a VM.  The advice given by VMWare about this is "Don't trust metrics measured from within the VM".

@@ -1,0 +1,10 @@
+It is important to remember that although SSL can protect the flow of information between your server and a web browser, using SSL does not offer any additional system level security.
+I learned in the internet that after you got the certificate and do some configures to the server, you can just add https:// and this page would be secured.
+After setting up the certificate, you will see the HTTPS, check the certificate is correct and valid and you should be good to go.
+SSL does provide increase level of security. But remember the word security is so vast these days that it can fall under a lot of things.
+Hey I'm programming a lot with PHP and I'm building a manager system for my site, it is very important that the manager system would be secured as possible, so I want to add SSL.
+Is that true?  I know I need to redirect and it's not mysite.com it's onlt www.mysite.com and all that, but that's all?
+You can also improve security by carefully configuring the IIS or Apache with various modules. Ensure latest updates applied and follow best practices.
+It will not protect you from various other things including bad programming and lack of data verifications. You should see best practices for PHP security such as http://phpsec.org/projects/guide/ or http://php.robm.me.uk/
+Enforcing SSL is another game. Some applications have toggles to enforce SSL (as in https URL's). If yours can't do that then you'll need to do some re-writing at the web server to make sure that every request goes over a secure channel.
+Yes, you got the basics right. You either need to generate a self-signed certificate, or buy one. When that is done you need to configure your web server (not PHP) to offer SSL encryption.

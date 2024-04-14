@@ -1,0 +1,6 @@
+I removed them all, and that broke my Debian Jessie! It won't boot anymore, and it won't even start with HDMI (even if I enable hotplug).
+So my question is: What are the correct sources of these packages that I have to keep for Debian Jessie? And how can I clean up obsolete packages without breaking my Raspbian?
+Btw, this repos doesn't have bindings for Debian Stretch, although the primary bindings may work there. Debian Stretch was the reason why I started this fiasco.
+Luckily, I kept an image of the SD card, so I restored the image, tried again, and verified that this is the cause. Obviously I'm removing some important packages, so my question is:
+I would like to remove obsolete packages from my Raspberry Pi 2, so, I removed all the extra source packages of my Raspbian Jessie, and left only the official Raspbian mirrors:
+It turns out the sources I mentioned in my question are not sufficient. There is this following repos that is important as it contains hardware bindings (apparently) of raspberry pi. The library names suggest that. 

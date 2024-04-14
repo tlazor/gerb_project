@@ -1,0 +1,9 @@
+Not neccessarily objective but using template strings will have influence how you express String composition.
+The alternative you provided leaves the caller in doubt why he gets null. I guess you currently check for null by the caller when the getConnection()-emtoh gets called. Instead of checking for null you should handle the exception there where some code has to decide what to if no connection could be established.
+Use the try with resource construct when loading the properties from the file. This ensures proper resource closing. In your case "input.close()" will never be called if an exception happens before. So you will introduce a memory leak.
+The "finally" clause is for cleaning up resources and not for continued processing. Java does not prevent your kind of usage but their are some assertions to the finally clause your code does not make use of. So it can be placed in the try-block.
+I suggest to throw all exceptions instead of handling it. Maybe you should wrap it to a custom exception that is not signature relevant (RuntimeException).
+Introduce a new structure that represents the information necessary to establish a connection and use it to be independent of "retreiving the data from a properties object" that provides no semantic.
+If you introduce a callback or an observer mechanism you separate the console output from the real doing. You are no longer tied to a console output. You can easily change console output to log file output.
+You can reduce the scope of the connection information variables to "method". Once you are connected they will be present within the connection. And you never reinitialize the "conn"-variable.
+Furthermore do not check things that other code will check anyway (DriverManager.getConnection). So omit

@@ -1,0 +1,12 @@
+Given the sound of it, the problem is that Apache is not "on" by default after you do "vagrant reload." I believe "vagrant reload" simulates what would happen if you "power-cycled" the virtual machine. It sounds like you would want to have the Apache daemon to be running after the virtual machine boots.
+The default runlevel is usually number "3". I would then cut this service "on" for this run levels 3, 4, and 5  as so:
+I was able to solve it using this tutorial on the net. Personally, I ended up using the SysVInit method because I was unable to do it with upstart. You can easily port it to SystemD You just need to change /etc/init.d/httpd [command] to systemctl [command] http.service You can also already use service httpd start
+The ServerName directive warning may be ignored, but you will end up having to manually specify  the IP address you specified for the VM when it was provisioned, if you want to actually see the web content the VM is providing. I would consult the "Private Networking" section of the Vagrant documentation. 
+Even though this is done, you would still need to restart the service manually if it was off when you brought up the VM:
+I went to the Scientific Linux website. It states that the underlying distribution is based on "Enterprise Linux." I would normally interpret this to be "RedHat Enterprise Linux." If this is incorrect, let me know.
+We have the same problem. For us, it is caused by Apache relying on shared files that are mounted by Vagrant. This causes Apache to fail during loading.
+The first column is the name of the service and then the subsequent column contain pairs of values that are <runlevel>:<on|off>. So, in the above line, the gpm service is off at all runlevels. 
+If I were you, I would filter the output and look for "httpd" or "apache" amongst the list of services:
+In previous versions of Vagrant, the provisioning scripts were always run on boot/reboot, so Apache would be restarted after the network shares were attached.
+The way to turn services on/off based on the runlevel of the operating system is usually handled via "chkconfig." I would first confirm what services are on and off. 
+I think one of your documentRoot entries are on a shared drive. Because vagrant is mounting these after the booting (and apache is started before) the apache service cannot start (missing document root)

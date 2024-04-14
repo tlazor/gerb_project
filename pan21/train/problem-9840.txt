@@ -1,0 +1,9 @@
+@FelixFrank provided the main clue to the answer, that the file modules/test/manifests/init.pp had a typo.  Oddly, this wasn't reported in the log by the puppet master, and the puppet agent merely said that the test class couldn't be found.  (It couldn't be found because it didn't parse, near as I can tell.)
+And debug output from the agent is uninteresting to my eye, mostly about finding its certs.  These commands provide a reasonable summary of that boredom:
+The package provides a quick test, which I think should mean that bringing up an agent will result in writing HelloWorld to /tmp/hello:
+If you are using puppet agent in the same host where you have the puppet master, you can use puppet apply as @FelixFrank suggested  
+I'm new enough to puppet that I may have botched logging somehow.  In any case, because there was no node directive at all, the absence of a node directive for this host wasn't at issue.  Indeed, it turned out to be a rather clever test, because once the agent worked (once I fixed the typo), the agent created a file at /tmp/hello.
+Anyway, the problem is, you don't have the node defined the "mangosteen.example.com", you can also solved this problem defining the default node, Puppet looks for the node defining and if nothing is found uses the default node.
+I'm running ubuntu trusty (14.04 LTS) and installed packages puppetmaster-passenger and puppet to get going.  All good so far.
+I'm setting up a puppet master and agent.  They are running on the same host, as I want puppet to manage this host, too.  The agent fails to find the convenient test module that the package provides.
+But this isn't what happens.  (Recall that agent and master are on the same host, which is called mangosteen.example.com with alias puppetmaster.example.com)

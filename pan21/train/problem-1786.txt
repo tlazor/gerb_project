@@ -1,0 +1,7 @@
+If you have a small number of users and computers in the branch office, just do as you planned: delete their domain, set up their server as a domain controller for your domain, and re-join all computers to it.
+You are correct in assuming that one of the two domains needs to go; you can't create a trust between two domains with the same name.
+If you want to avoid re-creating all user profiles, you could perform a domain migration; but again, this is not possible between two domains with the same name.
+Removing the second domain and re-purposing its server as a replica domain controller for your main domain is indeed a solution; but this will require re-joining all computers in the branch office to your domain, because even if both domains have the same name, they are definitely not the same thing; the same goes for user accounts, and thus for user profiles.
+If you have lots of users, or if you absolutely need to keep their user profiles, then you should first rename one of the domains and then perform a domain migration.
+If you choose to go this route, I suggest renaming their domain, which is going to be deleted after the migration; a renamed domain is more prone to issues, thus it's better to do that to the domain you are going to remove than to the one you are going to keep.
+Renaming one of the two domains can be a viable choice, but beware: this is usually a pain on almost the same level as a domain migration.

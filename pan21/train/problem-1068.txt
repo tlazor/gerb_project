@@ -1,0 +1,9 @@
+Alternative ways are to use a while and an iterator, or better, use the remove_if function (see this answer on SO).
+That means T needs to have either a move assignment operator or a copy assignment operator defined. Your Bullet class has neither, and thus cannot be move-assigned as needed by the vector implementation, and thus you get this error.
+Looking at your Bullet, it does not appear like there are any issues there, but we have to look at what it's using.
+Every time you modify a vector when you iterate over it like, [insert you favourite god(s) vs kitten quote here]. It not only makes the code hard to read, it opens up the door to shooting you in the foot.
+The error you get is from the last bullet point in that quote: your Bullet class has not received an automatically copy-assignment operator because some of the classes that it uses has not received one. 
+I'm going out of my usual path here with the more 'technical' c++ rules, so if there are anything wrong here, please point it out. Also, this is only based on what I understand from the provided code, the code from SFML and from knowledge available on the internet.
+C++ is great!! Although it's the greatest tool to shoot yourself in the foot, it's getting more and more 'new user friendly'!
+You should define a copy assignment (or move assignment, but I'd suggest you start with copy assignment) operator in Bullet to fix this.
+Apparently, the Sprite class that you're using is having a const Texture* which prevents it from being implicitly copy-assigned (i.e. the first bullet point).

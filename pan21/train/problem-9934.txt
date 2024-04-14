@@ -1,0 +1,8 @@
+In theory this is easy, since each folder belongs to a single server and writes within a folder can go to the server that has the parent folder. Unfortunately it would appear that UnionFS and OverlayFS do not support more than one read/write filesystem.
+I have a OS drive and a Data drive in my system. My data drive that serves /var and /home, and it's mounted at /mnt/DataDrive.
+Are there any ways to do this that I can't think of? I think 1,000 NFS mounts (one for each home directory) would not work terribly well and would be a pain to keep up to date.
+Use autofs to automatically mount directories in use. With the use of wildcards, your /home map could look something like
+What I'd like to do is to mount them (NFS or SSHFS) to a 7th server and merge them all together in to a single /home with full visibility to all of the 6 servers, and maintain read write.
+If autofs does not work, consider mounting the entire share at /home in /etc/fstab. So listing of /home is a few thousand directories, but the number of mounts is fewer.
+Create separate mount points for each server. Create symlinks for the home directory to the directory on the mount point.
+I've got over 1,000 directories, spread out over 6 servers. Technically they are home folders. It's guaranteed that there will never be any duplicate folder names.

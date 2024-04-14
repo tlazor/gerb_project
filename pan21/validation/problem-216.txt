@@ -1,0 +1,8 @@
+Its worth bearing in mind that while the users suffering the most are a minority (less than %10 of the workforce), they are key front line staff and are not only  vital to the organisation, but any impact we can make to improve their use of IT will improve the level of service we can provide. 
+Roaming profiles can be quite a handful unless all of your workstations are exactly the same also they do have an impact on network and server load and space.
+What are our options for speeding the login process? Have roaming profiles improved in both the network load and speed of login?
+(2) Deleting local profiles is common and in fact was recommended and encouraged in Citrix environments. So that aspect is normal or at least in regular use in IT for many years.
+(2) it is also a common IT support strategy to delete unused local profiles on machines where dozens (maybe hundreds) of local profiles have been created. 
+I understand this situation arose a number of years ago when roaming profiles where slow and would have had a detrimental effect on our network.
+I work at a medium sized organisation with high staff turnover and internal movement(1) and I've noticed a consistent problem for our new users that each time they visit a new PC - and they are required to do this a lot over the first two years of they career - the login process with their AD account takes a long time. 
+More of a resource decision in my opinion and really hard to answer without ALOT of specifics. Your mileage may vary based on those specifics.

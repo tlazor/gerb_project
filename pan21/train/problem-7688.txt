@@ -1,0 +1,9 @@
+if you can access the device manager you can 'uninstall' the current keyboard and then do a restart, the system will recognize the keyboard as a new device and reinstall the default driver for it, to make sure this trick to work, uninstall the keyboard, shut down the pc, swap the keyboard with another device (if it's an USB), then restart the pc
+According to ( http://www.howtogeek.com/howto/windows-vista/disable-caps-lock-key-in-windows-vista/ ) it's
+possible to remap keys by editing the registry. Perhaps the previous user of your computer has done so, making the two keys point to each other? To
+assist you in examining the key's data to determine specifically which keys are being remapped. The previously linked
+software section and see what else they've installed (as there are programs other than AutoHotKey out there). 
+article is also rather brief on the subject, and does not list the codes equating to the alt or control keys.
+You mentioned having support staff so I assume you are in a work environment so it's possible IT has other additional 
+If you don't see a key called "Scancode Map" then this isn't the problem. Perhaps you should check the Windows Add/Remove
+if you can't access the device manager (due admin/user privileges), go and talk with the IT maintenance guys and explain your problem to them, they are in the obligation of fixing it

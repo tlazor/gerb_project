@@ -1,0 +1,12 @@
+So, for a packet to 1.1.1.1, the destination is looked up in the routing table, returning the default route, which has a gateway. The gateway is looked up again, returning the Ethernet interface.
+The most specific route wins for each destination, so the subnet route takes precedence over the default route for addresses in the subnet.
+Ethernet has MAC addresses, so an ARP lookup is done for the gateway address, and the MAC address for the gateway is used for the outgoing packet (which still uses the proper destination address in its IP header).
+A typical routing table for a device on a private network might, if you leave out the unnecessary stuff, look like
+The IP address of the gateway can be any valid host IP address in the subnet, i.e. not the network address itself nor the broadcast address. This IP address does not need to belong to a single computer or router, it can be a "floating" IP address used by several gateways. Check out the Wikipedia articles on HSRP, VRRP, GLBP, or CARP.
+The only requirement, in order that routing works, is that whatever device currently owns and advertises the address, that device can and will route traffic.
+Other lower-level transports work differently, for example PPP links have a "peer address", so their device route uses a netmask of /32, and they skip ARP resolution and just send packets as "broadcast" over the PPP link.
+Now adding in one of the first-hop redundancy protocols, the actual gateways (routers) can have the IP address 172.16.23.1 and 172.16.23.2 but use the virtual IP address of 172.16.23.65 to present themselves as the default gateway to the subnet.
+The gateway must be any of these valid host addresses, e.g. 172.16.23.65. The settings of your computer would then be, e.g.:
+Default route (aka gateway address) has to be owned by something that is capable of forwarding packets to the rest of the internet, and which is willing to do so.  It doesn't have to be the "principal" IP address of the thing that owns it (whatever that means).  It can be a logical address that floats between two or more devices, and in high-availability setups it often is.
+Is a Gateway always a real computer or just a "logic" entity, which can be on any address, except the broadcast IP?
+The gateway address is, in turn, resolved through the routing table, which determines the network interface it is given to as well as addressing on the lower layer.

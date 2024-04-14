@@ -1,0 +1,6 @@
+ASA site-to-site VPN is fairly limited and the routing is fairly tricky to troubleshoot etc a much nicer setup would be to use DMVPN and a routing protocol (such as EIGRP or OSPF). DMVPN can do next hop resolution whereby the spokes automatically set up tunnels between themselves instead of routing everything via the hub.
+My preferred solution though is to create a new network just for VPN remote users, this gives you a bit of a better view of who they are and what they do, from there on you can either choose to configure static routes on your clients or just activate the VPN as the default gateway for the user.
+You may want to set up tunnels between the remote sites instead of routing via the main site, saves bandwidth etc.
+If you're sitting your VPN users in the same network as your office you need to add static routing to the other locations on your VPN client settings explicitely, unless you're using your VPN also as your default gateway.
+If you still wish to enable access between remote sites via your central site you should look in to the command:
+I'm not a fan of having the VPN as default gateway for the remote user traffic, so I recommend adding static routes to the configuration instead.

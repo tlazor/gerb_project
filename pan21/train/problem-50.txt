@@ -1,0 +1,9 @@
+This script will automatically find your "Public IP Address" and then update your NameSilo DNS A records.
+This script was taken and customized from http://www.forkrobotics.com/2014/10/dynamic-dns-with-namesilo-and-powershell/
+This script can be used to update your A DNS records for the main domain (e.g. somedomain.com) and also for your subdomains (e.g. subdomain). You can create one line for each domain/subdomain you want to update.
+I used it for connecting my client PC to a Team Foundation Server (TFS) over the internet. The server and client are behind NAT. I set the local and remote ports to '8080' and I can connect to server from client using this address on client: 'http://localhost:8080/tfs/'
+Couple of things to note, you will need to Login to your NameSilo account and under API Manager -> Generate an API Key which you need to enter in the batch script above to replace <NameSilo_API_Key>.
+Keep both the files in the same directory. UpdateDDNSIPv4.bat is the batchfile which should be called by Task Scheduler in your recurring task.
+However if you have your own custom domain name that you'd like to use, you can use the DNS services from NameSilo (http://www.namesilo.com) as your DNS provider and the powershell windows script below along with a scheduled task to replicate the Dyn/NoIP service.
+One way to keep your "dynamic IP" in sync with your DNS is by using a service like Dyn or NoIP which provide their proprietary Domain names/Domain names to purchase.
+Assuming you're running windows, here's a simple script that you can "schedule" using Task Scheduler to run on StartUp/Logon and then rerun every 6 hours (that way the maximum downtime due to an IP address change is 6 hours).

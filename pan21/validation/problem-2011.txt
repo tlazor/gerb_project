@@ -1,0 +1,6 @@
+Since you probably want your original file back as a file, rather than coming back at you as lots of (binary) text, you'll want to redirect the output to a file:
+But in second thought, one can always install a virtual machine, set the router to port-forward the ports and ask his novice friend to ssh to the virtual machine... But perhaps that's a rather long shot.
+Kind of reversed the problem - using encrypted connection rather than encrypting the file. Of course, this solution might not fit everyone's needs - it works only if you have a trustworthy server.
+GPG (and the commercial PGP) have the option to encrypt something symmetrically as well as the more common (for these two applications) asymmetric option. i.e. It let you encrypt something using a passphase, and later decrypt it using that passphase. Either program can decrypt what the other one have encrypted (using the right passphase obviously).
+I have solved this using Putty Secure Copy, through a Linux box I have on the net. The user downloaded scp to the same directory where the file was, and I have send him the exact scp command by mail.
+Although it might be a bit overkill, TrueCrypt allows you to encrypt files and folders and shows up as a removable device in My Computer. It is free and (in my opinion) user friendly.

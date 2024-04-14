@@ -1,0 +1,6 @@
+Have a look at Unity's shader utility code, which includes macros to help you access the lighting information from your shaders. You'll should find these in the Unity install tree (C:\Program Files (x86)\Unity\Editor\Data\CGIncludes on my Windows machine, /Applications/Unity/Unity.app/Contents/CGIncludes on my Mac). The file that's relevant to your goal is AutoLight.cginc.
+You'd need to include AutoLight.cginc in your shader and then use the macros in there to do the work. Looks like you'll want to:
+As Netherwire implied in reply to my previous answer, the real question seems to be "How can I make an object respond to only one of several light sources in my scene?"
+In this case, you would need to assign the wall object to its own layer, then edit each non-spot light source so that the light's Culling Mask does not include the wall object's layer.
+(Note 2: I haven't used spotlights in Unity, so it's fairly likely that you'll have to debug my approach a little.)
+What you want to do is definitely possible, since Unity does it in the built-in shaders, and there's nothing in those that you can't duplicate. I can't say whether doing it yourself result in a faster shader than what Unity would generate from a surface shader.

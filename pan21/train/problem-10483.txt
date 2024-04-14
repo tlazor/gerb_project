@@ -1,0 +1,6 @@
+Other than forcing only secure auth methods for our POP/IMAP/SMTP/webmail connections, is there anything else we could do to prevent stolen passwords?
+Are email credentials stolen mostly by desktop pc viruses? Or do I have to suspect more network sniffing when the user goes around with his/her laptop/tablet/smartphone ? Or there are other causes I should consider?
+We run a mail system for some thousands users and from time to time we get a spam flood from one of our users' account.
+Due to a policy we do have to provide service (smtp, pop, imap) also over plaintext connection (no TLS) and I'm trying to fix that but it'll be a long process, but in more than one case further investigation lead to the discovery of some viruses on the user's pc.
+I am wondering how valid users credentials gets stolen so frequently. I guess they are not bruteforced since most of them are sane, robust password.
+When that happens we see connections from multiple IP addresses of foreign countries and they authenticate to our SMTP server using valid credentials, we then reset the user's password and the spam stops. It is getting annoying: we get on average such a case every month.

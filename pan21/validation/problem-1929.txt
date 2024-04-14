@@ -1,0 +1,5 @@
+I do just that in my ec2-start-stop demo. You'll see file ec2-start-stop.template.yml with these lines:
+Then I've got the actual Python script referred in the %%{ec2-start-stop.lambda.py}%% and a simple import-files.py script that somewhat intelligently embeds the python file into the yaml file and creates a valid standalone CloudFormation template with the lambda code in it.
+In this case your Lambda resource in the template points to a local directory, e.g. lambda/. The package command then zips up the contents of the directory, uploads to the provided S3 Bucket with a unique name and generates an updated CFN template with the link to the uploaded file. The aws cloudformation deploy command then takes the template, creates a change set and applies the changes, thus updating the Lambda.
+I've used both methods in CI/CD pipelines and both work well because the source files are kept in separate files until deployment.
+If you've got a more complex Lambda that needs external libraries or doesn't fit in the 4kB limit you can use aws cloudformation package and aws cloudformation deploy to facilitate the deployment to CI/CD.

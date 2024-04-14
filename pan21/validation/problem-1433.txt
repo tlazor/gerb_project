@@ -1,0 +1,8 @@
+The last one might be the best one to try in the case of a docking station, where space between USB connectors is usually tight.
+USB 3.0 has been interfering. I disconnected the mass storage device adapter connected to the USB 3.0 back plane and now I have no problems with my wireless keyboard and mouse.
+I too had two Logitech mice that were hanging in Win7 and Win10. I resolved much of the issue by replacing the mouse pad.  My old pad had a very slick surface.  I replaced it with a new Staples (brand unimportant) mouse pad with one of those surfaces that is textured like fabric.  Mouse works a lot better. 
+From Intel's note on USB 3.0 Radio Frequency Interference on 2.4 GHz Devices (page links to the full PDF download):
+Moving the mouse receiver from the back of the computer to a USB port on the front solved this for me.
+On the old computers the mice worked smoothly, but on the new ones mouse behavior was erratic (sticky and jerky). As soon as I moved the mouse receivers from rear USB ports to front USB ports, the problem went away on both machines.
+I recently got new desktop computers, with Win 10/64-bit, at work and at home. The old computers were running Win XP/32-bit, and each had a Logitech M510 mouse with the receiver plugged into a USB port on the back panel.
+Among recommendations to mitigate the issue, posted in a Logitech wiki at Potential USB 3.0 interference:

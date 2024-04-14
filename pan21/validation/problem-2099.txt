@@ -1,0 +1,7 @@
+Depending on your reporting requirements you may also consider creating a summary table, which will have data already pre-aggregated for your reports. It can be populated overnight and speed up your reports dramatically (indexes is a must on this table too). You can even populate this summary table several times during the day without locking the table by using READ UNCOMMITTED - it is unlikely that you need precision to every visitor.
+I have a second table that maintains the history of each visits, which means I if the same visitor visits the site, I insert into the second table and update the no. of visits on the first table.
+I need to decide between partitioning the tables by month and sub-partitioning by days for the reports 1,2,3 and index the browser related columns for report 4. 
+Although there will be a number of tables (you may keep e.g. a table per quarter and then have second line of archiving to a table with month/browser key) it will be manageable, because partitions are quickly switched from one table to another.
+Does partitioning/sub-partitioning along with indexing help in the performance of inserts and selects?
+On an average there are about 20000 inserts to the second table and about 15000 inserts to the first table, meaning 5000 were updates to the first table (5000 repeat visits).
+table (1-2 months of data) partitioned by day and browser. And another History table for archive partitioned by month/day.

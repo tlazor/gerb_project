@@ -1,0 +1,7 @@
+To add on, if you don't have any option to add the label to each record, you have to depend on your domain knowledge to interpret the cluster outcomes. 
+Cluster 2 - This group may be comprises people from country side due to which their transportation cost is more than the other cluster.
+If we have a data set of people's spending habits with columns for their spend in different categories like groceries, clothing, transportation, rent etc. And we applied a clustering algorithm (like k-means or agglomerative clustering) on it.
+It depends on the clustering technique you use. Since you tagged this post with k-means I will assume this is what you are using. Cluster centers should already be somewhat informative for laymans, but since you should be/are scaling this can lose some of it's interpretation. 
+Cluster 1 - May be this group represents people who are in Urban areas, more money to spend and the density of grocery/commodities shops are more that resulted in less transportation
+What you could do is assign class labels to each sample based on in what cluster they ended up in. Then you could fit a multi-class decision tree to your data and use the decision rules for interpretation, like 60% of cluster 1 has $x_1 < 0.9$.
+If I say in layman terms, K-Means is applied only when you know how many clusters you need to get (using Scree plot may be) to get meaningful insights for your business question. So you must be having the numbers/clusters in your mind already. Its not simply you have to apply the algorithm. 

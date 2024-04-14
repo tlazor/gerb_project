@@ -1,0 +1,7 @@
+I have from time to time researched this issue, but I could never find exactly some answer related to this kind of setup. This is because the phone-industry terminology is unknown to me, and whenever I would search for this, I would always find answers about VoIP/SIP or about PBX and Asterisk.
+https://en.wikipedia.org/wiki/Foreign_exchange_service_%28telecommunications%29#Foreign_exchange_office
+But I was never able to find something about setting-up your own telephone-gateway, without connecting to a SIP provider.
+Especially the last link is very useful, with an example of an actual FXO card (it's the first time I hear this term, it seems it's only known by VoIP professionals, and it's kept quite "hidden" from the consumers ears)
+So I turned into alternative solutions, but is there some kind of hardware that I can plug into my computer or my router, so I can insert my SIM card into that hardware and it provides a service over my LAN for my to send/receive phone call/SMS, so all my Internet devices(tablets/desktop/laptop) can use?
+I tried Google Voice as well as Skype. Their outgoing call is all right, but it seems impossible to get a fixed mainland China phone number for both services.
+Now I still have to learn which software to use for this setup. (From the last link it looks like Asterisk has builtin support, but I have to check it.)

@@ -1,0 +1,7 @@
+Firstly you should have the snapshot of your volume, it can be done both through console and aws-cli.
+I'm having trouble finding documentation that makes this clear.  What is the correct way to add a specific EBS Volume to the block_device_map ?
+I would like to launch an EC2 instance using the python boto library, with a previously created EBS volume attached (in addition to the root volume).
+Then you start the instance based on the above AMI. Here I drop the sample of creating spot-instance, but creating On-Demand instance is even simpler:
+After connecting, I look up the volume by its name tag, and try to create a block device list containing the volume.  I was getting all kinds of errors, but eventually created the following code which at least succeeds in launching an instance.
+Unlike Matt says, it is perfectly possible to attach existing EBS volumes to AMI during its creation.
+The print statement shows it was able to lookup the volume and reports the correct volume id.  However when the instance launches a new unformatted 32GB volume is created and attached to the volume instead.

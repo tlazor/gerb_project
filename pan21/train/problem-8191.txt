@@ -1,0 +1,5 @@
+You can use any command you want in place of mv. I took a look at Timidity's man page, but I couldn't figure out where it takes an output filename so I haven't given an example.
+Suppose you just wanted to rename files. Then if you are using a Bourne shell (such as sh, bash) you can run the command on files matching a pattern using a for loop. Here are equivalent multiline and single-line versions:
+I was wondering if there is a standard way of specifying a output pattern so that it converts all the *.mid files to /path/*.wav
+The for loop runs the commands with $f being each word in the expansion of *.mid, and ${f%.mid} removes the suffix .mid so that we can replace it with .wav. The quotes make this program correct for filenames containing spaces (but not filenames starting with "-", as that depends on the command). If you want to match several groups of files rather than everything, you can use multiple patterns like for f in alpha-*.mid beta-*.mid; do ...
+I ask this in general because it would also be the case in a mv command. Or is this tied to a specific implementation in the app?

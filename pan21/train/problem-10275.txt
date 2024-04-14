@@ -1,0 +1,16 @@
+Their names being so similar has made for very frustrating Google results when trying to get any information about how they might interact, hence my question here!
+Additionally, if your users are synced from on-premises AD. Don't forget to configure the password synchronization (cannot be ADFS sync here) with NTLM and Kerberos credential hashes to make sure the synced users can use their corporate credentials to login the servers & services in the managed domain. More details here for reference.  
+There seems to be almost nothing written on the topic (that I can find!) and so your insights are greatly appreciated! 
+Do I somehow sync my Azure AD and Azure AD DS instance? Does this mean building a VM to run the AD Connect tool?
+Firstly, Azure Active Directory. This is the directory service that underpins o365. You can sync credentials into it and use it for SSO via SAML and a few other bits, but that is basically it. 
+Secondly, Azure Active Directory Domain Services. This is much closer to a ADDS as we know it since Windows 2000 (OUs, Group Policy, NTLM, etc.) but provided as-a-service. There are a bunch of limitations (no domain admin rights, no schema extensions, no direct access to DCs) but you can domain-join servers to it in the traditional manner.
+The sync from Azure AD to Azure AD DS managed domain is started automatically and one-way/unidirectional on background. More details here.
+Yes it can be achieved after you enabling Azure AD Domain service feature and wait for the user accounts & credential hashes been synchronized successfully from Azure AD to Azure AD DS managed domain.
+If the same Azure AD partition is managing both your Office 365 and Azure subscription then when you enable Azure AD Domain services all of your Azure AD user and group accounts will be available in the newly created domain. they get crated inside an OU. so the same user accounts can be used to login to servers joined to your Azure AD Domain Services Domain.
+one thing to note though, if you add users to your Azure AD Partition they will appear in your Azure AD Domain Services domain but the reverse is not true. if you add users directly to your Azure AD Domain Services domain they will not appear as Azure AD Users.
+I don't know about your proposed solution but regarding Azure AD and Azure Active Directory Domain services.....
+My goal is to move as much as is possible to the Cloud. I already have Exchange and SharePoint moved via o365 and have my on-premise AD syncing with Azure AD. I want to move all my servers to Azure too and use Azure AD Domain Services rather than build my own DCs as Azure VMs. All of that seems achievable.
+My critical requirement: I want a user that logs into their o365 mailbox to do so with the same credentials as they use to login to a server (or service running on a server) that is domain-joined to the Azure AD Domain Services domain.
+you can manage Azure AD Domain Services by joining a server to the domain and installing the Active Directory Administration tools.
+Do I 'extend' or 'Upgrade?' my Azure AD instance to an Azure AD DS instance? There doesn't seem to be any option to do so.
+The Enable Azure AD Domain service feature is located on the Configure tab of your Azure AD page (Azure classic portal) like below. The more details can be found in the docs here.

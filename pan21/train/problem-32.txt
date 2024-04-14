@@ -1,0 +1,5 @@
+Note: the first backup with rsync will be slow because all files are copied. Subsequently only the changed files are copied, and they can be compressed during the copy.
+Do you need history (multiple backups) or just a plain copy of your data to some other disk? Backing up 100GB of 10KB files would take ages  if you don't use a block level backup. Think about making block level snapshots or some other block level based solution, if you really need a fast solution.
+Take a look at rsnapshot, it's just a script that you can use as front for rsync. It will only backup stuff that has changed and rotate your backups. 
+rsync can be somewhat painful if you have a very large number of files - especially if your rsync version is lower than 3. On the other hand: if you use tar, you would generate a very big resulting tar-file (unless the data may be compressed a lot). Personally, I would look at rdiff-backup, but make sure that you test your restore situation: rdiff-backup can be very memory demanding when restoring.
+Tar is an archive utility. You could conceivably create a tar file for the entire 100GB+, but you don't want to transfer it all, each time.

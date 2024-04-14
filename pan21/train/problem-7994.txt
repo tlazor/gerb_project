@@ -1,0 +1,13 @@
+ - Generate SSH private/public keypair on the computer doing the monitoring and set it up on the machines you will be accessing.
+Would like to be able to graph these somehow to have showing on a screen in the office the developers are in. 
+Whats the best tool for this? I was looking at cacti, and have used zenoss for other monitoring before. But can't find info on doing exactly this with either - hoping someone else has done it!
+ - Set up a bunch of terminal windows to.automatically load on boot and connect to each server and start tail'ing the logfiles.
+We set this up on a mac running Leopard, so it camke with everything we needed from scratch, ssh, terminal with "window groups" and profiles for running a custom command instead of the normal shell on connect.
+Make sure you use tail -F instead of tail -f, otherwise the log will stop scrolling when it's rotated.
+What I did at work was simply to set up a bunch of terminals running tail on a big screen. It's been very effective, as you get all the errors in real time.
+The hope is that increasing the visibility of these errors will firstly make people aware  quickly if an upgrade increases the error rate, and also help in the longer term quest to drive the errors down towards zero. 
+For extra points, it would be nice to be able split the errors up by a part of the path to the file causing the error (ie: split the errors by site). 
+To give a bit of background, have some legacy PHP applications/websites that generate various errors/warnings etc, currently going to apache log.
+You can do that (and much more) with my logs management project Octopussy, but it's probably a little bit complicated for just what you need...
+ - Set upp logmonitor account on all related machines, make sure it can read the log files, and not much else.
+Of course, the next. Level of this would be to set upp your sysloggers to collect all the logfiles from all the different machines in one place.

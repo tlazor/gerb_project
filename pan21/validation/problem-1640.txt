@@ -1,0 +1,6 @@
+I came across similar problem, and it turns out, AWS EC2 defaults differ for launching instance vs. creating an AMI: hardware virtualization (HVM) is the default choice in first case, but paravirtual (PV) is the default for image creation. 
+I had the same thing happen, and choosing the correct AKI for the OS version and architecture using the tool above worked like a charm.
+I stumbled upon this when tried to move EC2 instance between availability zones by snapshotting its EBS volume and creating a new AMI, and this discrepancy in settings (which I did not pay attention too) wasted an hour for me.
+This seems to indicate to me it is using the snapshot as the root volume for the new instance (it is, in fact, the only volume).
+I have an EC2 instance running the Ubuntu 12.04 32bit AMI (available in the first page the Classic wizard for launching a new instance).  The root device is an EBS volume.  I then follow these steps:
+I then launch the instance.  However, it fails the "status checks" during the "initialization" step.  If I right click the instance and "Get System Log", this is the tail of the log:

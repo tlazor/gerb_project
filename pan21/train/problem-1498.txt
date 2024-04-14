@@ -1,0 +1,6 @@
+In this case I'd say it's most likely PSU. They also tend to be easier to acquire, swap, and test (and return if it turns out not to be the case).
+Quick fan spin can mean PSU, as you suggest, or it could mean MoBo. MoBo light probably just indicates the MoBo is receiving power. Whether it is receiving enough power would be a question.
+It could also be some other component. To check, remove the memory, cards, disk connectors, etc. and try booting with just the processor. If it boots (though expect some beeps) add components back one at time. 
+Upon trying to turn it on, the fan on the back of the PSU spins for a quick moment and then stops. At this point I decided further investigation was needed.
+Friend of mine has a rig that has just mysteriously "stopped working".  I wasn't there when this occured, so I've decided to take a look at it.
+Popped off the side panel.  Notice a light on the MoBo is on, press the button to turn the machine on - the fan on the CPU spins for a quick moment and then stops as well.

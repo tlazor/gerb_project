@@ -1,0 +1,6 @@
+This function has a possible side-effect of printing "Way to go X".  That's a bad design, since it means that you have to be careful to call it exactly once, if there is a winner.  Unfortunately, you don't take that precaution, so you'll end up printing "Way to go X" twice when X wins.
+When a player wins, the game exits immediately, after showing the winning board for a split second.  It would be much more satisfying to wait until the window is closed.
+I would just write currentPlayer = not currentPlayer, and eliminate the function altogether.  (Note that this takes advantage of the fact that 0/False and 1/True are somewhat interchangeable.  Some purists might object.) 
+The move should not be represented as a string.  If getValidMove(), which already parsed the string to validate the move, returned a tuple of integers (y, x), then you wouldn't have to repeat that work here.
+This function does more than drawing: it also updates the board.  You should either remove the board-updating code, or rename the function to executeMove().  I recommend the latter.
+Avoid extreme Hungarian notation with names like boardLoL, markerList, and validMoveList.  It would be fine to write board, MARKERS, and VALID_MOVES, respectively.

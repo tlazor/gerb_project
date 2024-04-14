@@ -1,0 +1,7 @@
+Modify your Conditions method to be something a little more descriptive.  You should change the signature too so you can pass in the string you're processing.  This will clarify what call is supposed to be doing.
+I think you're using too many class variables in this code.  You also have way too many nested ifs.  I have noted below where you should be removing the nesting and why it is not needed.
+Start in the GetProfileNames method.  The while the loop works, but it is very messy, and the while(true) statement really confuses the code. I would try something like this, it is cleaner, and probably more efficient
+Your DoWork method is a mess.  I would start by adding a return to the if of the error check and removing the else.  I would also stop using the '+' to concatenate strings, this is a very inefficient way of doing it.  My suggestion would be to use string.Format()
+Make the error reporting a little cleaner but using helper methods and adding a continue instead of the else statement
+I'm not going to take out the next while loop because I don't think I have that much brain power right now, but lets clean it up:
+These suggestions just scratch the surface, there is much more I could do to this, but this is a good start.

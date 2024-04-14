@@ -1,0 +1,6 @@
+In particular, Wikipedia's Zeroconf article, UPnP article, and the O'Reilly Zeroconf-vs-UPnP article (from chills42's comment) are the best references for comparing the two and getting a feel for how they differ.
+UPnP is a separate architechure, considered a competitor in some ways and an altogether different technology in others.  It supports a form of zero-configuration networking but doesn't use the mDNS/DNS-SD protocols that Apple utilizes.  UPnP provides a service discovery protocol called Simple Service Discovery Protocol (SSDP) that is a rough equivalent to DNS-SD.
+The equivalent for Bonjour in Windows is Universal Plug and Play. It has been part of Windows sinds XP.
+Bonjour is an implementation of Zeroconf (Zero Configuration Networking), which consists of the protocols mDNS (Multicast DNS) and DNS-SD (DNS-Service Discovery).  mDNS provides "link-local addressing", while DNS-SD is a means for devices to discover services provided by other devices on the network.
+While there is a Windows version of Bonjour, Microsoft does have its own implementation of zero-configuration networking that isn't exactly the same.
+Bonjour!  It runs on Windows too.  Here's a link to the wikipedia entry, you can read more starting there.

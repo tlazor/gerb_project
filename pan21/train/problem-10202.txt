@@ -1,0 +1,10 @@
+Each process seems to have a huge virtual memory size (even though used swap is very low) but I'm not sure if this is related or something to worry about or not.
+For a start, try ThreadStackSize 131072 - see the MPM dox. (or add "ulimit -s 128" to your apache start up script). You might need to play with this figure a bit, depending on your configuration.
+Otherwise this falls back to the system default, usually 8192 kbytes for 32-bit Linux - it might be different for 64-bit so see "stack size" from the output of ulimit -a. You don't need 8MB per thread - 128k is likely plenty. 
+I wouldn't be surprised if it was some similar issue leading to the very large instances of php (if it isn't due to APC, as was suggested above). I'm not very familiar with mod_fcgid, so I'll leave that issue to others.
+Hopefully people can understand my handwavey explanation. Please ask if there is more info I can provide.
+FYI it's currently running apache with worker MPM and mod_fcgid. But the same problems occured with apache with prefork MPM.
+This is hard to explain succinctly but my server runs out of physical RAM and into swap with only a few apache/php processes running. To combat this we set up fcgid to not spawn too many php processes, but this means we start serving 503 errors while under only very moderate load.
+I'm aware of issues such as where linux looks like it has no available RAM because it's all marked as cached or buffered etc. But this doesn't seem to be the case.
+It feels like the machine vastly overestimates how much RAM it is using (or underestimates how much is free). 
+If you look at the running processes they don't seem to account for the amount of RAM the machine reports as used. 

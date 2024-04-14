@@ -1,0 +1,11 @@
+I uninstalled the previous drivers/devices, switched the PC off, inserted the Asus card, powered up, disabled the onboard audio in the BIOS, then installed the driver that came on the CD (same version as on Asus' website as of today) and everything went perfectly - no errors.
+Next, also you may want to check the cable is working ok - try it with another device, and more importantly, make sure that the device you are using with is enabled and working fine - on a friends AMP, we were trying to get it working for a few minutes before we figured that the S/PDIF port required selecting in a special menu and it is not on / detected automatically.
+This might not be relevant to all devices, but with my Logitech Z5500s (I know, I know, boooo) they take about a second of audio playback with optical before you actually hear anything.
+I'm just taking a wild stab here, but if you have only tried test sounds, it could be that the optical link isn't sending data for long enough for the HTPC to initialize the sound.
+I've uninstalled things and reinstalled a couple of times now, as well as trying almost all combinations of analogue/digital outputs but can't get it sorted.
+All that I can suggest is to right click on the speaker icon in the taskbar and choose Playback Devices. From there, make sure that S/PDIF is set to enabled and possibly default.
+I've purchased an Asus Xonar DG as replacement for faulty onboard audio in a Medion 8822 as it has an optical output which is all I really need to feed my HTPC.
+I set the audio devices up in Windows and in the Asus utility (SPDIF enabled, 6-ch audio) as I would expect to see them work, but the only thing is I have no digital audio from test tones within Windows/the Asus utility, PCM audio or Dolby Digital from DVD.  Analogue audio is fine.
+Does anyone have any tips on how to get this working?  This card has just been released so there isn't much out there to go on.
+Take normal precautions to be able to rollback the driver change, such as creating a system restore point.
+I'm just thinking that if you've only tried test tones, that could be the problem, if you've tried music or something, completely disregard this.

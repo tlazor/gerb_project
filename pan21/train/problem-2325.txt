@@ -1,0 +1,8 @@
+This is again a dry run, which should show you that the content of <partition1> in /media/<user> will be copied to the SD card.  
+Remove the original SD card, put another -correctly formatted- SD card in your Linux machine and execute the following rsync command:
+A very secure and reliable tool to copy things like root file systems (because of links which are present in the root file system) is rsync.  This tool will take into account all necessary things like timestamps, links, permissions,...  Perfectly suited to copy stuff like you want to do.
+Note also that items between < > are placeholders and you have to see for yourself how they match with your environment.
+To execute for real (after you've confirmed that the dry run is doing what it should do), you can remove the n from the above command (so, rsync -av /media/<user>/<partition1> .).
+You can now copy the content of the first partition o fthe original original SD card by issueing the following rsync command:
+Do not put a / at the end!  The above command will "dry run", which means that it will show you what it eventually will do, but will not execute it for real.
+Note: I checked all these on a Lubuntu machine.  Directories and names may vary on other Linux distro's.

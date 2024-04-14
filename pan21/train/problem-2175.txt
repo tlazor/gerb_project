@@ -1,0 +1,6 @@
+I've found a few .vbs scripts, but they are for network printer. How do I make them work with my local printer? Is there a better solution? The user would have to run the script every time he needs to switch from an application to another. 
+For one application, the "Generic / Text Only" printer must be present, for the other to work I need to remove it.
+I do know with some programs you can actually set a printer for that program even if the default printer is a different one (using MS Access as an example).
+I do not have the capabilities yet to ask questions in a comment, so I'm going to try and help with an answer...  Yes you can write VBS which would be handy to have for switching printers, but are you writing the VBS to change defaults or actually "remove" it as in uninstall?  And is this one printer or two?  It seems from your question that two applications print from the same printer.
+I have a Windows XP machine that runs two applications and both print on a thermal printer connected by a serial port.
+If the user is not able to change printers with their level of permissions then you will probably have to have a piece of script to override and change it for them.

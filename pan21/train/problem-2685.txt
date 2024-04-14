@@ -1,0 +1,6 @@
+Ok, so as the comment conversation looked to be going on forever, I will instead post what I believe the problem is:
+So long as you then have a stable domain I would suggest deleting DC1 from the domain and leaving it at that, any changes you have made on DC1 since it has last replicated will be lost, this includes users' password changes and new user accounts, so it will require some cleanup on your part, but if you can't fix the replication issue yourself (which, no offence meant, I don't believe you're capable of) this is the easiest way to resolve your problems.
+If, on the other hand, you add DC2 with DC1 offline and are still having issues, I advise you seek assistance from a local Microsoft Professional.
+Although it looks initially like an issue with DC0, it is actually an issue with replication between the two controllers and, as such, the problematic controller is DC1.
+For some reason your DCs have 6to4 addresses. If you're sure you aren't using 6to4 (you probably aren't) then you should probably disable it.
+The easiest option open to you will be to shutdown DC1 and build a 3rd domain controller, DC2, then change secondary DNS settings on all servers and DHCP scopes to point to this server.

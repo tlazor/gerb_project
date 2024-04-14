@@ -1,0 +1,12 @@
+EDIT: it is very well possible to run a setup like this with just one piece of hardware. Just add more instances of nginx running on different IPs and create a failover setup between those. If this option makes sense for your use case isn't up to me to decide.
+Another option is to run one process per user - you can add new users without terminating existing processes, but the resource requirements are significantly higher (and, for 1000+ users aren't likely to be practical).
+Im building an environment (on a ubuntu 10.04.02 machine) to handle a website with many (should support at least 1000) subdomains, each of them served by a different FPM pool, with a different user.
+So nothing new; My problem is to create (and start) a new fpm pool without having to reload/restart FPM, wich will cause a (i know, really fast) downtime.
+Essentially, pass the SIGUSR2 signal to php-fpm, and it will gracefully reload all workers + reload the fpm conf/binary.
+I've tryed to use php5-cgi and/or spawn-fcgi to the new subdomains, but is a bit unstable and often crashes when the concurrency level grow a bit.
+If does matter, the server is running on nginx, configured to use unix socket to fcgi, this is my nginx test configuration:
+I do think that redundancy is the best approach to this, I do believe, that you might accomplish what you want with reload. Since it is a graceful reload it should wait for the processes to finish.
+None of the above are exactly ideal, and the only practical solution to no downtime would be the multiple server approach.
+In this way your load balancing service (nginx in this case) can route between two ports. In this way you can take a service up or down as often as you'd like (for updates) etc.
+One more option is to create a temporary php-cgi process for the new user, and delay reloading the server until later (i.e. low load period, or when you have multiple users to add). This would reduce downtime, but still bring up the new user's subdomain immediately.
+I googled around but i didnt find a way to invoke fpm using one pool, that could be a 'temporary' solution: the main fpm instance run all the pools, evey new one get his own fpm instance, then with a cron i stop and reload fpm every week/month/dontknowyet

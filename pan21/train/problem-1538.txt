@@ -1,0 +1,9 @@
+The variables choice1, choice2 and choice4 hold the same value regarding the business case: the first selected service ID.
+You declare multiple variables input with numbers. There should be only one variable input since System.in is a singelton and cannot be accessed concurrently anyway.
+There should be only one variable firstSelectedServiceID to be used in all cases of the outer switch.
+Finding good names is the hardest part in programming. So always take your time to think carefully of your identifier names.
+You have some identifiers which are named after their technical implementation: the same name with numbers. 
+A proper solution would try to calculate the best plan combination, so that adding new plans and/or services would just be a configuration.
+On top of that your code fails if the user enters the service IDs in an unexpected order, eg.: 4 3 1.
+Since you only use this variable at only one method in our code which is the same where you assign it its value this is not needed.
+There is nothing wrong with procedural solutions as such but Java is an object oriented programming language and therefore you should learn to find OO-ish solutions to problems.

@@ -1,0 +1,6 @@
+It's the first time I'm trying to implement the Phong lighting model. I'm pretty sure everything is working fine. 
+Other times, one or more polygons further back draw first, then later the frontmost polygon draws on top of them. Stacking up multiple translucent polygons like this makes the result more opaque, leading to the darker regions in your image.
+Sometimes a polygon in front (from our camera's perspective) renders first, and writes its depth into the depth buffer. Then when a polygon behind tries to render later, it detects there's already something at a closer depth and doesn't draw anything. That's where you get the faint/translucent parts.
+Since polygons are not depth-sorted by default, you end up falling into either of these two cases basically at random, leading to the patchy/inconsistent appearance you see here.
+At first I thought it has to do with the normals of the model since they are all supposed to point away from the model but it doesn't seem to be the case. 
+I was experimenting using different materials, meaning I played with Kd,Ks,Ka and Ns values when I came across this problem. 

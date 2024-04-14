@@ -1,0 +1,5 @@
+Something like this is the motivating force behind Boost.Spirit, although Spirit uses operator overloading and other party tricks to avoid writing the quotation marks. I think you'd like Spirit.
+This looks like a great use-case for a Domain-Specific Language (DSL). If you had a nice compact DSL for representing automata like this, then you could replace all this boilerplate
+See how a complicated recipe like generator.create_regex().then_match(regex_generator::match_any_of("abcdef")).then_match(regex_generator::match_none_of("qreoi")) can be written super efficiently as std::regex("[abcdef][^qreoi]")!
+However, I would need to be cautious when splitting such a regex across source lines, or if I wanted to write a regex containing unbalanced parentheses for some reason.
+The one downside of my proposed DSL for regular expressions is that I foolishly decided to use \s to represent what you called regex_generator::match_space(). This is unfortunate because C++ already uses \ for something else, and so I ended up having to escape the backslash in my DSL syntax. If I were really feeling adventurous, I might do something like this:

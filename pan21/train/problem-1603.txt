@@ -1,0 +1,6 @@
+This is not my FAVORITE method for doing things (ie. showing a customer a 404) but it does help confirm whether the file is in use or not.
+and so forth. For some apps there can be many file that are used by the scripts but not seen in the web server logs because of the way that they are referenced.
+I'm afraid there is no simple solution. I guess you'll have to compare your logs against your list of (static I suppose) files. The best way I can think of is to use the LogParser tool. 
+You could import your logs into a SQL database and create a table containing all URLs (select distinct ...). Then you'll have to create the list of file names in your directories using a script and importing the resulting file to another database table. Step 3 would be to select all file name from Table2 which have no counterpart in the first table.
+This would be a difficult task to do generically so I think you are unlikely to find an off-the-shelf solution. While you can get a list of files accessed from the logs and compare that against the list of files in the relevant directories, you then have to account for any files that are accessed by:
+Splattne has the answer I was going to post.  I would just add to it that the OTHER way to go about things is to do the following:

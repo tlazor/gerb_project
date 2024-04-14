@@ -1,0 +1,8 @@
+I think your idea of separating the types of objects in two lists is actually good. Clearly there's a difference between 2D and 3D things, so don't mix them. It would be nicer though, if you stored them by value in those arrays (instead of pointers), that would gain better CPU cache usage thanks to data locality.
+If you put inheritance aside and use composition instead, much like @Thomas suggested, you can store the objects by value. That would also resolve eventual diamond of death issues you might come across.
+The problem arise because D2D///D3D classes inherit virtual sf::Drawable, and I am using my class Sprite inheriting from sf::Sprite, which inherit sf::Drawable as non-virtual function from in Sprite.hpp of SFML.
+Collider inherits from D3D, because all my colliders are going to have 3 axis, and it creates its own AABB box from D3D interface -to be implemented by the graph type Sprite//SpineDr...-.
+Both D2D and D3D inherit from virtual sf::Drawable. D3D also is supossed to apport the functionality of an additional axis. When the object is drawed in screen, the object is scaled and repositioned in (X, Y) with some calculations.
+I am designing the game so the objects I create (Character, Enemy, Enemycast...) can inherit all from 
+I am trying to have two vectors to hold all my graphics, std::vector<D2D*> and std::vector<D3D*>, because the D3D ones will need to be sorted depending on their float z.
+If you ever find the need to put everything under a generic Object interface, that englobes both 2D and 3D, then scale-up to that, but try to keep it simple until you really need it.

@@ -1,0 +1,7 @@
+First line reads 6 characters from /dev/urandom; then using the C character set print the 0-filled hex value of each character separated with a colon (the newline is optional but useful to print out the value).
+I know this post is old, but for future visitors, if you want a cryptographically secure pseudorandom MAC address, without being limited to 0x02 as the OUI, here is a fast mostly platform agnostic generator:
+The benefit of this method, over a completely random number, is that it's possible to reliably reproduce the MAC address based on the FQDN of the machine, which I find useful sometimes.  The 02 for the first octet just sets the "locally assigned" bit, which makes it obvious that it's not a vendor-provided MAC address, and guarantees that you won't collide with a real NIC's MAC address.
+It comes from the fact that even if you have just 23 people, the chance is already 50% that 2 of them have birthday on the same day.
+If you need just a couple this is ok, but when you maintain a server farm with hundreds of servers, each of them hosting tens of virtual machines, or if you use the macs as index in some db for bookkeeping and you need uniques be careful!
+If you need to generate multiple MAC addresses per host, I used to concatenate the FQDN with the name of the bridge to connect the interface to; this did a good job of spreading things out for different NICs.
+It depends on your scenario how you use it, but if you generate the MACS randomly, at approx 1 million your chance for a mac number clash is 40% at 2 million it is already 87%!

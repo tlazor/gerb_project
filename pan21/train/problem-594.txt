@@ -1,0 +1,6 @@
+For resiliency reasons and to protect from the previous attacks what is often done is the last case but having multiple nameservers in different TLD like:
+If you need to change that later for various reasons, you will have a lot of work, that can not be automated.
+This is the technical term of your first case. In that case you have extra burden on administration as you need to both configure many nameservers (they can all have the same IP and go back to one physical server, but you still need to configure it with all the zones served) and also make sure to provide, for each domain, glue records to the registrars involved.
+The positive side is that you control everything, and you reduce risks of some attacks where people can control either your domain or DNS queries from it by controlling outside domain name (like the domain name of the administrative contact email address of the domain, or the domain name on which nameservers are hosted).
+But, on the flip side you now depend on another domain, possibly in another TLD, and hence you need to trust it and you can be vulnerable from attacks on it.
+You have less administrative tasks to do: if your nameserver changes its IP address you have only one change to do towards the registrar concerned, or even none depending on how things are setup, and it applies to all your domains.

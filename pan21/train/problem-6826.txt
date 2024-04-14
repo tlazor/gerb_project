@@ -1,0 +1,9 @@
+Bear in mind that we don't normally do product recommendations, as it clearly states in the FAQ, but in this case it was an easy answer - consider this in the future though please.
+First has a bigger cache and less GHz. Which one would be better for PHP rendering tasks, like string functions?
+When comparing the 2 CPUs (http://ark.intel.com/compare/64588,65727) I note that the E3 has more threads (logical cores) which would likely make it handle multiple php-fpm threads better. The time taken to complete one PHP process using one CPU over the other is likely going to be negligible. You are going to benefit more from the amount of parallel work you can do at once.
+However, this is only based on the fact that you are doing CPU work. In my experience now days, the CPU is rarely the bottleneck and I would be looking at fast disks (high RPM or SSD), amount of memory, and the underlying OS. These are all much bigger factors in the speed of your application than the CPU cache size.
+Since you mention this is a web server, I am going to assume it is handling many separate requests to render the PHP templates at the same time.
+So in this scenario the 'lesser' chip has more thread capacity and ~50% faster clock speed, so unless your system is heavily memory bound (the E5 has a much faster memory throughput capacity) then I'd suggest the E3 over the E5.
+I'm choosing a new server that will run linux, nginx and php-fpm based web server. Mostly, all the work server is doing  - rendering of Twig php templates.
+Well while I'm normally loathed to recommend an E3 over a better chip that particular E5 has no hyperthreading whereas the E3 does have it. So the E3 can handle 8 threads at one while the E5 can only deal with 4.
+Also to consider when choosing between these CPUs is if you will be running multiple CPU in one machine, or greater than 32 GB of memory (which is the E3 maximum).

@@ -1,0 +1,6 @@
+The maximum sustained transfer rate will tell you how fast you can pull data from the disk itself (rather than the cache).  I'm not sure anymore but the standard sector size used to be 512 bytes.  So just take the maximum rate and divide by 512. That should give you the maximum number of sectors for the longest track (i.e. The outermost).  If the drive has more than one platter that will actually give you the combined number of sectors across all platters.  
+For example imagine I had a disk with 3 platters (1 head per platter).  Now this gets a pretty decent speed let's say X MB/s.  I now add another 3 platters and now the max transfer rate is 2X MB/s.  You really can't tell with just the tranfer rate anything about the number of sectors per track. 
+The whole thing is a moot point because while normally we have a standard sector size it can change depending on the format of the drive such as ext3, or other formats.
+For one the on board cache of the drive (32MB is increasingly common) will disassociate the rate of the data being read from the disk from the data sent over the bus.
+Quick answer: you can't. While drive geometry plays a part in the drive's performance it is not the only factor by far.
+If you know the media transfer rate, how do you calculate the maximum number of sectors per track from that?

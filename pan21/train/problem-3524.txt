@@ -1,0 +1,8 @@
+It would be wise though to remove a hosts-entry after a while, because this will be a static assignment forever until you change it.
+The easiest solution would be flushing the integrated cache for DNS entries in windows, by executing
+Lastly if none of the caches is the cause of your "problem" the router gets wrong DNS entries from its own gateway.
+This can be the case because bigger DNS services use caches that are only updated every once in a while, or because it is a poorly managed DNS server. 
+After cosulting the OS's own cache, it  will ask the primary and secondary DNS server as configured in the IP settings - for a home user these settings are usually distributed by the local router via DHCP and the primary DNS is usually the router itself, which either caches or forwards the requests and provides information to the requesting computer.
+I'm trying to access a website but I can not make my computer or router to recognize the new IP address. Previously, it took little time for this to happen but lately I'm waiting up to 24 hours. How to force my computer or router to recognize the new website IP?
+It can help setting the DNS server to Google's own DNS servers (8.8.8.8 and 8.4.8.4), because they tend to be reliable. you can adjust that either on your local PC or on the router to take effect for all connected systems.
+Another approach would be entering the DNS-IP into the systems "hosts" file (see %windir%\system32\drivers\etc), because this file is consulted by the system even before checking any cached DNS entries.

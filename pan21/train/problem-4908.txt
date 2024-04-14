@@ -1,0 +1,5 @@
+If I have a set of data with a month listed for each row and want to sum various column counts by month listed, how do I do that?
+So, with raw data on Sheet1 as shown below, select all your raw data and click Pivot Table on the Insert tab.
+Excel will then show your new sheet with the Pivot Table Field List on the right side of the window. From the field list, drag and drop the Month field into Row Labels and then drag and drop the UPS Orders field into Values. And then you're done. You'll see a summary table for UPS Orders grouped by month.
+For example, I have 10 rows of data, with two rows being "June" and 8 rows being "July".  On a separate summary sheet, I want to show a total count of various columns of data by month.  I have one column that has a count of UPS orders as an example.  One row of June has a "1" and one row as a "0", so I know the summary should show just "1" UPS order for June but how do I create a formula to calculate that so I don't have to manually add-up myself and punch in?
+Instead of using worksheet functions, you might want to consider using a pivot table. Pivot tables are more flexible and easier to set up and maintain.

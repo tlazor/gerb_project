@@ -1,0 +1,8 @@
+if your polling period would have been 10 minutes, over the same period you would get values 1, 4, 8, 15 - getting you a completely different value.
+But if you are storing deltas (count per second) for things like traffic counters, printer page counters, etc., then you can also just use AVG and then do the following:
+so if you are querying this counter every 5 minutes, over a 30 minute period you might get values of 1, 2, 4, 6, 8, 13, 15. so summing them would get you 48 - which is a nonsense value :)
+If you define a graph (as opposed to just clicking on an item and seeing the adhoc graph) you can specify that an item should be shown as its MAX value for the period represented by each pixel.
+depending on what you are monitoring and what you want to see, there are two possible options - you can set "store as" either to delta (which would store just the difference between two retrieved values), or "delta (speed per second)", which would show what the change per second was.
+what i think you really wanted - to see difference between two points in time, so that counter values make sense.
+latter is the most widely used one, and it allows to grab - and properly graph - counters like network traffic, database queries per second and so on.
+so you have a counter (a metric that is constantly increasing - like bytes transmitted over a network interface or total amount of queries against a database).

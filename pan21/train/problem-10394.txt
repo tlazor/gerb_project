@@ -1,0 +1,7 @@
+Yes that is possible and thoroughly explained at http://forum.bittorrent.com/topic/25823-generate-encrypted-read-only-secret-without-api-key/?p=76262
+Now you can paste 4) into the encrypted node and either 2) (RW access) or 3) (RO access) to other unencrypted nodes
+In a nutshell: you only give the encrypted node an encrypted (read only)-key which allows taking part in the torrent-swarm without decrypting the files on it and all trusted nodes a key which enables decryption and/or write access.
+What about storing an iso image on the cloud/vps? you could use some sort of live cd and only set it up when you need it.  
+Is there a way to place a node in a mode where it can replicate all the encrypted data (so that other nodes can always pull the latest data from it), but does not have the ability to decrypt it itself (so that if someone steals the node, your data is not compromised)?
+Bittorrent just announced Bittorrent Sync, which as I understand it is a pure P2P sync solution without a central server that stores your data: Instead, all nodes in the network replicate amongst themselves.
+The downside is that it only works if two nodes that need to exchange files are online at the same time. You can get working by having a dedicated server on your network that is always on. However, if you place that in the cloud, you risk others getting to your data.

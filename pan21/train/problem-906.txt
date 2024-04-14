@@ -1,0 +1,12 @@
+However, the recent paper above made a significant jump to QP. It is still unknown whether these games are in P.
+How is "estimating the partition function" related to approximation algorithms? Previous work (p. 11):
+Parity games were known to be in $NP\cap coNP$, and even in $UP\cap coUP$. In addition, there have been repeated improvements in the exponent of a deterministic algorithm for them, over the past two decades (see the introduction in the link above for a survey).
+In conclusion, "estimating the partition function" is closely related to approximation algorithms, and there have been quasipolynomial time approximation algorithms for a variety of counting problems, and for some of those FPTAS have been obtained. So overall, this class of problems related to the partition function both seems to produce quasipolynomial time approximation algorithms, but often later improvements achieve polynomial time.
+Not much can be said here about the "but not in polynomial time" part of the question. It may even be likely that a polynomial time algorithm will be found later, given the history of previous work, see below.
+Also, it seems hard to detect a planted clique of size $O(\log n)$ in a random graph, but one can be found in quasipolynomial time; though the nature of this promise problem is somewhat different than the others mentioned.
+In Classical algorithms, correlation decay, and complex zeros of partition functions of quantum many-body systems by Aram Harrow, Saeed Mehraban, and Mehdi Soleimanifar
+Parity games arise naturally in many formal verification contexts, such as LTL synthesis and $\mu$-calculus satisfiabiability. 
+[LSS19b] Jingcheng Liu, Alistair Sinclair, and Piyush Srivastava. The Ising partition function: zeros and deterministic approximation. Journal of Statistical Physics, 174(2):287–315, 2019. arXiv:1704.06493
+There has, in fact, been quite a lot of recent works on proving quasi-polynomial running time lower bound for computational problems, mostly based on the exponential time hypothesis. Here are some results for problems that I consider quite natural (all results below are conditional on ETH):
+Computing VC dimension seems unlikely to be in polynomial time, but has a quasipolynomial time algorithm. 
+[41] V. Patel and G. Regts. Deterministic polynomial-time approximation algorithms for partition functions and graph polynomials. SIAM J. Comput., 46(6):1893–1919, Dec. 2017. arXiv:1607.01167

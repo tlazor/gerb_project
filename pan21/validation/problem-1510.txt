@@ -1,0 +1,5 @@
+I'm thinking to take CentOS 6.3 as a new server OS and setup samba sharing. All of the sudden I came across GlusterFS, which seems to be more advanced and scalable...
+So the question is should I consider using GlusterFS or should I go the easier way and just use samba?
+I need to create storage server (file server) to store backups and user files from Windows machines.
+But this it not so important. More interesting is the set of features it has. It supports file-based networking protocols NFS, SMB/CIFS, HTTP/WebDAV or FTP, block-based storage area network protocol iSCSI (initiator and target), filesystem quotas, integration with Active Directory and more. It leverages Linux LVM for volume management and all of these features are easily configurable from unified web-based management so it' not so necessary  to really understand how it works under the hood.
+I don't have much experience with glusterfs in production but in such scenarios I deployed  a few times community edition of Openfiler NAS appliance which is based on rPath Linux. 

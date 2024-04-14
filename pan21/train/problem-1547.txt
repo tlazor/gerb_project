@@ -1,0 +1,9 @@
+Spatial partitioning structures on the other hand are used to divide a big game object (like the map) to smaller parts so that you can gain performance by only drawing the relevant polygons and again minimizing the collision checks to those polygons only. Also a spatial partitioning data structure can be used as a node in a scene graph.
+But... I've been reading about both subjects and I've seen a lot of "scene graphs are useless" and "BSP performance gain is irrelevant with modern hardware" kind of articles.
+It's mainly used for frustum/occlusion culling and minimizing the collision checks between the objects.
+From what I read scene graphs hold your game objects/entities and their relation to each other like 'a tire' would be the child of 'a vehicle'.
+I'm aware that the usage of these structures very much depend on the type of the game you're developing so for the sake of clarity let's assume the game is a FPS like Counter-Strike with some better outdoor environment capabilities (like a terrain).
+Premature optimization may be the root of all evil (but don't forget the crucial 3% that Knuth also mentioned) but not optimizing at all is the root of Neverwinter Nights 2.
+I tend to disagree with Trevor Powell's answer as there are clearly two different kinds of optimization here.  One is optimization after the fact and to make the slow parts go fast, which is what he has touched on, but the other is designing your data structures and flow control to be at least reasonably efficient and sensible in the first place.
+The second is the type solved by any spatial partitioning scheme, and if you try to retrofit that on a design that's not built around it, you'll likely make a huge mess and risk ending up even slower.
+Also some of the game engines I've checked like gameplay3d and jmonkeyengine are only using a scene graph (That also may be because they don't want to limit the developers).

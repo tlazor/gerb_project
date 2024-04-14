@@ -1,0 +1,7 @@
+Cron will usually automatically email the output of any script to the user whose crontab it ran from.  You can override this behavior in Vixie cron by setting the MAILTO environment variable in the crontab file (e.g. MAILTO="user@host.com", MAILTO="" will disable email).
+If you can send email from your server using the mail(1) command you don't need to jump through too many hoops.
+I need daily notifications of whether or not my crontabs completed successfully. I've read a few things about setting cron to send out email notifications, but I'm wondering... how do I know if my Linux box is set up with a mail server? If it's not, how can I do this? The systems in question are running Ubuntu 10.10, SME Server 7.4, and OS X Server 10.6.7.
+There's a simple check-list for configuring sendmail here. This should be enough for configuring your server to send notifications.
+If your system can't send email you need to proceed per your vendor's instructions to get that set up in working order, which reduces this to the scenario above.
+Complete and detailed answers would be great, but I'm really just looking for a shove in the right direction.
+Your cron daemon may vary slightly - see the man pages for cron(8) & crontab(5) for more details :-)

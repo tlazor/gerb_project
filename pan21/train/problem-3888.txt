@@ -1,0 +1,8 @@
+Could you please confirm the QPS ratio on your master instance? If the master instance gets overloaded with queries, when the CPU usage goes beyond the maximum than it can process, row-based replication helps ease the load but as replication is single-threaded  the replica gets blocked. 
+Does anybody have any idea why the Slave SQL thread is constantly in the "System lock" stage and not proceeding with the replication? Any pointers would be great!
+We have a Google cloud SQL setup(1 master, 1 failover replica and a read replica). From the last two days, we are facing replication delays on both the replica instances which is constantly increasing.(It's up to 16h as I write).
+To further assist you, please refer to the following link in which you can create a case at the public issue tracker. Doing so, we will be able to further investigate it with our internal tools and provide you with more meaningful information. 
+Master has a very stable CPU usage pattern at around 40% usage, and both the failover and read replica are at around 60% usage.
+One good practice would be resharding your master instance to 2 or more instances to split the query load. You can refer to more best practices here.
+All three instances have 8 vCPU cores, 30GB RAM, and around 550GB SSD Storage, and are cloud SQL MySQL 2nd generation instances(MySQL version 5.7).
+On pulling the logs from the replica instances, we see slave SQL and slave I/O thread being killed very frequently,

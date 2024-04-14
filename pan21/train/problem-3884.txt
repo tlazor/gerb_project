@@ -1,0 +1,5 @@
+is to give client code a proxy for the object, that does (thread-safely) all the checking on each access (function call on the object).
+Your solution is not thread safe. Some code uses your pointer to obtain a pointer/reference to an object, but there's no guarantee that a different thread doesn't simply delete the object before the first thread manages to use it. 
+As I understand your question, you don't want to allow specific code to keep a reference to your object. Then simply don't offer it a smart pointer, ask for a callback and pass a direct reference to the object into it. This indicates to the caller that the object is only available within that call (one doesn't normally take a pointer to a reference for safe keeping).
+So now you have a pointer but no guarantee that the object it points at exists anymore (as you destroyed your copy of the shared pointer).
+You create a shared pointer. Get the pointer value from the shared pointer. Destroy the shared pointer then return the pointer that was in the shared pointer.

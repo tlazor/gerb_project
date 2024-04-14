@@ -1,0 +1,11 @@
+I'm sure you've already checked this, but if not - check the global options. The DNS server might be set incorrectly in there, and for some unknown reason be overriding some of your clients.
+In my work network we had a service that included a modem that a provider used to connect to a piece of equipment they provided. I didn't know at the time, but it seems this modem was also a router with DHCP Enabled, and started causing this same issue.
+As Kyle suggested, wireshark/netmon on the server will confirm if the lease is actually coming from that server with the bad info.
+-The scope actually has the incorrect IP as a DNS option. Corrupt DHCP scope, delete and recreate or post a screen shot or export of the DHCP scope options.
+If IPConfig shows the DNS server listed and the IP of the DHCP server is also as expected then something on that IP is giving out the bad/unexpected leases.
+What was happening was that after a client sent a DHCP Request, both the main server and this router answered. The client got the IP from the main server but the DNS from the router, wich caused the conflict. After get the modem/rotuer offline, the services were normalized.
+-There is another DHCP server running. Ipconfig /all lists the IP of the DHCP server the client obtained the lease from & the timestamp when it was obtained.
+Clients will change from Primary to Secondary DNS if the primary DNS doesn't respond in a timely manner and they won't switch back until the lease is renewed.  I think DNS will just fail if the secondary doesn't respond, ie. I don't think they then switch to the Gateway but it's possible.  This could be tested pretty easily.
+Check your router to make sure that it isn't providing any sort of DHCP service.  If you telnet into the router and it has lines in the configuration that start with "ip dhcp", then it is providing some sort of DHCP response.
+-The clients are changing between wired and wireless and getting a different lease on the wireless network.  
+I know this is an old thread, but i experienced this same issue, and maybe it can contribute to someon else.

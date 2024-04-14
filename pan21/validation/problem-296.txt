@@ -1,0 +1,6 @@
+Constants (in your case AND) should be declared final static, so Java only allocate memory once for the value (and not for every new object).
+Sometimes you surround the plus operator (+) with spaces, sometimes you don't. Do it consistently. Preferable surrounded by spaces.
+Only constants should be written uppercase (and might contain underscores). Other variable names should not contain underscores rather use camelcase (e.g. apiUrl).
+setCity_id and setCity_name are no setters. They add something to a string. Either handle it like the setAPI_KEY method where you are storing the value in a variable which you later use to concatenate the string. Or rename the method to e.g. addCity_name to make it clear that there's a difference.
+The usage of blank lines in your setXXX methods are not consistent. I wouldn't use any blank lines at all in those methods but if you want to use them, use them consistently.
+That's inconsistent. API_KEY should be appended on its own. Beside that since Java 9 it's most of the times better to use the plus operator instead of a StringBuffer (https://dzone.com/articles/jdk-9jep-280-string-concatenations-will-never-be-t)

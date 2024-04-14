@@ -1,0 +1,10 @@
+@Leauki is right about using the unix command rm, but BE VERY CAREFUL, particularly if using the -rf flags! There's no safety-net and you can do serious damage, up to and including deleting your own root filesystem!
+I use rm -rf in the command line. It deletes a lot faster and it deletes everything. A common problem I have with Windows is that deleting is a process rather than a point in time and I often find myself watching Windows delete folders and files for several minutes. Rm -rf is quick.
+My recommendation is not to use absolute paths with rm, but to cd into the diretory you want to work with first, and then for example:
+Instead of using the Finder then perhaps use another file manager such as muCommander. It can delete files and move files to the trashcan as well. It's much safer than pasting "rm -rf" into a Terminal, where you risk pasting the wrong commands causing damages that are irreversible.
+rm -rf ./<subpath to file to delete> where the ./ in the path forces rm to operate only in the directory you're currently in.
+Part of the beauty of Mac OS X is that while it's dead easy for inexperienced users to find their way around and get stuff done, power users can "fiddle with the system" by using the power of the underlying Unix via a command shell (i.e. Terminal.app).
+And yes, I think this is how it should be. Users shouldn't be able to delete files too quickly using Finder. Files should be recoverable from the Trash.
+This might be a bit overkill for most people, although if you are looking for a cheaper way than RAW Trash to securely delete files FileShredder gets the job done. 
+If you really want to use a third party App, a much cheaper alternative to RAW Trash that you mentioned is File Shredder. (US Mac App Store $3.99)
+You can also use rm -rf to delete a specific Trash. The trash can is a hidden folder named .Trash in the root of the relevant volume or directory.

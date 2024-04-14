@@ -1,0 +1,5 @@
+This is from your Opanswan output.  This is telling you that you have a mismatch in the "Encryption Domain" (or "Interesting Traffic", or other such terminology) of the configuration.  One side is proposing one set of networks, and the other side is expecting another set of networks.
+It does indeed seem that the problem is on your Openswan server.  These lines from the output of your ASA indicates the Firewall has never received any packets through the VPN:
+It seems you added more debug output since I last viewed this.  I don't know if this is still an issue, but if so, the problem is identified here:
+I'm sorry, I don't know Openswan very well (or at all), so I'm unable to provide any suggestions to that regards.  :(
+It could also be an issue in the "identity" portion of both peers.  I am not sure how to check it in Openswan (or rather, how to check the configuration for the "identity" portion), but on the ASA you'll want to look for a line that looks like "crypto isakmp identity" or potentially "crypto ikev1 identity" if you are running 8.4+.

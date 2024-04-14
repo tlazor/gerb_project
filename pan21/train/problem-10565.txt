@@ -1,0 +1,6 @@
+So ideally I need a way to dynamically set the line height / line spacing or something. Or another creative idea to display pretty tetris boards.
+I am using black squares \xe2\x97\xbc◼ and white squares \xe2\x97\xbb◻ to display tetris boards in my shell. Unfortunately there is quite a visible line spacing between rows and that just doesn't look good.
+Using a space character with a background color as suggested by Miles is the best way to fill exactly one character cell.
+In addition, if you use the VT100 "graphic" characters, Terminal will render them by drawing the lines "manually" to ensure they connect, instead of using character glyphs. Unfortunately, it doesn't contain single-character-cell boxes. You'd have to draw boxes using four characters to draw the corners. e.g.:
+Terminal has controls for horizontal and vertical spacing in the Font panel, which you can open by clicking the Change button:
+I am on a Mac (zsh) and there is a line spacing setting. When I reduce it to the minimum (0.5) it looks pretty good. But unfortunately the rest of the terminal looks bad then ;)

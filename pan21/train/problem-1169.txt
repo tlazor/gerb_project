@@ -1,0 +1,8 @@
+Name resolution for the name dns.msftncsi.com timed out after none of the configured DNS servers responded.  
+Try setting the DNS on your router to Google's Public DNS: https://developers.google.com/speed/public-dns/
+The website dns.msftncsi.com isn't a constant, it's been a few random sites (i'm guessing whatever site i'm on at the time of disconnect.)
+I have a really small network in my house, with only three computers.  Recently I've experienced my computer disconnecting from the internet for 3-5 seconds, and it only happens two or three times a day.  I get this Warning message in the event logs:
+I've been troubleshooting this for a while, and really am out of ideas.  I have only noticed the problem on my windows 7 desktop, but that could be because my laptops are normally only on at work or school.  Thanks in advance, and let me know what other information might be needed.
+My network consists of a windows 7 Desktop, Linux mint laptop, and a macbook pro. My router is a Netgear N600, and here's my output of ipconfig /all
+Here's a youtube video of where to find that in your router's settings if you are having problems: http://youtu.be/beTp_YYNOxo
+As it turns out, my disconnects were from my ISP not having a large enough pipeline for my neighborhood, and they also had to replace the switch I was on.  The errors make sense now that I know what the problem was, but I really didn't expect this since I couldn't even tracert to my ISP (which was because the initial switch I was on was going in and out at the same time.)  Thanks for all of the help, but my ISP has fixed both problems now (they are a super small ISP, with like 10 employees total).

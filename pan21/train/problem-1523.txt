@@ -1,0 +1,7 @@
+I've been tasked to stress test our MSSQL Server and MySQL Server. I would like to know if there are any tools or scripts which I could use on our current systems and the new system to compare performance?
+You can call your own stored procs, replay traces, run TPC benchmark scripts, and more.  It's not exactly easy to use, though - thus the video.
+Quest offers a free version of their Benchmark Factory that works for Oracle, SQL Server, and MySQL:
+I would like to measure read / write to disk and processor performance. Anything else that may be useful would be great as well.
+While it is unlikely you will run the full TPC-C at your location, the test definition should provide the foundation for developing a set of internal benchmarks designed to identify performance differences on a reference set of hardware with respect to your organization's specific requirements for transactional throughput.
+The defacto standard for comparing one database solution to another is the TPC-C benchmark.   The latest definition of this benchmark can be downloaded from http://www.tpc.org/tpcc/default.asp along with existing benchmark result sets.
+Make sure you download the cost of ownership documentation as well, for this can provide a standardized method for evaluating the two solutions.

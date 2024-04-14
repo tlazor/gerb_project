@@ -1,0 +1,9 @@
+To make our lives easier we had the application that persisted the data in the first place write a DateTimeCreated field in each related table with exactly the same date/time.  For example an ProductEnquiry record and associated ProductResults record would get exactly the same date/time.
+We also had to start using a loop so we purged 50,000 records at a time and kept going until there were no more qualifying records to delete.
+As the database grew we found that the purge jobs had to have a pre/post step to disable/re-enable the FK constraints.
+some of the tables are related to other tables with FK (about 21 FK tables) , so clearly i cant delete the rows with the PK without deleting the fk related rows.
+the process of the archiving was suppose to be inserting the rows to the archiving database and deleting them from the old DB using dynamic SQL. but not with the FK i was wondering what is the best way to handle the archiving of the related tables.
+When we move to Enterprise edition we started using partition switching which had a dramatic performance improvement on purge activity and massively reduced IO on our SAN.
+We faced exactly the same scenario.  Our solution was to have a SQL Server Agent job with a steps to call stored procs co-ordinating the delete/archive.
+can i do it using dynamic SQL or do i have to compare all the PK IDS from the originals tables and compare them in the related tables move the data from there delete the FK rows and then do the delete for every table?
+Our clustered index was on that DateTimeCreated so DELETE FROM ProductResults WHERE DateTimeCreated BETWEEN... made use of the clustered index.

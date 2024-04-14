@@ -1,0 +1,11 @@
+You say "Im getting error 1003 via the Group policy event viewer, could not troubleshoot it properly...". Posting the details of this event (which Event Log you're seeing it in, the event source, and the event details) would be helpful, but my gut is telling me this is a red herring.
+It not appearing in the RSOP is indicative of that. An error would have occurred if the security settings were incorrect. So, either that user account or the machine are not getting that group policy. 
+while defining folder redirection policy (and others) I find that the redirection does not apply (or appear) in rsop.msc checkout. 
+I strongly suspect that you've linked the GPO somewhere that doesn't apply to the subject users. Describing the OU structure of your Directory, including the OU where you've linked this GPO and the OU where the user accounts are located, would be helpful.
+If RSOP still doesn't show your Folder Redirection GPO as being applied then start looking at the scope of management of the GPO.
+First thing I've checked is restrictions on the folders where the My Documents folder will be redirected to, I have set full rights for my user on those folders (on the server), and yet I get no actual result.
+If this user gets this policy on other machines, make sure that the troubled workstation is in the same OU and the same security groups. 
+If this machine works for other users, you may want to make sure that this group policy is enforced as another group policy may be overriding it. 
+Eventually I decided to add my specific user to the scope under the Folder Redirection policy, and well - still nothing...
+Everything you're describing in your question and the comments you make to others indicates one of two problems: either a GPO scoping problem (the GPO doesn't apply to the user account) or the client computer being unable to process Group Policy.
+Incorrect NTFS and Share permissions on the shared folder won't stop group policy from being applied. It may stop Folder Redirection from actually working but the GPO will be applied regardless. Folder Redirection happens only at logon (to my knowledge) so I would recommend at the very least that you log off and back on to your workstation and then run RSOP again.

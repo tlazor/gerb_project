@@ -1,0 +1,8 @@
+The code was causing another php file (cnfg.php) to be included, which was causing some pharmaceutical-related spam to be displayed (but only visible to googlebot et al). This looks like the pharma hack for wordpress, except we're not running said software. The code has since been removed, but I'd like to prevent such occurrences from happening in the future.
+Did the attacker use some uploader script or some bug in an existing script that allowed them to modify files?
+I realize this is a pretty broad problem and there could be a myriad of security holes which could be responsible, but thought I'd put this out there in case anyone has had experience with such a problem in the past.
+Here’s a six step guide on Cleaning php eval(base64_decode()) hack from a WordPress site and how to prevent it from occurring again?, which i found recently, and they have jotted down some nicely written things which you may want to have a look at .
+What are some potential security holes that would allow these php files to be uploaded? And what can I do to prevent this from happening in the future?
+You may wish to try http://www.hardened-php.net/suhosin/ which, among other things, could have disabled eval(). If cnfg.php was hosted remotely it could have prevented it from being included as well.
+We recently had a website hacked, where some PHP code was injected into the index.php file that looked something like:
+Apart from this, they have also shown an example decoding of how a malicious code such as eval would work in an infected site 

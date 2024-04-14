@@ -1,0 +1,10 @@
+Gist: I'm trying to run both Vim and Midnight Commander inside a tmux session (sometimes window, sometimes pane), using PuTTY.
+A quick check using tack shows that this combination (TERM=putty, tmux) works for Ubuntu 14.04 (you should have installed the ncurses-term package, which includes this).
+So naturally I tried to use the "Linux" setting in the dialog above. So when I press F1 Vim goes into insert mode at the end of the line (effect of A). Midnight Commander doesn't recognize any of the function keys with this setting. Sure enough on the shell F1 gives me A and a bell (F2 a B and so on).
+TERM is set to TERM=xterm outside the tmux session and TERM=screen when seen from inside a pane or window.
+The problem now when mapping (map <F1> :tab help<CR>, and also nmap and imap) F1 in Vim, is that it gives the effect of ~ (toggle case). And indeed if I press F1 through F5 in the shell, the tilde (~) is the result, along with a bell.
+First off, I'm aware that I can use Alt+1 (through 9 and 0) to synthesize the respective function keys (F1 through F10) in Midnight Commander. It has helped me many times, but by default I still press the actual function keys intuitively.
+The problem is the TERM=xterm outside tmux.  There is no configuration of PuTTY which matches the xterm terminal description, and the mismatch feeds into screen or tmux (take your pick).
+See for example, in the ncurses FAQ Why not just use TERM set to "xterm"?.  The recommendation there is of course to set
+There is one odd thing about the above setting in addition to my problems with F1: I also "mapped" F5 (set pastetoggle=<F5>) in Vim. Strangely enough that works like a charm, even though the F5 key on the shell gives a ~ just like F1 etc.
+What am I missing here? How can I get a uniform behavior where both Midnight Commander and Vim will recognize the function keys?

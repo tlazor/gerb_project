@@ -1,0 +1,8 @@
+But that means that they will have to send their password to my server, and my PHP script will be accessing their emails and sending/receiving them back to them after processing.
+I can't think of any way that anyone would appear trustworthy enough for me to double my exposure like that, when I can run an encrypting e-mail client on my desktop or my phone and at least have some control.
+That said, I'm pretty sure I wouldn't even consider using a web-based encryption service that wasn't from my hosting provider. Using a third-party service to read my e-mail means that not only do I have to worry about my provider leaking my information, I have to worry about this other service leaking my information. 
+After all it is legal to distribute an email client. The part that has me worried is that my server will be acting as a proxy and will at one point receive their password (although it will not be stored).
+No, there's no legal problem in being a user's mail client. The e-mail belongs to the USER, not to the hosting provider, and the user can access it with whatever compatible client they like.
+I'm making a project for school where I will be using PHP to allow my users to log in to their email account using PHPMailer to receive/send emails.
+It's a school project so I will be doing it anyway on a local XAMPP setup for the project. But I was wondering if I could make the service public.
+(I know I could setup my own email server for this, but the idea would be to let users use their current email addresses)

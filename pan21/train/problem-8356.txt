@@ -1,0 +1,6 @@
+These API extensions for "advanced options" aren't exposed through the GUI so that is why you only see this optional option through PowerShell:
+When I approve through the WSUS GUI there is just the Approve option and you can optionally install it on the client or hide it.  I suspect the group policy rules such as forced reboots if idle were active it might do something different than what I am observing in my environment, but I am guessing at this point.
+I have been diving into Powershell for methods to deal with my WSUS better.  I have noticed that an update gives the option of Approve or ApproveForOptionalInstall.
+These optional installations differ from regular approvals in that you don't install them via Windows Update, but instead through Add or Remove Programs. I think from Add or Remove Programs you then click "Install a program from the network" but I have not done this personally.
+According to New in Windows Server Update Services 3.0, Microsoft extended the API to allow for 'creating approvals for “optional installation”'
+Whilte I can find many articles how to perform this I really don't know why I would pick one over the other.

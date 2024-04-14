@@ -1,0 +1,9 @@
+In order to manage access over internal links we want the RDS instance to resolve to its' private IP - not the public IP.
+Therefore the solution is to add a second forward zone for the "real" address after the CNAME resolution. You should then get the private IP returned in that case. 
+Smells like a DNSSEC validation issue to me. Do you have dnssec-validation yes; in the main/view options section? If so, try adding dnssec-must-be-secure domain.tld no; immediately after it.
+As the IP changes from time to time I have set up a forward in our dns that will resolve the RDS against the Amazon DNS server and give us the current private IP:
+Notice the dig/nslookup response was a CNAME pointing to <somename>.eu-west-1.compute.amazonaws.com (<somename> being omitted on your post). 
+My understanding is that a forwarder will get precedence over a response from the root servers, so why do I get the public IP back, and not the private IP?
+This means that the lookup for server.coivvuccn9hs.eu-west-1.rds.amazonaws.com is actually pointing to the <somename>.eu-west-1.compute.amazonaws.com hostname. 
+Since your bind server only has a forwarding rule in place for the rds.amazonaws.com it now does a default forward lookup for the compute.amazonaws.com lookup, thus resulting in a public ip. 
+I get the public IP, even though a tcpdump shows that the server does query the AWS DNS server and gets a valid response. 

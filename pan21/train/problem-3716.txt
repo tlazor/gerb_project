@@ -1,0 +1,10 @@
+I'm planning to do a personal video recorder using Raspberry Pi that can take potential HDTV movies receiced from a USB DVB-C stick and record it to a USB hard disk drive. 
+Online HD streaming rates are no where near that, and according to this (the older) HDV 1080i is 25 Mbits/s, while "other HD formats record at 50-100 Mbit/s or higher"; DVB-C appears to have a maximum of 64 Mbits/s and may be much less.  So you should have no problems. 
+I've benchmarked the output via USB to an HDD at ~30 MB/s -- that's MB/s, not Mbits/s -- out and slightly less (27 MB/s) in (but not simultaneously).  This means the pi about fulfills the USB 2.0 maximum of 280 Mbits/s. Note that the SD card interface on the pi is ~35% slower than this.
+I'm sure the CPU can keep up if there is no transcoding going on; in fact it will probably be mostly idle.
+Before I start doing all the hard work with looking for supplementary hardware, my questions are as follows
+Depends what bitrate you are using. Here in Australia the HDTV is MPEG2. I'm not sure that anyone is transmitting 1080p, but I think 1080i is probably a little under 20Mbits/s for a single stream.
+I think 20Mbits/s would probably be ok, but what bitrate is the raw stream coming from the USB? Assuming there are multiple channels multiplexed into one stream.
+There has been some work done on using the GPU to transcode MPEG2 to H.264. That could potentially reduce your outbound data rate but I'm not sure whether it's working yet.
+If this is a straight copy, all the processor has to do is read this into memory and then write it out again.  If you want to process the data somehow, then that's another story.
+The PI should run an SSH server that I can use to accasionally control when recording starts / stops. No SSH or other side-activity is needed while a recording happens.

@@ -1,0 +1,7 @@
+I checked the status of my MX Records from a couple of lookup websites (Websitestuff & DNSStuff), and they say things are fine.
+Most likely because you have 0 digiwhirl.com in your MX records and possibly have emails accounts on the same server swallowing the emails.
+"Any time you change your MX records, it can take up to 48 hours for your new records to propagate."
+Are you certain that Google's service is configured for the correct domain name and all paid-up, provisioned, etc?
+Steps to Reproduce (if applicable): Email bounces back if sent to any user on this domain. However, these users can send outgoing email to any other domain.
+Google's mail server is rejecting the message because, it would appear, that Google doesn't know they're supposed to be the authoritative recipient of those messages. The "clue" is the mention of relaying in the error message. That means that the recipient server is "seeing" the message as a relay attempt, not a local delivery attempt.
+Issue Description: Cannot recieve incoming email on recently transferred domain - all MX records updated and have proper status

@@ -1,0 +1,6 @@
+You can use conditionals in your spec file to set certain dependencies based on the value of the %dist tag. This is generally done to handle dependency differences between major releases, but you could adapt it to point release.
+You would then need to ensure your build environment provided the correct dist tag value to the build process. There's a number of ways this can be done and we would need to know more about your build environment.
+The developer provided the source with the spec file. Is it possible to build a RPM that works across all CentOS 7.x builds and is that a good idea?
+Unless the package depends another library update or something that was introduced in a point release, a single build for all of CentOS 7 will suffice.
+You can see examples of this in the updates repositories. Many packages will use a %dist tag that is el7, but you can also see some that are tagged el7_4.
+All Centos 7.x are juste minor upgrades, so I don't think you need to make the difference in your rpms. All centos packages are suffixed with el7, not with el7.6 or similar so I think you can do that safely (we are doing it for at least two years already).

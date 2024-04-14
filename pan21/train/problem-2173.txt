@@ -1,0 +1,10 @@
+I had the same trouble and the solution was to put real IP instead of * in VirtualHost directive, like this:
+You see, when you connect to port 443, and start an HTTPS session, all that's happening is security negotiation. HTTPS is all about setting up a secure tunnel between two points, and has nothing to do with HTTP. Only once the tunnel is set up, will data flow through. That data is the HTTP stream.
+The approach I've used in the past is slightly different to the one you detailed. The instructions below were originally detailed in this post I found whilst looking how to set up ssl: Step by Step Installation Of Subversion Over Apache/SSL Authenticating through Active Directory (SSPI)  
+Oh, and don't rail against apache for this "missing feature". It's not their fault! The HTTPS protocol doesn't support virtual hosts. 
+This means that the Host: directive (which is part of HTTP, not HTTPS) will only get sent after the secure tunnel has been constructed. It is the Host: header which tells HTTP server which virtual host is being accessed. But in HTTPS, we get this information far too late: it arrives after we had to choose encryption keys.
+The ssl_error_rx_record_too_long error can be produced by initiating an HTTPS session against an HTTP resource. Such as - https://host.name:80.
+And that was the solution. It turns out that (as of this writing) httpd cannot support multiple virtual hosts for HTTPS, so any connections to 443 must be directed to a single host. So I guess httpd was just silently rejecting the configuration that attempting to run a virtual host for HTTPS.
+Scraimer, the accepted answer is wrong, otherwise why do you think SSLCertificateFile directive can be in virtual host scope? Proof: http://httpd.apache.org/docs/current/mod/mod_ssl.html#sslcertificatefile
+P.S. Hovewer I do not know why it worked. I just took this configuration as an example from real live server and reused it to my setup and it worked.
+Well, since the user Jure1873 hasn't written up an answer, I cannot give him the credit deserved. Here is his solution:

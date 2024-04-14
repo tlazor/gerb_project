@@ -1,0 +1,6 @@
+Sniffing on ServerB I see the packets comming from GatewayServer, but always hiting port 60003 as stated before.
+I've been able to open connections to to ServerB from ServerA through GateWay server, but the connecion always reach ServerB on port 60003, and never the other one, 60004.
+I'm trying to setup a load balancing within the same LAN using IPTables (if possible). My idea is to emulate our main load balancer, but within a virtual environment, all the servers are virtual machines by the way.
+My goal is to be able to open a connection from ServerA to GatewayServer:60002 and get balanced to ServerB on ports 60003 and 60004 in a Round Robin fashion.
+You will need to check the version of the kernel you are running as kernels later than 2.6.11-rc1 have had the functionality you want to use removed. To find your kernel version use uname e.g.
+There is a Gateway server, which forwards traffic to and from the Virtual Servers and the Real World, and I want to use that Gateway to balance some traffic within that Virtual LAN.

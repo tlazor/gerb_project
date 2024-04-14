@@ -1,0 +1,7 @@
+You can use stresslinux, a minimal Linux distribution running from a bootable cdrom, usb, vmware or via PXE (wip)
+Also, check the ventilation shaft of you laptop, for dust covering the air exit, as well as extremely hot air leaving the shaft just a few minutes after turning on the laptop.
+There you can check for the system monitor and observe the CPU temperature, FAN speed, etc... With this data you can confirm if the laptop is suffering from an hardware problem or if it is a software related problem.
+It can have nothing to do with this and just be an application problem, but I doubt that, since you are mentioning that the laptop shuts down. By my experience with Ubuntu, crashing is hard, shutting down "just like that" is close to impossible!
+If you observe an increasing noise from the laptop FAN at after a while the laptop just shuts down without any type of information from the operating system being used, it means that the fail safe for the CPU overheating as kicked in.
+The reason form that being happening only on Ubuntu may be related to the CPU stress, meaning that on Ubuntu you are "forcing" the CPU to work harder.
+I recommend that you run a stress test on both Windows and Ubuntu. By forcing the CPU to work like hell, the laptop heat should increase and if the ventilation isn't working properly it will reach the fail safe temperature and shutdown.

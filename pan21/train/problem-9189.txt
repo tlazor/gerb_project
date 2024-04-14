@@ -1,0 +1,16 @@
+The Acer Support site declares the Acer Veriton 3900Pro as compatible with Vista, but not with Windows 7.
+It got my sound, chipset, and Intel GMA graphics working with a new Windows 7 install on this old Dell Dimension 3000.
+Once you've installed Windows 7, make sure you have the most recent drivers available for the other components in your system by using Windows Update or some of the free driver checking programs available on the net.
+In conclusion: This should work, but there is always that gray area caused by the fact that Acer doesn't support Windows 7 for this model. I would suggest to get in touch with their Support to ask why. Windows 7 will function, but best be prepared for some annoyances.
+I've been very happy with the performance of Windows 7 over Windows XP or Windows Vista in all of my machines with at least 1-2GB of memory.
+Then, if you have space, see how well Windows 7 runs on your machine by using the install to VHD option using the following as a guide: 
+While you're searching you can also often find forum posts where others have already tried installing 7 on your particular model and you can learn from any problems they had trying to do so.  This was also a huge help to me, as Win7 was known to misidentify the video card in my model of HP and install the wrong video driver.
+My first suggestion is to make sure that you're using the most recent BIOS available for your computer and that you have at least 2GB of RAM on your machine.
+Alternatively, if you have a spare hard drive available, you can pull out your existing hard drive, replace it with a fresh hard drive and install it.
+This doesn't mean that Windows 7 will not work on this model, but only that perhaps the most advanced display options (such as Aero) may not be fully available.
+I remember having to set the "Compatibility Mode" tab in the Properties right-click menu to XP and Vista on two separate occasions before clicking on the setup.exe launcher.  
+It's a bit of a long shot, but you might just try installing the Vista or XP drivers for your hardware on your Windows 7 installation.  You'll probably have the most luck with this if your CPU and motherboard are Intel-everything; not sure about Acer in that regard.
+I have installed Windows 7 on a number of machines at home that were older and don't have Windows 7 listed as an available OS on their respective support sites including an Asus EeePC 701SD (upgraded to 16GB SSD and 1GB Ram) and a Sony Vaio VGN-C140G.
+I would suggest taking a disk-image of the system drive before installing Windows 7, so to have an easy escape route back to Vista.
+In case of a problem, where Windows 7 fails to install the best driver for a device, you may always install the Vista drivers, since they are totally compatible with Windows 7.
+Not necessarily.  You may have to do some hunting to find drivers that work with Win7.  I know I had to hunt for a while to find drivers for all of my HP zd8000's components.  You're best bet is to make a list of the specific hardware your Acer has, then search around and download any Win7 drivers that are available for those components and burn them all to a CD to have on hand in case you have any problems during install.

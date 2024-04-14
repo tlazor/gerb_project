@@ -1,0 +1,6 @@
+Also when you are pinging this domain you will be pinging from behind their firewall when VPN is up. This maybe denied by the firewall rules in place at the site. 
+I'm not sure how to resolve this but it seems the VPN is up, as the DNS resolves to a different IP indicating it was resolved from the VPN site. I understand Nuget as being package manager repository for .net, this domain could well resolve differently either due to caching servers or just different path of DNS resolution.
+In a way yes, but the correct description is a encrypted tunnel, the VPN Client will encrypt it and the endpoint your connecting to will decrypt it again.
+I've connected to my work VPN via KerioControl VPN Client. Everything was OK until today I've experienced connectivity issue with internet host:
+Worth to note, it's the new laptop and it can be the source of the problem. Before I had no such issues.
+Note, that resolved IP is different. Now I'm confused about what the whole VPN thing is. Does it act as an intermediary between me and the Internet? How to diagnose the problem?

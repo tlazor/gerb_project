@@ -1,0 +1,5 @@
+If you have some money to spend for an appliance, have a look at networknightmare's WAN emulator appliances. The free solution I prefer is WANem. It comes with a nice WebGUI (easy to configure) for layer 3 operation, if you need to slow down layer 2 traffic, just create a bridged interface with two network cards.
+Ive tried some free linux WAN simulators to emulate 4 hostingsites with delays and bandwidthlimits.. all just crashed with my config so i ended up setting up Qdisc manually.
+Marionette may be able to help you out here, and possibly simplify your life with creating other network configurations for testing as well.
+Namely, you need a WAN emulator. These pieces of software let you configure bandwidth, delay/latency and random packet loss. Therefor, you can simulate connections over slow uplinks or just see how your application performs with some delay.
+Basically, you need a switch/bridge/router, which slows down your traffic. I would strongly recommend to not use a tool on client or server, but between them on your network equipment.

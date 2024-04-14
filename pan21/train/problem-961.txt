@@ -1,0 +1,6 @@
+Since FlowType is an enum, I will suggest using an EnumMap inside callService(), plus inlining your variables:
+Is it possible to use more specific Exceptions to throw from parseResponse()? They may influence how callers of this method can recover from such errors, e.g. just log, do a timeout-and-retry, or to hit the big-red "Panic!!!" button.
+Instead of duplicating the code, you can introduce a private method lookup(Map, String, int) that accepts the relevant Map, the path and the partitionId to standardize the lookup code. Again, instead of using a temporary variable final String hostname = ... in getHostname(String, int), it will be shorter to simply return the result of performing the get() operation.
+The implementation for local/remote primary/secondary addresses all look extremely familiar... to the refactoring machine!
+You can also consider re-working the if-statements a little bit to reduce the nesting, and also to cut back on the variable declarations again...
+Also, as you should know, Java 7 supports type inference for generic instance creation aka diamond operator, so you should use <> consistently, where applicable.

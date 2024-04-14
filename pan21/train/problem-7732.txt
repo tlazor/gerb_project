@@ -1,0 +1,6 @@
+The last part of UUID is MAC address of a node. I will be using only 1 machine, so that part can be stripped of, making it 20 chars.
+I am using auto_increment primary key to store each task user performs. Users will be given the key to perform queries about their tasks.
+To combat that, I thought about using UUIDs in place of auto_incremented key. But this has it's drawbacks too. Its 32 chars long when dashes are stripped, and as far as I understand has a significant performance hit. The table in question won't have more than a million rows so I am not sure how this applies.
+Should I consider any other method of storing non predicatable primary keys? Which option do you recommend?
+If a user creates 2 tasks and is given a key that auto increments for both of them, than he can calculate how many tasks happened in that time interval, giving him unwanted insight.
+My currently favourite option is to use something like SELECT FLOOR(rand() * 10000000000);  and than check if that number already exists.

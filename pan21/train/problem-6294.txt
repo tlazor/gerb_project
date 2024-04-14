@@ -1,0 +1,5 @@
+Personally, I would take a different approach, and assume that it's deliberate. A lot of motherboards have alarms for different failure types.
+Double Check your drivers, yes, they may be "up to date" but are they the right version for your OS and/or hardware? First thing's first, start ruling out software, wipe the disk, reinstall the OS, and very systematically and methodically start doing research on which driver's you're using, where you're getting it from, what order, and which version. After that, start with some memory testing tools.
+If windows, try upgrading/downgrading your graphics card drivers. Also check that the grpahic card and the sound card aren't sharing an IRQ.
+Given the propensity for flash to overwork a system, I would assume you're overheating it. I know you checked the temps are reboot, but temps come down very very fast.
+As Randolf and Dustin commented below... The problem sounds like a HDMI/interface issue, see if you can repeat it using DVI and some external speakers - i'm guesing not (which would indicate a GPU problem... You also mention its clocked - suggest running it at factory settings...)

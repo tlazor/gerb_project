@@ -1,0 +1,5 @@
+Apache rewrite should be able to do this, but will cost you a DNS lookup for each request the server responds to.  Install a caching DNS server if you don't already have one.  Something light-weight like dnsmasq should be sufficient for a smaller site.  Something like the following should forbid access.  See the URL Rewriting Guide for additional guidance.
+Does that work for you? Note: that redirect target may not be the exact message you want to give - you may want to throttle that up or down depending on the full context of the situation.
+I have a webserver running OpenSUSE 11.1 and I need to block a URL.  The reason I want to block a URL is because it seems to have a different IP address all the time, but the URL stays the same.
+iptables will resolve the name at the time the firewall is loaded.  It won't work for servers with dynamic addresses such as you are encountering.  If the problem site had a static address, you would only need the INPUT rule.  
+I'd rather not install any new software, so I was hoping for a way to do this with either IPTABLES or Apache.

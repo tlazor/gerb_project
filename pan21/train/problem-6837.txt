@@ -1,0 +1,7 @@
+consider your "fireball" (or area weapon) damage as HP per second. And every step you calculate the damage in this way
+I'm planning to write little 2D go-right-and-swing-your-sword game. When i started to write my ideas on paper i've come across a little problem.
+To be honest, however, ultimately, as long as it fits your game architecture, and it's efficient enough (you check that by using a profiler), any method to make it work is ok :)
+Another option is that if your fireball and your enemies are completely decoupled and the damage is managed by a 3rd party (e.g. 'DamageManager'), well in this case, the DamageManager will have to keep track of the enemies and fireballs combinations that have occurred and not re-apply the damage. 
+Now you have to ask "Who's responsible for calculating the damage of the fireball on the enemies?", if you answer "The fireball", then the approach you suggested, 2., is the way to go: unless the enemy knows anything about a fireball, there is no need for it to keep track of those; the fireball however should probably know about the enemies.
+I know i can use the array of already hit enemies and check every frame if projectile collides something new, but is it a correct way? Are there any tried and true ways of resolving problems like this?
+Let's say i'm using magic spell, ex. fireball which technically is a signle projectile flying slowly in a specified direction. As it's defined to be a piercing projectile, I want it to hit every enemy only once, no matter how big their sprites are. And how I do it?

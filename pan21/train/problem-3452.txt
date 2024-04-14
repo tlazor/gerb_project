@@ -1,0 +1,5 @@
+You got absolutely loads of transport layer protocols that 'normally' can be routed over the Internet. See http://en.wikipedia.org/wiki/Category:Transport_layer_protocols
+All IP packets should be routed by your ISP, independent of the higher-layer protocol. Of course this will become very difficult with IPv4 packets when they have to use NAT444/CGN/LSN/DS-Lite/A+P/etc when IPv4 addresses run out (depending on where you are this might already have happened).
+Generally IPv4 network should route any ip packets regardless of upper-level protocols like tcp and udp. IP packet contains all necessary data for routing (src and dst addresses in IPv4 network and other required data).
+This issue got me thinking - other than TCP and UDP, which transport layer protocols are (generally) allowed to be routed properly across the Internet, over IPv4? Is the "normal" policy to allow all forms of IPv4 traffic, regardless of the protocol?
+I recently noticed that my ISP doesn't like routing native SCTP traffic over the Internet, unless it's tunnelled through UDP. A bit of a pain, but I solved the issue by using tunelling.

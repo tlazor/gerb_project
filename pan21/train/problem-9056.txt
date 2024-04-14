@@ -1,0 +1,5 @@
+Is there something that supports this or do I have to program it from scratch? I figured I should ask first before re-inventing the wheel.
+So, you either not make it a daemon, needing an interactive startup, or you have a file someplace that has the key, and that file is protected by root read only perms.  Or a major rearchitecture, which may make the most sense.
+I would like to use Ubuntu's start-stop-daemon to start my application, but the application protects some sensitive information, so I have a mechanism where the application prompts for a password that's then used to generate a hashkey, which is used as the secret key for a symmetric encryption (AES) to encrypt and decrypt things from a database.
+The point of daemons is to run without interaction.  If you run as a true daemon, there will be at some point a system reboot with you not being around.  You can't really prompt at that point.
+I'd like to daemonize this application and have it run from start-stop-daemon, so that sudo service appname stop and sudo service appname start would work, but, I'm not sure how to go about doing this with the added complexity of a password prompt.

@@ -1,0 +1,6 @@
+That said, at least for eBay, there are auction sniping softwares out there. Google "auction software" or "auction software sniping" (both without quotes), and see what you might like.
+I doubt that it exists in the way you are describing since that is a VERY unusual combination. Unless you can find two separate tools, that can work simultaneously, like the refresher refreshing first, then the checker checking for changes, it probably will not work that way.
+And here's a discussion about how to detect text within a span in html, which would get you the other half of your functionality:
+I've also run in to "Check4Change", but that works with text already present. Mostly intended for bidding/selling sites like ebay and amazon.
+I'm looking for an addon for firefox, that reloads a page on a set interval, in this case a forum topic overview, and checks if a certain word has appeared. And then alerts me if it has.
+Check out Greasemonkey - it can almost certainly handle your task, but you'll have to write some javascript to accomplish it: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/

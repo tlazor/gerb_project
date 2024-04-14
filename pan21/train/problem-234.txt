@@ -1,0 +1,6 @@
+As far as i am aware, in order for the certificate to be verified the ROOT CA must be installed on the client system (my testserver). Therefore, since this certificate is indeed verified, that means that the Root CA from the above chain, that is, DigiCert Global Root G2, must be present on my machine.
+While i was trying to get my self familiar with the whole certification procedures i noticed that the Root CA of my certificate is not installed on the client machine.
+Thing is i cannot find the specific root ca in my system. When i search for the installed Root CA on my system i only see three certificates:  
+I have installed a certificate issued by Digicert on one of my web server. I then use another server of mine as a client to curl on my new certificate which is validated successfully.   
+There is only one DigiCert Root CA (not G2) and the certificate does not match with the one in the chain.  
+The paths for the root certificates vary depending on the system used. A similar topic was raised in this task: SSL Certificate Location on UNIX/Linux

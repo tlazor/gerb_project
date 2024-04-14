@@ -1,0 +1,8 @@
+without making any classes or variables (look at Example 01 at the page linked to see what "gap unrelated" does).
+This can get complicated, but you usually want all labels to look the same. Otherwise, you can use additional arguments.
+A while ago, I had the idea to nest widgets in anonymous classes, directly in add calls. This way, a simple layout has fewer variables that get in the way of digesting the code's logic since every component is nicely indented in its own scope.
+It's a pity that Swing provides no fluent setters as it'd allow to eliminate quite a few variables even without helper methods.
+I can feel your pain and sort of like your approach. However, it has the disadvantages already mentioned by rolfl. Consider using miglayout, which allows to create complex layouts without nesting (nesting is sometimes fine as it helps to structure the GUI, but usually you get too much of it).
+Oftentimes, I write small little dialogs or forms without a UI builder. I usually find myself having a lot of "container" panel variables that just float around. I found this leads to time-wasting experiences.
+I (and I'm not by any means an expert on Swing) haven't seen Swing code like this around on StackExchange sites, or really, anywhere I look. I can't have been the only one to think of this approach - is there a reason why an aggressive subclassing approach is not preferred, or have I just not been searching hard enough?
+Below is a simple (Java 8) frame that shows a button and a label. I realise that this same layout could have been made with fewer panels, but I'm presenting it as an overly explicit example of my approach.

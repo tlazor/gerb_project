@@ -1,0 +1,5 @@
+Make sure that the smarthost actually has an account (or a contact) set up for the email address you want to use. You may also have to do something about authentication (depends on  your Exchange server configuration).
+I would like it configured correctly for just a simple internal network direct send to my exchange server. From looking at the log it seems like it wants to go out onto the Internet first instead of staying internal.
+I have a Lucid Ubuntu Server running in a EBS 2008 windows domain. This server is running Nagios and I would like it to send email notifications to the Exchange 2007 server. I have installed mailutils and run a dpkg-reconfigure exim4-config however I still don't have it setup correctly.
+You need to configure your exim4 installation as a smarthost setup. This can be done by re-running dpkg-reconfigure and selecting the correct option. Then enter the name (or IP address) of your Exchange Server as the smarthost. 
+I have been trying to send an email via command line first as a proof of concept for the Nagios command but the exim4 log file says: 

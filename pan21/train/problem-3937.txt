@@ -1,0 +1,5 @@
+Is there any way to fix this error? I am having a similar issue with infinite scrolling websites in Windows 10.
+Open File Explorer, go to wanted folder to rename images, scroll to wanted image, rename image, File Explorer jumps to the top of the series of images and does not remember the location of the last image you selected and renamed. 
+Deselect "Automatically Pick an Accent Color from my Background.". The setting is in personalization -> colors.
+For example, if you have a folder filled with a series of images and you wanted to rename each, currently this is what the File Explorer does:
+Go to PERSONALIZATION in the CONTROL PANEL. Control Panel -> All Control Panel Items -> Personalization. Look at the bottom of the resulting page, where it has the headings DESKTOP BACKGROUND, COLOR, SOUNDS, and SCREEN SAVER. Click on the COLOR box. As soon as that page opens, look at the bottom of the page where it says "Automatically pick an accent color from my background." DISABLE this feature (uncheck the box). Your problem is now solved.

@@ -1,0 +1,6 @@
+By default they are set to 60 seconds, but they can be adjusted to any number of seconds between 1 and 315360000 (which if my math doesn't fail me, should be 10 years).
+Also, at least for VM guest metrics, when enabled the metrics are stored in an Azure Storage Table that aggregates 10 days of metrics, either at the minute or hour level. That's mentioned in this question.
+For example, could we get metrics at 5-minute or 15-minute intervals, or restrict the table to 2 days or 5 days of metrics?
+As for the retention period, this is also changeable.  You'll need to make the change to the actual table storing the diagnostics.  You can use the REST API to get your tables properties: Get Em Docs and set them: Set Em Docs.
+You can change this by going to your virtual machine in the Portal and clicking on the Diagnostics Settings.  There you'll see: Overview, Performance counters, Logs, Crash dumps, Sinks, Agent.  You'll need to click on Performance counters, and on that tab change from basic to custom in order to specify your collection frequencies.
+You'll need to set the RetentionPolicy/Days value to your desired duration.  This can range from 1 day to 365 (a year).

@@ -1,0 +1,7 @@
+We use it primarily for domain controllers.  It helps to enforce the best practice that you shouldn't run any services on your DCs other than the AD services.
+the only good thing about core is that it confused/scares the hell out of dumb admins!  Which is a good thing.
+Microsoft has made great progress in improving their remote management tools suite over the years, but for some users, these tools can present a significant learning curve.  If you are still getting your feet wet with core installs, take a look at the Core Configurator which can expedite your deployment/configuration process.
+The mistake I made is that server core is more suited for infrastructure servers, then it was made to be a modularized application specific server similar to what has been done with some of single purpose Linux distro's. 
+We have been using/testing 2008 R2 Core for nearly a year now.  Our intention is to migrate the following services to Core installs prior to the end of the next K12 school year. 
+For example, I thought server core would make a great build server for our code base, this turned out not to be the case. Perhaps this was more due to the dependencies of the code base.
+Hopefully, in the future it will be extended to support hosting other services such as Sql Server, TFS, etc.

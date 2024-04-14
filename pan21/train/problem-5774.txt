@@ -1,0 +1,7 @@
+This is not a faulty device at all, but I think something related to the kernel module and the RPI resource usage.
+When running a gstreamer pipeline to record while and tryin to get readings from DHT11, I observed that DHT11 takes a long time to return values sometimes (ranging anywhere between 3-70s) and sometimes, the values returned are not accurate (got very high values). When I stopped the gstreamer pipeline, I was getting proper readings in 0.5s from DHT11.
+I even added the dtoverlay for DHT11 on the correct gpiopin and yet we are still facing the same issue. Has anyone else run into this issue?
+This is not a faulty device but I think CPU problem. If my CPU is too busy the frequency of messages below come up.
+We are trying to use a Camera Module v1 to record video using gstreamer whilst also reading from DHT11 every 4s. I observed that, when the camera is not running, DHT11 takes 1.5s to output the temeprature and humidity values for the first time and it takes 0.5s for each consecutive read. I am using the Adafruit Python_DHT package (found here: https://github.com/adafruit/Adafruit_Python_DHT)
+I got a daily log attached to the values read by DHT11 ( I read it every 10 minutes) and when the output works, NO lines like these are printed in dmesg...
+We hooked up an oscilloscope to the DHT11 to observe the pulses. It looks like the data being returned from DHT11 is failing checksum test and rpi keeps on querying for data until it gets a correct reading and sometimes, it times out and we don't get a reading at all.

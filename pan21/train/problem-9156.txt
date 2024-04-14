@@ -1,0 +1,8 @@
+Alternatively, if the internal sites in question have publicly routable FQDNs (i.e. site.com as opposed to site.local) you might save yourself a lot of time and hassle by picking up a 10 buck SSL cert from eNom or a similar vendor.  If it's going to take you a lot of time to configure, there's a good business case for spending the 10 bucks as opposed to your more valuable time.
+WEBAPP is a member of DOMAIN1, and has a signed SSL cert from the DOMAIN1 cert authority, so all DOMAIN1 users trust the certificate.
+So that being said: export the root CA certificate from DOMAIN1.  Publish it as a trusted root CA through a GPO in DOMAIN2.  Your users should cease seeing untrusted CA warnings.
+The web app in question has a valid certificate issued by one of the CA's, and all the users on that domain "trust" the website.  Users on the other domain can access the website, but are shown a certificate warning.
+There's no way for a certificate to appear to be issued by more than one certificate authority - it's a direct parent-child relationship.
+I have a web application that utilizes SSL.  The website is not publicly facing, and is for private internal access only at our enterprise.  
+Since I don't want to train my users to ignore warnings, I'd like to create some sort of trust relationship between the CA's, but I don't know how to do so.
+For security reasons, we run two separate Active Directory domains and networks, but this particular web app is accessible by users from both domains.  We maintain private CA's on each domain, to generate certificates for web servers.  

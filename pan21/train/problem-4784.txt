@@ -1,0 +1,7 @@
+I have a user who is seeing lines in all MS Office 2010 applications. Other programs aren't affected. I've checked that the colours are showing 32bit and have restarted each of the various office programs.
+The color settings for the host and client are not as relevant as the Visual Performance policy which, from the manual, suggests that the default visual quality is "medium" for optimal transmission bandwidth and that there is an option for 16 bits-per-pixel image transmission. "Normal RGB" is 24 bits per pixel (aka 8bpp per color channel). So you can have a situation where everything is rendered exquisitely, downsampled to poor quality, transmitted, and then upsampled to render that bad quality exquisitely.
+https://docs.citrix.com/en-us/xenapp-and-xendesktop/7-6/xad-policies-article/xad-policies-settings-wrapper/xad-policies-settings-ica/xad-policies-settings-visual-display.html
+As far as why this only happens for Office? Perhaps Office is the only application that has a large ribbon GUI with a small-increment gradient.
+That is called banding and is most prominent in gradients, especially with gradients that have a narrow-band color change.
+Not sure what to search for to find solutions to this problem as it seems to mainly return pages relating to office shapes and gradients! 
+Has anyone seen this before? What's the fix? This is only one user out of many, who are working with a Citrix Xenapp environment. 

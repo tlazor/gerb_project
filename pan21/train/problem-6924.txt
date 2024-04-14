@@ -1,0 +1,14 @@
+Circle collider. Good enough for it I would say unless you're doing something fancy with certain parts being affected by physics or the colliding looking unnatural, and even if you need to split it up into several parts I have one thing to say to you:
+Since your image is a PNG (or any other file format that contains an alpha channel) this would be rather easy
+PS: If your image has a halo, an effect or other non-0 alpha channel around it that you don't want to collide with, the algorithm threshold can easily be adjusted to accommodate that
+Pixel perfect collisions are usually expensive, so doing a rough estimate at first with a bounding box or a more detailed collision figure (Like the one Anko suggested) may save you some precious time
+1) Define a bounding shape that is a polygon that fits closely to the first object (o1) in question.
+If you look at your images alpha channel, you can see how it already has all the information you might need for pixel perfect collision
+With the position and size of the shape (o2) you could probably isolate edges (of o1) which can't conceivably be hit, whether it's becauses they are "behind" another edge (of o1) which is closer to o2. If you had a right triangle whose hypotenuse faced up and right and a rectangle approaching it straight on (with the long side along the x-axis) then you can tell which edges to omit because they're beginning and end y values are both  either above or below the rectangle.
+2) Get the edges of o1, o2 that could conceivably collide without could conceivably collide without o2 passing through o1 or vice versa.
+On the first step, you check the bounding box, and if there is no collision there, then the test is over. If there is collision, you move over to the second pass
+I would use a circle for the body and a single rectangle for the beak, but that's just my opinion. Overcomplicating your collision geometry can slow down your app though, you're practically doubling (or more) the number of characters on-screen.
+On the second pass, if you want more precision, and you want a true pixel perfect solution, then you can do just that, a pixel perfect check pass
+3) Determine if one of the points on an edge of o2 is the same as a point on any of the edges of o1 that you selected in step 2.
+this concept probably works best for colliding polygons (i.e. things with clear edges), but maybe you can treat a circle as one long edge (e.g. if o2 was a circle).
+This can't possibly be performance critical enough and you won't gain that much from using a quad tree.

@@ -1,0 +1,9 @@
+Does it make sense to use contrived examples like this, or is it likely to introduce confusion in students?
+But I wouldn't write a large program as an exemplar of good programming if it had these kinds of things. 
+This does demonstrate what continue does, but you would never write something like this in real code. You would just leave out continue and print "test" entirely. It seems like this example might be counter-productive.
+The same is true of your second example. If they understand strings as arrays or lists (or ... whatever term is appropriate in your language) then introducing the [] "box" operator as selection makes sense. 
+Another type of example that I have seen elsewhere that I think might be counter-productive is indexing into string literals. For example, in some languages you can write the following:
+This sort of thing is perfectly valid and valuable, provided that students already understand the underlying structure. So if they understand your first loop without continue (but with the print in place) the adding continue lets them see the effect dramatically. 
+which would evaluate to "H" but if you actually wanted an expression that evaluated to "H", you would just use "H"!
+But note also, that throwing in a continue in a loop is sometimes good for debugging, so it isn't entirely useless as a technique in "real" programming. 
+By the way. In some languages asking students to decipher obfuscated code can be a useful exercise to make sure they know the basic rules. Asking them to clean it up is even better.   

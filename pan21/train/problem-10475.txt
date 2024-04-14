@@ -1,0 +1,7 @@
+this is especially useful if you have proxy filtering traffic [ and eg preventing attempts to tunnel ssh over port 80 ]. 
+If I understand what you are asking, you can do this with source and destination NAT for iptables as well.  This link explains the iptables commands.
+or you can setup mod-proxy on apache and forward traffic to many different sites [ radio stations ? ] - as long as they use http to steram music.
+You can create it from your client machine if you can ssh to your VPS. Otherwise, you can just do a tunnel on the VPS and keep it alive before you go to work. Make sure you allow it to "Accept connections from other hosts"
+then - at the office - you just turn on your music player and listen to http://your.vps/radio1/a.ogg or http://your.vps/radio4/ etc
+Forward your VPS port 80 to destination port 8080. Then when you connect to port 80 on your VPS it's as if you had connected directly to the destination.
+By far the easiest way is to set up xinetd or similar to 'redirect' all your connections. You won't need to touch your web-server that way. Do something like this for xinetd.

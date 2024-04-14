@@ -1,0 +1,8 @@
+Of course, this is by no means a comprehensive list(more so since I'm a beginner myself), but I feel its a good one to start with. It certainly helped me. Hope it does help you too!
+Some of the specific tool recommendations are a bit dated (e.g. CVS for version control, nowadays I'd recommend git or mercurial), but the basic principles are sound.
+The nice thing about Linux is that almost everything is configurable, and the system does not try to get in your way. It takes a bit getting used to (like everything new), but im optimistic you'll like it :-).
+I'd advise you to just install and use Linux for a while. You know the saying: we retain 20% of what we hear, 50% of what we see and and up to 90% of what we do.
+http://www.ubuntulinux.org/ Ubuntu Linux is my favourite; it's very userfriendly, but based on the solid Debian base, which is available if you want to dive in more deeply.
+I'm in the same boat, just been only a while since I switched to Linux. I used the following resources:
+Coming from a Windows background, i'm a little lost in terms of Linux so are there any good resorces etc for an experienced sysadm who is unfamiliar to Linux.
+Install it on some spare hardware or a VM, then play with it. Set yourself simple tasks (install webserver, setup a router with NAT, install groupware, update system etc.) and see where it takes you. The ressources listed in the other answers will come in useful :-).

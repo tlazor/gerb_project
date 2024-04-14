@@ -1,0 +1,6 @@
+As per your requirement it seems like that only you want two Data Center (i.e HA(primary or Data Center 1) & DR (Secondary or Data Center 2)).
+Right now i have a MongoDb HA in site one and i need another site with asynchronous replication enables in another location.This is a base plan of mine to achieve a disaster recovery .
+A priority 0 member is a member that cannot become primary and cannot trigger elections. Priority 0 members can acknowledge write operations issued with  write concern of w : . For "majority" write concern, the priority 0 member must also be a voting member (i.e. members[n].votes is greater than 0) to acknowledge the write. Non-voting replica set members (i.e. members[n].votes is 0) cannot contribute to acknowledging write operations with "majority" write concern.
+Other than the aforementioned restrictions, secondaries that have priority 0 function as normal secondaries: they maintains a copy of the data set, accept read operations, and vote in elections.
+Configure a secondary to have priority 0 to prevent it from becoming primary, which is particularly useful in multi-data center deployments.
+One data center hosts the primary and a secondary. A second data center hosts a secondary with priority 0. Only the members in data center 1 can become primary.

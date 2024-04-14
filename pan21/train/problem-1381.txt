@@ -1,0 +1,6 @@
+Two of those columns I estimate account for most of the space used for each row, and they are of datatype TEXT. They are backtrace and msg.
+Note that UTF-16, although purportedly only 2 bytes, can also fall prey to the same sort of issues: it has to encode surrogate pairs, which are 4 bytes long. UTF-16 has multiple other issues, and some advocate always using UTF-8
+One thing to consider is encoding issues. UTF-8 for example uses 5 bytes for some characters. If you have no data, or variable data, the database is forced to assume the worst: that every character could be 5 bytes in length. Thus, it may allocate more than it actually needs to use.
+show table status where name = 'errormsg2'; shows that (data_length + index_length) / rows is about 778 bytes per row.
+select avg( bit_length( em.backtrace ) + bit_length( em.msg ) ) / 8 from errormsg2 em; shows an average of 899 bytes of text per row from just these two columns.
+I'm trying to estimate the amount of storage required for each row, and I came upon the following contradiction:

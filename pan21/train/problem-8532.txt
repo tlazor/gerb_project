@@ -1,0 +1,14 @@
+My boss's thinking (as I understand it) is that having RAID on our servers would mean no downtime (or at least significantly less downtime) because if the primary disk fails, the server can just switch to one of the other disks without missing a beat.
+Since neither myself not my boss know a whole lot about this "RAID-on-a-server" idea, can someone shed some light on this for us? And to clarify, this isn't a me-vs-my-boss situation. We're just trying to find the right solution together.
+We were given the option of putting RAID on our servers but I declined since we already have RAID backups going at our office. My boss didn't understand why I declined the RAID and, honestly, neither do I.
+Personally, I'd say it's a good idea to have a mirror even on low-traffic servers just for the safety net it'll give you against hardware failures.  It only costs one extra drive (plus the knowledge and time to configure the RAID) and saves you the time it would take to build out a new server from your backups.
+Let's say it takes 8 hours to bring a server back up on it's feet from tape backup. Do you have a spare disk lying around? If not: add 20 hours. Can your company produce the same amount of $$ while missing the server for 28 hours?
+RAID is a very cheap option to have some resilliency against disk failures, you should really implement this.
+If you're basing it on cost, what you're really comparing is the cost of the extra hardware vs. the cost of your time for doing recovery when the drive fails. If it's a low-priority server doing automated processing, it's likely going to be in service until it dies - why not extend that time up front?
+If you set up your server's disks to be mirrored (RAID 1) then you'll be all but guaranteed to never need downtime on the server due to a disk failure.
+RAID is not backup, it's redundancy. Not installing atleast RAID1 into production servers is something I would strongly recommend against.
+My company is buying a couple servers. I don't have a sysadmin background and neither does anyone at my company but I'm the "computer guy" so it falls to me to spec them out.
+It's important to note that this server will be very low-traffic. In fact, it won't even be connected to the internet (except possibly to grab OS updates). It will mostly just be running automated jobs.
+Adding RAID to a server won't add that much to the cost of the hardware, shouldn't add anything significant to the cost of setup & maintenance, and has the potential to prevent downtime while you reinstall, restore backups, etc. 
+My thinking is that if a server's hard drive fails, we can restore it from backup (to a different, clean server) and it wouldn't be a huge deal (we'd practice these recoveries, of course).
+Have you tried restoing a server from backup? Do you test it regulary? If so; then you know how long time it actually takes to get a server back up on it's feet in working condition.

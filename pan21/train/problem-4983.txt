@@ -1,0 +1,7 @@
+Having trialled beta code of vSphere 5.0 for a while now I'm 100% certain everyone needs to move to ESXi for all new installs as it'll prepare people for losing their consoles.
+The big benifit of ESX over ESXi is with ESX you can use Virtual Center to manage everything form a single location (Virtual Center is an additional one time cost).
+If you are using SAN storage, you can use Virtual Center to create an ESX cluster which will dynamically move guests from one node to another as needed for performance without any down time (you can control how aggressively this is done).
+With ESXi you can't use Virtual Center to manage the host so you have to manage each host independently.  With 1 or 2 hosts this isn't that bad, but as you get more hosts it becomes a pain having to remember which host a VM is one.  With Virtual Center you group everything into a datacenter and everything is presented as a single resource pool.
+Is ESXi a good option or do we need purchase a new license for ESX for each physical box?  What are the benefits/limitations of ESXi vs ESX?
+In addition with Virtual Center comes a license for the VMware converter, and the ability to create templates which make creating new VMs a 5-10 minute process to spin up a new Windows VM with the OS already installed.
+We currently run one instance of VMWare ESX server, but want to start virtualizing more physical hardware with VMWare, while keeping the cost of VMWare licensing as low as possible. 

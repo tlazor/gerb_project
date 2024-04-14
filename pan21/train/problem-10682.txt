@@ -1,0 +1,6 @@
+The command has to be run so it outputs to tty1, and you can't do that (easily) from a remote connection.  I use a small script to send setterm commands to tty1:
+Um, if it means anything, this is for a generic edimax wireless micro-dongle, the teeny-tiny one. lsusb output:
+I Run omxplayer in a loop with pexpect via python. After a period of time, the screen blacks out and the pi is unresponsive to keyboard input. I have hostapd running and it responds by sending me back replies from local server, but the display is completely blacked out.  The power light is still on.  I checked the /var/log directory for errors, and I have nothing. Any help or debugging considerations are greatly appreciated. Thanks.
+Next reboot, it'll turn off the power saving for the wireless.  I've had rock steady connections since this.
+Try disabling the console blanking.  I put the following in /etc/rc.local to turn off the automatic blanking that is on by default:
+If you're connecting via wireless and are having connectivity issues, I'd recommend disabling the wireless power saving options, which turn off the wireless dongle if nothing's happening for a bit.   Annoyed me greatly.

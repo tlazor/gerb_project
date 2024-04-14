@@ -1,0 +1,5 @@
+I know that I can open a folder in a new PowerShell window from the windows explorer context menu by holding the Shift key while right clicking. Is there any tweak to get this command shown in the context menu without the Shift key?
+You can edit your registry to add this option to standard right-click functions by running regedit (Win+R and type regedit) then under HKEY_CLASSES_ROOT\Directory\shell 
+After editing, it's a good idea to restore the permissions to their original state by first deleting the permissions entry you created for yourself and then restoring ownership to TrustedInstaller. The pricipal name is 'NT SERVICE\TrustedINstaller'
+Thanks to Taylor Gibb at https://www.howtogeek.com/165268/how-to-add-open-powershell-here-to-the-context-menu-in-windows/ for the info.
+You can edit the existing registry entry to make PowerShell part of the primary context menu rather than the extended context menu. The biggest hassle is that you don't have permission to edit the key by default and it is owned by TrustedInstaller. So you have to jump through the hoops of taking ownership and adding yourself with full control. Then you can edit these two registry keys:

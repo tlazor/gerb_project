@@ -1,0 +1,5 @@
+I think for the other half of this I'll run the sorting job on the source server and output the resulting directory name to a text file in a static location, which will be scp'd first from the target system, then cat'd into the variable for the source location.
+Otherwise, I'd scrap your requirements and run an on-demand hybrid solution from the target  using SSH pipes.
+I don't know, if sshfs could be a solution for you. This way you wouldn't have to allow unrestricted ssh, and you wouldn't even have to change your bash script. (I guess the performance would be somewhat worse though,  and maybe you have additional requirements that won't allow this approach.)
+Run a similar version of the earlier script on the source server using cron, where it archives and encrypts all the files to a directory.  At an appropriate interval following that, have a cron on the target server rsync over SSH that location.  You could scp but rsync has many advantages.
+UPDATE: After some experimentation, I've worked out how to pipe scp to gpg from the target server via stdout:

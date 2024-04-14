@@ -1,0 +1,5 @@
+I'm not sure if any of these meet your needs, but TechNet has a blog where they tested several clients for compatibility.
+(I can't comment yet, so I'm going to post to ask for clarification initially, then edit as necessary.)
+The built-in ISPEC client in Windows 7 will allow you create IPSEC policies with "filters" that identify when traffic should be encrypted. Getting over the initial interop hurdle with your VPN gateway may be a bit tough, but this built-in functionality would allow you to subject only specific traffic flows to IPSEC encryption / authentication,
+If I understand, you're looking for a way to identify specific traffic flows (destination address / subnet, protocol, port combinations) that should be subjected to IPSEC encryption / authentication under Windows 7. Is that accurate?
+Open an "MMC.exe" instance and snap-in the "IP Security Policy Management" snap-in. Create an IPSEC policy and tool around in the settings for a bit. You can configure the IKE and main-mode encryption / authentication settings, as well as creating filter rules to define the types of traffic that will be encrypted / blocked, etc.

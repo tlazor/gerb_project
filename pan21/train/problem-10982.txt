@@ -1,0 +1,9 @@
+Also, I would switch the way you link the searchTerm to the date searched, so that dateofSearchTerm links to the search term (not the other way around).
+I think if you follow the advice to make searchID a foreign key, that will also become a proper index. I don't use SQL Server, so I don't know if foreign keys require an index, so make sure that it does.
+Using this schema, each use of a search term requires either an insert (if it's the first use of the term on any given date) or an update of a record in SearchStats.  If the search term has never been used before, then obviously you need to insert there too.
+First, let me address your concern about data redundancy. I agree with you that the second schema is more likely to reduce the redundancy, and is probably closer to what I would go with. One thing to be aware of, though, is this will be unique search terms. So unless you have some way of normalizing data, misspellings will get through and be viewed as different search terms.
+If you just need to record how many times each search term is used on any particular day, then the most compact schema would be:
+As for your anecdotal story about your friend, the biggest thing I see you missing in your designs are indexes. A table 3-million strong should have no problem running quickly with proper indexes.
+Do you have a reason to store the searches as individual events or are you only interested in recording which terms were used how many times on any given day?
+Using your design, you would want an index on the searchTerm.searchTerm column, and on DateofSearchTerm.date. 
+It would also be a good idea to make searchID a foreign key that references searchTerm.ID to ensure there are no orphan rows (rows in DateofSearchTerm that do not have a matching parent in SearchTerm). 

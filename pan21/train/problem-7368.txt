@@ -1,0 +1,6 @@
+If all else fails, you can try burning another card, but you should be seeing something on the screen if the card is the problem.
+The device powered on once and was ready to go, but it was time for dinner and googled "shutdown raspberry pi" which said to do a "shutdown -h now"
+The next day plugged in the device and the red and green leds light up but don't flash or anything.  It is hooked up to my TV via HDMI.
+This is probably something I've done.  New to the Raspberry, ordered it off Amazon and it arrived this weekend.  I folllowed the instructions from Norman Dunbar (http://qdosmsq.dunbar-it.co.uk/blog/2013/06/noobs-for-raspberry-pi/ which were amazing) to the letter.  This is the Raspberry PI 2 model 2.
+Doing shutdown -h now will not do any permanent damage. It's a normal way to shut down, and a good idea before pulling the plug.
+Just doing a shutdown -h now shuts down, but to turn back on you need to re-apply the power as a cycle, else the leds just stay lit because the board still has power.

@@ -1,0 +1,7 @@
+I know there are a few config files that persist IIS settings - is it enough to archive them somewhere and load them if I need to restore my configuration?
+The backups live in c:\inetpub\history by default, and the App Host Helper service (AppHostSvc) backs up a History copy every 2 minutes, if changes have been detected, to a max of 10 backups by default (configurable via Configuration Editor - open configHistory at the server level).
+I need to know if there is a fairly painless way to save my entire IIS 7.5 configuration - including app pools and their settings, security params, etc. for backup/recovery etc.
+If so, which files are needed for this? Where are they located? What else might need to be done so that I can always restore my production IIS settings when necessary?
+Websites and apps also store settings in Web.config files within their directories, so you'll need to back these up with the website/content as well, but the sites, applications and other server-level settings are all stored in that applicationhost.config file.
+I am not an trained sysAdmin or network engineer, just a programmer who has picked up some knowledge over the years, and at the moment I find myself managing an IIS 7.5 deployment on WinServer 2008 R2.
+... which should do the job for you. It backs up your applicationhost.config file (and a couple of related configuration files), which is your central IIS configuration store.

@@ -1,0 +1,7 @@
+I'm using this line of code to select my level, and currently I have different scenes for each levels. I want to be able to reuse the same scene to change levels as well but I don't know how, here's the line:
+I really wish I could use prefab name instead the scene name and I don't want to have 20 scenes for it. Any help would be appreciated.
+This just ensures that in the editor you are using readable values, so is less error-prone (still no guarantee that your array is correctly setup).
+By adding this to a GameObject in your scene, you can register the Load method to the OnClick event and pass in the appropriate level index.
+Have a look at Resources.Load(). To work properly, the prefab must be in a folder called "Resources", and you load it by its filename (not including "Resources/" or ".prefab").
+In order to associate a button press with an index into your array of prefabs, you could create something like the following:
+and I just drag the prefabs into the inspector so when I click on the button with certain number, it will load the prefab with the same index number as the text on the button from previous scene.

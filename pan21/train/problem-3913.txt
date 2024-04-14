@@ -1,0 +1,7 @@
+I've copied and pasted to a new file, tried encoding it as ANSI and UTF-8, viewed all hidden characters (found a TAB between ICACLS and "E:..." on the first one, but replacing with a space didn't help). [I'm using Notepad++]
+and never even runs the robocopy...?  (With all of the icacls commented out, the robocopy works fine.)
+I don't know why the variable expansion works fine for Robocopy but not Icacls (when it's not REM'd out). 
+I can copy and paste those lines (minus the REM of course) at the command prompt and icacls works as expected.
+I've tried single qoutes, single quotes around the double quotes. I've added quotes to the robocopy command and it works fine (with either single or double).
+I've pasted it in a new file, saved that as text file with UTF-8 encoding and then renamed it to .bat from the cmd line....
+I'm moving users to a new domain, file server and user name format. I'm trying to write a simple DOS batch to copy the data and set the permissions. X: is mapped to the old server and E: is the local drive on the new server. The input file is just a CSV list of OldUserName,NewUserName. The CSV file is State.users.csv. (The batch splits out the State for use in the path on the new server).

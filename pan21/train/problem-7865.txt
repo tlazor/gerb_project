@@ -1,0 +1,11 @@
+The vector of booleans may work. And I think check the tile below the player character every frame is perfectly valid solution until you get to a point in your project where that does not work any more. For most games that may never happen.
+Certain type of tiles are passable and certain ones are not. Your engine must know what ones are passable.
+You have a set of options actually. If your map is of preset size, you could simply have a 2-dimensional array of tiles. Depending on the programming language they could be booleans, structs, classes and so on depending on what kind of properties you want them to have.
+I would like to create a 2D game, where a character should move on a stage/level. My stage would be static, constructed some little cubes, similar to the well-known Mario game: some of the elements should represent an element of the way where the character can step, but if the element is missing, the character should fall.
+x: enemies. Starts tile aligned, due to restriction of level format, but can move to any pixel latter during game.
+My levels are also in tiles of same size and always aligned, only character and enemies may not be tile aligned.
+I have to calculate the level rectangle because I'm using a raw format to represent the level but you can use end of line characters (\n) to know where a line ends and avoid these calculations.
+The good thing about a 2-d array is that you can easily round the coordinates of the players to get tile coordinates. For example:
+A more evolved version is what I'm doing in my latest HTML5 canvas experiment to find the right collision method to use in a game I want to create.
+I represent the level as a string constant, soon functionality to load from text file will be added. For example:
+My problem is, how to represent this programmatically? My first thought was to represent the stage with a vector, which should contain boolean elements, depending on the state of the element on the stage - if it's missing or not. But this means, I have to verify at my character's x or y position change if it has a stage element under or not (if not, to simulate the falling of the character) - I think it is not the best practice, it's not the beautiful solution.

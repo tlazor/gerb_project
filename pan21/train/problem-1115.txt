@@ -1,0 +1,6 @@
+Well I know that this is not what you are asking, but why you don't try Postfix or Exim? They're both available to ubuntu (Postfix is even the default mta on Ubuntu systems) and they both provide a compatible 'sendmail' command that works very well. IMHO sendmail is kind of dated and you will get better chances of support with more modern MTA.
+Usual things to check are whether a DNS server is configured correctly on the machine (and can resolve all the addresses configured in the MTA) and that if a smart relay is configured then the name is resolvable to an address the system can connect to.
+This may or may not be a solution for you: add mail.force_extra_parameters = "-fsender@somewhere.com" to your php.ini file. It makes PHP automatically append -fsender@somewhere.com as a fifth parameter to PHP's mail() function.
+In your php.ini file it will show what command it runs to send an email (default: "sendmail -t -i"). Try sending an email from the command line using this - I'll bet its slow.
+That's a hardcoded value and only applicable in php.ini so it won't be very flexible, but perhaps works for you in your development case?
+I have never come across a problem using mail() in PHP that wasn't a result of a problem on the MTA.

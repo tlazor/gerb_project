@@ -1,0 +1,8 @@
+Normally, Windows Administrator accounts should not prevent you booting from a device like the DVD-ROM drive or a bootable USB stick.
+However this sort of hardware/firmware password would be requested by the computer prior to any indication of Windows booting. It isn't clear from your question if this is the case.
+You may be able to reset this by removing and replacing the battery on the motherboard. If in doubt obtain a user-manual for the specific model of computer or for the motherboard.
+To format windows partition you will need shutdown windows normaly. sometimes windows will lock your hdd
+Simply put a Linux LiveCD (either USB or CD/DVD) in the PC and reboot. Start the installation and you'll be asked if you want to format the pc.
+If you have no way of logging in, you will probably have to do a hard-reset (switch the power off/on), but otherwise, you don't need any user rights in Windows to reinstall a computer. This works for Windows, Linux or any other OS.
+Some computers intended for business use have an optional boot password that can be set in the BIOS.
+Now. if your BIOS is locked or something will be more complicated, try first by removing its batery.

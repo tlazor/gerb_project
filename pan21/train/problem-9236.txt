@@ -1,0 +1,8 @@
+Does it mean anything that Seagate Technology increased the threshhold for the Skyhawk? Does it handle higher temperatures better (around 45 °C) in the sense that a reduced lifetime does not occur?
+There is nothing about SMART particularly relevant to this topic. SMART is just a monitoring system that involves certain communication between your hard drive and the computer.
+Most hard drives have a S.M.A.R.T threshold of 55 °C (maximal operating temperature), but it is generally advised to keep temperatures below 40 °C.
+Because even with the front fan disabled, the Desktop was always under 40 °C. I have to live with the noise if I want to keep the Skyhawk below 40 °C.
+If a hard drive has a higher acceptable operating temperature, then that means that the hard drive has a higher acceptable operating temperature.
+The second question could only be answered by Seagate. It's certainly a good sign that they rated this drive higher than a previous drive you've inspected but I am not confident that would translate directly in to higher MTBF. I'm afraid that without a statement from Seagate this is a "matter of opinion" and can't be answered by a forum member who is not a Seagate engineer.
+There are other things it can mean too, but that's the basic bit, and everything else stems from it or varies based on other factors.
+Now I have a Seagate SkyHawk 8TB (ST8000VX0022) which gets consistently around 5 °C hotter than my Seagate Desktop 4TB (ST4000DM000). Swapping position in the case doesn't make a difference, so it's not the airflow. But the threshhold for the Skyhawk is also increased to 60 °C while for the Desktop it's the usual 55 °C.

@@ -1,0 +1,7 @@
+How can I get to the bottom of this? The only thing in error.log is an error about favicon.ico not being found.
+When accessing some PHP scripts on my website, I'm getting the dreaded 500 error message. I'd like to know what's wrong to fix it, but Nginx isn't logging any PHP errors in the log file I have specified. This is my server block:
+And when I commented this line in nginx.conf I was able to see in browser page things that was wrong.
+Note that some PHP scripts work fine, and others don't. So there isn't a global problem with PHP, there's just something in these scripts that's causing Nginx to throw the 500 error.
+I tried deploy phpMyAdmin with php-fpm 7.0 and nginx on CentOS7. Nginx showed me 500.html but there was not errors in any log file. 
+Look in your nginx.conf for an error_log definition. Maybe nginx writes something in this error log.
+When I deleted my error log, nginx noticed that it was no longer missing. When I recreated this file nginx would no longer recognise that it existed, therefore not writing to the file.

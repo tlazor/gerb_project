@@ -1,0 +1,8 @@
+Zabbix web monitoring (https://www.zabbix.com/documentation...web_monitoring) provides most of the functionality that we need for monitoring some application elements to our platform.
+It can check a URL on a schedule, check the return code, apply complex expressions to the content, record and graph the latency etc. which is all cool. The notification, escalation and acknowledgement stuff is good.
+As a workaround, you may wish to consider using web.page.get[] item with a short history (see https://www.zabbix.com/documentation/3.0/manual/config/items/itemtypes/zabbix_agent), but that has the same downside as you described with querying the end-point elsewhere.
+I can see from the source code that the Zabbix web monitor gets the response, runs a load of checks on it, then discards it.
+Something we have in an in-house health monitor currently is the ability to store all of the results so that we can see what actually went wrong - our end-points put a whole load of diagnostic information into the response that would be useful to view.
+An argument for not storing the response that has been given elsewhere is that it would end up with a lot of data - that is true, but the data is valuable and we can housekeep the DB to keep it manageable (as we do with our home-brew system at the moment).
+I have seen suggestions to query the end-point elsewhere, but the issue with that is that it may get a different response to that received by the web monitoring service, which would make working out why the alert was going off in the first place difficult.
+This does not seem to be possible currently in Zabbix out of the box. You might wish to vote on ZBXNEXT-2172 or ZBXNEXT-2411, and add your use case there.

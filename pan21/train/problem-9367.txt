@@ -1,0 +1,6 @@
+In my experience, the ones that haven't been updated for Lion support by now usually didn't work very well with OS X anyway (poor system integration).
+My IT department restricts my access to the Screen Sharing part of Lion's preferences so I needed an alternative.  I was able to get RealVNC running as a server with a free license (phone and email required).  This was using 5.0.1 and Lion 10.7.4.  Very easy.
+Actually teamviewer 7.0.11067 have a bug which provide to black screen view when you connect to your mac when it were in Economy Power mode... and it is sad.
+Lion's built in VNC server works just fine, they just changed the authentication process and many clients are no-longer capable of logging on, especially ones that haven't been updated since Lion came out or where Mac compatibility is a low priority.
+These days there are plenty of Lion compatible VNC clients available. I use it all the time with an iPad app I found, and it works great.
+An alternative VNC Server could be RealVNC, an alternative to VNC itself could be Team Viewer it works fine on Lion and it is free for moderate private use.

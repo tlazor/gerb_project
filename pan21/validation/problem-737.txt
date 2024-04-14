@@ -1,0 +1,11 @@
+Option 1. If you ever set up a new network then you might try normal (public) IPs (and no NAT) or the 172.16/12 range. For some reason people rarely seem to use that. Worth mentioning it for future networks and it would work. But the work required to change an existing network it a tad much.
+But I can't even remove the routes as the normal, unprivileged user. I really don't know how to solve this.
+Option 4 is the easiest workaround to set up. It might be worth it if you have to get things working right away with absolutely no time to spare. I also think it is the least elegant solution and the extra hardware costs money, power and desktop space.
+Their routes are very very liberal, e.g. 10.8.0.0/255.248.0.0 which also masks our internal 10.15.x.z network.
+We have an obligation to work with a VPN network client (CheckPoint) on selected workstations where selected users own a certificate/password for this VPN Client. They can run and connect to the VPN as a normal user without any elevated privileges.
+Problem: we have a clash of networks here. Our company uses two networks in 10.x.z.y and the remote company through which the VPN is handled does too.
+The only idea I have right now: have some software which the user can run after he connects to the VPN which modifies the routing table so internal network routes are not going to the remote VPN network. Obviously this software would need elevated rights. I don't even know how I can make it possible that a non-privileged domain user can run only a certain software/script elevated on this PC. Or if it's even a good idea  ...
+The company providing the VPN won't or can't change the routes create by their client. So I try to remove the routes in such a way that at least connection to our internal network still works.
+Option 2: If you already have a terminal server and people do not use specific local software on their desktops then this might be easy.  That assume quite a lot though.
+I would then set my default gateway to route traffic in a much more specific way, e.g.: 10.8.0.0/24, via the IP of the VPN endpoint.
+What I would probably do is make the VPN tunnel from some physical endpoint (a firewall in the DMZ).

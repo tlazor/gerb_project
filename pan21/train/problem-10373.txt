@@ -1,0 +1,6 @@
+Write a yum plugin that prints the output you want if you like. However, a person at the prompt is tedious and doesn't scale.
+If you care about the previous versions of many hosts over time, a central database for update management is more powerful anyway. 
+the 'Resolving Dependencies' output does this, but the readability is not great, and difficult to separate from the rest of the text. Plus if you specify a single package, it only lists the existing version for the dependencies:
+yum doesn't have exactly that output. history shows all transactions and can undo them, list installed shows current version, and update shows the new packages to be installed after dependency resolution.
+Consider instead enabling automatic updates on a schedule. Verification then becomes reviewing the updates in the repo, and verifying host compliance that they are updating. Perhaps spot check a few hosts after an interesting security update is released. 
+Is there a combination using yum I can run to list the current differences in versions for packages being updated similar to this?

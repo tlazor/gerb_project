@@ -1,0 +1,7 @@
+I'd also take it as a serious breach of security anytime a layer 2 connection to this box is interrupted; you don't know if someone cut the network cable and plugged it into a hub.
+You can also use the door chimes that stores use (the ones that got off when someone enters the store) to monitor when someone comes close to the servers, thereby alerting you or other IT staff.  You could also attach an alarm that will go off when the server rack is opened, chiming in the IT department.  You can use a simple door alarm like this if you have room in the rack.
+Well, outside of invisible dog fences and making people wear the shock collars in the office, I would think the best option for you with current technology would be to securer the location as best as possible.  
+This sort of situation is where you start looking under "Physical security." Depending on the importance of the data, how much it's worth, and how much you want to pay, solutions range from "put it behind a locked door" to "guard it with a man with a gun". 
+If you can, cage off the area that the server sits.  Put a door in there, and no one can gain access.
+Put the computer in a locked box with only power & network cables running out of it. If need be, you can also drill holes in the box just big enough to fit keyboard/mouse/monitor cables. Monitor anytime this box is opened using a method suggested by other answers here.
+Someone has already mentioned encrypting the data, which is a good backup in case the physical security fails somehow.

@@ -1,0 +1,9 @@
+(sidenote: to use -S POWER which will give you sar -m FAN or sar -m TEMP output, you have to install lm-sensors and run sensors-detect successfully)
+Can't speak for ubuntu but for red hat you have to change how it collects data in /usr/crond./sysstat:
+This change doesn't take affect until the next time sa2 runs (I think).  I always set it and then it starts collecting and working the next day.
+Have you enabled it in: /etc/default/sysstat and made sure that SA1_OPTIONS="-S DISK" is not commented out?
+Since you said you can get other information, I assume it is started it with /etc/init.d/sysstat start?
+The file does exist, and I can run sar with other flags, but can't see these particular metrics.  Is there something I need to enable in sysstat to collect what I need to see this report?
+Meaning, if todays sysstat-file already exists (e.g.: /var/log/sysstat/sa17) you have to remove that file first. So that sysstat can fill the new file with the additional information from -S DISK
+in debian based systems you have to set SA1_OPTIONS="-S DISK -S POWER -S ..." in /etc/sysstat/sysstat
+The -d says to collect disk stats.  sa1 just calls /usr/lib/sa/sadc, if you want to see the doc for it do a man sadc.  

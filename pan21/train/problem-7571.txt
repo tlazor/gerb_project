@@ -1,0 +1,10 @@
+Pandoc can take an arbitrary number of inputs; it adds a newline to the end of each input and concatenates them. The above command will create a PDF designed to be bound as a book - each chapter (signified by a level 1 title) will start on an odd-numbered page. If you don't want this behaviour, use the following:
+LaTeX is designed for the creation of print documents, and has things like page numbers and TOC generation built-in. Check out this basic tutorial:
+You can generate a HTML with a table of contents, but with all the limitations that you listed. It is also possible to generate ODT and Microsoft DOC documents with pandoc, but I think they don't look very good, especially compared to the beautiful PDF generation.
+After some google minutes I noticed that you need your own LaTeX-Template which can passed as an option to pandoc:
+The other answers suggest using Pandoc, which looks like it can convert Markdown to LaTeX, but it might be easier to start right in LaTeX.
+HTML has no concept of 'pages'; it would probably be possible to kludge something together with <div></div> tags, but I'd just use PDF:
+Creating PDFs with pandoc requires a LaTeX engine to be installed; this is pretty trivial on Linux, where you'll have at least one in the repositories, but on Windows it might be a little harder (I wouldn't know, I've never actually tried). As such, it is possible to customise things to your liking with a custom LaTeX template - but I haven't got my head around that yet, so I currently stick with the (pretty nice) defaults.
+As a starting point you can use the following template. I copied the default template https://github.com/jgm/pandoc-templates/blob/master/default.latex and added some extra stuff. 
+I am sure that you can remove most of the if-end-combinations. The template needs it to have more options for users.
+If you want to save paper and don't mind about chapters just starting wherever the previous one ends (they will even start in the middle of a page), call pandoc without the --chapters option:

@@ -1,0 +1,7 @@
+I am not sure I can disclose specific vendors here, so the keyword to look for is "CSAC clock" (chip-scale atomic clock).
+Several years later, it is actually possible to buy an off-the-shelf rack-mount NTPv4 server with an atomic clock inside.  It is not exactly cheap, but it is not on the four digits either.  It is also not as precise as a national-standards atomic reference clock class, but it is at least a thousand times more precise than what NTPv4 can actually handle.
+I believe those listed via http://www.pool.ntp.org are all sync'd with stratum 1 systems; I'd suggest starting with some reading at http://support.ntp.org 
+The typical high-end NTP server will have GPS input (plus others), and options of TCXO, OCXO and CSAC internal frequency references.  The CSAC option is typically (as of 2016) either a Cesium or a rubidium atomic clock.
+Note that the NIST maintains an official pool of NTP servers synchronized with their atomic-based time system: NIST Internet Time Service Pool.
+Actually even if you find one NTP atomic based server(I dont think it exists) the NTP protocol isn't so accurate that your machine will have the same accuracy as the atomic clock. As wikipedia says: 
+National standards agencies maintain an accuracy of 10−9 seconds per day (approximately 1 part in 1014), and a precision set by the radio transmitter pumping the maser.

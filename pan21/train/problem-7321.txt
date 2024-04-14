@@ -1,0 +1,7 @@
+Then, on your mongodb replica set members, create an /etc/hosts entry on each box that matches, but points to their own host IP, e.g.:
+If your proxy situation can't host multiple DNS names, you can change the ports in all configs (including local bind ports on the mongodb members themselves) to the 27017/27018/27019 scheme.
+Build the replica set config with each member's "host" field as member1.mynetwork.mydomain:27017 and so on.
+If you have 3 members, then have three DNS names that are what your client will use to route to the proxy, e.g.:
+The replica set will respond to the driver with a cluster definition based on its own replica set member list, which will be the same names:
+Some, including myself, will consider the local /etc/hosts overrides to be icky and a hack, depending on your server / VM / container management situation.
+I have recently had a similar situation.  Consider some DNS cheating, where the client uses "real" DNS names, and the mongodb replica set members use the same names but override them in /etc/hosts to point to themselves.

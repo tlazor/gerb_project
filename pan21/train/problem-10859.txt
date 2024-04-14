@@ -1,0 +1,5 @@
+These are all of the programs that start with your machine. It is safe to disable all of these items but you shouldn't have to. If you notice the name of a program you don't use anymore uncheck it here. If something seems fishy google it to find out what it does and uncheck it if you want. When you're finished cleaning these out press ok and restart.
+This may be caused by a "zombie" print job (that is, one which could not be successfully printed for some reason, but which was not automatically deleted by the print spooler).  When this happens, the system will continue trying to print the document over and over, spiking your System process.  Check to see if a document is stuck in your print queue, and if so, delete it.  
+Click on Start, Run (may be different in vista) type in msconfig, press ok, and click on the startup tab at the top. 
+If you don't find the culprit in Start, All Programs, Startup Items then you may want to check for other startup items by using msconfig. 
+check what you have in your user profile's start menu->all programs->startup menu item.  perhaps you are starting a host (or maybe just one) of items that take time on start up.

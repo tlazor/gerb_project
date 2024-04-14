@@ -1,0 +1,5 @@
+Looking through Google I also noticed that my /etc/fstab file is completely empty, and should be filled with something else.
+For the past couple of weeks I've been stuck with my Pi not working. I've followed numerous guides. I've downloaded Raspbian Stretch With Desktop OS from the official site, Written the image with both EtcherIO and Win32DiskImager to the SD card, Set the IP and ssh file in the SD card, and then connected to it with Putty, everything alright so far. 
+I've found that raspi-config gives an error that there's nothing mounted, tried mounting with "mount /dev/mmcblk0p1 /boot", and then atleast I can access raspi-config but can still not edit anything with Nano.
+Is this a problem with the SD card, the Pi itself or am I doing something wrong that I haven't noticed at all, because I'm completely done with this right now, I cannnot figure out why I'm having this problem.
+Now on the Pi itself, no matter how many times I repeat this process it keeps telling me that the PI is Read-Only. I've tried using sudo, and even logging as Root, and it's still Read-Only.

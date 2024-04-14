@@ -1,0 +1,5 @@
+If you have a UPS for the entire system: change the setting to "BadBatt", and the controller will use the cache as if "WriteBack" was selected, with increased performance.
+However, if you do not have a battery backup unit attached to the controller (NOT a UPS, but a BBU), it is very possible that on a power failure, the cache on the controller will not get written to the array, and your data will be corrupt. And you won't be able to tell which files where corrupted very easily, as the array may still function as normal once power is restored.
+When using Megaraid Controller's "WriteThrough" setting, the on-board controller cache is not used. This does degrade the performance of the RAID as you have noticed. Using the "WriteBack" setting should increase performance as it will use the controller cache. 
+If you do not have a BBU installed: leave the setting on "WriteThrough" and live with the performance loss.
+You can just put the setting to "BadBatt" even if you don't have a UPS or the battery installed and the cache will be used, but it is not recommended as you could very easily lose data if power is lost.

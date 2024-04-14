@@ -1,0 +1,5 @@
+This has happened to me in the past. It Have you tried Different ports on the switch and a different Ethernet Cable. I've seen where a bad cable will give you link but not show you have a good enough connection to the pins to keep the signal of proper quality for higher then 10/Half.
+Double check that the switch/hub/device you are connected too, actually supports a link speed greater then 10mb, and that it doesn't have any configuration limiting it to 10mb only.
+Since it seems like you have  already spent a fair amount of time verifying that your equipment is working, it might be time to step back and perform a one of those really basic, should have been obvious checks.
+I see you mentioned autonegotiation, but if you turn off autonegotiation you need to do it at both sides (on the server side as well as the switch side.)  Generally, if a card is having trouble autonegotiating it could be due to interference from outside sources.  As Squidly says, you may have a bad cable.  So, my suggestion to you would be, in this order:
+I just had the same issue. My problem was that I was connected via ipmitool/SOL via the same interface. 

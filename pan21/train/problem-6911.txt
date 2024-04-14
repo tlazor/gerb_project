@@ -1,0 +1,10 @@
+I think you need to create a new instance of Camera at the beginning of your method. It looks like you're using the same camera variable for all instances of the Camera, this is unwise and most likely the issue.
+Drag the camera prefab you want to instantiate onto the CameraPrefab variable. You should now see None (Camera) replaced with the name of your prefab.
+(Also you might not want to use the variable name camera as it's a property on MonoBehaviours that essentially does GetComponent<Camera>.  That might be messing you up as well.)
+Your code doesn't really make any sense because you're trying to add multiple cameras to the same game object.  camera.name changes the name of the game object the camera is attached to.  Components themselves don't have names.
+Basically, you don't want to use Instantiate.  That's specifically for creating instances of prefabs.  Just do new GameObject() and then add the camera to it.  The rest of your code should be the same.  E.g.:
+I'm trying to create a bunch of different game objects from a settings file I'm passing in at run time. I've checked and my game is reading in settings fine. But when I run the program, I get the following error:  
+What the error messages are saying is that 1) You can't add a camera to the existing game object because you can only have one camera component per game object (a limitation of Unity) 2) because of 1) the return value of your AddComponent is null and therefore 3) Instantiate is failing.
+Create a public variable called CameraPrefab of Camera type in your script, set it equal to null. Then in the editor, select the object that has the script you added CameraPrefab to. 
+Using gameObject.AddComponent<Camera>() doesn't work because only one camera component per object is allowed.
+You'll see your script in the inspector, and the CameraPrefab variable with None (Camera) as the value.

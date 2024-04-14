@@ -1,0 +1,11 @@
+If you use the service tag of the Dell OptiPlex 960 on the Dell Support page then no BIOS downloads show up for that system.
+I used these instructions at sevenforums.com to create the bootable USB stick: Windows 7: MS-DOS Bootable Flash Drive - Create
+I don't believe that drive supports the media you are trying to use.  It has only the DVD-ROM logotype.  Though I can't find specs for it anywhere, one way you can test this is to see if it can read the boot media when the system is booted.  If it can't, you have your answer.
+Not all drives can read DVD+R and DVD-RW, but virtually anything you will encounter can read DVD-R, so you might try that as well.
+However, apparently there is a BIOS version A17 (as of the time of this writing) that is accessible though the OptiPlex 960 main support page @ dell.com.  There are additional prior BIOS versions available (A08, A09, A10, A11, A13, A14) but they do not have to be applied prior to applying A17.
+Dell Optiplex 960, stock, BIOS A07, no BIOS updates available from Dell's web site. Has HDD connected to SATA0, and DVD-ROM connected to SATA1.
+P.S.: Before this gets closed as offtopic please consider that these are workstation machines, there are 25 of them in a lab environment, this is very much a professional and not a consumer question.
+Noteworthy is that Dell doesn't distribute the *.bin file to just flash the BIOS but they wrap it all into an *.exe instead which needs to be executed from DOS.  In my experience the system booted fine from a bootable USB stick.
+No firmware update available for this drive from either Dell's web site or any site that I could find.
+There doesn't seem to be anything in the BIOS settings that would prevent boot from DVD media.  I don't have any commercially made bootable DVD to try out whether this is a burned media issue.  Is there any chance at all to get these machines to boot from DVD?
+Machine will not boot from any DVD+R or DVD-RW media in DVD-ROM drive.  Will boot from CD-R without issues.

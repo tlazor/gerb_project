@@ -1,0 +1,6 @@
+As a result of the issues, we stopped that route and moved to the soft delete, which is much easier. 
+We added a bit flag to all of the tables it was needed and then we just included this in the WHERE clause when querying the data. 
+A suggestion would be to make sure that this field has a default value when you INSERT data. If you are using IsArchived then the default value on the column would be false since you do not want it archived immediately.  
+I would say that if your users are going to need to query the Archive data, then using the bit flag or soft delete is easier.  If the users don't need the data any longer, then I would go with the archive tables. 
+You could partition the key tables on a combination of the primary id and the IsArchived flag; this would have the dual benefit of making queries easy and maintaining performance of queries etc against the non-archived records.
+Based on your description above, I would suggest going with the Soft Delete version.  I can tell you from experience in one of our systems, we went with an archive schema to move older data to and it lead to nothing but issues because the users needed access to the data. So it lead to using UNION ALL on every query we had to run. 

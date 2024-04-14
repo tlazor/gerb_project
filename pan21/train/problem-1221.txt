@@ -1,0 +1,8 @@
+The best solution is to configure and run ntpd in daemon mode.  Provided your clock is not too far off the time server, 1000 seconds by default, then your clock will slowly be adjusted.  This prevents large jumps in your clock.  Of course, since your clock is more than 1000 seconds off, you will have to manually set your clock the first time.
+If you are being really cautious, don't start the app servers up again until the previous "time" has been reached.
+I develop server software, and we normally assume that clocks will not run backwards much; clocks running backwards makes certain things really difficult to get right (such as assigning unique IDs, knowing how long things have been in queues).
+I'd recommend setting the clock in single-user mode. Moving clocks backwards can break various application, particularly server application software which tends to assume that clocks will (mostly) only run forwards.
+At the very least, consider shutting down your major app servers on the box before adjusting the clock.
+If you do sync with a ntp server regularly (ie every day), you won't have any problem. Time shift will be too small to be noticed. 
+Is it exactly two hours fast?  Maybe you just have the wrong timezone configured on the machine.  Check out "tzconfig".
+You may have problem at the first sync: apache logs will contain some "duplicate" entries. There will be the ones from "old hour" and the ones from "new hour" so yous statistics won't be accurate for this timeframe.

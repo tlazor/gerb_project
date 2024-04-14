@@ -1,0 +1,5 @@
+I also set the correct password in /etc/exim4/passwd.client I can now successfully send mail to any email address with sendmail, mailx, etc. 
+I thought I told Exim4 to redirect email for root to "my-email-address@example.com". But instead it is redirecting it to "root@example.com". Why is Exim4 not honouring my /etc/aliases? How should I setup Exim4 to redirect email for root to my personal email address?
+I am trying to forward system email (from apt, cron, etc.) addressed to "root" to my personal email address using a smarthost. I am using Debian 9. First, I ran sudo dpkg-reconfigure exim4-config. This is the contents of /etc/exim4/update-exim4.conf.conf (I replaced all occurrences of my domain name with "example.com"):
+But, when I try to send an email to "root" with echo Hi | mailx root I see the following error in /etc/exim4/mainlog:
+SMTP error from remote mail server after RCPT TO:<root@example.com>: 550 5.1.1 <root@example.com>: Recipient address rejected: User unknown in local recipient table

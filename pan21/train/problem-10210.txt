@@ -1,0 +1,6 @@
+Even after rebooting it numerous times, I cannot get response times back below 30 seconds. With the "top" command I see that there are 30+ Apache processes running which seem to be taking up over 90% of the memory.
+What could be causing this?  Why would there be so many Apache processes open, especially since the site is basically inaccessible now anyway? Could it be that these processes are simply not getting closed somehow? 
+You're on a Virtuozzo/OpenVZ-based virtual machine (based on the top screenshot you posted).  Something else is probably hammering the machine that you're on, since that top output doesn't really show anything abnormal (17MB RES for an Apache process is quite reasonable).  I'd talk to your hosting provider about not overloading their VM servers quite so much, or find a better VM provider.
+All of a sudden on Friday at 4PM the site became inaccessible with response times at 30+ seconds and has been down ever since. Here is the pingdom graph:
+Static content do not suffer, the problem is probably in database. Inspect MySQL slow querires log at /var/log/mysql/mysql-slow.log. Apache mod_status also maybe useful, it will show status page like this.
+I have a VPS which hosts a site (http://www.tanguay.info/web) which gets about 1800 unique visitors per day. 

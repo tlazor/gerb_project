@@ -1,0 +1,6 @@
+When I try to access 55.xx.xx.xx:8000 after starting the webserver at localhost I get: "This weppage is not available." and the connection times out.
+And when I use my development box, I would grab the IP of my webserver and start the server there to access the UI of the application running on my VM from my laptop.
+Please for the love of everything holy, don't open up this port to the Internet generally. If you do this, any vulnerability in the admin tool will result in your system being compromised and, most likely, being used to attack other computers.
+Instead, just use ssh. Either connect to your server and run a browser that way, or use ssh to open up the port 8000 to your local machine, securely.
+and then you can just open your browser and point to localhost:8000 to access the configuration tool.
+I've successfully installed mailman version 3 on my development box. I configured it and having it running to my liking. I have installed it exactly the same on a stage box. (Both are ubuntu 14.04).

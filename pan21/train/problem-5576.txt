@@ -1,0 +1,6 @@
+Say I have an existing wildcard cert (*.example.com) from Vendor A (eg Symantec) licensed for 2 servers.
+Clients do not care which CA generated a cert as long as it is in their trust store.  A caveat is if you've done anything to pin the expected cert on the clients such as described at https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning.
+The motivation is twofold - the environment that the existing wildcard certs is installed into is sensitive and change cannot be made to it rapidly. And secondly, the pricing of Vendor A who charges "per server" licensing is too high for the deployment we're considering which will involve many servers.
+And now I want to purchase the same subject (*.example.com) from Vendor B (eg. RapidSSL) for install on multiple other locations.
+On the face of it this should work, but is there any reason I can't do this - for licensing or technical reasons?
+No, there is no license or technical reason you should not do this. It seems clumsy and ineffecient in the long-term, but I suspect this is a short-term thing, so go for it.

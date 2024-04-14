@@ -1,0 +1,7 @@
+I've had a look at my Windows 7 (Home Premium, but they all have the same files I understand) DVD, and it only seems to contain 'en-US' is available.
+The more thorough (as in, more of the UI and help content translated) Multilingual User Interface (MUI) packs are available only for the Ultimate and Enterprise editions of Windows Vista and Windows 7, and can be downloaded via Windows Update.
+So I think the answer is: you can't install language packs from a retail DVD. Googling shows that Microsoft have produced a DVD with all the language packs on for MSDN subscribers, but it's not available for general download.
+Language Interface Packs (LIPs) that translate only the most widely used dialog boxes, menu items, and help content can be installed on any edition of Windows Vista and Windows 7, and are available here.
+The first thing to mention is that it is only possible to change the display language in Ultimate or Enterprise.
+You can also look for language files by browsing disc\sources\install.wim in a program like 7-zip. Under the Windows folder, the only language folder visible to me is 'en-US'. I compare this to my actual Windows folder, where I have installed Japanese and German language packs, and there I can also see 'ja-JP' and 'de-DE' folders.
+You can confirm the languages available on your DVD by checking the following file: Disc\sources\lang.ini

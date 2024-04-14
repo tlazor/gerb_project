@@ -1,0 +1,5 @@
+I would recommend setting up a SQL Server Profiler trace on your database and see what is going on during the spike times.
+During a period of high CPU usage, you need to either jump on the box and use Activity Monitor, or type in something like sp_who2. Also check to see what SQL Server agent jobs are scheduled, when - and see if this correlates. This will give you an idea of who is doing what.
+Squillman's suggestion to use Profiler is good advice, especially to monitor when unattended - and check back later to see what was going on.
+Do you have content indexing turned on in DNN?  It could be DNN running an index of your site content.  This indexing is performed in the background and will often happen during times when you have no other traffic activity hitting the database.
+our server is running win2003 with mssql 2005 on the same box with 2GB ram. the website itself is based on dnn 4. We are seeing these high cpu usage spikes (mssql) of 95-99% even with no traffic.sometimes they appear with regular intervals with no traffic.

@@ -1,0 +1,9 @@
+The methods described there include an implemented $O^*(2^n)$ algorithm with some heuristic optimizations to make it faster in practice.
+Sage doesn't know how to compute treewidth exactly but it can give you the pathwidth of small graphs.
+http://www.sagemath.org/doc/reference/graphs/sage/graphs/graph_decompositions/vertex_separation.html
+Here http://arxiv.org/abs/1304.6321 (accepted at FOCS this year) Bodlaender et al. give an $O^*(2^k)$ algorithm that gives a tree-decomposition of width at most 5k+4 if the graph has tree-width at most k. May be it can interest you. 
+Hans L. Bodlaender, Fedor V. Fomin, Arie M. C. A. Koster, Dieter Kratsch, and Dimitrios M. Thilikos (2012), "On exact algorithms for treewidth", ACM Transactions on Algorithms 9 (1): A12, doi:10.1145/2390176.2390188.
+I was a random undergraduate student in China and didn't make it to a good conference. But based on my experiment results, I think my program is very fast. I solved many unsolved benchmarks in Treewidth lib, and my program was 40 times faster than a algorithm proposed by Zhou and Hansen in IJCAI 09.. 
+I would be verrryyyyyyyy glad to learn that there is anything implemented and public to compute tree-decompositions, though :-)
+I wrote a paper called A Fast Parallel Branch and Bound Algorithm for Treewidth, in ICTAI 2011. It can compute treewidth in multi-core. I used lots of heuristics and spent lots of time refining the program.
+I'm not working on this topic any more. But if my previous work is helpful, you can download my program (src and exe) from http://www.callowbird.com/undergraduate-stuff.html, and have a try. (still, it is very very slow on a slightly larger instance)

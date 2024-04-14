@@ -1,0 +1,5 @@
+I've since tried sending email from an outside source (not telnet) without success. Do I need to reconfigure postfix and set myhostname as dc-8c1937cd-mail.example.com.? Am I missing something here in the grander scheme of DNS or is this just the way Cloudflare operates? Could my mailserver not be configured correctly? (logs from my telnet tests look fine)
+The MX record seems to be in place, a quick "dig MX example.com" does wield a result. The problem now is... even though I created the record as mail.example.com, the actual entry as seen via dig is dc-8c1937cd-mail.example.com., a string seems to have been appended to the DNS record.
+Issue was inet_interfaces = localhost, causing postfix only to listen port 25 locally, setting it to inet_interfaces = all fixed the issue.
+This is the first time I've used Cloudflare's free DNS service, and I admit to not being the most knowledgeable person when it comes to this, but I added a couple of records in there:
+I assume everything is OK with the mail server, so I went ahead and added MX records to my DNS settings.

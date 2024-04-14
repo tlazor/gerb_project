@@ -1,0 +1,11 @@
+Good luck!  So many people never learn how the elementary data structures actually work, these days.
+Why is that given friendship?  Accessing all the values in the list is an essential public ability, and that’s all display needs to do.
+Is that C library printf?  Why would you use that without any need for formatting, and why mix C i/o with all the std::cout you were using?
+Your two versions of create_node are nearly identical!  Do Not practice copy/paste programming!!  If something is the same, don’t duplicate it — reuse it or generalize it.
+You can add data to the front or back or (? what does createNode do?), or at a numbered position.  You can delete the first, last, or numbered position.  You can search and it just returns true/false, not any position info.
+Don’t make explicit comparisons against nullptr.  Use the contextual truth value provided by the class — important when you start using smart pointers and other pointer-like things.
+And why are you default-constructing the data item first, and then assigning over it?  You should initialize it as it is created.
+This is a continuation from the previous post found here. I made most of the changes that was suggested. I just want to see if there are any additional changes I should make to my code.
+So what good is it?  You can add stuff, but can’t traverse the list?  You can add at some position, but what position would you add to, since there is nothing to tell you what items are where already?
+Well, this leaks memory if the assignment throws an exception.  Trivial to avoid by using unique_ptr to hold it locally.
+Here, it is easy to make the node creation a separate step, and then call a common function that both versions use to hook it in.

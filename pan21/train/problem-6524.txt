@@ -1,0 +1,5 @@
+The interesting thing, and one that I hope is relevant, is that when I chose my home network from the AirPort menu, it detects as WPA Personal. The router is most definitely set to WPA2 personal (it's hybrid 802.11b and .g). Typing in the password never enables the OK button, which I believe means the password was not accepted (it shouldn't be, since it's not WPA personal).
+I have an (admittedly old) iBook G4 running OS X Tiger 10.4.11 (never had a compelling reason to update to Leopard).
+I have a home wifi network broadcast by the combination modem/wireless router installed by the phone company (it's Verizon Fios if that matters). Our Windows 7 notebook, and various iOS devices, can connect fine.
+If I try to connect using "Other..." from the AirPort menu, and force it to WPA2 personal, I get "There was an error joining the AirPort network ".....".
+However, the iBook will only connect if the connection is set to no security, or set to 40 bit WEP. We don't want to do this for obvious reasons.

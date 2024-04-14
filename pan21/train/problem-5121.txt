@@ -1,0 +1,5 @@
+My boss is raving about how he wants to use the XenApp/Sharepoint integration features to provide access to applications via the Sharepoint portal. 
+My question is, why on earth would we want to implement Sharepoint if the only reason is to provide access to apps through the portal to use for document collaboration.  As far as I know, XenApp already provides web-based access to its applications, which we could use with the sharepoint portal to edit documents, etc...
+Are there any benefits to this that I'm missing?  I'm all for working hard, but doing work that seems needless isnt really my thing.
+If you don't already have SharePoint, I would not bother implementing it, for exactly the reasons you described. XenApp can already do that natively. The Citrix WebPart looks slick, if you're already using SharePoint as your portal. If you're not, you're doing a lot of work for 0, and I mean 0, gain.
+Also be aware that Citrix have not done a Web Interface for SharePoint (WISP) 2010, and they apparently aren't doing one. See this thread for more info. 

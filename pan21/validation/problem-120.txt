@@ -1,0 +1,7 @@
+2NF deals with 'the whole key' - if you have a composite key and some members of the relation are dependent on a part of that key then they should be split off into their own relations.  In your case: 
+I'm really looking for someone to give me feedback on if I am understanding the concept correctly any help would be greatly appreciated
+Your decomposition to 2NF is correct.  Decomposition to 3NF requires taking the non-key attributes that have their own dependencies into separate relations.
+3rd I remove and partial functional dependencies I am not really sure ( I did look it up to no eval) what a PFD is I think its when you have a FD where the LHS is a proper subset of the superkey in this case 
+If anyone knows about 2NF I'd greatly appreciate if you could tell me if my understanding of it correct my book does not even mention it (except to say is of "historical significance") and I haven't been able to find a really good example online. I am studying for a test and would like to know if my reasoning on how to accomplish a 2NF decomposition is correct 
+In your example we can assume 1NF to begin with as the relational structure doesn't imply any repeating groups within the row (i.e. no D1, D2, D3  etc.).
+The first thing I did was to find the super key which was easy to see (AB)+ = R, However I am not sure if this is what 2NF definition means when it uses the term "key" 

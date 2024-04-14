@@ -1,0 +1,5 @@
+This has been an issue tugged and shunted back and forward and no standard has been set. There are as many pros as cons to this.
+One way would be put a switch somewhere and manually handle this.. I know it sucks but you know its life. Possibly even integrate a heat switch and turn on the fans when the temp goes above 50Degrees. Then it can always be on but regulated by it self.
+Sorry I could not be more specific in how to fix your problem.. There is an issue that even the same model mac books are made different hardware and firmware. You could possibly dig deeper into the firmware bootloader and see if you get into some settings.. but that could be dangerous.
+I think in you case with the macbook.. its always on. But it could also be a possibly it only stays on because it detects that something is plugged into it. It might shut down power to that port if before sleep nothing is connected to it.
+Many notebooks and some new motherbaords in PC's have a  lightningbolt symbol above the USB symbol indicating which USB provides power during sleep. Some notebooks provide power on the left and the right goes off.

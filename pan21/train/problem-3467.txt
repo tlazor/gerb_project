@@ -1,0 +1,7 @@
+Take a look at ServersAlive.  It's worked well for me in the past at monitoring a big range of services.
+At a budget level, Idera's admin tool kit comes with a SQL Server ping function that will run every x minutes from the system tray - it's USD 295 per install.
+If you have enterprise needs, Microsoft's SCOM will monitor availability and performance for SQL Server - and loads of other Microsoft/Wintel products as well. It's competitively priced. Other monitoring solutions are available from the likes of BMC, HP etc
+Nagios is a well-liked monitoring system, and it comes with plugins for many aspects to monitor - eg memory, network, CPU, servers, etc.
+Finally, why not try to script one yourself - a dedicated SQL Box, running SQL jobs to query other SQL Server's availability - and using database mail if there's a problem. 
+Is there a tool that will automaticaly check all servers and their instances on the network or can an sql  script be coded to do this? 
+Our daily checks involve checking all servers in our network for conectivity. At present we manually log on to each server and their instance to check.

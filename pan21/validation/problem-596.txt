@@ -1,0 +1,9 @@
+I'm downloading a site with wget and a lot of the links have queries attached to them, so when I do this:
+If the server is kind, it might be sticking a Content-Disposition header on the download advising your client of the correct filename. Telling wget to listen to that header for the final filename is as simple as:
+This will still show the ?foo=bar as you download, but will display the rest of the name in bright cyan.
+But that's really the answer.  Instead of trying to do it all in one wget command, use multiple commands.  Now your workflow becomes:
+I know I can do this after I get everything via a script to rename everything. However I'd really like a solution from within wget so I can see the correct names as the download is happening.
+That solves your problem, but now you need to figure out how to grab the base files to find your mp3 URLs.
+I think, in order to get wget to save as a filename different than the URL specifies, you need to use the -O filename argument.  That only does what you want when you give it a single URL -- with multiple URLs, all downloaded content ends up in filename.
+OK.  Use wget as you normally do; use the post-wget script that you normally use, but process wget's output so that it's easier on the eyes:
+Do you have a particular site/base URL in mind?  Steps 1 and 3 will be easier to handle with a concrete example.

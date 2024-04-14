@@ -1,0 +1,6 @@
+Note I don't use libraries I personally prefer the raw method. Relying on libraries doesn't teach me much I find.
+Do you have the height and width of each object and their location in the canvas? You could just then iterate over your object and figure out if that x,y is inside your objects rectangle. Than look at that pixel in the image (your could use a hidden canvas an put the objects image in there and then get the pixel color using https://developer.mozilla.org/En/HTML/Canvas/Pixel_manipulation_with_canvas then figure out if it's alpha value is above 0. 
+Now lets say I have a random shape on my canvas (really its a PNG image which is rectangular) but i don't want to include any alpha space.
+If I understand your question correctly, you have the coordinate in screen space of the click and want to know if there is an object there. And I'm assuming this is in 2D. 
+My issue lies with lets say i click some where and it involves a pixel of one of the images. The first issue is how do you work out the pixel location is an object on the map (and not the grass tiles behind).
+Secondly if i clicked said image, if each image contains its own unique information how do you process the click to load the correct data.

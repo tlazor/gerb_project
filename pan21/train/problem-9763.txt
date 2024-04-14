@@ -1,0 +1,7 @@
+Traceroute works by explicitly setting the TTL field to different values on outbound packets and observing which routers send the ICMP TTL Exceeded errors back for the different TTL values.
+If all that is blocked is ICMP Echo Request/Reply ("ping"), this does not inherently block traceroute. However, one possible implementation for traceroute is to send specifically ICMP Echo Request packets.
+I am using an isp where I cannot ping google or any other website, but only the name resolution works.
+But if you block incoming ICMP packets traceroute won't be able to receive the ICMP responses from the routers in the route and then it won't work.
+By default traceroute sends UDP packets to track the route to a given host, while ping uses ICMP. But traceroute works processing ICMP packets returned by the routers in the route to the destination host.
+Check the documentation for your traceroute program what it does send. Some implementations have an option to select sending either UDP packets or ICMP Echo Request packets.
+Also , if I block ping on my network - at the router level/layer 4 maybe - then is it true that traceroute will also fail ?

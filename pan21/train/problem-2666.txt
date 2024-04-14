@@ -1,0 +1,8 @@
+When you get to the bottom of your recursion, print the current number plus all the previous numbers.
+The simplest solution is to use a java.util.Map (like java.util.HashMap) where the key is the number and the value is how many times you've seen it.
+I think the cleanest solution is to first make one pass through the list, storing the numbers in a data structure.  Then use the data structure to perform the calculation.
+(*) There's a more efficient way of doing this that doesn't involve making a copy: modify the data structure, make the recursive call, then reset the data structure.  This technique is easy to get wrong, and it's a good place to cut corners unless you really have the time to polish your code.
+If you want to, you could create multiple classes with clearly defined responsibilities.  One could hold the data, one could perform the search, and a third could supply the initial conditions.
+It doesn't really matter what data structure you use, as long as you can easily look up whether a number has been seen or not.  (Finding that information in the original array is slow!)
+As Jerry Coffin commented, this is really a problem for dynamic programming:  Instead of finding the solution for N, you start at 1 and then from that solution, you solve for 2, etc. until you reach N.  When solving for i, you use the solutions you got for 1, ..., (i - 1).
+I don't see anything wrong with using functional programming for this assignment.  There's no reason why you need to create multiple classes, and it's only meaningful to talk about object-oriented programming when there is more than one class.

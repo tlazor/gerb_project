@@ -1,0 +1,12 @@
+We shut down both nodes for maintenance (first the passive node, then the active node).  Once the maintenance was complete, we booted the previously active node (i.e. the last one to be shutdown was the first one booted).  
+I've read over some documentation on MSCS clusters and how they deal with shared storage, specifically:
+FInally, don't forget the CLUSTER.LOG file.  You an change the verbosity using CLUSTER.EXE.  It's actually quite a good log file.
+So my question are is it expected that a 2 node cluster with node+disk majority will only start when both nodes are booted, and if yes, why?  And, does this also happen with, say, a 4 node cluster?  
+But with node+disk majority, the quorum should act as the tie-breaker.  So it seems to me like when the first node boots, it should reserve quorum, and then start the cluster (being that it has 2 votes...itself and the disk).  The fact that the cluster can run with just one node (i.e. if one of the two nodes fails) makes it even more confusing that we couldn't start the cluster.
+What's confusing to me is, this behavior seems like a pure node majority cluster.  If you just boot one node, no quorum can be attained, so the cluster will listen for additional nodes but not actually start services.  I understand this.
+Next, I'd want to go back to basics, and check my multi-pathing.  Haven't touched iSCSI SANs yet; still using good-ole FC/AL.
+a witness disk only provides a vote when a cluster host owns the resource.  ownership of a resource cam only be given by the owner or voted with a quorum.  when the cluster is shut down ownership of all resources are released. 
+No, a 2-node cluster with node and disk majority can start with just one node active.  You need >50% votes to achieve quorum, so your quorum disk should achieve this for you.
+therefore,  the only way to cold start a cluster that uses a witness disk is  to bring a majority of cluster members online.  alternatively,  an administrator can force start the cluster with a single node because that forces that node to take ownership of all resources. 
+When the first node came up, cluster service refused to start and all disks showed reserved.  Event logs were complaining that the witness disk was reserved.  Only when we booted the 2nd node did the cluster actually start as normal.
+I've seen situations where you can't launch cluster administrator using the cluster's name, especially when the first node up is the one that didn't previously own the quorum disk.  Instead, you supply "." as the name of the cluster, i.e.: local machine.

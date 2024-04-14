@@ -1,0 +1,9 @@
+Then run the Disk Utility permission and data check on your internal drive. See if it can find (And repair) issues.
+Get a good external disk that OS X can boot from, format it with HFS+, and run a clone app like Carbon Copy Cloner to dupe your drive contents to the external disk.
+You can try running your system off the external drive for awhile to see if you still have the lockups too, as that could narrow down the problem.
+Also, did you do an upgrade from a previous OS version as I've seen posts that this can cause major issues - people have recommended a clean install is the way to go.
+Open Console.app and take a look at the logs, if there is anything abnormal - a 15megabytes file filled with the logs of just one app IS abnormal, for reference.
+I had problems in the past with unpolite applications spamming the logs (hamachiX in primis), so it might be worth taking a look there.
+We have a similar problem with a Mac in our office running Leopard. It appears that it's Firefox that crashing  the OS. Turning off extensions and re-enabling them one-by-one didn't do anything, it's the main programme itself.
+Make an appointment with an Apple Genius to have your system checked. If you have Apple's Tech Tools for your system (should have it if you had AppleCare) then you can run the disk diagnostic on that as well.
+Also if it's under AppleCare you can call them for troubleshooting. Apple tech support is generally pretty good, and if you have to ship it (I know getting to an Apple Store for me is more than a little difficult) the turnaround is a day or two, not bad at all, even though I'm sure there are some who have horror stories (Aren't there always?)

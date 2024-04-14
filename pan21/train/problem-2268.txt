@@ -1,0 +1,7 @@
+The problem I'm facing right now is that the router does not seem to forward packets addressed to 255.255.255.255, so none of the other clients on the network can see any DHCP Discover packets.
+If your router's stock DHCP server is lacking, consider using a 3rd-party firmware such as OpenWRT, DD-WRT or Tomato (if one is available for your router model; check carefully).
+My home network is as follows: Cable modem for internet, connected to a wireless router, multiple clients connected over the wireless network. My wireless router has a builtin DHCP server that assigns IP addresses to the wireless clients. I know that there is an option to disable this DHCP server on my router config page. After disabling it, is there some way I can run my own DHCP server on one of the machines connected to the router (through a static IP)?
+Routers split up broadcast domains, which means they do not forward packets addressed to 255.255.255.255. If you want those packets forwarded look into a switch or hub.
+The DHCP server in these firmwares will typically be much more configurable than your router's stock server, particularly if you're comfortable with configuring via the terminal (SSH) interface.
+Additionally, if you must run a DHCP server on a separate machine, configuring these firmwares to correctly pass the DHCP requests along may be easier than trying to force your router's stock firmware to do it.
+Your best solution might be to just assign a fixed IP address to all your PCs and devices.  Most home networks only have like 5, so it's not much of an effort.

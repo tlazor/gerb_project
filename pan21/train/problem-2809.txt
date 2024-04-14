@@ -1,0 +1,7 @@
+I can only speak to 7.6.x, but $PreserveFQDN was all that was needed for it to work. You can avoid having to mess with /etc/hosts if your node's FQDN is setup correctly.
+I'm trying to implement a simple centralized syslog server using stock rsyslogd (4.2.0-2ubuntu8.1) on Ubuntu 10.04 LTS. At this point I have all my client nodes sending logs to the central server, but the clients are sending log messages which contain their short hostname instead of their FQDN. 
+It could be a bug. FQDN support is or was known to be wonky, though none of the registered FQDN bugs seem to apply.
+As both client and server share a configuration which specifies "$PreserveFQDN on", I expect to see FQDN hostnames in syslog messages, but the setting seems to have had no effect. Most other settings I've found for rsyslog are aimed at stripping domains from FQDNs instead of retaining them. I think the root of the problem is that my clients do not send the FQDN in the first place, but I don't see how to force that behavior.
+Can anyone comment on what I might be missing? I imagine I'm not the only person who needs FQDNs to be included in log messages.
+and replace {{HOSTNAME}} with the desired hostname or you can detemplatize it on each of the client using mustache automatically.
+This is problematic for me, as I am reusing short names between environments, e.g. core1.example.com and core1.stg.example.com both log their messages as core1.

@@ -1,0 +1,5 @@
+A paid proxy service won't solve the problem, as I'd prefer if each of the betting accounts was seen to be sending bets from the same IP address (or at least the same mobile operator). 
+I'd appreciate any help at all on how to set this up. Ideally, I'd like to have 10 separate connections to 10 separate IP addresses (i.e. 10 sim cards). 
+I'm open to just getting a switch and connecting multiple PCs (with separate routers connected to each) to each other. Or a string of Raspberry PIs, even.
+I've done some experimentation. Multiple USB network cards connecting to multiple mobile internet 3G devices is unreliable. I've also tried wired routers with 3G SIMs connecting to multiple NICs on the PCIe rail, but cannot get this to work. The PC assigns the same IP to both network cards, or an IP address starting with 169 to one of them. 
+I'm running a few instances of a betting application from a desktop. Because bookmakers can link accounts by using the IP address, I would like each instance of the application to bet through a different public IP address. 

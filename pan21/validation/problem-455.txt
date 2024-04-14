@@ -1,0 +1,8 @@
+Furthermore, this does not work when the chain is in the wrong order, but still is present entirely.
+On one of our servers, a postfix configuration file was replaced by a Plesk update without notice, resulting in a regression to a snake-oil certificate. Nagios checks SSL, but didn't see it. To that end, I'd like to check more than just the expiration date, and actually check the CA chain.
+I've attempted to create a Nagios check to verify the chain order base on this method, but this method doesn't seem to work with Debian without changes. You should use:
+I don't have any experience with it but it looks like the check_ssl_cert plugin does what you are looking for.
+You would say the order doesn't really care, as long as the intermediates are in the right order, but some systems require the root CA to be present, and some systems don't.
+note the nice, easy-to-test change in the exit status of grep, depending on whether or not it finds the "verify error" string.
+I can't find a plugin that tests it, either, but it would be very easy to wrap some random GPLed plugin's guts around an openssl one-liner.  Here's a one-liner comparing the output from two of my servers; www has an Equifax certificate on it, nagios is self-signed:
+Nagios can do SSL checking, but it doesn't actually check if the certificate is valid for the connection address you're using (common name match). 

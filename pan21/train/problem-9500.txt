@@ -1,0 +1,7 @@
+I'm no networking expert, and have been using linux for about 2 years now, but I had never done much with this TCP/ip routing/forwarding scenarios, so I'd like to know if there's something out there, that could help me with prioritizing one port forward over the other, and that would be more efficient that a custom python app.
+The problem is that if the two clients hit the same target port on the terminal server, I see garbage data on the wrong client. 
+The clients would each hit a different port, but the priority client, would get forwarded if it starts communicating. The other one would be blocked, stopped, halted or whatever.
+I've read about iptables, some NATing, socat, a little bit of QoS, etc., but I can't seem to find something out there for my problem. 
+I might've jumped the gun and developed a small python application that listens on 2 different ports and forwards the "priority" one to the terminal server. Blocking the forwarding of the "non-priority" port, until a certain amount of no comms happen in the priority port. 
+Say client A requests something from the target port, but client B was already requesting something, the device behind the terminal server on that port responds with the data it had queued up to send. 
+I'd like to prioritize one of the servers, and so I want to implement a linux based sort of router app in between the 2 clients and the terminal server. 

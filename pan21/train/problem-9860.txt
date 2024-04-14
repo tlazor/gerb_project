@@ -1,0 +1,5 @@
+This lets you use the tab key normally when the cursor is at the beginning of a line or not on a word, otherwise it executes the control-p completion key—you may change it to <c-n> for your use, although I find <c-p> more useful.
+This is convenient, but I would really like to have regular tab back at the beginning of a line! Is there any way to check if the preceding character is whitespace or a line beginning, and if so to insert a Tab character rather than omnicomplete?
+[Although I have modified it, the original idea for this probably came from the Vim Users' mailing list, but I did not keep any notes about where I got it.]
+I can think of somewhat convoluted functions that go back one step, compare characters and act accordingly, but I'd rather address the old "what are you really trying to do?" question:
+I suggest you use Ctrl+T to indent a line in insert mode instead, if that is all you want the tab button for. I personally find it semantically very confusing to have a position dependent key like that.

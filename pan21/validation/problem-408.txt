@@ -1,0 +1,5 @@
+One big gripe I have as a network engineer is the firmware upgrading when stacking.  You can't do a phased upgrade.  The whole stack has to go down.  If you plan ahead for that in your design: you're fine.  If you don't (like me) then you're gonna have a bad day.  Or you're gonna have to split your stacks into A and B.  Either way, you're looking at some down-time.
+Finally: As far as I can remember, they don't do 10 Gig on anything other than the uplink ports.  If you want 10 Gig on all ports you need to look to some of the newer products such as the Dell Networking N-Series.
+Although the PowerConnect series is no longer sold we have thousands of them in the corporate network.  Running as everything from end-user access switches to top-of-rack data center switches.  They're not the greatest out there, but they work as advertised.
+Does somebody have experience with the Dell PowerConnect 6248 for the datacenter usage with high traffic? 
+The PowerConnect is relatively stable.  Somewhere between Cisco IOS and Nexus in terms of reliability.

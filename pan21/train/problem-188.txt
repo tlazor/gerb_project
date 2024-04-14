@@ -1,0 +1,7 @@
+E.g. - I'd like to delete all conntrack entries having reverse connection destination dst=old.ext.ip.adr, like
+The problem is - the still present conntrack entries cause that the old (and now wrong) external address is still being used for NAT for those connections!
+When one of the interfaces (or routes) becomes unavailable, all connections that were using it have to be dropped, and subsequent traffic has to be routed through the still working connection. Upon change in the status, I'm resetting and loading appropriate iptables and routing entries (it is "shorewall restart" - I'm using shorewall).
+in a multi-ISP configuration, I'm routing and NATing specific traffic, e.g. VoIP, through specific interface - to a distinct provider.
+udp      17 164 src=192.168.158.3 dst=213.208.5.40 sport=5060 dport=5060 packets=178 bytes=104509 src=213.208.5.40 dst=old.ext.ip.adr sport=5060 dport=5060 packets=234 bytes=127268 [ASSURED] mark=256 secmark=0 use=2
+Create a file called clrcontrack,paste the code below inside, give the user proper access, make it  executable, the run it like "clrcontrack ip port" eg clrcontrack 192.168.56.123 80. It should clear all established state contrack records for port 80 on the ip. If you dont want to target state, remove the grep ESTAB part, or replace it accordingly to target whatever state
+I'd like to delete only the conntrack entries belonging to the old external address or to solve the problem in a way that wouldn't affect connections through other interfaces.

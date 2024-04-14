@@ -1,0 +1,9 @@
+Users cannot avoid having to install an application on their pc's as clients to connect to the tunnel.
+I have got it to work with hamachi and openvpn (in a secure manner with iptables so only the minecraft port is accessable and only the server ip gets routed through the vpn) however both require users to install additional software, and place additional load on my server encrypting everything...
+Ive seen stuff about socks/ssh proxies, but these appear to try and tunnel everything a user does, and i see no way to firewall it on my server (e.g it diesnt create an interface like ham0 or tun0)
+I definately do not want my server to be a proxy for anything else, such as other minecraft servers, minecraft updates, etc.
+I have a server which I want students at my university to be able to access. However for some reason the university network drops the connection and since this is an entertainment service, while not dissallowed the admins will not invest time in solving.
+So i am looking for an option that does not require additional software and ideally places minimal additional load on the server.
+I can forward ports on the nat router for my linux server and can install software on the server. I want to ensure users have no access to my lan, and can only connect to a single port on the server. Id also like to prevent any connection from the server to a client.
+I know with FreeSSHd (on windows) you could control almost everything you want your users to have access to on your server, maybe you could add a windows server to be the man-in-the-middle on the network infrastructure you have right but I'm not sure how bad will this will impact your performance. 
+I don't know of any tool that lets you do that on linux yet, but I'm not more than an occasional linux user either.

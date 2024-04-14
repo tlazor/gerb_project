@@ -1,0 +1,9 @@
+Ruby includes several libraries, part of their standard library (stdlib) that depends on external libraries, like Zlib, OpenSSL, FFI, just to mention a few.
+If usage of Visual Studio is really not a requirement, then perhaps you can use RubyInstaller recipes to generate a local package of Ruby 2.1.x:
+1) I downloaded zlib128-dll.zip from http://zlib.net and unzipped the contents to a directory (e.g., c:\zlib).
+At RubyInstaller, we solved that issue by building the dependencies as packages and using them during Ruby compilation.
+In your case, appears you're using Visual Studio, which means you cannot use the binary packages provided by RubyInstaller as the runtime dependencies of those differ.
+In order to build Ruby, you need to make those libraries available to Ruby, so it can compile against them.
+4) Then from a VS 2012 Native Tools Command Window, I naviagted to C:\ruby-2.1.2\ext\zlib and executed: 
+2) Then following some hints from this post (https://www.ruby-forum.com/topic/4421852), I created these dirs off of my c:\ruby-build\usr directory:
+This tells RubyInstaller recipes to use mingw64 compiler (GCC) 32bits version 4.7.2 and use the local source checkout pointed in LOCAL

@@ -1,0 +1,5 @@
+I think about first using NFS to mount a remote filesystem, and then place a truecrypt volume/file on the NFS-mount. 
+What is the best tools to use to mount an encrypted volume stored on a remote server? The encryption/decryption should be done on the client side. 
+A better solution might be to decrypt the encrypted device on your client. The problem is, that you need access to the whole block device to decrypt the data. I recommend to take a look at iSCSI. The standard will help you with this issue ;-)
+Encrypt the drive itself with e.g. TrueCrypt or dmcrypt or something like that, mount it to the machine and export the decrypted content. Other users, even the police if they confiscate the machine, are not able to read the data. Just make sure there is no other administrator you don't trust. This administrator is able to read the mounted content..
+If you mount the encrypted content it is of course decrypted and other administrators might take a look at it. As you mentioned you can store a big file on it with encrypted content and serve this file to your client. That will work, but it's a lousy solution.

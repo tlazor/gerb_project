@@ -1,0 +1,14 @@
+It's a good idea to separate your private data from your source code, especially since you might be tempted to put your source up on a code-sharing site like bitbucket or github. This way you won't "forget" to scrub out the secrets when you post an update at 3am one night...
+Your audioscrobbler module can define very simple functions, extracting just the get() lines from your current code. This code:
+(NOTE: A little searching provides this module: https://pypi.python.org/pypi/audioscrobblerws/0.1.1 - I don't know if it's right for your needs.)
+First, let me suggest you look at the PEP 8 style guide. I don't follow all of the suggestions myself, but some of them make good sense, including the suggestions on the arrangement and ordering of imports:
+You built it, using a totally artificial ID that you made up. You might just as well say artists[ID] = {}; ID += 1 and use a list. Except that function is built-in: artists.append(...stuff...)
+Now here you add in a new service - musicbrainzngs. So it's not all calls to the audioscrobbler! But there's a mistake I think you're making (I could be wrong - check this): you're using dictionaries when you should just use lists.
+Right now it's just a wrapper. That's probably all it needs to be. But if you parse the result, you might be able to move the import of the HTTP and XML libraries into the audioscrobbler module entirely, which simplifies the rest of your program.
+Likewise here. There's a some added code for your audioscrobbler module, and a list where you're using a dictionary.
+You can make the web API calls smart about what fields they return, and let them handle knowing how to implement a limit of three pages (is that 10 per, or 5 per or ...?).
+I'll further recommend that your audioscrobbler module should accept the API key as an external setting. Which means you need one more local module:
+The second part of this code looks like it should be another function in your audioscrobbler module.
+While we're on the subject, I notice that your web requests are going to a site called audioscrobbler. I'll suggest that if they don't provide an API module in Python, you should go ahead and write one that fits your needs:
+In this section, you are making the same error you made in the artists section. You don't need a dictionary keyed by an arbitrary ID. Just create and append to a list. 
+If we look at this code, what's in the i value? It's the key from the artists dictionary. But the artists dictionary was built like this:

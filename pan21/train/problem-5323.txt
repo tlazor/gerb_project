@@ -1,0 +1,6 @@
+My current solution for dedicate internet link for specific applications (eg. skype) is to use PBR with static destination of Skype servers IP addresses.
+I have a similar situation where broadcasting services are handled via a 2nd link. no pbr needed for this.
+I used PBR before - but that was in order to have specific sources using specific gateways on the same network.
+But unfortunately IP address may change/add, and we have to manually configure them in PBR. So I want to think for another way to do this solution. One I can think of is to use some DPI marking DSCP and have routers to do PBR by DSCP marked. But I am still not sure if it will accurate enough.
+if the destination IP addresses stay the same - why not simply using static routes pointing to the dedicated link you mentioned? this way you take away the need for the router to look at each match criteria you have set.
+Starting with IOS 12.4(4)T NBAR can be used to classify skype traffic. You could use a class map to mark skype traffic, something like this:

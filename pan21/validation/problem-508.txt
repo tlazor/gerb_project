@@ -1,0 +1,5 @@
+On the Windows machine, did you check the metric and see if the VPN route is on a lower metric so higher priority? Maybe it is an issue with the metric. 
+That should make the Windows machine to resolve to the right IP and route accordingly. If that works, then you must configure the VPN server to tell the clients to use a DNS server inside of 10.8.0.0/24 (I think dhcp-option is the name of the directive, but you should make some research). The DNS server should be configured to resolve www.yourdomain.com to the your internal server IP address.
+What I see is just a DNS problem. When you try to connect to the website, you resolve the internet IP, not the VPN IP. Thy the following: edit C:\Windows\System32\drivers\etc\hosts and add an entry like 
+One more thing you could try is set the openvpn config on the server so the clients will route ALL traffic through the VPN connection.
+Add a zone for www.example.com to point to the internal IP of the web server and set forwarders for 8.8.8.8 and 8.8.4.4, also make sure it is listening and set as a resolver for internal/VPN subnets.

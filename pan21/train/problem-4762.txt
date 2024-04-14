@@ -1,0 +1,5 @@
+I have set up a few virtual servers behind the firewall too which all do different things and have different websites. How do I set up the first server to act as a DNS for the others.
+If all you need to do is make dns work inside your network, you should run dnsmasq on your 192.168.1.201 server as both the inside dns server and dhcp server.  It will automatically serve the dhcp names as internal dns.  dnsmasq will then forward all other dns queries to the outside world, which is what yoiu want.
+I have a few domains pointing to my router which then forwards them onto a server within my firewall. The server is running apache2 and everything works well - my website pops up.
+If you don't want to run dhcp on your inside network, you can populate /etc/hosts on the server with hostname->internal ip address mappings, and dnsmasq will automatically serve those to inside machines.
+This seems like a pretty straight forward question, but im new to all this. Is it something I do the first server apache hosts? or do I need to install a DNS server like bind? I have webmin which I am using for a lot of stuff so I'm imagine the options are in there somewhere :-)

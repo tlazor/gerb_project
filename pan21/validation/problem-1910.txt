@@ -1,0 +1,6 @@
+It sounds like you want a site-to-site VPN, from each client to you. You may or may not want the two clients connected to each other.
+Btw, none of these networks have the Debian box acting as the DHCP server.  They are all using external hardware routers.
+Just to add, all of my servers are behind the router/firewall and do not have external IP addresses.
+I have a Debian server in my home office.  I have two clients that I would like to connect my network to theirs over the internet.  I also have two similar debian servers in each of their locations.  All of our networks are using seperate net blocks.  Mine at home is 172.16.120.x, and the other two are 192.168.0.x and 192.168.1.x.  I would like to connect all three of these networks together using my linux servers.  Is this possible?  If so, what program/protocol would I use?  I have webmin on all three of these servers also if there is a built-in program that would be make things much easier.
+This is entirely independent of the servers inside of each network. Once the gateways or other border devices have created the VPN tunnels, you can do what you need to do.
+That's not "bridging", but I think I understand what you're getting at. Read up on the documentation for the border devices at each of the three sites, and figure out how to make a VPN from their sites to yours.

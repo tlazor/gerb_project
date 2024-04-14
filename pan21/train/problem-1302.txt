@@ -1,0 +1,6 @@
+Do you have a group policy that deploys the software? While it won't redeploy automatically if someone removes the software you can use the procedure documented at http://www.frickelsoft.net/blog/?p=103 to force it to reinstall. 
+As others have said it's a management issue but there is a way to reinstall an application if you have a client on the domain and deploy the software via group policy. 
+This is not entirely true, it really depends on how much work you want to do and how savy you think they are.  Look at the idea posted here: http://discuss.pcmag.com/forums/thread/106231001.aspx  I'd be willing to bet that would work just fine
+Is there a way to prevent a Windows Vista client who is a local administrator of her own machine to remove a installed program? The program should not be removed by clients either from normal mode or safe mode.
+If you can remotely access the computer's registry you could remove the GUID of the application and then group policy would take care of it.
+No. If they are a local administrator, they have full privileges over their machine, you can't prevent them from doing anything.

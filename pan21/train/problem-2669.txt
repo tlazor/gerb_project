@@ -1,0 +1,5 @@
+My problem was that I did not set my default language as the one that I wanted Windows 10 apps to be in.
+I live in Germany and love my OS to be in English. In order to achieve a full English OS, including apps, and a German keyboard layout I went into my locale settings (Settings => Time & Language => Region & Language) and first off moved English (which was set to override the OS language) to the top. Then I clicked on English, clicked on Options and directly clicked on Add a keyboard and selected the German keyboard layout. After that was set I removed the US keyboard layout and then had Windows 10 displaying in English, including all of the apps, with a German keyboard layout.
+I've solved my problem by putting in the languages settings the French language at the top. After some restarts all my modern ui apps are in French.
+Settings > Time & language > Region & language > Click the language that you want it to be default > Set as default
+Defaults follows your language setup, you can choose to select what language you wan't to show here.

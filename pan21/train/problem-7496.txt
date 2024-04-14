@@ -1,0 +1,9 @@
+What I want to achieve is trusted TLS connection between all internal parties. We deployed a PKI infrastructure with a Windows Server 2012 R2 CA for all internal certificates.
+So, the first thing I notice in your log file is that the connection from exdb04 was incoming and the connection to gmail was outgoing. Have you configured the exchange machine to use a client certificate on it's outbound connections?
+Keep in mind that with your s_client testing, you're testing in only one direction. Which certificate, for example, is the exchange server presenting to your postfix server? Are you positive that it's the same one it's configured to use on it's own server port.
+Untrusted TLS connection established from exdb04.XXXXXX[10.20.3.10]: TLSv1 with cipher ECDHE-RSA-AES256-SHA (256/256 bits)
+Our Exchange Server 2013 has a certificate from the internal CA assigned. The CA root certificate is rolled out to the postfix machine. The postfix machine itself has a certificate issued by comodo.
+When you do the s_client testing and connect to your postfix server, what does the log file say - trusted or untrusted? How about when you specify a certificate with -cert?
+If, as you said, only outgoing mail is passing through these postfix machines, then your only incoming connections should be from your exchange machines then I'd also suggest some stricter config settings:
+Seems to be alright till here, but: while sending an email from Exchange to outside I can see these messages in the log:
+We are using those postfix machines as internet relay and all exchange machines are sending their outbound emails through those postfix machines.

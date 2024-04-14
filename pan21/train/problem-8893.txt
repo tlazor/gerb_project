@@ -1,0 +1,5 @@
+That option disables some Domino users's ability to request return receipts from non-Domino users.  (But it's really not that effective, because it only works for users who are set up to generate their messages using Notes/Domino's internal rich text format.  Users who are set up to generate their messages in MIME format don't require this conversion, so their return receipt requests will go through.)
+Blocking return receipts in Notes/Domino can be done on the client side by hex-editing the nnotesws.dll file and changing the ReturnReceipt string to something else.
+I'm fairly new to Domino administration. I have a problem regarding return receipts on our Domino 9 server. I've been asked to disable all return receipts from our server. I've found the place where it's disabled:
+I'm unsure whether this should be posted here or on StackOverflow, so I apologize in advance if this is the wrong site.
+After this I have retarted the server, but we still send out return receipts when getting mails. I have tested from an Outlook 2013 client. Is this how it is or am I missing something?

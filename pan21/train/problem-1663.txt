@@ -1,0 +1,12 @@
+The current transaction cannot be committed and cannot support operations that write to the log file. Roll back the transaction
+and inside the procedure, after all the calculations, when I am returning the final data (below an example)
+I check whether we are outputting to a table or just back to the screen and create the script dynamically.
+this is one solution I found, but I only use it for my own works DBA otherwise this will be considered high risk for Sql Injection.
+Granted, this is not a true table-valued output parameter, but it will likely produce results similar to what you would be looking for. Declare your table-valued parameter, fill it with data by executing the stored procedure into it, then use it as the input variable for the next procedure.    
+No, unfortunately table value parameters are read-only and input only. This topic in general is covered very well in How to Share Data between Stored Procedures, which presents all the alternatives. My recommendation would be to use a #temp table.
+This is an older post, but it was near the top when I was searching for "Table-Valued Parameter as Output parameter for stored procedure".  While it is my understanding that you cannot pass a table-valued parameter as an output parameter, I would imagine the goal is to use that table-valued output parameter as a table-valued input parameter in another procedure.  I will show an example for how I made this work.
+for example a tool to tell me from a login all the AD groups it belongs to and all their permissions in all databases in a server
+there are situations where you get the following error messages when saving the results of a stored procedure to a table:
+Next, create a stored procedure to capture some of the data.  Normally, this would be where you are trying to create a table-valued output parameter. 
+After that you have either the info you need on the screen, or if you have passed a temp table as a parameter, it will have the data now.
+Additionally, you will want to create a data type (table type) where the data from the first stored procedure can be passed as the input parameter for the next stored procedure.

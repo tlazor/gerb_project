@@ -1,0 +1,11 @@
+Take a look at things like this.  The last few causes are hypothetical (they would cause it, but I've never found evidence that they did), but the first is ubiquitous.
+Edit: If the users profile is only local, check the permissions as well or if it's even there (C:\Documents and Settings\USERNAME).
+2) Was the DC replaced recently, when people replace a domain controller and instead of moving users profiles correctly after adding the PC to the domain, they play with the registry entries, but don't fix permissions.
+Windows cannot find the local profile and is logging you on with a temporary profile. Changes you make to this profile will be lost when you log off.}
+The error message basically says Windows can't load the user's registry hive to HKEY_CURRENT_USERS because it's already been locked for writing.  I draw your attention to C:\Documents and Settings\XXXX\ntuser.dat.
+Windows has backed up this user's profile. Windows will automatically try to use the backed up profile the next time this user logs on.
+Windows was unable to load the registry. This is often caused by insufficient memory or insufficient security rights. 
+Windows cannot load the locally stored profile. Possible causes of this error include insufficient security rights or a corrupt local profile. If this problem persists, contact your network administrator. 
+DETAIL - The process cannot access the file because it is being used by another process.  for C:\Documents and Settings\XXXX\ntuser.dat
+Are you using roaming-profiles? If so, check whether your user has access to his profile on your share. The user needs full permissions to his profile.
+1) Run a chkdsk to see if there are errors with the drive, make sure you select check for bad sectors

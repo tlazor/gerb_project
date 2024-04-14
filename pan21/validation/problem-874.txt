@@ -1,0 +1,5 @@
+P.P.S. I've avoided posting anything about iptables output here because I do not in fact know what portions of that are relevant.  I'm hoping someone will be able to deduce my problem without that info, but if not then I can certainly dig it up ...
+I've leased a dedicated, lightly-managed CentOS7 box from a hosting company.  The host came with firewalld installed and running and with its iptables preferences pre-imposed.
+P.S. Notice that http is in the same firewalld zone and I've been able to telnet host 80 and connect via web browser since day 1.
+Unfortunately, I'm still unable to telnet host 25 from remote locations and remote mail still fails to reach my postfix queue.  Any thoughts as to what I'm missing?
+I was not expecting this; I'm used to receiving unfirewalled boxes with no services running on them except the ones I turn on.  I know little about firewalld and iptables and am struggling to get even basic external email traffic through port 25 and into postfix's queue.  I believe it's the firewall that's blocking me because:

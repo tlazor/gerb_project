@@ -1,0 +1,5 @@
+LoRaWAN has a star-of-star topology, meaning that each end-device communicate only with Gateways, which communicate only with central network server.
+So, if if end-device-to-end-device commmunication works with your devices, that is good for you, but you do not follow the "guidelines"; there might be some specific communication process between gateways and end-devices to enhance reliability/performance. Maybe you will encounter some problems later (long-term communication reliability, certification issues); maybe not !
+I have tried researching this question but I'm not quite fully understanding the benefits or true reasoning for having a Gateway.
+However, the French Wiki page about LoRaWAN, which is much more detailed than the english one, talks about this (translated): 
+If you have two LoRa RA-02 modules they can communicate with each other without a gateway, and you can just use the LoRa modules connected to a wifi module it can push the data up to the internet/cloud. So at what point is a gateway useful and what does it actually do? 

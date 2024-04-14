@@ -1,0 +1,9 @@
+Broadly this is referred to as infrastructure-as-code, for googling and other buzzword-oriented media applications.
+There is some mention that Janitor Monkey might be integrated with Edda, but they have not published much information about these since.
+Today with AWS CloudTrail and AWS Config Rules it is possible to achieve similar results without third-party software. When Edda and Janitor Monkey were announced (2012-2013) both of these services were not yet ready to solve these kinds of problems.
+With CloudTrail and Config, the tracking of resources is already in place. All to do is write a script that will decide what to do with these by going over the list from time to time.
+More specifically, say, if you had your environment described in Terraform's HCL files, you would have required ID's exported as "outputs" and could operate on those from scripts/Jenkins jobs/etc
+Netflix have presented their method of dealing with the problem of resource sprawl. They created the Janitor Monkey which is responsible to clean-up resources when it is apparent that those are not being used.
+You can start small, pick a less important and not very extensive environment, carefully decipher it into automatable code and proceed from there.
+A judicious usage of one of the cloud "orchestration" tools, such as Terraform or possibly Fugue seems to be the best way.
+To track the created resources in Amazon AWS, generate an audit log, and allow to search through time (and history) they also created Edda. Edda allows to store and search through your AWS resources.

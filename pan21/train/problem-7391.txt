@@ -1,0 +1,5 @@
+While these workarounds do not solve the actual issue, if all you need is to quickly view some graphs, they may be faster than trying to fix the issue (which still persists in Linux Mint 17, based on Ubuntu 14.04).
+Use dot (instead of dotty) and output the graph to an image file (e.g. dot -Tpng file.dot -o file.png), then use an image viewer. To avoid creating temporary files, use a viewer which supports reading from stdin, such as gwenview (e.g. dot -Tpng file.dot | gwenview /dev/stdin).
+As others have mentioned your font configuration isn't working.  You can read more about how to configure that here:
+I have the same issue and did not find a solution yet, but I compiled a list of workarounds (some taken from https://bugs.launchpad.net/ubuntu/+source/graphviz/+bug/1016777):
+I've found some internal document in a company I briefly worked for that mentioned dotty is faulty on Ubuntu 10.04, and urging users to upgrade their OS as a way to solve that. The reason this happens is still a mystery to me, and "upgrade your OS" is a pretty poor solution, but still - it should solve the issue, so posting it here as an answer.

@@ -1,0 +1,5 @@
+Each version of Microsoft Office might be different, but app cleaning apps like AppCleaner work great.
+I deleted the Office suite from my MacBook, but I receive notifications from Microsoft AutoUpdate that there are software updates. How can it be if I deleted Office? How to uninstall Microsoft AutoUpdate?
+Simplest would be to use the Uninstall tool - MS KB Troubleshoot Office 2011 for Mac issues by completely uninstalling before you reinstall
+While Microsoft's guide for uninstalling Office says to remove files from your user Library, Microsoft AutoUpdate is actually located in the system Library, in /Library/Application Support/Microsoft/MAU2.0. The simplest way to uninstall the app if it's open is to secondary click the icon in the dock, select Options > Show in Finder, Go > Enclosing Folder and delete the MAU2.0 folder.
+This is an old question, but one solution past manually doing rem moving items is to download and install the app AppCleaner and just drag Microsoft AutoUpdate on it and let it figure out what files to remove to completely purge it from your system.

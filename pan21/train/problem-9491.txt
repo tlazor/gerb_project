@@ -1,0 +1,6 @@
+As a final step, you need to pick a VPN client. Since it's a company VPN, I suggest either L2TP or OpenVPN, both should be sufficiently secure. There are a ton of tutorials out there. Since all your mobile's internet traffic will end up on your home computer, the home computer's routing decisions will affect that as well, so your company traffic should go to the company VPN.
+Now, to achieve this, you will need to expose at least one port of your home computer to the internet. If you are behind a router, you will need to configure that.
+I guess, I need to setup a VPN server(such as OpenVPN having mobile client) on my desktop which will expose the connected VPN network to my work.
+First of all, please be aware that by doing this, you might be violating quite a few company policies as you are exposing the internal network using a non-sanctioned authentication method and a VPN protocol that may have different security settings as your company VPN. Please do talk to your IT department before doing any of this.
+I also assume, you have a dynamic IP address, so you will need to set up an account with DynDNS or one of it's clones.
+What I am trying to achieve is expose this connection on to my mobile (Android) which connects to internet through 3G network. The original VPN vendor in use by my company does not have a mobile client.

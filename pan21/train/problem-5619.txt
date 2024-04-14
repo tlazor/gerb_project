@@ -1,0 +1,7 @@
+Also tried by moving /etc/Wireless/RT2860STA to /etc/Wireless/RT2870STA (as according to dmesg that rt2870 was the driver being loaded) with no success.
+Since Kernel 4.19 there is native support for mt7610u. Fedora 30 and Ubuntu 19.04 has this kernel version. These distributions should work without any additional effort.
+But the LED on the dongle did not turn on, nor there is any wireless connection available in network settings.
+The driver is still under development. It works perfectly fine. The only thing missing is the wifi power level indicator. LED is always off:
+Same result with both Ubuntu 12.04 64-bit (3.2.0-60-generic) and Linux Mint 16 64-bit (a friend's box). How do I install this driver?
+But I still do not see wireless connection option in the network settings UI and after a reboot ra0 is shown as disabled again.
+MediaTek provides Linux driver for USB Wi-Fi dongles based on MT7610U (chipset RT2860, I personally have ipTIME A1000UA). I downloaded MT7610U USB V3.0.0.2 (direct link), extracted the archive and:

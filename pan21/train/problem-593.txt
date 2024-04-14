@@ -1,0 +1,6 @@
+Unfortunately, the problem that you describe does not cleanly fit into either multi-class or multi-label classification, since you want each document to have at most one label.
+Multi-label classification allows a document to have any combination of labels, including none.  So a document can be about only sports, only weather, sports AND weather, or neither.
+The method that you describe for training individual binary classifiers corresponds to multi-label classification.  The binary classifiers that you use could each be trained from one-class data or two-class data.  However, this is only one of the many ways to do multi-label classification (see the wikipedia page above for more).
+The difference between these methods is the assumptions they make about the task.  Multi-class classification assumes that each document has exactly one label.  So a document can either be about sports or weather, not both.
+Therefore, if the multi-class assumption makes sense for your problem, you are better off with a multi-class classifier.
+You could train a multi-label classifier with data where each document has exactly one label, but there is no guarantee that the predictions made at test time will have only one label.  Also you are forcing the classifier to do more work (and potentially make more errors) by considering more possible labelings than it needs to.

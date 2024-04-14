@@ -1,0 +1,6 @@
+I haven't found a updated document to confirm the current state, but in the past you needed to have the Chrome for Business and Education installed.
+IE can be configured through GPO and in Firefox I run a batch file that does that. How can I do this on Chrome without changing it manually on each PC?
+There you have file named Preferences - it's a JSON file - you can find there some properties for homepage and for example parameter which is responsible for loading homepage on startup:  
+In our business we have about 300 PC's. What I want to achieve is to change the homepage on all browsers (IE, Chrome and Firefox). The problem is that I can't find any way to set/change the homepage on Chrome for all computers at once.
+See Google's Help document Set Chrome policies for devices.  They provide Group Policy templates you can add on your Domain controller, so you can configure policies to set things like the home page.
+Here you have a place where Chrome configuration is stored:  http://www.chromium.org/user-experience/user-data-directory  

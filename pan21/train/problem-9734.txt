@@ -1,0 +1,9 @@
+You know what the funny thing is? They are more pissed off about four hours intermittent downtime -- than 2 month overdue project?! Go figure
+My answer to this problem was simple. I picked up the phone, called the rest of Management, and said;
+If it is for a limited number of users, then this can accomplished with Custom Recipients (a.k.a. aliases). For "bulk" redirection to another server, then this can be accomplished through the SMTP connector - http://www.msexchange.org/tutorials/Configuring-SMTP-Connector.html. Ultimately, "swinging" the MX is the "better" route, if there is no other reasons for the emails to flow though the subject server.
+About 20 minutes ago (1.10PM), we finished, and everything is smoother than Angelina Jolie's inner thigh!
+This sounds like something that Exchange journaling could resolve.  Journaling will send all of the mail to a mailbox or mailboxes.  Exchange 2003 does not allow for granular journal, as it can only be configured per database.
+Then, I called my guys on the floor, and told them to tell everyone they will experience intermittent problems for the next four hours. This was at 9AM London time.
+It's signed off and completed now, and I'm running a full backup across every computer, just to get a snapshot of our systems on Friday 13th just in case. Thanks for your time, and efforts, I think I like this site alot
+"If you want a miracle, pray, if you want the impossible, call Ethan Hunt, if you want me to build you a proper network, shut up and I'll tell you what is the "best" way to do it. After all, that's what you pay me for, right :)"
+You can not. i a server is responsible for a specific domain, and an email originates internally, it dimply does not leave the server. Standard behavior.  There is no way to make it generally send a copy to an external source.

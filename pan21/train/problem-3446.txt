@@ -1,0 +1,7 @@
+Why not either create sub-sites for those sub-domains or keep your standard domain and only use sub-folders?
+well, you could bind to the same site in IIS and then use URL rewrite module to achieve this, I believe. 
+Plus, I do not think what you want to achieve is a good idea SEO-wise; perhaps you do not care about SEO here...
+Another way of looking at it is to create a site container for *.mydomain.com and then use ASP.NET to parse out the requests to valid subdomains, etc.
+If you're using IIS7, a config file rewrite rule will definitely solve this for you. Check out http://iis.net as there are tons of examples in there of how to do exactly what you're after. A quick search showed lots of people doing the same thing though I recommend you review them instead of me posting a solution in case there are other things you want to do (outbound rules, etc.)
+If you're using IIS6, we always used ISAPI Rewrite to do the same type of thing though the syntax is a bit different.
+The quick and dirty way of doing what you're asking is to create a site container for each of the subdomains you want to have, and then have IIS do a static redirect to the original site container (mydomain.com/mycategory).  This isn't the most elegant, but is easy enough to follow for anyone other than you to run the environment.

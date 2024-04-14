@@ -1,0 +1,6 @@
+You can download php and install it manually inside a user directory, such as /usr/local/php53 instead. Then, start up a new web-server instance (listening on port 8080 or other) that uses the php executable in here. 
+Sybreon is correct, your best bet is to try it in a virtual machine, or something like a cheap slice from slicehost. If you can't do that, build your own PHP from source. Make sure you use the --prefix option when you run ./configure from the source tarball. 
+An easy way: in your phpinfo you're able to see "config" line. Just copy it, and build a new php version in another directory:
+If that is not an option, you must not use the package manager to install it. This will upgrade and overwrite the existing version.
+Don't do "make install"! Now you have a compiled php in the same directory ("./bin", maybe?). Just make symlinks and enjoy
+You should be able to specify which php instance to load in the web-server configurations and also the appropriate php.ini configuration file to use (instead of the default system-wide one).

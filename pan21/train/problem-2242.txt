@@ -1,0 +1,6 @@
+You can use local or group policy security application and security settings to lock down different aspects of the OS as well as redirect the desktop to a network location that contains only shortcuts to applications you want the users to be able to run. 
+There isn't really a single list of items to do in order to accomlish what you are talking about. You are going to have to start looking at the policy settings and security settings for Windows 2003 and begin to build a solution based on how you want it to work. 
+I have a windows server 2003 sp1 (maybe will update to sp2 tomorrow, didnt update cause never needed). Currently it has just a user, the admin.
+So it should be blocked all other programs, explorer, and the menus if its possible. Still he should be able to log in by the remote desktop conection.
+But, I would like to create a user, so it could access it by remote desktop, but he should only be able to run a single program of the company.
+This kind of separation can be done via something like Citrix, MS Terminal Server, or desktop virtualization. It depends on your budget and on your application you are trying to expose.

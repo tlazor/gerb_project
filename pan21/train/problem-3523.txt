@@ -1,0 +1,7 @@
+Now... I've kind of 'fixed' the problem by manually entering the DNS server in the wireless (that's how it connects) adapter properties; however, I don't want it to mess up the connection when they get home.
+I have also checked the Group Policies and there is nothing I can see which could be causing this problem - also, the GP isn't very complicated; just a few account lockout and Windows Update settings.
+I'll assume you're using DHCP in your network, since you didn't want to manually configure network settings. So I think you should take a look at your DHCP server's settings, and try to find out why it's not handing out proper DNS informations.
+How can I further trouble shoot this problem? Why is it taking so long for the laptops to query for the DNS server - if indeed, it is what it is trying to do?
+It sits at the "Applying user settings" stage and when you press ctrl+alt+del, it takes like another minute or so before actually being able to enter a login.
+Also, running ipconfig /all on the malfunctioning computer should help you see what (wrong) DNS settings it's actually using, and why.
+When a domain-joined computer can't find a domain controller, it will take a lot of time to start up and let a user log on, if he'll be able to log on at all. DNS is vital to proper operation of Active Directory, so, if that computer isn't properly configured to use a domain DNS server, it won't be able to find a DC... thus the slowness you're experiencing. This is confirmed by the fact that you have been able to fix it by manually configuring its DNS settings.

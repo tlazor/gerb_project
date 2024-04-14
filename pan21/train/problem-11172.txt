@@ -1,0 +1,7 @@
+I do a lot of NAS recovery work and in many cases the NAS manufacturer will use Linux software RAID (mdadm) under the hood. To check for this connect the drives to Linux and run...
+The good news is if the drives are sound data recovery from a failed RAID5 is almost always possible in my experience.
+It appears that the Mediasonic is now presenting the drives as four independant disks as it's asking you to format four times. 
+Now when I plug in the Mediasonic HFR2-ASU3S2 I get a warning pop up asking me if I want to format the disk (4 times, I am guessing its one warning for each of the disks)
+I have loads of data on that as I thought RAID 5+ is the safest option so the data is safest there, please tell me how I can recover that data.
+I have tried posting on their mediasonic forums but they didnt answer and then quietly deleted my threads.
+Also you may want to check the SMART status of the drives using a tool like CrystalDiskInfo. You may be dealing with failing drives or a bad sector situation.

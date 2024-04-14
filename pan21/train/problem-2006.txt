@@ -1,0 +1,7 @@
+https://www.nacdbenefits.com:7081/ is definitely accessible publicly so you do have something running on that port.
+Please note that the article linked to has references to PHP code but the problem also applies more generally at an Apache level.  Apache by default will tend to redirect folders, e.g. /test  to it's "correct" url equivalent, e.g. /test/  however it is this redirection that is failing due to Apache running on ports 7080 and 7081 on Plesk v11 servers, and Apache not being configured to handle these scenarios.
+This will show if this is the Apache or nginx server. You posted the nginx init script, not the nginx config file. 
+As redirects returned by your backend server doesn't match what's written in your proxy_pass, default proxy_redirect doesn't work for you and you have to configure proxy_redirect yourself.  The following should do the trick:
+There is something wrong with your configuration. IT will help if you describe your architecture and post nginx and apache configs. 
+So, you must look at www.nacdbenefits.com:443 for /myadmin/ (is this your nginx server?) to see what is causing this redirect. 
+The answers provided so far are targeted towards NGINX configuration, which makes them valid answers, however I have found that the actual problem for Plesk v11 servers (i.e. which is the situation in this particular case), lies in a misconfiguration with Apache on Plesk servers

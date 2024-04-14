@@ -1,0 +1,6 @@
+If I conenct using OWA, and his Outlook client is shut down, the mail stays. (As soon as he fires up Outlook the mail disappears, however.)
+perhaps there is a Xerox extension installed in Outlook.  Check for Add-ins and COM add-ins (File, Options, Add-ins)
+I set Outlook to move every new email from the Exchange server to my computer (i.e., in a local PST file). When I upgraded from Outlook 2007 to 2010 my rules were not listed in my E-Mail Rules tab anymore, but I know they were hidden somewhere, as my emails were still being classified and filtered as before.
+This pretty much says it's something Outlook related, but I'm stumped for where else to look. Is there a way of viewing any "hidden" rules, or somewhere else I should check?
+I have a user who has somehow managed to set up some kind of "hidden rule". If he receives a mail with the subject "Scanned from a Xerox multifunction device" the mail never reaches his inbox.
+I ran the outlook.exe  /cleanrules /cleanserverrules as suggested by Bart and the old rules were gone, but when I added new ones they weren't shown either... darn.

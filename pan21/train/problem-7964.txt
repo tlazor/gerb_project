@@ -1,0 +1,5 @@
+It looks like I have the opposite of what I want set up, as I can easily see into the localhost/_Projects/fresh2/app/config/ directory and see all these files as a directory listing in my browser, but the one folder that I would expect to see (`public') isn't there (I'm guessing this is down to the permissions).
+NOTE: When I run a 'server' via Command line php artisan serve within this Laravel project then I can run the project's index.php and it works at I would expect the app to work, with no permission issues. (But I also use this folder to house other PHP apps (like Codeigniter) so I need to access it via a URL)
+Whenever I try and access a URL like localhost/_Projects/fresh2/public/index.php I get a 403 Forbidden error. (This would be the path to my Laravel project).
+I have moved from MAMP to using Mac's own AMP stack, and have got it working, but just CANNOT get the directory permissions right.
+My localhost points to ~/Sites and my username appears to be user (in that in the terminal is shows up as user at MacBookPro in ~ $). I also seem to have a group called staff.

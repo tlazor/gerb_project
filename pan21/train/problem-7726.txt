@@ -1,0 +1,7 @@
+Disk Management might not necessarily show the partition since it is not assigned a drive letter. To check partitions, you can use diskpart.
+And I also have a folder named Boot on my Windows partition containg bootmgr.mui and some files named BCD. These files shouldn't belong to that Reserved Partition ?
+You can see that System Reserved partition is not there. If it exists then it wouldn't be disaplyed here ? 
+I want to know if I have the 100MB Reserved Partition in my installed Windows system, because I want to make a system backup (with Acronis True Image).
+And when I try to make a backup with Acronis True Image (2011 and 2015) it shows me that is no System Reserved partition there...
+Once selecting the disk, list partitions. The output of this command will show all partitions, their capacity, and their current usage, it is from here you will be able to determine if it exists or not.
+First, I will tell you how I setup the partitions when I installed Windows: I deleted the 100MB Reserved partition and the old main partition, I created a partition with all unallocated space and then I point the setup program to install windows on that partition.  

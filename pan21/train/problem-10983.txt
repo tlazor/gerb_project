@@ -1,0 +1,11 @@
+If you really wanted to do this, add a second WiFi interface (eg, via USB or similar) to your MediaCenter, and set that up as an ad-hoc WiFi-G network.  Watch out for interference issues and such.
+However, if your MediaCenter only has a single WiFi interface, it cannot network to both the iPhone (in ad-hoc mode) and the WiFi-N router at the same time.
+Right now I have my router in mixed mode so all devices play nice.  It would be nice to be able to set it to N only for increased performance.  If I do this however, my iphone will not be able to join my network.  I use my iphone as a mobile mouse and boxee remote for my mediacenter pc very often.  This functionality is very important to me.
+I have a problem.  I just bought a wireless n router.  My mediacenter pc and my macbook are both have wireless n.  The problem is my iphone 3gs does not support wireless n.
+Quickest method it to purchase a second router  Make sure it has a different ip address set eg linksys is 192.168.1.1 and d-link is 192.168.0.1
+You likely won't get any noticeable performance increase by running solely in Wireless-N. Having tried it myself, I couldn't notice a difference. As long as you are using a WPA/2 password, N-Devices should be able to easily reach their max speed. Only when using WEP are devices limited to G speeds.
+Is there anyway I can switch my router to wireless n only and still have my iphone and mediacenter pc communicate.
+It could be possible to do this.  A wireless interface could be used in ad-hoc mode to create a WiFi-G network between the MediaCenter and the iPhone.
+If you are intent on keeping the router in Wireless-N mode, you can often plug a second router into the first through ethernet, letting it act as an access point with 802.11g enabled.
+Once you have the second router connect a cable from the WAN port on the new router to 1 of the 4 pc connections on the original router.
+you can either manually reconfigure the router before hand or just purchase one made by a different company.

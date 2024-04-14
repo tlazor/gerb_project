@@ -1,0 +1,10 @@
+I do have a backup, so I'm slightly less concerned, but any help would be greatly appreciated to try to recover the drive.
+I booted PartedMagic, and the drive shows only up in the system information as a SCSI Disk with correct manufacturer details, but an error appears that reads "this device hasn't been claimed". 
+If I check System Information (systemprofiler), a LaCie thunderbolt (or USB) device will be listed if plugged in, but it's not recognized as a storage location. 
+It seems the partition map of your external hard drive is damaged badly and Disk Utility doesn't repair the map though you can erase your ext-HDD afresh and map a new partition map on it.
+I called Apple tech support, and we realized that the problem started after the latest High Sierra security update. After rolling back the High Sierra installation using Recovery Mode and reinstalling High Sierra, the drive appeared again and passed all consistency checks. So there is something in this update: https://support.apple.com/en-us/HT210348 that prevents the drive from being recognized. Hope this helps.
+I have a LaCie thunderbolt/usb 3.0 external HD that was working perfectly fine up until about two days ago, when my computer (running macOS) would no longer recognize the drive at all.
+It's good you already have the backup and data recovery isn't your priority here. Usually, people ask for the data recovery from such a drive.
+I am interested to know how data recovery application didn't help you? Some tools can recover data from a troubled or unmounted volume. 
+I had this happen with a Lacie Thunderbolt 2 5BIG RAID on Mac OSX High Sierra. The only connection I had with the drive was a Lacie CLI utility that successfully updated the RAID Controller's firmware. Lacie Raid Manager did not see the drive at all. Lacie support (which is now Seagate because of the acquisition of Lacie by Seagate) had no suggestions. 
+I have Windows 10 installed on another partition, so I booted that up and tried the drive, but Windows doesn't recognize the drive either (no error messages or anything). It won't show up in Disk Management, but it will show up in Device Manager.

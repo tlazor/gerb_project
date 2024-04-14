@@ -1,0 +1,7 @@
+It's a total chaos which ones certain terminals, app, and multiplexers (e.g. tmux) support, which one's the default, how to configure... and it kept changing throughout different versions of these apps. As far as I remember, tmux used to support 1005 and 1015, but luckily it switched to 1006 around version 1.8. Unfortunately rxvt-unicode maintainer refused to add support for this newest method.
+If you upgrade everything to the newest version, it should work from xterm and gnome-terminal; and probably not from urxvt.
+Seems that Gnome Terminal is crippled for some reason... I've tried out rxvt which seems to not suffer from the problem.
+I'm running tmux on gnome-terminal with mouse support activated. When the width of the terminal is not too big then it works flawlessly, however, when I use it in full screen mode the mouse clicks are good if I stay clicking on the left side of the screen, when I got to the right extreme of the screen they stop working.
+Note: The mouse clicks works well when I connect to tmux over ssh from my mac on iterm. So I think that the problem might have to do with a misconfiguration of gnome-terminal.
+There are three(!) different, competing extensions that overcome this limit. In chronological order, and in increasing order of preference (that is, each one is better than the previous):
+For more technical information, see https://www.midnight-commander.org/ticket/2662 and https://www.midnight-commander.org/ticket/2956.

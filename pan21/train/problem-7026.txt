@@ -1,0 +1,6 @@
+Windows Update runs and updates with KB4343884 (which is the August 30, 2018 and latest Cumulative Update for 1607 at the time of posting) and leaves me with an About Your PC Version of  1607 and OS Build of 14393.2457 and in System Information the Version is still 10.0.14393 Build 14393.
+I was expecting a feature update to become available via Windows Update, but none is found. Is that because it's an evaluation version? Is there a way to force a feature update to whatever version the latest feature update for Windows Server Essentials 2016 is?
+I've installed and activated an evaluation copy of Windows Server Essentials 2016 from the Microsoft Evaluation Centre:
+“Windows Server 2016” functions like the Windows Server we all know. It is updated only when you install the next major version (2019?).  It is the long-term use, stable and fully featured version of Windows Server.
+After installation, the About Your PC screen shows that the Version is 1607 and the OS Build is 14393.447 and in System Information the Version is 10.0.14393 Build 14393
+“Windows Server” is a software-as-a-service model similar to Windows 10. It is only available through special channels. It can only be installed in Server core mode (no GUI). And, it is primarily designed for customers who need to innovate quickly and need new features often.

@@ -1,0 +1,10 @@
+I have confirmed that ssh-agent is not running and that gpg-agent is running and ssh-add -L shows my gpg key to be present, along with a single other ssh-style private key.
+If you want to use a ssh-agent you can also add smart card backed keys to it using ssh-add -s /path/to/opensc-pkcs11.so
+Which gives you exactly one login attempt as expected when the correct smart card is detected by gnupg:
+I configured ssh to use GPG as my ssh-agent and if I remove the ~/.ssh folder, I can ssh into my server fine using my gpg key. However, my ~/.ssh folder has over a dozen different ssh keys in it, and if I try to ssh when it is there, I get a permission denied error because my ssh client is offering every single private key in the directory before trying the keys in the gpg ssh-agent.
+And finally if you want to use the config file so specify a PKCS11 device you can use PKCS11Provider
+If your key is stored on some sort of pkcs11 capable hardware such as a smart card you can use ssh directly to access it.
+So you can use use ssh -I /path/to/opensc-pkcs11.so where opensc-pkcs11.so is your smart card library.
+So it you set IdentityFile /dev/null, that one authentication will fail, then ssh will proceed to trying keys in your agent.
+With regular ssh-keys, I just use the IdentityFile config in my ~/.ssh/config file, but I can't do that because my identity is a gpg cardno. I am confused by why ssh is preferring the key files over the agent. Is there any way to force ssh to use the agent instead of the files? Or even better, is there any way to specify in the ~/.ssh/config file that the gpg key must be used for a given server?
+Unfortunately, you get rather unhelpful output whenever you forget to insert the card, as the gnupg ssh agent will not ask to insert the correct card like the gpg agent does. This is annoying, but will not impact your actual use.

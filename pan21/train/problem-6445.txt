@@ -1,0 +1,8 @@
+I suggest creating a shortcut on the desktop, setting the icon files and then pinning that shortcut to the Taskbar and Program Files, as you can't right click and view properties of pinned shortcuts.
+I changed the icon on one file as above, back to Excel, and it changed all the other similar file icons at the same time
+If you need to create an .ico file to use as an icon. I like to use this website to convert JPGs, as it's quick and easy, although GIMP can also create them.
+It seems that in Windows 7/8 the Taskbar and Program Files shortcuts icons are not taken from the .exe files icon as they used to be. Instead you have to assign an Icon to the actual shortcut itself.
+You will probably find its default in the right pane is set to icofile (if it isn't, change it to that) then go to HKEY_CLASSES_ROOT\icofile\DefaultIcon
+Unfortunately, none of the responses helped. The issue was corruption within the C:\Windows\Installer folder (folder empty). For some reason all shortcuts were using icons that lived inside the installers there instead of the actual programs themselves. I guess this is a weird Windows 8 issue. I had to reinstall the programs to get the installer folder populated and then the path to icon files worked and the icons came back. It's pretty hard to have all the installers also live on your hard drive when you have an SSD (they aren't that big). Painful.
+I don't know why these shortcuts are not being set correctly, this should be taken care of by the installer, however you can fix them by manually setting an icon to the shortcut.
+My Excel icons had somehow got changed to Adobe Acrobat icons; I uninstalled Acrobat and then they changed to Windows Explorer icons!

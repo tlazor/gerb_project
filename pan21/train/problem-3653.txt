@@ -1,0 +1,6 @@
+Using a free function makes more sense to me here than using a static member function.  For example, consider this function:
+The problem is that c's scope is just the function body, so it goes out of scope (and is destroyed) when the function completes.  However, we've just handed back a reference this now-destroyed variable.  There are a number of ways to fix this, as in the next suggestion.
+Also, rather than simply saying "could not parse", it might be nice to show the user exactly what token was the problem.
+Anything in global space with a leading underscore is a reserved name in C++ (and in C).  See this question for details.  I tend to avoid leading underscores completely in my code.
+There are a number of things that the program could include to make life easier for the user of this calulator.  Most simply, why not provide a way to quit the program?  It's as easy as adding these to lines to main
+The constructor really does two things.  It calculates the result of an expression and then it outputs that to std::cout.  Better would be to split that into the two logical halves.  Specifically, create an expression evaluator that just returns either an answer or throws an error.  Let the caller worry about how to react to that or how (and where) to print it.

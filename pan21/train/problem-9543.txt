@@ -1,0 +1,13 @@
+The credentials of the user for connection the network drive are local-computer\username. It is not MyDomain\username. I have checked this in PowerShell using the gwmi command.
+What I don't understand is why the first attempt to connect the network drives gives an authentication failure. And later the authentication succeeds. I don't know how much later as the account remains locked for 30 minutes anyway.
+My next approach is to change the credentials for connecting the drive to MyDomain\user instead of local-computer\user. 
+The customer has a W10 laptop. The laptop is member of MyDomain. The user has 20 network drives mapped onto his laptop. The server is W2016 Domain Controller.
+I don't think it's using the local credentials to connect to the remote, but possibly it sends the credentials to the remote server. Windows will first attempt the username and password that is currently logged on, against the remote server. 
+When, after 30 minutes the user clicks on the mapped network drive (which has a red cross), the mapped drive reconnects without a problem.
+As for the locked account, this is probably due to some cached old, no longer valid password. You can clear this on the laptop with net use * /d. Note that it will remove all the connections...
+Indeed in the W2016 security logs there are 5 failed logon attempts. After that the account is locked for 30 minutes.
+That is the most elegant solution. If that doesn not help I will make the connections non-persistent and create a batch file which is executed manually. But that is not as elegant.
+You can confirm where the lock out come from by checking the Security event logs on the domain controller. The LockedOutStatus tool is particularly helpful here to find on which domain controller the lock out happened and at exactly what time (I know I have 50+ security events per second in my logs so it is kind of needed to know the exact second of the lock out).
+I am reluctant to have to user log on onto the domain. First he can be away from the office quite some time, and has to rely on cached authentication. Secondly, his current user profile is 50GB and logging on to the domain creates a different profile. It is a pita to transfer that.
+It is not a matter that reconnection should be delayed until the network is UP. It is up, because the server shows authentication failures.
+The latter is surprising. I did not even know it was possible to use local credentials to connect to a domain share. But other tests in a test domain verified this. Only the user name must be known in the domain.

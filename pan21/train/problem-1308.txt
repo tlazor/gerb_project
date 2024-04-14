@@ -1,0 +1,8 @@
+However, the behavior within the application is as follows: duration of OraclePreparedStatement.executeQuery is reduced by 60%. However, now a lot more of time is spent in EJBQueryImpl.getResultList which before took less than 100ms creating a high performance degradation compared with leaving out the query hint.
+You essentially want a different plan based on the contents of the arguments. Oracle tried to make that possible in 9i, 10g and finally got this working in 11g.
+In case the user supplies very unselective arguments, the query takes a lot of time to complete. In case the query would return more than 1000 rows, the user should be supplied with an error message.
+I have a query with user supplied arguments that can produce a very high amount of rows depending on the user's input.
+The idea now was to use the query hint FIRST_ROWS(1000) to speed up. Tests in SQL developer showed the cost metric is considerably reduced (factor 10).
+SQL Plan Stability makes sure the database ends up with a collection of good/accepted plans that give a satisfactory performance.
+This question appears to be misfiled. All the information available to us suggests that this is an Eclipse/Hibernate issue and not an Oracle one. You've supplied information that says the hint works when run from SQL and that the time is spend in a hibernate function that isn't executequery. I'd suggest this get migrated (back?) to an appropriate java development forum. 
+Adaptive cursor sharing will make the database search for a better plan when it detects that a certain argument causes a bad performance, so the next time it will perform better.

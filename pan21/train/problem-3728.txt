@@ -1,0 +1,6 @@
+I am aware this is a huge necropost, but I had very similar problem today, and the situation has changed in last 2 years. Maybe someone will find this useful.
+you can get the updated drivers for Mobility Radeon HD 3xxx series here Mobility cards are notebook class GPU's and the update installer is called AMD Catalyst™
+In your case you would use the 3000 series drivers. For the record, when they say '3000 series', that means it pretty much covers all the models from 3000 to 3999. Not that they have a 3999 model but you get the point. It's basically like saying 3xxx series. 
+The guy who is thread's author removed the links to his modded driver packages because of poor response from people, so I will not paste links here, but you can take advantage of the fact that nothing can be erased from internet so easily.
+Mobility Modder seems to be abandoned for long time, so in case you still use Win XP and want to update your Mobility Radeon drivers, this thread might be valuable.
+When you run the install the software might say that your model is not found, but you can select the HAVE DISK option and manually pick from the list using the INF in your ATI driver folder. 

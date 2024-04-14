@@ -1,0 +1,7 @@
+The main one that sticks out to me is "User Account Control: Behavior of the elevation prompt for administrators in Admin Approval Mode", as it can be configured as such:
+Since you are on a work domain, it may be Group Policies set by the network admin (to control UAC) that's causing this.
+If you are logged as user with admin privileges, it's normal and expected behavior. You can only go level up by "Run as administrator". If you want to test commands with lower privileges, try to create guest account.
+If that's set then it's probably what causing it, and you'll have to discuss with the network admin to have a different policy applied to your computer.
+These should be under Computer Configuration -> Policies -> Windows Settings -> Security Settings -> Local Policies -> Security Options.
+For exploring privileges per process, it's nice to see it in Process Explorer in process properties. There you can see in Security tab approved groups your account is belong to, or thread permissions.
+Run GPResult /H c:\temp\blah.html on your workstation, and then open the HTML file and look for policies starting with "User Account Control" to see if any are enabled. 

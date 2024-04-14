@@ -1,0 +1,8 @@
+About Automapper, I agree with TopinFrassi that mapping a list feels it be odd because it's not re-usable. If you create a mapping between your entity and the CustomBehaviour class, you could do something like:
+When using FirstOrDefault you basically saying that there could be more users with the same userID, and if so then just randomly (because you are not ordering) return one.
+If you would you a manually made mapping, which tends to also be faster, you still won't have your property name changed, but you will still get your data.
+As you are querying for a userID, which I assume, is unique in the users table, SingleOrDefault states that there can be only one user what the queried userID.
+e.g. If you rename a property in your Entity but you forget to rename the same property in your CustomBehaviour class. you won't notice until run time that the mapping has failed. 
+Just my opinion, but I'm not a fan of Automapper's kind of magic. When using these tools you won't get any help from the compiler when renaming or change types of properties. 
+Maybe a little bit off topic but maybe it will help. I see you are using FirstOrDefault where, if I'm correct, SingleOrDefault would be more semantic. 
+The same thing happens when change a property type, with Automapper you won't notice until run time, manual mapping will give you a compile time error. 

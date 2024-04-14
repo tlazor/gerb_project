@@ -1,0 +1,5 @@
+I have a Windows Server 2008 R2 (DC) with a running Active Directory. I added the role Windows Deployment Services and installed both Windows® Automated Installation Kit (AIK) for Windows® 7 and Microsoft Deployment Toolkit (MDT) 2010 Update 1.
+If your PXE boot *nix clients have NFS roots the option for that is option root-path "nfsserver.example.com:/path/to/rootfs"
+Now it should be possible to PXE boot a client and depending on the MAC address in the dhcpd.conf it starts LINBO or WDS.
+On the other hand I have a Linux Debian 6 server with a LINBO installation. So there is a running DHCP Server and a TFTP Server with all the images running on that server. In the network there is also a working DNS Server.
+For the WDS server option 066 (next-server) should be the IP of the WDS server; and option 067 (filename) should be "boot\x86\wdsnbp.com". You'll have to figure out the settings for the PXE server, but it should be pretty similar (and already setup and running as I understand the Question). 

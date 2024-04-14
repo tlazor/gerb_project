@@ -1,0 +1,7 @@
+We had implemented transaction replication on to SQL-Node1 is working as Master DB Server, We'd configured replication of Master DB on SQL-Node2 to pull out reports in to our web application which having lots of transactions and data uploading from excel sheet entries around 10 million entries each day. 
+After configured replication on Two SQL 2012 server, after few weeks we facing some performance issues and found some resource get locked during uploading files on to database that's why application unable to access those tables and data. Also found that server performing too much slow during day time when users access our web application.
+Now we are looking to distribute loads on different 3 Nodes of SQL 2012 Servers. Where web application will access and transact data on SQL-Node1, Reporting queries get pull data from SQL-Node2 and SQL-Node3 will be get used to upload excel sheet data on to Database which will get replicated on all other SQL Nodes.
+We have configured SQL 2012 Server Database Transaction Replication for our client's .NET Web application to distribute SQL transaction and reporting on different SQL servers. 
+We are looking for solution to resolve above issues which can distribute different loads (reporting, data uploading, transaction) and replicate data between all SQL Nodes.
+Database size approx : 15 GB / Replication Used : Transaction / Distributor Role configured on SQL Node1 / Subscriber role configured on SQL Node 2.  
+Which feature will do perform well for above scenario among SQL 2012 HA, SQL Replication or SQL Mirroring ??

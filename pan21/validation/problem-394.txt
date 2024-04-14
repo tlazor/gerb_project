@@ -1,0 +1,7 @@
+The web interface for the nodes says "Integrated Dell Remote Access Controller 8", not sure if this influences the operations.
+I have 2 nodes running and I can access the iDrac web interface of those 2 nodes. For the chassis, I can get to the web interface but the credentials are invalid.
+(iwork4dell) Sounds like what you need to do is reset the credentials on the CMC.  Resetting the CMC password on FX2 requires physical access.  The procedure is here:
+Dell Chassis Management Controller Version 1.3 for PowerEdge FX2/FX2s User's Guide > Troubleshooting and recovery > Resetting Forgotten Administrator Password
+Is there a way I can reset the chassis iDrac credentials from within the node? The nodes are windows 2016 servers and I can access them with no problem, but I am having a hard time figuring out how to reset the chassis credentials.
+https://www.dell.com/support/manuals/us/en/04/poweredge-fx2/cmcfx2fx2s13ug-v1/resetting-forgotten-administrator-password?guid=guid-89a87153-ad73-4b64-a6d9-82f74506a485&lang=en-us
+I cannot access the chassis drac web interface, since I received it configured with a username and password already configured, and the credentials I were given do not work.

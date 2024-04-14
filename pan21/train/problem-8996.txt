@@ -1,0 +1,8 @@
+Try some really basic introduction. You mix up a lot of stuff becuase you basically have no clue how a network operates physically.
+If it does - it is just another switch, so to say. The router routes packets to destination IP Addresses and then on the lower medium to MAC addesses.
+IMplementation detail. How many cylinders does a car have? Are there only 4? Always? Cheap reouters will ahve few queues. Better ones have one per port - wifi being one port, as is every cable - or even software configurable ones.
+I would say it does not, as the TYPICAL router does not have WIFI. Those mostly are cheap consumer grade end usnits or small office setups - most routers wont know wifi.
+Until you overload the external line with all the resends necessary, or the CPU / Memory of the router, in which case you got a wonderfully cheap router that should never be used in an office like this.
+Everyone in the office is right. Modern gigabit ethernet is 1gb full duplex PER CABLE - ports do not collide. Air is neither full duplex on a frequency (you can not send and receive at the same time) nor per cable.
+Basically - only people with no understanding or trying t be super cheap ty to run an ofice of 30 people over wifi. Wifi is terribly compared to cable. It is good for conferences, meeting rooms, the tablet etc (light users), but I would not run workstations on it. Not if "getting work done" is the goal.
+Let me forulate it non-diplomatic. For a professional admin (only those should be on this board) you are terrifically ignorant how a network works. No, it does not affect the router. The router sends IP packets to MAC addresses and whether they get lost on the WIFI or not on the cable does not affect each other.

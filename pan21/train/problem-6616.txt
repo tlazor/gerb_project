@@ -1,0 +1,7 @@
+I have just created a VM with Windows 7 which I hope to use as my Developer machine. While creating the VM with VM Player, I picked the option where the contents of Hard Disk will be stored as Multiple Files (I quite do not recollect the exact words of the option that I picked). 
+Having split up drive images is good when you need to store the drive on a fat32 partition, with its 4gb limit, or know you potentially need to move the image on smaller media. Larger single drives are better performance and space wise, especially with dynamically expanding disks. 
+If you ever think you need to move the images onto a fat 32 drive for storage, splitting it up is a good idea. Else single disk is fine. You're unlikely to have a massive difference in performance between the two options under low intensity usage IMO.
+In two words configuring storage in multiple files allow to shrink VM storage to multiple physical storages of your host system.
+Here you can find detailed description for all options regarded VM storage settings http://www.vmware.com/support/ws45/doc/disks_config_ws.html
+Now, I am not an infrastructure person at all. So, I really do not know which is the best option for my purpose. 
+All of the earlier machines that I built using VM Player have always had the Single File as a Hard Disk. 

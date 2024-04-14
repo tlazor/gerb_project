@@ -1,0 +1,6 @@
+Also if anyone knows any tools for DFS to see live what is being replicated/queued up that would be great to use to see if the broadband links are causing a large bottleneck.
+The DFS client uses AD sites to lookup the closest link. Do you have your sites and subnets properly setup in AD?
+They can browse \servername quickly and view shares quickly but when accessing the shared namespace url and the shared folders it is very slow for some reason.  Any ideas why this is?
+On the network PC's at office 1, they are connected to the LAN at 100mb and have created shortcuts to the shared area on their desktop.  When they try and browse the shares their response is incredibly slow, 2 mins for a folder list of shares etc.
+The clients can still access the SBS2003 server shares instantly without an issue.  The load (cpu/disk/network counters in resource manager) seems fine on both DFS servers too.
+If i log on to any server and browse the DFS shared folder I can create a file and watch it replicate almost immediately across to the other office DFS share.  Accessing the shares is pretty instant even across the broadband links.

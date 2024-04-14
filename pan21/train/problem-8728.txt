@@ -1,0 +1,5 @@
+Here is relevant parts of my httpd.conf file. Without this VirtualHost I don't get the error message.
+It's because your VirtualHost directive doesn't match your ServerName directive and/or the CN of the certificate. All three need to be identical, unless you have a wildcard certificate where the non-wild portions must be identical.
+I have recently upgraded from Centos 5.7 to 6.3, and by that to a newer httpd version. I have always made my ssl virtualhost configurations like below. Where all domains that share the same certificate (mostly/always wildcard certs) share the same ip. But never got this error message before (or have I, maybe I haven't looked to enough in my logs?) From what I have learned this should work without SNI (Server Name Indication)
+Since you're sharing the IP, browsers without SNI support will just get the first website and never the second.
+And you're getting it because 1) you've updated your Apache version and 2) you have 2 SSL VirtualHosts using the same exact IP address (as opposed to using 2 IPs).

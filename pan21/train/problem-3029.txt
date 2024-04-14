@@ -1,0 +1,8 @@
+Now I'm trying to use ML on a data set not to predict future values but to understand the importance and direction (positive or negative) of each feature.
+Then I multiply the two derived values together for each feature and end up with some value that maybe perhaps could be the information I'm looking for!
+I'm new to machine learning and have spent the last couple months having a blast using Sci-Kit Learn to try to understand the basics of building feature sets and predictive models.
+With my limited ML knowledge to this point, I'm confident that I can predict (with some level of accuracy) a new y based on a new set of features X. However I'm struggling to coherently identify, report on and present the importance and direction of each feature that makes up X.
+I'd love to know if I'm on the right track with any of this. Is this a common use case for ML? Are there tools, ideas, packages I should focus on to help guide me?
+My features (X) are boolean and integer values that describe a product. My target (y) is the sales of the product. I have ~15,000 observations with 16 features a piece.
+You don't need the linear regression to understand the effect of features in your random forest, you're better off looking at the partial dependence plots directly, this what you get when you hold all the variables fixed, and you vary one at a time. You can plot these using sklearn.ensemble.partial_depence.plot_partial_dependence. Take a look at the documentation for an example of how to use it.
+Another type of model that can be useful for exploratory data analysis is a DecisionTreeClassifier, you can produce a graphical representation of this using export_graphviz

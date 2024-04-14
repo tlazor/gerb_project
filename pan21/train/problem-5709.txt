@@ -1,0 +1,12 @@
+For SQL databases, just set up a SQL task to back up the database to a folder, and have your backup software use that folder instead.
+BackupExec is very expensive.  With all the features we would be wanting out of it, it came to more than 12k.
+I am the sole sysadmin for a small software development company, and occasionally I get help from either my boss or one of the engineers.  So its sort of a 1.5 person scenario.
+We are currently using backupexec 9, and its definitely showing its age.  We have a sql2005 & sharepoint box it basically cant touch, and are considering some virtualized solutions that it wont be able to service either.
+At my small development company, we threw out all our backup hardware & software recently and switched to the cloud with Carbonite Pro. 
+Haven't seen anyone recommend CommVault? I've played with it briefly for an old client, so I don't have a lot of personal experience, but I know a lot of people that like it. Including my current company, which is migrating to it.
+I tried the HP Dataprotector briefly and, well, Evan's rant against ARCServe covers my sentiments nicely.  ;)  The interface was terrible (admittedly, I'm used to Backup Exec), and HP support had a ball passing me around between departments for weeks on end.
+So finally, the question:  Are any of these packages "avoid at all costs"?  Anyone using CA right now?  Love/Hate it?
+Most of my experience is with BE 9/10 (decent for my use of them, although kind of annoying) and Legato Networker 7.2-7.3, which was damned spiffy but not that easy to learn. 
+My experience with Retrospect was as a backup to the Backup Guy, so I wasn't as arms-deep as I would've preferred, but aside from a slightly cryptic interface, it was able to do everything asked of it, and is very, very hands-off once you have everything configured.
+I spoke with the CA rep, and he put me in with the features i wanted for somewhere around 4k, which is better but still not great.
+Ive looked at somewhere near 6 solutions at this point, and they all appear to do what we probably want.  So far ive given a cursory review to CA ARCServe, Barracuda Yosemite, BackupExec, BackupExpress, and Acronis.  I was recently recommended to check out tivoli, although i havent gotten around to it.

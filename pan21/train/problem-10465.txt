@@ -1,0 +1,6 @@
+I found it. Graphics gard was in "worng" slot (closest to the CPU, PCIE1 according to the manual). When I put it in the other PCI Express slot everything works like a charm (PCIE3 slot according to manual). I am not sure, could it be that my motherboard is damaged or all this is because of faulty CMOS / BIOS settings?
+If that works try mounting drives. Changes are that whatever partition was on /dev/sda2 is now at /dev/sdb2 or vice versa. That will confirm that some cables got reversed.
+The quickest test is to remove some of the RAM, however it is more likely that you changed some of the drives cables and that the drives now appear in a different order.
+In my experience, Windows often freezes at startup when something related to the hard drives and controller was changed. I suggest that you check if you connected the hard drives in the same way as before if they are IDE disks, and check in the BIOS setup that the controller is set correctly.
+Do not try try to fix it here unless you want to change the setup for every OS. Instead correct the cabling.
+Now I have two suggestions: either my mobo is damaged in some way, or the windows OS is for the recycle bin (sorry for the harsh suggestion ;)

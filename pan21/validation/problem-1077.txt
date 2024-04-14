@@ -1,0 +1,8 @@
+Learned that objects should have class methods that are specific to the class. As an example a student takes an exam (composition). A school has teachers and students (composition).
+Instead of string ClassRoom, I would use composition and have it contain a list of Course object (courses that are given by that teacher).
+apart from that you seem to do pretty well, style wise. But I'm not a C++ expert, I'm certain other can help you further with this.
+If I were you I would create a Person class and inherit your Teacher and Student class from it. A Person has a firstname, lastname , age. Probably they both have an id value. You can even go a step further and make a Employee class, that has Person as base class and of which Teacher inherits.
+First of all I'd like to say that you did not provide guidelines, so I'm not completely sure what is required and what not.
+You might take a look into using an abstract factory pattern in order to create your student/teacher objects.
+I've refactored the code based on advice given. The code now makes use of object composition and inheritence. 
+I would rename this to Course, since it's not really related to the room where it takes place. A course probably has a instance variable that identifies the location of the course "Building A4.4" for instance. It indeed holds a vector of students, a name. But I wouldn't store a class average, instead provide a method for calculating that getCourseAverage() for example. Perhaps also store the Teacher object that gives this course.

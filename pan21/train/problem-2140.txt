@@ -1,0 +1,9 @@
+You can use the other pane in order to try out any new rules. (switch panes using <C>-b o) If the new rules work you can always cancel the original command using -c to ensure that the new rules stay active and are not reset.
+The ideal thing to do is always have console access, of course, even if it's emulated console access through another interface.
+This will reset your iptables rules after 5 minutes. This command actually ensures that you cannot lock yourself out of your server by accident.
+This can be accomplished by a cronjob, or just running screen and doing a sleep loop in bash to run that little script occasionally.  
+If you're experimenting with iptables and learning how to use it, though, nothing beats having a monitor plugged in, just in case.
+In this case I like to use CSF which is an iptables manager but much simplier, there you can specify inbound and outbound ports as well as ip ranges. It also has a testing festure where it enabled the rules for 5 minutes, after that the rules are gone, that way you can make sure that even if you get locked out, after 5 mins you will be able to get in again. 
+I use firehol as a front-end to iptables.  Firehol has a really nice feature that allows you to safely test a new set of rules.
+If you're using something that uses an iptables service (like /etc/init.d/iptables) which you can turn on and off, you could set up a simple cronjob to turn it off every 30 minutes.  A more general solution would be to run the following at some interval:
+When you run the command firehol try, Firehol sets itself to ignore HUP, takes a backup of the current rule set, applies the new rule set and then gives the user a prompt asking them if they want to commit to the new set of rules.  If you do not respond to within thirty seconds, then firehol restores the previous set of rules.

@@ -1,0 +1,6 @@
+I'm interested both in why memory usage would spike so greatly using multiple if blocks, and also if there are any better ways to achieve our goal.
+Keep in mind that we're trying to block many more than 3 or 4 IP addresses... more like 50 to 100, which may be included in several (20+) nginx server configuration blocks.
+Similarly, we cannot use IP tables, as blocking the IP address of the proxied client will have no effect. We need to use nginx to block the requested based on the value of $http_x_forwarded_for.
+We need to block a large number of requests by IP address with nginx.  The requests are proxied by a CDN, and so we cannot block with the actual client IP address (it would be the IP address of the CDN, not the actual client).  So, we have $http_x_forwarded_for which contains the IP which we need to block for a given request.
+If we changed things up, and created one large regex that matched the necessary IP addresses, memory usage was fairly normal:
+However, this caused our nginx memory usage to jump considerably.  We went from somewhere around a 40MB resident size to over a 200MB resident size.

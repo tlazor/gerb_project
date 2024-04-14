@@ -1,0 +1,7 @@
+While applications can bind to particular IP adresses it's application specific. For your particular example both Chrome and Firefox support HTTP proxies.
+The trick is that one launches the other browser as a different user, and policy routing rules then make all packets from that user use the other default gateway.
+In this case the correct term is "Routing the traffic for a specific application in a specific way". In Linux this can be accomplished with Policy routing.
+Actually the subject of the question is a bit inaccurate. Binding an application to an interface applies for an application acting as a server.
+Chrome would be configured to use 127.0.0.3 as a proxy which would use 197.6.0.1 as the outgoing address.
+As krowe already said it's application specific. If you application doesn't support the binding to a given interface/IP you can use iptables (Linux) or ipfilter (*BSD).
+Now Firefox would be configured to connect to the proxy at 127.0.0.2 which would use 192.168.1.99 as the NIC for performing outgoing TCP requests.

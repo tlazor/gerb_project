@@ -1,0 +1,9 @@
+Reason 2 : /usr/lib is a standard path for libraries {If other applications need to use your library you need to add your library path manually to /etc/ldconfig}
+One of the reason that fully fledged executables are located under /usr/lib could be that they are used from other scripts. {For example bash scripts cannot use an API directly. for this reason a common trick is to build a "wrapper" around this api and push parameters as script's arguments }
+/opt is more convenient when you have standalone apps which you install manually and you want to know where they are located
+You install your libraries in <prefix>/lib , your binaries in <prefix>/bin, your header files in <prefix>/include, man pages in prefix/[share/]man, pkgconfig files in <prefix>/lib/pkgconfig or <prefix/share/pkgconfig, your cmake .m4 files in <prefix>/share/aclocal
+Some libraries are wrapped into some other tool that makes them also executable and usable as a library, but they are still libraries, and not in your $PATH, so it is ok to puth them in /lib I guess.
+If you distribute .deb or .rpm packages, with an eye toward eventually getting your software included in the official repositories, you should install to /usr. Otherwise install to /opt. In either case, your application should be able to be compiled to run in any arbitrary location (e.g. with the help of the GNU autotools).
+The real key to understanding the Filesystem Heirarchy Standard is knowing that it is designed with network filesystems in mind.
+The difference is that /usr is meant to hold packages installed as part of the system. Packages you get from the Debian/Ubuntu repositories, PPAs, etc., go here. While /opt is meant for unbundled third party applications that are not distributed through the distribution's package distribution process.
+For every machine of the same OS, release, and architecture, you can share /usr via NFS and mount it.

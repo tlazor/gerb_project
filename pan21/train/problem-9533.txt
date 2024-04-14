@@ -1,0 +1,7 @@
+You should check your CentOS-Base.repo and other .repo mirrorlist/baseurl parameter. Is seems you have ftp:// or https:// protocol addresses instant of http://
+I have installed a CentOS 6.2 KVM guest and I am having problem getting yum to work. This is my first time working with CentOS so I feel that it's a setting somewhere that I am missing but cannot find using google.
+Since your network checks out OK, it is more likely that you have a system-wide proxy setting in your environment.  I have run into this before, and failing to check this obvious possibility wasted my time .. 
+It is about python urlgrabber. You can add mirrorlist.centos.org IPv4 IP addresses to /etc/hosts file. Then it will connect to mirrorlist.centos.org thru IPv4.
+Note: This is my first question on the stack exchange network so please give mercy and provide guidance where needed.
+It is a real shame that yum update does not output any status message that clearly shows it's using a proxy for http connections .. in the intial phase where mirrorlists are downloaded (it does show it later on after downloading the packages) .. 
+While I have the same KVM server/guest configuration and there was some problem with my iptables config, I've changed some /etc/yum.repos.d baseurls addresses to the ftp:// a week ago, now I've checked it out and turn it back to the original state and everything is fine.

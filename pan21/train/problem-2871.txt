@@ -1,0 +1,7 @@
+Once the sale of the business closes I won't have access to the DNS records for the domain. As a result I won't be able to control those MX records. I know I can simply change the MX records away from Google and point them to the business' domain mail server. But how do I do this without losing emails?
+All of the email from my company domain has been routed through Google Apps for Business (the old Gmail for Domains) for about 8 years. So, MX records for my domain all point to Google's email servers.
+So, I'm trying to figure out how to switch off Google Biz Apps handling of the mail to the new server without losing a bunch of emails. Especially, now with all the activity involved in the business sale.
+When I started using Google to handle my domain's email I set the TTL to 5 mins, changed the DNS MX Record and waited. It took about 20 hours and I'm sure I lost about 30% of my incoming emails as the MX records moved through propagation.
+https://support.office.com/en-us/article/Migrate-G-Suite-mailboxes-to-Office-365-665dc56c-581c-4e35-8028-6bc1e8497016
+Microsoft Exchange/Office 365 server or another Gmail address. Migration methods are very different for each one of them:
+But now I'm selling my business - including that company domain - and need to migrate all my personal emails away from the company domain to my new personal domain name. 

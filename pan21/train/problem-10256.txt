@@ -1,0 +1,6 @@
+Flash by default wants to use my rear camera, but obviously I wish to use the front camera to take a picture of myself.
+I can provide a small work around for this problem. Disable temporally the hardware driver of the rear camera.
+Select the device for the rear webcam and choose "disable" in the tool bar. -Very important- Do not uninstall it, just disable it. You might need to reboot the system. Open again the website and it will choose by default the front camera. Once you completed your task, re-enable the device so that you can use it later.
+When I right click the flash object and go to the camera settings, I can choose the front camera in the dropdown box, and see myself in the little preview box. However, this does not actually change the camera input in the main window.
+*Note: I will be asking in the Lenovo forums too, so please don't tell me to ask there instead. I would imagine this is a more general issue as many more devices have 2 cameras these days.
+I need to take a picture of myself for a security verification on a site with a Flash player object to perform the capture. It's a similar flash webcam capture as something like ChatRoulette.

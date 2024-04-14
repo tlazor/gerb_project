@@ -1,0 +1,5 @@
+If you are willing to use a snapshot system rather than true continuous backup, take a look at Solaris with zfs snapshots. A good tool to use with this to actually take backups is Zetaback - available from labs.omniti.com/trac/zetaback . (not linked because the evil system won't let me)
+I'm not sure how practical this suggestion is (well, I am, it's not!), but DragonFlyBSD's HAMMER filesystem can create snapshots of your data every 30secs continually. There's a very similar Linux filesystem being developed too: btrfs.
+What you need is a log structured filesystem. Given such a beast, you can stream changes to a backup server for a duplicate copy. 
+The downside is that this can be really damn slow. Recovery from backup is usually an important consideration and it is a fact that continuous backups have to store more potential states to back up to. Searching to find the one you want may cause pain.
+If you want to setup a server I can recommend http://www.dirvish.org/ you can define when to do backups, so you could define like every 15 min ie to be almost continuous. 

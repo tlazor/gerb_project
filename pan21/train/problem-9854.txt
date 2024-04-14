@@ -1,0 +1,5 @@
+R1, R2 pair is connected to R3, R4 pair over Frame relay such that R1 can connect to R3 (via dlci 103) and R4 (via dlci 104) similarly R2 can connect to R3 (via dlci 203) and R4 (via dlci 204) and vice versa using point to point links, all the routers R1 through R4 belongs to same subnet.
+For the internal network of R1, R2 pair they are running HSRP for redundacy similarly R3 and R4 as well.
+I wanted to understand how redundancy works when we implement Frame Relay to connect between different office locations. Consider the topology here I have two sites A and B each has a pair of Routers (R1, R2), (R3, R4) each belonging to each site.
+A router failure is a clean down/down scenario whereby routing protocols will handle updating of reachability and HSRP will take care of routing for the local subnet(s) as well as provide the WAN connectivity to the remote site.
+My question is in such a scenario where R1 or R2 fails how does R3 or R4 route the traffic which is meant for R1/R2 network (I understand we can use Routing protocols such as EIGRP to detect if R1/R2 are down). Is there any other parameters we consider apart from routing protocols?

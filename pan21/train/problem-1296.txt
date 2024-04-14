@@ -1,0 +1,10 @@
+I'll use an example of a server running Openldap (slapd) with a MySQL database backend (mysqld). Configuring that pair, and why you might want to, is a whole other story.
+On boot, Openldap fails to start because it depends on MySQL and the startup sequence has it trying to start before it - slapd has position 27 and mysqld has position 64
+You can change the order by renaming the symlinks under /etc/rcX.d/ where x will be your run level. 
+But this order is set for a reason, so be careful while changing them.for example. ntpd should start only after the networking subsystem is initialized.
+Instead of doing it manually, like suggested in the other answers, you could also change the init script. Just add such a line to the header:
+I edit the chkconfig line in /etc/rc.d/init.d/slapd to have a start position higher than the one in /etc/rc.d/init.d/mysqld (I  chose 85)
+If you've arrived here, chances are you have two services where one depends upon the other but, because they're starting in the wrong order, the one with the dependency is failing to start. Suggestions about editing the symlinks are informative, in terms of illustrating how the startup sequence runs, and would work alright until someone did a "chkconfig on" on your service at which point the symlinks would be re-created as they were originally. Really, you want to deal with the issue at the init script level, which is actually much less messy to do anyway. It will also be consistent across the different runlevels. You probably won't need to add a "# chkconfig" line as suggested in answer 4 as there will likely be a similar line in there already.
+You want to read a little about your runlevels and rc.d directories. Inside the rc.d directories you can find the S and K links, like S20apache K10apache, that is basically what orders startup/shutdown of scripts. 
+You'll see a bunch of files starting with Sxx or Kxx. S links are traced during startup while the K ones are parsed for shutdown. The xx here represents the order. 
+This will instruct chkconfig to add the service to the runlevels 3 and 5, with a start position of 90 and a kill position of 10.

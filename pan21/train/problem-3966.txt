@@ -1,0 +1,6 @@
+You are not tied to distribution's startup scripts and you give quite narrow privileges to user restarting your gunicorn app. Also, you don't need to care about pid. The command will not ask for password so it's suitable for auto-deployment bash/fabric scripts. On the other hand - you have to be aware, that if supervisorctl is vulnerable to some bug causing code execution a malicious user could use this sudo privilege to run code as root (but as far as I know no such bug was discovered for supervisord and it's a big thing to find such vulnerability).
+Reloading the master supervisor process may work, but it will have unintended side effects if you have more than one process being monitored by supervisor.
+EDIT: before doing this check your supervisorctl path using which supervisorctl to make sure you are adding right path to sudoers.
+I've found the init.d scripts to be unreliable on a variety of different Ubuntu/Debian versions. The way to do it is this:
+Add this line to sudoers file using visudo (where: myappuser - the user that needs to restart your app, myapp - app name):
+The correct way to do it is to issue supervisorctl reread which causes it to scan configuration files for any changes:

@@ -1,0 +1,8 @@
+I know this is an old issue but I recently encountered the exact same situation with an embedded device. The device has both an ethernet and wifi interface and the requirements are that both interfaces can be active and on the same network at any time, but network traffic must be routed through the "preferred" interface.
+I believe that item 3 is caused by item 5. The arp tables are being messed up because the wln is responding to arp messages that only eth0 should respond to.
+After much digging and testing the solution was actually really simple. See this article - http://blog.cj2s.de/archives/29-Preventing-ARP-flux-on-Linux.html
+i think there is a misconfiguration between your wireless AP and your switch. switch and AP are getting confused where to send packets. not sure about this though. also, i think you should try to define a gateway where programs can know where to send packets. something like 
+We first picked up the issues with Netgear routers because they would report an IP Address conflict - 2 MAC addresses were sharing a single IP. Apparently the router would start behaving badly in this scenario and mess up the users network.
+The Linux kernel network drivers are configured in such a way that when an arp request is received for a known interface (even if it is received on another interface) it will respond to the arp.
+I believe item 4 is also caused by item 5. Ping is sent based on MAC address and since the last arp message received was from wln saying it has the eth0 IP, the pings are routed incorrectly to the wln interface.
+I created a private network that only contained the router (ethernet + wifi), windows laptop (Ethernet only), and the embedded device (ethernet + wifi).

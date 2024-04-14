@@ -1,0 +1,7 @@
+But be aware that with Mono 3.2.8 this takes about 166 MB extra memory from your SD card, so be warned and install it only if necessary.
+You would really need to make sure you have the latest version of Mono installed. There is a massive gap of features added from what is in the Jessie repo (current Raspbian) and what is available from source.
+This ensures you are on the latest release 4.2 and you should be able to run console applications with out many problems. Make sure that any 3rd party dependencies can run on ARM though.
+Or, in case you also want to use mcs to compile C# source files (.cs) into managed executable files (.exe):
+You can add the Xamarin repository and simply update (before we had to compile source code and it took 5-7hours!)
+The difference is the Garbage Collector used. If not specified, then the more conservative BOEHM GC is used. I'm personally using SGEN most of the time because it seems to use much less memory. On the other hand I've seen situations where SGEN on my Raspberry Pi 2 got noticeable slower than BOEHM. 
+In case you experience "assembly not found" errors you should go one step further and install mono-complete:

@@ -1,0 +1,7 @@
+You can drag and drop a file or folder from a Finder window into a Terminal.app window:  this will cause the /path/to/file.name to be printed out at the cursor's position.
+You can use wildcards in the name (remember to put the name in quotes, eg. '*.txt') and there are many other options to narrow your search. For more info in the find command:
+If you want to find a file by name then you can use the find command. For example, to find a file called sample.txt somewhere in your current directory or any subdirectories:
+So if I wanted to list the files of a folder on my desktop in a terminal window, I would first type ls -l in the terminal, and then drag the folder into the Terminal.app window.  
+I'll assume you see the file in a Finder window, and want to get to that directory without having to type out a long cd command.
+The folder name /Users/nevin/Desktop/Eclipse was automatically entered when I dragged and dropped the folder icon from my Desktop onto my Terminal.app window.
+i want to go to specific file without searching for it by going in to all the directories and typing ls and all i know the file name and i want its path with just filename.Please help im new to unix programming and im interested in learning it thoroughly.And i have homebrew and iTerm (zsh) installed.Thank you. 

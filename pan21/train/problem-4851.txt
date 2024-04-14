@@ -1,0 +1,9 @@
+With the Group Policy Editor open, navigate to the left-hand "Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options" tree option and change the setting named "Interactive logon: Do not display last username" to Enabled.
+What RDP client are you using to connect to the server?  Do you really see a full list of all the users on the server, or just a list that includes your username, and the username specified in your RDP connection settings?
+This is a terrible security oversight in my opinion as it gives anyone that might want to compromise my server a full list of valid usernames. Is there a way to revert to the old style of login screen requiring both username and password?
+Navigate to "Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options"
+When I remote desktop to my Windows Server 2008 (a hosted virtual server) I see a login screen showing an icon for each user in the system. I can click on a user then enter a password and login.
+Seconding/mirroring FoxInSocks' answer, you can change this in the Local Security Policy (secpol.msc).
+If you require Network Level Authentication on the server, basically dropping support for all RDP clients less then 6.1 and all non-Microsoft clients, then you will be prompted for a password by the RDP client before the RDP session is even established.
+If you want to apply this to all servers in your domain, login to your DC and open the Group Policy Editor, either by opening Active Directory Users and Computers, right-clicking the domain node, choosing Properties, then the Group Policy tab and clicking the Edit button; or opening Group Policy Management, right-clicking the Default Domain Security Policy entry and choosing Edit.
+From the left-hand "Security Settings > Local Policies > Security Options" tree option, change the setting named "Interactive logon: Do not display last username" to Enabled.

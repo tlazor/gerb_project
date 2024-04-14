@@ -1,0 +1,12 @@
+is correct. Try the same from another PC in your network - you should get the same response from Apache.
+This is your WAMP machine IP address. try to ping it from another box in your network(e.g. "Start" -> "Run", type "cmd",
+If you can ping and connect by telnet to your WAMP machine from another, then try access it in browser by typing
+After this you can proceed with FTP server configuring and share your work. You can either use classic windows
+In text console appeared type: ping xxx.xxx.xxx.xxx, where xxx.xxx.xxx.xxx - IP address in your case.). If it pings as
+Second, ensure other computer in your network can "see" the machine WAMP running on. Go "Start" -> "Run", type "cmd" there
+Sorry, but "localhost" (meaning "this computer") is the standard hostname given to the address of the loopback network
+To start with, you need some kind of FTP server software, to provide access/edit files capability for your team.
+well you can proceed with next steps, if not - check your network/firewall settings configured as well.
+interface. The name is also a reserved domain name, so you can't make computer's localhost to be avalible from other
+Try run telnet xxx.xxx.xxx.xxx 80 on WAMP machine, if you can see answer from Apache web server than it configuration
+The next one, Apache server configuration. Ensure Apache is configured to bind/listen to your xxx.xxx.xxx.xxx network

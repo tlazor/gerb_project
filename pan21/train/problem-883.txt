@@ -1,0 +1,8 @@
+This sets the file permissions to "-rw-r--r--" and directories to "drwxr-xr-x" (the "X" option means add execute permissions if appropriate).
+The last one shows in the Finder as having duplicate user and group entries. When I try to zip the folder, an error occurs with files that have these permissions.
+This sets the owner to hhrutz and the group to staff for the entire contents of the folder. Note that this requires admin rights, and you'll have to enter your admin password to confirm.
+Assuming you still have rights to change file permissions at all, you can use the -R flag with chmod to recursively change file permissions. For example, to change all permissions in the folder \Users\Test\Desktop\PATH to be read, write, and execute for everyone, we can use:
+Ok, now the posix permissions are all cleaned up, but OS X has two types of file permissions: posix (the "-rw-r--r--@ 1 hhrutz  757317411" part) and access control lists (the "0: user:hhrutz allow ...") part, and the ACL part is still a mess. To clean that up, use:
+The "777" means read, write, and execute for all users.  To change the permissions to something else, read the information about the octal/numeric file system permissions notation (if you are unfamiliar with it) at https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation.
+I'm not completely clear on what all is messed up, but you should be able to normalize the permissions with three commands:
+I want to create a ZIP archive of a particular folder, it mainly contains photos copied from various sources gathered over multiple years. Unfortunately, the permissions are messed up. With ls I am seeing stuff like

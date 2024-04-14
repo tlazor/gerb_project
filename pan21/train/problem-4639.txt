@@ -1,0 +1,6 @@
+I've tried everything to get it to work including the installation of SPII and running the user provisioning tool without any luck. The only way to fix it was to restart.
+After any sql patches are applied make sure "netstat -an" shows port 1433 is listening.  If not, then re-enable the listener.
+I think that Bart maybe on to something.  The title says SQL2005 on Vista.  Is it possible that Vista is limiting the number of connections, therefore tripping a limiter that affects TCP connections?   I know XP had a limit to how many connections were allowed, I think it was ten.  So if something grabs a connection and does not give it back, then restarting could be the 'solution'.  If you are running SQL2005 for production work, it really should be on a Server OS.    
+Stop and restart the Sql Server Browser, Sql Server integration, SQL Server Active Directory Helper services.
+Also, on Vista/Windows7 disabling UAC and then running the SQL service as the user with the disabled UAC (such as your current user) might help.
+On my Vista machine at work, applications and the SQL Server Management Console work fine connecting to SQL Server 2005. Sometimes they are ok for weeks at a time, sometime for hours and then they stop connecting. 

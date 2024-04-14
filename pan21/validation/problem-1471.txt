@@ -1,0 +1,7 @@
+Sinatra applications are easy to deploy using any rack compliant HTTP server such as Mongrel or Thin.
+Sinatra is minimal enough to stay out of your way (and not tell you what to do), but fully featured enough that you can get going quickly and without much effort.
+A very simple setup is to use Phusion Passenger (a web application server capable of running any Ruby rack application, which works both standalone or as an apache/ngix module) + rack server pages gem (which is a small rack application allowing you to serve simple HTML pages with embedded Ruby code).
+Or something similar; haven't done this for some time ;-) More syntax stuff to be found here. To make a long story short: install mod_ruby and you should be good to go.
+Admittedly, I have never done this, but mod_ruby should be able to do this. If you are able to install mod_php, you are able to use mod_ruby. 
+Using Passenger in the standalone mode, you only need to run "passenger start" in the root directory of the files you want to serve, and have in that folder, a config.ru file with just 2 lines:
+You get routes, views (Erb or HAML/SaSS), helpers, filters and support for various database adapters for free. Sinatra doesn't make any assumptions about what you'll be doing. Your project can be as simple or as complex as necessary. More importantly, the documentation is excellent and there are good examples (of real projects!).

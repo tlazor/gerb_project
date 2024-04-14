@@ -1,0 +1,6 @@
+Even when trying between the linux standard ftp client and a filezilla server on windows, my attempts fail in the following way
+It is unclear to me if this is supposed to be implemented in the client or the server, but in either case, it doesn't seem to work in my environment. (Standard linux ftp client connecting to an FTP server running on z/OS)
+I would investigate some way of splitting the file up or consider a custom application that will send the range you ask for.
+I'm working on a tool to get some data that is buried within a very large file on a remote system. It would be impractical to copy the entire file over, and all of the data I need exists within the first 1000 or so bytes of the file. I know that I can start a get and just cancel it with ^C to get a partial file, however this would be difficult (if not impossible) to automate with any consistency.
+Schemes like this depends heavily on the implementation of the server. Some servers support a lot more features than others. 
+I would like to tell my ftp client to only grab x bytes of the remote file and quit as soon as it has them. I've found a few windows clients that do partial downloads, but I haven't found anything in the ftp man page and documentation online is sparse.

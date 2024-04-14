@@ -1,0 +1,6 @@
+Like a number of people recommended build your own box, unless you have the budget to buy from a storage vendor. The problem is that most consumer grade solutions tend to have fatal flaws that will impact the end result.
+Dell has a NS500 for arround $3k use MS storage server.. you can add an iscsi target to it.  I used one in the past for a VMWare cluster that had 150+ Vm on it.  Never had a problem.
+I'd look into Thecus products.  We have a Thecus N5200 as our onsite backup storage target, which locally stores backups for retrieval purposes, and is blazing fast.
+The only downside to Thecus products is the interface is a little lacking in design.  As far as I can tell, it was built by great people with English as their second language and more experience designing robust backend systems than easy-to-use frontends.  They are very "set it and forget it" though, if you won't be messing with anything on a regular basis.
+We're currently looking into purchasing more for use as a camera storage backup system.  Either the N5200 (5 disk cube style) or an N8800 (8 disk rack mount).  From what I read on the 8800, it is blazing fast as well.
+If you don't mind building the box yourself, FreeNAS is an alternative.  Power of BSD with an Open Source price.  FreeNAS 0.7RC1 includes ZFS support.

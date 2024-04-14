@@ -1,0 +1,6 @@
+Not exactly a command line tool, but do you have the ability to set up NFS mounts? Mounting the source and the destination filesystems should get you what you need.
+Is there a Linux / OSX based command line tool which can perform the above without needing a local copy?
+Now however, the Source server has moved to a VPN for which the Destination does not have access to, so there is no longer a direct 'line of sight', so I'm now resorting to the following method:
+If none of the source and destination can connect to the other end, there is no other way to copy the files other than copying them to a local machine as described.
+This way you can reduce the HD capacity needed to store the files locally. Also, you can write these in a script and use sleep to give the local machine some time to settle before resuming. You can use SSH keys to automate this to avoid prompting for a password. Of course, this assumes you don't need the data ASAP to copied to the other end.
+This has the downside however that a number of different Local machines may be used for the file syncing task, and so the overhead of a new local copy being created, or even the need to store a local copy on local machines is not preferable.

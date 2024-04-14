@@ -1,0 +1,14 @@
+Although, recent versions of VB have improved dramaticallym the paravirtualized drivers are the way to go to get the best performance.
+I have a windows xp guest with multiple CPUs and it too is slow. I suspect Virtualbox's IO APIC implementation is slow. I found some benchmarks on a similar configuration to yours (even a similar age): http://niccolofavari.com/virtualbox-make-windows-xp-guest-more-than-50-faster-with-these-tips
+You will likely have to reinstall the VM from scratch with only one CPU; I think XP requires IO APIC when supporting SMP configurations.
+Running XP on virtualbox on a Pentium-4 is actually fine, speed wise, as long as it's not relying on heavy disk IO.  Your Xeons should be more than up to the task, with or without VT extensions.  The issue is the disk IO.
+If you can, put the .vdi files for the VM on it's own drive.  That will insulate it from some of the IO overhead.  Even if you have the filemaker files on a fast samba share, windows reads and writes all the time (swapfile anyone?).
+I have found personally that although Virtual Box is a great product, there are some parts of it that do not perform at all well compared to bare metal.
+And you probably want to give the VM just one virtual CPU; the previous commenter is right, adding more in this case will probably slow things down, not speed them up.
+Also, If you use one newer CPU rather than these two older CPUs you will likely get a performance increase because the work per clock cycle will increase.
+Also, make sure you have the virtualbox drivers installed in the VM.  If they aren't, installing them should be another sizable speed boost.
+Those CPUs should have VT so if you have a BIOS that does not let you turn it on, then move to another box that DOES let you turn VT on. You shouldn't try to run Windows guests without VT.
+If you just cloned the Windows hard drive to make the VM, it is possible that there is some configuration setting that is making life difficult. Did the old machine have 2 cores? If so, then it would be a good idea to test giving the VM 2 cores because either XP or Filemaker might be configured to expect that.
+If you can mount a samba share from a speedy fileserver, and FileMaker is happy using that for it's data, that will be a really big speed boost.
+Be aware too that database applications use the disk heavily.  Your disk is probably not a native drive right? more like a file on a filesystem so there is more overhead in that.
+Databases are usually limited by two things. First of all disk speed, and secondly, the availablility of RAM to cache the data that they read from disk. Is it possible that the old box was optimized for database serving with a fast hard drive and you are now on a server with a slow desktop hard drive? It sounds like you have a reasonable amount of RAM if the guest server has 2 G available to it, unless this machine has a very high demand. How many users access it at one time?

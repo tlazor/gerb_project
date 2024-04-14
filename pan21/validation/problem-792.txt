@@ -1,0 +1,9 @@
+I've been using Apache 2.2 for years, and only decided to begin making the transition to 2.4 a few months ago (one of our servers had an additional SSL requirement that only Apache 2.4 can currently satisfy) so we currently have some 2.2 servers, some 2.4. Ultimately I only want to support a single server stack. Your reasons may vary, but these were the important points for making my decision.
+From my perspective, several of these lines have been crossed in the past few years. Specifically, Apache 2.2 with modssl does not have a fix for the logjam vulnerability yet, but Apache 2.4 has had this for some time now.
+A few years ago, SNI support was slow to come to Apache 2.2 - it was an Apache 2.4 feature back-ported via an unofficial patch for a long time.
+Does anyone know when the end of life date will be for Apache 2.2.x?  Judging from historical patterns, I'm guessing in 2016 or 2017 (both 1.3 and 2.0 were between 11 and 12 years, and 2.2 came out in 2005).
+I was hoping to find something authoritative such as a planned end of life date or a minimum committed end of life date (i.e. the Apache Software Foundation guarantees it will be supported until at least 20##), but I couldn't find anything online other than what's happened historically.
+See table on https://en.wikipedia.org/?title=Apache_HTTP_Server#Development for historical release and EOL dates.
+Although there is no official end-of-life for Apache 2.2, there are a few measures you can use to determine an appropriate transition time, namely:
+Also, Apache is a vital part of every Linux distributions, from which eg. RHEL / CentOS / Oracle Linux 6.x has Apache 2.2 and will be supported up to November 2020. And each distribution maintainers patch bugs in Apache (and other software packages) on their own.
+Apache is open source software, which means that is can be maintained by anyone interested in doing this.

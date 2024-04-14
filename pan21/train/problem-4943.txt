@@ -1,0 +1,10 @@
+Mac OS X can both read and write to NTFS partitions. Reading is native; writing can be enabled by installing MacFuse and ntfs3g, both free, open-source, stable projects.
+After that is done, restart and go into the Windows installer. From there select the 'last' partition (should be partition 4), format it with NTFS and then it should work as expected.
+I have a MacBook set up with Boot Camp, and the XP partition is NTFS. The split is 50-50 and there is no unallocated space on the hard drive.
+As I have the Air, I followed the instructions here to get started with Windows on Mac without a DVD drive. 
+Disk utility in OSX can dynamically resize Mac OSX filesystems. It cannot resize NTFS partitions. Also - in Bootcamp 3.0 ( the one that comes with Snow Leopard ) OSX partitions are visible from Windows .  
+So my question is how do I create this new partition without starting fresh? I would assume I do it from OS X?
+I want to create a shared 50GB FAT32 partition for my DropBox files, so regardless of which OS I boot into, I only have to keep one copy of my DropBox on the laptop shared between the two OS.
+I have just purchased a MBA and I have managed to get a shared partition working, although it took me a number of times to get it right. 
+I also called the end partition 'BOOTCAMP', but I'm not sure if that is required. Apparently you need to make the last partition the Windows partition, although I haven't verified that either. Basically I have done this once and it works so I'm not going to format my drive again just to make sure :)  
+The standard Boot Camp installation only allows the hard drive to be split in two. After running the Boot Camp Assistant fire up Disk Utility, delete the newly created BOOTCAMP partition. Create 2 new partitions, with the 'middle' one being the shared partition. I used exFAT as the format, so I can have files over 4Gb. Use FAT32 for the 'end' partition, as the same as Boot Camp creates, although that will just get formatted as NTFS by the Windows installer anyway. 

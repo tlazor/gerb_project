@@ -1,0 +1,6 @@
+The files I wish to encrypt are mostly comprised of password lists and SSH keys for servers.  Unfortunately it is impossible to keep track of ever changing passwords for my servers (and SSH keys) and so need to keep a list of the passwords.  Obviously this list needs to be secure, and also portable (I work from multiple locations).  
+An alternative I have considered is to create a tar archive containing the files and use gpg --symmetric to encrypt it, but this is not a very elegant solution as it requires gpg to be installed on every system.
+At the moment, I use a 10MB encrypted disk image on my mac (std .dmg AES-256) and just mount it whenever I need access to the data.  To my knowledge this is very secure and I am very happy using it.  However, the data is not very portable.  I would like to be able to access my data from other machines (especially ones running linux), and I am aware that there are quite a few issues trying to mount an encrypted .dmg on linux.
+I am not looking for ridiculous levels of advanced encryption (AES-256 is more than enough) and I am only looking to encrypt a small number of files.
+Bruce Schneier has given a recommendation for storing passphrases in a way that cannot be read or erased by any virus, trojan, or other malware.
+What is the simplest and most elegant way of storing a small amount of data in a reasonably secure way?

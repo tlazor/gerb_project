@@ -1,0 +1,6 @@
+Also, is there any way to re-connect to psql in such a way that I can continue seeing the in-progress output from the reindex? 
+The REINDEX may get aborted as it tries to send feedback to a psql that doesn't exist anymore, and this finally propagates through as a "client disconnected". Or, if the psql does still exist, it will finally die when its tty and sshd buffers overfill... this will presumably make it take longer, though.
+It's been my experience that things like these die as soon as your shell is terminated by idle activity.
+Unfortunately, the ssh connection dropped while the reindex was still running and I had foolishly not put psql inside a screen window (I didn't realize how long it took!)
+What is the expected behaviour of postgres in this situation? Will it continue to run the reindex to completion?
+This is one of the circumstances where you should be using something like GNU Screen. With GNU Screen you log into your server, type screen, and then begin your work. You can spawn additional terminals inside that screen session with Ctrl+a c , and cycle between them with Ctrl+a n and Ctrl+a p. To disconnect from the GNU Screen you can type Ctrl+a d. To reconnect you can log in and run screen -r .

@@ -1,0 +1,7 @@
+In our situation, all instances have a unique reservation ID, but I want to know in what situations this can change, for a script I'm running using describe-instances. 
+Consider reservation id as a Transactional ID. e.g If you buy a 5 tickets at one time. You have one Transaction ID but Five Booking ID.
+Side note: I know what reserved instances are, which is different from what I'm describing here. A "reserved instance" means that you rent an instance for a year or two or three, and you get a price cut for that. So you reserve a t2.medium for one year, and if you don't use it, you still pay, but if you do use it, it's cheaper than normal.
+Using describe-instances, I get reservation IDs, not instance IDs. This is confusing, but it is as it is. When an instance is started, a reservation is created for that instance. 
+In the same way, if you launch 1 instance at one time using aws ec2 run-instances, you will have one reservation ID and one Instance ID.
+I made a script that creates snapshots of our EC2 volumes. The script looks at which instances are running, which volumes are connected to those instances, and then creates snapshots for those volumes, ignoring the rest. 
+But if you launch 10 instance at one time using aws ec2 run-instances, you will have 1 reservation ID and 10 instance ID.

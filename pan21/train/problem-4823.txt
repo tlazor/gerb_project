@@ -1,0 +1,9 @@
+If you've already been using VSS and want to continue with the MS source control, then get a server with
+I went from VSS to SVN and I am very happy with the results. As @Jamie mentioned, beanstalk would save you the troubles of buying a server, worring about backup etc.
+Also one last thing, try looking at online source control system that are billed as Sofware-As-A-Service (SaaS) like: http://github.com/
+Those items are going to drive the individual hardware specifications, but from an OS if you need simple file sharing, you can do this with an out of the box configuration of Windows Server 2008, Dell has many great configurations already ready to go.
+...If you already know the source control system (MS Visual Source Save) then the only question is what machine to buy. Just call some vendor and see what they have, and see how that fits your budget.
+For a development team with few team members, you are going to be ok with fairly basic hardware, however, the specifics of hardware recommendations are really going to depend on a number of factors.
+For the source control system I would recommend Subversion, it ties in well with different types of authentication such as LDAP. 
+The cheapest way to do this is to get a bare bones "server" tower from Dell or just build your own generic box and then put a Linux distro on it. I would recommend openSuSE, coming from someone who is not a Linux guru by any means I was able to use openSuSE's "YaST" configuration tool to setup DNS, Subversion, Apache and Samba file sharing in just a couple hours. Since I used hardware I got from Free Geek my total cost was $10! 
+You don't need any other software if you you are using VSS. Stick with the MS backup to save some cash.

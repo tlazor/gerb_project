@@ -1,0 +1,10 @@
+I suspect that when I reinstalled the ssh client the sshd server was uninstalled and the result is - no login.
+I'd recommend trying it first on the local machine -- it will make debugging easier. Only when you are sure all elements work, do it on the remote host.
+There could be ways to log in to your server, but these are methods that are not discussed here I think ( containing php shells , connectback shell etc...). 
+If that doesn't fix the problem then boot your system into recovery mode (if you can) and take a look at your logs and the sshd configuration file to see if they can help narrow down the problem.
+and if I execute it in my local machine terminal it's working and it try to install sshd, but when I try to run it with php with:
+I have a vps and I tried to use svn, but it fauls badly. I found in one site that the problem disappears if you reinstall ssh client and I did it. And while I was on the server the problem has been fixed.
+Could you give me any advice how to solve that problem. It look like I need to turn into a hacker :)
+The whole trick hinges on ability of being able to FTP remotely as root to a non-chrooted environment (which is not the way I'd recommend to configure FTP server).
+it return nothing. I've tried with ls -la but the result is the same - on terminal it's ok, but from PHP it doesn't work.
+What I have is FTP as well as PHP and I know root password. Is there any way I can install the openssh-server agan?

@@ -1,0 +1,10 @@
+So the question is, is SpeedFan making some of the values up? How many temperature sensors does a modern computer usually have?
+The CPU temps are routinely around 90C, since I play games a lot. Idling, on OS X the CPU Diode is about 40C normally, and under Windows it's about 50C. (I'm not sure why, it just runs warmer in Windows. I can feel the case is warmer too, so it's not measuring a different sensor)
+Newer Speedfan versions (valid for other software, too) often learn how to read more and new sensors, so finding more sensors with updates is no surprise.
+DIMM temperature is uncommon, but if speedfan is showing it then likely you have a sensor for it on the system; if the sensor is missing but for some reason speedfan shows it in the list, it will show as 0 or -127 or something obviously wrong on most occasions.
+Something he said was very interesting "a previous version of this SpeedFan showed only 3 temperature measurements"
+My friend's laptop suddenly froze, after he rebooted (the machine was given a chance to cool down a bit) he launched an application called SpeedFan and it gave the following:
+CPU Diode, CPU Digital Core 0, CPU Digital Core 1, CPU Proximity, Integrated Graphics chip, RAM, disk bay, (the actual disk also has a sensor), battery, and there are also a couple more that aren't related to any specific component (case sensors)
+That seems about right. but generally ignore the fire icons, 43 degrees on a laptop is pretty acceptable; in a rack mounted server however, it would be considered very hot.
+temp1 is likely a motherboard/case-temp sensor. and CPU is usually an average of the core0+core1 or it may be a third sensor that checks the entire CPU package temp.
+I was surprised by the number of temperature measurements the program showed, last time I checked (4-5 years ago) I was able only able to see the CPU temperature with a similar application.

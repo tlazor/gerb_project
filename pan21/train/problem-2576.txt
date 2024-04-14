@@ -1,0 +1,5 @@
+Why do you think you need a seek here? How many rows does the query return, how wide are they, and how long does it take? Is this just educational, or are you under the assumption that a seek will always perform better than a scan? (It won't, btw.)
+This does not mean you should change the existing clustered index, unless this is the only query you ever run against the table.
+You can't force a seek if there's no index with a leading column of Personal_ID that supports the filter. 
+To get a clustered index seek, you'd need a clustered index that supports your filter (e.g. leading key would have to be Personal_ID, not ID). 
+And while you could create a non-clustered index with Personal_ID as the key column, a seek on that index might not be what you want anyway - since you're using SELECT * (are you really sure you need all columns from both tables?), it will need to go fetch the rest of the columns from the clustered index anyway, and if there are more than some number of rows returned, at some point a seek (well, what would amount to a range scan disguised as a seek) + lookups will be more expensive than a regular scan.

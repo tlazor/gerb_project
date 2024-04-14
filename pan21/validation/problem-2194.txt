@@ -1,0 +1,5 @@
+In any case, no matter what engine you work with, dynamic lights are something to avoid whenever you can. They are very computationally expensive, and tend to add scene complexity in a very exponential way.
+Unfortunately, I've not had much experience with Unity in it's current form (I toyed around with it many years ago), so I don't know exactly what feature sets you have to work with in the engine.
+There are of course several drawbacks to this method. You won't cast shadows as no light is used, and you won't affect any other geometry in the world (props, foliage, etc)
+However, as is the order of the day for most 3D rendering, there are many ways you can achieve similar effects by cheating;
+A possible way to achieve a similar effect is to map a premade glow texture to the terrain below your fireflies, (assuming a Y = up/down coord. system) with X and Z positions controlling location of the glow on the terrain and Y offset from the terrain controlling the texture's alpha (brighter = closer to terrain)

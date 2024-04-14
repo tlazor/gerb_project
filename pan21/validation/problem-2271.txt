@@ -1,0 +1,12 @@
+You need to configure four ports on the switch for link aggregation, and then create a single vSwitch in ESXi and bond all four physical adapters to it; run four cables from the server to the switch (making sure you use the switch ports you configured to work together), and you're done.
+If your switch doesn't support link aggregation, then only a single connection will be active at any given time, the other ones will only be used for failover.
+Can you provide more detail on what you're connecting to and why 4Gbps throughput is necessary? Are you encountering limitations already? Have you measured the performance?
+Also the ethernet controller in the Ubuntu (installed on the VM), shows that eth0 has a 10000 Mb/s bandwidth, so I don't think the problem is there. 
+An obvious (yet kinda stupid) way would be creating four vswitchs, four ethernet controllers for my VM, and bonding them in Ubuntu. But I wonder if there is a way to assign all 4 physical ports to a vswitch, and create a ethernet controller in my VM with 4Gb/s cap.
+If your 4 uplinks are equally used your config should be correct. (Although the switch really should know what you're doing!)
+P.S. If there is anything wrong with the question, or the terms I used in it, comment and I will edit it. thanks!
+A more specific limitation is at play here. VMware vSphere editions below the Enterprise licensing level do NOT support LACP. And even then, LACP is only available on the Distributed Switch, not Standard vSwitch.
+The problem is that whatever I do, I can't exceed 1Gb/s. Currently I've set the load balancing policy to Route based on IP hash. And in the graphs, I can see that all four of the physical ports are actually used, but to one fourth of their potential.
+I have a virtual machine on my ESXi server with Ubuntu installed on it. The server has 4 1Gb/s ports that I want to use them all for my virtual machine.
+It's interesting that you get a combined bandwidth of more or less exactly 1 Gbit/s. As far as I understand you're connected to only one physical switch, right? A shot in the dark: Maybe it has only one (active) 1GbE uplink?
+If you want true link aggregation, as opposed to simple failover, this needs to be supported by the switch you are connecting your server to; this is called an etherchannel in Cisco speak, I don't know how other vendors call it.

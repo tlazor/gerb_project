@@ -1,0 +1,5 @@
+Normally, I would extract the addresses into their own table with a key back to the main profile along with the address type in the address table.  However, with the specific limitation of the number of addresses, I am considering having the addresses in their own table - with a foreign key from the profile table to the address table (one foreign key for primary and one for secondary).
+I currently am working on a contacts application (similar to Outlook contacts combined with eVites and LinkedIn).  The requirements for the application are to limit the addresses (and phone / email addresses) to two - primary and secondary.
+Should I prepare for possible changes in the future to allow for the capability of more than two addresses in the future - or work within the limitations of the current requirements to specifically limit (via the database schema) which types and how many addresses can be associated?
+NOTE: code / constraints / triggers would limit it to the primary / secondary rather than the database schema
+My two proposed schemas are as follows (please forgive the formatting - having trouble with the limitations of the WYSIWG editor):

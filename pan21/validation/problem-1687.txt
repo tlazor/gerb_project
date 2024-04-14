@@ -1,0 +1,6 @@
+BTW, I moved variable declarations around so that the declarations are located next to their first usages. This reduces brain cycles and eliminates the need of scrolling the code up and down.
+First, in functional world it all about function. And even though my code below does not use function composition, I'm adding getPosition(), isCloseToTop(), and isScrollAfterPosition() to simplify a few conditions. Another benefit of that is that these local functions' names are replacing the ugly comments.
+It's always possible to break away from loop execution interfering keywords like continue and break. It is also almost always possible to quickly rewrite the code in a "more functional" way. Question is, what exactly is the motivation.
+Disclaimer: Sorry, I didn't have a solid chunk of time to test the code, so please consider it as a direction rather than an exact prescription.
+Second, nav.positions.findIndex(...) is used to find out whether there's an item close to top. This is made as an independent step in the code and IMO it's more expressive this way.
+If there's no item close to the top of window, we can try to find the last position before the scroll. Again, now it's implemented as a dedicated step (via map() and filter()).

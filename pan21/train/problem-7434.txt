@@ -1,0 +1,7 @@
+In short, certain router setups/network topologies prevent you from accessing the external address of the network from within the internal network, especially when traffic from the external address is sent back to the internal network anyway. Look at the following topology:
+In most events, the way to fix it is to a) use split dns, where you hand out a different IP address 
+The problem is that while users from [A] can see [e] by going to www.imaginaryplace.com, people inside the lan going to that address really want to go straight to [e] - and the router/firewall/gateway setup isn't bright enough to send traffic coming from [e]s local network all the way to [b] and then back to [e], where it would become confused by the [d] to [c] to [d] path and likely drop the traffic.
+[A] Web --> [b]External ip address ---> [c]Router/firewall/gateway[d] ---> [e]Actual server ip address
+handed addresses on the [e] network, or using hosts files on the internal workstations which override the external DNS requests. On small windows networks, this is a job for batch files.
+The fix is to a) use a different URL for internal traffic, like inside.domain.tld or b) use split DNS where the name server knows that requests coming from certain addresses get 
+This question should not have been migrated from serverfault.com, as it is a common system administration issue faced by admins and IT guys every day. 

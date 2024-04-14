@@ -1,0 +1,12 @@
+But then, I want to change this 50.104.113.XXX into domain name ==> domainname.com. I want to create my own domain name, without leaning on or going anywhere like GoDaddy or any other website and spend money to get one.
+After installing everything necessary samba, apache2, webmin, mySQL, etc... through Terminal -- sometimes through ssh root@192.168.1.6 in My PC and sometimes directly in the Terminal of the server.
+Finally, now I want to access this website from outside. So, I try to spend sometime how to do it and I finally find an answer by forwarding it.
+Then, I went to the browser and typed 192.168.1.1 which is the router IP -- the brand is fronter. So, I went there and forwarded my web server that has the ip 192.168.1.6.
+It is fine for me if I need to buy some materials or hardware to setup my web server. Please, help me if you know. 
+I have set up my own web server with Ubuntu server 16.04, I am actually using another laptop for testing the web server.
+But, this only work on the computer I added it ( for example if I did this in the actual file inside My PC it working) but if it's on the web server it is not accessible.
+I did so many researches, read the ubuntu server guide, watching so many tutorial, and forums. But, I am totally stuck. I tried to set up by using Bind, DNS, apache inside webmin. But, it's not working.
+So, after I did that, in order to access it outside, I need to know the web server public ip address.
+Now, when I browse this 50.103.114.XXX i can see the apache home page and 50.104.113.XXX/mywebsite/index.html for my website.
+Then, I create my own web and save it in var/www/html/mywebsite/index.html and I can access it locally under any browser by http://192.168.1.6/mywebsite/index.html. 
+Now, when I browse 192.168.1.6 through Chrome, I actually can see the apache home page. everything here seems successful.

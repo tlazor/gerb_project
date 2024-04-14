@@ -1,0 +1,7 @@
+As well as partition alignment and format with 64k cluster sizes (as per TomTom's answer), also remember that to defrag a table (index maintenance) requires free space in the MDF of around 1.2 times the size of that table.  So you need around 7.5GB free on your MDF for a 6GB table. This is a common cause of unexpected MDF and LDF growth.
+Currently I have a SQL Server database which is about 2 Gb.  I know over the next year it's going to grow to a maximum of about 10Gb.  Hard drive space is not an issue in the slightest.
+More important, though, is proper partitioning, especially when you use RAID units. Make sure your partitions align as well. And custom NTFS formatting with 64gb node size.
+So yes, for your question: best practice is to give a size according to growing needs. In this way, SQL will not loose time in space allocation and also, keep SQL data bytes in a contiguous order order on disk.  
+With this question I would like to avoid the datafile becoming fragmented on the disk itself, but I don't want to negatively impact performance.
+Should I resize the log file to 1Gb as well?  Something ridiculously large so that fragmentation doesn't happen there either.
+Fragmentation exists at 2 levels: SQL and OS. OS fragmentation will happen only if the file pre-sized has been done on a fragmented drive. If you size the file according to your maximum needs and disable auto growth the disk will not get fragmented unless you manually move some data to a new data file created. 

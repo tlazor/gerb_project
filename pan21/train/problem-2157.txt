@@ -1,0 +1,6 @@
+Because they rewrote a lot of the program in the new version, and the update wouldn't fit into a "small file" as you said. I guess theoretically they could do that, but it would be basically the exact same thing as a manual installation, except automated. Also, it's much easier to just pack the entire thing into an executable installer, because people are going to want to install it from scratch, so why bother?
+Firefox does download a patch for major upgrades, in fact it's larger than the standalone installer.
+I have been using Firefox for the past couple of years. In the meantime I have always been updating to the latest version. But for that I have to download the setup file and have to reinstall from the very beginning.
+It is easier for the developers to create something which will replace all the files and not have to worry about which prior version the user it running. If you make a patch you have to create separate installers to upgrade from each version, and that's a nuisance.
+Why isn't the upgrade done as a patch to the existing version which requires only a small file to be downloaded and no complete installation is required?
+Also, the user doesn't have to make sure he's downloading the correct upgrade package - all he has to do is download the installer, run it, and be happy that he's got the latest version.

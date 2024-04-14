@@ -1,0 +1,6 @@
+When I'd like to do is hide the first content box when the image is shown. Is this possible, as it appears that you can only do one animation per object on each page? Thanks.
+After applying the first animation effect, if you try to add more animation effects any other way other than clicking Add Animation, you won’t apply an additional effect. Instead, you’ll replace the existing effect with a the one you’re adding.
+It's set up so that the first content box shows point by point on click, then the image, then the second content box (point by point on click).
+Hmm, trying to figure this out now too. I have no use for it but got me wondering, and I can't seem to find a way either.
+One simple (read - inelegant) solution would be to animate a solid box over the top of the first content box 0.0s after the image is shown. I presume then content box 2 would go in the same place?
+To apply additional animation effects to the same object, select it, click Add Animation and pick another animation effect.

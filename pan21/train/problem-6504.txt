@@ -1,0 +1,14 @@
+Please excuse me if this has been posted, I tried looking around but failed to find anything similar to what am looking for.
+The IP address 169.254.34.27 is a self-assigned address. This happens when the DHCP client on your machine cannot get an IP address from the DHCP server on the router. It is not surprising that you don't have access to anything, because you are essentially not on your home network. 
+The VPN connection will not replace your IP address, it builds a tunnel to the company network on top of it. There are many different ways of doing this, some of which include assignment of an IP address to the tunnel itself (which should show up when you list all configured interfaces), but there are also VPN connections that do not use this, so they won't show up in the interface list.
+Sometimes, I don't get connected at all. I get the "Limited Connectivity Error" with the following IP address details. 
+Sometimes, I get connected right away by which I mean, I get assigned an IP address by the router. After a minute or two, while I am browsing, I lose access to the Internet but not with the router. Then I can either wait doing nothing and access to the Internet is restored for a few min again.
+If the difficulties are mainly while you are connecting via wireless, then you might try the following:
+Depending on what kind of router it is, you may be able to download a newer firmware for it. You haven't mentioned the make/model, so this is hard to guess from here.
+I have a non-admin laptop provided by my employer and am having trouble connecting to the Internet at home. At work, I connect either via Wired/Wireless Ethernet and things work fine. I can access the corporate shared drives and the Internet. I come home from work and connect to my home wireless Internet connection. 
+Now, here comes the real kicker. As soon as I have the brief window of access to the Internet, if I connect to my work VPN using a CISCO-VPN client, the Internet access doesn't break at all for hours at stretch. 
+However, the IP address doesn't change to the work norm, which is usually something like 169.254.XX.XX. It sticks to 192.168.1.8, which was assigned by my router.
+I then have access to the Internet for a while, before it breaks while the connection to the router stays put.
+If the firmware upgrade isn't possible or doesn't improve anything, then it's probably time to look for a new router.
+It's difficult to say why your connection doesn't break when you are on the VPN. From gut feel I would say you have a problem in your home network router. Does it have a web interface? Can you get to any log files on it? If so, it might be worth having a look at that. 
+I am at the end of my wits trying to let my Internet access stay alive when not on VPN. Can anyone please share some ideas?

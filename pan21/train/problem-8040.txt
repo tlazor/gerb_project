@@ -1,0 +1,7 @@
+Is your only step to clean up your compromised system deleting the site files? You should change all passwords and restore from a known good backup.
+probably hacker left backdoor on your system for her/him-self and it's on lower level then web application.
+To add to what others have said already.  The DB can 'host' an hack but it's probably more likely that the OS is infected and not your DB.
+Some database products allow to execute any system command using SQL functions (e. g. "system") if the user has sufficient privileges.
+regarding your question - yes and no - it all depends what kind of information is kept in the DB. if you have some scripted webapp that stores [ for some reason ] executable code [ eg plugins code ] in the database - then surly some backdoor could be left there. even if that is not the case - mabye you have templates stored in db - then for instance xss attack could be repeated against you even if you restored everything else.
+did you actually found and protected yourself against cause of the attack [ eg hole in cms / forum / whatever other webapp you had ]?
+Generally speaking however, once your host is infected, it's best to remove the server from the internet, forensically investigate the incident and rebuild the server, not just remove files and hope you got them all.

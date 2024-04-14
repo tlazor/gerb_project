@@ -1,0 +1,10 @@
+At my computer, my docker interface (docker0) has address 172.17.0.1, so I would try to bind to this address and then connect to this address from containter.
+I've recently discovered that in the docker-compose.yml file you can specify on the ports section the following:
+What I'm attempting to do is have MySQL discoverable by all docker instances and localhost on a remote server, but block MySQL from outside communication except a specific IP address (my home IP), or via a SSH tunnel.
+I've looked into having my local docker attempt to use the host IP, expose_hosts for docker-compose, all sorts. Banging my head against a wall here.
+However, this only means that it's available to the local host, and it cannot be used by any other interface.
+Basically my objective here is to allow an application on my localhost access the remote database, but not open up remote to effectively bind 0.0.0.0, as that is woefully insecure, and I understand that the best way to access MySQL is via tunnels directly to the box over SSH.
+You may ask "Well why don't you just SSH Tunnel in?" Well that is a solution sure for connecting to the docker instance on the remote directly, however, I'm not able to allow my local docker containers to use that tunneled port, specifically a PHP 7.1 container.
+I believe that on your local machnine, you need to bind tunel to your docker network interface, not to localhost or 0.0.0.0. This will enable you to use this port from containers without opening it externaly.
+I've got Putty set up to tunnel port 3306 on remote to port 10000 on local. MySQL Workbench can access it on 10000 like normal so the tunnel is doing it's job.
+I've also tried changing IPTables to ignore all outside communication on port 3306 but for some reason it's still open.

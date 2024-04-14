@@ -1,0 +1,6 @@
+In Terminal: crontab -e will show what has been scheduled using cron to run items at certain times. Items in any of the LaunchAgents or LaunchDaemons folders may be set to run at intervals as well as defined in their .plist file
+To find out if a Login or Logout Hook is installed and to find where the script file is you can run the following command:
+To see what Kernel extensions are loaded you can either user Applications/Utilites/System Profiler.app (can be opened quickly by holding option when clicking on the Apple menu - About This Mac... changes to System Profiler... in 10.5+)
+/usr/libexec/PlistBuddy -c Print /var/root/Library/Preferences/com.apple.loginwindow.plist | grep 'Hook'
+sudo launchctl list or look at /Library/LaunchDaemons and /System/Library/LaunchDaemons for launchd plists that are set to run without someone necessarily being logged in. Note: Some .plist files in the folders listed won't appear in launchctl list as they are not loaded to run.
+Check out ~/Library/LaunchAgents, /Library/LaunchAgents/ and /System/Library/LaunchAgents for launchd .plists that run when a user is logged in - you can use sudo launchctl list to see which ones are loaded.

@@ -1,0 +1,5 @@
+Currently the policy does not allow the user to reset the settings (from both computer config and user config), I have tried setting the proxy settings to be per machine rather than per user (with the appropriate registry entries for the proxy) and a few other things. I have also removed the InetCpl.cpl files but that breaks other things.
+I am trying to figure out how to stop some of our users bypassing a proxy server that is being deployed with group policy.
+The settings are then reset to defaults (no proxy) until the next time the group policy is applied. I have tried multiple things to fix this but nothing I have tried so far stops this working.
+First, I use a pac file to configure the proxy settings for PC's. The settings are being deployed with group policy fine, that part works well.
+I cannot force people to use the proxy from our gateway, I need clients to use the pac file that is being set (there are certain destinations that the proxy does not get used for based on the IP they resolve to) as well as quite a few rules in the file.

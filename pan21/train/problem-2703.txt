@@ -1,0 +1,10 @@
+That means I have written a C# Programm and a lot of Statements to select the needed Records from the Source-DB (proxy Tables) and insert them in the target db/tables.
+Another approach would be to use the sa_migrate_create_fks() system procedure - it is well documented in the help, but there would be several stages involved.
+Does anyone have a better way or has anyone maybe written a Script that strips a Database of all foreign Keys to rebuild at a later point in time?
+I need a way to select all Foreign Keys of one Owner, generate their "Create"-Statements and save those to a Table so I can recreate them once the migration is over. (Same Problem for PKs and Indexes)
+I also have tried using the Unload-Tool of Sybase Central which will give me all Foreign-Key Statements. But seeing as that is also a long and manual way of doing it, it is not an improvement.
+Currently the fastest way is to use Sybase Central, Click on Indexes, order by Owner/Type, select all foreign Keys, Ctrl-C and Ctrl-V into a Editor. That will give me all "Create"-Statements for the selectet Objects.
+This was done to increase performance, to facilitate the table by table migration and to start quicker on developing the Programm.
+I would rather have a script that could generate all "Create"-Statements, but seeing as most information about Foreign Keys is spread over 11 Systemtables/-views I am not able to build a Statement that will give me all Informations that I need.
+The approach I took was to use gawk to extract all the statements I wanted from the unload file and then run that file. The whole approach could potentially be run in a batch file using the SQLA command line utility dbunload.exe, then gawk, then isql to run the extracted commands. How easy this approach is depends on how happy you are with complex regular expressions etc.
+Alternatively, repost the question on the dedicated SQLA forum http://sqlanywhere-forum.sap.com which is monitored by SQLA developers who may be able to help with a SQL construct.

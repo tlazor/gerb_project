@@ -1,0 +1,5 @@
+When your data accesses are in scans, the compression could even give you a performance benefit because there are less io's to do. This is only true when you have plenty CPU available to do the inflight de-compression.
+If you have to do updates on compressed tables, your performance is dead and your volume is back to the uncompressed volume. So be careful. You won't be the first one who is hit by this feature. This is also very true for the archive compression mode in Advanced Compression.
+As longs as you don't do ANY updates on compressed tables you are fine. The old fashioned block level compression works fine when you can add data in batches. The old block level compression only works on loads, not on regular single record inserts.
+If you want to compress transactional data advanced compression is for you but it has a performance penalty.
+PDF's will hardly compress using the available compressors in Oracle but when things like layout and font info is identical for many files, 7zip could be your friend but AFAIK this is not available in the database.

@@ -1,0 +1,6 @@
+I had Debian 5 installed on my VPS but I found that it came with apache2 already up and running. I tried
+There are interdependencies: (1) depends on (2), which depends on (3), which depends on (4).  Therefore, removing (4) causes all of them to be removed.  (The apache2 package doesn't contain much in itself; it just exists so that you can do apt-get install apache2 to conveniently install all of those packages.)
+which worked fine and shut the daemon down. However, I still can't remove it. I tried aptitude remove but it says that it isn't installed.
+Most probably your VPS didn't came with Apache installed via apt-get. See if you can find the binaries in /usr/local, which is a telltale sign of it being compiled from source.
+If you're unable to remove the package via apt or synaptic, it's likely that apache was (for some unforesaken reason) installed from a binary tarball or possibly from source. In this case, there's probably not much you can do aside from manually deleting the files associated with apache.
+but it said that apache2 wasn't running. I checked top and yep, there it was. So then I turned it off.

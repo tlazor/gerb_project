@@ -1,0 +1,6 @@
+If the Windows server were running Linux, NRPE would do exactly what you want (there's even a specific use case that talks about this!)
+We are planning to add a second network interface to one of these Windows 2008 servers, and have a small network that is separated from our main LAN. This network will have a switch and a couple of workstations.
+You could configure the Windows server as a router between the two lan and insert static routes in Nagios server and other-network's server if they have already a default gateway. 
+Unfortunately, there doesn't seem to be a direct Windows port of NRPE. I use NSClient++ to monitor my Windows systems - maybe you could create a check command of some sort that checked the devices on the other network.
+I have a Nagios setup that is monitoring multiple Windows servers, workstations and Cisco switches on a network.
+Will it be possible for Nagios to monitor this network? I was wondering if there is an agent that I can install on the Windows 2008 server(with two network interfaces) and then route all my checks through it? The Nagios server is located at a remote location so adding an additional network interface to it and plugging it to the separate LAN switch is not an option here.

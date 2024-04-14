@@ -1,0 +1,5 @@
+Windows sees it as a BluRay-RW drive and you can configure the software to 'insert' a virtual blank disk (you get the choice of basically every type of disk, eg. CD-R/CD-RW/DVD+R/DVD-R/BluRay-R/etc.) the software then pumps out anything sent to it into an ISO.
+If you had an external usb drive you could try creating a virtual CD on the usb drive and create the system restore disk that way then use another PC to copy it onto actual media.
+I had the same requirement so I could burn the Acer backup recovery disc's on a netbook that was failing in recognising nay external burners.
+Took me a while to find a suitable tool, but I did find one in the end: Virtual CD.  It's made by H+H Software GmbH.
+Foregoing the optical disk route, you might try getting an external hard drive that connects via USB. No need to get fancy - you can use a naked drive with a $20 adapter.   Then, get a hard drive cloning program - I personally like Acronis True Image.  This will allow you to clone your existing drive to the other drive, or store an image of the existing drive, that you can use the software to restore later.

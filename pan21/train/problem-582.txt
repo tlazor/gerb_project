@@ -1,0 +1,9 @@
+I fixed this issue on my Excel. The macro would not work on open if any sheet in the workbooks was saved in Page Break Preview! As soon as I switched this back to normal view everything started working again. Good Luck!
+So I've created my Macro in excel 2016/Visual Basic editor and have saved it as .xlam (a Excel Add-In).
+Excel is closed - I open a file by double clicking on it - my macro is executed successfully and displays my results. But if minimize this Excel-instance and open up another file my macro is not being executed again. Same thing if I open a document from within Excel via File-Open dialogue.
+You are attempting to work with the Workbook events, which are local to the object to which they belong (in this case, the add-in). What you need is an Application event. Chip Pearson has a page explaining the concept.
+I'm new to Macros and VBA in general but my goal is pretty simple I believe. My macro should search an opened Excel document (automatically) and create a MessageBox with a warning if the WEEKNUM() function is used with only one parameter (the date).
+Then I have copied the file to C:\Users\User\AppData\Roaming\Microsoft\AddIns because that's where the Add-Ins are located I guess. I've made sure that this location is a trusted one in the Excel Trust Center settings + I've enabled all macros in the settings.
+I hope my question is not considered off-topic. I was not sure where to ask - Stackoverflow or Superuser. Notify me if I should delete this question :)
+The UserForm should not be that important so I'll not include it, it just displays the cells which contain the WEEKNUM function. 
+If I open up a excel document which uses the WEEKNUM function everything is working properly - My MessageBox is displayed, I receive my UserForm and this tells my which cells are using the WEEKNUM Function. Exactly how I want it to be, so I guess my code works in some way. :)

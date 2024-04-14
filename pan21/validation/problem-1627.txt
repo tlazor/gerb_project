@@ -1,0 +1,10 @@
+More specifically when the they restart the install process hangs with Fatal Error C0000034. I have been able to restore some PCs using System Restore or Recovery Images the remainder I seem to be able to fix from recovery console by restoring the registry manually.
+Here is the solution I found for getting workstations back up and running again, mainly taken from this rather old question on TechNet:
+9) SP1 will try to apply 3 times and fail. When it fails it will roll back to pre-SP1 and boot normally
+It seems that at about 1700 GMT last night all of the Windows 7 PCs downloaded and offered Windows 7 SP1. My well trained highly technical users diligently installed SP1 which promptly hosed their computers.
+(note: if you don't have a functioning local administrator account then you can not use this fix without using a SAM edit boot CD to override the local admin account)
+I am looking after a small (12 PCs) network mostly made up of Windows 7 PCs about half 32-bit with the remainder 64-bit or Vista. WSUS is setup on the server and all computers are configured via group policy to retrieve updates from WSUS.
+6) change to your local system disk (c: unless your HDD has other partitions for recovery etc...). You know it's the right disk if it has the folders "Windows" and "Program Files (x86)"
+Anyone else experienced this today? and if so has anyone found a solution. I have blocked the installation of Win 7 SP1 with the SP1 blocker tool provided by Microsoft.
+I am at a bit of a loss as to why SP1 has hosed all of the PCs at once, there is nothing unusual on there and all have been rebuilt within the last 8 months.
+http://social.technet.microsoft.com/Forums/en-US/w7itproinstall/thread/1c9a7151-b48c-4a98-aae7-a4b82682ea8e/#bcabda57-7338-499f-aee2-d708e76df315

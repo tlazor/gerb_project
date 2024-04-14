@@ -1,0 +1,6 @@
+And, of course, if you want the command to be executed only if the cd to dir2 is successful, say cddir2&&command.
+By default, Windows batch files are run in the parent shell's context (which is unusual for Unix users, where an explicit source is needed, but was the only possibility in MS-DOS). This means directory changes and environment variables affect the original interactive shell too.
+Put setlocal at the top of your script to make it run in its own context – you can safely use cd inside the script then.
+Note that the setlocal / endlocal block creates a localized environment, so any variables that you set or change in such a block will revert to its previous value after the endlocal.
+You can save the current directory into a variable.  Change and change back depending on the return value of the command.   BTW, %CD% returns your current DIR.
+I applaud grawity’s suggestion to put setlocal at the beginning of your batch script, but I would add the fact that you can have multiple, nested, setlocal / endlocal blocks, so a more relevant answer to the question might be

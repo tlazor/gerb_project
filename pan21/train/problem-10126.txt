@@ -1,0 +1,11 @@
+If you want to pass "https://www.example.com" and retrieve answer from "https://example.com" - you should have both SSL-configured servers.
+2. Another problem lies in how nginx parse SSL connections. SSL is not checking on "server config" layer. It is checking a much before it, when server receives connection data packets and starts handshake operation - so, your configs with server_name are not using during this checks.
+If the www.example.com site has been previously served with a Strict-Transport-Security header (or the includeSubdomains options on example.com) - the browser will remember (for a long time - e.g. 31536000 seconds) and will always promote http connections to https before even accessing www.example.com.
+I fixed it by adding the certificate to www version but I wonder why it didn't work without it? And why curl gives me a different result?
+Which is what I expect to happen. However, when I do the same from a browser it redirects me to  and throws a certificate error. 
+I'm trying to redirect http://www.example.com to  in Nginx. Only non-www version has a certificate installed. I have two 301 redirection rules in that order:
+For cleared discussion I propose to you to divide your all nginx logic to main node (example.conf config) and "satellites" (www_example.conf, etc). Satellites should not has a huge logic.
+If in your main node you are redirect all HTTP traffic to HTTPS, - I propose to do it in satellites too - it is a bit faster:
+If you want to pass "http://www.example.com" and retrieve answer from "https://example.com" you should be sure, that handshaking working only on example.com, not before entering this domain. How your server process "resolving steps" you can check via wget output - it is a simplest way to do this.
+When your server receives incoming connection for SSL-handshake, he retrieves first config that are listening on current ip:port and tries to make handshake with ssl key, chain & certificate.
+In this case, only one server directive for http is needed (though, this can be achieved with hard-coded host in return clause). Furthermore, this allows to reuse obtained $root_domain variable from map module in any virtual host and automatization tools. And also, no if directive is needed as well.

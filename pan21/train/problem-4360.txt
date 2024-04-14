@@ -1,0 +1,5 @@
+If your file is too heavily customized to make simply rebuilding it practical, you can always try some low-level forensics. Try googling for tutorials based around sleuthkit and UFS Explorer. People using these tools find widely varying degrees in terms of ease of use and success rates, so as usual, YMMV.
+I don't think so. It's time to start to backup this important file (with all others in /etc /var/spool /home...).
+Now you should also execute the grep on older cronlogs to find out jobs that might be run only once in a month.
+Try looking at /var/log/cron to see what has been running and then try to recreate the crontab  from that.  Its messy but you should be able to restore everything that had previously run.  Not so much luck for newer items though.  Good luck!
+You've got options, but none are particularly pretty. In case you haven't thought of it, if you've got a recent version on a development machine, you can copy it from there ... I only say that because I often forget about copies that may be on other machines, so I assume that you've already tried that.

@@ -1,0 +1,6 @@
+To determine the folderID you can select the folder within Outlook, launch AppleScript Editor, paste and run the code below, and it will output the correct folder ID:
+Click on your Search box on the top right corner and the Search tab will be activated. Press Advanced and in the dropdown selector choose RAW QUERY.
+I've found a bunch of similar questions, but none that seems to address my specific situation well enough to solve it. There doesn't seem to be an "or" search operator available in Outlook 2016 for Mac. The following don't work:
+Edit: If you read this and think that it would be helpful to move the Smart Folders to the top of the folder list please use the uservoice site to vote that feature up (the Outlook for Mac team uses this site for selecting new features): https://outlook.uservoice.com/forums/293343-outlook-for-mac/suggestions/14829942-smart-folders-in-ribbon
+The only way I know of doing this is to create a Raw query search in Outlook. If you are looking for a static search, to be saved as a Smart Folder, you can use this method to achieve what you're looking for. 
+A lot of the answers I found say to edit the registry to enable Querybuilder, but Macs don't have a registry. Is there a way to build what I need (or even better, complex AND/OR searches in general) on the Mac version?

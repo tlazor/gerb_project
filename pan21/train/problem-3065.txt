@@ -1,0 +1,8 @@
+If you can't, I would go in to the BIOS and disable the network interface (if it is built in) and buy yourself a bog standard non Realtek card then see if you have better luck with that instead.
+If you're on your own, it's a different story. You have many choices: change hardware, try building another kernel version, try debugging the issue yourself if you are skilled enough.
+However, the NIC is still dropping connection when the link is under moderate load which is a real PITA for headless servers, which after all these boxes are designed for!
+If you paid money for a computer that comes with a custom Linux distribution installed, bug the vendor. I believe it's their job to handle it or pass the bug report upstream.
+I would advice anyone planning to run Linux on these boxes to look else where, since these boxes are very unstable on Linux. Better to buy some standard mini-atx setup since Compulab seems as interested in supporting Linux as ATI or FireDTV have been the past decade.
+Simply put, you have narrowed it down to heavy networking use, so I would say, look for a different/better/newer network driver as the problem most likely lies there.
+https://wiki.ubuntu.com/KernelTeam/KernelTeamBugPolicies and https://wiki.ubuntu.com/DebuggingKernelOops may get you some help
+I got the exact same problem when I recompiled the Lenny stock kernel with Atom CPU and RTL8168c/8111c NIC enabled.

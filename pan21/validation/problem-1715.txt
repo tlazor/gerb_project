@@ -1,0 +1,7 @@
+Are there any log files you can read?  Perhaps you can see some errant querystring that resulted in a SQL injection attack?
+Also, to mitigate the damage caused if it does happen again, you need to setup a decent automated backup regime.
+If you cannot switch to the latest version of pligg then you will need to backport any security updates made in the last three years to the version you have. I would suggest that updating your customisations to work with the latest version would be a lot less complicated.
+I'd take a look at the exploits for pligg if you really can't upgrade I'd still look into intergrating fixes for these specific vulnerabilites. As they are all quite nasty and involve SQL injection and remote code execution. It might be a case of just adding some additional validation in some places.
+My guess would be that if you're using some older software, then some script kiddie has run some tool to exploit. What they've exploited, you may never know
+You may be able to contact Dreamhost to see if they can offer any insight, but I would guess they can't
+In order to stop it happening again (or at least minimising the risk as much as possible) you need to ensure that everything is kept up-to-date with security updates. You really can't short-cut this if you need the site to be publicly available.

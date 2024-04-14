@@ -1,0 +1,8 @@
+This is one of the joys of working for a large corporation.  You may be a sysadmin for one of many small departments and not part of the I.T. department at all.  You ring up the centralised help desk that supports all 10,000 desktop workers:
+Note that the above conversation is not the one you are going to have tomorrow.  It's the one you will have in three months time when every competent sysadmin and IT manager knows your name.  Tomorrow is starting to get to know these guys.
+While you're working on your people skills, is it a requirement that the Puppet master be inside your office?
+Now, the next time you need something like this done, don't ring corporate I.T. - Call direct to the deputy I.T. director or the head of NetOps.
+You can run puppetmaster on 443. If you want to run the master on both 8140 and 443, and this is a Linux server, a nice option is to use iptables.
+I'm trying to run puppet on some servers outside my corporate firewall, with the puppetmaster inside the firewall.  It's going to be extremely difficult--if not impossible--to convince corporate IT to open port 8140 for me, so what are my options to get it working?
+Why not put it in the same place as the clients?  That would solve your problem and most likely other problems such as latency and dropped connections.
+Get to know the managers of the I.T. department.  Get to know the guys who work in the NOC.  Actually walk down there, introduce yourself and have a chat with them.  Getting things done in a large corporate is all about who you know and how much they like you.

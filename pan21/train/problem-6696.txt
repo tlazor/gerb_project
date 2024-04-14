@@ -1,0 +1,5 @@
+I'm guessing you've tried this already, but there's an OPTIMIZE TABLE command that can shrink them depending on how they've been used.
+If you're already considering moving the data to a larger partition, you can selectively move the larger tables and symlink them back into the database directory.  There are some downsides to this, but they're noted in the documentation.  This has the benefit of being easily backed out (assuming your tables still fit in the old partition).
+I have a 88.9 GB MySQL 5.0 database sitting on a 90GB drive. The database contains a number of MyISAM tables for our (custom) system usage reporting. The data is date-based aggregations of what are essentially web server logs. 
+I thought about converting the big tables to the MERGE storage engine. The idea being that I could move the older data to a different drive. However, I've never done this before, and am a bit nervous about testing on my production database. 
+And, of course, I'm under a time crunch. I have to process all of last month's reporting data real soon. So installing a larger drive is not an option at the moment.

@@ -1,0 +1,6 @@
+What we have done however is had huge success adding in DRDB and mounting data to the other system - then just downing one - and the other picks up where it left off in real time. 
+Often RAID controllers do some funny stuff that is specific to the RAID controller, so moving the disks won't let them be properly seen on another controller. There's always the possibility it could work but really...don't count on it. 
+So how about this, since they're mirrored, stick one in, see if you can import the RAID config. If it works fine, stick the other drive in to rebuild the mirror. If it doesn't well... you've got one more chance :)
+It might work. I personally don't bank on it. I'd try it, but I think I'd already be resigned to backup-create new volume-restore. 
+With RAID1 it is often implemented as a straight mirror so in most cases you can move from one type of controller to another.  It is just a case of configuring them as raid1 on the new controller without clearing the disks.  However compatibility is not guarenteed so make sure you have a backup before you try.
+If it was a proprietary controller, say, an HP and you're going to put them into an HP DAS enclosure, you might be able to.... 

@@ -1,0 +1,8 @@
+Bigger caches are slower per access, because. (more transistors, more has to be transferred on cache miss etc.) That is why there even are caches, and multiple levels of them. (Otherwise, why not just use the RAM directly, right ;-) )
+For example, I am into Data Mining. Training models often means repeatedly iterating over big datasets. I imagine a bigger cache might help here, if it means I get significantly less cache misses.
+In essence, it depends on your program, but programs tend to use lots of data nowadays, so bigger cache may be better.
+I am going to pack a new computer for myself and I thought about Xeon series as main processor. Xeons tend to have very big caches even up to 32MB. And here is a question:
+Is it a big advantage to have a big cache in everyday application? How does it impact on games, CAD drawings, browsers etc?
+There's not really a downside to having a large cache. At worst, it'll be populated by stale data which didn't get used. 
+While I don't know about CAD programs, I would imagine modern ones transfer a lot of work load onto the graphics card. The cache size doesn't make a difference here (I think).
+It is not a huge advantage, but it is typically a rule of thumb that the more cache, the better the performance. Go ahead and max out the available cache.

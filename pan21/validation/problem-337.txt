@@ -1,0 +1,7 @@
+you can do hardware level disc encryption which encrypts your entire hard drive separately from anything else in the computer. Another option, which I know that the federal government uses (source: my father works for them) is a pre operating system encryption system that prevents all access to the main hard drive partition unless it is unlocked. This would probably be your best bet.
+In theory this would make it hard to casually change your boot device, and pulling your hard drive and installing a new one wouldn't work either. 
+I'm trying to make it easier to recover my laptop in case of theft. I already have Prey installed to give me my laptop's location. However, anyone can easily install a new OS, rendering Prey useless.
+Journeyman Geek's answer is correct.  There is no foolproof way of doing it but many newer laptops (Dell for example) have their BIOS passwords protected by a capacitor that retains the password even if you pull the battery.  They are very difficult to bypass and require you to contact the vendor and show proof of ownership before they will help you to recover it.  For this very reason, don't forget your password!
+There may also be specific, bios level security options worth looking at there, but your mileage may vary
+In "boot" you can disable devices by pressing ! (so you can change it later). Disable everything but your boot device. Disable the boot device list option and use boot order lock so no one can change it
+You can set the boot order in bios on my x220 I hit del to go to the bios, then select the startup menu

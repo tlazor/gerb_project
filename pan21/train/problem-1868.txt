@@ -1,0 +1,6 @@
+We currently have five Ubuntu 10.04 LTS servers, and keeping them all up-to-date is starting to be a pain. I've been looking into solutions like Puppet and Canonical Landscape.
+The downside to dsh is that its not robust. If your network is flaky or otherwise problematic it doesn't monitor what to do, or that what do did isn't undone later. That's where describing the goal instead of the process helps. You'll have to invest time learning how to describe what you want, and systems like cfengine will make sure you don't specify conflicting goals.
+radmind (@ sourceforge) is what I'm using -- Can't vouch for it on Linux systems, but works beautifully on FreeBSD.
+Out of the two I prefer Puppet -- it would be useful to be able to ensure the permissions of various directories on the machines, and define groups and users on the server which are then propagated to clients.
+I can't really recommend anything to you; currently I use dsh and it suffices. But if you want an exhaustive list than I suggest Wikipedia.
+It's far less automated, but at 5 servers you might consider just something like dsh. Just create a hostlist file and you can use dsh to send all servers the same command at once. The main advantage here is that it's easy to set up, doesn't require installing anything server side and you don't have to learn much.

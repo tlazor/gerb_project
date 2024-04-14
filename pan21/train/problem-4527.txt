@@ -1,0 +1,9 @@
+Another really simple way - unplug the network router so that your monitoring software can still see the host, but the host can't talk to S3 (or anything else for that matter).  To me, this is the simplest but may in some cases not be appropriate.  
+There are so many ways to simulate something going down.  You've already said one which is to use iptables block rules.
+P.S. I cannot make these buckets using chattr because, afaik, S3 doesn't support the concept of attributes like immutability.
+Why not just check for the existence of a specific file in the S3 bucket. If it's not there, throw your SNMP trap.
+I'm trying to test new network monitoring code for an application that runs on a Debian appliance. I am currently tasked with ensuring that an SNMP trap is thrown when external network shares (such as S3 buckets) are mounted with FUSE and the connection is broken.
+The problem is that to make the share inaccessible, I would apparently have to make files unwritable (or block every possible S3-related IP with iptables) and I cannot block write access if the bucket is meant to be read from and written to by the root user, and is monitored by the root user.
+Another option is to edit the hosts file on the server, and add some dummy IP's for the S3 hostnames so that they resolve to the wrong place.  i.e. use an IP that's unassigned to anything.  Therefore all S3 requests from host will attempt to go there but won't be able to.  When you're done, just delete the IP's out of the hosts file and everything will come back to life without a restart.
+Creating/deleting this file will make it very simple to verify that your script is working properly.
+This story starts and ends with the fact that this bucket needs to be accessed via IAM. Your root account on AWS exists only to setup the IAM roles. Once you've got that setup, you can alter the IAM privileges to test.

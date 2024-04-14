@@ -1,0 +1,7 @@
+1. For small lists the overhead associated with calculating the hash function may matter more than the improvement in complexity.
+It says that such techniques has practical applications if you want to do a linear search quicker (obviously, it's true). 
+The self-adjusting linked lists described by Bentley have practical applications in data compression.  For example, bzip2 uses move-to-front encoding (among many other tricks).  See also this paper by Bentley et al.
+If we need to make fast searching , insertion and deletion why don't you use HashTable? I thought the only reason why we use Linked List is that it preserves order and its very easy to implement. Am I right? 
+I can think of two situations where a linked list based linear search with heuristics may be better than using a hash table:
+2. You need a large enough table to avoid collisions (number of buckets should be at least twice the number of entries). In applications where memory is an issue (e.g. embedded systems), this can be a significant factor.
+I've read the paper by Jon L. Bentley "Amortized analyses of self-organizing sequential search heuristics". It deals with different schemes for improving linear search. (such as after every access to an element move it to front or transpose neighboring elements) And at the end of the paper was a section for those who are interested in practical applications of this techniques. 

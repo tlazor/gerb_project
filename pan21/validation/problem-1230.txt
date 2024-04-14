@@ -1,0 +1,6 @@
+You have to enable internet connection sharing on the network adapter i think.  Also, make sure your VM acquires an IP on a subnet that is accessible from the Terminal Services client computer.
+If you can't PING other LAN hosts in the VM you're not going to be able to use RDP to connect to the VM. Start troubleshooting inside the VM first. After you've configured it for bridged networking and established that it has a LAN IP address see if it can PING its default gateway. If it can then you're probably "in business" as far as connecting to it from other LAN hosts.
+I'm trying to connect using the machine that's running the VM but I also want to connect with other machines.
+Are you trying to connect to the machine from the host machine (i.e. the machine the VM is running on), or another computer on the network?
+I'm trying to connect via Remote Desktop using the ip address that I get running ipconfig in the VM. But that doesn't work.
+You don't mention what virtualization software you're using, but your comment to Farseeker makes it sound like you've got the VM connected to a "host only" network. If you want the VM to talk to other hosts on the LAN, configure it to use "bridged" networking (in VMware parlance) and allow it to pull DHCP (if you use DHCP) or assign the VM a LAN-side IP address.

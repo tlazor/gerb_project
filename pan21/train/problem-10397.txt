@@ -1,0 +1,5 @@
+A simple way to solve this would be to put a check in your touchUp() method that checks to see if x and y are still on top of the actor. If they're not, don't do anything.
+I suspect the reason they built it this way was to give you the option of choosing whether you want to do anything or not (while there is a separate onDragged method, you might want to do something special with the new position).
+Oddly enough, the documentation for InputListener appears to be a little different than the source. If you look at the source for InputListener, it's actually behaving as it's supposed to:
+I actually found that ClickListener class contains another method clicked which fires just like I want it to (if the figure is on actor). 
+I've implemented a touchup listener for an actor in stage. Now what happens is that when user touch downs the sprite and releases finger, its all good. The problem is when user touch downs the finger, and drag it somewhere else (possibly to cancel the touch) and releases, it still fires the touch up event as if nothing ever happened. How do I stop that? Here's my code:

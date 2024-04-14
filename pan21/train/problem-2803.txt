@@ -1,0 +1,12 @@
+Partitioning by day leads to so many partitions that it is inefficient.  And, dropping a week's worth of data is just as easy as a day's worth.
+166 writes/sec is pushing the limits of a spinning drive.  Either use hardware RAID-5 with a Battery Backed Write Cache or use SSDs.
+a telecom billing system, there is a internet flow table (phone_number,start_time,stop_time,time_lasting,fare),500 million records per month(2G),every record size is 300K, insert and update when people use 4G to surf the internet,and update their account balance every time（166 write/s），and people will query their internet details from 5 * 6 = 30 hundred million (save half year data)
+a_vlad is right that partitioning does not necessarily help with queries.  But it is excellent for that time-based purge.
+200M * 300K is more like 2T.  Where is the math error?  Perhaps 300B?  Are you implying a fixed-length row?  Don't.
+300KB for one record seems terribly big -- what are you keeping in it?  Seriously consider normalizing out any repetitive columns.
+Redis?  That adds another moving part -- more things to go wrong.  And, assuming that your traffic is reasonably consistent, there is little to be gained by any buffering scheme.
+Provide a tentative SHOW CREATE TABLE and the main queries (insert/update/delete).  It is unclear that there need to be any updates or deletes for your application.
+I suggest you adapt the suggestions in my High speed ingestion blog.  That discusses a technique for getting well past 166 writes/sec.  (Keep in mind that you will have peak loads that are much higher than 166.)
+Plan B: NDB Cluster.  (Sorry, I don't have specific suggestions.  But NDB was designed for Telecom.)
+Since you are purging after 6 months, I recommend PARTITION BY RANGE (TO_DAYS(...)) with weekly partitions.  Every week, drop the oldest and REORGANIZE "future" into "next week" and "future".  See Details.
+The MySQL box should be separate from the Client box(es).  You should design the client boxes (web servers?) to be scalable -- any number of them, add more as needed.

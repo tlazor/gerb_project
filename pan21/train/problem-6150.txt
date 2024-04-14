@@ -1,0 +1,5 @@
+I've used two machines, on with 4GB and one with 8GB - Couldn't tell the difference between them and I was doing things pretty similar to you. If 8GB is not that much more - it could be worth investing now otherwise 4GB should be plenty.
+Visual Studio is only 32-bit. So anything above 3GB wont help a single instance. Running more instances should behave better (if memory usage is high per instance).
+I am probably going to migrate my work laptop (WinXP, ThinkPad T61) to Windows7 soon, and want to take the opportunity to upgrade to a 64bit OS and use the infinite amounts of RAM this will allow :)
+Given that laptop RAM not free, how much RAM would actually make a difference to my normal dev environment - VisualStudio running in a couple of instances, Firefox with umpty tabs open, perhaps one or two other apps running as well? Will I see much difference in upgrading from 32bit XP and 2GB RAM, and if so where is the cut off point? Is 4GB enough, or will I see a noticeable improvement with 6 or 8 or whatever...  Thanks!
+More then 4GB only makes sense if you are planning to run 2 or more Virtual Machines and Visual Studio at the same time.

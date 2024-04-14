@@ -1,0 +1,5 @@
+Is this warning regarding unexpected access problems something to be concerned about i.e are the "problems" being warned of somehow impossible to forsee or are they merely the obvious:- that permissions are inherited so a cascade can only reduce permissions not extend them?  Can I safely continue to change the permissions as described?  
+There seem to be two default security settings for SYSTEM and administrator accounts on the c:\Windows folder and its sub-folders.  This confuses me.
+One of these settings is for Full control, however, when I try to apply this a warning message states that: changing permission settings on system folders can result in unexpected access problems and reduce security.  
+I think the security permissions on the C:\windows\installer folder may have been reset somehow, as no check boxes are shown in the Allow/Deny columns.  
+After a failed program install I can now no longer access the previously installed version, nor repair the installation, nor reinstall the old version.  

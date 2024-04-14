@@ -1,0 +1,9 @@
+You can't do the same thing in Firefox as Firefox 3.5's "Private Browsing" mode is more of a toggle, it closes and saves your main session first.
+Sandboxie would probably work along the same lines as ThinApp or Browser Sandbox. People often use it to maintain a clean browser "image" that can be reset. 
+Internet Explorer 8's "Private Browsing mode" gives you a totally independent session with no shared cookies or other login details. That gets you two sessions (albeit in two different windows, rather than tabs) out of the box.
+This would not only give you discrete sessions, but the possibility of entirely different setups for different purposes.
+If you have more than one user account set up on your machine you could do a Run As on Firefox to open a second (third, etc) window up as a brand new Windows user, this would get you totally independent windows with independent sessions, but again in different windows. 
+I do something "cheap" in Firefox - I have two GMail accounts and I keep one in a Firefox tab and a second in a Firefox tab using IETab. 
+Then you get a new browser session, which will not use the same session as the one logged into gmail.
+And I don't think the Private Tab addon was mentioned yet. It seems to create the same effect as separate private browsing windows, but in neighboring tabs.
+You could run two (or more) entirely independent and physically differentiated instances using Firefox Portable. Just extract the program to two (or more) locations, edit \Other\Source\FirefoxPortable.ini to read AllowMultipleInstances=**True**, and you have two functionally independent Firefox browsers.

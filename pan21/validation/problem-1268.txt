@@ -1,0 +1,8 @@
+During the recycling process of the main proxy container in our environment, the permissions at /var/lib/nginx get messed up and that's the temporary folder that NGINX uses to store/retrieve the requests sent through the proxy_pass directive.
+Since I have switched to a containerized web server environment using Docker, we picked NGINX to serve as a reverse proxy for our containers without having to map host ports in every container.
+PS: The above proxy-header.conf snippet was from an SSL-enabled virtual host. The SSL headers are definitively not needed if you are talking in plain HTTP
+In order to use snippets like that, simple include it into your virtual host, considering the snippet and path above:
+Your needs might (and probably will) diverge. Adjust and use those as a starting point if desired. We have also tried to improve our virtual hosts configurations using snippets to spread changes across all configurations that needed to share the same headers, SSL parameters (such as allowed ciphers, for example.), etc...
+We also needed to proxy HTTP headers in order to have our applications properly recognize (and not drop/abort the connection) that they had been handed legitimately proxied requests and also providing our apps with enough information to properly give information back.
+So far what I have experienced with NGINX HTTP 499 errors (friendly known as Client Connection Closed or Failed to load: Connection reset by peer) was caused by wrong permissions under /var/lib/nginx.
+Properly chowning recursively through that directory to the user:group mapped to the nginx process and, when necessary, fixing permissions to 775 was the solution to the mysteriously closing connections while loading our applications.

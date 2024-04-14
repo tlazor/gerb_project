@@ -1,0 +1,6 @@
+But if there are multiple applications that are capable of opening the same URL handler, such as mailto: how do you specify which one you want the system to use?
+There were some references to utilities like the More Internet preference pane which no longer seems to be available from the author's site. I did find it online by Googling but it seems a bit shaky - like it was written for an older OSX - perhaps Tiger.
+I actually wrote an application simplifying registration of custom URL protocols, if anyone is interested. It is called LinCastor (http://onflapp.wordpress.com/lincastor/).
+I get that you can tell the system that a particular program is able to handle a certain scheme / protocol with the Info.plist file:
+Another way to list current LaunchServices URL handler settings with Xcode on Apple OS X 10.10+ (Yosemite):
+I haven't been able to find information on how to set the URL handler for protocols and custom protocols. I'm assuming there is a plist file somewhere that I can edit - or maybe there is a newer, better utility that works well with Mountain Lion?

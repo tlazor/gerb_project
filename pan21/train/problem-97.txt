@@ -1,0 +1,5 @@
+In other words, it's not the format that's the problem, but the actual cell contents, which may be a formula involving a reference to a cell that contains something different in your worksheet from what it contains in the employee spreadsheet.
+You say you're seeing 6-digit numbers. The smallest 6-digit number is 100000, which in the 1900 date system represents the date 14 October 2173. 
+I want to copy/paste a spreadsheet that my employee has created into the main spreadsheet residing on my computer.  When I do so, the date column in the employee spreadsheet changes to a random 6 digit number when pasted in to the big spreadsheet.  I have tried format painter, confirming date format in that column, paste special.  How do I prevent this from happening?
+To find out what data's actually causing the problem, click a cell, and look in the formula bar to see the raw contents of the cell.
+I don't know what data your employee spreadsheet contains, but unless you're actually expecting the data to contain a date so far in the future as the year 2173, this suggests there's something other than a literal date in those cells. 

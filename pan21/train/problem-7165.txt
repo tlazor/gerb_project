@@ -1,0 +1,8 @@
+I see that when one uses gpedit.msc to create a local startup script, information about the script gets stored in the registry here:
+Create a scheduled task that fires on system start-up.  Automate this using SCHTASKS.EXE.  The schedule type you want is ONSTART.
+I need to setup a local startup script on a large number of computers, and unfortunately, Active Directory is absolutely not an option.  I would like to write a script or small program that I can run on each computer to perform the startup script installation in order to save myself a lot of error-prone point-and-click manual labor.
+Another option that's occurred to me is to create an item in the Task Scheduler configured to run at system startup.  However, my concerns there are twofold:
+Is there a good way to automate installing local startup (rather than login) scripts in Windows XP and Windows 7, via the command line, WMI, COM, or otherwise (even Win32 if it comes to that)?
+However, if you create such a script and then delete its registry key, the script will remain listed in the local Group Policy editor; as is so often the case in Windows, apparently there is more going on there than meets the eye.  This leads me to question whether it's safe to manually add subkeys for new startup scripts here (I wouldn't want my script to be overwritten by later changes made using the local Group Policy editor, for instance)...
+Try copying the two folders in C:\Windows\System32\GroupPolicy to the new computer, rebooting and running gpupdate /force
+If you want to try the scheduled task way use Schtasks. It's more robust than at and can let you choose the logon option. However, it doesn't wait for it to complete before you logon.

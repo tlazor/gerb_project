@@ -1,0 +1,7 @@
+In DNS I have www record that points to IP address. I also have root domain (@) set as URL Redirect to http://www.glossyhome.com/.
+However, if you want to solve this permanently, stop using the service, create an @ A record to the same IP and configure the redirection by yourself on Apache.
+However all other combinations: "https with www", "http without www" and "http with www" all work fine. All traffic is redirected to "https with www"
+Are both domains point to the same host? If yes, you shoud create a A record for www point to IP of your host.
+You are using some URL redirection service for @ while only www is running on your Apache. The URL redirection service probably doesn't support HTTPS, which is reasonable as it couldn't possibly have all the certificates needed for all the domains. Therefore, it's not even listening on port 443.
+I'm getting error message when typing https without www. For example: https://glossyhome.com returns "cannot reach this page" error.
+This probably isn't a huge problem if you haven't forced HTTPS with HSTS, since the users typically won't write the protocol on address bar. 

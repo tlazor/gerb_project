@@ -1,0 +1,12 @@
+One question I wasn't sure of the the semantics of multiple calls. Should I carry along the original default value, or does each new value become the default? So in psuedo code, should
+Documentation should help to know how to use the class, behavior that will bring exception and others sometimes some examples of uses.
+but, since Either is immutable (oh, should Either be a final class? ... I think so...), it makes sense that the or method can return the exact instance if it is valid.... why does it have to create a new instance each time? In a stream that can create a lot of GC churn....
+This is more of an personal taste here, but I find SQRT very unreadable. I would find SQUARE_ROOT more readable in general. I don't like abbreviation, even commons one. 
+You don't need to always add comment about the structure of your test. If you keep the newlines between all three parts we can understand that you're doing the test in three steps : arrange, act, assert.
+I know that essentially duplicates the constructor, but, doing it this way avoids the constructor in (hopefully) many places entirely.
+I don't know if you're using this class as some kind of api are not, but if you're providing documentation, make sure it's useful and clear.
+Two different constructor, same documentation, one of them does not even specify the second argument. You could add valuable information since you have documentation. In your first constructor, you could specify that you're throwing an IllegalArgumentException if value is null.
+I'm glad to see that you have unit tests with good method names. The names don't respect camel-Case convention, but in general you know by the name what it's suppose to test. 
+If the or(A) method does not need to construct a new instance, then it makes sense to me that the semantics should return "A", since that allows skipping new instances for "B" and null.
+I'm wondering why you don't have a more "standard" test class. I don't see the @Test annotation. Your method seems to be included within another class, and not on his own test class. 
+Interested in a review of this code, in particular the (hopefully monadic) bind. I actually put this to good use. It was a nice complement to Guava's Optional, and shorter than:

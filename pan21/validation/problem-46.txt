@@ -1,0 +1,6 @@
+it could be a memory fault, starting up the VM guest using more memory, but if the host runs normally seems unlikely.
+Have you tried the alternative installer disk? This is available from http://releases.ubuntu.com/precise/ubuntu-12.04-alternate-amd64.iso and uses a different installer to the default iso.
+my guess is that it's a "thin" hv_vmbus driver in the guest which is breaking hyper-v, so you might be better off using the legacy network device rather than hv_netvsc for example.
+try removing unnecessary virtual hardware from the guest - i.e. disk, network cards etc, and see if you can simply boot off CD. then add each device back one by one to see if it eliminates the problem.
+Not that this means it should crash your Hyper-v host, but still it's something to bear in mind, I've seen some older Linux OS' cause esxi 4 to have a hissy fit for a while, never seen it cause the hypervisor to keel over though.
+According to this article http://www.theregister.co.uk/2012/04/26/ubuntu_12_04_lts/ Ubuntu have worked toward making their latest release hyper-v compatible, though microsoft haven't certified it yet, so in theory it stands a good chance.

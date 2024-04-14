@@ -1,0 +1,5 @@
+I have also attempted to see if both services are accessible via http://canyouseeme.org but both ports fail. 
+Hi and forgive me if I am unclear in this question as I am trying to get back to development after my fourth brain surgery in 2 years so I feel a little groggy.
+In trying to replicate a similar environment on my development machine, I have opted to use and configure the latest (1.81) (.exe)Xampp. On Windows 7 (unlike my hosting provider's Linux)
+Right (I know I am not supposed to try access my WAN locally) I try access my WAN locally I get my routers control panel when doing so. So, I turn off wireless on my Android and use the mobile internet from my phone service provider (ensuring it's not on the LAN)and try access my WAN via Android (only the Apache service) and get the infamous timeout as the response. 
+I am trying to set (and learn how to set up) a home server with the hope of hosting my own sites in the near future. I hail from a Java background so am familiar with Tomcat and MySQL and familiar with my VPS at my hosting provider that uses Linux, Apache, Tomcat and MySQL.

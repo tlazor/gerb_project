@@ -1,0 +1,7 @@
+You could throw out the whole class and just keep the num_Of_Dots() member function, let it take iteration as a parameter, and you'd be done. It would be much easier to use, too.
+The big question I have is why result is only an int if you intend to return a unsigned long long. Seems a bit of a waste of all that integer range.
+It seems like this function can be both noexcept and constexpr (and, if it's going to be a class member, also const). Note that the function requires iteration to be greater than or equal to 1; if you're not checking that here so the function can be noexcept, then you should check it in the constructor.
+This is not valid in C++ anymore (though it used to be). You need <cstdio>, or better yet, use actual C++ I/O.
+It seems a little peculiar to use a class to solve this problem. It's not like there's any need to maintain state. All you're doing, in the end, is making it more difficult to use - instead of:
+As an aside, I suspect the reason this challenge was marked as "hard" is because you are supposed to try and solve it without iterating. In other words, you are supposed to stop and think about the problem and derive an equation for the number of dots at iteration n, rather than just charging in and doing an iterative solution.
+You use some magic numbers and variables with mysterious names (num?). Your code would be clearer and easier to understand with more explicit variable names, like:

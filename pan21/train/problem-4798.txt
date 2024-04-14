@@ -1,0 +1,9 @@
+It took two seconds to find out from vSphere that I've got eight(8) 8GB DDR3 1333MHz modules in the thing, but I don't know if they're registered or unbuffered, Single Rank or Dual Rank, low voltage or not, or what their timings are.
+You indeed would need a bit of information about the current configuration. You might get it by going through the output of dmidecode, the supported route though would be running HP Insight Diagnostics from the Intelligent Provisioning suite accessible by hitting F10 during BIOS POST. See the Intelligent Provisioning docs for more detail.
+"dmidecode | less" or "smbiosDump | less", look for the part number of your memory modules and look them up online to find their specifications.
+What's the quickest and most painless way to find out this information so I can buy some more RAM and know 100% that it will work?
+Note from point 2 in particular, that dmidecode is not available on all versions, in which case you can use smbiosDump which will provide the same information.
+Assuming you're running VMware ESXi/vSphere, you can run console commands to get more detailed information on the hardware components. Specifically, you should be able to get the part number, and look that up online.
+I know what RAM is compatible with my server, but without taking the lid off I don't know what specific modules I've got.
+If you want to "know 100% that it will work", you should not only look at the modules already installed but also at which module configurations are listed as supported in your Proliant's QuickSpecs (I assume this is a DL380p G8), the User Guide or the HP Memory Configurator.
+http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1003587

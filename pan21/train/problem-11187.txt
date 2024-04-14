@@ -1,0 +1,8 @@
+In addition to efficiency concerns you have issues with correctness if the object contained is for a type T that can potentially throw during a copy or move. Luckily your type T is limited to int so there are no issues there yet.
+But what about the copy assignment operator. This seems to be missing and will lead to exactly the same issue as not deleting the copy constructor.
+Don't try and save space like that you are making the code less readable. Like normal variable declarations use one line per variable so we can read them easily.
+Every item we push on the front you have to move all the elements up one place. The whole point of a deque (double ended queue) is that pushes to the front moves the beginning of the queue back (so you move move the "beginning" you don't move the other elements).
+Again the pop_back() has the inefficiency of forcing a check that is not needed. Also causes branch predication problems.
+If can't move either of these points you chain another block onto the queue. So you allocate in large chunks, but you don't have to re-allocate
+Again because you are implementing a dequeue like a vector your increase in size is very expensive because of the copy you are making.
+The standard way is to implement using the swap operator. Also move constructor and move copy assignment should usually be marked as noexcept this will allow better optimizations when you use your object with he standard libraries.

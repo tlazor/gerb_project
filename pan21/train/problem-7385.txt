@@ -1,0 +1,6 @@
+IIS supports logging to an ODBC connection (i.e. a table in a SQL database) if you have the relevant options installed, so you could enable that in place of logging to file and create a series of reports that you can run against the resulting data.
+Is there a free web-based tool for log parsing? or will I end up creating a private ASP page that runs log parser with a specified query and writes back the result?
+It will probably buffer updates, as it does with file based logging, for efficiency but the results will probably be as close to real-time as makes no odds.
+My best solution is to use something like LogParser, which is excellent especially for forensic auditing. However, that requires me to download the log file. Which is (to me) a lot of work.
+You might consider the free version of splunk. It has a web interface and is basically real time for what you are looking for I think.  You can create your own custom searches to view the information you want, and it displays them on an interactive time line like Analytics does.
+If you want security monitoring of your web logs, I would suggest OSSEC. It monitors them in real time looking for attacks, errors, issues, etc (they call it LIDS - log-based intrusion detection).

@@ -1,0 +1,6 @@
+First you need to configure dnsmasq correctly, add the A records private class IPv4 only, I denoted three methods for resolving hosts (without using upstream servers for sure), example :
+Note that the dns server for the client is normally specified in the dhcp configuration, if you use dnsmasq as the dhcp server you must specify the necessary dhcp option:
+where 192.168.1.1 is always your dns server (dnsmasq) listen address or else configure manually the client dns.
+You must find associated parameters for choose a method how to serve the dns response What you did not specify correctly in your question.(upstream server ? -S, --local, --server ?) , the best choice is to read the dnsmasq configuration file.
+Be careful because here I use the temporary folder /tmp for the development and it is emptied at each restart by Linux so you will lose your log files or configuration. Adapt according to your needs. Also, I do not mean here any privilege or right on the folders and files, so be sure to do the necessary on this side.
+If you comment no-hosts dnsmasq parameter , then the daemon read /etc/hostname file, then you can add each records into this hostname file :

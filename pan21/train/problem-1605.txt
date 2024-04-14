@@ -1,0 +1,14 @@
+Docker use standard images that you build on by adding your custom software installation and commands into the image. As Docker is mean to run one service per container (a running image), you are also having the benefit of beginning to decouple your applications into microservices.
+The benefit of automating your infrastructure with Docker images that are created with Dockerfiles are many:
+Are these tests related to testing REST endpoints and/or load testing? Then take a look at tools such as JMeter to codify your tests that can be saved as files and triggered in for instance Jenkins (with the Performance plugin). You can load your tests in CSV format and call JMeter from within Jenkins.
+- Simpler overview of the tasks involved to setup your servers. As you begin to write Dockerfiles you are taken down the thought process of both development and operations, because you have to write sequential commands for the setup of the servers. That leads to a deeper understanding of your own pipeline - And how it can be improved.
+You'll also find that static analysis alone isn't a sufficiently solid bug gate, it must be complemented with regression testing as well.
+So I'd place the full regression after the static analysis in the CI/CD pipeline - I wouldn't want to waste full regression costs on code which doesn't even pass static analysis.
+By using Docker you can automate the configuration of your server images as well as application images to use to deploy to staging and into production.
+Take a look at Docker "images", "containers" and "Dockerfiles", to get an understanding of the principles and architecture.
+It might not be obvious now, but usually as projects advance full regression costs (resources/time) grow much faster than static analysis ones. 
+Addressing these bottlenecks usually means splitting such runs across 2 major  functional stages (each one can actually consist of multiple sub-stages and/or steps):
+- Faster spin-up of services (your app or software) in staging, and also in production. You can batch the spinning up of containers.
+Down the road you'll probably find that running full regression and/or full static analysis in earlier pipeline stages can easily become bottlenecks:
+These are just a couple of suggestions (from many possibilities). I hope this inspires you for your CI/CD setup.
+Try to embrace the KISS principle - "Keep It Simple, Stupid". Start small with making a list of the manual tests that you perform on a routinely basis.

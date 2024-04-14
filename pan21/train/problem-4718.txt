@@ -1,0 +1,9 @@
+I've run into this scenario multiple times but could never think of a way to efficiently do this, while I do feel that there is a simple way to do it. Here is the implementation I have right now. I feel like I should use a while loop but I can't get my around how to do it. 
+In applicable situations discard and retry is a great method for heuristic generation. You can't beat the simplicity, and it's not bad performance in all cases.
+This is a really bad question, you are asking about efficiency while your real problem is that your code simply doesn't work.
+I'm placing items randomly on the screen, but these items shouldn't be placed near eachother at a given distance. 
+So, if you keep p above 10%, you expect no more than 10x operations on average for each planet, or 10x^2 in total.
+One optimization you can make is to keep the planets sorted by radius, and check in that order.  The sorting cost will be offset by the savings from being able to stop early.
+Then, the number of retries is geometrically distributed with probability p, and therefore the expected number of operations is 1/p.
+Basically you try to place the planet when you have done just one check, rather than after doing all the checks. Your code is broken beyond that, but I'll leave out the details.
+Your solution is fine provided that you never end up placing so many planets that the number of valid locations falls to, say, below 10% of the locations (which is very very dense.)

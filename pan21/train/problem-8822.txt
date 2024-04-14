@@ -1,0 +1,10 @@
+Two disks in rotation are enough for onsite storage, but using three makes things simple - separate drive for three weeks between backups for bank deposit.
+You didn't say whether it was the size of the upload that caused a problem with the FTP Upload you used to do, or the expected time to download it again in case of a Disaster Recovery situation? 
+Use the media in a rotational pattern, swapping the disk at the bank every month and keeping a track of what data is stored where (what disk contains the most recent backup data).
+At the end of each week, perform a full backup to one of the HDDs, and then, put it in a fireproof safe, located on site.
+1) At 9pm, a scheduled script on the Windows server dumps a copy of the database to a backup file. Databases range in size from about 4GB to 11GB
+The splitting of the file into smaller part files allows BackupPC to totally skip copying the parts that have not changed since the last backup, and on the backup server itself only one copy of each identical part file has to be kept in the backup sets, although BackupPC makes each daily backup look complete by using hard links between each one to represent the files that have not changed overnight.
+On sites with few daily changes, the backup takes around 30 minutes. On sites with slow ADSL lines (288K upload only) and a lot of changes, it takes about 4 hours, but it is totally automatic.
+How much of your database changes on a daily basis? We backup MS-SQL databases on 35 sites overnight via ADSL using BackupPC, which uses rsync to copy only the file differences. The way we do the backups is as follows:
+On the first week of the month, perform the backup on one of the disks labeled Bank and deposit it in a safe offsite location.
+If it's just the upload time, then you could significantly reduce this by using incremental SQL backups (which compress very well) after an initial full backup.

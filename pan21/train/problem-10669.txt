@@ -1,0 +1,5 @@
+And you were using a different format in your  sql query. Either you can use to_date function or simply change the date format model to DD-MON-YYYY. .
+I was given a SELECT statement that is running in a Crystal Report to investigate a data problem but when I try to run it against the database I get the error:
+I think it has to do with the Date comparisons but I am not sure what is wrong. I know nothing about oracle and since the error message does not specify the line the error is on I am only guessing at what might be the problem. Can anyone point me to what is causing this problem?
+Oracle doesn't understand the literal date format strings, as they are not in the same format that your client is configured for. You need to use the TO_DATE function to tell Oracle the format of the date string you are presenting it with, like so:
+If ACTIVITY.ACTIVITY_START_DATE has the DATE data type, the comparison should look something like this (you cannot always compare dates with stings in the Oracle Database):

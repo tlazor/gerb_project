@@ -1,0 +1,5 @@
+All PCI devices have a 16-bit "vendor ID" and a 16-bit "device ID" or "model ID", which are reported during PCI scan (see lspci -tvnn). The (vendor, device) pair is used to determine the correct driver for the device.
+The PCI ID Repository describes the device 8086:208d as "Sky Lake-E CHA Registers" (you'll likely see a similar name in lspci), so it's probably just a virtual device that's part of the Skylake uncore.
+The constant is used in a pci_get_device() function call; by clicking the function name you can instantly jump to its definition in drivers/pci/search.c. The code looks like this:
+I am trying to understand the linux kernel code regarding the uncore performance counters for Skylake hardware. The code at https://elixir.bootlin.com/linux/v4.15/source/arch/x86/events/intel/uncore_snbep.c#L3565 magically uses the constant 0x208d.
+So PCI_VENDOR_ID_INTEL is a macro for Intel's vendor ID (which is of course 0x8086, assigned by PCI-SIG), and the next parameter 0x208d indicates a specific device type (as assigned by Intel themselves).

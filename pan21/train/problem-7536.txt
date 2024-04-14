@@ -1,0 +1,16 @@
+2) Run these models with backwards stepwise regression. You should analyze these four models to look for similarities or patterns, maybe something will jump out at you.
+If you have enough data (>10k examples), you could even train a neural network on the data to capture the complex relationships between features which linear regression wouldn’t capture.
+If you are still not getting good results with linear regression, then consider using Gradient Boosting Regression Trees.
+\hat{y}=a_1*d_{C11}+a_2*d_{C12}+a_3*d_{C13}+a_4*d_{C14} + a_5*d_{C21}+a_6*d_{C22}+a_7*d_{C23}+a_8*d_{C24} +
+Possibly here category A and category B are strongly correlated while both of them have category 1. Create new feature for this case.
+It's also possible to do the same thing with 64 dummy variables for each possible combination of the categorical variables as you were doing, but in a single linear regression as above. 
+This will leave you with a final model (and results) without cluttering the regression with all 64 iterations of the categorical variables. If the significant variables from this are too cumbersome, maybe only discuss or highlight the most significant independent variables or trim it down some other way.
+If it is not dummy encoding and your categories can not be ranged - that is wrong. For example, doing this:
+Do dummy encoding. If you see some strict relationship between categories you can also add one-hot dummy encoding:
+Forests, XGBoost as mentioned earlier. For this you do not need one-hot or dummy encoding. By the way, usage of simple Decision Trees may give you beautiful pattern of relationships between categories and it's influence on target variable.
+A better approach is to encode your categories with dummy variables. Let's say your categorical variables are C1, C2, and C3, each taking values from 1 to 4. Then we can have twelve 0/1 dummy variables corresponding to each possible category for each categorical variable. For any input exactly four dummy variables will be 1 and the rest will be zero.
+Also needed to be revised. If some of your combinations have very small amount of cases you can not trust the results.
+Sounds like you have a lot of complex categorical variables in your model. Here's what I would do to see which ones are significant and which ones are not. For each of the 4 categorical variables, you will only need 3 binary variables to represent the options. If all 3 binary options are 0, then the fourth category is 1, so it simplifies the model a little. Here's what I would do:
+3) After all four models are run using this selection method, run a final regression using backwards stepwise selection using only the significant variables from the previous 4 runs.
+1) Run a regression model for each categorical variable using the binary variables. You'll have 4 models in total.
+Encoding categorical variables as integers is generally bad for linear regression, because the model will interpret that to mean that category 2 is twice as significant as category 1, and so on, which is not necessarily true. It isn't surprising that you got bad results.

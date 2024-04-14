@@ -1,0 +1,5 @@
+We currently use Nginx as a reverse proxy in front of several IOT devices to access them from outside our internal network.  Up until now, I've statically mapped a location to each device's interal IP address.
+I've left the HTTPS stuff out of the code I posted, but haven't had trouble proxying our internal HTTP devices on our existing HTTPS site through Nginx.
+I'm trying to follow the format at https://chrismarslender.com/2014/07/21/url-based-variables-nginx/ and I've tried:
+We're adding several devices that use dynamic DNS in for form of http://DeviceName.ServiceName.com but we want them to appear in the form of https://OurDomain.com/DeviceName/ in our current directory structure along side the other devices.  There are going to be lots of these new devices, and I'd rather make a dynamic rule that will take the DeviceName from the URL and send the request to the correct device.
+How do I set a variable from the URL and re-write it in my proxy_pass so I don't end sending the request to http://DeviceName.ServiceName.com/DeviceName/

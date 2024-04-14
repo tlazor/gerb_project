@@ -1,0 +1,8 @@
+"connected" would be where the ISP provides your LAN (i.e. a data center, or the "routed" example where you don't control the router)
+This depends on exactly how the ISP provides them to you.  You may have "4 DHCP addresses", a  "routed" /30, or a "connected" /29.
+TL;DR: subnet 255.255.255.248 gives you up to 5 usable ip addresses, subnet 255.255.255.252 gives you one.
+If, however, your ISP gives you a subnet with 4 addresses at all, which is /30 (netmask 255.255.255.252), you can still use one address as host address (the rest are broadcast, network, and default gateway addresses). This option gives you no advantage over "other internet plan" speaking in terms of address count.
+Normally a /30 is used for 2 addresses. That is correct. However on firewalls this is often again divided in /32's so you can use them seperately. It's like an ISP gets a range from it's provider (ex: RIPE) and then divides these adresses via subnetting to their customers. The same principle can be applied to this /30 by yourself.
+which gives you 8 addresses, 1 for network, 1 for broadcast, 1 for default gateway => you can use up to 5 addresses. Sometimes (mostly in datacenter environment) more addresses are reserved for FHRP.
+"routed" is what you'd see where you have a WAN side and LAN side. This is the traditional "lease line" model where the T1/DS3/etc. ISP side has an independent address to which the static address block is routed; from there they can be assigned as a LAN or NAT'd individually (the firewall situation Bulki mentions.)
+For example, Time Warner Cable (business class) allows 4 devices to use DHCP to get an address. (similar to residential service that's limited to one)

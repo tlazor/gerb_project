@@ -1,0 +1,7 @@
+The server looks like no one has touched it in a couple of years and has this week it ran out of disk space. 
+Tried a dedicated admin connection but It still did not understand where the database was (even though it gave me the database name in the drop down menu), 
+I have been able to log into a couple of the other databases and use the shrinkfile command to free up disk space but for some reason I am unable to log into the sharepoint and Microsoft#SSEE databases (which gives me the "cannot connect to Sharepoint, a network related or instance specific error occurred..." when I try and connect) 
+I can see that the database is running via the SQL surface configuration and I have made sure that the remote connection settings allow me to connect locally but I am still unable to log in either with windows authentication or locally.
+after a bit of fiddling managed to pipe directly to the database and squashed the bloated beast right down, 
+After a quick hard drive scan it looks like some of the databases have become a little bloated and particularly the Sharepoint_config~*~_log and WSS_Content_log.ldf have grown to about 15GB.
+( I have tried logging in with all the administrative passwords I can find and after tracking down the company who installed it in the first place I found out that they have no idea what the password could have been) 

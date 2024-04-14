@@ -1,0 +1,7 @@
+I'm looking for a service to host my secondary nameserver. I've been looking at DynDns because of the great feedback I see on ServerFault & other sites.
+But I'm looking at two of their plans: Custom DNS ($30/year) and Secondary DNS ($40/year). All I'm looking for is to have a secondary nameserver which points to the same place my  primary one does. 
+Does Custom DNS do everything I need & work correctly, or do I need the extra $10/year for the Secondary DNS? Or is there another plan/provider that would better fit my purposes?
+Instead of looping it back to your primary DNS an alternate way of fulfilling your need is to get a additional IP on the primary DNS sever and advertise it as secondary DNS.
+If you have an available machine, you could set up your own name server pretty easily (with bind for instance), would probably take all of 10 mins to do so. Would be surprised if your domain name registrar did not have multiple name servers to choose from though, would probably be your safest/easiest bet to go with that instead. 
+A free and easy to use DNS hosting service is PointHQ.  I have been using them to manage 4 domains over the past year and have been very impressed.  Only drawback I've found is lack of ability to edit TTL.
+But I would suggest you use a free DNS instead. The whole idea of having redundant DNS is to increase availability.

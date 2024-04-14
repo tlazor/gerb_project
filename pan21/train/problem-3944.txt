@@ -1,0 +1,8 @@
+Instead of drawing the colours from this texture, I instead take the red & green channels and subtract 0.5f to turn them into a pseudorandom 2D vector that changes smoothly over time & space.
+If you want to go all the way and want the water to not look full of cloned waves or samish blue soup- flowmaps are the got to goal.
+In Unity the shader would look like this - it should be simple enough to translate to the shader language of your choice:
+A common way this is done is using an indirect texture lookup in the shader to distort the display texture:
+By averaging two samples from this noise, scrolling in opposite directions, we can hide the direction of movement so it just looks like aimless sloshing.
+There is a oldschool method, involving a bottom texture layer, and two half transparent textures for reflection on top.
+I can then add a small multiple of this vector to my UV coordinates, before sampling from the main water texture. This shifts the part of the texture we're reading & displaying, warping it around.
+Here I'm using a texture with some low-frequency colour noise (tiling smooth blobs of random colours), and scrolling it across the display geometry over time.

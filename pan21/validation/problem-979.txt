@@ -1,0 +1,5 @@
+My Clustered Index scan was getting the Ordered = False treatment, because one of the implicit conversions was for one of the Index's Key Columns!
+When I look to at my query plan, I see plenty of clustered index seeks (yay!) and scans (not quite so yay!) but in some of them ordered = False.  I will mention that we have parallelism involved, though it does not appear to have any relation to these.  The indexes were set up with ordering.
+It just means that the query optimiser doesn't require an explicit order guarantee either for some later operator in the plan (e.g. merge join or stream aggregate) or to avoid a sort because you have explicitly requested an order by.
+When ordered = false you might in some circumstances get an allocation ordered scan rather than a scan that follows the linked list of the leaf pages in index key order for example.
+What does this mean?  That the query plan is ignoring this order?  Or that the query is choosing not to order?  Or... heck, I have no idea what I'm looking at...!

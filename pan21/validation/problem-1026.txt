@@ -1,0 +1,9 @@
+If headphones isn't given as an option, or there's no down-arrow, you may need to right-click the speaker to access further option to unhide the headphones. Alternatively make sure you try this with the headphones connected.
+I have this notebook that I use both at work and at home. I often watch a movie at home with my headset plugged in and the volume high enough to be able to hear it well. At work however I listen to my iphone, so I have nothing plugged into the laptop.
+Every single morning at work I start working until an error occurs or any other event that causes sound, and I find out my speakers are still on high volume, annoying the crap out of me and my colleagues.
+Open the volume mixer (click the speaker icon in the system tray and choose "mixer"), you will probably find the left-most column (Device) will say "Speakers". Click the down-arrow next to this icon - this allows you to choose other devices, such as headphones, and you can then adjust them seperately.
+Try to open "Realtek HD Audio Manager" in Control Panel. At top right of the opened window click on "Device advanced settings" and finally on this menu choose "multi streaming mode".
+If the headphones option is missing (especially when they are connected) from the mixer and in the Control Panel sound options, then I'm afriad you computer cannot tell the difference between when you are using your speakers or headphones - meaning there is unlikely to be a software solution.
+Alternatively you can adjust these using the Sound options in Control Panel, again make sure you unhide disconnected / not active / I-forget-the-term-it-uses devices if you don't see headphones listed at first.
+My iPhone switches to the last used volume whenever I plug in or out my headphones. Is there a way for my notebook to do this as well? (I use windows 7)
+Uninstalling your vendor driver and installing the Windows default driver enables headphones / speaker sound level differentiation.

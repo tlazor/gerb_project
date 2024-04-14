@@ -1,0 +1,19 @@
+I made some profiling with random data and it is very fast (the first column is the list length, the second the time taken):
+The caveat is that some rare kinds of input (where there are many repetitions) will take way longer than average.
+Instead of getting an element, inserting it elsewhere and deleting it, you should use pop on a list to get the element and remove it at the same time. The logic can be simplified.
+There are a number of ways you can attack this problem. One way becomes apparent if we think of an input that has no solution, which would be if more than half + 1 (rounded up) of the elements would be equal to each other, e.g. you can find a solution for [1, 1, 1, 2, 2] but not for [1, 1, 1, 1, 2, 2].
+I’ll present you two functions that will handle you two first blocks of code pretty easily. They basically just do what you reinvented out-of-the-box:
+This creates a heap of length-element pairs (equivalent to your list), only with the length inverted so it acts as a max heap and not a min heap. It will yield the most common element that isn't the previous element at any given time, maximizing the chance that the most repeated element will be used up by the end.
+It seems to me that for i in range(len(unord_list)-1, -1, -1): will leave some value at the end that doesn't satisfy your condition (for some inputs). You may want to decrease the index only if you didn't move elements
+As the Python version was not specified, I assume Python 3; for Python 2 you need to adjust the imports from itertools
+The solution would be that you group the elements and sort them by decreasing group length, then interleave first half of the elements with the rest; so, if your list is [3, 2, 2, 1, 3, 1, 1], at first you need to somehow group them, then sort into decreasing order, so that you get for example [1, 1, 1, 3, 3, 2, 2]; then you split it into 2 almost equal parts: [1, 1, 1, 3] and [3, 2, 2], and interleave these into the result: [1, 3, 1, 2, 1, 2, 3].
+There are many ways to write this algorithm, here is one, using Python standard library extensively:
+For the next part, note that cyclic shifts like this are not at all fast on lists, so should be strongly avoided. But note also that you can avoid it entirely by just being more intelligent about how you produce values.
+Instead of generating multi_lvl_list in group_same and interleave_lists, yeild elements sequentially from them. Turn them to lists at call-point if needed.
+Sometimes functions modify variables in place, sometimes they return a result, but they rarely do so when the input and the output are this tightly coupled. In your case, you sort alist in place but do not use it to store the end result. It's bad practice and you should choose either one or the other.
+Just going through all the permutations and finding where the condition is met is very fast for random lists.
+Using the great itertools module, the first half of your function could be rewritten in 3 lines. But first:
+Since you already expect your function to return a result, I'd go this route and not modify alist at all. If you choose the other route, however, be sure to document the behaviour. Using docstrings for instance.
+Don't write docstrings in the middle of functions. It is tempting to use multiline strings as comments, but it's unvonventional and the time saved is not worth the displeased looks you'll get.
+Your function is a bit too long. Typically when functions get long one should think of splitting them up. This does another good thing; it moves declarations closer to their usage point.
+This is because del messes with the internal index in the list. You should always try to avoid changing the length of a list you're iterating over, even if that means dropping idiomatic tools like enumerate and using indexes instead. Luckily I don't think this will actually ever hurt you.

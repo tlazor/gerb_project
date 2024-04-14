@@ -1,0 +1,7 @@
+Looking at the comments on the blog it shows that some users have the same issue while others do not. I can’t figure out why.
+To your problem: i would say that since during the first run of the GPO, the share you want to connect does not yet exist. So i would say after the second logon at the earliest the share connection will successfuly finish.
+I checked the event viewer during the initial logon and even though the folder gets created on the server I see an error 4098 (the group policy failed with the error code 0x80070037, the specified network resource or device is no longer available.)
+At first, i would always try to use as little GP objects as possible - every GPO has to be checked entirely at startup/logon, so every GPO is slowing down these processes. Only use multiple GPO if there is a reason, e.g. different traget groups.
+Why it is waiting three times... You could try setting the "Process Even If The Group Policy Objects Have Not Changed" policy like described here. 
+I would prefer to have the home folder created via group policy as opposed to the AD profile tab that way it’s easier for the help desk to setup a new user. 
+I am following a guide I've seen recommended on here for setting up home folders and drive maps for users and I am running into an issue despite the fact that I set it up exactly as illustrated here:

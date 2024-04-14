@@ -1,0 +1,7 @@
+The above code runs the specified closure (our function) for each element of the range, and prints the result.
+Here, we create an instance of the Sequence protocol (a CountableRange) containing the numbers 1 to 100. By conforming to the Sequence protocol, we get access to the forEach function, which takes a closure as its argument.
+In Swift, closures are discrete blocks of code that can be called from elsewhere in the program (functions are just special cases of closures). When a function expects a closure, and can guarantee what the closure's argument type is, the argument can be referred to as $0. Moreover, when using single line closures, the function's parenthesis can be omitted.
+In a for loop in Swift, the parentheses are optional, and from all of Apple's book and sample code, they are usually omitted--you did so yourself on the if statements. Furthermore, Swift has a range operator (two, in fact), so you should use that instead of the manual increments anyway.
+For better or worse, == 0 is the only way to do the comparison in Swift, and many would argue it's easier to read in C/ObjC anyway.
+The tuple examples are nice and demonstrate a language feature, but I think the following is just as efficient and easy to read.  The boolean flag should be as efficient or potentially more efficient than the empty string checks.
+This assumes you just want to dump to console.   Building a string and returning it would be an easy modification to make as well.

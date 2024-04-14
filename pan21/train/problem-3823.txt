@@ -1,0 +1,6 @@
+Obviously performance will be poor but you should give it a try at least, oh and make sure you backup your router config first so you can go back to where you are today easily ok :)
+I have 50 demo sites (running on .Net 3.5) that are very resource intensive. So shared hosting or using a Virtual Server is not working out.
+It's not hard at all, you just need to define the external and internal virtual-servers/ports, most routers let you do this quite easily, even with 50 sites.
+If they're just demo sites do you need them all running at same time? With some hosting companies that host your site on a VM you can pay a little more and have them up your resources. If your current hosting company doesn't offer this you may want to shop around. If these sites are that important to you in terms of them performing then you'll eventually have to bite the bullet. If you're going to do hosting from home and don't want to order the business class internet service (which offers static IP) look into using OpenDNS (http://opendns.com) and configuring your router to use them. That should somewhat help you out.
+I can buy a server from Dell for about $600 that will work nicely, however I do not want to pay $100+ for the colocation.
+How hard is it to configure my router & server to host a bunch of websites off that server from my house over Verizon dsl?

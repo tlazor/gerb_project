@@ -1,0 +1,8 @@
+I guess the Net Use/RDP/Explorer (I assume you mean start -> run -> \\servername\c$ ? if not, try that) fail because you are trying to logon with an account which has not been logged on before / isn't currently logged on, so it's trying to write either a new account folder or update an existing one.
+Also can you still use tasklist command line tool to access the remote system's list of running processes?  If so, then you might be able to use taskkill to terminate a program that might be holding some files one and possibly free up enough disk space to wedge in there with RDP.  Unlikely but worth a shot.
+Does it run SQL Server? If you install the management studio locally, connect to the server, does that work? Then try http://www.kodyaz.com/articles/delete-file-from-sql-server-xp-cmdshell-ole-automation-procedures.aspx
+This should remove the hybernation file at a given time, then it should be accessible. Should get you 4 or more GB of space. Enough to log in at any rate.
+Should get you a little bit of space if there's a lingering user logged onto the box. The below command may be a little old, but it could work...?
+Do you know if an account is logged on to it which you can try logging in as or connecting as? (Even a service account). Is there anyone, e.g. a desktop user, who has a current open connection to the server who could move a file off it temporarily?
+If you cannot even browse to files on it or logon at all, how do you know the disk is full? How full is it? Is there any space at all? Are there any other disks or partitions with space? Is there anybody there who can, e.g. plug in a thumbdrive or USB drive?
+Try PsExec from Sysinternals' PsTools to see if you can get a remote command prompt and delete some files.

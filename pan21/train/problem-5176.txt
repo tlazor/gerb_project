@@ -1,0 +1,7 @@
+It sounds like your WSUS server role did not install properly.  Follow the below steps to remove the SUP and the WSUS role and re-add them:
+I had the same/similar problem. My schema, tools and API folder were missing from C:\Program Files\Update Services. I reinstalled WSUS several times but they never appeared after installation.
+Features\Remote Server Administration Tools\Role Administration Tools\Windows Server Update Services Tools\API and PowerShell cmdlets
+I confirmed Beau's detailed assessment.  I then noticed in the original post that copying from the "old server" didn't work because the OS version mismatch.  I compared 2008 R2 to 2012 R2 and 2016 and confirmed as expected most files are different for OS version.
+But I found the solution/problem. When removing WSUS, I found that it didn't remove ALL of the features that are installed when you install WSUS on a fresh server. While removing the WSUS features (or after if you already have), you will have to manually remove the following:
+I successfully installed WSUS on a new server running the same OS and then copied the API and Schema folders to my SCCM SUP.
+Firstly, search for baseapplicabilityrules.xsd file on C:\ directory and it will find a folder location for you then copy all items in this folder into Program Files\Update Files\Schema, if schema folder doesn't exist, you can create it manually.

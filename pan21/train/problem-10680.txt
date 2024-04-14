@@ -1,0 +1,7 @@
+Thin\Thick format are generally the terms VMware uses for the VMDK formats - thin will dynamically grow (up to the limit) as space is actually consumed, thick is pre-allocated. Compact is usually used to describe a thin storage format used for Templates.
+2. Use VMware Converter - this will allow you to create a new VM that is a copy of the original but with thin disks rather than thick\fully allocated ones. This will incur some downtime.
+This clones the original vmdk (the -i flag) but the -d flag specifies that the clone should be a thin format disk.
+4. There is a variation on the vmkfstools option detailed in this blog post using a snapshot to allow you to make the conversion on a running VM. I'm pretty sure that wouldn't be supported by VMware but it's a neat hack.
+Once the clone is complete edit the VM config to point the new thin disk vmdk. If everything starts up OK you can safely remove the old (thick) VMDK. 
+3. Use vmkfstools from the command line. This requires the most downtime of all of the solutions. Shut the VM down and from the ESX Console navigate to the relevant VM directory and use the following command:
+1. If you have vCenter and a license that includes Storage VMotion you can convert from thick format to thin format without downtime using that. 

@@ -1,0 +1,5 @@
+Ruby has several ways to conveniently print text.  First there is string interpolation.  You use double quotes on the string, and use #{ code } inside the string.  When ruby parses the string the code is executed and the results replace the code in the string.
+Ruby has constructs for this called Ranges and Enumerators.  Ranges are a collection of sequential numbers while enumerators are looping constructs that iterate over a collection, like items in an array or the numbers in a range.  While ranges only count up, there is a function for counting down, downto() that returns an enumerator.
+Ruby also has C-style format strings. Use '%d', %f', '%s', etc in the string and then supply an array at the end of the string with all of the arguments.
+First, you don't need to put isPalindrome() in a class, you can simply declare it and use it directly.  Additionally, the ruby preferred style is to use snake_case and if the function is a predicate (a function that takes a value and returns true/false) you should add a question mark to the end: 
+Like Eric mentioned, you can speed things up by not doing duplicate work and intelligently managing the values you loop over.

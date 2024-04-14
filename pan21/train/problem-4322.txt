@@ -1,0 +1,8 @@
+Is there any reason to install Raspbian Light instead of pure Debian in my RPI if I just want a Debian without desktop?
+When the Pi first came out there was no Debian variant to support hardware floating point for the old CPUs used in the Pi.  
+Once the Foundation distribution was too large to install on a reasonably sized SD card there were complaints that it was too bloated.
+Debian is a popular Linux/GNU distribution (Linux is the base operating system, GNU provides applications software packages).
+The difference between Raspbian and Debian or between Raspbian and Raspbian  Light can be easily found by googling and Raspberry Pi's website, but my concern is about the difference between Raspbian Light and Debian.
+The Foundation distribution downloaded from the raspberrypi.org site is based on Raspbian with additional packages created by the Foundation (i.e. packages specific to the Raspberry Pi and not part of Debian or Raspbian).
+The Foundation produced a Raspbian Lite distribution to address this "bloat" and the simplest thing to remove was the desktop GUI.
+I have read the official page but still cannot figure out the difference between Raspbian Light and Debian.

@@ -1,0 +1,7 @@
+Unfortunately ESXi doesn't include the diagnostic commands rpcinfo and showmount.  NFS, by default, uses UDP.  In order to execute a mount, the system must be able to talk to the rpc portmapper on the NFS server (tcp/udp port 111.) That provides the ports for the mountd and nfs services. On any other system, I'd use rpcinfo -p <ip> to make sure portmap is working, and showmount -e <ip> to see what's being exported.
+After configuring the NAS, I set the ACL to the appropriate subnet (10.207.253.*) and connected without problems. But after rebooting the ESXi hosts, no connection anymore, same errors like yours. NAS reboot and turning off/on NFS service didn't help.
+If there are logs on the NAS, check there for any clues.  Otherwise, dropping back to a single link and monitoring the traffic may be your only recourse. (does that switch do port mirroring?)
+Also, unlike vMotion, FT logging, and iSCSI, NFS isn't locked to a specific vmk.  It will use any available interface.  As you have an interface in the same subnet as the NFS server, it should use that one.
+I had a similar problem with my configuration, you might be surprised but adding an entry for each esx host inside the /etc/hosts (IP hostname hostname) file of the QNAP solved my issue.
+I removed LACP from the uplinks and switched to iSCSI with multi-path (a port group and associated vmk for each uplink, just for SAN).
+Last thing I tried was setting ACL on NAS server to * -> boom, it worked again. Both ESXi hosts can connect to the NFS share without problems.

@@ -1,0 +1,6 @@
+You stated reaching ~700k files, assuming 2-4 indexes per collection => it amounts to over 100k collections. 
+For those using Mongodb on Ubuntu 16.04 with systemd make sure to follow @sumit but you should also edit /etc/systemd/system/multi-user.target.wants/mongodb-01.service file and adding the following lines beneath [Service] directive:
+Since MongoDB 3.0, it is shipped with Pluggable Storage Engine. With WiredTiger as a storage engine, you need to revise your open files value as it uses 1 file descriptor for collection and 1 file descriptor for every index. In multi-tenant applications this can be roughly calculated as assuming:
+In reality, only your own testing within your specific use case can reveal if there will be any problem with the hardware that you have with these many open files. Set these values in /etc/security/limits.conf You may also need to change nproc according to nofile. nproc should be 50% of nofile for mongodb
+Note, most modern servers could easily handle a million open file handlers - not optimal but definitely not a show stopper. 
+It's quite high... Unless we're looking at a multi tenant application, separated per tenant, is this the case? 

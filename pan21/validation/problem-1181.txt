@@ -1,0 +1,9 @@
+Either hmailserver did not exist at that time or was not in widespread use (we were measuring real traffic).
+NB I don't have any evidence to suggest that hmailserver is bad, just that I have a lot to suggest that postfix is good.
+Based on the fact that Zimbra seems to use Postfix as the MTA, and the fact that there are a lot of people using Postfix (and there are plugins for Anti-virus, phishing, spam) it looks like a much more attractive option than hmailserver.
+My question is this: does hmailserver fit well with zimbra or roundcube or should i be looking to use zimbra server with their front end?
+Your problem is that, at the bottom end of the market / freeware / open-source products for Microsoft, its rather difficult to differentiate between bundled systems built around standard components and bespoke software. hmailserver might well be running sendmail as the MTA! 
+i'm about to stop using gmail apps premium and i'm looking at using hmailserver and either zimbra or roundcube as the front end.
+Although it was some time ago, I did some research using real systems to measure effectiveness of different MTAs (just looking at how often they failed to process a message as expected). Most of the MSWindows products came out with very poor scores (including MSExchange). Novell Groupwise, Sendmail and Postfix were the best (Exim, qmail and various others in between). Apart from Sendmail (we didn't look at the underlying OS) Ipswitch was the best MTA which only runs on Microsoft.
+Which MTA (Mail Transport Agent) you use should have no bearing on your choice of MUA (mail user agent) although note that the MTA typically needs an additional component to route receiving mails to the MUA (a delivery agent/pop/imap server).
+Any of the webmail UIs should be fine with hmailserver as long as the standard IMAP/POP/SMTP protocols are used across the configuration.

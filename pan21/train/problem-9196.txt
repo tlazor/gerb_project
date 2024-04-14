@@ -1,0 +1,7 @@
+VPSes aren't going to scale in the same way that you're thinking of (hand-off). VPSes are just virtualized servers... you still have to manage them like any other server.
+On AWS you can also find scalable cloud hosting solutions. But on such a IaaS (Infastructure as a Service) provider you have to take care of some sysadmin stuff yourself. You might be better advised with a PaaS (Platform as a Service). This is a kind of abstraction layer on top of cloud technology – simplifying things for you.
+We are currently developing such a service for developers in Europe ourselves. We have just posted a comparison of different providers here:
+Oh, and by the way, if you need a really good service, there's Rackspace Cloud Servers. They're not exactly cheap though ;). However, if you can afford them, you won't regret this.
+Yes, they are called VPS; virtual private servers. At our company, HostGator's VPS serve us well, and they're cheaper than alternatives.
+Edit: You can change resources on demand, increasing and decreasing, without any modification from your part.
+I recommend you evaluate this service though: http://phpfog.com/. If you've heard of Heroku in the Ruby webapps world, it's like that but for PHP.

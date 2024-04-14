@@ -1,0 +1,7 @@
+Make use of the variable innodb_max_dirty_pages_pct. This variable establishes a target for flushing activity from the buffer pool to disk.
+While researching the full list of available commands to create / delete / modify tables, I wound up settling on using dedicated test tables and basing sizing on those specific tables independently of the rest of the DB. That allowed me to specify the engine for each table I wanted to use as a test table, and the myISAM engine reports accurate sizing immediately.
+If innodb_change_buffer_max_size is 25 and innodb_buffer_pool_size is 10G, you have 7.5G available.  Considering data in the buffer pool is not compressed, be practical and leave wiggle room.
+innodb_change_buffer_max_size is RESERVED first thing and implies  innodb_buffer_pool_size available to you will be reduced.
+If all columns are TEXT, that is a pretty messy schema.  The storage of data will be compromised.  SELECTs will have to work harder, especially for range tests on numeric values stored in TEXT columns.
+From my experience, InnoDB tables are usually 2x to 3x larger than MyISAM tables with the same schema and same data.  Since MyISAM table size is rather easy to compute, will doing that, then multiplying by 2 to 3 be good enough?
+As with Plan B, but do a second shutdown and extrapolation after inserting half the number of rows computed from Plan B.  This should give you a much more accurate target.

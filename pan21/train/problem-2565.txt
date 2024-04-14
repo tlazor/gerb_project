@@ -1,0 +1,11 @@
+But if you don't want duplicate IP addresses in your /etc/hosts file -- then augeas can help you.  hosts is no help for that.  
+If you really want something more complicated or you want fine control over the placement of lines in the file, use the concat module with a local source for one of the fragments.  There's an example for just that sort of thing (using the motd file) in the concat documentation.
+hosts resource type quite happily allows lines with the same IP addresses.  (Google it; where are extremely obscure cases when it may be a good idea.)  
+Honestly, using the host resource is the simplest way to do this.  You only have to define the hosts you want controlled by puppet, and you can still edit the rest of the file by hand (even though Puppet drops in that header that tells you not to).
+and have a shell script as dependency that cuts this segment out of /etc/hosts and replaces it with the content of /etc/hosts.puppet. 
+There might be server groups that need different IP's /hostnames in their /etc/hosts. I would use a template, but that means people can no longer make manual changes in their /etc/hosts as they would get overwritten by the template.
+The augeas module is overkill for a hosts file, because it just duplicates the functionality of the host resource (although it doesn't add in the "don't edit this file" header).
+One case where you may choose to use augeas for the /etc/hosts file, in addition to hosts resource types -- is for duplicate IP address lines.
+Beware that this has a race condition when users edit the file and the puppet run changes it. Alternatively, instruct your users to edit a file /etc/hosts.user and construct /etc/hosts out of both files whenever one changes. 
+But really, just use the host resource for the hosts you want to define from Puppet and edit the local hosts files for anything else you need.
+Having these hosts entries at the bottom of the /etc/hosts, would be perfect. What is the best way to do this? Is there a better way than writing 8 hosts-lines manifest?

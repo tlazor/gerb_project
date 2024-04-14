@@ -1,0 +1,6 @@
+Setting up everything at once could be tough work so I suggest to just setup plain auto-complete and Helm first.  Those two will give you a big improvement on your Emacs environment.
+For completion, try auto-complete.  To get intelligent completion, you may need "backend" for each programming language.  For Python, try Emacs-jedi (disclaimer: my project).  Auto-complete supports case-insensitive completion.
+For project management, I recommend combination of Helm and eproject.  With these two, you can find source/python/hello_world.py by something like s rc py hello RET.  Helm is a framework for incremental completion and selection narrowing.  So you can get not only project management but also other features.  eproject is a project management plugin and it can act as backend of Helm.
+In Sublime Text 2, I can enter prnfunc[tab] and then it completes to 'PrintFunction'. If I have a project, I can press Cmd+P and enter srcpy/hello.py and then it navigates to source/python/hello_world.py. Is there equivalents in emacs?
+As for locating variable/function declarations, I use Emacs Tags. This is how I've set it up in my ~/.emacs (not written by me, I found these lines somewhere or other):
+For autocomplete, I use a modified version of emacs' dabbrev-expand. Here are the relevant sections of my .emacs file (source):

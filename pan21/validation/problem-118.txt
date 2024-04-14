@@ -1,0 +1,7 @@
+I have optimized the affected table and so the .ibd file is clean now; but I still have the issue of the ibdata1 and log files.
+Doing a full mysqldump of all databases is a last resort as the data set if quite large.  Since we are already using per table tablespaces, can I simply stop mysql, move the ib files and then restart and reset the files in that manner?
+For the ib_logfile[01] - you needn't worry: these are cyclic files, so your info will eventually be overwritten (and if you want to rush it, why don't you invoke a gazillion UPDATE foo SET bar=1 WHERE id=1 on some dummy foo table?
+Even though the guilty records have been removed or corrected, scanning still reveal the records in the .ibd file, as well as the ibdata1 and ib_logfiles.
+I wrote on how you can use a replicate to convert all your tables to MyISAM (Assuming no foreign keys), restart, throw away your ibdata file, convert all back to innodb, get on with your life. It's a lengthy process as well. See: Getting rid of huge ibdata file, no dump required
+Nevertheless you should (no guarantees held) be able to overwrite the file at those particular positions where you find your sensitive data. If you can identify all of them - overwrite them with spaces/whatever (say these are credit card numbers -- overwrite with "0"s).
+I am running into an issue where sensitive data was not encrypted properly at the application level of our production system.

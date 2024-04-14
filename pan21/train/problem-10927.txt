@@ -1,0 +1,6 @@
+I have a HP laptop with Windows 10 installed. Whenever I boot into Windows 10, I always need to turn ON Num Lock before entering PIN. This is annoying because I always keep my Num Lock ON (even at the time of previous shut down).
+I beleive theese answers are excellent and I use them and they worked, but they only adress half the question (problem), which is to turn NumLock at boot time only. 
+I know this is a weird trick but it does works for me (without the need to edit the registry or turn off the fast boot)
+For thoose who don't know Autohotkey, it is a marvelous FREEWARE, which any self-proclaimed "SuperUser" should be aware of and use extensively.
+So, I was stuck with that application having numlock on, an Numlock off outside that application... drives me crazy since I use a lot the Numpad for numbers.
+My problem was that while starting an application (and old one that nothing replaces it yet so I'm stuck with it - Nortel BCM to be precise) that application tries to be cute and to turn on NumLock, but in facts toggles it, and only for itself !

@@ -1,0 +1,9 @@
+I kust realized that some other PC is also getting assigned a IP address (DHCP Lease) from my modem. I am sure this is not one of the PCs in my home.
+Because he leased IP address, most likely he just wanted to get access to the Internet. You should always configure any machines on WiFi so that they only reveal the services you could open to public network, because in terms of security, WiFi is public network.
+In general, I advice you against ever transmitting passwords or any other sensitive data unencrypted in wireless network. The possible attacker does not need to lease IP address to monitor your traffic, so you have no way of knowing if the data was compromised or not.
+My mac is the one that is always on, Both the admin user and the user I normally use are password protected.
+You should also change the password of your router and all (email, facebook, ...) passwords that were transmitted without encryption.
+You're fine for now. I had the same thing, but I was nice and left my network open. The next step if you get more paranoid is to enable WPA2
+My modem was using WEP security. I know WEP is far less secure and WPA is better, but this actually is a borrowed modem, and I did not know that WEP was used.
+WPA (if possible, with CCMP/AES, this may be presented to the end-user as WPA2) is sufficient, provided you have an unguessable password. I recommend using a password generator, or a short unguessable sentence. If all devices support it, disable TKIP.
+As to the host systems on your network, check that neither is compromised. In theory, this works by either comparing their state with a known good state, or resetting them to a known good state. Since this is probably not feasible for a home user, monitor their connections (from a different system), and consider setting up privilege restrictions as you already did by changing you Mac's file sharing options.

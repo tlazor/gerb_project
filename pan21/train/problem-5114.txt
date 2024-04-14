@@ -1,0 +1,8 @@
+Double-check your search criteria, perhaps you have excluded folders, for example by specifying a size (by definition, folders have a size of zero bytes).
+I think you are looking for "Windows Search Advanced Query Syntax". If you have installed Windows Search (and not using the original search function), do your search and add kind:folders
+If you only want to search for folders, you can expand the Advanced Options and select Folder in File Type.
+You should be able to find folders that match your search criteria (eg filename, date) by searching just as you would for a file; the results list will include both matching files and folders.
+Perhaps you are using the second editbox, that is used for search a text inside a file; as folders itself does not have text in it, but in the files inside it, you are only seeing files.
+In Windows XP, go to start menu and then select search (other ways: F3 on desktop or in Windows Explorer).
+In the first editbox, you can use for search for files or folders by their name, part of their name or wildcards that match file or folder names.
+If all you are trying to do is search for folder names, they will come up regularly. If you are trying to search in a specific folder, you have to click the browse button.

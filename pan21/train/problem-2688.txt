@@ -1,0 +1,5 @@
+2>&1 > file doesn't do either what you're looking for. It first redirects the error to where stdout is at the moment, which is your terminal emulator, and then redirects stdout (and only stdout, not stderr) to a file.
+The trick is to use script -c 'ssss-combine ...' output.txt (Because ssss does not output to stdout)
+I tried the basics: > file, 2>&1 > file and tee file but it always display on screen and nothing is put in the file.
+Although you did not specify the exact command you're executing, and as such it's hard to tell for sure, I assume that your command prints to the standard error file descriptor (a.k.a. stderr) rather than stdout.
+You can use 2>file to redirect stderr, or swap the two redirections in the previous example: >file 2>&1 to redirect both streams into the same file. The order is important since they are evaluated left to right. This time you're first redirecting the output to the file, and then the error to the current location of the output (which is already that file).

@@ -1,0 +1,6 @@
+3) We also use OneDrive from Microsoft as Online Cloud storage and would like to have it backed up on the server drive.
+Is this possible? And if so, what kind of network I would need to setup and what would it require to get started?
+1) Every user in the lab (approximately 6 to 10 users in lab who will be using the computers) needs to be able to login to every computer in the lab with their own credentials. We want this to  be possible for both the Mac computers and the Windows computers (similar to how a university computer lab works).
+2) We also want the main server to have storage for every user (We want to have ~20-30TB on this server computer setup in RAID). I haven't built the server that will house this yet because I want to know how to setup everything first.
+I don't have much experience in setting up this kind of network and we will probably hire someone to do it, but I would like to know what to ask for.
+I work in a University Laboratory and we want to install a server that allows each user to login to any computer in the lab with their own credential (We have a small laboratory with about 10 computers). I understand that VMware allows for this to be done on Windows and Linux, but we also have Mac computers that we want to include in our network.

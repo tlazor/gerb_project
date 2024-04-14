@@ -1,0 +1,12 @@
+Is the http scheme (instead of https) that bothers you? If so, you should look at the RewriteBase directive.
+On the first pass REDIRECT_STATUS will be empty; on the second pass it will have a non-empty value (usually 200), and the rule will match and really stop further rewrites.
+For your example, https://example.com/preview/anything is internally rewritten into https://example.com/index.php/preview/anything by the third rule; however, in order to process that request, Apache must read the .htaccess file again — and this time the URI matches your second rule, which returns a 302 redirect.
+Alternatively, you may try to modify your matching conditions so that on the second pass URIs modified on the first pass will not be matched (e.g., insert (index\.php/)? into the regexp in the second rule).
+Are these rewrite rules in an .htaccess file? In this case the [L] flag does not do what you think it does — it stops processing of the current ruleset, but then the request is processed by Apache again, using .htaccess files appropriate for the rewritten URI, therefore your rules may be executed again. This does not happen for rules which are in the Apache configuration file (and not inside a <Directory> section) — in this case the [L] flag is handled as expected.
+In case such a rule is not appropriate (e.g., in some cases you need to handle rewritten URIs on the second pass), you can set an environment variable in rules which should be really final:
+What I would also recommend is turning on RewriteLog and setting RewriteLogLevel to see exactly what apache is doing per request.  With apache 2.2 or less, it would be:
+This sounds like the last rule is introducing an absolute http-based redirect when it's being done, perhaps due to some bug or feature in Apache or mod_rewrite.
+I don't think you need the '(.*)$' at the end of the RewriteCond statements, because you're not using the captured data anywhere.  You could simplify those 2 like so:
+If you want to make sure that Apache makes only a single pass over your rewrite rules, you may add the following rule before all others:
+Note that during the second pass Apache prepends REDIRECT_ to environment variable names which were defined during the first pass, therefore you need to set FINISH, but test REDIRECT_FINISH.
+Apache 2.4.x supports the [END] flag which stops such rewrite loops, unlike [L]; solutions for earlier Apache versions are more complex.

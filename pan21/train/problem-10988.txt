@@ -1,0 +1,6 @@
+Well The Problem you are having with NC ( assuming you are talking about NETCAT) the Apple Version does not have the -e option in its bin.  
+You should now be able to connect using any standard ssh client. Macs and linux/unix machines have it built in. PuTTY is a good choice on Windows.
+The best solution is, to Compile a GNU version of NC using the apple SDK, then replace the apple version with your own GNU NC version. as far as i know apple has no plans to add the -e option to appleNC.
+If you set up an SSH keys (for instance with "ssh-keygen -t rsa") with no passphrase and then put the public key (as found in ~/.ssh/id_rsa.pub) in the ~/.ssh/authorized_hosts file in the remote user's host, then you won't need to exchange any passwords and everything can be done from the command line using ssh.
+Second, you have failed to adequately describe what you're trying to do. Are you trying to remotely login to a Mac OS X computer from another computer? Are you trying to remote from the OS X computer to another? Are you trying to create some sort of remote server that's accessible externally?
+First off, nc (which I had no prior knowledge of) appears to be a kind of telnet program. Insecure at best and rather rudimentary. I would not advise trying to use it.

@@ -1,0 +1,10 @@
+So the 10.0.0.0/8 network would be behind Bob and should be isolated from the other PC's in the network but still able to get out to the Internet after going through two sessions of NAT.
+then you can assign that IP address to any virus infected or unreliable computer you are working on, in the knowledge that it will not interact with the rest of the computers at home.
+Theory says that DMZ computers can access the Internet but cannot access the Intranet: Intranet computers can access the Internet and also they can interact with DMZ-located computers (the firewall allow communications DMZ->Intranet when they are answers to questions issued from the Intranet, otherwise traffic originated at DMZ with destination the Intranet is blocked).
+You could create two subnets in your network. So for example the 'clean' and 'infected' would be on the same physical network, but on two seperate logical networks.
+So, if you define a default DMZ server address that is located inside your home network address space but 
+The proper way to do this is to have two networks and a firewall to protect the networks from eachother. For example, most computers would be on 192.168.0.0/24, while the under-repair PC's are in the 10.0.0.0/8 network. Since your router doesn't support multiple networks, you could pick one of your PC's to do Internet connection sharing; let's call it Bob. You could also pick up another cheap router to do the same thing and call it Bob as well.
+DMZ is a special logical zone located between the Internet and your Intranet, I mean your home network.
+After a quick Google search I turned up the following link, which could help out in calculating a subnets bits:
+It will give you the chance to have just ONE unreliable computer online, in case you need more than one unreliable computer online, next to the rest of your hardware..... think twice!
+Is there a way to create a home network so every safe an secure computer can access the internet and another network where I would fix machines that have virus's or machines that I don't want to access the home network.

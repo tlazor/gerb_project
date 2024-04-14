@@ -1,0 +1,14 @@
+If you actually DID want to generate an automatic FULL backup at database creation time, you could dynamically generate the BACKUP command in the trigger.
+He suggests creating a SERVER TRIGGER which can be used to send an email notification to the DBA group anytime a new database is created.
+You should create a table where you should add Database name,whether database was updated or not (you will need this for an agent), and some other info needed for backups such as :
+This has the specific backup parameter that you are looking for @ChangeBackupType = 'Y'.  From the documentation
+Unfortunately the maintenance plans in SQL Server are quite limited in functionality and the option that you are looking for doesn't exist as far as I know.
+Any way to ask the SQL server to take a full backup of new databases? It can right after the database creation or in case a of failure of a differential or log backup job.
+I have created a maintenance plan to take a full backup of all my databases every Sundays and a differential backup every day. Also, a log backup is triggered every hour.
+I therefore need to be able to take a full backup anytime either the differential or log backup job fails.
+As Shanky has mentioned, you would need to look at some other tool for this such as the excellent open source backup and maintenance solution from (Ola Hallengren).
+It will require an additional table,a trigger, and an agent job to be ran before transaction log backup job. So if you think its worth going through that than bare with me:
+You might consider Chad Churchwell's approach in generating Email alerts when new databases are created in SQL Server
+I could for example add a new step to take a full backup in case the previous one fails. However, this full backup job will run on all my databases but I would like to only take the one that have failed.
+However, there is an issue with this schema. If I add a new database in the middle of the week, the differential and log backup jobs will fail because they are lacking a full backup image.
+I think it'd be wise to know you don't have a FULL backup on a newly created database as soon as possible (rather than waiting for a job to fail), but I'm not sure I'd try to automate the FULL backup at creation time.  

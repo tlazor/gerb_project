@@ -1,0 +1,6 @@
+Usually OVPN server pushes a route command into a client. If you run OVPN GUI as a user (it does it by default) you will see you OVPN client connected but it will not be able communicate with the remote network because OVPN client was unable to modify your routing table. 
+Please try to run OVPN GIU as administrator. My OVPN connection is marked as public network in Windows 7. And it works fine.
+So that Windows 7 will permit setting the network type, it pushes a bogus default route, which should never be used (because of the high metric cost). If it's desirable to push only to Windows 7 hosts, try using OpenVPN client config.
+I had this issue before. And initially I believed Windows is blocking the access because it treats OVPN network as a public network. But I was wrong. The only issue was missing route.
+For Windows 7 network types, the secret lies in the GATEWAY entry. Any network you connect on that doesn't have a DEFAULT GATEWAY provided with, becomes PUBLIC and you cannot change it's type.
+you have to use the run as administrator with open vpn for it to write the proper routes to windows if not it will not route the traffic properly. 

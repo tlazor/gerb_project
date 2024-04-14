@@ -1,0 +1,7 @@
+We then have a "set_env" script in both folders which sets the relevant PATH and LD_LIBRARY_PATH variables.  If we want to run something 32-bit, we type
+Why don't you write a Ruby script to parse it for you, and make it readable, and allow you to edit it? That'll be a nice little project.
+Just don't do what I did originally and indent the lines, because then it becomes "  /opt/32..." - note the spaces, which then isn't a valid filesystem path!
+$PATH needs to look the way it does, though you can probably split it across lines using a backslash (untested, don't have a *nix or Linux machine available).
+I'd love to manage my $PATH using Ruby but naturally it looks like I needs to stay as part of my shell configuration files.
+The colon-delimited path list isn't so terrible in the grand scheme of badly formatted things you'll find in the world :-)
+At the risk of sounding like a crotchety old *NIX admin, please don't do strange and funky things like writing a ruby script to manage PATH for you -- You aren't going to be editing this very often (if you are you're probably doing something wrong), and you will be better served in this case by conforming to the same standards as everyone else, especially if/when you need to ask someone for help.

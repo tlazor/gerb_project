@@ -1,0 +1,5 @@
+If the UDP dissector is the most specific dissector for the captured data, than the Protocol column will show UDP. However many types of UDP traffic will be identified (SIP, RTP, DNS, etc).
+If you don't want the QUIC protocol to be identified, simply go to the "Analyze" menu and select "Enabled Protocols" from the list. Find the entry for QUIC and uncheck the box.
+In your case because the traffic has been analyzed as QUIC data. It may or may not be QUIC traffic; no program of this type is perfect, but Wireshark will be correct more often than not.
+QUIC is one of the "newer" classifications, as it appears to have been added in 1.11.3/1.12.0. If you were using a version of Wireshark prior to these versions, the same traffic may likely have been classified as UDP (or another protocol).
+Wireshark uses dissectors and lua scripts to analyze and classify capture traffic (or parts thereof).  What is displayed in the Protocol field of Wireshark's Packet List Pane is the information returned that is most specific after analyzing the data and will determine how the data is presented.

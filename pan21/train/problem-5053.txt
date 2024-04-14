@@ -1,0 +1,12 @@
+Perhaps the least preferable (depending on how you like your network to be laid out) is to just run three really long cables all the way from your AV room to the D-Link, provided that you've got the spare ports open.
+For TCP/IP over Ethernet networking, there is no such thing as a "simple splitter" a-la Y-connector.  There are hubs, and there are switches.
+In order to serve a single Internet connection to multiple devices in your house, a router must be the first device connected to (or included in) your bridge device (AKA cable modem).
+At the edge of the home network, we have a network bridge.  This is to connect networks which use two different physical media - like coax and Ethernet.  For you, this would be your cable modem.
+Sometimes, devices will have multiple capabilities bundled into one.  Your D-Link 601 can perform routing and switching functions, as well as be a wireless-to-ethernet bridge.  Some cable modems also come with these features, but my guess (based on your question here) is that yours doesn't.
+More complicated solutions involve replacing your D-Link with a new router, and re-purposing the D-Link to be that switch.  Or, you could replace your entire cable modem with one that also does routing & switching and then move the router to be your switch.  
+Ethernet splitters allow you to run two distinct 10/100 Ethernet connections over a single cable. But you have to actually have two connections (on each side!) to do that.
+Home Networking 101 being covered above, the bottom line here is you cannot solve your problem without at least purchasing a switch for the network.  The simplest solution would be to get a switch and put it in your AV room, then be done with it.
+You can add a switch to the LAN side of your router. Leave your router where it is. Connect the long cable to one of its LAN ports. And then get a cheap Ethernet switch (10/100, 5 ports unmanaged is fine) to connect the long cable to your other device.
+At a higher level, we have routers.  Routers are used to interconnect different networks - such as your home LAN and the Internet.
+Hubs and switches are both used to interconnect multiple devices.  The key difference is that hubs broadcast all data to all ports, while switches only send data to the port belonging to its recipient.
+No. You can't additional devices to the WAN side of your network because your Internet connection can only support a single device. That's why you need the router -- to make multiple devices (on the LAN side) appear as a single device to the modem.

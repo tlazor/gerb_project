@@ -1,0 +1,7 @@
+I would like to override the "Auto-assign Public IP" parameter set during instance launch, in order to restart the instances and allocate a public ip address when need. And, when the maintenance task is completed, reset the parameter and restart the instance again.
+Still, if you find yourself moving EIPs from one instance to another just for being able to access each instance via SSH, you are probably better off creating a bastion instance through which you would SSH onto other instances using an SSH ProxyCommand.
+Ephemeral public IP addresses (drawn from a shared pool) are assigned at instance start: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses.
+There is a limit to 5 public IP addresses (Elastic IPs) for each AWS Account and I have reached such limit. 
+Now I have many EC2 instances created without the "Auto-assign Public IP" attribute, which assign a public ip address at start.
+This is good because we don't pay and consume valuable resources. On the other hand I cannot access directly via ssh, but only bridging between an instance that has a public ip address.
+On the other hand, elastic IPs (EIPs, to which the said account limit applies) are owned by your account (until released) and are explicitly associated with EC2 instances. You can also move EIPs from one instance to another. No need to restart instance for that purpose. See http://docs.aws.amazon.com/cli/latest/reference/ec2/associate-address.html and the --allow-reassociation parameter.

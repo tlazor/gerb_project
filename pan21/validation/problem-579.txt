@@ -1,0 +1,16 @@
+You on your own or together with some friends want to create your (maybe first) game. Perfect, you can decide everything on your own and you are only limited to basic technical desicions and technical requirements (should it be a mobile game, a PC game, a console game, a web game,....). You can decide whatever you want.
+A more evil (real life) requirement: everything has to be written from scratch (but using libraries is allowed). So no editor is allowed (e.g. Unity3D). So you are not looking for engines/sdks but for libraries.
+You want to make money with the game later on. Therefor you will need to sell it somehow which brings you to check which requiremnts come from the store you want to sell your game on. 
+Therefore before you even start evaluating you need to be clear in which scenario you are and which requirements you have/want to have because this are the questions which should be answered by the evaluation.
+The scenario defines where the requirements come from (who decides what is an requirement and what isn't).
+Requirements may come from your teacher. Typical requirements I had in that case: the game needs to have some physics elements and multiplayer network support. Or it has to be written in C++.
+The Google Playstore will require you to write your game as Android game, Apple AppStore will require you to write your game as iOS app. Or you have the requirement to pick a multiplatform engine.
+Answering such questions brings you to the requirements. The evaluation is finding a list of tools and TESTING (not just reading the homepage) what the tool can provide or can't.
+In this scenario you will also have a bigger team of employed developers. Depending on their skill set new requirements arise (our programmers can only write c++ so we can not use a pure Java/Android game engine without them needing (lot of) time to learn something new).
+Take the requirements you have and get started. Changing requirements are the daily bread of the suffering, ahm, happy developers independent of project size and experience level.
+Does it require you to include specific libraries (if yes, in which languages are those libraries available)
+So evaluating becomes easy. You are looking for a game engine which lets you code in c++ and may already include a network and physics engine.
+You do not only have a store providing requirements but most likely a publisher or customer having own immaginations of requirements.
+Implicit requirements will be that you may want to learn something specific (a language, a specific framework/engine)
+Requirements are not cut into stone but are dynamic. They will come and go during development. If the game needs physics or not for example depends on the design. If the design changes the requirement can change too.
+I do not go into detail for this scenario, once you managed to build up a team of employes and find a customer/publisher you already know what you are looking for on evaluating things.

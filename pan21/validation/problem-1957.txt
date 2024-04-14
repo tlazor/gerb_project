@@ -1,0 +1,7 @@
+Check the property RequireSenderAuthenticationEnabled with Get-MailContact -identity foo | FL in Exchange PowerShell.
+What's weirder is that I can send mail to the 'foo' contact from inside my domain, and the mail gets forwarded to 'foo@bar.com', but for some reason it won't bounce mail coming from outside (all other incoming mail works fine).
+The enable command is only for contacts created in Active Directory (no associated exchange object).  Running enable-mailcontact, here creates an associated exchange object that matches the AD contact. 
+Jesus Shelby's answer is also correct.  There is nothing further you need to do with regard to "enabling" the contact.  It is ready to do its thing.
+If this property is True, then only senders inside the domain (authenticated senders) can send messages to the contact.  If False, then Exchange will relay messages from the outside (Unauthenticated).
+"This task does not support recipients of this type. The specified recipient foo is of type MailContact. Please make sure that this recipient matches the required recipient type for this task."
+You don't need to "enable" the contact because you used the new-mailcontact cmdlet (i.e. it's already mail enabled). 

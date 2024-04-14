@@ -1,0 +1,14 @@
+For example, an asset cache that stores Tile objects using a string as a key: new AssetCache<string, Tile>();
+I would have a static AssetManager class with a public static Load(ContentManager content); method. Assets would be loaded and stored in multiple Dictionaries like so:
+The generic parameter of this class represents the key type that will be used when storing assets. This means I can use things like int's, string's or even custom structs like Point2D if I really wanted to.
+This class stores assets of a specific type using a specific key. It contains various getters and setters.
+I'm throwing exceptions when trying to add or get an asset that doesn't exist in an AssetCache or when an AssetCache of a specific type does not exist.
+private static void Dictionary<string, Spritesheet> _spritesheets = new Dictionary<string, Spritsheet>();
+    /// <exception cref="CacheNotFoundException">Thrown if the asset cache cannot be found.</exception>
+The ICache interface is implemented by the AssetCache class above, is used by the CacheManager so I can store multiple AssetCache objects with different generic types in the same dictionary.
+I would  have multiple different methods to help with adding and getting assets. After a while, my AssetManager class starts to get rather large. 
+I've been using Monogame for hobby game development for the last year now. My game assets aren't large so I usually load them all on startup.
+        throw new CacheNotFoundException($"Asset cache for type '{typeof(TAsset).Name}' not found.");
+So to help maintain and easily access assets, I decided to create an AssetCache (to store assets of a specific type) and CacheManager (to manage the different asset caches). I use generic methods to get specific AssetCaches in the CacheManager.  
+The idea being if you are trying to get an asset that doesn't exist, something has gone wrong. Either you haven't added the asset, or the name is spelled wrong.
+I don't think using the word "Cache" is appropriate in this case, seeing as assets aren't removed after X amount of time. Perhaps "Store" might be better.

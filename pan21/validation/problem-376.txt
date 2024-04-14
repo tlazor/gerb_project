@@ -1,0 +1,9 @@
+It's quite difficult for the kernel to actually use up a whole GB of memory; this could happen with memory-intensive device drivers, or if you also enable the /PAE switch, which induces increased memory management overhead.
+The system reports 3.25 GB RAM and taskmanager reports the process of sqlserver.exe with 2758255 K as the process with the highest consumption.
+Somebody told me that if the OS runs out of memory within his part of RAM, the server runs into pressing mode.
+The best option here would be switching to x64 Windows; even if you only have 4 GB of physical memory, you could at least use all of them and not need to worry about kernel/user space issues anymore. You're using SQL Server 2005, so this is a viable option (unless you have other application issues).
+The OS separates RAM for applications and for itself, normaly 50:50. But here we have the /3GB-Switch aktivated and i think the part for the applications is more than 50% of RAM.
+i have at customer side a server (win2003 R2 SP2 standard edition 32-bit) with a sql-server 2005 and some databases. This system starts with  the /3GB-Switch.
+thanks for your attention. i regrett my humble question but the problem is described om the following blog. http://blogs.msdn.com/slavao/archive/2006/11/13/q-a-does-sql-server-always-respond-to-memory-pressure.aspx
+Never heard about this "pressing mode", and Google can't seem to find nothing about it; howewer, this could actually be a problem, but usually it isn't.
+You sure that the one who told you about this "pressing" mode didn't actually call that thing "paging"?

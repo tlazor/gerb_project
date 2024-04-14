@@ -1,0 +1,6 @@
+Instead of getting work done for the past 2 hours I've been fighting this stupid problem. I would really appreciate any help I can get to stop this and permanently lock the connection as private...
+and I do, and a flyout comes from the side asking me to allow this, which I do. I go to the network settings and I see that my connection I indeed private.
+I "forgot" the connection and re-added it, but it never prompts me to choose if I want to access pcs on the network it just automatically defaults it to public.
+So instead I go into Windows Explorer and open the Network section, where I am told "Network discovery is turned off. Network computers and devices are not visible. Click to change..."
+I don't see anything in the EventViewer that would explain or even log the change, and I have absolutely no idea how to fix this...
+I've tried changing the registry settings, I've tried changing the setting in secpol.msc (and looking at it now it is set to Private, even though the connection remains public).

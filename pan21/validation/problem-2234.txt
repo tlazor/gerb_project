@@ -1,0 +1,8 @@
+1) You upgraded Synergy and the new GUI is having trouble connecting to the background service. You can fix this by opening a command prompt as Administrator and run the command
+2) Alternatively, are you running Windows 7 32-bit? If you accidentally installed Synergy 64-bit, the GUI will run but the background service will not run (being 64-bit code). Even users of 64-bit Windows have reported that running the 32-bit version works better for them; they had problems with the 64 bit one, so give that a try. 
+http://synergy-foss.org/osqa/questions/1862/why-do-i-see-the-ipc-connection-error-connection-refused-error
+So what I did is I go to MyComputer\Services, set back the Synergy service to Automatic, then I should work.
+I had the same problem. I realized that I had set the Synergy service in the MyComputer\Services to Manual.
+If everything else is fine, finally try starting the service manually by pressing Windows-R, and then in the "Run" dialog typing services.msc. Find the synergy service in the list and tell it to Start. If it has errors starting, you should be able to see them here and post back with more info.
+Thanks so much for this.  The solution to delete the service and reinstall the 32bit version fixed the problem.  It would be nice if the software could automatically recover from these issues.
+I have had the the same problem.The only thing that seems to fix it for me is to uninstall the 64 bit version and install the 32 bit version instead.

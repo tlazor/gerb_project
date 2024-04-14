@@ -1,0 +1,16 @@
+In my experience with VPS, i would look into open file(/sock) limits. Those can lead to strange effects, especially hanging/denied i/o (eg your communication error) whilst having apparently lots of free resources available.
+So, when site starts to hangs, ONLY PHP generated content is not working, like I said other static pages are working. And, ONLY on that one main site I have problems.
+root_options: ExecCGI, FollowSymLinks, Includes, IncludesNOEXEC, Indexes, MultiViews, SymLinksIfOwnerMatch
+Check your database for errors and make sure the database(s) aren't too large. Also, look at your database logs and Apache error logs when you start seeing a slow down.
+Problem is that after some time (it vary from 10 minutes to few hours after apache restart), loading of pages on main site becomes very slow, or I get 503 Service Temporarily Unavailable error. So pages becomes unavailable.
+Currently I have about 7000 unique visitors on that site but site worked nice even with 11500 visitors per day. And about 17000 in total visitors on VPS, all sites ( about 3 pages per unique visitor).
+Then I need to restart Apache, after restart everything is vorking nice and fast, for some time, than again, just PHP pages on main site are becomming slower. If I do not restart apache that slowness take some time (several minutes, hours, depending ot traffic) and during that time PHP diven content is loading very slow or unavailable on that site. After sime time, on moments everything start to work and is fast again for some time, and again.
+Also I have that same gallery CMS on another two sites on that same VPS (on one running site and on one just for testing site). On other two sites I have diferent PHP driven gallery.
+Linux vps.nnnnnnnnnnnnnnnnn.nnn 2.6.18-028stab099.3 #1 SMP Wed Mar 7 15:20:22 MSK 2012 x86_64 x86_64 x86_64 GNU/Linux
+And ones again, only on that main site, and only PHP driven pages, static pages are working fast even in most traffic hours also other sites with even same CMS are working fast.
+I thought it must be something with CMS on that main site, because other sites are working nice. Then I tryed to open contact and guest book pages on that main site which are outside of that CMS but also PHP pages, and they do not load too, but that same contact php scipts are working on other sites at the same time.
+I have 5 sites on that VPS (one of them is just for testing, no visitors exept me). All 5 sites are image galleries, like wallpaper sites.
+But just that part with new CMS gallery, old part of site with static html pages are working fast and just fine. Also other two sites with same CMS gallery and other two with different PHP driven gallery are working fine and fast at the same time.
+In hours with more traffic PHP content is loading slowly or it is unavailable, in hours with less traffic it is sometimes fast and sometimes little bit slower than usually.
+System info: (Unix) mod_ssl/2.2.22 OpenSSL/0.9.8e-fips-rhel5 DAV/2 mod_auth_passthrough/2.1 mod_bwlimited/1.4 FrontPage/5.0.2.2635 mod_fcgid/2.3.6 
+Last week I noticed problem on one site (main domain, used for name servers, and also with most traffic, visitors). That site has two image galleries, one is old static html gallery made few years ago and another, main, is powered by ZENPhoto CMS.

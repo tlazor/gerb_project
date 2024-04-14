@@ -1,0 +1,6 @@
+Instead, I suggest using the standard way to force a browser to download rather than display the file, which is to use the Content-Disposition header with a value of attachment (RFC 2183, see also RFC 2616).
+Default type for txt extension is text/plain. This behavior is described in mime.types file. Use http://nginx.org/en/docs/http/ngx_http_core_module.html#default_type or http://nginx.org/en/docs/http/ngx_http_core_module.html#types to override it (maybe set to application/octet-stream).
+You need to extract location for downloadable file and set their content-type as application/octet-stream.
+Changing the Content-Type of .txt files may work, but it's a somewhat risky way to solve this problem, because you can't guarantee 100% that the user's browser will respond how you expect. And furthermore, it's misleading to label a .txt file as a binary file.
+We have following location on our service for downloadable promomaterial (which includes pdfs, images and some docs, but I'm sure it will work with txt files as well):
+For example, this nginx location block will send down such a header with .txt files under the /downloads/ URI and thus they will be forced to download:

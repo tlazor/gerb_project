@@ -1,0 +1,6 @@
+to get things more efficient [make use of multiple cores if you have slower CPU] or just use better available bandwidth and IO - you can run few parallel rsync sessions for a few files.
+You may want to look into file acceleration software.  I think there are many players in this market, but the one I have seen used in the past was aspera.  Here is a page comparing aspera sync to rsync (comparison tables at bottom of page).  
+Also, make sure that no side involved uses any really old versions of rsync. There are still 2.x versions in use, these make the whole chain fall back to an older and in some cases far less efficient version of the protocol (If you are told "sending incremental file list", you are fine. If it is "sending file list", that is 2.x protocol used.)
+assuming you have few large files [possibly wrong assumption] - you should be able to transfer the payload within ~5h. i've done a quick test:
+someone mentioned here using rsync daemon - this is much 'lighter' solution than tunneling the traffic over ssh. but even with ssh encapsulation transferring 1.5TB over night and saturating gigabit link should be doable. 
+i dont know if you own/lease the fiber or just use mpls service provided by the operator regardless of those ssh gives you additional benefit of strong encryption without setting vpn in-between.

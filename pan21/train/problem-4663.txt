@@ -1,0 +1,11 @@
+creates an index of the contents of fruits.a and stores the index in fruits.a. This is useful for linking and in case the objects call each other.
+An archive with such an index speeds up linking to the library and allows routines in the library to call each other without regard to their placement in the archive.
+ranlib adds or updates object files in a static library. Linkers can use static libraries when linking in order to provide symbols that the code needs in order to operate (as opposed to the loader looking for them in dynamic libraries when running the executable).
+libfoo.so or libfoo.a. By default, once it finds either one of them it will input that file to the linkage, and
+because even if an ELF object file is called libgraphics.a, and is input to a linkage either by that name,
+or DSOs (Dynamic Shared Objects). In this case archive-name will also conventionally be given the prefix lib, e.g.
+or by -lgraphics, the linker will correctly identify it as an ELF object file, not an ar archive, and will consume
+libfoo.a, so that it can be discovered as a candidate linker input file via the linker option -lfoo.
+a running process. Usually we invoke the linker via one  one of the GCC frontends (gcc, g++, gfortran, etc):
+And we haven't seen at all how to produce the other and most important kind of thing that's conventionally called
+ranlib generates an index to the contents of an archive and stores it in the archive.  The index lists each symbol defined by a member of an archive that is a relocatable object file.

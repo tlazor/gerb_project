@@ -1,0 +1,9 @@
+Now I know the reason why my computer started waking up at 3:59 a.m.  Because I accidentally clicked on the Windows Live TV icon by mistake and turned it on for the first time ever a few days ago. Never have used it before until now, by accident.  STUPID Windows crap. 
+There were several things going on with Windows Media Center that were listed in the Task Scheduler list for Windows Media Center . MCUPDATE being one of them.  Happening every morning at 3:59 a.m.  Have disabled them all.  
+The little known powercfg command can help you find out what's causing it. Excellent article on how to use it (and other PC 'insomnia' tips) here:
+Oh and PS -- Stupid that a poster has to have 15 points to upvote, or 50 points to comment to an already given solution.   If a solution that is given works for someone, they should be able to upvote it or comment on it just by logging in and doing so. 
+This link describes what actually happens. By default the maintenance is set to 3 am and automatic wake up at this time is enabled.
+Sounds like a scheduled task to me. One of the usual culprits is Windows Media Center Update(mcupdate_scheduled). 
+My suggestion would be to check your Task Scheduler in windows 8 and see if any tasks (usually updates) are set to start around 3:00am and disable them.
+Right there you will see the settings that is so arrogantly starts your PC in the middle of the night. You can either disable automatic wake up or change the time.
+My problem was resolved and found by using the third from last solution posted here, which was given by Jason Bristol. "Scheduled task event" 

@@ -1,0 +1,9 @@
+Currently it runs Windows Seven 32bits, but to support that much memory I need to install the 64bits version.
+Source: http://windows.microsoft.com/en-us/windows7/32-bit-and-64-bit-Windows-frequently-asked-questions
+Turns out surfasb was right everything has been put in the Windows.old directory. So it is possible.
+In short, No you cannot do this. You will need to back up your files (or create a partition with your one HDD and back up the files to the other partition).
+You can use the Upgrade option during Windows 7 installation, which preserves your files, settings, and programs, only if you're currently running a 32-bit version of Windows Vista and you want to upgrade to the 32-bit version of Windows 7. Similarly, if you are running a 64-bit version of Windows Vista, you can only perform an upgrade to a 64-bit version of Windows 7. For more information, go to Upgrading to Windows 7: frequently asked questions on the Windows website.
+If you want to move from a 32-bit version of Windows to a 64-bit version of Windows 7 or vice versa, you'll need to back up your files and choose the Custom option during Windows 7 installation. Then, you'll need to restore your files and reinstall your programs. For more information about performing a custom installation, see Installing and reinstalling Windows 7‍.
+since the only answer I had was no, I did a backup on a NAS which took hours (that's what I wanted to avoid).
+I have only one hard drive with no free partitions so I'd like to just install Windows Seven 64 bits over the 32 bits version already installed, without loosing the data, is that possible?
+P.S. : I used to do that with older versions of windows, I ended up with a fresh intall, but the data is still on the disk

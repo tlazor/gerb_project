@@ -1,0 +1,8 @@
+Some desktop-based distributions force you to create additional users, but for servers you actually don't need one.
+If I was managing a distro, I would configure the system to be as hardened as possible at install. It's better to forget to enable some feature than it is to forget to disable some faeture. 
+I'm currently working on hardening my servers against hacking- amongst other things, i'm getting a load of attempts to log on as root over ssh. While i've implemented fail2ban, i'm wondering, why root logons would be allowed by default to start with? Even with non sudo based distros, i can always log on as a normal user and switch - so i'm wondering is there any clear advantage to allowing root logons on ssh, or it just something no one bothers to change?
+I'm not sure, but I would assume that they wanted to make sure that people doing foreign installs could login. The first login might need to be root since there are no other users yet.
+However, you must make sure to disable the login as root option in the sshd config after you have created your user and given him sudo permissions.
+Also, these arguments that sudo or su are more secure than logging in as root is a big myth. On Ubuntu, for example, the user can run ANY command using sudo by default, so any attacker who get in can also run ANY command as root. Pretty useless from a security perspective.
+I also recommend that you change the SSH port to something other than 22. While it doesn't make your machine more secure - it does stop all those wasteful/annoying requests.
+Well, because root is a valid user and sshd does it job allowing it. On OpenBSD (same guys from OpenSSH), for example, you are not asked to create a user during installation, so you need to use root to access your box.

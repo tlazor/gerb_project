@@ -1,0 +1,9 @@
+There are a few things related to Transparent Caching, among them it's the BranchCache, Offline Files and Background Sync features, since Windows 7.
+I tried to use Transparent Caching on Windows for accessing large (100s MB) files from Network drives. First tests are very promising. It can reduce reading all tested files from 3.5s to 0.3s.
+If you are talking about Transparent Caching only, then that option is regulated by bandwidth and latency (slow-link-mode), and might be affected by available space for the cache size. It can be configured via Group Policy on a Windows Server serving the client.
+Is it possible to control how long the cache persists? How the system knows the cache needs to be reevaluated? Maybe it can be caused by SMB setup.
+Background Sync, a service required for TC on the other hand has a few more options, including the timeout and sync interval for the files.
+There are no additional (supported) settings. Or I didn't find them. If you do so, please leave me a message :)
+The problem is that the cache is invalidated very quickly. From what I've tested, after ~10 seconds.
+You should keep in mind that Transparent Caching always asks the server for changes to the files and only allows access to those as long as the server shows them available. You can read more about it in the official TechNet article.
+That depends, largely on the caching system's ressources and the latency (divided by the accesstimes). Usually you can see a lot of smaller files caches around 10-20 minutes and fewer large files (1-3 minutes).

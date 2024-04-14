@@ -1,0 +1,6 @@
+and then see if the shares are there with showmount.   BTW on my system I have a problem with the RPC registration service coming up so you might have to do:
+There is a bug that systemd unit zfs-share.service does not perform sharenfs -a on startup  https://github.com/zfsonlinux/zfs/issues/1375
+If this mitigates your problem you might consider adding those commands to your system rc file but I just do it manually each time I reboot.  
+First question: are you using systemd or the older-style init system?   16.04 uses systemd by default and the ZFS components are not really well debugged.
+See this discussion for details: https://github.com/zfsonlinux/zfs/issues/2107#issuecomment-47182970
+I am setting up ZFS and NFS on Ubuntu Server 16.04LTS and have a weird issue that is causing me to go crazy. I have set up ZFS and NFS using ZFS shares as described in https://pthree.org/2012/12/31/zfs-administration-part-xv-iscsi-nfs-and-samba/. As you can see in my log below, although I have set zfs-share to run zfs share -a during boot, the shares are still not exported. Even weirder, is that  zfs share -a still doesn't when I manually run it. I can only get zfs shares to work if I reset the sharenfs property of one of the shares and then re-run zfs share -a. See below

@@ -1,0 +1,7 @@
+One thing that seems to be rarely suggested is inspecting at one of the clients that has a bad address and looking at where it came from. For example, on a Windows client "ipconfig /all" will tell you immediately what the rogue server address was.
+For long term monitoring, the check_dhcp plugin for Nagios can be set to warn if you have too many responses, or an unexpected response.
+Try a running a protocol analyzer like Wireshark while connected to the subnet in question.  You'll want to filter on bootp messages.
+(I might write a script to search randomly, as I suspect the rouge DHCP server is not on all the time, or perhaps not acting as a DHCP server all the time.)
+I am investigating some odd behaviour on a sub-net, where host registration doesn’t list some of the IPs that some users report having. Now that I’ve seen evince, i want to passively scan for the presence of a rouge DHCP server, not listed in my domain.
+If you want to do this in a truly passive manner, you'll have to wait until a client on that subnet initiates a DHCP request, after which you'll see all of the DHCP servers listening on the subnet respond to the client.  If you don't have the patience, initiate a DHCP request on your own with a connected computer.
+As TomTom says, most enterprisey switches can be hardened to defend against various things including rogue DHCP servers.

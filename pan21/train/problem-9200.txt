@@ -1,0 +1,8 @@
+A very good book on all the details of processor architecture :Computer organization and design by David A. Patterson, John L. Hennessy.
+(Interestingly, there was an article in the latest Scientific American (July 2011) that covers this topic for the human brain.  Same principles, and one way the human brain packs in more power is to partition the brain in to separate sub-processors, so to speak.)
+The power dissipation is in the form of heat.  Power = Voltage * Current.  Voltage = Resistace * Current.  Power = Voltage^2 / Resistance.  So the heat disipated is proportional to the voltage squared.
+The gates of transistors behave like capacitors.  As the clock rate goes up, more reactive power is delivered to the capacitors.  The fraction of which is lost in the resistive wires also goes up.
+during the charging and discharging of the capacitor.  This dissipated power is real power loss, and cannot be recovered.   As the clock rate goes up, the rate of charging and discharging goes up, increasing the power loss in the wires.
+To speed up one core you need new technology to speed up the transistors switching from one state to another.  To add another core you just need more of the same transistors.
+To switch the state of a circuit rapidly requires more current than to switch it slowly.  To achieve that current you need a higher voltage and/or larger, more power-thirsty components.  And, of course, larger components need more drive current, causing a snowball effect.
+For instance, if an ideal capacitor is connected to an AC voltage source by ideal lossless wires, the capacitor will charge and discharge, taking energy from the generator in one cycle, and returning energy to the generator in the next cycle.  The net loss is zero.

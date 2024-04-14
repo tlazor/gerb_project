@@ -1,0 +1,7 @@
+A layer 3 router is making use of MPLS (Multi-Protocol Label Switching) to switch packets in the router instead of using the routing engine. This means that the packet skips the routing engine and goes directly out a physical port.
+Usually a router (in the U.S.) is connected to an ISP using a variant of PPP (specifically PPPoE). The router takes a routed protocol (TCP or UDP) and passes it to the provider network directly. Then the provider network uses a routing protocol (OSPF, IS-IS, or RIP) to route the routed protocol.
+I've worked with Layer3 switches. I'm currently a Network Security Engineer at Level3. I've worked for TWTelecom and Reliance Global Com as a network engineer. Let me know if you have any other questions.
+There are a couple of problems with some of the answers provided. First and foremost we have to understand what a layer 3 switch is, and what a router is.
+An L3 switch is NOT just a switch and a router in one box. An L3 switch is a router runnning specific software that makes it compatible with protocols being used by other L3 switches it is connected to.
+What you are attempting to do will provide no net benefit. You are essentially complicating your network... because you can.
+The catch is MPLS is only useful if your provider is using it, and you have multiple networks (think 254 devices per network in 254 networks).

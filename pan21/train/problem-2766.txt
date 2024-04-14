@@ -1,0 +1,11 @@
+Also, if NFSv4 was used, it may be worth trying NFSv3 instead. Those versions are very different and this may make a significant difference in performance.
+In order to support inotify inside the linux machine, we eschew the usual method of sharing directories with VirtualBox: instead, the Virtualbox machine exposes an NFS share, which is mounted in OSX.
+Clearly some latency is inevitable, but this is bad enough that it makes some simple tasks quite painful.
+It might be worth trying different (virtual) nic configurations for the VirtualBox vm - different virtual chipsets and modes (bridged mode instead of nat).
+Also, ensure that your VirtualBox instance is not thinly-provisioned; thin provisioned storage on VirtualBox is a significant performance hit when writes happen.
+Obviously NFS performance will be worse than writing straight to a local SSD, but the NFS is just running over a virtual private network interface with Virtualbox.
+I manage a vagrant setup for our developers running OSX to manage VirtualBox systems for development.
+The owner of the volume is running Ubuntu 12.10 (Quantal), with default settings. The system mounting the volume is running OSX Mavericks.
+At the moment the main nfsd connection is running over UDP, which seems ideal over a virtual connection. I'm not sure whether statsd and lockd are running over TCP and UDP.
+Particularly the use of nfsstat -rc to check how many 'retransmission retries' had been happening. If there are too many retries, that means the nfsd daemon ran out of threads to service clients' requests, and you need to increase the number of available threads.
+Git (and related tools like sourcetree) are run in OSX, on the shared directory. The performance of this is extremely poor: it often takes up to 5 seconds just to run git status. Cloning a small repository into the mounted NFS drive can take a couple of minutes (5-10 seconds on a local drive).

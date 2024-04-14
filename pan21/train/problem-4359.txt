@@ -1,0 +1,6 @@
+Selinux might be the cause. Check your audit log (/var/log/audit/audit.log) for alerts. If there are any, you might want to use something like audit2allow in order to add more selinux rules.
+Could be a number of things, but I had this error with Varnish on Ubuntu, and it was because I had /var mounted as -noexec. Removing the -noexec attribute in /etc/fstab fixed it.
+We fixed this problem by deleting the file and restarting Varnish.  On the restart, the file was recreated and there were no longer any issues.  
+I have a Red Hat server, Red Hat Enterprise Linux Server release 5.2 (Tikanga), and I am trying to start Varnish on it.  When I try to start Varnish, I always get the following exception,
+I have another, identical server that does not have this issue.  I installed Varnish on the Red Hat server following the directions outlined at http://www.varnish-cache.org/installation/redhat
+Is there some configuration issue that needs to be tweaked to keep this issue from occuring?  My initial investigation and thoughts was that the server did not have enough disk space, but I believe I have cleaned up enough free space.

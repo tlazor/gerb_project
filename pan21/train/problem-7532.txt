@@ -1,0 +1,14 @@
+Then I use SSH to connect to the headless machine. (but you can use RDP depending on how you configured your VM)
+It's not the same as starting the servers in the background, but it's a heck of a lot easier to work with for devel and home networks.
+is there a way i can start virtual box in the background? (with guest as ubuntu - used as a development web server) 
+Next, go get: RBTray, move it to Program Files, add a shortcut to your startup folder, and go ahead and run it.
+if i start on virtual box on startup i guess it might slow down my system considerably? maybe not advisable? 
+There seems no be no way to get virtualbox to run completely silently on windows. However, it should be possible to minimize the command window to the system tray to get it out of the way. In any event, it seems to take fewer resources than a full-on vm.
+In VirtualBox Manager, click the drop-down arrow next to the Start arrow and select "Detachable Start". That will allow you to open or close a local display without having to shutdown the server.
+You can start a virtual machine in headless mode to prevent it from creating the full display window, but it still creates a command window.
+i am running windows 7 x64 (host). i want to setup a ubuntu/apache/mysql/php stack as a test/development web server in virtual box. 
+I'm running Windows 10 with Oracle VirtualBox 5.0.2. It's not Windows 7, but this should work with a newer VirtualBox release for Windows...
+Now you should be able to right-click the minimize "-" on the VirtualBox Manager window and it will minimize to the system tray without a taskbar icon staying around all the time.
+All vm modifying commands have to be done through vboxmanage, unfortunately. While the GUI doe update to show the machine state, it cannot modify it at all.
+the reason why i am thinking of starting up vbox+guest linux this way is so that i dont have to manually start it up if i use it often. and if it runs in the background, it will seem transparent to me. no need for the extra icon clutter in my taskbar. plus if its in the bg, and windows is setup to give priority to "Programs" over "Background tasks" maybe it will provide better performance? for "foreground" programs?
+I use vboxheadless to run multiple vm's on a second computer, and connect to them using RDP. If you want to get to the desktop on the headless vm, (rather than something like X) you need to enable RDP in the vm's settings. You can do it through vboxmanage, but using the GUI while the vm is stopped is far easier.

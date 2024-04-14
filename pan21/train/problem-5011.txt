@@ -1,0 +1,7 @@
+With the specification you presented, the easiest way to do this would be with a SAN / NAS snapshot every night. 
+There is also the possibility of log shipping, and having the second machine in a state of constantly rolling forward as the logs arrive, which is somewhere in between.
+Am I misunderstanding mirroring?  Is that the best way to do things, or should I use some other mechanism?  If so, what?
+We just got two new servers, that are running Windows Server 2008.  The intent is to make the machines pretty much identical, copying the content of the master to the slave on a nightly basis, so that if anything fails, the second copy can stand in immediately.  It doesn't need to be up-to-the-minute mirroring, though I suppose that wouldn't hurt if performance is not affected.
+If your requirements are having the second DB more current than once a night, Mark C's answer would be more appropriate.
+The two machines will, amongst other things, each be running an instance of SQL Server 2008.  The aim is to duplicate the databases on the master down to the slave on a nightly basis.  Unless I'm misunderstanding, the slave databases in mirrored databases require the primary to be present to work correctly; I'm hoping for some solution where we have a second machine that can be up and running with minimal downtime if the first one falls over.
+I think you're looking for "replication" and there's really no reason that your replication couldn't be very close to live without having a major impact on performance.

@@ -1,0 +1,11 @@
+The paper gives a non-trivial but essentially optimal protocol for the function Exactly-$N$, which is true when the sum of the $k$ numbers is $N$.
+Instead, in the NOF model $k$ parties each know all except one number from a set of $k$ integers, with the number not known to the party notionally "displayed on their forehead" for the other parties to see.
+In the original paper the multiparty model was linked to branching program lower bounds, yielding that any constant-space branching program for Exactly-$N$ requires superlinear length.
+However, extending the partition of the input bits to more parties is often not very interesting (for lower bounds, one can usually just consider the first two parties).
+Nowadays the numbers are usually required to be non-negative integers represented using at most $n$ bits.
+The NOF model has been used in much subsequent work in circuit complexity: multiparty communication lower bounds naturally translate into circuit lower bounds.
+The lower bound argument is Ramsey-theoretic, via a multidimensional form of Van Der Waerden's theorem.
+Multiparty communication complexity and the Number-on-Forehead model were introduced by Ashok K. Chandra, Merrick L. Furst and Richard J. Lipton in Multi-party Protocols, STOC 1983, doi:10.1145/800061.808737.
+It is always possible to just send $n$ bits (for instance, by the second party telling the first party the number on its forehead).
+One classic example is the link made by Håstad and Goldmann in 1991 (doi:10.1007/BF01272517 between fixed-depth threshold circuits of polynomial size, and the multiparty NOF communication complexity of the Inner Product function: a nontrivial lower bound for IP with a more than logarithmic number of parties would yield circuit size lower bounds for TC$^0$.
+The multiparty model is a natural extension of Yao's two-party model of communication complexity, where Alice and Bob each have non-overlapping halves of the input bits, and want to communicate to compute a predetermined function of the whole input.

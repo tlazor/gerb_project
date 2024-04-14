@@ -1,0 +1,7 @@
+In my case this started happening because I created a junction point (hard link) for a system folder (C:\Windows\Installer) and moved it to another drive in order to make some free space on my system's SSD. 
+To my understanding, there is no solution to proper problem 2. We ended up purchasing new 2TB drives for our backup issue and I've read of several reports where people ended up doing the same.
+I was suffering from that same (or at least a similar) issue. While reading up on the issue, I read a lot of reports about this issue.
+In my case, Windows correctly attempted to backup both drives when I enabled the option to include system files in your backup. The other drive exceeds the 2GB limit, so Windows backup can't process those files.
+To solve 1, you can tell Windows Backup to not back up the entire volume, but only selected folders from the drive.
+I believe this will also happen if you ask Windows backup to explicitly include folders on any other drives that exceed 2GB, or if your system drive is bigger than 2GB. To work around the latter, you could create a partition for your system drive less than 2GB and move Windows there. I haven't tested this but expect it should work.
+I have backed up Exchange on a 2TB volume which was 16GB over the limit.  In order to backup Exchange the entire drive must be selected.  However I then added exclusions for the Windows folder and a few others in order to hit the 16GB which then allowed the backup to proceed.

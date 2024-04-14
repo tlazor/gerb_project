@@ -1,0 +1,7 @@
+The 82579LM chipset supports promiscuous mode so there's no reason it shouldn't support sniffing on arbitrary data as long as your driver supports it. Your switch would need to send all the data to that port though. For Cisco Switches you might want to look at the Spanport documentation.
+If you have control of one of the machines, you may also be able to user a remote Wireshark capture using rpcapd. http://www.winpcap.org/docs/docs_40_2/html/group__remote.html
+Please note that I say (v)lan, because this is a Layer 2 thing. IP-subnets (Layer 3) have nothing to do with it.  
+The easiest way to properly listen in to the conversation between A and B is to put a simple hub (which transmits ALL traffic to all its ports) between either A or B and the LAN and have the monitoring PC listen in on that same hub.
+And anything in the same (v)lan as your own NIC can be seen, unless your switches keep it away from your NIC. Most switches these days are smart and will only send traffic to where it is needed. As your own NIC isn't part of the conversation between the other 2 computers it will generally NOT receive that traffic.
+Your NIC has to see the traffic. Which means anything happening outside your own (v)lan is invisible anyway.
+Other possibility (but this requires managed switches with this ability and access to them) is to setup the port on either A or B as a so-called span-port or mirror-port (depends on vendor how it is called). The switches clone a copy of all the traffic on that port en send it to the port to which your PC is connected. 

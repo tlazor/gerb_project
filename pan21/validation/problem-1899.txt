@@ -1,0 +1,9 @@
+I briefly hosted my own website on my desktop PC back in 2002 but I've never been great with networking.  I don't want great performance.  I just want to do this for the educational benefit and geeky thrill.  And I want a sandbox where I can put my programming and design experiments.
+I go to icanhazip.com and grab my public IP address.  I throw it into a web browser and get...my Modem's admin interface.  I didn't expect that.  I spent an hour but was unable to get any further.
+Try accessing your IP address through an external proxy such as proxify.com to see if that makes any difference.
+You might try the guides provided from Verizon about how to setup port forwarding. I found one here:
+The Time Capsule is setup to forward traffic on port 80 to the Mac Mini (it's default web server is enabled).
+Look in your modem's settings for something to the effect of "Remote Management" or "Technician Remote Access."  Turn it off.
+You could also try connecting on a non-standard port. It would at least let you know that the port forwarding is working. To access a non-standard port, put a colon (" : ") followed by the port number to your URL.
+http://www22.verizon.com/residentialhelp/highspeed/networking/troubleshooting/portforwarding/123898.htm
+What am I missing?  I expected to see the router's admin screen when I hit its internal IP address but I am surprised (and a tiny bit frightened) that I see its admin screen from its external IP address.  Should I setup a DMZ (do I give it the router's outward-facing IP?)?  

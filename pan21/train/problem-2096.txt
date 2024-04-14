@@ -1,0 +1,5 @@
+But you can mitigate some of their faults by creating your own shortcuts in System Preferences.  This is well documented.  Here's a snip from Apple's Support site 
+If you assign a keyboard shortcut that already exists for another command or another app, your new shortcut won’t work. Find the menu command that’s using it and reassign the keyboard shortcut for that item.
+Yes, these shortcuts are the developer's responsibility regardless of the framework or programming language.  Microsoft is notorious for incompatibility of keyboard shortcuts within their own apps and even more so between Windows and OS X.
+I noticed there seem to be groups of apps that either all work or all don't work with certain groups of shortcuts. Off the top of my head, I can think of 4 such shortcuts for 2 kinds of operations:
+I'm guessing it has to do with the frameworks used to build each app, but what frameworks might they be? What OSX feature is responsible for this? And if one wanted to make those shortcuts work in every app, what should one do?

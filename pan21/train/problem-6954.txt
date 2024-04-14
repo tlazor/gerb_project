@@ -1,0 +1,6 @@
+(i'm not saying we're looking for HAproxy advice.. it's just one of the systems we've seen making big waves, along with ldirectord etc..)
+However we are unsure how to implement the web failover, for now we don't want to split the load between the two web servers in the early stages but instead have it waiting patiently as a failover incase the main box goes boom!
+1 primary beefy SQL Server 2008 database server running as the master and a slightly lesser server as the slave / failover.
+We our product will be an ASP.NET MVC site which can either be deployed on a customers own server or they can pay for an instance on our server, (this will be automated by a configuration service running on the web box, but thats really another topic altogether).
+I've looked at various High Availability systems like HAproxy and the like but don't completely understand how to get this kind of configuration going.
+We don't want to go over the top on infrastructure we don't necessarily need, so for the initial deploy we'd like to have 2 Win2k8 boxes running IIS7 as the web boxes..

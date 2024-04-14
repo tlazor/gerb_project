@@ -1,0 +1,5 @@
+You can also use DiskPart to remove the active flag on your partition and then delete your unwanted partition. For usage, see the technet documentation for DiskPart. 
+You can't delete an active partition, so you'll need to mark a different partition as Active. You should be able to mark the C: as Active, then delete the offending partition. If you aren't able to from within Windows, then you may need to use a Live CD/USB.
+Your usage will probably be along the lines of select volume X, active,delete volume Y where X is a volume/partition you want to keep and Y is the offending partition you want to delete.
+I bought a Kingston USB drive, and after unsuccessful install by Windows (7) I went to Kingston's support webpage and followed the instructions of how to make it work. I assumed the problem was the drive's letter (the letter 'E' was taken by a different USB drive) so I tried to change it to 'F.' I don't even know if it makes sense, but I ended up with another drive.    
+I tried to delete it from the disk management, but no success. Is my only option now is to format Windows? Is there another solution?

@@ -1,0 +1,12 @@
+One of my users is having problems with his NetExtender connection.  After installing NetExtender from the portal, it connects fine -- ONCE.  After that, attempting to reconnect gives
+I wish I had a more complete answer for you, but I have the same problem, and it's not 100% resolved.
+I have had some seemingly random success.  I would just try and try and eventually it would work.  I thought this might be related to time so I checked the config on the firewall and DC and everything was in perfect sync, so I don't think that is the issue.
+I have also tried the version of NetEx that gets installed from the portal, as well as the latest version from mysonicwall.
+Coming back to explain my findings: this turned out to be caused by an old firmware on the Sonicwall device, incompatible with the latest NetExtender client, while the compatible client was incompatible with Windows 7.
+This problem seemed to start after enabling LDAP+LocalUsers Auth (was LocalUsers).  It is possible the problem is related to Auth scheme.
+Another possibility I haven't been able to test yet, related to the above, is that the reason is related to the computer trying to connect not being a member of the domain.  The workstations I am testing from are not domain joined (to the domain doing the LDAP auth).  However, the issue is the same when using a "LocalUser" from the sonicwall device.
+This seems odd to me because the user name, password and domain are entered on the NetExtender client.  After this error occurs, the only way to connect again is to uninstall, reboot, and reinstall NetExtender.  He can connect fine to the Sonicwall SSLVPN demo site, and a different user can connect fine to this site from a different PC.  Any clues?
+I tend to use these two techniques to work around the issue of a connection dropping, and upon reconnection, only the "Sent" bytes counter in the SSL-VPN NetExtender client showing traffic while "Received" sits connects with about 600bytes received and just stays on that number.
+I know this is very after the fact, but I find that most NetExtender connection problems can be solved with one of:
+If you're using a wired NIC, connect, disable the network adapater, re-enabled the network adapter, reconnect.
+I presume the "reboot" solution works because it cycles whatever cached credentials / ip adddress / auth token that the client isn't releasing, but when you cycle the NIC, it picks up on these changes.

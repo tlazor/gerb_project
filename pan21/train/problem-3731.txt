@@ -1,0 +1,7 @@
+In this case should I create special user for my website? Seems like it's easier to use root instead, and it gives little bit more security risks, but not much if I host only one app there? 
+I have one cloud server to host only one website (django + gunicorn + nginx), postgres database will be deployed to another cloud server.
+Using a non privileged user is easy to do and protects you from a large range of possible security attacks. 
+It may not even need to be a bug, but a miss configuration or simply using the access the application allows, for example if your application allowed to read or write files directly, they could simply do that to anywhere on the file system, rather than within folders specific for the application.
+The idea of running applications as non privileged users is not related to having one or multiple applications running. It relates to the risk of compromise of the application itself. By running the processes as root, if there were to be any bug that an attacker could exploit either to gain direct access or otherwise affect your application, they would be doing so with root privileges and therefore able to directly compromise the whole server.  
+There is nothing technically stopping you to do this. However in all respects it is a terrible idea.
+The default nginx config for most distribution packages have a user directive. Worker processes run as a less privileged user out of the box. 

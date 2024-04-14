@@ -1,0 +1,6 @@
+When the application will ultimately be deployed at the customers network, we will certainly need to troubleshoot and debug some errors that will happen, and without debug logs that will be very hard.
+I only found one question on StackOverflow that inspired us to implement an Appender that calls Response.AppendToLog and the logged messaged do appear in the IIS log, but with all whitespaces replaced by "+", which makes stuff like stack traces basically unreadable.
+We're developing an ASP.NET application and have set up a IIS server in our company network for deployment testing. The IIS server is managed by our IT service team and we only have the necessary permissions to publish the ASP.NET app.
+Is our IT service team correct and what we're doing is "unprofessional"? And if yes, what is a more professional way of logging for apps running inside IIS server.
+This resulted in a bit of a back-and-forth between the developers (us) and the IT service team, with them claiming that "this is not the right or professional way to do logging" and we should log to the IIS log instead.
+Having used log4net in other .NET projects already, I wanted to use it here, too, to get debugging information is something goes wrong on that server. So I asked the IT service team to set up a directory on the server that:

@@ -1,0 +1,5 @@
+DO NOT JUST STOP THE SERVICES! The proper way to remove Exchange 2003, if you are fully done with it, is to uninstall it from all Exchange servers in your environment. Exchange is an application that very closely integrates with Active Directory, and just stopping the services will leave a ton of metadata around in your AD. Follow the steps in the following article to fully uninstall Exchange 2003. 
+Yup.  Uninstall properly.  When you run the installer on the last server, you'll get the option to remove the org.  It'll then tidy up the Services part of Configuration partition in AD.  Simples.
+I have recently migrated my in house Exchange 2003 to Google hosted email. I would like to stop exchange with the least amount of effort.
+The article you reference is good in case the uninstall is failing and you need to manually uninstall it.  I have seen the uninstall go really smooth, and have seen it fail miserably.  Either way, make sure you fully uninstall it using the manually method if needed. 
+So the question is, if I want to stop exchange this way, which services can I disable without affecting my active directory while still stopping exchange from running?

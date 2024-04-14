@@ -1,0 +1,7 @@
+No, there isn't. You're going to have to write it yourself I'm afraid. There might be a third party application that does what you want, but I'm afraid product/service recommendations are off topic here on Server Fault.
+I've looked in the Group Policy but couldn't find anything useful. I know this can be done by a script but I was looking to see if there's any integrated way in Windows before I start writing it.
+I'm looking for a way to display an input dialog upon login to a production server, asking the user to indicate the reason of the login. I was thinking maybe there's a way in Windows to do it that is similar to the Shutdown dialog that is displayed whenever a server is restarted.
+eventDescription = "User '" & username & "' logged in, providing the following reason: " & Chr(13) & Chr(13) & loginReason
+Const EVENT_SOURCE = "LoginAudit" 'Setting the event source requires that the script runs with administrative privileges
+    loginReason = InputBox("Hi " + firstname + ", please describe the reason of your login:", "Login Audit")
+' Display an input dialog asking the reason for a login and writes it to the event viewer with information of the user.

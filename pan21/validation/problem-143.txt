@@ -1,0 +1,6 @@
+Is there more to the new In-Memory Tables in SQL Server 2014, or in my scenario there is indeed little to gain?
+You should be suspect that it may or may not improve performance, however the reason isn't because the data is already in memory. It is mainly due to being lock and latch free and less code execution with native compilation.
+There is a great article about use cases for IMOLTP, and while we are at it you may want to look at 2016 and the uses of IMOLTP for advanced real time analytics.
+Thus, if your bottleneck isn't around locks or latches... the actual gain you receive will be minimal to none. This can be exacerbated if the actual bottleneck is the client.
+In-Memory objects (in this case, tables) are not just pinning data into memory. They have entirely different memory structures and are lock and latch free.
+Our most frequently used database is relatively small (5GB), and as a consequence, our 16GB memory dedicated SQL Server 2012 database server chooses to cache all used tables in memory (Buffer Cache Hit Ratio is 100% constantly). Some people in our team want to move to SQL Server 2014 to increase performance with In-Memory Tables, however I'm not convinced that doing such will increase performance since our tables are already in memory.

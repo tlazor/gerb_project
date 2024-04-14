@@ -1,0 +1,11 @@
+The closer the figure is to zero, the better. So in the figures you've given above, -75 is better than -100.
+Note that although I mentioned above that -75 provides a reasonable service, keep in mind that if the tower you're connected to is heavily congested the service won't be all that great. It is similar to the way in which ADSL works - even if you sync at 24mb/1mb, if the DSLAM is heavily congested, you'll get poor throughput.
+In my experience -75 provide a reasonable service. -85 provides an OK service. -100 provides a barely usable service. -110 provides no service at all.
+RSSI is a Radio-Frequency (RF) term and stands for Received Signal Strength Indicator. It is a measure of the power level that a RF device, such as WiFi or 3G client, is  receiving from the radio infrastructure at a given location and time. For instance, the power level a laptop is detecting from a nearby AP. 
+AFAIK RSSI is arbitrary (and of questionable use) unit, but at least my 3G cisco actually outputs dBm:
+dBm is relative change to 1mW of power, i.e. 0dBm is 1mW by definition. And 3dBm change is about half or double of the original signal strength (10^(-3/10) is 0.5mW and 10^(3/10) is 2mW).  
+Usually, the higher the RSSI the better the quality and speed of the communication through the radio segment. 
+This figure represents your signal strength to the cellular tower. The closer you are to a tower, the closer to zero the number will be.
+When using mobile 3G routers, you see in the output of the "show cellullar 0 all" command.  What is the significance of this value? Is this interpretation the same when talking about 2G or 3G? 
+So in the example above, my -64 dBm is 10^(-64/10) or 0.4nW (yes nanowatt, it's cray cray how these things work)  
+By the way, if you're using 3G and Telstra is your ISP, take a look at this page. You can force the modem to connect to the 850mhz frequency which performs much better than the 2100mhz frequency. 

@@ -1,0 +1,7 @@
+"Technically this setup works but my concerns are whether having the requests going through several proxies is going to slow down requests?"
+Why not use Varnish?  That way you combine caching, proxying and loadbalancing into one application and it's a hell of a lot neater from an architecture point of view.
+Yes, but not by much especially if you pay attention to the networking side of your scaled-out system. That has to be robust.
+The scale-out scaling is pretty phenomenal.  There's also the advantage that the load balancer can make more intelligent decisions based on the actual health of the nodes. 
+If you're really predicting to be serving a LOT of static content, perhaps shunting most of that onto a CDN would be a cost effective solution?
+The configuration file will allow you to examine the headers and make decisions about where to serve static and dynamic content from.
+Generally, to be able to gain scale-out and spread work over many machines, you must usually sacrifice some performance over some or all of the individual machines. It's inevitable and usually something not worth worrying about (beyond the testing you should always do to ensure performance of the whole is sucking wind). Optimizing the parts is not necessarily the best way to optimize the whole.

@@ -1,0 +1,5 @@
+Your DNS A record should point adfs.domain.org to the WAP IP (wap-host.domain.local). This web page explains pretty much everything about WAP certificates:
+Install-WebApplicationProxy -CertificateThumbprint 'XXXXXXXXXXXXXXXXXXXXXXX' -FederationServiceName 'adfs.domain.org'
+With just the blank microsoft.identityServer.proxyservice.exe.config file, I wasn't able to get the Install-WebApplicationProxy command to work.
+I was unable to resolve this issue without rolling back the web server to an earlier checkpoint, where the connection was working.  Once I did so I backed up a copy of the c:\Windows\ADFS\Config\microsoft.identityServer.proxyservice.exe.config file and then applied updates to the server and restarted it.  At this point the server would report and error and not start the web proxy.  Then the following command worked (previously they would give the error above):
+Finally, your proxy should resolve adfs.domain.org to the adfs-host.domain.local machine, but only your proxy must have knowledge about this DNS record.

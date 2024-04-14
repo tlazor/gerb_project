@@ -1,0 +1,8 @@
+As you go forward it looks somewhat animated (no flashy effects though) as you add one row at a time
+I used an approach where I created a table without grid lines but where the rows are alternating colors. Then I blocked off each row with a rectangle of that row's color. Then used the animation pane to make the rectangles disappear one by one, showing the text behind it. This is not super fancy but close enough for what I needed without a lot of hustle.
+Now I can build the empty table and then pop in each row of content via animation--and my table isn't broken into a bunch of tiny (un-editable) image fragments like it is in the Microsoft solution.
+I'd like to build this slide one row at a time (so that the audience doesn't see each row until I'm ready to talk about it).
+I haven't been able to figure out how to do this... whenever I try to create any kind of animation, the animation applies to the whole table. I'd like it to apply one row at a time.
+Create your finished table on a slide and then copy that slide and paste it before your finished table slide.
+I then made a copy of this transparent table, deleted rows 2 through n where n is the total number of rows of data), moved that row into the proper position, and then deleted row 1 from the source table. I then copied the source table again, and repeated this until I had my entire table constructed, with each row it's on single, transparent table sitting on top of the formatted shell table. 
+So I think the Office answer is incredibly weak. My solution was a bit more simple (and in my view, more elegant). I copied my table, and in the copy deleted all the content except the column headers. In the other copy, I removed the header row, removed all cell formatting, and set transparency to 100%. 

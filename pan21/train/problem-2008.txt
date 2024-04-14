@@ -1,0 +1,6 @@
+Daft. SSDs are expensive and unreliable. Memory is cheap and a system with fewer components is more reliable.
+I want to move pagefile.sys from C: -HDD- to S: -SSD- on Hyper-V Core. I just upgraded RAM from 8GB to 16GB. 8GB was pretty enough. I also want to move guest OSes' pagefiles to SSD as .VHD format. Primary virtual Windows Server SBS has 6GB RAM and it's pagefile is 6GB too. At the end SSD will contain Hyper-V & and guest OSes' pagefiles. SSD can read/write up to 300MB/sn, average 80MB/sn.
+You can set the paging file to whatever size you want (why not "system managed size"?), so if you know 16Gb is not necessary for your usage then you can keep it at 8Gb.
+If the host is mainly used to host virtual guests, then the actual use of the host page/swap file is greatly reduced as it is not desirable to swap running VMs onto page/swap memory. So... Yes, reducing the page/swap file on the host is fine.
+Current Hyper-V pagefile is 8GB (RAM amount) and will be 16GB. I think 16GB is not necessary. Can I keep it as 8GB? And what you think about my idea; all paging files are in a SSD?
+SSD for page/swap file is definitely advantageous due to its speed over traditional mechanical devices. 

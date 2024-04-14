@@ -1,0 +1,6 @@
+Long time ago I have folloed up this good article to create a VPN in my raspbery pi (that I am just using now, therefore seems a good article).
+As you can see, some of the proposed solutions are not related to the openvpn configuration itself, but are mandatory. Still I would recomend to take a look on the previous link. It has a real good explanation of how to solve your issue.
+My thoughts would be incorrect iptables, or dns server. You may wish to try 8.8.8.8 as your dns server. And be sure your iptables are configured correctly. This tutorial has iptables that worked well for me https://www.google.com/amp/s/sys.jonaharagon.com/2016/05/12/setting-up-an-openvpn-server-on-a-raspberry-pi-2-part-12/amp/
+If this returns according to the right country (eg. Switzrland in your case) then the VPN tunnel is working, and you probably have a routing issue so need to look at IPTABLES configuration.
+It appears to connect, but the if I try to ping google.com or nslookup google.com in another terminal it fails. Any suggestions on anything I could have done wrong or change to get this working?
+I'm running raspbian on my raspberry pi model B and I have a VPN account with Private Internet Access. I've used their openvpn settings to connect (I'm using the same ones on my ubuntu laptop and everything works ok), but I can't ping anything.

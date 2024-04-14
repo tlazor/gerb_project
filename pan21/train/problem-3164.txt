@@ -1,0 +1,7 @@
+It seems that the partition manager in the windows installation gets confused when when it detects a USB that has a higher boot priority then the HDD you're installing on. It thinks the USB is the system partition. By setting the HDD to the first booting device, it no longer looks at the USB as a boot device.
+i'm trying to install the Windows 10 test build on my laptop dual-booted with Windows 7. I had Windows 8 dual booted previously, but deleted it to make space for 10. Upon trying to create a new partition for Windows 10, I get the following message:
+Additional advantage: keep a copy of the vhd to be able to revert to a fresh install after a test. Or boot it into hyper-V.
+I know how to fix THIS one, but I have an abhorrent amount of important personal files and code and such on my machine, and it would take QUITE a while to back it all up, (like 20 hours) but would just backing it up and wiping the disc be the best option at this point?
+Edit: Almost forgot, it's also saying windows can't be installed on this drive, and giving me the popup:
+This would also explain why the remove USB key while creating the partitions work. By removing the USB, it no longer sees it and so it skips to the next bootable device to look for the windows system partition. When it doesn't find one, it will now device to create it on its own.
+"Windows cannot be installed on this disk. The selected disk has an MBR partition table.  On EFI systems, Windows can only be installed to GPT disks."

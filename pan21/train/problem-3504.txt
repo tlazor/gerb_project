@@ -1,0 +1,7 @@
+The association between accounts and user privileges is stored in the SAM database. When you authenticate to an account that holds a privilege, that privilege is reflected in your process's security access token. This enables processes running with that token to use the debugging APIs. 
+I'm trying to find the registry key(s) that are modified by the Security Policy "Debug Programs" - aka SeDebugPrivilege in Windows 8.
+I remember once seeing a web page that would identify each registry key based on a policy setting, but cannot seem to find it.
+All my searching for the SeDebugPrivilege registry key doesn't seem to provide any additional insight.
+According to that list you won't find this one in the registry, as the "User Rights security settings are not stored in registry keys".
+You can establish the registry key(s) a policy links to by consulting the reference lists given out by Microsoft:
+According to this page, it is possible (with suitable current privileges) to adjust privileges for a given process: Topic: Tip: Easy way to enable privileges

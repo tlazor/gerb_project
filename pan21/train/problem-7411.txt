@@ -1,0 +1,8 @@
+Turning off visual effects can also make things a little peppier. Turning off Aero would be a start, but there are other effects like shadows under menus that you can find if you poke around in your settings.
+Generally speaking, the best fix is to reformat & re-install Windows. From there, try to limit the amount of cruft generating activities - for example, installing and uninstalling large programs (like Visual Studio) or trial software, etc.
+Assuming that you already have Anti-Virus software on it, I suggest using Advanced System Care, CCleaner and Malwarebytes Anti-Malware to clean things ups.
+Depending on how you will be using it you can disable System Restore which chews on your resources sometimes. Same thing with indexing, although this can make searches very slow.
+Some of the things I've mentioned are probably debatable, or might only work in some circumstances, so I would recommend a little googling on the specifics before you try them.
+For whatever reason(s), Microsoft Windows has a tendency to accumulate digital cruft over a period of 1-3 years, causing a general slowdown and performance loss.
+I recommend installing Google Chrome to make your browsing faster. Opera is also a good choice for speed. A faster running program will give you the illusion that your computer is faster, and you will enjoy using it more.
+To make things easier in the long run, you can use an imaging program like Ghost or True Image to make an image of a freshly installed & configured system. Keep your important data on a separate partition, and doing a periodic restore to a fresh system will only take a few minutes.

@@ -1,0 +1,10 @@
+I did not want to reset my whole Windows 10, because reinstalling al my software would take ages. So this solution worked for me:
+I had the exact same behaviour of the task bar and store app. Start menu; volume, internet/wifi, notification icons and search not working. Also right clicking on apps/programs did not work. 
+I found there are alternative Start Menus out there. You can download Classic Shell. It features an improved Start Menu, you can choose styles (classic XP style, Windows 7 style, etc), you can skin it and customize it's look and behaviour. It can be installed in Windows 7, 8, 8.1 and 10 versions, and it's free!
+I'm having the same issue, but it affects the entire Taskbar. The only things that work are the pinned apps, the Task View, and the Arrow that hides running tasks (to the left of the Battery and Wi-Fi). This is very frustrating, seeing that this is also a reality:
+Opening a task manager and terminating "Windows Shell Experience Host" and/or updating the Spotify app worked for me.
+I made a new Windows 10 USB and installed a new Windows 10 version keeping my files, settings and programs/software/apps (like Photoshop, Office...).
+In most of the search results listed, the 'fixes' provided are temporary, with emphasis on the issue having a chance of coming back. Even Microsoft Engineers appear to be at a loss here. I have reason to believe that this is due to a recent update that may (in some cases) also have affected some computers' abilities to use recent Restore Points.
+I KNOW this is not a real solution, but it's a an alternative, it could be useful while we found a solution to the real problem.
+Windows Classic Shell can replace the Start Menu with a working alternative until Microsoft patches this. It also replaces the Search Bar as well, for those of you who can't access Cortana/Search. It also provides access to System Settings and Control Panel. 
+This doesn't solve the problem of course, but it's helpful to have an alternative Start Menu to be able to work in the meantime.

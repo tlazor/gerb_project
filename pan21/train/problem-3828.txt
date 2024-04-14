@@ -1,0 +1,10 @@
+Load and install some antiviruses, make sure they are up to date, and scan deeply your hard disk. I recommend using at least Malwarebytes' Anti-Malware. I also like Avast.
+There is a wide variety of malware.  Some of it is trivial to find and remove.  Some of it is trickier.  Some of it is really difficult to find, and very hard to remove.
+Even if you run a good tool (and no doubt there are many out there), there are always leftovers left behind and your system may seem clean at the moment, but it surely becomes a time-bomb awaiting to explode later.
+If that doesn't work for any reason, you may use a rescue live-CD virus scanner : I like best Avira AntiVir Rescue System because it gets updated several times a day and so the download CD is up-to-date. As a boot CD it's autonomous and doesn't work using your Windows system.
+But even if you have a mild malware you should strongly consider reformating and reinstalling the OS.  This is because your security has already failed, and if it failed for a simple malware maybe you're already infected with a vicious malware.
+As a matter of fact, there is no best solution than to format the system partition to make sure you run a virus and malware free environment. 
+People working with sensitive data or inside networks where sensitive data is held should strongly consider wipe and re-install.  People whose time is valuable should strongly consider wipe and re-install (it's quickest and easiest and surest method).  People who are not comfortable with advanced tools should strongly consider wipe and re-install.
+It is also a good practice to have your sensitive files stored in a hard drive different from your OS boot drive. this way you can safely format the infected system and run a comprehensive scan on your sensitive data just to be on the safe side.
+As suggested before in this topic, if you ARE SURE you are infected, use a linux live CD to boot your computer and immediately backup all your sensitive data.
+The possible solutions for a virus infection are in order: (1) antivirus scans, (2) system repair, (3) total reinstall.

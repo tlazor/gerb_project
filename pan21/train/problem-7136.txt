@@ -1,0 +1,6 @@
+This might be challenging if you do not use a fixed external IP address at home (like most people), so you may end up restricting access to the addresses of some other servers that you have on the Internet.
+Why would you run ESX on the public net? Can't you just use the pfSense FW as the "public endpoint" and make everything else private? This is how I would do it.
+What are the security implications of running ESXi (v5.5) out in public like that? Quick research suggested this thread on spiceworks which sums it up as disabling SSH/Console (telnet?) access and setting up proper SSL cert and a very complex unguessable username/password pair. With the obvious implication of single-entry attack point.
+I would like to rent a beefier server and setup a hypervisor like ESXi on it with a vSwitch connected to physical NIC and a pfSense VM, and another vSwitch from the pfSense VM to other VMs. Unfortunately, Hetzner does not appear to provide a hardware firewall in between the public interface and your server (leaving soft firewall as the only option).
+I currently rent a couple of servers from Hetzner (a German hosting provider). Each server has a soft firewall and does something like web hosting / database.
+Use the ESXi builtin firewall to close down unneeded ports and limit access to the open ones to a range of known IP addresses.

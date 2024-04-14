@@ -1,0 +1,5 @@
+So when a program is ran as a service, and you use the HOMEPATH environment variable, where does that map to?
+I have a program that's being run as a Windows 7 service. In the program, the HOMEPATH environment variable is being used to set the location of a file. Normally, when the program is simply ran at a command line, HOMEPATH will be mapped to the logged in user's home directory. However, this isn't the case with a Windows service.
+For your specific scenario you could have the service write an event log entry, and print what it stores in the HOMEPATH variable. In C# you could use:  
+Services typically are run under one of three service accounts, Local Service Local System and Network Service. For all of which the HOMEPATH variable is null.
+You can set what account a service uses (your user account for instance), in the services properties window or in the service install config. When I tested with my user account the event log entry displayed The HomePath for this service is '\Users\Admin-PC'.

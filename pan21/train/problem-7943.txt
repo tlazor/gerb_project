@@ -1,0 +1,6 @@
+If you want to find out whether any given processor has hyperthreading then you should check https://ark.intel.com/ for the processor.
+I have read at a lot of places that i5 does not have hyperthreading and that i7 is i5 + hyperthreading. If it is true, how come many i5 processors have more threads than cores(4 cores and 8 threads) as per intel website.?
+The line between i3 and i5 has also shifted over the years and I am sure there have been i3s with hyperthreading in some generations.
+These links are for the current generation. Many previous generations are similar in this regard, except for desktop i3s: They used to have Hyper-Threading.
+What I mentioned above should be taken with a grain of salt though, as there are even i7 processors which might lack hyperthreading and ones which might have low core counts, particularly in the mobile markets.
+This is a bit anecdotal, but to say that no i5s have hyperthreading is provably false. It is just that the i5 is the space between the low end and the high end. You can see the above mix particularly in the 5th generation processors.

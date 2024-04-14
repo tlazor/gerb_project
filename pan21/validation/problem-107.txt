@@ -1,0 +1,10 @@
+This is often a persistent network drive mapping using an old password (from another user's workstation perhaps).
+Therefore I am thinking that there must be a service, or some application, that has held on to his credentials (possible old?) and is trying to access the network in someway thus triggering the lockout event.
+Rather than log-diving (as suggested by the other answer thus far), I prefer to use the Account Lockout Tools from Microsoft.  
+The Client Adress line will inform you from which client/server the logon attempt came from. (in this example 172.17.xx.xx ) 
+On the Active Directory Server the users uses to logon with you will find an entry in the Security Eventlog.
+I can see that the reason for the lockout is a failed number of password attempts. However, the user is not failing any attempts when he unlocks his system. 
+At the very least, it's immensely helpful in showing me which Domain Controller to go log-diving on.
+One on my users is being locked out of his Active Directory account on a daily basis. This occurs between 10 and 18 hours after each reset.
+Are there any tools that I can use to tell me what computer these failed logins are coming from? Is there anything you can recommend to further troubleshoot this issue? It has become very frustrating.
+(And yes, it does work on Server 2008 R2, even though it was originally developed for 2000 and 2003.)

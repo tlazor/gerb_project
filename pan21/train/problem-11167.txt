@@ -1,0 +1,6 @@
+I want to determine if using Apache's .htaccess mod rewrite is a faster way to redirect to a PHP file, compared to redirecting from one PHP file to another, using the header redirect core function of PHP.
+If you use any sort of redirect, whether by PHP or Apache's Redirect rule (which can be in .htaccess or Apache configuration file, end client must first wait for the first response (redirect), then send another request to that URL before finally receiving the wanted response.
+If this end user performance is important to you (for example if your target audience is in China or something like that), you should not use redirect (neither PHP nor Apache), but instead rewrite the original request so that user receives correct response on the first request.
+As for performance, you must consider two aspects of it. First there is the processing performance in the server, and secondly the performance that end users experience.
+I looked around and I was unable to find anything about this subject. Any help would be appreciated.
+My gut tells me that htaccess would have to be faster, but there's no substitute for actually benchmarking it in your particular environment.

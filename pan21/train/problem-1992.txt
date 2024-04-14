@@ -1,0 +1,8 @@
+So I'll probably make a decision based on this simple criteria: which distro out of the two makes it easiest for installing the latest versions of Ruby and Postgres?
+I am getting a new server as I've messed up my current box, while trying to install Postgres 9 (on my CentOS 5.8 box). To cut a long story short, I removed postgres but yum decided to remove virtualmin-base as well, which broke my virtualmin install (postfix/dovcot stopped working). Virtualmin advise a fresh install once virtualmin-base has been removed/reinstalled.
+I know you can pull in a later version of Ruby from the Debian Testing/Unstable using pinning (YMMV - risky).
+They are both equally respected as web servers, so I really don't mind either way - I just want to use the one that will work best with the software I need.
+Well, from what I know, it might be easier for Debian, because you can try hooking into repositories made for Ubuntu and its forks.
+Ruby applications are usually dependent on a specific ruby version, so you better find out what ruby version you need and then take a look at what versions are in the standard repositories.
+My experiences with CentOS so far were rather horrible (of the "just compile custom locally already" variety).
+Ruby can be very picky. If the distro supports the ruby version you need then go for it. Having said that I use Centos with a self compiled version of Ruby and some Gems that didn't come with the repository.

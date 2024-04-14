@@ -1,0 +1,5 @@
+The gigabit adapter would be similar to this: http://www.addonics.com/products/nas30u2.php except that that is only USB 2.0 so it is not true gigabit, as gigabit is 125MBps but USB 2.0 is only 60MBps, so that adapter only has a maximum transfer speed of 60MBps and the "gigabit" is practically useless.
+If you are not satisfied with the software, you can try to install debian or arch on it, but it is easy to brick the device. 2014 - Hacking the Pogoplug v4 (Series 4 and Mobile) with Linux (Debian or Arch)
+The gigabit Ethernet support on that NAS you linked to isn't entirely useless, btw.  It may not get you the full speed that gigabit Ethernet is capable of, but it's much faster than 100mbit Ethernet would be.
+Basically I want to be able to attach USB 3.0 external portable hard drives to my network and maintain at least gigabit speeds.
+You can't directly adapt USB to Ethernet.  It's not just a matter of electrical signaling; the protocols are completely different.  You need something like a NAS, which runs software that knows how to talk on a network and knows how to talk to USB storage devices.

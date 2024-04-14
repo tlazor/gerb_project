@@ -1,0 +1,6 @@
+I had the same issue in Outlook 2013 and eventually figured out a fix which you might want to try out and see if it works.
+Go into the registry and take a look at HKEY_CLASSES_ROOT\ChromeHTML\shell\open\command. Does it have a string key in there of type REG_SZ and the value is "c:\Program Files (x86)\Google\Chrome\Application\chrome-original.exe" -- "%1". If so, you'll find that this application doesn't actually exist. Change the key to "c:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -- "%1".
+If IE was set as the default browser then all was fine, but as soon as you made Chrome the default browser the application not found error appears.
+You should now find that Chrome is listed in default programs and can be selected as the default browser. The links should now work.
+Firstly, I noticed that Google Chrome wasn't listed in Default Programs (Start - Default Programs - Set Default Programs) which was odd and explained why Outlook wasn't able to tell Chrome to open a URL in an email.
+If I was you, I'll also remove all browsers, reset to the mighty IE and try to open links alone... if that works, then Chrome might be the issue, reinstalling it maybe.. using ccleaner to remove it thoroughly. befroe even trying the bandaid fix below

@@ -1,0 +1,7 @@
+You need to get more details on the nature of the DDoS attack before you can prevent it.  I would ask your hosting provider for more details.  
+Lastly, there are companies you can pay $$$ to filter your traffic. This does not come cheap but ceratainly another option. 
+One cheap trick is if the attack is mainly from one region, you can use country specific IP ranges to just drop that region rather than trying to do so on a per IP bases.  A heavy hammer for sure but effective.
+Also your TCP/IP stack can be tuned by lowering time outs.  This is particularly useful for TCP floods that cause half-open connection states and lingering TIME_WAIT states.
+Firewall rules can help if the attack is not widely distributed.  However, once your rule chains grow large, performance can suffer.  
+If it is a large network flood, your provider will often have to mitigate the attack upstream.  If the inbound request rate is larger than your server's pipe, there is not much  you can do.  
+With application/HTTP attacks, I've often used an Nginx reverse proxy setup to filter unwanted traffic and allow the rest to pass through.  This can be very effective against certain types of attacks.

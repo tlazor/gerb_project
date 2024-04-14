@@ -1,0 +1,5 @@
+Looking at the packet dumps below, we can see that the server starts reporting mouse movements at 09:58:02.782 (packets #69135-69144) but receives the first ack only 288ms later at 09:58:03.070 (packet #69146).  In fact, the server even retransmits its updates in packet #69145 before getting the first ack.
+On the other hand, the client only starts receiving updates at 09:58:03.069.  This implies a 288ms latency, but the latency goes down significantly as more packets are exchanged.
+After looking at the packet dump on both ends, it seems like the synergy server starts sending out TCP packets almost immediately, but the synergy client doesn't start receiving them until much later (e.g. 288ms in one case).
+Could my wireless router be buffering the initial packets (somewhat similar to Nagle's algorithm in TCP)? 
+I am sharing keyboard and mouse between my Linux desktop and MacBook Air using Synergy.  There is a very noticeable lag every time I begin moving my mouse (or start typing), but everything becomes smooth as long as I don't stop moving the mouse (or typing).

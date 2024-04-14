@@ -1,0 +1,6 @@
+You haven't shown any logs that would hint at what the underlying issue is, but you're essentially launching 3000 processes at the same time, which might have unexpected consequences (e.g., the remote server terminating the connection). Since the & puts the job in the background, the loop should exit fairly quickly once all ffmpeg processes have spun up, but then you have 3000 jobs running…
+This reads the text file and processes each line, splitting the columns by ,. You can then use the column values as {1}, {2}, and so on.
+Note that I've added -c copy since you usually don't want to re-encode the audio stream if the URL already points to an existing MP3 file. If your input is not MP3, you might want to leave out the -c copy again. And I changed quiet to error since you probably want errors to be shown.
+It would run the following commands in parallel, with at most n jobs running at one time. By default n is equal to the number of CPU cores:
+You can add --joblog jobs.txt to have it create a logfile, and you could also add --eta or --progress to print out some estimates as to when the jobs will be finished. The number of parallel jobs can be set with -j.
+The issue that I have is that my script downloads around 500 mp3s out of the 3000 (some entirely, some partially) and then just stops. Any advice on what changes to make would be appreciated.

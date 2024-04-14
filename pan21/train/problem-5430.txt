@@ -1,0 +1,5 @@
+On the building the color of the squares determines the placemant restrictions, white can be placed anywhere, yellow can only be placed on green squares and orange can be placed on either green or brown squares. 
+After you've picked the square the mouse is over on the map you simply pick a square from your building-template, (this can be any square you want, top-left, best-effort middle or whatever provides the best experience to your players), let's use top-left for this example. and then check if all squares are compatible with the map.
+if your data is in a one dimensional array you can convert from index to coords and back easily. making it easy to determine what is beside a coord
+When you have your mouse-picking working all you need to do is overlap your map with the object you wish to place. This problem would be the same for an isometric grid as for a rectangular grid.
+On this map the green squares are meant to as grass, the brown squares as mountain and the blue squares as water. Although this is irrelevant to the actual solution

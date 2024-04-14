@@ -1,0 +1,7 @@
+This will cause find to feed all potential candidates to rm which in turn will ask for permission/denial for every single file it is fed.
+Even though I know about the "rm -- -filename" trick, generally when I somehow get a file with a leading - in its name that I want to remove I start a GUI file manager and do it from there, to eliminate the chance of mistakes.
+when I had to remove a file with a dash as prefix because the -- says to the command that it does not search for any other parameter but just file names.
+and the shell, instead of deleting everything immediately, stops asking for a confirmation (as the -i option requires).
+In case your rm doesn't even support the -i switch (HP-UX 10.2 on PA-RISC 1.1 anyone?), just be more careful:
+Keeping it in mind, in order to protect my important folder by accidental file deletion I was used to create an empty file called simply -i which is normally put at the top of the file list when resolving the * search. So the command 
+Just in case you are on some non-GNU Unix where you feel yourself yanked back to the stone age (no -- syntax, no -inum switch to find, no unlink command, your editor refuses editing directories etc. etc.) you can still help yourself:

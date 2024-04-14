@@ -1,0 +1,7 @@
+The integrity of the data is maintained using the TCP/IP stack. TCP ALWAYS maintains the integrity of data with no data loss. So copying data will not incur any data loss. However, if using the UDP protocol, then the integrity is not maintained. You can lose data using UDP. However, all copy functions use TCP/IP, so you do not have to worry.
+A file system is just an abstraction layer so that humans can pretend that your computer is storing files and folders rather than just a bunch of 0's and 1's chaotically thrown on a platter of a disk.
+When files are copied between two file systems those 0's and 1's are always the same. The only thing that changes is the file systems metadata regarding how that data is stored.
+When a file is copied between different filesystem types, the content isn't changed, only the way the file is written to disk. So you won't see any change in quality.
+Analog copies more often than not would result in some loss of quality. Additionally, re-ripping or transcoding digital content to another format can also result in a loss of quality, and this is likely the type of digital 'copy' you may have seen.
+Copying a digital file would not incur a generation loss. Simply copy and pasting won't cause any degradation in quality, and the source and destination will be identical in their content assuming there are no errors in transfer.
+Also, if transferring from NTFS file system to a different file system, then no data loss will occur but since Linux does not understand NTFS, then security ACLs will not be preserved.

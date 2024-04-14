@@ -1,0 +1,5 @@
+In a busy production environment, the more appropriate way to capture this information is to script out a server-side trace that captures the events to a .trc file on the server, or to use Extended Events. 
+Once you've logged in to your server with Profiler, use "Events Selection" tab and choose to  show "All events" and "All columns". You'll want to check the box just to the left of Security Audit --> Audit Login Failed, then use the Run button.
+Then, simply leave profiler running until you see a hit or three. This will show you additional information including the Application Name, and the Client Process ID.
+If you're trying to isolate the issue to a particular server, the client's IP address should be clearly displayed in the error message, so that gives you at least something to work from.
+If you're trying to pin it down further, fire up SQL Server Profiler. This was previously not available for some editions of SQL Server, but the SQL Server 2012 Express SP1 Management Studio finally includes it, meaning it's available to everyone!

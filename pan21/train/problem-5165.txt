@@ -1,0 +1,6 @@
+On removing that particular line from urls.py (and restarting httpd), accessing / reverted back to "It works" page. But, when I refresh the page after clearing all browsing data (including cache), I magically get back the page saying
+I've been trying to make a simple app in Django for a while now and I noticed the following behaviours:
+For the second problem, you could have a sys.path problem or more likely an import order dependency or problem due to naming of modules. If you are lucky using the alternate WSGI script file described in:
+I run Apache with mod_wsgi on Arch Linux. myproj is my project name (located at /srv/http-django) and it has one app called staff (added to INSTALLED_APPS). My WSGI script adds /srv/http-django to sys.path and sets DJANGO_SETTINGS_MODULE to myproj.settings.
+This really puzzles me; how could it have possibly come back? I've tried to understand what's going on, but sadly, I've failed. At this rate, I might just go back to cakephp. I don't want to go back, help!
+If you run mod_wsgi in Daemon mode you can update changes by touching the .wsgi file. (I've found this to be a bit flaky though)

@@ -1,0 +1,10 @@
+There is actually a tool that allows you to run arbitrary applications as services, I just can't remember the name, right now.
+Most non User services are doing exactly what you are asking, starting before you logon.  However you should check how many items are showing next to the clock in the bottom right(unless you've moved the taskbar).  Everyone of those items is starting up when you login and many may be associated with one id.  
+Alternatively, Vista has a greatly improved Task Scheduler, which enables you to do this kind of thing, too.
+As for Wireless you could disable the connection, but that would me enabling it each time you want to use it.
+Vista can also hibernate. This means all the RAM is saved to the harddrive, then the laptop shuts itself off. When the laptop is powered on again, the RAM contents are restored from the harddrive. This takes more time than recovering from sleep mode, but it will likely be less time than a full reboot. Again, all your open applications will be in the same state.
+Just be very careful about deselecting things, and do them one at a time rebooting between them.  If you are not sure what something is then don't touch it.
+Vista goes to sleep mode when I close the screen. It uses much less power in this state. It only takes a few seconds to recover from sleep mode, and all my applications are returned to the same state.
+Many people end up with too many items in there by installing every toolbar that is offered to them which will slow you boot time.
+Each of these applications will allow your .exe to be run as a system service.  It will start up when the system starts up.  The downside here is that if your application does not have it's on web front end, you might have a problem getting to the interactive interface when you are running it as a service.  Many apps have a management interface for just this kind of situation.
+This is not a direct answer to your question, but recently I have found myself rarely booting my Vista laptop. By using the sleep and hibernation features of your laptop, you can reduce the number of reboots required.

@@ -1,0 +1,8 @@
+And edit the file from there. To save and exit, press Control + X to exit. Then, press 'Y' to save your changes, and simply hit Enter to use that path.
+If you would rather use an actual editor, I would suggest using Text Edit so that the file remains a plain .txt, no formatting. To do this, you need to make hidden files visible. (Hidden files are the ones with a . before it)
+You can simply edit the actual .bash_profile file. However, it is hidden, so accessing it can be a bit of a pain. Here are a couple of ways:
+If you want to avoid Terminal all together, you can download apps such as invisibliX to automatically toggle the visibility of hidden files. With that particular app, simply press the magnifying glass to toggle visibility.
+Unfortunately, the easiest way still involves Terminal. To make files visible or hidden(respectively), type the following
+Again, I suggest Text Editor for editing the file, which is located in the main user directory (Yes, that page is outdated, but it does tell you what you need to know)
+The git installer created /etc/paths.d/git. You can remove the path entry by running sudo rm /etc/paths.d/git.
+Then you can open the file which is in the main user directory (Yes, that page is outdated, but it does tell you what you need to know).

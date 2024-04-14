@@ -1,0 +1,7 @@
+Also when an error happens there does not appear to be any corresponding error in apache's log files.
+We are getting intermittent 503 guru mediation errors. We are a bit stuck scratching our heads because it is not easily repeatable. The timeouts are set to 30s (connect and first byte) but yet the 503 page will show instantly, not after 30s. Then if you refresh immediately it may very well work instantly and sometimes for a 100 refreshes.
+An example of the varnish debug is below. It says no backend connection but I can't figure out why, if the load was high on apache I could understand it being flaky
+This seems to affect pages as well as images, so it is possible to have the page load fine, and for 9/10 images on the page to be fine but 1 not work
+We are running a pfsense firewall / load balancer with varnish as service, In front of Fedora linux webservers running apache. 
+The load average on the web servers is < 1, the DB server is < 3 (all servers (web, db, pfsense/varnish) are physical rather than VM.
+I would have thought if the timeouts were being hit then the 503 page would only appear after 30s am I mistaken?

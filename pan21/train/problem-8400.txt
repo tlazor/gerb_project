@@ -1,0 +1,10 @@
+In my case, I send many jobs to a SUN grid to process them in parallel, and some of these jobs start by creating a certain directory foo. So, the execution of the different mkdir commands might happen at exactly the same time ...
+I guess it comes down to what mkdir -p does when it starts creating a path and then suddenly encounters an (further) element of that path that's already created.
+If it's sane it will continue independant of what it did before and your operations should be safe. For the details of your particular mkdir tool you should see the sourcecode.
+I f at the same time another process tries to create folder1 also, it will see that folder1 is created so it will try to create folder2 which will either fail (if the first process already created folder2) or succeed and the first process will fail.
+Is it dangerous to have several parallel jobs create the same directory using mkdir -p? (This is under Linux.)
+A simple mkdir is atomic (if you are using NTFS, there are chances it is not atomic, need some check).
+(Nitpick: in your case it sounds like atomicity is not required.  Atomicity is critical for mutex/locking but not necessary for mere safety --- mkdir() can fail safely when the directory is already there.  Multiple racing mkdir shell commands should each have some their calls fail harmlessly as they traverse the components of the target path attempting to create each.  Atomicity is irrelevant to that).
+On networked/clustered filesystems it may very well depend on network latency, server load or mount options.
+There should be no danger to any POSIX compatible filesystem from multiple concurrent (racing) mkdir -p commands.  I have, in fact, tested my own shell script locking function (wrapped around mkdir ... || ... (but NOT with -p) by using hundreds of racing process in my efforts to detect any failures from the race on Linux and Solaris with a few different local operating systems.  I never saw any failures and my searching and reading suggested that it should be safe.
+Also, it would not be hard to write a script that tries it a lot of times with a high concurrency, failures should be easy to detect.

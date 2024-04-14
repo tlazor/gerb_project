@@ -1,0 +1,9 @@
+Problem is, this guy used this controller using Android to emulate rather than RetroPie. It worked fine. 
+To give some background - I have a Raspberry Pi 3B+. On it I have the latest RetroPie image (4.4). I’ve been using it to emulate some classic games successfully. 
+So, I’ve been trying for days to find a solution but this far, nothing seems to work. I've tried using bluetoothctl, but the error I get there is:
+Now, I am technically minded and can follow instructions well - but I am a total noob at Linux. I can build my RetroPie image, and I can SSH into my Pi. I can even edit config files if necessary... but following some of the threads I have encountered while researching this issue has made my brain ache somewhat. 
+This actually stops the controller from flashing in pairing mode and connects - but RetroPie won’t recognise it as a controller and therefore I can’t control the GUI and map keys etc... plus, I am doing this while using a command on PuTTy. Not friendly for the older generation if this is the solution I have to do every time.
+Is there someone/some people on this forum that can help me out in order to get a solution. I’d be most appreciative. 
+So, I bought two regular Sega Mega Drive 3 button controllers off eBay. I then sent them away to some genius guy who could convert them to Bluetooth. He did a hell of a job. He installed a Bluetooth HC-06 module in each controller. The plan was to give the Pi to my mother for her to enjoy as a birthday present and give her the legit experience she had playing on the Mega Drive back in the day.
+Regardless, I thought it would be as simple as registering the Bluetooth controller on my Pi. Wrong. I get an error when connecting. Now, first thing I did was connect to an Android device and it works just fine. Here is the error on my Pi. 
+My mother was a fan of the classic Sega Mega Drive - but using a PS3 controller or other peripheral wasn’t what she was used to for nostalgia reasons. 

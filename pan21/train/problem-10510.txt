@@ -1,0 +1,7 @@
+You can change one of the application's cookie name to something other than JSESSIONID or you can change its path so that it is only sent back for /app1 or /app2. 
+There is an alternate (AIUI, preferred?) solution to changing the cookie name or adding a path component -- you can configure both applications to re-use the incoming session ID and base the created session around it.
+To my opinion this is the most preferable way to isolate cookies from apps running in the same host.
+Those two apps are unaware of each other since they're in separate profiles. So I expect the second one sees a session ID it doesn't recognize, assumes it's an expired one, and creates a new one.
+This can be done by enabling Override session management in Enterprise Applications > AppName > Session management and choose Enable cookies > Cookie path > Set cookie path to be equal to the context root of the application e.g. equal to app1 or app2.
+Either server-wide under Servers > Server name > Session Management > Enable Cookies or for the particular application(s) under Enterprise Applications > Application name > Session Management > Enable Cookies. If you choose the latter, you have to also check Override session management.
+May be you should set an application specific cookie path so that you restrict the URL a cookie will be sent.

@@ -1,0 +1,6 @@
+I am worried about db performance if the server having swap. But I do not know how to stop the Mysql ram usage. I can not see why it gradually use so many RAM.
+Could somebody give me some hint for make sure mysql server not gradually having high RAM usage? Or is there something I need to consider. Is the ubuntu have some setting which will cause RAM consumption?
+If you can't manage that yourself then hire a professional (DBA/Sysadmin) who will probably end up being cheaper than you trying to do it yourself anyway\
+Because original Mysql innodb_buffer_pool_size(49G) is so big that the server use SWAP. So I set the innodb_buffer_pool_size to 35G then restarting the server(10/12). However, the RAM usage gradually get high, almost 90% of physical RAM after two days. I think it is no reasonable since innodb_buffer_pool_size is 35G and other Mysql operation will not use so many RAM.
+Set buffer pool as high as 50G if it's a dedicated mysql server, check for NUMA settings and configure accordingly.
+There is no magic 'use less RAM switch' so the usual sysadminly things apply understand what is happening and take appropriate action. Scientific method is your friend 

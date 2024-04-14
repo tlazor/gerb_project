@@ -1,0 +1,14 @@
+or whatever they are called. In this case, pc names are searched first on your personal domains, then on your work domain. 
+Is there a solution other than installing a local DNS server on all my computers connected to both these network ? I look for a way for my linux computers first, but I have Windows-running computers as well.
+bind can be configured similarly.  You would need to define the appropriate zones and specify the appropriate servers to forward the request to. 
+I would configure dnsmasq as your DNS server for your linux server, and configure your office server like this:
+A local DNS daemon like dnsmasq can be configured in two ways.  Normally, you would configure it to provide your personal domain, and lookup other domains via the office DNS servers.  It does have an option which specifies the server for various domains, so you could set it up to use your ISP for most lookups and contact specified servers for each of your two local domains. 
+The former cannot be easily done, the latter can: insert this line (as sudo) in your file /etc/resolv.conf
+Are you really interested in having distinct sets of DNSs, or are you just asking how to set up multiple search domains?
+Ideally you should configure both DNS servers to know each other. In your case I guess you can't, because you do not have access to the work DNS server.  But you still could setup a Forward Zone on your personal DNS server and use only the personal DNS server. But this has the disadvantage, that you always need to go over your VPN to to a DNS lookup.
+Another solution might be setting up your own DNS server at work which is only forwarding to the both DNS servers!?
+You can't tell your DNS client to contact different nameservers depending on the domain. But DNS servers can contact different DNS servers depending on the domain name (Forward Zones).
+Currently, it asks the first NS of /etc/resolv.conf, and if it's the wrong domain, it stops as it receives the answer that the asked name does not exists.
+If instead you are really bent on using multiple sets of DNS servers, you will have to set up a Linux Container (LXC). This will allow to have completely separate communications on your personal pc. But this requires a tad more work. 
+Is there a way to tell my computer "for *.persodomain, ask ns.persodomain, and for anything else ask ns.workdomain ?
+My computer is on a local subnet where I work. Some local DNS are set up on the subnet as *.workdomain.

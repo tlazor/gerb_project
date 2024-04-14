@@ -1,0 +1,6 @@
+The first reference I found in a google search for MonkeyCom says it's part of the Sasser virus. That seems like a misinterpretation to me -- it's more likely that Sasser is using 9898 but that there's some older service called MonkeyCom which originally got the assignment.
+In /etc/services on a few machines I've checked, port 9898 is associated with a service called MonkeyCom:
+As far as I can determine nothing legitimate is currently using port 9898 - it's pretty much just Sasser and a few other bits of nasty.
+Echoing RedGrittyBrick's point. Came across the same. MonkeyCom is a port association for a legitimate program which is likely also exploited in other instances.
+The definitive source for Port Assignments is IANA http://www.iana.org/assignments/port-numbers from which you can find a name and email address of someone who might know the answer to your question. More probably the email address is no longer valid :-(
+MonkeyCom is (or was - as far as I can determine it is now defunct) a videophone/file transfer program.

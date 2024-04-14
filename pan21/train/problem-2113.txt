@@ -1,0 +1,7 @@
+So for future reference, i would suggest to check if you are under multiple NICS on your machine. If so you might have to remap the network share from a particular location. 
+I had this problem, here is a possible solution, make sure your sharing server has space left on the OS or root drive or "/".
+I ran into this today, on several windows 7 and linux clients mapping drives from a linux samba server. The problem turned out to be that my root drive on the server had run out of space. clearing up a few gigabytes and restarting the samba server fixed the problem.
+During troubleshooting i found out that the root of the issue could be one of the assigned server IP's.
+I was having the same issue on a Windows Server 2008 SBS while i was trying to connect to an old NAS.
+Indeed that was. I went to NAS logs and i saw that it was adjusted to connect with the NAS admin username and password under a specific IP address which was assigned to the server instead of server's main IP address!
+I run a samba server on linux and the root drive was full. If samba can't create logs it crash and from the windows side it fails with the error "local device name is already in use" for some obscure reason.

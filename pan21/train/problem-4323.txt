@@ -1,0 +1,6 @@
+"Organizing things using an object oriented approach" is a subset of Computer Science.  It has nothing to do with "games," it is simply how programs are put together.
+Those designs you can then implement in your OOP language of choice, for mobile phones that's probably Java or Objective C.
+Now that I've completely divorced the "game" thing from your question, the programmer's stack might be a better place to get OOP design answers.  Then back to here at gamedev stack for specific questions on efficient rendering, GUI options, game state handling, audio and things like that.
+Since you're talking about an "abstract point of view" search online for references to OOAD (object oriented analysis & design), or if you like books the Head First series is really really good.  This will give you mental tools to break down problems into object oriented designs.
+Another resource will be to check out commercial mobile game engines, they typically have design overviews showing how their systems fit together and they will have forums that you can use to get an idea of how people are using their system design and the problems they have.
+After that go take a look at the mobile platform SDK that you're writing for.  Even odds bet that they have sample code for a simple, 2D graphics display and probably a scrolling map with sprites and a main loop.

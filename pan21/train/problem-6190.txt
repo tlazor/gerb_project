@@ -1,0 +1,6 @@
+I got a subsequent e-mail from sonic.net's tech support (impressive, especially since I'm not even a customer of theirs) and they said that "the odd IP entries I was seeing smoothing into a more normal setup."
+I could delete the A record and see if my problems return to confirm or deny #1.  The reason I'm suspicious about it is because I never had an A record with my old mail provider either, and yet could send mail to sonic.net.  However, since it's working now, I'm reluctant to touch it.
+I've since sent test messages, got no bounces, and gotten replies.  So it seems mail to sonic.net is working.  So the cause was one of 3 things:
+Due to abuse, most of Google Apps and Amazon ECS is also blocked at our border since it is a haven for poorly written web bots that don't have the first clue about distributed computing.
+We reject almost all Google Apps and Amazon ECS servers for email due to the amount of spam that both kick out.  Both are listed on numerous blacklists as a result.  
+Maybe sonic.net is doing a reverse DNS lookup and checking to see if that user exists on the sender's mail server (*.googlemail.com), which returns false.

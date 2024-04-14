@@ -1,0 +1,7 @@
+My company is looking into the same issue.  Unless I read something better here, we are going with 2 Linksys wireless routers....running DDWRT. 
+I've seen it for $100 at Costco. I'm sure that you can order it, or something just like it without much trouble (and it does N with a gigabit ethernet). The Linksys model above is now getting out of date, as it is 802.11g system.
+We like to have the public AP auto-disabled during nonbusiness hours as well as blind to our network.  It would be totally open, but may have a welcome portal via wifidog (which, thanks to serverfault, I have discovered runs nicely with DDWRT).
+Several companies I know have set up a seperate cheap ADSL connection with a wireless router and this is what is used to provide network access to visitors. 
+Netcomm do a product that provides Layer 2 segregation, effectively running each client in it's own VLAN. It even does an SMTP redirect - very handy if your ISP blocks port 25.  Although it's designed as a pay system with tickets, this can just be turned off.
+I have a DLink DI-655 and one of recent firmware upgrades came with a new feature, 2 Independent Wifi networks on the AP/Router. The second one is a guest network, with a differnet SSID, the ablity to set different security settings (Primary can be WPA2 w/AES [CCMP] only, and the guest can be WPA w/TKIP for legacy laptops). The guest network can be set to only allow internet access (no internal access). 
+The staff router will not broadcast SSID and will use MAC address recognition, be available 24/7 and play nicely with our network.

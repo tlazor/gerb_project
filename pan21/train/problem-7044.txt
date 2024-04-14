@@ -1,0 +1,7 @@
+A first partition is mounted on the root folder denoted by a single slash. All other partitions are mounted under arbitrary subfolders under root such as /mnt/media, /mnt/cdrom, /usr/local/share or even /usr and /var.
+I alse used df -hT and found out that /dev/loop0 is mounted on / but, again, I have to provide volume group name.
+Second thing: I want to use that 35 GB of free space and assign it to Linux Filesystem. I tried with
+First of all, I'm confused about system structure. It says that root path (/) has only 6.5 GB of free space, but when I go to /media/my_username, I enter New Volume which is I believe name of my physical memory hdd. It says it has 35 GB of free space.
+In order to use LVM, (physical and logical volumes), you need to prepare the LVM system first. For the / (root) filesystem, this done during system installation. If you didn't do this at that time, you can not extend the / filesystem.
+But you can have multiple filesystems, and I guess this is what you have at the moment. If you type just
+The commands you are trying to use are designed to work with LVM partitions. They are logical volumes that reside within a volume group which are comprised of one or several physical volumes. In order to resize an LV, the PV must have free extents. This is assuming that the partition you are trying to resize is indeed on an LV block device. Chances are you have standard, "flat" partitions right on top of the hard drive without an LVM level in between the partitions and the actual media. 

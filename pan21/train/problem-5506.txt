@@ -1,0 +1,8 @@
+You need to configure port forwarding on your internet router. I believe the default TightVNC one is 5901, though your config may be different. If you are unsure on what port forwarding is, see this http://www.howtogeek.com/66214/how-to-forward-ports-on-your-router.
+In my case, I had no access to the router and no static IP on both sides. But, I had access to a third-party server which I used for the connection. In short, here's what I used to do:
+To connect to my pis via VNC on different networks and without port forwarding I use the website: https://www.remot3.it/web/index.html
+Then follow the steps in the installer and you can view and control all your devices (as long as they have a route to the internet, or even cellular) from anywhere. You can also follow this video once you have an account/the installer: https://www.youtube.com/watch?v=sHaY4EBQowQ
+Having made a free account with VNC I am now able to connect securely to my Pi from anywhere, over the internet:
+Full disclosure: I'm actually an intern at remote.it this summer, but I thought it might be useful for you.
+I used ssh tunnel for port forwarding and a third computer with a static IP to solve dynamic IP related problem. If you have access to an ssh server, you can follow the procedure from this link.
+There are literally many ways for doing this for which what you need are static IP address and port forwarding on the router. Your condition may vary depending on what you have access to and on what side (client or server).

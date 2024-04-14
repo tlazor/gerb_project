@@ -1,0 +1,10 @@
+As a final note, I will say that often times adding in more redundancy just complicates things and creates more points of failure than it takes away.
+If you set up NFS and the NFS goes down, how will the servers handle that? Local cached copies? Again, what if one has an out of date local cached copy? You could look at a clustered NFS to add in redundancy. It all depends on how critical your service is going to be.
+In terms of network load, obviously you need to ensure that the network cards, firewalls, switches and/or hardware load balancers are all capable of 300Mbps with redundancy.
+Syncing data between the servers will introduce a dependency on fast and reliable replication, which may or may not be available in certain cases.
+You might not need to have a dedicated load balancer, but if you do tests and the results suggest otherwise then you should look into getting a physical LB.
+Estimate the amount of sessions you will have, plus what growth you expect, and pick a processor based on those calculations.
+There's nothing wrong with DNS round robin, but I would only use such a thing in a simple configuration where sessions don't need to be retained across both servers, and so on.
+If  you already know you're going to have 150-300Mbps traffic, how does that equate in terms of sessions? How much does one session take to compute?
+What happens when one server syncs and the other doesn't? The sites may still work but they will have different data. How will you check for that?
+Apart from network traffic, you need to ensure that your processors are going to be able to handle the amount of sessions that are coming in.

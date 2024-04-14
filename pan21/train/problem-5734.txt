@@ -1,0 +1,6 @@
+You could also install a proxy server (in a number of ways) that supports the sort of report you're looking for.
+We use MRTG (free) http://oss.oetiker.ch/mrtg/ to monitor traffic on our routers and switches.  This will only work if you are using managed switches that support SNMP.
+Might work, and if not, you've got some suggestions from the nice people here for actually following through on the threat.
+I use Smoothwall for our firewall and it has what you need built in. i.e. There's a display page that shows the bandwidth being used by IP address. It appears to refresh about every second, which is near enough real time for my purposes. Cross reference the IP address with the proxy logs and you can get a pretty good idea of what they're up to as well.
+Yup, you can do it a few ways. You can measure it directly off either the internal or external port of your router that gets your LAN to the internet. Then, your router has to support something like NetFlow or similar technologies, and you also need a computer running software to capture that.
+"I just bought a monitoring tool that will tell me who's using up the bandwidth. Here's a link to the paragraph in the employee handbook that explains the policy on internet use. I will be installing it tomorrow. You've been warned. Thanks."

@@ -1,0 +1,6 @@
+I'd like to set up secure environments for a small number of untrusted PHP websites on a Debian server. Right now everything runs on the same Apache2 with mod_php5 and vsftpd for administrative file access, so there is room for improvement.
+Other solutions, making you avoid to consume memory is possible... just use caching with varnish or something similar (I do know it wouldn't be that easy to configure for untrusted users btw).
+Using the chroot directive inside php-fpm configuration, should guarantee enough security; then allowing the users to stay only inside the chrooted ftp (or scp), would be enough with the correct configuration of Apache (don't let symlinks fool him! :P).
+Now in theory I can set 700 permissions on all PHP scripts and 750 on static files that nginx has to serve up. Theoretically, if a website is compromised all the other users' data is safe, right?
+Then, having everything chrooted, should be enough: you wouldn't even need to set che permissions on the files since they wouldn't be readable from another chrooted environment. :)
+The idea is to use nginx instead of apache, SFTP through OpenSSH instead of vsftpd and chrooted (in sshd_config), individual users for each website with their own pool of PHP processes. All these users and nginx are part of the same group.

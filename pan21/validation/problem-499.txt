@@ -1,0 +1,7 @@
+For my own practice, I wanted to see if I could come up with a list of customers (customer) and the genres (film_category) from which they've rented (payment and rental) movies, as well as counts for each of those genres per customer. Here is the query I wrote, which works correctly:
+To challenge myself further, I want to see if I can list each customer's name along with the names of movies they have not yet rented that belong to the genre from which they've purchased the most movies (or the first one, if there's a tie). For example, here's a snapshot of some of the data I get when running the above query:
+So for example, we see that Aaron Selby really likes Travel movies, so we want to list her name alongside all movies belonging to the Travel category, but only those movies she has not yet rented.
+And here's a preview of the first 19 rows of the film table (not joined in the above query, but it will need to be joined for this problem):
+Could someone please offer some guidance/hints as to where I can begin? I know I'll need to join the film table, but here are some challenges:
+I am using the DVD Rental database found on the PostgreSQLTutorial website. Here's the ER diagram they've provided (the zip is provided on the site):
+I do NOT want any explicit queries to my question. I want suggestions regarding how I can best approach this problem. I am eager to learn SQL by experimentation, but for my sake, I'd prefer not to have my hand held. Thanks!

@@ -1,0 +1,6 @@
+A simple way to simulate the linear law is to make the values you compare linearly proportional to the number of armies you use. Roll 1 die for each army, add up the total, and whichever side has the lowest score loses an army. If you're working with large soldier counts instead of small army counts then work out the relative size advantage or disadvantage on one side and multiply that by the random value generated for that side.
+Then I am comparing army1 and army2 and decrease the number of soldiers by one of the smaller number's side. 
+If you want a more realistic equation, then the Lanchester laws have something for you: http://en.wikipedia.org/wiki/Lanchester%27s_laws
+I think these rules are not very good for real life situations because we know from history that large number of armies have an advantage over the weaker side. I have to create the right balance between the two sides during the war.
+I am working on new version of the Risk game. I want to change the attacking algorithm to make it more similar to real life war. The sides which have more armies must have the advantage over the weaker side.
+However, they apply differently depending on whether you're simulating hand-to-hand combat or ranged combat, which isn't specified in your question.

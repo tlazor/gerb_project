@@ -1,0 +1,12 @@
+Once you have SSL working on the Google Load Balancer level you can safely remove any SSL settings from your nginx configuration. 
+Because I read that the certificates, once the self-managed procedure is successful, can be eliminated.
+I'd encourage you to use Terraform to manage GCP resources, it's easier to wire things up and manage your resources in a declarative way
+To use HTTPS or SSL load balancing, you must associate at least one SSL certificate with the load balancer's target proxy. For each SSL certificate, you first create an "SSL certificate resource" which will contain the SSL certificate information.
+Last question is: under network cloud dns in compute engine, at he moment, I have a record type A with the static ip address of the vm instance, once I have finished to configure front-end and back end https load balancing will I  have to change this ip address with the new static front-end IP address ?
+At the moment I have only one vm instance (debian lemp stack with nginx and no apache) loaded in compute engine, with a dns zone set. Everything works fine but I have no load balancing set yet. 
+Similarly - once your GLB is up, you have to update your DNS settings to point at the load balancer's public IP.
+Regarding your second question: what you said is correct, you have to change your A record to match your domain name with the IP address of the Load Balancer's front end.
+my questions are: once I have finished to configure the back end of https load balancing with self-managed certificates by google on compute engine, how should I modify the default_ssl.vhost nginx conf file ? 
+Google Load Balancers have the particularity that you don't need to set up a SSL certificate in the server. The Load balancer encrypts all the traffic between the load balancer and the backend instances.
+About the https front end load balancing more or less, for me, is clear but for the https back end I have some doubts.
+The load balancer will effectively work as your point of entry for your users and terminate SSL. From there you can add many GCE instances to your load balancer by making them a part of a load balanced group. This page explains the concepts pretty clearly.

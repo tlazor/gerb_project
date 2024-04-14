@@ -1,0 +1,5 @@
+Generally speaking you should try the latest driver from HP via this page: https://support.hp.com/au-en/drivers
+Uninstall Visual C++ Redistributable and HP 3D DriveGuard. Then install latest version Visual C++ Redistributable. Restart your PC. Then install HP DriverGuard appropriate for your model computer and latest version. It worked for me. I am just sorry I cannot find the correct link to thank them.
+I had Windows 10 update compatibility issues with 3D DriveGuard which were fixed with the latest driver (version 6.0.45.1) from here: https://support.hp.com/au-en/document/c05841987
+AccelerometerSt.exe isn't compatible with latest update and tells me that uninstalling then reinstalling may help.
+What kind of drives do you have and do you carry your laptop around?  If you have SSDs exclusively, or you never move your laptop, then you do not need to "park the drive heads," which is what HP 3D DriveGuard is supposed to do in case of impact.  In that case you can just uninstall HP 3D Driveguard, and the error messages will stop.

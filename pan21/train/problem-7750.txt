@@ -1,0 +1,5 @@
+Best bet to see if the card reader is dead or not, Power down the PC, unplug the power cord, open the PC and disconnect the card reader from the motherboard, close the PC case and power up into windows for a few minutes, shut down and disconnect power cord again, connect the card  reader to the motherboard, power up, if Windows does not detect the card reader in device manager, then the reader is toast.
+Uninstalling it in Device manager does not always get the reader detected properly again, you have to physically remove it from the motherboard and boot into windows with it disconnected, then shut down and connect it back.
+I've seen this happen when "something" (don't ask me what) gets messed up in XP's handling of devices, and it simply quits responding to a given device being plugged in or unplugged.
+Once you've removed everything, the device should work once you plug it in.  If it's already plugged in, force a rescan from Device Manager.
+I've always handled cleanup of this problem by hand, but the DriveCleanup tool looks like it will do this automatically.

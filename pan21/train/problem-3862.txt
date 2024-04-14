@@ -1,0 +1,8 @@
+I bought a Raspberry Pi camera (https://www.raspberrypi.org/products/camera-module/) and it works great.
+"Is your power supply sufficient? The camera adds about 200-250mA to the power requirements of your Raspberry Pi."
+But when I plug the camera (and the camera works because I've tested in PC computers) and I try to access it, it does not work:
+as @DaveJones said, the raspistill command is only for cameras plugged in via the header on the rpi board. for standard usb camera, you can either use opencv or python pygame. your best option, though would be to use the fswebcam package, which you can install with:
+Using any USB video device (webcam) on a Pi you can use OpenCV to take pictures or video etc.  In OpenCV, you can connect as many USB cameras as you want, and reference them by 'index', from 0 -> n'th camera.
+Question 2 : How can I measure this ? How can I know what is my power (I got a B+), and how much power each one of the USB ports are consuming ?
+My problem is that there's no way to build a good-looking device with that camera. I've seen camera cases but the wire is uncovered and it's ugly  (If anybody knows a good-looking, cheap solution, nice ... but my question here is about other cameras)
+I've tried also unplugging the raspberry Pi camera on board, and leave just my USB camera, changing settings in raspi-config of board camera to on and off ... 

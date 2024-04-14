@@ -1,0 +1,7 @@
+Please also be aware there is a file /etc/host.conf on most modern Linux systems I have seen which controls the order by which a domain name is resolved; the defaults I have seen are
+where the hosts file is used before any DNS lookup. Thus, it is important to be careful what hosts you put in /etc/hosts, as they will never look at DNS. 
+the other line that you set in this file have precedence in DNS resolution,your server before query a DNS Server look at this file /etc/host for resolve FQDN in IP address, therefore edit carefully this file.
+The first line is the loopback, that is, referring back to your own server. This is intrinsic to every computer system.
+You want to have both lines in the file. You can even have more lines similar to the second one, one for each domain being served.
+The second line is to establish which IP the server has been assigned, and which domain the server should serve.
+As an example, I've seen it where someone puts an entry for host FOO in the /etc/hosts file. Some months or years later when DNS is changed for FOO they wonder why said machine can't reach FOO. The problem was the hardcoded entry in /etc/hosts.

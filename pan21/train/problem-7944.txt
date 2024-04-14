@@ -1,0 +1,8 @@
+Storing Keys in AD (make sure you've extended the schema - https://technet.microsoft.com/en-us/library/dd875533(v=WS.10).aspx) - Windows Components/BitLocker Drive Encryption - Store BitLocker recovery information in Active Directory Domain Services (Windows Server 2008 and Windows Vista) - Require Bitlocker backup to AD DS - Enabled, Choose appropriate we use Select BitLocker recovery information to store: Recovery passwords and key packages
+I am looking for help with creating a BitLocker policy through Group Policy.  I have failed doing this myself and need help from those more experienced than I am.
+For hard drives, you have settings specific to the OS and other Fixed hard drives.  Set both up as needed.  Choose how BitLocker-protected operating system drives can be recovered - Configure user storage of BitLocker recovery information: 
+Configure use of passwords for removable data drives (no PIN, but you can make the password 4 characters with complexity disabled, we don't): Enabled
+I followed a number of guides and deployed a Policy but I could see error messages stating my GPO had contradictory settings or a similar message.
+Configure storage of BitLocker recovery information to AD DS: Backup recovery passwords and key packages
+Do not enable BitLocker until recovery information is stored to AD DS for operating system drives: Enabled 
+Configure storage of BitLocker recovery information to AD DS: Store recovery passwords and key packages 

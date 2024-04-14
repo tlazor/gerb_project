@@ -1,0 +1,6 @@
+Some products like Oracle Internet Directory + Oracle SSO (and IBM TIM/TAM) allow hooking to 3rd party systems. This means the product is configured to sync with AD, and stores credentials to every other product you ever imagine. You get a new login link which seeds the credentials to the system you want (in this case - Google Apps), and that's it.
+Looks like there is Google Apps Password Sync (GAPS) for synchronising passwords to be used in combination with active directory sync. But I've not used it yet.
+I've looked over google's "tfm"s in the past, but I guess I just don't quite get it. Has anyone does this? If so, would you be willing to share how? Can it be done without a huge amount of complexity and expense?
+I'd like to get some method of SSO going between AD and Google Apps such that AD is the only place my folks have to manage (and periodically CHANGE!) passwords.
+Keep in mind it is quite complicated to get such a configuration up and running, and might also cost you some money, so it doesn't suit every orgranization.
+We're a small shop running Google Apps (Enterprise) for our email needs. Love it. Internally, we're using Windows AD (2003). No complaints there either.

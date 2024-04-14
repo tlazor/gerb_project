@@ -1,0 +1,8 @@
+It is probably possible to do the same thing via the registry on Windows editions that don't support group policy, but I don't know how to do this.
+If your edition of Windows supports Group Policy, you can do this.  First, use the control panel GUI to restore the "Always Notify" setting.
+Using gpedit.msc, go to Local Computer Policy: Computer Configuration: Windows Settings: Security Settings: Local Policies: Security Options.
+Set "User Account Control: Behavior of the elevation prompt for administrators in Admin Approval Mode" to "Elevate without prompting".
+I belive, that in the Professional+ version of Windows you can define the setting using gpedit.msc, which should allow different settings per user.
+The setting is written in the HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System path inside the registry. So it is an system wide setting. 
+Specifically, can an Admin have UAC level set to "never notify" and a User have UAC level set to "always notify" and so on?
+It sounds as if you want to make it so that elevation occurs silently for admin users but standard users can still enter a password to be elevated.

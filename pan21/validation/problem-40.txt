@@ -1,0 +1,10 @@
+The only scenario where you should look to do this is for training/lab purposes, as it gives you something to mess around with as a storage area network.
+You kinda get this, but only on paper. There's no advantage in doing it as your storage isn't really redundant and your performance can't be compared to a good RAID card.
+if this is a dev environment then sure you can get away with it but be aware of the performance pitfalls, generally always better to not virtualise storage where you can and use decent hardware raid
+Ie, only the freenas vm is placed on storage handled by hyper-v server, all other vms are stored on luns handled by the freenas guest os?
+This way I get storage redundancy and all the freenas candy without setting up a separate hardware san or get a hw raid card.
+It's possible but if you only have one host why would't you just use the disks as storage provided to HV locally? Anything else will be slower and less stable.
+your performance is going to be twice as worse as normal for your other vm's, its no better than running software raid really
+I'm looking into setting up a virtualization server at home. I have settled on hyper-v since I want to try remotefx.
+What I'm contemplating is if it's possible to run freenas as a guest. Passthrough all my datadisks to the freenas guest and use the iscsi interface to expose lun:s from the guest to the hyper-v host for storage of all the other vm:s and data?
+But for actually running stuff, you're better off serving the data straight up on Hyper-V to the guests.

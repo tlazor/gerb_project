@@ -1,0 +1,7 @@
+That is, right now, when I got to \theserver\ I get prompted for a password despite having some shared folders that permit anonymous access. 
+I know from my samba server at home that my share "public" shows up when accessing the server with \server. But, if I access a password protected share, which isn't listed when browsing \server, I must provide a U/L.
+well if you go to \\server you'll get prompted cuz you don't have permissions.  if you goto \server\share and the share has guest perms on both the share and ntfs acls then you won't get prompted.
+Is there a way to set windows 2008 file and folder sharing permission so you only get prompted for a password on certain shares?
+If the user that is on a non-domain PC has a domain account that is the same user name and password they use on their non-domain PC it should connect automatically. 
+To prompt for certain shares can't be done. tony roth's message is correct, you are getting prompted because you don't have access. Windows will try the currently logged on users credentials though, so even if the PC is not on a domain, it will connect if the credentials are also valid in the domain.
+Is there a way, asides from setting the policy sharing model to guest rather than Classic to allow a user from a non-domain pc to go to \theserver\ and see the shares and permit him or her to enter a folder with anonymous access without having to enter a username or password?

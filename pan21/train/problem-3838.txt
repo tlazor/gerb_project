@@ -1,0 +1,9 @@
+This is sort of an API design question. Why do vulkan instance/device extensions need to be specifically enabled, in order for their calls to be available?
+The reason I'm asking is because I'm specifically worried about vulkan interop between multiple programs. The fact that each program's VkDevice is distinct means you can't just straight up share VkImages. But agreeing on a common VkDevice is tricky because they may have different extensions/features enabled, so the interop API must account for the fact that both users may provide a set of extensions that they want enabled on the resulting VkDevice. This seems needlessly complex - wouldn't it be easier to just create one VkInstance and one VkDevice with everything enabled?
+Consider KHR_external_semaphore and its various sub-extensions. If you don't specify them, then the VkDevice's implementation knows that you're not going to need to be able to turn a VkSemaphore into an externally-accessible mutex and back. So the implementation may be able to use a more efficient VkSemaphore implementation.
+Extensions can change the visible behavior of the implementation, not to mention the implementation of it.
+How? If you have two VkDevices, unless they are both attached to the same VkPhysicalDevice, there's no guarantee that "everything" is the same thing for both devices.
+If the extension is always on, the device must assume that you're going to use it. And thus, any possible efficiency is lost.
+Wouldn't it make more sense to have extensions just always “be there” if they're supported in this environment, and then the API user can query which ones are actually available after device creation?
+Another way of phrasing this question might be: Is there any reason not to enable every supported extension when creating a vulkan instance/device?
+Cross-process Vulkan interop is not something external code is expected to define. There are extensions that provide various aspects of such interop.

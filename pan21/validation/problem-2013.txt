@@ -1,0 +1,13 @@
+Im in the process of setting up a new database server. I have been running a few mysql database servers before and it has been working okay.
+That is the first, and most glaring issue here. If you really have 4 disks, and assuming this is some sort of OLTP application, then I'd go with something like...
+side note: data on raid0? i hope you do have hot spare server with real-time replication or that the data is not important at all.
+You might also want to spend some time thinking about the filesystem you run on the data partitions (xfs is probably a safe bet).
+For extended support and common recommendations/tweaks it worth to check Percona official site and their blog
+For basic statistics and recommendations you can start with mysqltuner.pl script. Do not apply recommendations blindly, as it might decrease performance.
+Where boot is on md0, root on md1, data distributed across md2 and md3 (where md0...3 are RAID1). With non-mirrored RAID on disks 3 & 4 (you might consider putting logs in their own partition in place of sw1).
+most probably inodb as a storage engine will be more optimal in your case. only 4GB of memory is quite little [but again i dont know what's the total size of your data set]. 2x Xeon X3440 is a lot in terms of the cpu power, you'd better have a lot of concurrent traffic and be able to fit all the data in memory, otherwise you'll not make much use of available processors just waiting for the disks to read/write the data.
+mysql's default settings are not really optimal for the modern hardware, as a reasonable starting point you can use values proposed by percona's mysql configuration wizard or mysqltuner.pl. 
+WTF? You've got the non-performance critical stuff / easily restored stuff running off a mirror, while your performance critical, volatile data is on JBOD????? Missing something? You've got it completely backwards.
+it's impossible to give any good answer without knowing the type of workload, amount of data and usage patterns you have. honestly even with some knowledge of those at the end you'll have to find out by yourself what works best. that means lot's of benchmarking, tracking what goes on inside, regular checking of the slow query logs etc.
+As to tuning the mysql instance - that is dependant on what data you are storing and how it is being accessed. Read the tuning section in the manual and get hold of myqltuner.pl and/or the Percona toolkit. But first you need to decide if innodb or myisam is more appropriate for you - again this depends on the layout of data and how it is accessed.
+But i would like to hear the recommended setup for my server. For example, what should i set the max connection, query_cache_size, table_cache and so on.

@@ -1,0 +1,5 @@
+NB: When the Ask to update automatic links check box is cleared, the links are automatically updated. And no such message appears. This option applies to the current user only and affects every workbook that the current user opens, if Other users of the same workbooks are not affected.
+After checking objects, formulas, Names, chart titles and data series, I discovered that my external reference was in "Conditional Formatting". However, there was no reference to another workbook, such as [Budget.xls] in any of the fields or conditions. Only afterward was I able to successfully break the link in the "Connections" Group. I hope this helps!
+Find a validation cell that is valid, select "Home (Tab) -> Editing (Group) -> Find & Select -> Go To Special... -> Data Validation" but select the "Same" radio button under Data Validation to find all cells with the same data validation on the worksheet. 
+https://support.office.com/en-us/article/find-external-references-links-in-a-workbook-fcbf4576-3aab-4029-ba25-54313a532ff1#bmfind_external_references_used_in_name
+However I had a few hundred to go through, I found using Dan G's search method worked but with a little twist. 

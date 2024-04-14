@@ -1,0 +1,6 @@
+Rather than try to cobble together your own solution - which I don't think will work anyway - why not investigate emerging services such as on-live? On-live has mixed reviews, but it appears to be the best (only available?) service of it's type. 
+There are similar technologies from Citrix and VMWare these days as well. But keep in mind this stuff is pretty much brand new this year, and so don't expect it to run nearly as smoothly as a dedicated gaming machine.  :)
+Remote gaming mainly depends on high-bandwidth, low-latency connections; even if you have these, RDP is still not designed for this purpose. Perhaps you can play some casual games this way, but not any serious games. Video streaming should be achievable - but not gaming.
+For RemoteFX, I'm pretty sure you need Server 2008 R2 with a fat graphics card (or two) as the (Hyper-V) host you are running the Win 7 VM you want to game from.
+I've tried to do a bit of research about this but I can't find anything definitive (before I go and buy the hardware goodies).
+With Windows 7 claiming to have better streaming of video and other media files, and with the new version of RDP client that comes with it - I would like to build a gaming computer that can be accessed via RDP session from smaller computers that do not have the grunt needed to run newer games.

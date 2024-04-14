@@ -1,0 +1,5 @@
+Are there other brands of wifi routers which have better support for firewalling between the WiFi and Ethernet devices?
+On "BT Voyager" router all the devices connected to the router can talk to each other, even with a firewall rule of "block all protocols from all addresses to all addresses, inbound and outbound".  Presumably its firewall only applies to connections going via the broadband/phone line?
+DD-WRT is a replacement firmware for many consumer level routers. To install it, you actually flash your router with the new firmware. It isn't for the faint of heart, as there is a real possibility of making your device not start up again. The risks are usually outweighed by the benefits, because a router with ddwrt can do vlan tagging, custom policies and so much more. 
+Use a dedicated firewall. If you have an old computer lying around, install one of the following OS's on it, and you can easily create business level firewall rules
+Trying to setup a wifi router, so that the wireless devices can only access a particular IP/port on the wired network.

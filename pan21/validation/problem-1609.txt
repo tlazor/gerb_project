@@ -1,0 +1,9 @@
+and eventually, you just create a CNAME using the domain name of your domain "A", make it point to "domain B".
+If your requirement is that the address of the other server must not be revealed, you need to set up a reverse proxy.
+domain1 has a document root of /var/www-domain1  and contains some directories, including one named /download - so the file system path to that folder is /var/www-domain1/download
+edit : nb, if you use SSL, you will have to have SSL certificates also on the CNAME (domain1) as well to avoid problems.
+Another lazy way is to use symbolic links, if you tell the webserver to follow them.  You can also alias various directories, so if you install phpMyAdmin it can be available on http://anyofyourdomains/phpmyadmin but the files all live in /usr/lib/phpMyAdmin and that directory is simply aliased in.
+You can't solve this on DNS level as DNS only resolves hostnames to IP addresses. It's like a phone book.
+What domain1 sees as http://domain1/download/foo.tar.gz  domain2 will serve up at http://domain2/foo.tar.gz
+If you need to offer www.example.com/somecontent from one server while rest of www.example.com is on another, you need to do this on HTTP protocol.
+Is it possible to show some content hosted on B when accessing A (without showing to the user the address of B?)

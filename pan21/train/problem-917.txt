@@ -1,0 +1,5 @@
+Note that the LAN ports on the back of your ASUS router are actually a switch - the router part of the device is "between" the LAN ports and WAN port.  So you can't connect your cable or DSL modem to a LAN port - you'll be in the same situation as using a switch above.
+If your cable modem has a built-in router, then of course your first two devices are automatically "Cable Modem -> Router" and you don't really need your own router.
+because the modem will only talk to the first computer that talks to it.  To share the connection, you need a router.  Thus, you usually want that "first device" to be a router.
+Most cable and DSL modems will only talk to the first device that speaks to it, until the modem is rebooted, regardless whether that first device is directly connected or connected by way of a switch.  So you can't do something like this:
+I have a Dlink DGS 1100-24P SWITCH and ASUS (RT-AC68U) Wireless-AC1900 Dual-Band Gigabit Router to install, Which is the better option, switch behind a router or the switch before the router

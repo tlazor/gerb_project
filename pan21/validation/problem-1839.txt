@@ -1,0 +1,7 @@
+Your processor is called Intel(R) Xeon(R) CPU X5675  @ 3.07GHz and contains a tech called Intel SpeedStep.
+Speedstep lowers the clock frequency of the CPU when the CPU has no work to do. This is mainly a power saving feature, and can normally be switched off in the bios.
+It might also be possible that there are external forces at work.  Specifically something like Intel Node Manager which will adjust the power consumption of a host by adjusting processor P-states.
+The processor speed in the model name line is part of the processor's model name. The processor's actual name is "Intel(R) Xeon(R) CPU            X5675  @ 3.07GHz".
+To check if this is active see /proc/acpi/processor/*/info.  See also http://acpi.sourceforge.net/documentation/processor.html
+Presumably, the CPU is not very busy now and is running at a reduced speed to save energy and keep cool. If you overclocked the CPU, the speed in the "cpu MHz" line could be higher than the speed in the model name. If you gave the system some work to do, they'd probably be equal.
+One way of getting detailed Processor information without rebooting your machine is to use dmidecode

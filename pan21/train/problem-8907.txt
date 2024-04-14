@@ -1,0 +1,5 @@
+Using mysql_close(), which explicitly closes the connections. The use of mysql_close() in conjunction with mysql_connect() would ensure that the connection is closed.
+I get the error occasionally, but when i refresh the page say after 20 seconds the error disappears and page appear normally. I tried to rectify this by putting a code to close the sql connection after the page finishes loading. But even after that i got this error. Can you tell we what could possibly be wrong. Is it a server issue or is it related to my code?
+The error says- Warning:mysql_connect()[function.mysql-connect]:Too many connections in /home/host1/public_html/www.mysite.com/db_connection.php on line 2.Could not connect error.Too many connections. 
+Are you using mysql_pconnect to connect to the database? This will make a persistent connection that remains open once it is established and will re-use that connection instead of creating a new db connection each time. 
+Also check max_connections and max_user_connections in the my.cnf file as you may be reaching a limit set in those two variables.

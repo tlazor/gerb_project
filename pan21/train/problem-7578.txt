@@ -1,0 +1,7 @@
+What’s happening when you delete the snapshots is it’s merging years of writes from 17 snapshot volumes into the single main virtual disk. 
+New-VM -Name $CloneName -VM $SourceVM -Location $CloneFolder -Datastore $Datastore -ResourcePool $ResourcePool -VMHost $VMHost -LinkedClone -ReferenceSnapshot $Snapshot
+You can think of snapshots as actually creating a new virtual disk that new writes are committed to. And then when a new read or write happens, data from all inline snapshots are used. This isn’t exactly what happens, but it’s close enough to illustrate the point. 
+Ideally you'd shut down the VM in question, then take the snapshot so that it's in a nice clean state, but that might not be possible for you.
+In any event, once you have this most recent snapshot, you can actually create a new VM based on it, using PowerCLI.
+Normally the only way to get rid of snapshots is to delete them, but given your situation, I think the better approach, oddly enough, is to take another snapshot right now.
+Once the clone is done, you power off the heavily snapshotted VM, and power on the new VM, and voila, a you're back in business without having to delete all the snapshots.

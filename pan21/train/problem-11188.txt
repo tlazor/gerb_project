@@ -1,0 +1,6 @@
+This creates a completely isolated virtual LAN in Hyper-V that's double-NATted behind the virtual firewall and your local physical LAN. I like this isolation as it allows me to mostly emulate a regular LAN environment, where my physical LAN represents the cloud.
+Of course, you'll need to configure DNS, DHCP, etc. according to the needs you've identified for your lab.
+Not every lab needs this kind of isolation, but I recommend it anyway just because it's useful. Once it's set up the first time, you can add and remove VMs to the private v-switch without needing any more network configuration.
+An external v-switch bridges your physical network adapter to a virtual switch port that Hyper-V creates on your host. Connecting your VMs directly to an external v-switch essentially adds them to your local physical LAN the same as connecting physical computers to a physical switch on your LAN. This can have undesirable consequences, such as:
+In order to isolate my virtual lab from the physical environment, I set up my Hyper-V lab in this way:
+As Joeqwerty said in his comment, "internal" and "private" virtual switches in Hyper-V do not have any access to your local physical LAN or the internet. In order for your VMs to access the internet, they must be connected to an "external" v-switch.

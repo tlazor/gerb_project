@@ -1,0 +1,5 @@
+It looks like you are looking for time series based Machine Learning (or Sequential Machine Learning as Emre pointed out). 
+Widely used algorithms for this kind of learning are Conditional Random Fields(CRF), Hidden Markov Models etc. Statistical methods like Autoregressive Models can also be used sometimes. A good starting point would be CRFs. 
+This means that you have an entire dataset available to you beforehand. You train on this dataset and then use it to predict next day's weather given the weather of the last n days. Please note that you do not learn incrementally here, i.e. you do not learn from the new data that is rolling in every day. The learning is limited to the dataset that you had beforehand. 
+Example: A day with inclement climate is likely to be followed by another day with inclement climate. Or when an entire dataset sorted by date is available, an algorithm able to identify that a person is likely to call in sick when the previous day had bad weather.
+Is there any effective analysis which utilises this prior information where not all events are completely independent?

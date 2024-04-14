@@ -1,0 +1,9 @@
+Contrary to popular belief, it is possible in Windows 7 to install with retail media and activate using an OEM key - I've done it many times. If you are having trouble with setting up ei.cfg, look around on SuperUser, there are many questions detailing that process. Once you have the disk working, just install the way you normally would, and when it comes time to activate, put in the key from the bottom of your computer. It will not activate automatically, but if you call the activation center to active by telephone and explain that you're reinstalling Windows, they will activate it for you.
+I recently purchased a new notebook from Dell with Windows 7 Home Premium.  The notebook came with lots of bloat and I want to do a fresh install of the OS and add back on, only the apps I want.
+AFAIK, it's either impossible or highly impractical to use an OEM License with an MSDN DVD, mainly because the OEM key follows a different key hashing algorithm and pings a different server than a retail or MSDN license. In other words, the OEM license goes with an OEM DVD, and ditto for the retail/MSDN version.
+Or you can also contact Dell for a DVD, I think if you have a proof of purchase you can invoke something with that.
+You should be able to call Dell and ask them to send you an OS disk but failing that you'd need to use an MSDN key that matches the ISO you are using.
+I have an MSDN account where I can download the installation disc for Windows 7 Home Premium...(I believe these are Retail installation discs, or the equivalent).
+I've read about deleting the ei.cfg on the ISO, but that does not seem to work...it actually corrupts the installation disc to the point where it won't work.
+I want to use the MSDN installation disc to install the software, but use the key that came with my new computer.
+The problem is that the computers no longer come with installation discs (I believe these are OEM licenses?)

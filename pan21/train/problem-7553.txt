@@ -1,0 +1,6 @@
+I am no db expert, but I was very surprised when someone working at our client's company asked us to send all queries wrapped in a transaction like below:
+If you're concerned about write queries blocking read queries, I would recommend either using SNAPSHOT isolation, or setting the READ_COMMITTED_SNAPSHOT database option, which effectively uses snapshot isolation for all queries. The net result is that instead of being blocked, read queries will see data as it existed prior to any currently running write transactions.
+I know you aren't the one making the decision to use it, but you can use these points as ammo if you need to push back on it. :)
+Be advised that this option increases tempdb usage, as that's where the snapshot data is stored (and it has to be stored for all write transactions in databases where it's enabled). If this overhead is unacceptable, then I would only use READ UNCOMMITTED after evaluating queries that need it on a case-by-case basis.
+As for running all queries with READ UNCOMMITTED isolation level, I'd strongly advise against it, unless you have a specific need, and aren't worried about the implications of dirty reads:
+I have never had such a request before when all we're doing is reading data (random ad-hoc queries). Is there any sense in this? Can anyone tell me why this would be necessary?

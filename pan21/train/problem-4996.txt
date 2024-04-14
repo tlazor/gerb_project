@@ -1,0 +1,7 @@
+On both 8-bit and 16-bit platforms I'd generally use a combination of a macro-assembler to compile my code (always assembly!), and some kind of monitor cartidge to debug it.
+For graphics I started off drawing stuff on graph paper, and later wrote my own character and sprite editors. Obviously on Amiga it was DPaint all the way.
+Assembly and C were the languages often. For example: RollerCoaster Tycoon was written by 1 guy in assembly.
+If you have an iDevice, take a look at the apps "2600 Magic" (1Up article discussing it) and "Dragster Magic", both by David Crane.  They are a fun peek into Atari 2600 programming.
+The more professional folks (who had money!) had cross-development set-ups where you'd hook the target machine up to a PC and use that to dump code across to it.
+You can look at this Nes Dev site that goes into the development of homebrew NES games. I even found this Source Code for an old SNES game
+For the first game I wrote (on the c64), I first wrote my own macro-assembler using the monitor cart. I had smooth 60hz scrolling in the text editor(!)

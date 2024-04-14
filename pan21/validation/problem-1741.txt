@@ -1,0 +1,5 @@
+Q4 : Thsi is a correct value although I have not see it taking the effect. The GC may decide to promote the objects earlier. Use -XX:+PrintTenuringDistribution to monitor this.
+JVM/GC logging enabled for example by :  -XX:+PrintTenuringDistribution -XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:LogFile=jvm.log -XX:+HeapDumpOnOutOfMemoryError -Xloggc:gc.log -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -showversion
+You should add JVM/GC logging options, this will allow you to track the GC activities and will help you with determining the optimal values for Q1, Q3, Q4, Q5. Further, GC logging has almost no overhead so you can safely use it in production environment:
+Q3 : The -XX:SurvivorRatio option is ignored unless you use -XX-UseAdaptiveSizePolicy, that's why people do not see effects of this option. Consider also -XX:InitialSurvivorRatio=3 and -XX:TargetSurvivorRatio=90. But be careful about disabling the adaptive sizing and do that only if yo u know what you are doing.
+Q1 : 3GB is not too large YounGen size if you consider that the total Heap size is 9GB. You need to check the GC logs to see what is the optimal size.

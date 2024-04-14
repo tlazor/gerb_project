@@ -1,0 +1,5 @@
+The reasoning is this is a public internet access (kiosk more or less) computer but we want the user to be able save files to a usb stick but not have the ability to save files to the machine or execute files from the usb stick.
+If I were you, I would setup the kiosks to run as dumb LTSP terminals, and start the users with a completely clean environment with every session. There are all sorts of ways to do this... my college had an XTerminal lab running on some ancient Unix back in 1994.
+If I were you, I'd leave the USB stick read-write (as that makes a lot of sense), but I'd set your machine's partitions to read-only.  If you lock down X enough (prevent anyone from opening a shell via xterm, for example), then it should be a piece of cake.
+Unless you control the USB sticks, write-only isn't going to work well. You're going to end up with all sorts of support issues and grousing by your users.
+It might be easier to just chroot execute the browser, with the USB-stick mounted under the chrooted jail.

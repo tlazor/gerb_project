@@ -1,0 +1,7 @@
+          if( (( this.x % snake.blockSize === 0 ) && ( this.y % snake.blockSize === 0 )) && this.isOutsideSnakeBody() ) {
+You have an update function on line 123, with a forEach method. That method takes a function as parameter, and provides one argument. You have this on line 126:
+I've decided to take your advice and improve the style of my code.I would like to know what do you think of it now,and maybe what's more needs to be changed.Though I'm not sure if I refactored it correctly because now my JS script has 100 more lines of code.
+If the player has a perfect game, the snake will fill the entire map if he ate the last apple. If that happens, you have an endless while loop, causing a tab/browser crash. I would check the snake length vs amount of positions on the game board to fix that.
+The function handleInput(e) on line 92 does not need 4 if statements to determine if you are going the opposite direction. You can concatonate that in your switch and make a comment about it:
+You pass that variable in a function and do nothing else then calling another function with the same parameter. You could replace that like this:
+I like what you do with defineAppleProperties, using the while loop to determine the apple location, but it could cause issues;

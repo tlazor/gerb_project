@@ -1,0 +1,6 @@
+Was reading something that kind of gave me the idea that certain Seagate external HDD's are not "designed" to be shared across a network.
+Run the Local Security Policy, Local Policies, Security Options (secpol.msc): these settings have explanations, so I wont provide a lot of details.
+Double check the permissions. Make sure that the two permission look identical. Sometimes Everyone having read permissions isn't enough (even though it would seem so). Just to make sure that it isn't an issue, give everyone full control. This should work as long as there aren't special groups/people set up with restricted permissions and you are that user.
+You can also use the Auditing Policy and enable failed access auditing to log (to the Audit Event Log) access requests and that might give you a clue as well.
+I ran into that problem with W7 & an NTFS formatted Seagate external drive. I subsequently formatted the drive exFAT & was able to access the share across a network.  Not sure if it is a Seagate designed limitation that does not apply to exFAT or if it was something I screwed up in setting the share/permissions the first go around when the drive was NTFS formatted?
+And last, but not least, don't forget to double check the permissions on the share itself (Permissions button on the Advanced Sharing dialog).

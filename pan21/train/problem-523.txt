@@ -1,0 +1,5 @@
+A coworker has his computer off the network for a while and they removed his computer's access. To get access back, IT had to do "stuff" to it.
+But the BitLocker password still didn't work... and the extraordinarily-competent IT people (the same ones who re-initialized the TPM) also lost the recovery key from their database.
+Is the TPM relevant to this at all? (does password-protection require both the password to be correct AND the TPM to have the correct PCR state, or is it independent of the TPM?)
+How can he unlock the drive with the password? (if the above question is that it still requires the TPM, then this is probably a worthless question because it's impossible)
+The company I work for has computers with TPM chips and Windows 10 Enterprise, and uses BitLocker for full-disk encryption. They have BitLocker configured to require a password at boot (which I believe means the TPM is not involved in the decryption, and the disk should only be encrypted by the password itself; is this wrong?).

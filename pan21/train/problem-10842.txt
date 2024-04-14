@@ -1,0 +1,7 @@
+The problem is that gnumeric is a gnome application and can't be installed without a desktop installed.
+I just installed gnumerics on my Ubuntu server : it installs a lot of dependancies, such as gnome and others, which seems heavy, but you don't need to load the desktop environment to use ssconvert.
+I need this specific conversion tool cause it can covert from Excel XML format to CSV, which I was unable to do with other excel conversion tools.
+I think many of the dependencies for gnumeric are actually "recommended" packages, not real dependencies. Try this:
+For me, this installed about 37MB of packages, most of which were libraries and icon themes, which I felt was tolerable.
+will do the trick. The parameters -s y -d specify the source and destination charset. This example will process a source file that includes special characters such as 'ñ'. Hope this helps!
+I know you're asking specifically about ssconvert, but in my case I gave up trying to install gnumeric without the Gnome dependencies. Instead, I'm using xls2csv (which is part of the catdoc package) with the same results.

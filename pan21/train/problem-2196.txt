@@ -1,0 +1,7 @@
+That is, the double quotes around the array are important, in case the items may contain spaces. Even if you know for sure there won't be spaces in your values, it's good to adopt to writing style so that it becomes a good habit.
+Also, the convention is to use lowercase names, instead of capitalizing as in Pinging (which by the way another example of a poor name).
+Long pipelines with many processes are what slow down shell scripts. It's good to make a habit to avoid them. Take for example:
+Some of the names are very poor, notably check, check2 and i as a global variable. i is perfectly fine as a counter in a counting loop, otherwise not. It would be good to replace all these names with something that describes their purpose.
+Furthermore, you use the result to match against a regular expression. Awk can do that too, and probably more efficiently than Bash.
+Note that <(...) is Bash 4 syntax. If it's not available in your version, then you can save the result of the input process in a variable, and then use a here-string instead.
+Lastly, names with all capital letters should only be used for system variables or exported variables.

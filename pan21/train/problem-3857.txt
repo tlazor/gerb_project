@@ -1,0 +1,8 @@
+I work in Godot 3.0, but I don't think that matters. I am looking for general advice about how to set up moving hazards so that they can be synced in reliable yet highly customizable ways.
+I am trying to implement a saw blade hazard in my platformer. The saw blade simply moves from point A to point B, and back, at constant velocity. (Let's assume all saw blades move at the same velocity.)
+I currently achieve this using my engine's built-in tweening functionality, which allows me to specify a start position, end position, and duration of the tween.
+Also, a Path2D and a PathFollow2D  would give you more flexibility, since you could add more points to the paths and make them curvy easily. Just make the path cyclic and set the loop property of the PathFollow2D to true and your object will move back and forth.
+This works well enough, but it limits what I can do with level design. There is no way for me to start the saw blades at intermediate points, which means I can't really design interesting patterns with them, for example, getting them to pass some intermediate point at the same time in their cycles.
+The object that you want to move has to be a child node of PathFollow2D which has to be a child of Path2D.
+So, my question is: How can I set up my moving hazards so that I can easily achieve and experiment with different patterns and synchronizations?
+Ideally, I'd like to be able to set the terminal points, duration of a cycle, as well as the initial configuration of the saw blades. This would allow me to start them at a pattern I want to repeat, and simply let them run.

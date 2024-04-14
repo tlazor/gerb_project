@@ -1,0 +1,8 @@
+And since someone mentioned that cp could theoretically detect that the source file is a directory and ask if it should copy it recursively, here's a quick suggestion:
+This is just a cheap cp wrapper. It always preserves all meta data (i.e., copies file modification time, properly copies symlinks and so on) and if you're trying to copy a directory, it asks if it should copy it (recursively).
+That way, you can copy a directory using cpa dir1 copyDir1 and it will not only print what's being copied but also apply file permissions.
+So, if you want to successful copy a folder, since it implies both the folder and the objects related to referencing the folder, you have to treat it as if its a collection of files: 
+It is, of course, very easy to create a command shortcut in your user environment (put this in your .profile/.bashrc file to make it permanently available):
+Interactions with directories makes sure you know you're interacting with a directory and NOT just a single file. 
+So if you're copying a directory (user's perspective), you are really copying a bunch of files (filesystem's perspective) (regular files, directory files, symbolic links, ...) and for every directory file, you are recursively repeating that process. Since copying a directory is by definition a recursive process, cp's argument is called --recursive.
+As others have mentioned, a directory is basically just another type of file (as opposed to a regular file), which usually "contains" (points to) other files. It could contain subdirectories, for which the same applies...

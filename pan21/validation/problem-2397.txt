@@ -1,0 +1,5 @@
+I have tried using all three methods of encoding the data elements, but nothing seems to work i.e. my PXE boot clients do not get directed to my TFTP server. Can anyone help?
+In OS X Mountain Lion Apple are now expecting null terminated strings for certain DHCP options. Contributor John Lockwood has created a utility that will generate the correct bootpd XML including null terminated option strings. Refer to the thread above, and download the utility here:
+I need to configure Mountain Lion (10.8.2) OS X Server BOOTP to provide DHCP options 66 and 67 to provide PXE booting for PCs on my network. I have tried following the bootpd MAN pages, but they are not specific enough. I have also read conflicting information on the net, but nothing definitive for Mountain Lion DHCP.
+According to the man page, the data elements are supposed to be Base64 encoded, but no matter what I try, I cannot get PXE clients to boot.
+Adding the generated codes to my bootpd.plist enabled me to PXE boot PCs using only the OS X DHCP Service.

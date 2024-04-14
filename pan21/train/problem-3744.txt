@@ -1,0 +1,11 @@
+If you cannot edit the image because a third party provide it to you, you can restore it in a computer, perform your personalisation and create an image to restore on other computers with opensource tools like clonezilla.
+Especially when it comes to the processing order there are differences as well as the stage of implementation (image, pre- / post-sysprep) depending on the hive (if the policy sets a registry value).
+We are currently installing a lot of PCs based on an image. After the install is done, certain group policies need to be changed, which we have to do manually at this point. 
+Yes, it is possible by a powershell script, I find out here a descriptive way to manage Local Policy with powershell.
+Since the Group Policy settings are stored in the Registry, the easiest method to create department-wide configurations might be through a .reg file, 
+Set "Computer Configuration / Management Templates / Configuration Panel / Online Tooltips" to "disabled" via a script.
+If I can suggest you another approach why do not edit the image and deploy the image with the configuration you likes?
+Rather than synthesizing the .reg script from scratch, you could "reverse engineer" such a script by taking a snapshot of the Registry of a freshly created clone, applying appropriate changes through the Group Policy Editor, and then diffing that snapshot with a new one. An excellent tool for this purpose is Nirsoft's RegistryChangesView, which can "export the Registry changes into a standard .reg file".
+Microsoft maintains a list of the Group Policy Registry keys. For example, line 188 shows HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer!AllowOnlineTips controls online tooltips.
+From personal experience I would prefer to set and apply a GPO rather than editing reg values manually. We hat the issue that reg settings were not finding there way back to the policy and policy settings were overriding the reg value.
+I Would like to add these changes in a script so I can create a script per department to enforce these group policies.

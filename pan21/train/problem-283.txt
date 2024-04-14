@@ -1,0 +1,6 @@
+Right click on that new x-axis and select "Format Axis". Under Axis Options, and Axis Position, you will see the On Tick Marks or Between Tick Marks options. Choose the On Tick Marks.
+I am trying to lay a line graph (on a secondary axis) over an area graph in Excel. When I have just the area graph, the graph uses the full width of the graph area. When I add the line graph and move it to the secondary axis, gaps appear at the extreme left and right of the area graph.
+Then you can go back and turn off the Secondary Horizontal option. This will bring you back to just one normal X-Axis and your lines/areas will stretch from one end of the chart to the other!
+I found a workaround for this problem, after trying to apply the suggestion from dav (but being unable to find that setting in Office for Mac 2011).
+Had the same trouble, but in 2013/2016 there is no "Layout" tab under Chart Tools anymore. I FINALLY found a solution: 
+This will separate out the x-axis so that your secondary axis will appear above the chart grid itself.

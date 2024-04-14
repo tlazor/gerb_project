@@ -1,0 +1,5 @@
+You can either "Optimize connection buffer size" or increase the "Timeout" for "Server response timeout" in the "Connection" tab in WinSCP to a large number like 2-3 mins. This solved the issue for me.
+I'm on Windows and I never manually patched any updates. What could be wrong? My guess is something's wrong with my Windows? But what? Why can PuTTY successfully perform SSH tasks while WinSCP nor Filezilla can't?
+Tried with FileZilla and the exact same problem. If it connects or responds, it's very very slow. Contacted my support and he was never able to replicate the problem.
+Sometimes it would successfully log in but it would still quit on the same error over and over again whenever I tried to do something, listing directory, transferring a file, etc. But everything's fine and responsive on PuTTY against the same server and the same user account from the same computer at the same time.
+It had been all right all day until a few hours ago when WinSCP suddenly started keeping giving out the hideous "Host is not communicating for more than 15 seconds. Still waiting..." error. I tried to log in via PuTTY as the same user and it worked perfectly.

@@ -1,0 +1,6 @@
+If you want to create the dump on the server and transfer it afterwards, you will have to tell us what the error is when you try to create it. 
+Of course, tune the mysqldump parameters as necessary. But since the mysqldump output is largely ASCII, gzip will compress it extremely well.
+If you just want it on your local desktop: Download the MySQL workbench, make sure you have appropriate privileges to acccess the database from this machine (or maybe use SSH port forwarding) and use the dump tool. Works flawless for me. 
+I have a mysql database on a server that is around 4 gb in size and I couldn't get it downloaded to my local machine. I tried getting a dump on the server, but the dump is not getting created probably because of the big size. Is there any way, I could get the dump downloaded on my local machine?
+I can syncing using Sqlyog but I know it will take ages. Is there a way, I can get a dump created on the server?
+Well you havent stated exactly what error youre getting, but you can shrink the file significantly by passing it through gzip. Since you said youre running linux, this is really easy to do

@@ -1,0 +1,8 @@
+http://gallery.technet.microsoft.com/scriptcenter/en-us/site/search?f[0].Type=RootCategory&f[0].Value=storage&f[0].Text=Storage&f1.Type=SubCategory&f1.Value=sharedfolders&f1.Text=Shared%20Folders
+There is no share rename, a new share can be added on the same folder and the old share can be deleted later once things are confirmed working.  The catch is the new share requires new share permissions and if the path changes then new NTFS permissions may also need to be set.  
+If you want that network drive persist over reboot you need to add  /persistent:yes to the net use command when you map the network driver, so for R: 
+Anyone have any idea how to do this?  I'm thinking of looping through somehow with net use but that's as far as I've come.  Will be researching myself as well but thought I'd post here and see if somebody knew real quick as I'm in a bit of a crunch.
+Another option would be a VBScript but I think that would involve a bigger time investment, especially for something like this which doesn't require a great deal of analysis or logic.
+VBScript can also work well as it can do Share Permissions: MS Scripting Repository - Shared Folders.  Link below, can't get hyperlink to work.
+Net Use will change the drive mapping but not the underlying share as command runs on the client not the server.  
+If you are able to get a list of the directories you want changed, you can feed that command an input file (like shares.txt) and it will iterate through each line.  You can assign some fairly complex logic as described in the link.

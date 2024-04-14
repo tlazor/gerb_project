@@ -1,0 +1,5 @@
+presently I have very little space left in my Flash Recovery Area (FRA) thereby resulting in my archivelog getting filled up quickly and making my DR unable to receive Redo logs.
+Keep in mind that Oracle manages the FRA space and will delete files if they are no longer needed, to make space.  You can have FRA 90% used, and it's OK.  For example, archive logs may be backed up to tape, but they will remain in the FRA for faster access if the space is not needed by other files.  
+First - check for reclaimable space with SELECT * FROM V$RECOVERY_FILE_DEST;. The NAME field will either be a disk path, or an ASM disk group.  If space is reclaimable, then the files should automatically be cleaned up.  
+if I can't delete files from any of these directories to free some space, what is my possible alternative of getting some more space in my FRA.
+Second - check for free space on the device that stores your FRA (NAME from V$RECOVERY_FILE_DEST).  If you have space, you can increase the amount of space you allow FRA to use (see DB_RECOVERY_FILE_DEST_SIZE).  https://docs.oracle.com/cd/B28359_01/server.111/b28320/initparams061.htm#REFRN10235

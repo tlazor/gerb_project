@@ -1,0 +1,8 @@
+In the end, I couldn't find an answer here.  All the monitoring and profiling tests show that Google Chrome is very slow at loading secure static content from local client cache.  No idea why.  We had to have all of our internal users switch to IE (which is what most of the people with similar problems on the web did).
+Chrome has an awesome built-in diagnostic tool, "about:net-internals", which is designed to help troubleshoot network problems. In particular, it has an "Events" tab which lets you specify a URL and then Chrome breaks down the entire process of loading it, step-by-step, including DNS resolution, cache hits, and AJAX element requests.
+We deployed Google Chrome internally, to support a custom developed application (on ASP.NET MVC) but running on normal HTTP.
+This article may be useful as it provides a primer on Chrome caching: http://gent.ilcore.com/2011/02/chromes-10-caches.html
+I was running into the same issue. After searching for a long time I found out with the process monitor tool (https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) Chrome was running into many collisions trying to write to %TEMP%. Clearing this directory solved the issue for me.
+Others seem to have similar problems (e.g. http://www.google.com/support/forum/p/Chrome/thread?tid=741fd9e03cfb7e7b&hl=en).
+We also had issues with slow pages because of the cache. It seems Chrome was pulling all the static files on every page load, and not saving them in its cache. We ended up simply adding expires headers to our app to force the cache on, and that worked.
+You could go down that route (modify your web applications to specify caching strategy for each type of file), or investigate further Chrome's default caching behavior. 

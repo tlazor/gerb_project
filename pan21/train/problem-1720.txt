@@ -1,0 +1,6 @@
+114x150 is incredibly small considering the size of the source and I'm not sure if any scaling method will give you a satisfactory result. That being said you can experiment with the -sws_flags option in ffmpeg.
+I've got an .mp4 file that's currently 830x1100 (it's a screencast) that I need to resize down to 114x150. I've been experimenting for hours with ffmpeg settings and nothing comes out looking nice and sharp. The original file looks decent, and I can't figure out why the downscaling makes it look so blurry.
+Also remember to provide a high enough quality that compression artifacts don't interfere. See the FFmpeg and x264 Encoding Guide for examples.
+The first step is called "Incremental Upsampling".  And they appear to teach it in University level photoshop (?) See http://library.albany.edu/imc/pdf/upsampling.pdf
+This is just an example: I'm not suggesting that lanczos is going to be your best bet. Default is bicubic. See the full list at ffmpeg -h full.
+Unfortunately I can't share the video because it contains a walkthrough for software that hasn't yet been released.

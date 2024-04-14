@@ -1,0 +1,7 @@
+I'd actually rather suggest buying an unmanaged switch (if you really just need very basic connectivity) or a Catalyst (if you actually need a managed switch) instead of one of these.
+personally I wouldn't recommend the Small Business Line from Cisco for the office environment. Especially not for connecting servers. Their flexibility is very limited and their throughput might not serve your needs.
+Does anyone have any experience with these switches? are there are better products for similar money?
+If all it's ever going to is handle your management traffic and nothing else then I'm sure it'll be fine. Personally I like all switches to have dual PSUs but if it's just for DRAC then why not?
+Don't think that the Cisco 'Small Business' switches are going to give you quality close to their Catalyst/IOS line. They're really very basic switches designed for a single-switch office running on Windows.
+Their management interface is very basic and poorly designed and depending on the firmware version, may only work in IE.
+Instead you might want to look at the Cisco Catalyst Access-Switches instead (C2960 for example), even if it's a bit more expensive. If you're about costs you even might to think about refurbished Cisco equipment.

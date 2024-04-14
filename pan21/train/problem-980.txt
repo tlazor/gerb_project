@@ -1,0 +1,6 @@
+If #2 does not correct the issue, and the problem continues then it is a problem with the driver or the printer. What model printer, and have you obtained the latest driver? Perhaps an older version of the driver (if you can find such a beast) is available?
+This is a Driver issue.  Get the latest driver for your system and make sure you are using the correct protocol/port to connect to the printer.
+Failing that - delete all of the drivers and ports related to the printer. (Right Click in Printers -> Server Properties -> Delete each driver for this printer, then all the ports) and reset the printer to factory defaults. Then reinstall using the latest driver from HP.
+When you connect via USB, Windows will install a new copy of that printer. In other words, if there is in fact a setting that is causing this it shouldn't be present on the printer configuration.
+May be because the printer (driver) or the program u r using is set for the wrong paper size. In UK we use A4 as standard but I'm unsure about US sizes (for example). It was a problem here too but largely fixed since A4 became standard AND programs (e.g. Word) recognised it!
+If you are using postscript the following applies. In some cases printing elaborate postscript documents can also have this result when the printer needs more memory to properly render the document.

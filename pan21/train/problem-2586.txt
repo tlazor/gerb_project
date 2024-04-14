@@ -1,0 +1,5 @@
+For finding the checker colour you can add the x and y (i + j) % 2 and then get the remainder of 2 saving you the second loop.
+You can reduce the complex if statement and the resulting duplication by checking if i+j is even or odd to color a place. i.e.
+The for loops are a little strange starting at 1. Normally you index into an array from 0. If you have 8 items in the array the loop would be for(i = 0; i < array.length; i ++){ but you may have extra elements on the array. Without the HTML I can only guess.
+The most important part of coding is good and consistent style. Having messy code makes it harder to read and near impossible sometimes to spot subtle syntax bugs. Many IDE's can format the code for you, learn to use them they will save you many hours of bug hunting frustration.
+Can anyone take a look at this Javascript code and see if there is an opportunity for simplifying. The code runs and generates a chess board by adding a dark color class or light to each cell in the board.    

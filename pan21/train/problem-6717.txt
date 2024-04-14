@@ -1,0 +1,7 @@
+Lastly, unless there is a good reason to run the script as root, don't.  It should have the least privilege it requires to work.  Just good practice.
+When you run the file as user pi you are probably doing so from /home/pi (or ~pi, which is equivalent), your file goes into /home/pi/Documents/Images/Imagem.png, the absolute and relative paths happen to match up, and the next line can find the file.  However when you run it from crontab, it will have a different current directory.  I don't know offhand what current directory crontab will give it, but there's no way it'll be /home/pi.
+Now when it goes wrong you should be able to find out why from the system logs (/var/log/syslog I think).
+You have two problems: the problem of the file not being found, and the problem preventing you from debugging the first problem.
+Now the real problem.  I don't know what this gop thing is, and your extract doesn't show it, but you say it generates a file, which you indicate is in Images/Imagem.png -- although I suspect it's really in Documents/Images/Imagem.png.  This is a relative path - relative to your current directory.  When you load the file in the next line, you use an absolute path - relative to the filesystem root.
+Either change gop (whatever that is) to put the file in an absolute location (I don't have the code to help with that), or change your code to read it from the same relative location:
+This means if the try part fails with OSError, it will just ignore it, tell you nothing about it, and carry on.  At very least, log the error:

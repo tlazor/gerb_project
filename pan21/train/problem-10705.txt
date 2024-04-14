@@ -1,0 +1,8 @@
+Do you have to immediately index those columns even before you notice performance issues? Or does it make sense to do them later as to not affect the INSERTs yet?
+A small amount of prudent planning by inserting relevant indexes on select queries that matter. Yes, you'll get a benefit, 20ms vs 80ms you may not notice but that could be a benefit. What you will notice is the CPU/IO resources to do the function of the MySQL server will be lower.
+The vast majority of traffic in most databases is SELECTs, so putting off the creation of Indexes until performance becomes a problem is just setting yourself up to fail.  You know you're going to need them, so save yourself the grief and put them in to start with.
+Unless you have significant insert/updates/deletes, don't worry about the modification speed of indexes, but still only add the columns needed.
+Where you have joins, you should also have Primary and Foreign Key Constraints and most DBMSs will insist that each of these is supported by an Index (even if it has to create one for you). 
+Say your app is new and you have identified columns which are good candidates for indexing (based on how you did your views e.g., WHERE / JOINS).
+(And, anyway, it won't be you that notices the "Performance Problem" - it will be your unhappy Users). 
+Use explain to ensure your index is used. Understand how mysql uses indexes and principles of query optimization. When you have a small dataset is a good time to get skills creating the right index as its usually pretty quick to add/remove indexes for experimentation.

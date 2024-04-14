@@ -1,0 +1,7 @@
+There is not much of a technical resource onsite and the old server is in-use anyway so I would like to avoid making a trip in myself or trying to have someone onsite pop open the case and tell me what card is there.
+I am doing some consulting work for a previous employer upgrading and migrating old servers to new hardware.  
+They are upgrading to a new server hardware (HP ProLiant DL160 G6).  The old server is 2U, the new one 1U and we would want to move the tape drive to the new server, too.  I'm trying to figure out if the SCSI card in the old server would be able to be installed in the new one or if we'll need to source a new card; mostly I don't know for sure the height of the card and if it's low-profile enough that it would fit in the new server.
+In Device Manager under SCSI and RAID controllers you should see the SCSI card and should be able to get the info you need.
+It's running Windows Server 2003 - is there a way to tell from say Device Manager what make and model the SCSI card might be?  Or any other system diagnostic program or something that would give me hardware info like that?
+Both 1 and 2U servers should have a riser card with the PCI cards being installed sideways.  The same cards should fit in both servers.
+There is an existing file server (HP ProLiant DL380) that has an tape backup drive connected; it is using a SCSI interface and I'm pretty sure it's using an internal SCSI card.

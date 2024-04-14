@@ -1,0 +1,11 @@
+If you receive the error "heptio-authenticator-aws": executable file not found in $PATH, then your kubectl is not configured for Amazon EKS. For more information, see Configure kubectl for Amazon EKS.
+Add that file path to your KUBECONFIG environment variable so that kubectl knows where to look for your cluster configuration.
+As mentioned in creating a kubeconfig for Amazon EKS document, you should get two things from the cluster:
+At this point, assuming you already have a running Kubernetes Cluster in your AWS account you can generate/update the kube configuration in $HOME/.kube/config with this one command:
+I resolved this issue by fixing the base64 encoded certificate in the kubeconfig file I created. The documentation is a little confusing because it says to use the --cluster-name switch with the aws cli for the EKS service and for me the --name switch worked. This printed the base64 value to the cli and I copy pasta it into the kubeconfig file saved and it worked.
+Pass in your AWS configuration variables in line with your command (or set them as global variables).
+Replace the <base64-encoded-ca-cert> with the certificateAuthority.data that was created for your cluster.
+(Optional) Add the configuration to your shell initialization file so that it is configured when you open a shell.
+Unfortunately, AWS doesn't yet have a command like GKE's "gcloud container clusters get-credentials", which creates kubectl config for you. So, you need to create kubectl config file manually.
+Things have gotten a bit simpler over time. To get started on Linux (or indeed WSL) you will need to:
+Save the file to the default kubectl folder, with your cluster name in the file name. For example, if your cluster name is devel, save the file to ~/.kube/config-devel.

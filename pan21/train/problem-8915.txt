@@ -1,0 +1,8 @@
+Set folder the way you want it>Go to view tab> select options>Change folder and search options>Click the view tab in the new window>click apply to folders button
+This all refers to GetOpenFilename(). Don't know if the IFileOpenDialog type even let programs do this as well.
+Can anyone help? Inside the "Save as" window. the same Folder options buttons are greyed out. In there a registry hack? Anything?
+For example I want all my files and folders to be sorted by "date modified". So I do the above customization and everywhere I go everything is sorted by "Date Modified" unless I open a save as Window. In the save as window everything is back to the default of being sorted by name.
+So I know very well how to customize all the folders views in Windows to a very specific way. Just set up a folder the way you want it to look and use the good old fashioned "Apply to Folders" button.
+The crazy thing is I could have sworn this used to work, but every computer I try it on seems determined to be prove me wrong and or crazy.
+So the "Save as" Window seem to be operating independently  of the regular file explore at least as far as its view settings go.
+From my experience of NT4 thru Win7 those dialogs always showed by default the "icon" view (filenames with icons only, listed in multiple columns growing horizontally) - the display view could be customized (by clicking on the buttons), but never remembered. However, programs that invoke those dialogs are able to do that for the user (or i.e by display the "details" view by default). Over the time I encountered only few programs actually making use of this, tho.

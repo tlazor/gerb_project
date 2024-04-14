@@ -1,0 +1,6 @@
+If you are in fact doing something illegal, your access to update the content on your server can always be tracked by governments, potentially even if you go through TOR or private VPNs. 
+I can't find the tool I've used in the past to do Google Analytics Cross references, but here is an example of one: http://reverseinternet.com/
+An example of a shared host reverse search: http://www.axandra.com/free-online-seo-tool/shared-hosting-check.php
+If you are truly concerned with privacy, you should not be using a shared host and should not do anything with any external services - they could potentially be subpoenaed to identify you. You should travel 50 miles from your house and use some free wifi with a live cd, randomize your mac, and post to a secure server. 
+Noting the comments above on legal issues relating to content. These are some of the technical things to note.
+If you use shared hosting, there are searches one can do against the host to see what else is hosted on that server, this would show you other sites hosted there and one can them look for identifiers or other information. The same can be down with your google analytics id, it it possible to search against an ID and find other sites using that analytics id, it's a unique value in the underlying HTML. Again, if there is identifying information on those sites they can track back to you. 

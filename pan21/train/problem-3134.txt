@@ -1,0 +1,10 @@
+I have just tested this with SQL Server 2016 Developer edition and it allowed me to create nonclustered columnstore indexes on my subscription.
+As we've recently upgraded to EE, I want to enable data compression on several of the large tables on the reporting server to save on disk space (I'm currently not ready to enable it on the production server)
+At the moment, I have my production server with several large databases and I use a second SQL server for reporting purposes. I maintain the reporting copies of the databases using transactional replication.
+There's no real pitfalls from doing this. You just need to be aware that there will be a slight increase in CPU on the subscriber, so if you're already CPU bound it might not be the best path forward. 
+I did have cases where the table mysteriously lost its compression, perhaps due to some rebuild script that did not honor compression settings.
+The only pitfalls I can see is if the table is re-snapshotted, the replicated table would lose its compression. As all of the additional reporting indexes would also be lost, its not something I would undertake lightly.
+I left my investigation there, but depending upon the relative abundance of RAM or storage then I would suggest compressing only infrequently used data, either by partition or table. (But perhaps you can't easily partition tables the partitioning is not done on the publisher too.)
+When performing the compression be aware that you will probably experience transaction log growth, much like you would if you rebuilt any other index. Sorting in tempdb is generally a good practice for something like that.
+You could consider using either pre or post snapshot script in order to help ensure that index compression is maintained in the event you need to run another snapshot (and to add any additional indexes that you require).
+However, I found that queries where the data needs to be read from disk are quicker compared to uncompressed tables and queries where the data is already buffered in RAM became slower compared to uncompressed tables.

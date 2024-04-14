@@ -1,0 +1,13 @@
+You can do something close using shell script and SSH, but deployment tools exist to solve those kinds of problems.
+Although there's not really enough information here to design a security model, in general I find that basing the webserver uid access around the 'other' permissions is often the best approach - hence directories should be drwxrwSr-x (owned by a group which includes users requiring modify access but excluding the webserver uid, note use of setgid bit) and files -rw-rw-r-- (and if you need to have files editable by the webserver uid then drwxrwxrwx). 
+Certainly you don't want to allow the webserver uid permission to write any files within the document root except those specifically designated for that purpose.
+I have a VPS with multiple websites in chroot, each one running with a unique user, without root privileges.
+I'm trying to implement a deployment script, which is run by a master user (not root either), who can access all websites, and modify all files.
+However, I often experience these permissions being "reset" to 700 (or similar, where group loses the permissions).
+So it sounds like maybe you should have all the files/dirs owned by your deployment user and with a group ownership of group with just 2 members - the deployment user and the webserver uid - and create your dirs / files as drwxr-S--- / -rw--r----- (again with designated upload dirs/files as drwxrwS--- / -rw--rw----)
+Most of my sites are built on Wordpress, which might have some automagic security stuff, that resets overblown permissions. Also, if a developer locally changes the group permissions, and uploads these, the permissions will be changed.
+This question has been asked many times, but I haven't found a solution for this type of permission.
+As I understand it, I will have to change the permissions of my files and folders to 770 (or something similar that gives group equal permissions as the owner).
+Why don't you use a deploy tool like capistrano to write a task that connects on all servers with variable users and upload stuff using scp or sftp or even checks out from a git repository?
+The first advice I normally see, is to create a group, which contains both the master, and all the website users.
+But this is not necessarily the best / complete model for your case - when you say the website are in chroot, do you mean that they are all in the same chroot? Or you've got multiple webserver instances each running in their own chroot? In the second scenario, splitting the user ids is redundant, and the model I described above is appropriate.

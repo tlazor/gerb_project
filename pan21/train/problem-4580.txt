@@ -1,0 +1,6 @@
+I think this (plus the password) should be everything I need to decrypt the file, but I'm really struggling at the "how" part. 
+I can see that the encryption process has added the extension ".XML" to each of the encrypted files. The files then have the following XML header (line breaks added for readability, hashes cut out in case they turn out to be secure info), a line break, and then what I presume to be the actual encrypted file contents.
+If you search for some of those XML tags (like "GETEncryptedDataFile"), you'll find that they seem to be associated with Symantec Endpoint Encryption Removable Storage. There seems to be a trial version of this that you could play around with, but given that your file has a "Certificate" tag, that suggests to me that the encryption uses a certificate on your sender's computer, which you presumably don't have. So,  I wouldn't bother trying...
+I have tried the following to drop the third (encrypted) line of the file into openssl to decrypt, but it gives the response "bad magic number". 
+I guess I need to use the hashes and keys provided in the XML header, but that's where I'm stuck as I've not done a lot of encryption stuff.
+I've been sent a series of files that I need access to, along with a password. Unfortunately, I haven't been told how the files were encrypted.

@@ -1,0 +1,5 @@
+What if your command already has a -H flag however?  It's not clear to me how you would do this.  I'm sure this wouldn't work for instance (using the doc's example as a starting point, and assuming check_ping works like this):
+Looking here on the nagios docs I see that it's standard practice to pass a hostaddress macro to your commands with the -H flag.
+If you wanted to run this check one time, you could run the same command but replace $HOSTADDRESS$ with a specific IP, like so: 
+You can always define a new custom command using the same plugin that the existing command does. In this command you can pass to the -H switch something other than an actual $HOSTADDRESS$, like $ARG1$ or whatever.
+When configuring Nagios, you would typically want to use the $HOSTADDRESS$ macro. They are essentially variables internal to Nagios and enumerated at run time. This allows the commands to run with no further interaction from you, as Nagios will find the hostname or IP in your configuration and replace $HOSTADDRESS$ with the specific system's information. You also can only pass -H one time to Nagios. 

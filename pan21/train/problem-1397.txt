@@ -1,0 +1,7 @@
+The command SHOW PROCESSLIST will only show you what is happening in foreground threads.  InnoDB is likely rolling back the transaction in the background.  Some diagnostics you might find useful:
+I'm certain nothing is using the server as the only thing that would connect to it is the application on my local machine that I am developing, and that is not running.
+There is a way to dispense with a runaway rollback, also explained at the link I've cited for the quotes, above... but your safest bet is to just let it churn for a while.  
+InnoDB saved the data in the rows it was changing, and queries against that changes that are still being rolled back should be answered transparently using the data that's still in the undo log.
+I've tried rebooting and giving it some time, but the CPU usage is fairly constant even when idleing on the desktop.
+Edit: I did recently kill an update statement that was taking a long time.  Could this have anything to do with it?
+It's probably good that you added that afterthought, because that's very likely what you're experiencing... the server is rolling back the work it had already done before you killed the large update.

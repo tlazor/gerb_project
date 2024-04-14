@@ -1,0 +1,9 @@
+You can simply move the computers back to their original OU.  That will remove them from the policy aplied at the OU level.  You should then clean up by deleting both the OU and the policy (after verifying that it's only setting WSUS).
+Our Network Admin, who toughed it out for 3 months here, setup a virtual WSUS server and added Group Policy to enforce a WSUS policy on about 1/3 of our workstations. The virtual WSUS server has since been removed, but the policy is still preventing users from getting updates from Windows Update -- says it's being controlled by the domain.
+So... drag computer objects? unlink policies? delete policies? What's the right way to go about this?
+Just delete (or unlink, or disable, or unset, or whatever else you want) your WSUS-related policies.
+There are a few WSUS GPOs in Group Policy Management, and there is a WSUS object in AD Users & Computers, with all the of the systems it's set to control inside. I tried dragging these workstations back to Computers, but Windows Server 2008 gave a warning about 
+As others have said, just hunting down those WSUS policies and dealing with them in your preferred manner is the way to go.  If I was you though I'd build a new WSUS box and point them at it instead.
+The "not working the way they were designed" thing is a generic warning that occurs when you drag and drop in ADU&C, it's nothing to do with WSUS.  You can avoid it by right-clicking and selecting "Move".  I've never seen any negative impact from it anyway.
+You should at some point figure out what broke WSUS in the first place (unless it's ok have your machines go to windows update for updates)
+things "not working as they were designed" if I did this. I'd rather that statement not apply to our entire domain ;)

@@ -1,0 +1,14 @@
+Also, and very important, you may need to check if your application has a memory/file descriptor leak. Use lsof to see all it has open to see if they are valid or not. Don't try to change your system to work around applications bugs.
+But otherwise, no, in principle there should be no problem. Consult the kernel documentation to try to work out how much kernel memory it will use, and/or test it.
+Remember that 1024 you're seeing is a per-user limit and not a system-wide limit. Consider how many applications you run on this system. Is this the only one? Is the user that runs this application doing anything else? (IE do you have humans using this account to login and run scripts which may potentially run away?)
+We recently began load testing our application and noticed that it ran out of file descriptors after about 24 hours.
+Are there any best practices towards setting this other than figuring out how many file descriptors our software can theoretically open?
+Given the box is only running this one application and the account running said application is for that purpose only, I see no harm in increasing your limit as you suggest. If it's an in-house dev team, I would ask for their opinion. If it's from a third party vendor, they may have specific requirements or recommendations.
+We run database servers with ~ 10k file descriptors open (mostly on real disc files) without a major problem, but they are 64-bit and have loads of ram.
+My first thought was to just increase the ulimit -n parameter by a few orders of magnitude and then re-run the test but I wanted to know any potential ramifications of setting this variable too high.
+They are very low for high performance servers and we generally set them to a very high number. (24k or so) If you need higher numbers, you also need to change the sysctl file-max option (generally limited to 40k on ubuntu and 70k on rhel) .
+The ulimit setting is per-process, but there is a system-wide limit as well (32k I think by default) 
+These limits came from a time where multiple "normal" users (not apps) would share the server, and we needed ways to protect them from using too many resources.
+I checked the file descriptor limit and it was set at 1024.  Considering that our application could potentially have about 1000 incoming connections as well as a 1000 outgoing connections, this seems quite low.  Not to mention any actual files that need to be opened.
+If the file descriptors are tcp sockets, etc, then you risk using up a large amount of memory for the socket buffers and other kernel objects; this memory is not going to be swappable.
+I am not personally aware of any best practices. It's somewhat subjective depending on system function. 

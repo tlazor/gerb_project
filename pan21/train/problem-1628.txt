@@ -1,0 +1,7 @@
+I believe the only additional files hidden by any Linux file manager are backup files, i.e. those ending in a tilde ~ or .bak or whatever they believe is the backup extension.  In any case, you are probably in luck if all you wish to do is hide backup files from the file manager.
+However, you could play with the file permissions to prevent users from being able to have access to given folder/file. Try experimenting with chmod command.
+You can 'hide' the contents of a directory by taking away 'x' perms for the group, or other: chmod go-x directoryname. You could no longer list files, though you could access a file if you knew the exact path. This does not sound like what you want. 
+Are you only trying to hide files from your graphical user interface's file manager and/or desktop environment?  If so, there might be options beyond simply prefixing the filename with a dot.
+Keep in mind the dotfile thing is a convenience, not really to hide the file for security sake, but to reduce clutter for files during file listing. It's baked into ls and the other tools.
+As an aside, you can hide files from the Finder in Mac OS X using the command SetFile -a V [file] or editing /.hidden but obviously this won't hide the file from the command line's ls program. 
+I'm not a programmer but I imagine one could make getdir omit all files listed in (e.g.) .hidden file. If you implement this correctly then every tool (GUI or not) will be affected.

@@ -1,0 +1,6 @@
+Aside from those options does anyone have any other thoughts? One suggestion floated was moving everyone to desktop clients and saving the PW info there so they could only login from their physical workstation but we may have situations where we'd like employees to work remotely.
+Thinking on this I feel there must be a better way to manage access. With Google you can associate upto 10 email accounts to another the problem is we have more like 20-30 people going.
+We were evaluating tools such as SalesForce and Assistly where people have their own login credentials and then the system contains the appropriate smtp information for the help@example.com email address to send emails from it rather than a users personal account.
+Does anyone have experience with this sort of system where ~20-30 people are responding from one email box and how to manage security and access?
+Currently we have an email account help@example.com - hosted via google apps (as is all our email). 
+We had an incident where we had to terminate an employee. This employee however had the password for this account as we have 20-30 people utilizing it at any given point to manage customer emails etc.

@@ -1,0 +1,6 @@
+Connect your favorite third party services directly to the Open Science Framework. 3rd Party Integrations
+Keep all your files, data, and protocols in one centralized location. No more trawling emails to find files or scrambling to recover from lost data. Secure Cloud
+I would go for parametrised Rmarkdown reports. I think it adresses all your needs, it's simple to use and maintain, offers great flexibility, you can embed all kinds of things and it offers different output formats.
+Another alternative is to use Jupyter notebooks, if it supports kernels of your programming language. It allows for normal markdown, LaTeX, output shown in the web document and interactivity. You can share the true, runnable document if it's hosted on a normal server or a HTML dump for easy sharing.
+You should look at the Open Science Framework:Here is a Introductory YouTube video This Open Source Project addresses all your concerns.
+You control which parts of your project are public or private making it easy to collaborate with the worldwide community or just your team. Project-level Permissions

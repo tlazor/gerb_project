@@ -1,0 +1,5 @@
+I use this setup to have Task Manager always handy and showing all processes. The only external tool is NirCmd (free):
+This will open Task Manager automatically and minimize it in notification area. When you open it, it will already show all processes. Don’t close it, just minimize it again. The 10 seconds delay is required (at least in my case) because otherwise Task Manager would be initially minimized in taskbar instead of in notification area.
+You can also use Process Explorer as your task manager. This one shows all the processes by default, as well as a lot of other information which the default one doesn't show.
+How can I configure the Windows 7 Task Manager to always display processes from all users?  I don't want ot always have to click on the button in the bottom left corner.
+It is because of UAC. Viewing all processes requires elevated permissions (since it allows you to affect user accounts other than your own). Since elevation can require credentials or prompting, it's unable to open automatically. It's a security feature, basically. You can run with UAC off, but that introduces other risks and may or may not be worth it.

@@ -1,0 +1,5 @@
+I don't know much about how IP assignation work (how it gets to my router at home for instance), but often, ISPs allow a user to choose the "country" assigned to a failover IP for a dedicated server. I would like to know if it's possible to do it inter-continent, if so, how could I proceed please (which entity to contact first, etc...).
+No.  But what you can do is get a circuit in country you want to talk from and then from that circuit, you can tunnel/route all the traffic to a different location - any location at all.
+You are not in control of the public IP address assignment at all but you are in control of traffic once it gets to that address.
+How would it be possible to assign a public IP provided by the entity providing them (RIR?) to a server/router in another continent?
+The ISP to which you connect must agree to advertise and route any addressing which you use, regardless of continent. If the ISP owns the address in question, this may be easy, but if the ISP doesn't own the address, you will need to connect to the ISP using BGP, and the ISP will not advertise any prefix longer than /24 for IPv4 or /48 for IPv6.

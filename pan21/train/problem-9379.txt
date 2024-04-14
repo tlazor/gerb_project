@@ -1,0 +1,6 @@
+Things to watch: make sure the VGA signal is in the right resolution AND frequency. Most LCD panels need 60Hz signals, and nothing else.
+In theory it could be possible using VGA with very precise calibration, although in practice yes you need the digital signal of DVI or HDMI running at the native resolution of the display for 1:1 pixel mapping.
+1:1 pixel mapping is intrinsic to DVI when resolutions are matched, but it's definitely possible to get the same result with VGA by calibrating your display. Here's how I do it:
+In the end, each pixel in the image from the computer (and the checkerboard) should match up with a pixel on the display.
+In LCD monitors, is DVI mandatory in order to get 1:1 pixel mapping? Or is it possible with any VGA input?
+99% of LCD panels with VGA just calibrate to the timing signals in a VGA signal and deliver 1:1 pixel mapping out of the box. Most panels do it automatically, some have a "Auto adjust" button. The amplitude of the RGB brightness is analog, but the timing is pretty accurate, so a monitor can fairly easy see what pixel belongs where, and this does not differ much from a digital signal. I don't understand the critics in other answers about the VGA signal being analog. The only real problem of the analog amplitude in the VGA signal, is the colour accuracy and the gray-ramp gamma, not the pixel mapping.

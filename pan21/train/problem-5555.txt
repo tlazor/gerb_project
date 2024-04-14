@@ -1,0 +1,6 @@
+So, I've set up another server with larger disks for this purpose, but I don't want the clients to then have to open up port 22 to yet another IP address. 
+I have an interesting problem I'm trying to solve. I have a JumpBox server that I have in order to securely ssh into client's servers. This is the only server my clients ever open up port 22 to. However, this JumpBox server is very small and does not have enough space to hold large files (bigger than 5GB). 
+An historical note, this is precisely the type of situation that FTP Protocol Passive mode was created for.  However, being that the account information is sent in cleartext, it is far less likely to be used anymore.  
+Simpiest way here is to mount server T's drive on jumpbox using nfs or sshfs: http://fuse.sourceforge.net/sshfs.html
+Not sure if you want to keep permissions, but I believe you can even mount sshfs folder on users' login.
+If you are worried about someone snooping your data; you can use cryptcat rather than netcat (nc) . 

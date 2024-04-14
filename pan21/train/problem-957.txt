@@ -1,0 +1,10 @@
+forgive if this is dumb. I was wondering if there was any such thing like LaTeX, by which you could write in a markup and compile it to a whole web page (of course with CSS and other styling). I've heard of lightweight markup languages like Textile. But I don't think they serve my purpose.
+The most powerful of then is Netbeans. It started life as a Java Editor but with recent releases has developed into a powerful text editor for web scripting.
+It can do much more than this, too.  This other example from their website shows how TT can be usedis similar to LaTeX's citation syntax:
+Komodo Edit is a free and open-source web language editor that has syntax colouring for Template Toolkit.  I hope this helps!
+TeX4ht would allow you to use LaTeX source directly to produce HTML webpages; it typically produces multiple files from a single .tex source. I think of it as a conversion tool, but it could be used directly for creation.
+I would advise against using WYSIWYG HTML editors. All the ones I've tried are terrible. And if you're already used to editing LaTeX, learning to mark-up things up directly in HTML won't be a difficult transition. 
+For what you're looking to do, Template Toolkit (TT; http://template-toolkit.org/) might be a good option.  It's a templating language that, among other things, will allow you to insert common HTML or CSS code into multiple pages just by linking to a file containing that code.  Here's an example from their About page:
+Another advanced editor is HTML-Kit, which began as a specialized HTML editor but now has so many plugins that it is a highly customizable and extensible development environment.
+But I have to agree that your question is a little odd. HTML is itself a mark-up language, not terribly different from LaTeX; it would help to know exactly what you're after if it's not just that.
+If that's too technical to begin with, use KompoZer, designed for non-technical computer users who want to create an attractive web site without needing to know HTML.

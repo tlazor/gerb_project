@@ -1,0 +1,6 @@
+Since I would want to stick with HAProxy for FTP, HTTP, IIS servers, I got confused on using it side by side with LVS.
+HAProxy seems to be a commonly used LB, but it is not capable of handling UDP load balancing. This is a bummer, since I like how HAProxy works. 
+The original request was to load balance FTP servers. I tried doing that using the current load balancer (Piranha / LVS), but didn't get it up and running. Not just because there's little to none documentation for this software. Since Piranha is considered deprecated, I went over to HAProxy after a couple of days trying, which did the job in a fraction of time spent on Piranha.
+Is this possible? Is UDP load balancing on DNS servers even necessary? Is there any kind of resource that might show me how to get started with that? Or is there a LB solution that is capable to not only handle TCP/HTTP, but also UDP load balancing?
+So I googled a lot and came across several things. Most people seem to use LVS as a LB for DNS (TCP/UDP). Some use dlbDNS, some use lbnamed, and some use netfilter / iptables.
+So I've got FTP load balancing (passive mode) in place. Now, I was asked to replace the whole Piranha Load Balancer in the data center. In the current Piranha configuration, we have several web servers, IIS servers....aaaand DNS.

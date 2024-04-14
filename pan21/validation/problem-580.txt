@@ -1,0 +1,6 @@
+But this setting for a "default," unchangeable home page to Sharepoint worked well for us.  Users can still add favorites to the IE bar.
+You may need to add some policy packs if this is not available to you.  We first did this on a 2003 domain and now a 2008 domain.
+There's no built-in functionality to do what you're looking for that I'm aware of. The Internet Explorer Group Policy Client Side Extension (CSE) can't do what you're talking about, and I don't believe Internet Explorer itself has functionality to all for a "forced" home page but still allowing the user to add addt'l home pages to open on new tabs.
+Realizing this is a stale thread and I'm not entirely sure what you're referring to by "but to let them add any of their own home pages to the list of tabs?"
+If you feel strongly about it put in a feature request to Microsoft (or hire somebody to add the feature to a Free browser and start using that... >smile<).
+Seems this should be simple, but I'm unable to find the combination of GPO options to default the home page so that the user can't change it, but to let them add any of their own home pages to the list of tabs?

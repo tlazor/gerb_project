@@ -1,0 +1,6 @@
+I have found lots of ways to determine the collision, but couldn't find anything on resolving it. It is clear that i have to push back the rectangle away if there is a collision, but I can't find a proper way.
+Is there a way of handling and resolving the collision between a rectangle and a circle? Like an algorithm?
+To answer the OP's question, circle-vs-rectangle can be implemented using a signed distance query between a rect and a circle. Probably the easiest thing to do is to transform the circle into the rect's local space (where it's an axis-aligned box) and then perform a point-vs-AABB signed distance query. 
+I have a non axis aligned rectangle, like a car, in my game. I have to check and resolve the collision between the rectangle and circle, which is stationary.
+There is a brilliant (but quite confusing) signed box distance function here: http://www.iquilezles.org/www/articles/distfunctions/distfunctions.htm , or any good book (e.g RTCD or GeomTools) should have similar queries explained.
+@ErikEsTT: the OP was specifically asking for more than a boolean "is intersecting", they need closest points or penetration depth or some other meaningful measurement of collision, not just a yes/no.

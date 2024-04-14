@@ -1,0 +1,8 @@
+This is a issue with your Windows Credential Manager. Moste likely because your credential manager have wrong entry with and old password or if it was selected to be disable.
+For windows7, Go to control panel -> credential manager, there you will get Windows credentials, Generic credentials, select each option and click on remove from vault to delete old saved passwords and check now, it will not ask again for username nad password!
+If this is a Remote Desktop session, there might be a policy in place to disallow saving logon credentials: https://technet.microsoft.com/en-us/library/ee791914(v=ws.10).aspx.
+Windows Security (In windows 7) keeps asking for my credentials, and won't "Remember my credentials"
+http://www.w7forums.com/windows-7-does-not-save-network-login-credentials-username-and-password-t1621p3.html
+Essentially go to the Windows Vault (Store credentials for automatic logon), and edit the credentials there.
+Even if I check mark the box that says "Remember my credentials", I'll eventually be prompted to enter my credentials again.
+Write Credential Manager at the start menu and open it. Check if it is allowing save password and if it is delete all the entries saved and try again. If it's not allowing to save password it's possible that it is setting from a domain groupo policy and your network admin should check it.

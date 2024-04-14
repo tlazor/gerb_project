@@ -1,0 +1,7 @@
+When I first try to ssh in after starting a remote computer it can take a while to respond, this is normal.
+As you have not specified how you have configured your Pi it is not possible to comment, but poor settings can result in networks becoming unresponsive. The current default, using dhcpcd is very robust.
+I have a program set up to restart the pi's every day, so I don't think it's a timeout thing. Also, even when the pi's are unaccessable, they still write data to an external website. 
+I have a few raspberry pi 3 model B's that I use for data acquisition and communication. I occasionally have a need to remote access them, so I have set up an xrdp communication on the pi's, and I use Windows Remote Desktop Connection on my computer (pi's all have a static ip). Once in a while, when I try to access the pi's, I get an 'unable to establish a connection' notification. 
+After many frustrating hours, I installed a network scanning tool to search my network for devices. Interestingly, when I am unable to remote access the pi's, they also drop off from the network scanner. If I manually restart them, they work again. 
+Contrary to common opinions this does NOT disable wireless, it is a power saving issue, which influences how often the interface wakes up.
+Anyone have any ideas about how to stop the pi's from falling off the network? I want to use them in a remote location, so manually restarting them isnt a good workaround for me .

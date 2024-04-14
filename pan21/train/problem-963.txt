@@ -1,0 +1,12 @@
+Application Load Balancers in the other hand, have a limit of 25 certificates per balancer, although you can use all of them with the same listener.
+I would say your only viable approach for such a huge ammount of certificates will be deploying your EC2 instances behind a Network Load Balancer, which works in a lower network layer and delegates the SSL negotiation completely on the backend instances.
+Should your workload be HTTP oriented, I would say Nginx will make the deal better than HAProxy. If you intend to proxy other protocols, HAproxy is your best choice. 
+As per the Elastic Load Balancer documentation, Classic Load Balancers allow a single certificate per listener, with up to 100 listeners (on different ports).
+Both are great. I would use nginx personally as you’re not running multiple back ends from that perspective (from what I understand) so you don’t need haproxy on that side of things. 
+Is either nginx or haproxy better at handling thousands of ssl certs?  Or is there basically no difference in this regard?
+Loading multiple SSL certs is only a matter of memory consumption here. HAProxy needs to have a PEM file containing both the required certificates and any
+Now while HAProxy assigns certificates per listener, I think that NGINX  assigns certificates per "server name" so you will need as many server blocks as many domains you have. If you are using thousands of them you'll probably have to script this.
+HAProxy will use the right certificate based on the SNI hostname provided by the client (which is currently supported by most modern browsers). 
+I want to terminal SSL at either haproxy or nginx, and with so many cert files etc. I want an idea if one will be better at handling that many certs or not.
+associated private keys. So if the average PEM file is around 5K (2048 rsa key) loading million of them will cost you around 5GB of memory. 
+I think that loading thousands of certs is easier to do with HAProxy. All you need to do is put your certs in a single directory and HAProxy will load all the certs with the crt directive.

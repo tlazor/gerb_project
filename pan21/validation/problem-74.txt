@@ -1,0 +1,5 @@
+I haven't seen hybrid mode used for DR/BCP, and not entirely sure it's possible. There are things to take into account such as mail routing and client configuration.
+When you move a mailbox from on-prem to o365, the required AD attributes for the user are updated so Outlook can automatically update using autodiscover. If autodiscover is set up correctly, you won't need to manually re-configure Outlook.
+You can check if the mailbox has been moved to o365 by connecting PowerShell to o365 and running a get-mailbox command.
+Also is there a way to use hybrid mode as a fallback option in case that Exchange online becomes unavailable, is there an option to have on premises and online mailbox synced somehow?
+Could you please explain how and where are emails stored in Exchange online hybrid configuration after you move a mailbox from on premises server to online? I have a test environment and after I moved the mailbox I can still access it through local server, did not change server name in outlook?

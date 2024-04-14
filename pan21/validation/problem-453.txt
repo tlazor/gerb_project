@@ -1,0 +1,7 @@
+I am sure there are other OneDrive clients out there that will work too, but I've always been a little hesitant of relying on something that may or may not be supported in the next release of OneDrive.
+As my organization also uses Windows 8.1 with a corporate OneDrive account; I have to use the web browser interface whenever I transfer files to my personal OneDrive while at work. The only issue is that I have to logout of the corporate OneDrive first before logging into my personal OneDrive.
+As far as I know it is not possible to install personal and business versions side by side as they conflict heavily.
+Your workplace is most likely using OneDrive for Business, in which case the "external" email address it's asking you for will most likely be your Office 365 credentials. This will most likely be your work email and a password that you should know. (If not your IT can reset it for you).
+You will need to access either your personal or work documents via the portal whilst the other is synced via OneDrive.
+OneDrive for business is just that, for business and will not allow you to sync different documents (e.g your Gmail). Your work OneDrive instance will be configured to work with your companies SharePoint 2013 server. - This is either a standalone SharePoint instance or will be linked to your companies Office 365.
+I think the easiest way to upload a file to OneDrive from your work computer would be to login to OneDrive through a web browser.

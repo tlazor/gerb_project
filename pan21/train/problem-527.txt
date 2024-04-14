@@ -1,0 +1,6 @@
+Do I need to store an additional rotation (and radius) for world rotations as well or is there a method of implementation that works while only using the single rotation value?
+Then translate the Object by that distance and perform a rotation this will rotate it By the Origin (0,0,0) since we are translated we will rotate in a Circle.
+The problem is because I am storing the individual components, the final Transform matrix is not calculated until needed by using the individual components to fill an appropriate Matrix. (See GetLocalTransform())
+I'm having trouble implementing a non-origin point rotation. I have a class Transform that stores each component separately in three 3D vectors for position, scale, and rotation. This is fine for local rotations based on the center of the object.
+After that Transform by the world Coordinates and you will have your object this will have your objects Rotated across that point.
+The issue is how do I determine/concatenate non-origin rotations in addition to origin rotations. Normally this would be achieved as a Transform-Rotate-Transform for the center rotation followed by a Transform-Rotate-Transform for the non-origin point.

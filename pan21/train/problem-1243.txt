@@ -1,0 +1,11 @@
+On Windows (7) the path should be provided in the following format. For example to specify c:\test it will be /c/test or /cygdrive/c/test
+This is the most efficient, fast and powerful way to sync folders with large files even though Dsynchronize in accepted answer also worked for me. 
+-Been using it on a server, firing off multiple exes - conversion to PDF using Acrobat, stamping them, sending as attachment to offices around the country through smtp calls... little software does many things!!
+It is simple to use and to set, it can monitor 15 types of events and trigger different actions in case an event occurs.
+Watch 4 Folder v2.3 - a small (802kb), portable (no installation) and powerful monitoring tool to monitor folders and files activities.
+Another very strong way to sync folders is to use rsync on command line. You will have to download MingW toolchain or if you install cwRsync, it installs rsync.exe that you can run directly.
+I must say this is the theory because I got stuck since my network drives are managed by Novel and therefore I don't have the option of "Always Available Offline".
+I wanted the same. And in principle the Sync Center within Windows7 would provide that but in another fashion: you only have to set a network folder as Always Available Offline.
+With this you basically have that a local and remote version synchronized, you are working as if you were on the network but actually it manages to have it locally.
+I also really like Backup2 (https://bvckup2.com/) for larger tasks as it runs the fastest of anything I've tested, but it's not free and is meant for 1-way syncs only.
+In other words you only see one copy but having it in two places, but that is the goal of synchronizing. Instead of being transparent that there is a remotely synchronized copy, there is a locally synchronized copy. In any case this covers the basic goal of network failures.

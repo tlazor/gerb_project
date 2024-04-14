@@ -1,0 +1,6 @@
+My approach is to not use file/directory level file permissions; use file share level permissions, and set the whole server filesystem data drive to Everyone Full Control (which becomes moot).
+When moving as an admin I use xcopy /s/e/c/h/r/k/y - everything aside from file ownership and ACL, meaning that ACL inheritance automatically kicks in.  Never really had to deal with a situation where a user moved stuff though.
+Places where you have to use directory/file level ACL's; I know of no other solution than health checking the thing on a regular basis.
+Disclaimer - I come from a unix background (and have implemented the last one to fix different permissions flaws - it feels icky, but does the job), so there may be a much better fix.
+Over the years (10+), I have found that NTFS permissions are more complex and leads to more errors. If the permissions are set wrong, or the inheritance gets broken, you expose data and its hard to find and see it. Plus, you are exposed to the move/copy problem as you say.
+We've been using NTFS since NT 3.51 and though we've seen this "problem" (as has almost everyone) it hasn't caused us much trouble:

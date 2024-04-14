@@ -1,0 +1,5 @@
+You can have all three (DNS, Web, E-Mail) hosted on the same server, or on different servers, same company or different. Makes no difference to the Internet.
+The DNS Server is hosted by someone, no idea who in your example. The DNS server points to other server for Web (A Record) and E-mail (MX Record).
+We've had a years worth of hosting with another company (Wix) donated to us, so we've changed over to that. The domain name points to that host, but they don't provide email. So my question is... will it be possible to change the DNS settings (on 123-reg) so our emails are still handled by the original host (5quidhost).
+I help out a charity with web development and any tech related things and out setup was (until recently):
+Emails sent to someone@ourdomain.com were originally bouncing back with "550 550 This domain is not hosted here (state 14)" and now I've fiddled with the DNS settings, it doesn't give an error nor deliver the email so I think I'm making it worse! Any help would be greatly appreciated!!

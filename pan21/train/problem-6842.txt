@@ -1,0 +1,7 @@
+You didn't mention bits of the stack about that, specifically, but there are, by the OSI model, another three layers.
+I'm a bit confused, and was wondering if someone can set me straight. Under a Local Area Network (LAN), what is the communication protocol for the data packets under i.e. ethernet CAT5 cable that seems to be the common practice. Is it TCP/IP? But if the internet isn't utilized (no modem but just router) is it still TCP/IP?
+At the datalink layer, if you're talking about wired LAN, then you're probably taking about IEEE 802.3 or 802.11 for wireless (there are others).
+Yes.  The Internet is just a big network with public IP addresses versus a small network with private IP address mostly found behind a router.
+There's other layers at play, all working together but I believe this is enough to straighten you out for now.
+In the transport Layer of TCP/IP the vast majority of actual data packets that will be traversing any LAN will be:
+You mention LAN, ethernet, TCP/IP and internet, so it's not 100% clear which layer of the stack you're talking about.  There are multiple layers that each have their own set of defined protocols.

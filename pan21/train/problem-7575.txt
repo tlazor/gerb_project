@@ -1,0 +1,8 @@
+Try out the command tee.  This command reads from an input and then write to a standard output and file.
+A command to run shell commands is sh (the shell), it can be asked to echo the commands to stderr with the -x switch. You can redirect stderr to stdout then.
+The side effect of this solution is that the command ('echo my command' in this example) stderr is also sent to stdout. This may be or may not be a problem for you. Also the '+ ' prefix is added to the command.
+I have the feeling that something like that exists but as hard as it is to formulate such a question properly, I was not able to dig it up with google so far.
+I want to execute a command and pipe it's output into a tool called pastebinit which uploads the STDOUT output to pastebin.
+That works very well, however I would like to send the command itself on top of it but w/o typing it a second time.
+It's not easy to formulate the question properly, maybe it helps when I describe what I'd like to do.
+Save this file and chmod +x it, then use the script you've created to run the command and pastebinit.

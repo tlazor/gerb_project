@@ -1,0 +1,9 @@
+That database is having with Replication, So can anyone suggest me without or less downtime can i restore the database with last 2days of data. Thanks in advance
+If your database is in FULL or BULK-LOGGED recovery model, and you have LOG backups, and your backup chain is intact (no TRUNCATE of the log, converting to and from SIMPLE recovery model, etc.), then the simplest answer is PITR, i.e. Point In Time Recovery, i.e. the STOPAT argument for RESTORE LOG.
+Is it possible to restore the rollback changes to a database? One of my client has done wrong updates on database so most of the tables have been updated with wrong data.
+If a backup before upadate is available, then you can restore it as a database_temp and do a data compare and updating that data backup. Highly recommend to use Redgate's SQL Data Compare. It just works flawless :-)
+See the Technet articles How to: Restore to a Point in Time (SQL Server Management Studio) and How to: Restore to a Point in Time (Transact-SQL), but a simple example from there is:
+It is possible to rollback wrong updates without any downtime using ApexSQL Log. For maximal UPDATE reconstruction, the database should be in the Full recovery model, and a full chain of transaction logs is needed.
+A backup before doing updates is available. If not, third party tools like ApexSQLLog would be a better choice rather than going the native route.
+A full chain of transaction logs starts with a full database backup and is followed by all subsequent transaction log backups up to a point of the rollback.
+Watch out for regional settings on the dates, of course.  It's just like any Full [+ DIFF] + LOG recovert, except for the addition of the STOPAT parameter.

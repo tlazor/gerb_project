@@ -1,0 +1,7 @@
+Anyone have reliable equivalents that will run very lightly?  I know they won't give reliable data like ipcop, ntop, ipaudit, bandwidthD when properly configured, but sometimes we just want to make sure things are connected...  
+I am mainly looking for Internet tests.  Speedtest.net works in most cases, but it relies on flash - not something that is always available, particularly when rdc'ing into servers.
+If you're looking for an extremely unofficial way of testing your bandwidth, that will also NOT require you to install flash or Java... then CNET bandwidth Meter will help you there: http://reviews.cnet.com/internet-speed-test/
+I like DSLReports.  They've consolidated several speedtests.  Good for quickly going to and finding one if your computer isn't liking one of the tests.  There must be over 200 different sites to try.  The IPhone one looks HTML only.  Unless I'm missing something.
+I often test download speed by downloading a linux install ISO from a "nearby" server that I know has more bandwidth then the host I'm testing.
+I see many tools that have been discussed for 'proper' bandwidth monitoring and testing - but I am wondering what people use 'in a pinch'?  Particularly on systems that they may not easily have admin privileges on?
+Upload bandwidth can be harder to monitor, but as it's generally less important I generally don't worry about it.

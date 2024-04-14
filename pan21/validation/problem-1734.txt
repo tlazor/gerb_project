@@ -1,0 +1,6 @@
+It might do for secondary storage, so long as you're not doing a great deal of editing on it, but I would keep a backup.
+SD cards lack any of the intelligence that an SSD controller has and are effectively just a dumb block of flash memory.
+SD cards do not have wear levelling and many filesystems will repeatedly rewrite the same blocks with minor changes every time a file changes. Unless you make the filesystem read-only (not practical with Windows) then you will quickly get a corrupt filesystem. 
+Linux might fare better as you can use one of the alternate filesystems that are optimised for SD flash devices, but NTFS is not a particularly good filesystem for flash devices from what I've heard.
+It might last a couple of years, or it might die after a few months. The quality of the card matters, as does the workload of the operating system and the filesystem.
+SSDs have features like wear levelling that can prolong the life of the flash device by a great deal by preventing repeated rewrites on the same block in a short period of time.

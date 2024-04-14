@@ -1,0 +1,5 @@
+As I found out later on, the reason for not updating the task is that the desired count is set to 2 and there are only 2 EC2 instances available. So the ECS agent tries to retain the desired count even though the task has been updated.
+I tried several times but can't figure out where i went wrong. I want to get the ecs service to run the new task definition instead of the old one.
+Solution - Have one extra EC2 instance (in this case 3 EC2 instances). Or have one extra instance than the preferred number of tasks.
+In the ecs cluster, I have a service running with 2 ec2 instances. And i update the task definition to take the new docker image. But the old task definition is still running even though there is a new task definition.
+In this way the new task definition can run on the extra instance. After it is stabilized on the extra EC2 instance, the ECS agent will drain the connection on the other two instances for the old task definition, while the load-balancer redirect the traffic to the updated instance. The ECS agent replaces the old task definition with the new ones. And then it maintains the desired count as 2.

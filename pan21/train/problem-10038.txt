@@ -1,0 +1,13 @@
+Quite simply, I am cascading Router A and Router B, Router B's WAN port being connected to Router A's LAN port. Router B is a LAN client on Router A with IP 192.168.1.201.
+Then all your port forwarding will not be necessary. The 2nd router will be an access point, increasing your Wi-Fi range.
+At this point, I am at a loss on how to perform this very simple task. If it helps, I have noticed that Router B seems to be unreachable in Router A (as in, trying to ping 192.168.1.201 fails). I am not sure how that is since Router B clearly reports that its LAN address is 192.168.1.201.
+I know that a static route must be set up on Router A to route any requests to subnet 192.168.0.* to the secondary router (192.168.1.201). I have done this:
+Your clients will all be accessible if you set up both routers on the same subnet (LAN to LAN cascading). You can then choose to use the same subnet for both routers. example 192.168.0.0-254 or 192.168.1.0-254 NOT BOTH.
+I'm sure you have your reasons for this setup, but it sounds like a simple switch would be better utilized in place of Router B. You can also disable DHCP on Router B, plug the cable in Router B's WAN port into a LAN port on Router B and it too will be a simple switch. You might also want to reprogram Router B to have a LAN IP that is on 192.168.1.x so that you can still reach the configuration interface after doing this.
+However, for some reason, it is still impossible to reach Router B's LAN from Router A. This is the result of a ping:
+Therefore, your only option is probably to turn on port forwarding so that you can access a specific port on a specific machine on the B side from the "dark side" also know as Router A clients. :)
+However, you have failed to consider that the router is a security barrier also using NAT and possibly a firewall. 
+For the same reason devices on the internet can't access Router A clients, devices in front of Router B can't access Router B clients.
+The current situation is that all clients on Router B can access Router A without a problem (for example, 192.168.0.4 can access 192.168.1.3). 
+In addition, Router B probably has an option to drop or ignore PING (ICMP packets) on its WAN interface. Therefore you cannot ping it from Router A.
+Specifically, the problem is NAT. We could get in to some gory details about how advanced routers don't actually need to NAT and NAT rules can be adjusted. But, I'm assuming these are just home routers with limited options.

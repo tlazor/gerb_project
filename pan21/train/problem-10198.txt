@@ -1,0 +1,5 @@
+I am a network administrator with a company that operates on several Windows 2003 2008 servers. I restart servers on a monthly basis typically not waiting longer than 3 months, as it is very crucial to be down for that short period of time. 
+Right answer is never unless you do software upgrade. Last time I rebooted my server about 2 years ago and reason was power failure.
+I used to restart all my Windows servers each week and there was certainly a time when that was required. These days I only restart them when an update requires it. Of course that means they still get restarted every few weeks anyway.
+All you Windows Haters should check out the Netcraft.com Sites with longest running systems by average uptime (http://uptime.netcraft.com/up/today/top.avg.html).  This shows the sites that have been running longest since their last reboot and 95% of the top 50 are Windows 2003 and 2000 machines.  As always, your mileage may vary.  
+However, with patches and windows updates I will be installing WSUS on a domain controller to apply updates etc. on a schedule based on my liking. This is to avoid any servers from updating themselves and unexpectedly rebooting...

@@ -1,0 +1,7 @@
+2 - A lot of servers out there impose a limit on the amount of emails they receive (or send) from (or to) a host by a given timeframe. If you try sending more emails than this limit it will generate a delay wich looks like email "type 1" you describe above.
+3 - From time to time, a server will simply refuse to receive mail from other server for a number of reasons. In this cases you may receive an email that looks a lot like "Type 2"emails you describe.
+1 - Gmail's servers are refusing to talk to your server. Are you sending them too much email to non-existent accouns? perhaps spam?
+2 - Have you considered that your server tried to send too much email to gmail, hit the limit, emails went to the deferred queue until they expire. You may consider checking your server's number of retries, time between retries, and expiration time.
+1 - Postfix will try to deliver your emails for a certain amount of time and tries, once the limit is reached emails are marked as not delivered and generate the "type 3" email you describe above.
+There are some settings you may need to adjust in your postfix configuration, but first take into consideration the following facts:
+1 - Telling the address is not valid makes it really easy to find wich emails do exist and harvest email lists (spam?). Just picture this, anyone may be able to generate millions of emails and test them to see if they exist.

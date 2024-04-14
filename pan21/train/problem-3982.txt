@@ -1,0 +1,6 @@
+Also, count the information that was on the laptop (at time A) as lost or potentially lost if there is any chance that a sophisticated attacker gained access to it and the pass-phrase isn't quite strong.
+What this means is that unless you wipe the hard drive and start over between times A and B then the attacker who compromised the key as it was at time A, and who also gains access to the same drive at time B, has access to the data as it is at time B.
+User education and proper response to security threats.  If your user loses control of encrypted media and then regains control of it later, you need them to tell you about it, and you need to wipe the machine and re-encrypt it using a different pass-phrase.  
+If an attacker gains access to the hard drive at time A, duplicates it, and compromises the key as it was at time A, then all of the data that was present at time A is compromised (but you knew that part).
+To the best of my knowledge there is a 'master key' that each passphrase will give you access to.  Further, there is no way I could find to easily change the master key without creating a whole new partition for the new master key (it would be hard to do even if it were possible).
+The short answer: This is a security concern if you fail to maintain physical control over your media and/or choose poor pass-phrases.

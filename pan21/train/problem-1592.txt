@@ -1,0 +1,5 @@
+The first thing I noticed was that it took literally 3-4 minutes to turn on. This is a fairly fast, low cost computer I built for a company about a year back with the following specs:
+The only other thing I can think to check would be to swap out the memory..? But Belarc advisor claims it can find all of the Memory and that it's working properly.
+I just checked the hard drive using CHKDSK and SeaTools and it passed with flying colours. There was some mention of "Bad LBA: ### Not Repaired" inside the SeaTools analysis but that's about it.
+It was getting stuck on the BIOS screen (everything about the BIOS seemed slow, I could read the information quite easily as it flashed across the black screen and it took a good 30 seconds for anything to even show up) around loading the hard drive, so I switched the hard drive SATA cable and also the motherboard's port.
+I manage to get to the Windows 7 "Install" screen after about 10 minutes of waiting, when I had just tested the exact same install sequence on a much slower laptop earlier that day and it took all of a few seconds to hit the "Install" screen.

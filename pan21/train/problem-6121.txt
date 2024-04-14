@@ -1,0 +1,8 @@
+If you don't have a list of specifc domains you are interested in, then I think you are out of luck.
+Of course you can somehow generate a list of domains to search based on keywords/your trademarks, then query whois.
+They've been able to recover over 300+ infringing domains. It was a shock to see how many people cybersquatted misspelled versions of our domains. If you're serious about hunting down these cybersquatters, I suggest enlisting their help.
+As long as you know the domain names you are interested in whois is the correct answer as that will identify domains that are registered, even if they are not delegated (i.e. even if DNS is not set up for them).
+You can script it pretty easily, albeit crudely with bash and I would be very surprised if there were not libraries for interrogating whois in perl, python etc if you wanted to do less crude searching/reporting.
+If you want to do the searching yourself for this information, you need to get the zones from the TLDs that you are interested in looking for.  For example, Verisign has some documents to fill out to apply to get copies of the zones they manage.  You will need to do this for each of the zones you are interested in.
+The full documentation for the XMLRPC service can be found on http://wiki.gandi.net/fr/api-xml/docs/domain/domain.
+I'll just throw this out there as well. Our company recently went on a hunt for infringing or cybersquatting domains for our brand. After several attempts to do this ourselves, we realized that hiring a 3rd party to do this for us proved to be way more cost effective. A company that we've had great success with is CitizenHawk:

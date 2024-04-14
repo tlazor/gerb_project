@@ -1,0 +1,8 @@
+I've also noticed that the noise changes/fluctuates when I browse files, the Internet, etc...basically when I use it. Once I've stopped clicking/dragging about it goes back to it's one pitch squeaking again.
+Kinda late on this, but Sony admitted that they had shipped some defective fans and added a 2-year extended warranty on fan noise for some models.
+It sounds like magnetostriction in the power supply inductors somewhere. I had a desktop motherboard that did exactly this. The noise was actually modulated by CPU usage which modulated power draw (I'd move a window, and it would quiet down). It's not the fan if it changes pitch rapidly (e.g., less than a second).
+The noise is audible but not loud (if that makes sense), but if your using it to read something on then it's certainly obvious and annoying. 
+Unfortunately, the solution in my case was to slightly bend the wire on one of toroidal power inductors on the motherboard (I poked them until I found the offending part), preventing it from moving as much. Since the inductors in your laptop are not exposed, and are likely shielded, I think your out of luck.
+Is it broken (the CPU/motherboard/graphics card/etc)? Or are they all like this? Should I send it back or am I just being overly critical/anxious?
+This is the same principle that causes CRT TVs to make a high-pitched whine (that many adults cannot hear).
+I've had the Viao E-series now for 3 months and for about the last month it's started to make a really high pitched noise from the bottom left corner of the base. 

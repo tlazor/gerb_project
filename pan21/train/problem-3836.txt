@@ -1,0 +1,6 @@
+I then attempted to do the update again, but this time the installer did not provide the "Upgrade ESXi, preserve VMFS datastore" option.  The installer now indicates for the drive:
+The first time I ran the update, all seemed to go fine at first.  I picked the "Upgrade ESXi, preserve VMFS datastore" option.
+The installer, however, crashed with an "unexpected error", "OSError: [Errno 39] Directory not empty".  It referenced a $RECYCLE.BIN directory in the root of a VMFS volume which otherwise contained only imgdb.tgz.  Using the maintenance console I also found that the $RECYCLE.BIN directory contained only a DESKTOP.INI whose contents were consistent with Windows shell extensions.
+I suspect this file managed to wind up in there accidentally while I was using Windows-based tools (booted into separately) to inspect and manage the RAID volumes the host is installed into.  In any event the file didn't look like it belonged and did seem to be disrupting the update, so I simply deleted it via the management console.
+It would have let me reinstall ESXi from scratch while preserving the datastore, but I've had issues in past with things like MAC addresses getting changed around when reimporting VMs so I didn't want to go that route.
+I've been trying to do an interactive update of VMware ESXi 5.0.0 update 1 to 5.0.0 update 2 via the installer image burned to a DVD.

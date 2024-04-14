@@ -1,0 +1,8 @@
+Don't DROP future and then rebuild two partitions; instead do it all in one atomic REORGANIZE PARTITION to convert one partition (future) into pnnnnnnnn (tomorrow) and new copy of future (VALUES LESS THAN MAXVALUE).
+Do not have more than one partition in the future -- some operations open all partitions (unnecessarily).  Just one will suffice, and the REORGANIZE will repair the structure if you are late running the script.  Similarly, don't have more than, say, 50 partitions.  Make them weekly or monthly instead of daily, if necessary.
+I'm having a tough time deciding whether or not to partition my table based on a unix timestamp or by a descriptor attribute. It's just over a billion rows currently.
+Right now, I'm constantly doing searches based on the device_id and a range of unixtime values: a user chooses a device, then picks out a time frame that they want to view (most of the time, it's the past 24 hours).
+But if you are expecting a performance improvement, you may be disappointed.  (device_id, unixtime) for a lookup works just as well on a non-partitioned table as the partitioned one being discussed.
+Would it even make sense to partition it based on the device_id column? Or would using the unixtime field be the way to go?
+Have a partition named future that can collect any future data.  But try to build the "tomorrow" partition just before midnight.  (More in a minute.)
+I can either choose to partition it based on the device_id or some modulus value on the unixtime field. On all of the examples I've seen on partitioning, everybody seems to do it on a timestamp field.

@@ -1,0 +1,5 @@
+For example instead of throwing RangeError for accessing or assigning indices out of range, I resolve the property access or assignment on the target object like normal arrays would allow. Details like that are for the sake of following expected JavaScript conventions.
+Here is an implementation in JavaScript that attempts to resemble Python-like arrays by mimicking slice comprehension for both getters and setters, as well as negative indexing from the end of the list. I've called it List just because; this name has no particular importance to me, so suggestions on better naming for this are also welcome:
+Perhaps a validateArgs method that takes start, stop, step and either throws an exception or returns an array of 3 values that are valid.
+It would be better to rewrite this either by lifting the step > 0 condition out of the loop and write two similar loops,
+My goal is a consistent and readable implementation that follows the Python spec as closely as JavaScriptly possible, meaning I still want the behavior to somewhat resemble JavaScript.

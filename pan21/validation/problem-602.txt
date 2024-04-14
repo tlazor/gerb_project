@@ -1,0 +1,5 @@
+Linux systems have a 'file' tool that can tell you if a file is a jpg file by content, not by extension. Look into cygwin, maybe it has this tool too.
+If you're SURE you made it without an extension, there's not many files in the Windows directory that don't have extensions, so it should be easy to locate.
+What OS are you using? If you're on Windows 7 and remember any other properties of the image such as date modified or size, you can just specify kind:=picture and supply values for the other properties, and Windows should run off and fetch a list. Set the view to be thumbnails so that you help you do a visual search of the image files on your drive.
+Then you'll have a list of every single file without an extension in a text file called files.txt in the root of your C:
+If you've accessed the file recently it could be amongst the ones listed under Documents in your Start menu (I don't know if there is Documents item on Windows 7 though). If it's there, you may at least see what its extension is if only the name has been renamed.

@@ -1,0 +1,7 @@
+The index is a data page like any other page in the database. It has a header, a slot array, and data in the middle that points to other data pages, and eventually gets to the leaf node where the data sits. You can read more about data pages here. Once you understand that, you can read about index pages here.
+All indexes consume space. A clustered index is the data in the table, and each non-clustered index is a copy of whatever data that it is indexing.
+This is the cumulative total of all non-clustered indexes (keeping in mind that each of them contains a copy of the clustered index).
+The reason there are 830 rows in each index, is because the table has 830 rows, so each index contains the same number of rows, each of which maps back to the row in the clustered index (depending on which column(s) are indexed).
+I have a few questions on tables and Indexed tables and its storage, Here is my first image where i have taken an example with Northwind database and Table name is Orders. Orders Table is with 9 indexes and Orders1 table has no indexes which i had replicated with statement(select * into orders1 from orders).
+Maybe. SQL Server does not care if you create duplicate indexes, but just having the same number of rows does not make it a duplicate. Read more here about determining if an index is a duplicate.
+This means that a percentage of space is left on each 8KB data page, to try reducing fragmentation. See link below about data pages.

@@ -1,0 +1,6 @@
+But the problem gets even more random. When I run a tcpdump on the server, it doesn’t happen, or if other computers are connected, but when I closes tcpdump, or the other connections, it throws the connection between physical and virtual computer, after some time.
+My problem is when I connect to the server from windows, using Putty, it throws the connection after a random period of time. 
+I work on a problem that has been bugging me for some days now, and I don't know where to go next. I got a Windows 7 computer with VMware workstation on, and in VMware I have an Ubuntu 10.04 server running.
+It only happens when I connect from the windows, not if I connect from another computer. (I tried both with Linux console SSH, and putty from other windows’, and computers with same network driver as my)
+Checkout PuTTY's "Enable TCP keepalives" option (see "Connection" during PuTTY configuration). That did the trick for me once.
+Lastly it’s a converted vmdk, I am running on the VMware workstation, but I’ve tried it on other computers without problems.

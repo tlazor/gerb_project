@@ -1,0 +1,15 @@
+Run your LOG Backup Job several times. Then run the above code again. Keep doing this until the active VLF is at or near the beginning of the transaction log.
+Generally I don't recommend setting the MaxSize unless you have multiple Transaction Logs sharing the same LUN, or if you have a database that regularly runs a crazy query which fills the drive.
+One more thing, avoid multiples of 4G to avoid the 4G bug. Reference here: http://www.sqlskills.com/BLOGS/PAUL/post/Bug-log-file-growth-broken-for-multiples-of-4GB.aspx
+Also, not too few or too many. See this article: http://www.sqlskills.com/blogs/kimberly/post/Transaction-Log-VLFs-too-many-or-too-few.aspx
+If you are using transaction log backups for databases in the FULL recovery model you will keep the transaction log in check and not need to shrink it. You will find special cases that you man need to do this but never on a regular basis.
+Why should you? Under normal circumstances it will jsut grow back again anyway until th enext backup. Plus it fragments the file which is bad for performance. BEST practices say not to use autogrow, which automatically means not to shring stuff so that it requires growth.
+What you want to see is all of your VLFs having the same size. If you have a percentage, or very small growth setting, you end up with a fragmented transaction log.
+So, do you have hundreds or thousands of VLFs? Are they all different sizes? If so, your transaction log is fragmented.
+Then go back and run the above code to check your VLFs. You should see a reduction in the number of VLFs. 
+The log shrink is not as evil as data file shrink. Do it only if the database is in Simple recovery model and the file has grown too much after a certain operation to a value you know it will not grow again. You can shrink it to a given value, so it does not allocate the space again at the next transaction which will cause performance to be slowed down. Don't do it on regular basis. 
+However, sometimes is it needed in order to defragment it, or to recover space after a runaway transaction.
+The row with a Status of 2 is the active VLF. It's probably somewhere in the middle, we want it at the beginning. You won't be able to shrink the log beyond the location of the active VLF.
+Your numbers, of course, will be different. One thing is, if your log is going to be something large, say 32G, don't set it to that in one go. Instead, grow it to 8G, then 16G, 24G, 32G.
+After your system has been running for a few business cycles, you should have a good idea for what its natural size tends to be. So that is what you'll size it to be after shrinking/defragmenting it.
+While you do want to manually size your files, leave Autogrow turned on so you don't get caught by a rogue process.

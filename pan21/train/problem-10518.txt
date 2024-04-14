@@ -1,0 +1,7 @@
+I troubleshooted the root cause to be the kernel update, here are the minimum steps to reproduce the problem:
+It looks like you've encountered a bug in the version of the kernel included in RHEL. There was a thread about this problem on the Xen development email list last year:
+Regarding the issue that you are unable to upgrade the kernel: that is no longer the case for modern Amazon Machine Images (AMIs). Newer AMIs like the RHEL 6 AMI boot with PV-GRUB, which allows you to upgrade the kernel like you would on any other server.
+For more information about PV-GRUB, refer to the EC2 documentation here: http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/index.html?UserProvidedkernels.html
+Everytime I start a new RHEL instance, I like to perform a yum update to start with the most  up-to-date system. However, everytime I try to reboot the instance after that, the instance never goes live anymore.
+the problem is the name of the block device changes from /dev/xvda to /dev/xvde you can change the menu.lst to point to /dev/xvde1 and fstab to mount xvde 1 2 3 or label the drives and poit to the labels
+From what I can read around, it looks like you can't use the default kernels with an EC2 instance. If that is true, how can I avoid to accidentally update the kernel with yum, and thus killing my instance, when performing a generic yum update?

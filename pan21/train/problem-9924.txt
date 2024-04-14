@@ -1,0 +1,8 @@
+Upon discovering that QTCreator did not come with a compiler, I immediately lost myself to Youtube and found a way to install the compiler G++. Worked.
+Another thing. Do I need the compiler at all? Or does QTCreator save C++ files with the apt-get install libstdc++6-4.6-de
+apt-get and is a front-end to install dpkg-files. You will use them to install your tools. You don't need to build your own dpkg-files to create a application. Compiling your C++ program is enough to create a working application.
+Synaptic is a graphical tool. It should make it easier for you to manage and search packages on Raspbian where plain apt is too confusing.
+Now here comes the problem. When adding a compiler to be used by QTCreator, it required me to enter the file path of the compiler I wanted to link. Thing is, how do you like a file that was installed with sudo apt-get? Last time I checked, any files installed with sudo apt-get don't appear in your desktop. So what is the file path for the compiler file installed with apt-get?
+The downside is that you now have that much more stuff in front of you to learn and might have trouble keep focused to get anything done.
+Generally speaking you don't need a IDE to write a program. To write a C++ program a good text-editor and the compiler itself will do. 
+QT-Creator is your integrated development environment (IDE). It integrates access to all kind of usfull tools, makes it easy to get a good overview of your project and switch from one tool to another easily.

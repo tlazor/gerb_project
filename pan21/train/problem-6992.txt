@@ -1,0 +1,12 @@
+2) Install in a working PC, preferably one that is not infected with viruses or a Linux or Unix box and mount infected drive.
+This. Once your system is infected, you cannot trust any program it's running not to be interfered with by the virus - including all antivirus software. Theoretically, you could boot an antivirus system from CD, but even then, you can't be sure that the virus hasn't hidden a copy of itself deep in some executable from where it can reinfect the system.
+But I think BIOS-resident viruses have so far occurred only as proof-of-concept implementations and not been spotted "in the wild". It sounds nasty but is not actually very attractive to virus writers, since it would have to deal with (at least) dozens of different motherboard families, each with its own proprietary BIOS flashing protocol.
+2)  Before formatting C:\ or whatever drive you XP resides on , you might want to consider the following: do you have any wedding pictures or music files that are important and need to be backed up to some external HD?
+4) When this is done, switch over to some online tools and do the same thing, scan for malware and viruses.
+This absolutely prevents the virus from defending itself, since it isn't running anything on the new host computer. Be sure to avoid auto-run if using a USB adapter.
+5)  Make sure you have access to all the drivers(sound, video, etc) via online or some CD on hand, cause you will need to re-install a majority of them if XP does not pick some of them up.
+Pointless, since you'd be doing so while a hypothetical BIOS-resident virus is running. The only way to be certain would be to remove the BIOS flash chip and rewrite it using dedicated flashing hardware.
+I've had complete success with this method with several computers. As for the BIOS virus, I'll believe it when I see it.
+activating XP, since you already did it, you just copy this file back into the same folder after re-install.
+To avoid reinstalling, simply pull your infected hard disk and disinfect it from another (known clean) PC, attaching it either with a USB/IDE/SATA converter or directly on the IDE or SATA as a second drive.
+4) If so, back them up first, and then scan the external HD to make sure there is nothing on it, after backing up all the important stuff.

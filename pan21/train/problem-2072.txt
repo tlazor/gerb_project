@@ -1,0 +1,9 @@
+Is there a way to return the normal output "enter password", but configure SSH to never accept logins from port 22?
+Why one would do that though is beyond me. Investing in a defense featuring IPS, IDS, firewall, the lot, seems to be the prudent approach, given enough funds.
+If you just want to refuse access to script kiddies, disable password logins and stick with public key logins.
+My idea is, if someone is going to try and brute force my server, first port they will try is 22. But if I could spoof things and make it appear that SSH is working on port 22, they would be wasting their time and would never get access.
+But unless you have a good reason for doing so, I agree with fuero that you should just use something like fail2ban or DenyHosts.
+It sounds maybe like you want to run a SSH honeypot. There are lots to choose from depending upon the level of interaction you want. Kippo is a popular one.
+It's possible to run 2 different SSH servers on 2 different ports, one refusing all connections while appearing in working order, while the other works fine.
+You can also run Kippo https://github.com/desaster/kippo as an SSH honeypot, which simulates succesful login and you can log everything the user tries to do while "in" the server.
+I have changed the SSH default port (by updating the Port attribute in the /etc/ssh/sshd_config file). But what I would like to do is still make it appear as if everything is working as expected if someone was to try and connect to SSH over port 22.

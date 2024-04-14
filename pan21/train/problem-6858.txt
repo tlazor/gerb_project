@@ -1,0 +1,8 @@
+Also all in some one printers with network connection have scanner sharing function. For example my HP C6180 allows scanning using web interface. 
+As far as I know there isn't such function in Windows OS. However You can google for scanner sharing apps (there are some, but works only with some scanners).
+I don't quite understand how you intend to use the scanner without physically being at the scanner.  Don't you have to be at the scanner to put the document to be scanned on the glass?
+2) Scanner for Remote Desktop - It allows to redirect your locally plugged scanner to your remote Windows session. In other words, you can logon to RDP or Citrix session from your local PC and scan within the session.
+However, to answer your question, a program such as RemoteScan can do what you're looking for.  As far as I know, there is no free alternative, and no built-in way to make this work.
+Sharing a printer makes sense because the printer is an output, whereas the scanner is an input.  You'd have to be at the scanner to use it, but the printer can print and the douments will await your arrival at the printer indefinitely.
+You can always use remote desktop connection to remotely log in to the Windows Server 2008 R2 machine. Although that doesn't mean you get the images scanned directly to your own computer, you can transfer using shared folders on top of it.
+1) USB over Network - Allows to share any USB device on remote computer and connect it to your computer over network. Virtual USB device is created on your PC. And it appears like if the remote USB device was unplugged from the remote computer and plugged to your one.

@@ -1,0 +1,12 @@
+What it won't do is override name resolution for names outside of its domain (at least I don't think it can, might actually be worth a try).
+3) Your Fritzbox is perfectly capable of managing static IPs. And it already runs a DNS server. You can edit the name of the device in the GUI, you can tick the "always same IP" box, and the server will be reachable under xyz.fritz.box, always with the same IP.
+Your public IP will be in your ISP's network. Your router will also have a private IP in your ISP's network (which is different from the private IP's in your home-network). When you send a packet to your public IP, it will go to the router, then to your ISP's network, then back to your router, then to your server. You may or may not see (part of) this with traceroute. 
+There are two cases. You can see which applies by looking at the IP of the external network interface of your router (which may be different from your public IP, see below). 
+I've successfully configured DynDNS in my router and now I'm able to reach my home server from outside my local network using my custom domain.
+Using the very same domain I'm able to reach my home server from inside the local network, despite having an external IP, so I assume my router allows NAT loopback for that domain.
+I was thinking that this was enough to ensures that network traffic stays within the local network for the requests to my home server.
+My laptop is not the only device that will use the server. Furthermore changing back and forth the hosts file inside/outside my network is not a viable option. What I don't really get is why the router is not "smart" enough to reroute the requests
+There is an ICMP REDIRECT mechanism to make this faster the next time, but your ISP may or may not use it, and the Fritzbox may or may not obey it.
+2) Your ISP is not doing carrier grade NAT. The packet to your public IP will go to your router, it will detect that it's a local IP, but it will still apply the port forwarding rules, and send it back to your server.
+I changed the /etc/hosts file of my laptop ( connected to the local network ) to resolve my DynDNS domain as the local IP of my server ( e.g. 192.168.1.2 )
+So yes, if you want your DDNS domain name resolve to different IPs depending on whether you are in your home network or outside, you'll have to deploy a second DNS server. Or script something to change /etc/hosts automatically depending on which SSID it's connected to, etc.

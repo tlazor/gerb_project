@@ -1,0 +1,7 @@
+The router on the end of the leased line from the ISP would be acting as a simple router with no NAT or firewalling. 
+This can be achieved with a single 12 port layer 3 ethernet switch, provided the Internet handoff is Ethernet, otherwise you will need to front-end the switch with a router to terminate non-Ethernet links.  Then, each tenant requires a router or firewall device as the demarc to their network.
+Other answers did help at the time, but things have moved on now, and BT will be providing FTTP which simplifies the options for the business drastically!
+Have your ISP issue you /28, or 14 global IP addresses.  You might have to pay a little extra for this.  One of those addresses is assigned to the ISP gateway, and that leaves you 13 addresses to hand/assign to your tenants to apply to the outside interface of their routers/firewalls.
+Behind that router each buisness could have their own NAT router/firewall which would be allocated a single IPv4 address and a /56 block of IPv6. 
+While this does involve more hardware than having one box manage everything it means that each buisness is in control of their own network and configuration of the shared router should be very much "set and forget".
+If possible I would try and get a block of public IPv4 IPs big enough ( a /28 from your description) that each buisness could have their own IPv4 ip. I would also try to get a /48 of IPv6.

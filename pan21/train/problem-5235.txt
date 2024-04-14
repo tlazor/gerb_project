@@ -1,0 +1,7 @@
+You can also use process substitution to accomplish the same thing. You would redirect <(find) into the done part of the while loop.
+Now, it does find the correct folder, but every time there is a space in the dir name it makes it a newline.
+I'm trying to mv The Trance Mix 3 Wanderlust - DJ Exortius [TRANCE DEEP VOCAL TECH]@ into the real directory DJ Exortius. DJ Exortius already exists, so it's just a matter of moving it into the correct directory that's based on the id3 tag of the mp3 inside.
+I'm trying to get my music folder into something sensible. Right now, I have all my music stored in /home/foo so I have all of the albums soft linked to ~/music. I want the structure to be ~/music/<artist>/<album> I've got all of the symlinks into ~/music right now so I just need to get the symlinks into the proper structure. I'm trying to do this by delving into the symlinked album, getting the artist name with id3info. I can do this, but I can't seem to get it to work correctly.
+You should pipe find into while instead of doing for $(find) in order to properly handle filenames with spaces in them.
+If you use hard links instead of symlinks then you can leave your unordered pool in place while using EasyTAG to restructure the links.
+PS: I've tried easytag, but when I restructure the album, it moves it from /home/foo which is not what I want.

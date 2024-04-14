@@ -1,0 +1,8 @@
+One small thing about this comment: generally, you edit the sites-available file, and you make the site enabled by symlinking that file into /etc/nginx/sites-enabled - I get the sense you have two files currently. 
+Try service nginx stop, check if nginx is running with ps command. If it is still running, use kill to stop it, and try service nginx start after that.
+If nginx -t runs correctly, but nginx restart fails, then there might be an nginx process running without correct PID file.
+This is probably not relevant to your issue, but here too, it can't hurt to remove unnecessary things. 
+Additionally, you might want to consider if you want to have a single HTTPS site, or two (i.e. one for each of your domains) - in other words, you could have both HTTP server blocks look something like:
+Or you could create a similar block for dealing with HTTPS requests for both domains (depending on what your needs are). 
+This means that stopping the nginx process fails, and when system tries to start it, it fails because it is already running. In this case nginx still uses the old configuration.
+I am not totally clear what exactly is causing your issue (and can't dig into that right now), but I think that reducing redundancy in your config certainly can't hurt. 

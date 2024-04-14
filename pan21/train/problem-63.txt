@@ -1,0 +1,5 @@
+I need to create a new certificate for an internal server.  It is self signed.  Is there an easy way to just extend the expiration date of the current certificate?  If not, can I reuse the current key, or do I need to generate a new one?  I'll be using Java keytool.
+It doesn't really matter what the key is, as long as it's signed by your certificate authority.  Also, it's the CA that decides what the expiration date of the certificate is.  Basically, run the self-signing procedure again, using either the same or a different certificate signing request.  When acting as the CA, pick whatever expiration date you want.
+Yes, you can create a new certificate with a different expiration date that reuses the same public/private keypair.
+All info I can find online it looks like I need to create a new keystore, but I'd rather skip that step if possible just to keep things simple.
+If you want the private key and certificate combined in a single unit, you'll have to combine the private key with the new certificate.

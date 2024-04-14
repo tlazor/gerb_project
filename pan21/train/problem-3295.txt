@@ -1,0 +1,5 @@
+Are you connecting via IP address or hostname? If via hostname, it may be resolving to the external, public IP address of the router, in which case it's trying to route through the router. If via IP address, are you using the address of the server on the local network, or the public IP address of the router?
+Second question: are you connecting via IP address or hostname? If via hostname, it may be resolving to the external
+The security implication of doing this is that in the access logs on the server, you will be unable to resolve which internal client is making a connection and when.
+Otherwise, you may need to set up a proper "loopback" NAT rule in your router so that traffic hitting the external address:port coming from the internal client is routed to the internal server, AND so that traffic coming FROM the internal client appears to come from the external address of the router (a reflective rule).
+You could set up your internal DNS server to return internal IP addresses when you connect from the local LAN, rather than returning the public IP address of your router (which public DNS provides).

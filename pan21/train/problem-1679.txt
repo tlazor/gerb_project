@@ -1,0 +1,7 @@
+On every other machine the DNS is set to be the IP address of jupiter (192.168.2.101), as you can see in the output of the following command in windows
+The problem is, sometimes mydomain.com can not be pinged, here is the output of the ping on the same windows machine
+One thing to note is that I haven't defined reverse DNS lookups, only the forward DNS lookups are defined in Bind9 configs, not sure if that's relevant or not.
+This looks very random, and happens once in a while, so the machine can lookup the DNS records but can't ping it, nor can browse the website that is hosted on mydomain.com, which should resolve to 192.168.2.100
+Here is how I have defined mydomain.com on Bind9's configs on Jupiter, notice that the name of the machine on 192.168.2.100 is  venus, so I have this file:
+On a linux machine that has the same DNS settings, the output of dig command for mydomain is as follows:
+All machines can always nslookup one of the domain (mydomain.com) that is set in the jupiter's DNS server, you can see that in the output of nslookup on the same windows machine:

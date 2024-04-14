@@ -1,0 +1,5 @@
+Run this when you're connected to a linux host and it'll output the colour scheme. Tested on Ubuntu 16.04 and CentOS 7.
+You are looking in the wrong place: Putty is a terminal emulator, it simply displays the colors the machine you're connected to sends it.
+This doesn't really have anything to do with PuTTy, it's your shell that makes different types of files/directories appear in different colours. This is done via an environment variable called LS_COLORS and the exact contents of LS_COLORS are usually determined by dircolors, which is typically called by a .profile file, etc., depending on what OS you are using.
+It may be Putty, and it may be your shell. You can verify by running Putty.exe and going to Configuration->Window->Colours. Looks at what the colors are that Putty is configured to display. Also, at the top, if you're allowing the terminal to specify colors, you should check your shell to see if it is specifying colors, like Bash can.
+I assume you're using a *NIX-style system, so check the manpage for ls (if it's a Linux box, the man page for dircolors explains a command that lets you set up those colors).

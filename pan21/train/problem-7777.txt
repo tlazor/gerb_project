@@ -1,0 +1,8 @@
+I stumbled onto this page, when I was looking for a clamscan script. I followed above advice and got it working with:
+This genclamfilelist.sh script will extract the file list from the log.bz2 of the latest backup and print it out:
+I use dirvish to create my backups, which uses rsync underneath. In the end, I get a log.bz2 giving me a report of all files backed-up including the list of files that got backed-up.
+I haven't tested this out yet, but I'm planning on integrating my clamscan run with my backup run. My backup tool produces a list of files modified in order to perform an incremental backup, so why recompute the same file list twice?
+Another option (or an additional one) would be to limit your scan to certain vulnerable file types, but personally, I don't like this approach. 
+Output the find result into a file instead of piping it into xargs and then use clamscan with with the --file-list=FILE option. This would possibly improve the run time because clamav would only need to start and initialize once` instead of multiple times. Please leave a comment and tell me how much this sped things up if at all. 
+Since I use dirvish, I modified its /etc/dirvish/dirvish-cronjob to call the first script to generate the file list for use by the last script:
+Depending on how many files are actually affected, I don't think that 2 hours is that long for a virus scan. Anyway, you could try to improve the speed the following way: 

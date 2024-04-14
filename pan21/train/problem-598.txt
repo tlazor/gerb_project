@@ -1,0 +1,8 @@
+The other way around also works, i.e. if you installed your Windows on IDE and want to convert to AHCI, activating MSAHCI.SYS will also do the trick.
+The value of 1 would load it at boot stage, but since we’re talking about storage drivers, that is not possible, because the storage drivers are needed to access the storage, so they must be loaded with stage 0, i.e. by using the BIOS disk access routines.
+In case if you wanna boot old system (windows or linux) from old drive - change mode to IDE in bios.
+There are at least 4 machines working from 2007 to right now 2016 and them operating brilliant using so called 'Mixed' modes AHCI/IDE.
+Have a look at the registry under HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services. There ought be a key named IDE.SYS (or something similar), and each key has a value named "Start". Start can take values from 0 to 4. If you want the driver loaded at the boot stage, you need to set "Start" to 0. If you don’t need it at boot stage, leave it at 2 or 3. (4 disables it).
+After this, the IDE driver will be available already at boot stage, so Windows should not complain anymore. 
+And, maybe we should generalize it not only for Windows 10, but from Windows 7 (XP has deprecated support of AHCI and TRIM, for example)
+So don't worry, Install your newest SSD or HDD using AHCI mode and just plug in your oldest drive - it will work perfectly without any flaws.

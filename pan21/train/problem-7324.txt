@@ -1,0 +1,12 @@
+Don't use sudo in a script, because it can hang when not connected to a terminal.  Possible exception: once at the beginning:
+If any one package is not found then you can lazily fall back to apt-get install "$DEPENDENCIES" -y.
+It would be good to add a check at the top of the script if it's being executed as root, and if that's not the case then warn the user and exit with error.
+When some dependencies are missing, the script installs them using apt-get install, without sudo. This suggests that the script will be run as root, otherwise it would not work. In that case all the sudo are unnecessary.
+Your shebang should be #!/bin/sh if you're writing portable shell script. If not, read this section of man bash:
+Don't repeat yourself: grep -E 'omxplayer|screen|cron|usbmount|ntfs-3g' may be rewritten using pattern substitution, grep -E "${DEPENDENCIES// /|}". But this may produce undesirable result if the words are not separated by exactly one space. One remedy is to define DEPENDENCIES as an array first, then reassign to its own output:
+Do you really need sudo to chmod 755 $PTH/$SCRIPT and echo -n " consoleblank=10"? By the way, I'd write printf ' consoleblank=10' instead.
+My version of man apt shows that the list sub-command is "(work-in-progress)". And if I run any commands on it, for example apt list | grep -q ., it prints a warning:
+Quote everything that could be expanded (except those that follow the rule of pathname expansion) if word splitting might mess things up.
+Consider using a $DESTDIR prefix when specifying the targets.  This makes it easier for package builders (such as debhelper) to re-use your script.  They will need to omit the dependency checks, so make that separable if you can (or at least disable it when $DESTDIR is set).
+You probably want to be using the standard install command instead of cp and mkdir.  That lets you specify the permissions as you create the targets.
+One potential problem is if PTH is an existing file, then mkdir $PTH would fail, and cp $SCRIPT $PTH would overwrite the file instead of placing a copy under the directory that couldn't be created. Adding an extra / at the end of PTH to indicate it's a directory would prevent that tragedy (if you needed that file) from happening.

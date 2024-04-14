@@ -1,0 +1,10 @@
+A colleague of mine seems to have had their hotmail account hacked - lots of spam is being sent from their account to their contacts, and the spams show up in their Sent folder so they're definitely being sent from that account.
+To find out, you're going to need to compare the headers from a valid email from your colleague against one of the spam messages. If they are radically different, then the good news is that I would be right.
+In trepidation in case it occurs again. My password for Hotmail was different from other passwords, so it was not obtained elsewhere. No malware or viruses were found on my computer. 
+Curiously, though, the hacker has not changed the hotmail password (to lock the original owner out) and also even though the owner has changed their hotmail password several times, the spam emails continue to be sent.
+Does this mean that one of the owners computers has been compromised (so that the hackers get access to the new password after each password change), or is there some hotmail hack that can bypass the password check altogether?
+At least I hoped this works because I was hacked and spam sent out on 20 May 2012. The hack may have occurred a couple of weeks earlier. 
+It could be that the hacker is joe jobbing which means that they haven't really hacked your colleagues account, but that they are sending emails out pretending to be him/her by forging the "from" addresses and email headers.
+However if I am right, then the bad news is that they are going to have problems preventing the spammer from doing this. Complaining to the upstream provider might work, but it could easily fall on deaf ears.
+I think a hacker deliberately targets your EMail address at Hotmail by intercepting an internal message and then pinches your password. I do not how they do it. But the remedy should be to change your password.
+At first Hotmail blocked my account because somebody was attempting to send out spam. I changed my password and then the account was compromised. This all happened in May after the bug was meant to have been fixed.

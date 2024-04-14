@@ -1,0 +1,7 @@
+What you want to do is download a VST Instrument (plugin which is a synthesizer) and assign your midi track that VST Instrument. Then you want to mute the keyboard sounds. Now, if all done correctly, when you play on your keyboard, your computer speakers should play the sound the VST Instrument is producing.
+The issue is when I try to export the file as wav or mp3, all I hear is silence. What am I missing here?
+I have the following setup: a Yamaha DGX-505, a Windows 10 PC, the Yamaha MIDI USB driver, Yamaha Studio Manager and Cubase LE AI Elements 8. I have reached a point where I can add a MIDI track in Cubase, play the notes on the keyboard and see them appear in Cubase.
+In the end, when you play music on the keyboard, at all times will you be required to hear them through your computer speakers. If that doesn't happen, wave/mp3 export will be silenced.
+After the record, playing back the song, the VST Instrument will still create the sound, and as such the wave/mp3 export will not be silent.
+If you really want to use your keyboard sounds, you will have to connect a cable between the keyboard's line-out and the computer's line-in, and make sure that Cubase also monitors the line-in.
+After recording, when I hit play, I only hear the output on the same keyboard I was playing the notes on. I cannot hear it on the PC itself. I have tried changing the output of the MIDI track to be the internal Microsoft GS Wavetable Synth, and have enabled both outputs in Studio Manager

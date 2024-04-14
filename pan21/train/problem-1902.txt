@@ -1,0 +1,16 @@
+The tscanf return a boolean indicating if the scan was successful. If you want to make it more compatible with scanf, it should return the number of correctly parsed arguments. However, since the format and parameters are not scanf-like, maybe it doesn't make too much sense to follow the return of scanf.
+In order to do this and also fix the bug above, I'd suggest to verify if format[0] != '\0' before all calls to the next tscanf and in the base of recursion to check also for format[1] != '\0' instead of calling tscanf. 
+The code will become slightly more simple and less duplicated if the base of recursion is for zero arguments, instead of one:
+The tscanf interface is not uniform for all supported types. Some arguments (bool and int) are passed by pointer, while other types (SomeStruct and everything else) are passed by reference. The user will find this confusing.
+This is already done correctly for tscanf function: both versions are template, but one is not a template specialization of the other.
+Some style guides (most notably Google C++ Style Guide) recommend using pointers for output arguments, since it is more explicit at the call site these arguments get modified inside the function. However, whatever you chose, use for all types.
+Also, I'd expect a function like this to not write to any output stream (cerr in this case), but let the function user to report the error in the most appropriate form for the application.
+I'm pretty experienced with C but the last time I did anything serious with C++ was at university 15 years ago and it seems like a completely different language now.
+This toy code works for me and fails in the ways I'd expect it to when I give it bad input. However, I'm not too familiar with the standard library so I have a strong feeling that I may be missing something. Also the code seems overly verbose for what it does.
+The assign function uses function template specialization, but that is uncommon (there are rare cases where it is useful) and not needed here. The usual way to specialize a function for different types of arguments is through overloading. The multiple assign functions could be declared this way:
+There is at least one bug I noticed: if format is shorter than the number of arguments minus 1, you'll only detect this when scanning the last one, where format will point past the end of string.
+Using std::strlen to check if the string has only one character is not very efficient, since the string could be very long. You could just check if the next character is '\0'.
+Since this is C++, not C, handling errors could be accomplished through exceptios. Consider throwing std::invalid_argument (<stdexcept>) or something like this instead of returning false.
+The only thing that will change for the user is that tscanf(str) will work (and only assert str has zero length), while your current version doesn't compile in this case.
+I'm hoping to get some feedback on a function with variadic templates that parses a format string and fills in some parameters whose order and types are based on the characters in the format string. Kind of like scanf().
+This way, the case for one argument is the same for multiple arguments and you'll always look at the first character of format, even to detect if the string length is correct.

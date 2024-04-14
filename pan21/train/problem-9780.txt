@@ -1,0 +1,8 @@
+The behavior you're experiencing is not common or acceptable. Imagine this were a common kitchen appliance like a microwave or your refrigerator. Would you tolerate a weekly failure of those? 
+One vendor promised to develop a method for cleaning the tapes before first usage. But I moved on to other work before I saw the results.
+Always stick to one brand of tapes.  Different manufacturers use different coatings which can interact and require additional cleaning.
+As recommended by the vendor I would try a manual cleaning of drives under those circumstances. But the problem would always persist, and I had to replace the drive anyway.
+Replacing the tapes was probably a bad idea. Back in the days where I was administrating LTO-4 drives it was entirely normal for brand new tapes to be covered in a tiny amount of debris left over from the manufacturing process.
+The dirt entering the drives through these new tapes may have been the final blow to your drives. I have seen that happen hundreds of times.
+The first symptom of a drive suffering this fate is a decrease in write speed and tape capacity. Usually I would see the capacity slowly decreasing from 830GB to 780GB and then quickly decrease to around 600GB. The write speed would tend to be 120MB/s in one direction and 60MB/s in the other direction. At that point replacing the drive is recommendable.
+I know this is an older thread, but still seems pertinent... another thing to consider (although unlikely since the problem was not happening all along) is that the firmware on all of the tape drives should be the same. Levelling the firmware after a drive installation/replacement is a good idea.

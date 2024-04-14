@@ -1,0 +1,6 @@
+Since PermitRootLogin was set to « no », I couldn't login and was forced to hard reboot my server in rescue mode, mount the file system, delete the /etc/nologin file, and reboot.
+For a single-sysadmin scenario this is fine. Though, as has been discussed ad nauseam here and elsewhere, if you have multiple sysadmins, none of them should be logging in as root.
+and couldn't login. But it was not true, the server was not going to shutdown. It had shut down, but it was already up. Actually, I noticed that for some mysterious reason, the /etc/nologin file, created by shutdown hadn't be deleted.
+One day (4 years ago), I rebooted my server. After the reboot was complete, I tried to login as usual with my regular (non-root) account. At that time, I had PermitRootLogin no.
+So, what do you think about letting PermitRootLogin set to « yes », but disable its password (passwd -l root), so that only SSH-key connection is allowed for root?
+But organizations with lots of systems and lots of administrators need functional auditing. This means shared credentials must be minimized, even if they are ssh  keys. Otherwise you would never be able to know who preformed what action. 

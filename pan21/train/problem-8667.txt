@@ -1,0 +1,7 @@
+I have another way you could easily implement click quests. I have made the changes in this jsfiddle.
+I would recommend looking up how to make an array of objects so you can loop through each quest to increment them.
+You can see that it sets the class's clickAmount variable to be 10 and the class's elementID variable to "tenClickID". It also runs the class's UpdateDisplay function which uses the elementID and QuestString to update it on the screen.
+This require a quest object aka tenClick that we made above. When ever you call the function it will run the Incrementer and UpdateDisplay function in that object. I called UpdateQuest from within your button click code.
+When you create a new instance of this class you will need to pass it two parameters. Those are: clickAmount and elementID.
+If you don't know what a class is then imagine it like reusable code. Classes are objects that have variables related to it. If you wanted to make a class about a table you could have variables inside the class for how many legs, how tall is it, how wide it is etc.
+The class's Incrementor function will update the clickTotal and if it is the same number as the clickAmount it will reward 1 questPoint.

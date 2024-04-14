@@ -1,0 +1,6 @@
+Another search explain that the 8245 hubs are stackables, and the stack is managed by one of the hubs, which has to be manageable, like the 8245-012 or 024 (respectively 12 and 24ports).
+If you have a rough idea of what range the management address should be in, I'd start by scanning that range (using, say, ping). Otherwise, you'll probably have to scan through likely ranges (192.168/16, 172.16/12 or 10/8), until you get an ARP entry with a MAC address that looks likely.
+If you have a current service contract on the device, it may be possible to get a password recovery procedure from the vendor and that may allow you to check the IP address.
+If you can power the device down and it has its configuration on a removable flash disk, it MAY be possible to get the configuration by plugging that disk into a slash card reader and look for likely files.
+However, management possibilities are limited (this is a hub, remember). You can configure an IP address through the serial console, and then use snmp and a web interface.
+I am wondering how to manage an IBM 8245 (25L4879) hub?  I have a feeling there are some filters set on this switch that I can't find, but I'm not able to find the IP address to connect to it via telnet/ssh.  Any help would be appreciated.

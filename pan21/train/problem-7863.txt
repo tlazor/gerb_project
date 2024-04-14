@@ -1,0 +1,6 @@
+First of all, your assumption is wrong. You don't transform position coordinates to uv coordinates, your vertice already has a uv coordinate. Like the following:
+The same happens when you have a 3D object, you will map your vertices to a 2D uv map (usually done by whoever is makes the model) and then use the UV coordinates for the 2D lookup.
+Each of the vertexes of the triangle will have a u,v coordinate assigned. When the triangle is projected onto the screen each point that is displayed on screen will have a set of barycentric coordinates. 
+In openGL this is done automatically when you select varying as output of the vertex shader and input of the fragment shader.
+Where (100,125) is the position of the first vertex (in pixels) and (0,0) is the UV coordinate. Mapping that point to the texture is a simply finding which pixel in the texture is the pixel (0,0). This is usually done for you in the shader when you use texture lookup functions. Finding the uv coordinate of any point in the triangle is done by using the 3 uv coordinates and finding out the average in that specific point.
+Then to get the texture coordinate you just take the average of the texture coordinates weighted by the barycentric coordinates.

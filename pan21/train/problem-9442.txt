@@ -1,0 +1,5 @@
+I don't really see how lens will help you at all here, but you can certainly take advantage of monad transformers to handle part of your calculations, and make it so that you can layer you stack operation language on top of any monad. (so that you can, as I show below, print out the stack in the middle of the calculation)
+Note that the way this is set up, the StackMT monad transformer has to be the outermost in the stack; that is, if you attempt to apply ListT or ReaderT to something of the form StackMT s m, then in the resulting monad push and pop won't work.
+For example, I imagine that it is possible to replace safely with %= or mapMOf from lens library once appropriate EitherT monad stack is constructed but I'm not sure how to get there.
+I believe most of this code is actually unnecessary. I know there are stateful and monadic lens out there, there is EitherT transformer and also StateStack monad. How can I go about incorporating those libraries into this example?
+I wrote this code to learn how to work with State monad. Then I added Either result to gracefully handle error condition (stack underflow).

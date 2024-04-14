@@ -1,0 +1,6 @@
+I just purchased a brand new laptop, and I believe the hard drive to be faulty. Here are the symptoms:
+Disk Utility (Palimpsest) will allow you to do almost the same from the comfort of your desktop environment.
+If it's clicking in the middle of disc actions, I'd definitely be worried and make sure anything important is backed up.  Then run any and all diagnostics you can on the drive and record the evidence in case the manufacturer gives you any flack about replacing the drive under warranty.
+I brought this up with customer service and they said they can ship me a new hard drive, because apparently no other users have complained of similar symptoms. Does this sound like a faulty hard drive to you? My worry is that:
+sudo smartctl -H -A /dev/sd? will show you overall drive health status, and values of individual attributes. Also, you may run some internal drive tests with smartctl (you may have to emerge or otherwise install it first).
+You could check drive's SMART status - it is not always indicative, but if it shows e.g. growing numbers of reallocated sectors then this is a definite sign of HDD's malfunctioning. To be sure, monitor SMART status changes over a day or two.

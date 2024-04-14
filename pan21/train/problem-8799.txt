@@ -1,0 +1,5 @@
+If I comment out the line for 'files', for example, in site-available/default, the user file is no longer read and the 'default = auth-type kerberos' is therefore no longer used. Will then subsequently get a radius accept back for all eap-tls requests.
+So my question is, does anyone know how to simultaneously configure Freeradius to do switch management authentication using kerberos and network machine authentication using EAP-TLS.
+Currently have this configured and working, but only one at a time. So I can log into switch's using the Kerberos details, and you get a radius accept back. When a device uses EAP-TLS it will take the machine name and try to authenticate against Kerberos using the name, but subsequently fails because there is no password.
+Have a particular scenario in that we would like to use FreeRadius to log into switchs using Kerberos credentials and network devices using EAP-TLS.
+So my apologies for not posting any config or debug information but it is not possible to share this information, but on request can manually type any element required.

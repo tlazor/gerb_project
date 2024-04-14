@@ -1,0 +1,8 @@
+I'm making a simple game where a surface is split up into 4 parts, rows, obstacles spawn in them, and a player tries to dodge them.
+If you reach the end this way, then the start & end are in the same connected component and the end is reachable.
+If the depth first search returns without ever reaching the end row, then there is no viable solution path, and the obstacles cut the graph into at least two disjoint connected components.
+What would be the best way to implement an algorithm to check if it is possible to get through or not?
+What we're doing here is called finding connected components of the graph representing your play space.
+In this graph, the nodes are the squares of your playfield, and the edges are the allowed transitions between them (ie. pairs of adjacent non-obstacle tiles)
+Up to 3 obstacles are generated in each row, and this can lead to some impossible scenarios such as:
+You can start a depth-first search from.the bottom row (following only legal moves as defined by the edges described above), and check whether that search ever touches the top row.(Defining a single "start" node adjacent to all cells in the bottom row, and an "end" node adjacent to all cells in the top can help with this)

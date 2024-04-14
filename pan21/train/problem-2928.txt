@@ -1,0 +1,9 @@
+As an aside, you could also enable DMZ and configure the DMZ to use your netbook at 10.1.2.20, however that opens up your netbook to more than just port 22 for ssh and you'd have to configure a firewall on your netbook to prevent anything bad to happen. So that's probably out of the scope of your question.
+You could use the VNC based Desktop Sharing service offered by Ubuntu, but VNC has terrible security flaws.
+The most important thing to do to be able to access your computer inside your home network from the internet is to enable your modem/firewall to open one or more ports and direct them to your netbook.
+I have a Ubuntu Netbook at home using fios.. I would like to know if I can access the computer from anywhere on the internet
+Configure your modem/firewall to direct traffic to port 22 to your netbook at IP 10.1.2.20. The names used for this are not always the same, it could be application level gateway, firewall, application firewall, what have you. Just as long as you make sure to direct traffic the proper way.
+If you set everything up correctly you should be able to log into your netbook remotely from anywhere like this:
+Ok, static IP of your home internet connection is 192.0.2.10, your internal LAN uses 10.1.2.0/24, your netbook has IP 10.1.2.20 (make it static, not dhcp assigned).
+You could run Teamviewer in wine and access you machine from really anywhere, even an android mobile.
+Let's use a simple example and assume your internet connection has a static IP (if it is dynamic you need to find out when it changes and to which IP or you won't be able to access it anymore). Let's also assume you want ssh (port 22) access to your netbook.

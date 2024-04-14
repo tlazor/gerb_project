@@ -1,0 +1,6 @@
+Another alternative is to use a GUI ssh client. On Windows the obvious choice would be PuTTY. There's also a Linux version of PuTTY, notably most Debian based distros like Ubuntu normally include PuTTY in their repo.
+Some password managers (ex. KeePassXC) have the 'auto-type' feature. You store the password on the password manager, unlock the database when you run the manager and every time ssh prompts you for your password you press a key combination which makes the password manager write your long password to the console.
+If I'm not mistaken, the venerable Hyperterminal on Windows also has/had an ssh client built in but I haven't used windows in a very long time so I'm not entirely certain.
+All GUI clients include the ability to save connection settings which includes your username and password.
+Another really good client is Termius. It supports not just Windows and Linux but also OSX, iOS and Android. Although it was primarily designed for phones the desktop version is actually quite good.
+No need to copy, remember anything (except for the password to unlock the database) and you can have a strong password without mashing those 30 characters every time you try to login.

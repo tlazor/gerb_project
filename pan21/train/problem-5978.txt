@@ -1,0 +1,5 @@
+Try to make sure that all password changes happen between 'leaver isolated from network' (maybe an exit interview in a conference room, after work laptop has been returned) and 'leaver is left to own devices'. This drastically lessens the chance that the leaver would be snooping the new credentials (but with smartphones and such-like, it's still non-null).
+If your WiFi network uses WPA or (I hope not) WEP as opposed to tapping in the Radius server, you might want to consider changing that key.
+Start by changing all of the "perimeter" passwords for your network.  Any accounts that he can use to get into your network from home (or from the parking lot with WiFi), should be changed immediately.
+The above answers are all very good. As a practicing professional in the InfoSec profession (IT Auditor), some other points for you to consider:
+It's a huge door left open, if you're the network admin, there's a pretty good chance you know that key by heart...imagine how easy it would be to get back on the network from the parking lot or something of that nature.

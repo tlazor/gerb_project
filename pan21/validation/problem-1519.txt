@@ -1,0 +1,5 @@
+/lzb/gz.php doesn't jump out as anything nefarious. It appears to be a file in the xwall firewall package, so perhaps the former owner of that IP was running that application.
+The requests probably appeared after purchase because your vendor allocated the IPs to you and configured the firewall to allow access to those IPs.
+Someone probably owned these IPs before you, and the requests /lzb/gz.php are likely intended for the website which existed before yours. I'm reaching here, but note that lzb and gz are both common shorthand for two compression methods, so it's possible that the previous owner served compressed content. Googling around shows that gz.php is not an unusual name for a file, and is sometimes used to compress data on the fly using PHP.
+The requests are probably made from a broken client. You probably don't need to worry, and can use @WesleyDavid's tips to remove this annoyance.
+A google for site:your.ip.address/lzw/gz.php might reveal who the previous owner was and shed some light on the issue.

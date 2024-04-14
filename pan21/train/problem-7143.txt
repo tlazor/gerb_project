@@ -1,0 +1,8 @@
+If you're forced into a DR situation (you're site and on-site backups are destroyed), how much data can you afford to lose, and how long will it take you to get back up and running? It may be that you don't need daily off-site backups and weekly backups would be enough, making using something like storing them at a bank, or with a company like IronMountain much less of a hassle.
+I'd have said storing your off-site backups are your boss' house is a bad idea, it's unlikely the security at his house is as good as on your office premises which provides a massive weak link in your security. Thats before you even consider that only one person in the company has access to those off-site backups in case they're ever needed.
+UPDATE: we currently backup on 2 dvds. One is kept in my boss's house and one is stored inside the company building.
+However, it is my boss's concern to keep the source code somewhere "safe enough" in case of multi-robbery or some natural disaster, ecc..
+I tried searching google for something, and I guess the best solution would be some online backup service.
+Do you have more than one site? Maybe swapping tapes with another site would be a workable solution.
+Just don't do what CodingHorror did, and store all the backups of a virtual image on the same hard drive as the virtual image. And especially don't trust your backup procedure to a bloke called Geoff driving in occasionally to where the data center was to change a USB drive ...
+Where are your backups stored today? As long as they are off-site "enough", you shouldn't necessarily need an online solution.

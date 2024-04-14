@@ -1,0 +1,9 @@
+STEP 5 : For instance if your data speed is 4 Mbps and you want to control your data speed to 2 Mbps as its draining your monthly usages limit (especially when you are using limited data subscriptions), you can change the value to 2 and click apply in the end of the page. 
+STEP 4 : Click on the Transmission rate it will drop a list of values from 1 to 300. Here the values are Mbps. Choose the required speed you want to send the data.
+STEP 3 : Inside the Advanced Settings you will find Advanced wireless settings. By default the Transmission rate is Auto.
+STEP 1 : Login ADSL page by giving your username and password. By default    username is admin password also admin.
+But fortunately I have found a way to control the overall data transmission rate. This option below if set, then you can control the incoming rate for all the device connected to the router but you can't able to set each preferred device a different rate.
+STEP 2 : After logging in, Click on the ADVANCED option in the top row and click on the Advanced Settings.
+The thing is in DSL-2750U you opt for traffic control as in other D-Link router versions.Even in QOS, you don't have the option for controlling your download and upload speed for any device connecting the router.
+(Sorry to say, I have not included the images as the forum is not allowing to do so because am a newbie)
+Now you can speed test your data connection. You will be getting the reduced data rate than your real one.

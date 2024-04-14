@@ -1,0 +1,7 @@
+The update running currently (using the FROM syntax) has been active for 21 hours, although this is on a low spec test machine (2 x 3G cores, 3G RAM, spindle disk - it's disk I/O that's killing it, constant 99%).
+Column interface_id in table interface_events needs updating from table device, so currently I have:
+With no indexes or constraints on the table the update dropped from 21+ hours to 5 minutes. Quite a fall.
+Whilst I'm sure the answer provided by jjanes would probably be at least as quick in terms of the update itself, for me on this occasion I felt dropping and recreating indexes was more straight forward.
+I should point out that the relationship between device and interface_events is one to many, so there may be thousands of events per device. Is the UPDATE FROM method suitable in this situation? I'd earlier tried:
+I need to populate a foreign key column based on the contents of another table, and both methods I've tried are prohibitively slow.
+It occures to me as I write I should have applied the foreign key constaint after the update, since I know it's integrity will be ok thanks to the column I'm copying from already being constrained, so I guess this question is more about the best query to use?

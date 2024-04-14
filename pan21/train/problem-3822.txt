@@ -1,0 +1,8 @@
+Can you please share some thoughts on what would be the best way to make this scenario happen: access all my sent/received emails from my Android phone, while I can still do the same thing from my Outlook/laptop.
+I am looking for a solution/configuration that would allow me to have access to all the email in my Inbox and Sent Items on my phone (the same as in Outlook) - ideally when offline, but when online only would be ok too.
+The only thing I will say though is, how much storage on your phone is up to your phone. If you have 1GB in your inbox and 2 GB in your sent items I would assume your mobile device may struggle and automatically only load 100mb (or whatever the threshold is).
+I run my own mail server. I have web access, I use Outlook 2010 (IMAP) and my Android phone. I send from my mobile, it appears in my sent items on my Outlook and web mail.
+Recently, I've started using email more and more on my mobile devices (Android phone, iPad). For now, they are set to use POP3, the same as my main email client - Outlook on my laptop.
+Yes you can. You create a local copy of all devices with IMAP. This means, what ever is on your server is duplicated on all devices (depending on the settings of each device).
+Emails are free and easy. If you're worried, I suggest you create a new account with Gmail (or similar) and set it up on your phone and Outlook and test it before moving.
+I was thinking of switching to IMAP on all devices, but it's not clear to me if I'll be able to access email online/offline in my Outlook the same way after the switch

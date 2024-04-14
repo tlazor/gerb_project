@@ -1,0 +1,9 @@
+I wish to change sda4/5 and create a single drive as an ext4 partition. I will then mount that sda within the system to some directory as a 140G partition.
+I am looking for a way to wipe the LVM drive/partition which in this case is /dev/sda5. The "extended" is /dev/sda4
+There seemed to be some miscommunication or confusion upon the installation of solusvm for my machine.
+You can then use the t command in fdisk to change the partition type. (Strictly speaking, this step isn't really necessary, but it helps to keep the partition table clean.) Here you want to change the partition type to 83, which is the same as your other file systems:
+From what I understand, I will not need an LVM for OpenVZ-based installations. So far, that's been true. I have a 77G partition that is being used and mounted to /
+I feel that I have misinterpreted something here though, so please let me know if something is completely wrong or if you need further information.
+The drive in its entirety is 240G. There is an LVM/extended that is taking up 140G of space, with nothing on it. pvscan shows that it is empty, df -h does not show it at all, and further commands have similar outcomes.
+First of all, you may want to run blkid /dev/sda5 to verify that there isn't anything there. If it identifies something and you want to overwrite it, you can do that using wipefs --all /dev/sda5.
+If there is nothing located on /dev/sda5, what you need to do is to change the partition type of the partition, create a ext4 filesystem on it and then mount it.

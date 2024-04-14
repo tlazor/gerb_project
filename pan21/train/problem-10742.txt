@@ -1,0 +1,6 @@
+This would work great and would make the bomb explode after 45 seconds. However think about what happens if we want to pause our game. Pausing your game simply stops movement or perhaps sets delta time to 0 to emulate no time passing by. This would break this system since system time keeps ticking on even if you pause your game. 
+Of course this is quite easily fixed by using your own time system (akin to what Unity does) but, really, why bother if you can just chose the less error-prone way to begin with?
+It is also easier to expand on since if you want to change how fast your bomb timer is - say speed it up 2x - you just multiply the delta value by your speed value. This is more difficult to accomplish using time difference and much less clean code-wise compared to the delta-time method.
+There is no "best" way to do this, both methods are completely viable and personal preference. However I believe that the delta time version is superior because it's inherently less error-prone than checking the time difference.
+This is immediately more safe than the time difference since if you pause your game using delta manipulation this will also pause the timer on your bomb.
+Delta time is more "safe" to use than checking the time difference. If we convert the above pseudo code it would look something like this:

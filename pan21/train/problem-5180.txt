@@ -1,0 +1,6 @@
+EXPLAIN PARTITIONS SELECT * FROM my_example PARTITION (p2015) WHERE month = 9; -- will look only into one subpartition
+I had to do the same thing and solved slightly differently. Basically as far as I understand by reading the docs MySQL subpartitioning does not support partition types besides HASH and KEY.
+EXPLAIN PARTITIONS SELECT * FROM my_example PARTITION (p2015); -- will go through all twelve subpartitions
+Unfortunately you insert nav_date greater than '2014-01-01', so the partition wont accept the date greater than this. Because in this condition you have partitioned only values less than 2013.
+This means that we can't determine in what subpartition a record will end up. It's up to MySQL. So I don't think it's wise giving such names to your subpartitions (i.e. january) because no way you're going to know if stuff created on that month will end up there. This because you can't subpartition by MONTH(nav_date) but only by HASH(MONTH(nav_date)) or KEY(MONTH(nav_date)).
+So to solve the problem I decided to create a new month column in my table and then I added an index to it. Then I subpartioned by KEY(month) without caring about the subpartition names. This way in MySQL 5.6 I could select the main partition from the FROM clause and the subpartition by specifying the month in the WHERE clause. 

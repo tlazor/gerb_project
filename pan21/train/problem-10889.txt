@@ -1,0 +1,13 @@
+On my journey exploring MySQL and its advanced features, especially regarding the performance optimization I bumped in some extremely important feature for SQL performance improvement mos of us knows just as "Index"
+I went on with some experimentation and found out, that I can improve my database reads, and advanced write functions from 20 to 100 times just by applying additional index, to one of the most used columns.
+To know what indexes you need, you need to understand your application, and also a little about how a RDBMS works.
+So, how to know what to Index and when? What are the limitations of Indexing, and how it can affect my overall system performance if I go over the head with too much Indexing.
+In MySQL, there is a function for logging slow queries, and queries not using indexes. These might be helpful for you to help planning your indexing.
+Example: if you have a table with people in it, and your application never searches for people with a specific shoe size, you most likely don't need an index on shoe size.
+Natural comes a question, if such a performance improvement is viable, why not to set up indexing for every database column, and have 2 till 100 times faster database operations?
+Tune your queries first.  Use EXPLAIN and watch the logs for slow queries.  Once you've confirmed the queries cannot be tuned any more, then begin to add indexes.
+In addition to all of the advice above, which is excellent, I'd like to note that any table that sees a lot of write activity will be problematic with indexing because the indexing process will be continually running high to keep up with the changes.
+Your queries determine what data needs to be indexed.  The EXPLAIN command will get you quite far in knowing what needs to be indexed and how effectively your indexes are helping your queries perform.
+First, indexing doesn't help in all situations.  If the queries are poorly written, an index will do nothing to help.  Indexes can take quite a lot of space, often times many times larger than the data itself, so adding an index for every column will be extremely wasteful.
+Indexes takes space, and if you update your data, the indexes need to be rebuilt, which takes time to do.
+Indexes won't help bad queries.  For example, queries such as select * from table where col like "%stuff%" or select * from table where col rlike "ing$" won't be helped much by additional indexing.  You're better off in these cases tuning your queries than indexing.

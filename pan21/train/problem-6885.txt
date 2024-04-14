@@ -1,0 +1,10 @@
+You aren't renaming it either, you're naming the parameter for the anonymous function the lambda expression represents.
+So, basically MVC takes a reference to a member of the Model class. After doing so, it uses the Name of the member to generate the for attribute of the HTML element and the Value of the member for the current Model instance to do the actual display (using reflection, probably).
+If I really wanted Model renamed, I would just assign it once to a variable in the top of the razor view. So, I feel compelled to do the following:
+What (I think) MVC is doing in the x => x.Name case is analyze the expression and make sure its composed of a single node, which is a property/field of the input parameter (no need to check if the property/field belongs to the Model class, since this is strongly typed in the expression itself)
+I find it a bit odd in ASP.NET MVC that the Html helper extensions, like Html.EditorFor, take a Func<T1, TResult> where the T1 argument is just the already in scope Model variable, e.g.:
+I wouldn't presume the metadata information gathered from reflection as mentioned by w0lf will be handled completely if you reference the Model property directly from the lambdas.
+I'd fail this review if I saw it at my company.  Most are probably shown the first approach, doing this will only confuse people that come after you.  Now they have to determine if the way you've chosen is actually equivolent to the "standard" way.  I actually just went through that exercise myself.
+Using the second approach it might still be possible, but more indirect, because when parsing the Lambda expression, it should also check that the Model variable is an instance of the Model class, in addition to all the other things it needs to do.
+You don't have to use x as the parameter name for the lambda. You can call it model with a small m for instance.
+But if you don't like the lambda syntax, there's also overloads taking the property name as a string.

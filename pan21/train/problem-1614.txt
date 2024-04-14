@@ -1,0 +1,5 @@
+Personally, I don't think it's all that difficult to set up a hadoop cluster, but I know that it is sometimes painful when you are getting started.
+Tools like Redshift have their place, but I always worry about vendor specific solutions.  My main concern is always "what do I do when I am dissatisfied with their service?" - I can go to google and shift my analysis work into their paradigm or I can go to hadoop and shift that same work into that system.  Either way, I'm going to have to learn something new and do a lot of work translating things.
+HDFS size limitations well exceed a TB (or did you mean exabyte?).  If I'm not mistaken it scales to yottabytes or some other measurement that I don't even know the word for.  Whatever it is, it's really big.
+If you want to avoid hadoop, there will always be an alternative.  But it's not all that difficult to work with once you get going with it.
+That being said, it's nice to be able to upload a dataset and get to work quickly - especially if what I'm doing has a short lifecycle.  Amazon has done a good job of answering the data security problem.

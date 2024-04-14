@@ -1,0 +1,6 @@
+... which is in reference to the "MaxMemory" sort of implies "at run time" maybe it can use more than the currentMemory?
+Which seems to imply the real limit of the VM's memory use is the "currentMemory"; however, this quote:
+Can someone shed some light on this? The way I sort of assume this all works is that KVM boots the VM and tells it that it has the "MaxMemory" available to it, and then shortly after that tells the VM that it can only use the "currentMemory". I'm concerned there may be a bit of a race condition there where the VM might be allowed to quickly claim the "MaxMemory". Though I suppose even if it did, OOM Killer would likely just kill the VM's process on the host machine.
+The reason I want to do this is so that I can live migrate to other hosts which potentially can give 16GB of "currentMemory", even if it's not possible on the host machine the VM is originally configured on.
+Is it safe to set the "MaxMemory" (reference) above the total physical memory of the host machine, if "currentMemory" will never exceed the actual available memory on the host machine?
+... is it possible for the VM to in any way utilize more than the currentMemory to crash the host, especially during the boot process?

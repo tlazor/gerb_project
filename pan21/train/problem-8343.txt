@@ -1,0 +1,8 @@
+I updated to Nomachine Player 4.0.181, current as of July 2012. The problem still exists, but the scrolling has been improved, so it's a workaround. 
+Instal OpenNX (http://opennx.net/download.html) and  XQuartz (http://xquartz.macosforge.org/landing/).
+If you're on RedHat/Ubuntu, choose UNIX and GNOME under display preferences and leave the display size as the 'available area'.
+I'm using NoMachine's NX client on OSX 10.7.2 to connect to an NX server running on Ubuntu 10.04.3. I've chosen the Gnome desktop during the connection creation.
+I had the same problem with OSX Version 10.9.4 and NXPlayer. The only thing that worked for me was to switch to a different NX Client. The display was perfect by default. 
+The NX screen that opens is smaller than the Gnome screen running "behind" it it looks like it's 1024x768, while the screen "behind" it looks to be running 1680x1050. The result is naturally very inconvenient (e.g. can't see the taskbar, can't click lower options in popup menus, etc.). In the past I've used NX client successfully to connect and see the entire screen.
+Resizing the NX window only resizes the transferred image, but does not let me see more of the Gnome desktop. Playing with the NX client display options also does the same. How can I control the size of the NX client, and make it show the entire Gnome desktop?
+I have the same problem. OSX 10.7.4 NX Player 4.0.132. Connecting to a CentOS-5 NX server and opening a VNC session to a CentOS-6 installer. NX Player stretches the desktop instead of showing me more of the remote window. If I choose 'display 1:1' from the NX console it shrinks the window once again!

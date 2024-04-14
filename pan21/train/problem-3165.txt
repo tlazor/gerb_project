@@ -1,0 +1,8 @@
+I have not tried using either of the "every time" settings as clearing the files on exit should take care of it, however it appears that IE won't clear the files (cookies) if there are corrupt or abnormal cookies so on every access of the particular web pages it give the redirection (AKA hijacking).
+You have to manually delete the cookies (manually meaning not from within IE). Within IE, open Tools, Internet Options and in the Browsing History section click on Settings. In the settings window click on the View Files button. Keep that window open and close IE. (The W7 directory is C:\Users\USERNAME\AppData\Local\Microsoft\Windows\Temporary Internet Files.)
+Some users (so far, all with ATT internet) get a redirection when they are on VPN and try to access some internal sites. (Sorry, the page you were looking for does not exist or is not available. We performed a web search for “internal site” and here's what we found. Then the ATT/Yahoo search results follow.)
+I have had users who (automatically) empty their temporary internet files when they exit IE (IE 11 is currently used).
+Perhaps this should be in a separate thread but it might be relevant because those settings may not always appear to work (correctly).
+Opening the same sites in Chrome works fine. (We don't have Safari, Firefox or other browsers to try.)
+Once IE is closed, select the files in that directory and delete them. Re-open IE to the problem pages and they should properly display. 
+For all I know, corrupt/abnormal cookies may affect how the above settings actually work, especially "automatically". 

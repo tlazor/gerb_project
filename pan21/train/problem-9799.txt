@@ -1,0 +1,6 @@
+This can be accomplished but like any auto login it requires including a user name and password, unencrypted, in the Windows Registry.
+In general this is going to be an undesirable setting as it starts the system in an unlocked state and perhaps more importantly the default users password can be obtained using regedit.
+However, this option is not available on my computer so I assume it's part of group policy or something. Do I in fact need to change a setting on the server to allow this, or is there something I missed on the specific computer?
+Caution aside, it can be very useful to have domain machines who's restart can be automated, without requiring a user at the keyboard to log back in.
+I've read that the way to do this on a specific computer is to run "netplwiz" and uncheck "Users must enter a user name and password to use this computer" in the "User Accounts" dialog.
+I want to allow users to log onto Windows using stored credentials, not requiring them to type their login information.

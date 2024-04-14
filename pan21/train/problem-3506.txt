@@ -1,0 +1,12 @@
+While I realise it doesn't directly help your problem,  it does show that VMWare is not always the perfect system.
+With ESX v5 and the Monster VM limit (32vCPU 1TB RAM), the number of applications having issues with VM is shrinking. Most of the ones I've experienced are either :
+I have seen similar problem with VMware ESX + Debian 6 + OpenLDAP 2.4.x (whatever the exact version of OpenLDAP is apt-gettable...). 
+With physical servers I'm unable to reproduce these problems. And yes, I spent around three weeks trying to isolate the problem, tuning all kind of parameters from operating system parameters to slapd values to BerkeleyDB values ... nothing helped.
+Footnote:  in this case the vendor was able to work with VMware to find resolutions (some code fixes, some VMWare config changes), and they now have some (very specific) guidance on how to run the software on VMWare.
+In most cases, you should be able to ask your vmware rep to talk to those guys. I believe vmware still has a team of people dedicated to make things work (they had a support lab just for this in the early days).
+So while it is rare, there can be cases where software does not perform as you would expect it to in VMware.
+- relying on time to be linear (realtime processes or apps that needs to have linear time ... this can usually be tweaked)
+Under day-to-day operations it works OK, but things like importing a largish LDIF file with 400 000 or so entries are very slow (50-100x slower than with physical servers). Also with long-duration, high-volume benchmarking everything is going smoothly with couple of milliseconds response time, but occasionally there are strange peaks ranging from 500 to 25 000(!) milliseconds. 
+In this case, one issue could cause the software to deadlock, and the other could cause data corruption. As such, customers were advised not the run the software in a virtual environment. Some still did, and in all the cases I was aware of, they ran into one or both of the problems.
+As for a solution, I had a similar issue with VM having high CPU usage (but host having plenty of CPU resources free). We fixed the issue by migrating to a server with a Nehalem CPU and changing the CPU compatibility level in EVC (if you have a cluster with DRS/HA)
+While I can't speak for this vendor or the software package, I have worked for a large (multinational) vendor, where one of the pieces of software they sold had very specific known issues when running on VMware.

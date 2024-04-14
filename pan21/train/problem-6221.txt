@@ -1,0 +1,6 @@
+I originally thought that a way to get around this would be to check the last line in the status box and if it is the same as the new line then not to append the new line. However, this will cause a problem if the user walks away and comes back to the same object again, in this case the user SHOULD see a second message appended to the box.
+Have the character keep track of which objects it is currently "touching". Whenever collision happens with a new object, add it to the list, and trigger a collision event (The message in your case).
+My issue is that if I am holding down the arrow key and collide with an object, that onscreen status box gets hundreds of messages appended to it. 
+If it doesn't get removed you could make a boolean which is set to false when the player doesn't collide.  but true when they do. If they collide you check the value of the bool, if its false you add the message and set it to true. Otherwise you don't add the message. 
+When collision happens with an object it is already touching, do position collisions (so the character doesn't clip through), but don't trigger the event. If the character moves away from the object it was touching, remove it from the list.
+What about simply checking if the message box exists. When it doesn't you can make one and if it does then don't make one. This assumes it gets removed.

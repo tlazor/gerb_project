@@ -1,0 +1,6 @@
+Sometimes they can be the same server, sometimes they are different.  So it may be that your incoming server is incorrect (and different from your outgoing server), or the settings such as Use SSL, etc. are not correct.
+Standard non-Microsoft E-mail typically uses two different protocols: an SMTP server for sending/outgoing, and an IMAP or POP3 server for receiving/incoming.
+Also make sure the incoming mail is using the right protocol, if your provider only supports POP3, IMAP won't work.
+If you are using a free email provider you may need to pay them to get POP3/IMAP access, though if you can use their outgoing server without problems, then it's very likely a settings issue.
+I have set up an account on both Thunderbird and Outlook 2010 and have the same problem: I can send emails but not receive. When I ask the client(s) to receive emails I get no error, just a few quick messages about connecting that end with a "no new messages" message.
+First, test the email by sending an email to yourself.  If you don't receive it back, then you definitely have a problem.

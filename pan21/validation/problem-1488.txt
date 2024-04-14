@@ -1,0 +1,8 @@
+You still need to set chrome to "Click to play" plugins and disable 3rd-party cookies in Chrome's privacy settings yourself.  Also, as was mentioned in the study, you'll still probably show up as unique until enough people start using plugins like this.
+The free Chrome extension RubberGlove blocks plugin and mime-type enumeration by cloaking the array entries in roughly the same way Firefox and Internet Explorer can/do natively.
+Even though this is an older question, as of 2017 we are still very concerned about all the information leaked by the browser as they are used for fingerprinting. I find that Random Agent Spoofer (https://github.com/dillbyrne/random-agent-spoofer) mentionned by Spectraljump hits the nail right on the head.
+This functionality may (or may not) be integrated into the Electronic Frontier Foundation's Privacy Badger extension in future.  They seemed interested, anyway.
+An alternative solution, although less convenient, is to use a generic vanilla (most common OS, with nothing custom installed) VM for all browsing activities and reset it after each session.
+Javascript has ability to check what plugins are installed, this is generally used to give a "install missing plugin" message if needed. If you want, you could disable plugins in the settings, and disable Javascript using an addon like Javascript Blacklist for Chrome, or Quick Java statusbar for Firefox.
+Going to http://panopticlick.eff.org/ I can see that that Firefox and Chrome expose more about 'System Fonts' and 'Browser Plugin Details' than I prefer.
+If you throw in a canvas fingerprinting randomizer (such as Canvas Defender), you will find yourself protected against pretty much everything detectable on browserleaks.com and Panopticlick.

@@ -1,0 +1,12 @@
+Friction only resists relative motion between the surfaces in contact. When these surfaces are not moving relative to one another, the friction force vector opposes the sum of any other forces acting along the contact surface. 
+1Note that what I presented is not entirely accurate, but simplified for present understanding. In real life there is a non-uniform distributed load across the contact surface such that the moment of the friction force is balanced by a greater reaction force at the lower part of the contact surface. In box2d this is approximated by splitting the normal force into just two (un-equal) point forces which counteract the torque from the friction force at the two vertices in contact.
+In this case, the friction force will oppose the only other force acting along the contact surface (the gravity force) so that the acceleration is zero.
+For the time being I will assume nothing about the acceleration in the y direction, so the parameter ay remains in the equation.
+The friction force, being a reactive force, is bound by a set of rules, depending on a number of factors. The first rule is that the magnitude of the force is limited by the inequality:
+This is completely accurate physical behaviour, which can be explained using a free-body diagram and a little high school physics1:
+where the greek letter mu (I pronounce it like the name of pokemon #151) is the coefficient of friction and Fn is the normal force. The right hand side of this equation is an upper-limit on the friction force.
+Given the inequality, there are two possible cases for the motion of the block. In both cases I will assume the block starts from rest.
+The mass of the block is m and g is the gravitational constant. Fa is the applied force. To understand why the block is not moving, we can write out the force balances in the x and y directions.
+In this case the surface responds with the largest possible friction force, Ff,max, which is not enough to prevent the block from accelerating downward:
+On the other hand, when there is relative motion at the surface the friction force opposes the direction of motion.
+If you want the block to fall, the easiest way to do so is to set the friction of the fixturedefs of the fixtures in contact to 0. This should guarantee that the maximum friction force is 0, because mu is zero.

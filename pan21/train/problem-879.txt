@@ -1,0 +1,7 @@
+If, after you cd into the directory starting with "node" (NOT the .tar.gz file, but rather the directory with almost the same name that was created by the "tar -xzf" command) and "ls", it doesn't show any file or directory called "configure", then it didn't all download, so go get the .tar.gz file again.
+But when I try this: cd node-v0.4.4.tar.gz it gives me an error: sh: line 0: cd: node-v0.4.4.tar.gz: Not a directory
+You probably downloaded the binary (compiled) version of nodejs when you download it from the nodejs.org download page. It might be a bit confusing, since the downloaded archive's README.md file states that you should run ./configure as one of the steps needed to install nodejs on your system.
+If you want to build nodejs yourself, you should rather download the archive from the github project page. The downloaded archive will contain the configure script and you will be able to install nodejs by following the steps mentioned in the included README.md file. 
+On Ubuntu, I prefer to install Node using NPM and n, which is a node version manager that you can get through NPM! It's very easy to get node like this (and you will probably want NPM anyway.) From the command line: 
+I have done these steps: wget http://nodejs.org/dist/node-v0.4.4.tar.gz and tar -xzf node-v0.4.4.tar.gz
+Had the exact same problem, and it was as simple as the download didn't complete, so it hadn't downloaded configure.  Try starting from scratch and it should download configure along with the rest, and then when you do ./configure it should work.

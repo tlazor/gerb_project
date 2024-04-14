@@ -1,0 +1,10 @@
+Yes, it's all about warming, even using SSD storage will give you only a certain amount of benefit, overall double based on my testing with small and large datasets read from "disk".
+How do I make sure my application works fast even if it's not used regulary. Is there a way to persist the buffer, or should I rewrite the procedures in a way that doesn't rely on the buffer?
+I think that for some reason the data buffer expires over the weekend, and it takes a lot of time to reload the buffer on monday.
+You could schedule a job for early on Monday, before anyone is in the office.  It would run your SPs with the various parameter values to warm up the bufferpool with the data you will be using.  This will evict whatever is in memory currently, slowing the process that is using it.
+Most likely activity on the server over the weekend has caused your data to be evicted from memory. This is just the way life is in a shared environment with limited resources. It would be good to understand what's happening over the weekend and how your usage affect other users of this service.
+The perf problem likely comes from IO that is cached under the week. The weekend work evicts those pages.
+RAM is ~100x faster than sequential disk IO which again is ~100x faster than random IO. That explains why performance is falling off a cliff.
+Rewrite your queries so that the working set of touched pages is smaller. This might involve adding indexes. Or, change the work that is being done over the weekend to touch less data. Or, add RAM. Or, add a cache warming job on 04:00 AM Monday that pulls the data into cache that you rely on by executing representative dummy queries.
+When I come to work on monday some stored procedures take several minutes to execute and STATISTICS IO shows a lot of PHYSICAL READS and READ AHEADS going on.
+However, after running the procedures 10-20 times with different parameters, the execution time drops to less than one second.

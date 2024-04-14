@@ -1,0 +1,14 @@
+So, I would go for small instances, seperately - once they become too small, consider upgrading them or spawning extra instances.
+The two previous answers give some good decision points, but one thing not mentioned is your site availability requirements - if you use either of the architectures you suggested, can you tolerate your site being down while you relaunch a crashed EC2 instance ? (startup times are especially long for Windows instances; I've seen it take up to 30 minutes)
+2) a single large instance (4 cores, 7.5 gb of ram) where I'd install both IIS and the SQL Server. Note: this large instance can only run the 64-bit version of Win2008 Server
+The two images is probably going to be better for scalability, administration, and general management.
+Whichever way you go, I recommend storing your database on a separate Elastic Block Store volume so that you can easily reattach it to a new instance in case of failure. EBS volumes are also easy to back up using the snapshot facility provided by AWS.
+1) get 2 small instances (1 core each, 1.7 GB of ram each): one for the IIS front-end, one for running the DB. Note: these "small instances" can only run the 32-bit version of Win2008 Server
+We have run with similar setup for quite some years now, running on VMware and the SQL-server is seperated from the 2 IIS machines.
+We even have a secondary SQL now, and thats possible because we also could link them for sync purposes.
+Performance will depend largely on your implementation, but will likely be similar on both setups. The single image has more RAM and processing cores; this may be very important to your implementation (or maybe it will make no difference in the slightest).
+The single image is probably going to be cheaper, especially if you never have to scale this site out much.
+It becomes a bit harder to maintain and backup more images, but you also gain the benefits of more scaleability I think.
+Because you have them splitup from the beginning, its easier to put in extra power where needed instead of paying too much for the wrong setup.
+What's better in terms on performance, scalability, ease of management (launch up a new instance while I backup the principal instance) etc.
+I was once told by a very clever network architect which I respect a lot, that keep each machine as simple as possible. Always!

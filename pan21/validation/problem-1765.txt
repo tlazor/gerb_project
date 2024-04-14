@@ -1,0 +1,5 @@
+i am a beginer in windows server administration, i am curently working on lab about active directory, so i set up a windows server 2016 DC in whitch i created two OU, in those OUs i created a multiple users,
+i want to delegate controle of those OUs to a group of those users that i created and i want this group to be able to create modify and delete any object in those OUs and their sub OUs but not be able to read write or modify other OUs. in other words, and correct me if i'am wrong. i dont want this group to be a member of the domain admins
+Best bet would be to install RSAT for AD and DNS on their workstation, this would allow them to open what they need without being able to login to a DC.
+and be able to lunch the server manager, dns, users and computer of ad tools wich i can't figure out because once i opened rdp session with a member of this group the server manager does not lunch and when i try to lunch it as well as dns or users and computer of AD tools i get the folloing mmc popup that asks me for administrator cridentials,
+i want the menbers of this group to be able to rdp the domain controller (wich i managed to configure)

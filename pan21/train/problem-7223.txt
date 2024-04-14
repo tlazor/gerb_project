@@ -1,0 +1,12 @@
+4) Events can be replaced by state changes in the components. Entity systems, of course, don't lend themselves to having “objects” in the OOP sense; but where an “entity” is a “game object,” an “event” could be:
+2) I believe the answer is “homogenous,” although I'm unclear as to how you mean it. Each component (e.g. “position” or “affinity to spontaneously combust”) is a “record;” every component of a given type has the same fields; but every type of component has distinct (and non-duplicated) fields.
+The collision system handles functionality concerning more than one game object, thus it must be separate from an independent actor and only communicate via messages. The collision system doesn't need to know anything except the position and physical extension of the object.
+I haven't looked into Artemis) is to remove the “previous” state from the set, pass it into the system, and have that system return the “new” immutable state.
+Mathematically speaking you're breaking functional dependency and you will get in a lot trouble with interdependencies and in the long run your brain will explode.
+Believe me, you don't want to share data. You're creating something similar to a global variable, and we all learned that we shouldn't use them, didn't we?
+Aren't there any identites of some kind? If not, than I assume there's an "implicit protocol" based on component types. Have fun then!
+This doesn't make any sense. Please look up the definition of FRP! FRP is a concept on how to handle calculations and depdencies between data in reaction to an external event. I took a quick look at Artemis and I think it's called a componentbased game-object architecture.
+The “blackboard system” dispatcher would them be responsible for observing new records being inserted and triggering the systems that might want/need to handle those records in their new state, subject to (perhaps) timer-based rate limits or other effects.
+3) Entity systems are designed around that idea. The “ideal” system would have one system for every type of interaction in the game. In real life, sometimes things that are closely related are ganged together for efficiency.
+You differ between intra-object communication (via reactive values. think signal/slots) and inter-object communication (via messages).
+I worked with both "componentbased game-objects" and "functional reactive programming". As you've used "functional programming" in the title already, I will give an answer from an functional programming perspective, but still keep in mind your componentbased perspective.

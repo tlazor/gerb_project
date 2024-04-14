@@ -1,0 +1,7 @@
+I have a Xonar DG sound card, and I'm outputting my computer sound via an optical cable. It's connected to a 3.1 Sony Sound Bar (model ht-ct150).
+So if you would place a 5.1 system behind your digital output, it would be 5.1 sound, if 3.1 it will be 3.1 sound.
+Is there a setting/driver/software of some kind where I can output this as 3.1 surround sound so I can utilize the full capabilities of the sound bar? When I click on the Xonar Audio Center the only options it gives me are here.
+All theses Audio-Channel configurations I know only to be useful, when you are using the seperate channel connectors on your soundcard or mainboard.
+And be reminded, that usally, when you use your digital output, like optical out, then you don't configure a speaker configuration.
+Because, I would say, that it's sufficient, when you put out a digital signal to your 3.1 speakers. They will decode it to the channels like they can.
+Here is a setup example i found on the net - "use S/PDIF when available" is one part of the magic - the other is to select the SPDIF-Audio track and NOT the 5.1 one.

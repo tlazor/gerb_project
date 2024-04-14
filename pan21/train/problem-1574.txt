@@ -1,0 +1,9 @@
+In the country where the server resides network speeds between the clients and server are very fast as expected. But when client is in another country the download speeds drop dramatically and we can measure only something between 1MB/s - 2MB/s. This is not a client bandwidth problem - there is plenty available.
+It would be helpful to have exact numbers for what speeds you are seeing, how many hops are in the path, and the round-trip-time (as measured with ping).
+If the latency is jumping up near an endpoint, then the problem is likely with that endpoint's network connection.  If its in the middle, then the problem is likely congestion/contention on the Wide Area Network.
+Also remember that TCP, especially older implementations, does not like high-latency, long paths, or any packet loss.  If the total latency is over a few tens of milliseconds, you are unlikely to achieve anywhere near gigabit speeds.
+Try another server in the same region. It sounds like it's probably the destination server. You can't expect everyone to have 1Gbps links.
+We have setup a new server with very fast uplink connection 1Gbps but for some reason the download speeds for part of the clients remain very slow.
+How would I go debugging this problem? Reading from the Internet I suspect this could be a packet loss problem somewhere in the path from client to server. Can traceroute pinpoint the problematic node?
+traceroute can be helpful.  Run it when there is no activity, then repeat during a transfer.  Look for a point where the latency jumps much higher during a transfer as compared to when there is no activity.  If such a point exists, that is near where the bottleneck is occurring.
+In general, the maximum speed of any data path is going to be the slowest component of that path.  For international paths, it may not matter what the speeds are at the end-points: its the links in the middle that may slow you down.

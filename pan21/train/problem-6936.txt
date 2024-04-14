@@ -1,0 +1,8 @@
+By default, the transition you just created will execute at the end of the animation in the no animation state.  Since this takes no time, it will just automatically move.  To remedy this, you need to create a trigger.
+Right click on this and say "Set As Layer Default State".  You'll see that the arrow from the entry state goes to this new Empty state now.
+i clicked a cube and added a simple transform animation by using animation timeline, and the cube has a "animator" component was added into the inspector. My questions are
+The animator system has two default states, Entry and Any State.  Entry is the point that the animator starts at when the scene starts.  Right click on the background and create new Empty State.  I called mine "NoAnimation," but you can call it whatever makes sense to you.
+Now, to make the transition happen when the trigger is triggered, select the NoAnimation state and then click the transition to your animation state in the inspector view.  This will open up more options about that transition.
+Your state that has the animation now needs a way to be entered.  Right click on the Empty state and select "Make Transition."  Drag the arrow to your existing state.  Your screen should look like this:
+Finally, you need to create a Behaviour to attach to the object that will wait 5 seconds and then trigger the transition.  I achieved this with a coroutine.
+Uncheck "Has Exit Time" and then click the plus sign under the Conditions Box.  The name of your trigger should show up as a Condition.

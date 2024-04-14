@@ -1,0 +1,5 @@
+If you're handling credit card data, it's worth a read of the appropriate standards as well. You need to be PCI-DSS compliant. Wikipedia's got pointers to the appropriate documentation.
+I'm planning on building an application wherein my users can create accounts on it, email other users, etc. The site will also have forums, chat, etc. It will also need to process credit cards. I'm trying to decide which parts of the site should be in https. Now I'm wondering if there are any problems with just having the entire site under SSL.
+If you have forums where users are posting images sourced from outside your website, people will see an SSL mixed content warning (your site is SSL, but there are assets that are not SSL).  Depending on your user population, that may freak out some people.
+There will be some processing overhead to establish the SSL connection, but on modern boxes and lightly loaded web sites that probably won't be very noticeable.
+Something which is important, sensitive data should be encrypted , like Login, credential information.

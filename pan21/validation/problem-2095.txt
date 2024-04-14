@@ -1,0 +1,7 @@
+I had something similar, but I could connect to SOME shared folders, but not others on a single client PC.
+My guess is that the problem was caused because some folders had been created by one user on the host machine, and others (that I couldn't access) were created by the other.
+To make matters worse, I could connect to all of them from one login name on the client PC, but only some of them using another login name.  And as far as I could see, both login names were set up on both PCs.  
+By adding the user name for the client machine on the host machine, I got access to all the shared files.  
+However, while searching i found another useful resource which has several steps list other then the one above; so if you wish you may try this at http://appuals.com/best-fix-steps-fix-error-0x80004005/
+I had what I THOUGHT was the same user name on the XP (host) machine, but couldn't connect to certain folders on it.  It turns out that although the "Full name" was the same on both PC (in Admin, Local Users and Groups, Users), the "Name" was different.  Once I added the same "Full name" to the host, everything worked as expected. 
+I had a similar problem and ended up being that the user was accessing a network share with another user credential (mapped network drive)

@@ -1,0 +1,8 @@
+I have a Debian "server" (old desktop that's just always on) running CUPS 1.4.4, a Gentoo desktop with CUPS 1.5 (I think), and a laptop with Arch Linux and CUPS 1.6.1.
+According to Arch Linux's wiki, I need to use cups-browserd and Avahi (or something), but I can't figure out how to set it up.
+On the Debian box (the server where the printer is), I have "Share printers connected to this system" and the "CUPS" protocol selected.
+If the version of your cups-client is 1.6 or newer, then it will default to IPP version 2.0, which older versions of cups do not understand. To solve this, you need to specify the IPP version in your /etc/cups/client.conf, f.e. like this:
+Hopefully this will be applicable to your situation or at least advance improve your chances of finding a solution.
+On my Arch Linux Laptop, however, there is no "Show printers shared by other systems" option.  How can I get CUPS 1.6.1 to print to the CUPS 1.4.4 server?
+This seems to be a recognized bug with CUPS 1.6.x itself. There is a discussion and workaround for Ubuntu here
+On my Gentoo desktop, I have the "Show printers shared by other systems" option and the "CUPS" protocol selected, and it prints just fine.

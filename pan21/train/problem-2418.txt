@@ -1,0 +1,7 @@
+Have you considered using something like EC2 that will let you scale flexibly and also negate your cons ? It is ultimately an economic decision if using EC2 is worth it or not, but it is at the least, an option to consider.
+You should also configure a Failover IP that you can switch from one server to another in case of a disaster without having to wait for DNS propagation.
+Short answer: When down time or the risk of it costs you more than it would cost you to have high availability.
+I think most users can handle a bit of scheduled downtime. Consider that ebay has weekly updates on friday nights, and bids around then sometimes don't work. My (major australian) bank's online banking has scheduled outages for hours every week. Twitter goes offline all the time. Heroku / EC2 was down for days recently.
+It is fundamentally an economic decision.  As an example. $8k/month implies that an outage of 2 hours will cost you $22.  If you can configure your system such that you can go from scratch to a fully functional site in 2 hours, then high availability would only gain you $22 of functionality above that.
+I'd keep it in that perspective, if you're really only talking 5 mins a month, you're doing quite a good job as a sysadmin.
+Put another way, you can save money unless / until you have 54 hours of unpreventable down-time in a given month.

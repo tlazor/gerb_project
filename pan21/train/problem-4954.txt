@@ -1,0 +1,8 @@
+You can start them by running an infected file - "infected" means that some other instance of the malware has added a copy of its code to a previously safe executable program, so that when you run that program, it also runs the malware code.
+When a PC boots, one of the first things it does is load the first block of data on the hard disk: normally that contains the Master Boot Record, which is a tiny program that finds a bootable operating system (Windows, Linux, whatever) and loads it.
+10-15 years ago, this autorun feature was supposed to be a convenience, but nowadays it's downright dangerous.
+The virus may have added itself to the boot record, the Windows boot loader or even some system file that's loaded at boot time.
+There is also the possibility of a Rootkit which can hide itself completely from the operating system (Windows or otherwise)
+A more common possibility these days is software hidden in USB flash drives: Windows traditionally looks for a file on every removable device (floppy, CD, USB drive) called Autorun.inf, which tells it which program(s) to run automatically; so it's quite easy for a program to lurk there and be loaded when you plug in your USB device.
+But it's possible for that program to be modified, so that it loads some malicious software every time you boot your PC.
+Windows provides zillions of hooks where malicious code could be added... Sysinternals' Autoruns provides a list of many of those. It might help.

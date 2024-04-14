@@ -1,0 +1,5 @@
+My opinion is one that I've read elsewhere: If you're that worried about information leaking to the point that mere file names will be an issue, then the only reasonably safe solution is to use whole-disk encryption rather than using after-the-fact methods to remove data.
+If your issue is simply one of filesystem usage efficiency, as opposed to security of data, then the old backup/reformat/restore method would work well in many cases.
+Eraser is probably the best of it's kind. It has the ability to wipe individual files, whole directories and free space. This latter includes directory entries, cluster tips, MFT and alternate data streams. 
+You don't specify the OS and filesystem.  Nor do you really elaborate on what you're trying to accomplish.
+I've done some testing of secure delete programs under Unix-like filesystems, and none address the specific issue you bring up.  At least one ("sfill" from thc.org) will securely get rid of directory entries by flooding the inode entry with randomly-named files, and that works but grows the inodes to their maximum size and essentially wastes disk space (though the info is securely removed).

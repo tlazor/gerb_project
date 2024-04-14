@@ -1,0 +1,7 @@
+Do you have it set so that it runs ON COMPLETION or ON ERROR?  ON COMPLETION runs whether there is success or failure.
+All of this assumes that you're using "fast load" version for the OLE provider. If you're "table or view" or "table or view from variable" you're already doing singleton inserts (and probably killing your performance) so the redirect stuff isn't needed to find a bad row.
+I am looking for the article that describes this behaviour better than I'll do here and will update if I can find it. I thought it was by Kirk Haselden or John Welch but no so luck.
+If the batch size is set to 0, default, either the entire data flow will make it in or none of it. Generally, this is what you want as it gives the best performance and consistency. 
+If your desire is to get all to "good" rows in and spit the "bad" ones to a staging area, the pattern described in the article is to try and commit successively smaller batches into the destination table. Eventually, you'll partition the inserts down to a valid sized batch or find the offending row(s) which are then stored to a staging area for review/cleanup.
+If you have an exception in in the commit size (full or otherwise) and have set redirect error rows, the error row(s) and all the valid ones will all be mingled in the exception flow. 
+The implementation is to have serial error redirect OLE DB destinations with decreasing rows per batch commit sizes, starting at say 10,000 and having the penultimate one with a size of 1. The last OLE DB destination would be to the staging/error table.

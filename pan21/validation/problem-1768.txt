@@ -1,0 +1,5 @@
+Better approach: Parse your web tree, list all files that are referenced in there (make sure to turn your web servers autoindexing off...) and archive everything else. This way you can make sure everything listed in your HTML files will still be available. 
+However, this is not a good approach, as you might up with dead links in your HTML files and someone will need this resource 5 days from now...
+Depending on how far back your web logs go, you could parse out all the entries for files from the directory in question and then delete everything not found.
+Beware, there is a chance you'll have isolated islands of HMTL files not linked to in your regular tree that people access via direct link - think about those when building your list. Of course, the same might be true for image files, but you can really only catch those with either log file parsing or the find method.
+If you don't have mounted your data dir on the server with noatime, you can use find to search for files not accessed for 365 days:

@@ -1,0 +1,5 @@
+What does this mean? Is something going to be left on my machine after I "only remove" this program?
+However, back in the olden days of Windows 95/98, you could manage installed programs from the "Add/Remove Programs" control panel, which only contained a single option, named 'Add/Remove'. If the uninstaller supported anything more than a simple removal, it had to ask the user itself with a dialog box. To avoid user confusion, some programs that didn't support any fancy options would state so by adding "(remove only)" to the program uninstall entry.
+This is just a convention that used to be somewhat useful in the past. It doesn't mean anything any more.
+I'm navigating to "Programs and Features" in the Windows 7 control panel, with the intent to uninstall some programs. Some entries there have (remove only) in their names. 
+In modern Windows versions, a program can specify several options to be displayed in the "Programs and Features" panel. The default is an uninstall option, but there can also be options for repairing and changing any individual components.

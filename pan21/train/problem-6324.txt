@@ -1,0 +1,6 @@
+The fact that it appears to be timing out suggests two things.  Either ATS is running fine, and it's having internal problems which should be captured in its logs (especially enabling debug logging), or the connection is never reaching ATS at all.  You might want to try a few cURL commands to confirm connectivity between the various elements.
+To preempt some questions: Yes Jenkins resolves to the pfsense/trafficserver box and yes jenkins-ci resolves to the machine running jenkins. Yes trafficserver listens on port 80 and port 443 on the LAN interfaces only, and both machines are in the lan. 
+What I get when I enter "http://jenkins/" in the browser is a browser that goes out to neverland, and never returns.
+Mentioning that for completeness, although I guess it's a typo here rather than an actual misconfiguration.
+I am trying ApacheTrafficServer (5.3.5) on my OpenBSD/PFSense routers (dedicated PC with 5 1Mbs ports). I mentioned here the OpenBSD/PFSense host but do not expect it to make a difference, but I may be wrong.
+There was an error in the remap.config file. The a log file in /var/log/trafficserver/diags.log showed it up. TrafficServer was not listening to any remap config entry beyond the error.

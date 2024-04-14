@@ -1,0 +1,6 @@
+Let us suppose the problem is your WiFi card / connection. MacOS is a UNIX-based system, so you should have some logs present in /var/log/ or dmesg, which you can access using a Terminal. See if there are any helpful errors present there.
+You should download an Ubuntu boot disk for your laptop model and try to use the WiFi network. If the problem persists in the same way, it is a software problem. Let us suppose it is.
+Now, you have identified it is a software problem. You should now isolate on which level the problem is present.
+If the problem persists, you know it is either due to wireless interference or your access point. Let us suppose the problem does not persist; the problem is due to either your macbook hardware or the operating system.
+Your main question is the following: Where could I start tracing this error? What else can I do to try and track it down or fix it?
+You should first try to test your connection with another laptop. You could for example try with your smartphone or the smartphone of a friend.

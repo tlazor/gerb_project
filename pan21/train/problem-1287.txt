@@ -1,0 +1,8 @@
+When one character instance wants to attack another character instance it would create an instance of the attack class, filled with the data required, and the ID of the character that created it.
+You want to read Aggregate Objects via Components and Game Object Construction Rabbit Hole, from the Replica Island blog.
+I would have a weapon class that has an attack method which you override with the behaviour you want. You can then also handle how the weapon looks in game, in inventory, how much it sells for etc in the same class.
+This class instance would then be wrapped inside another class, to provide hooks for the environment to determine range or similar. If the attack is valid the attack instance would be passed to the character being attacked, who would apply the effects.
+You could even extend this to draw values from multiple stats, say, a Fireball where the damage is calculated from both an Intellect and a Fire stat:
+Adjustments from gear would then be applied to the attack object, using data that could be entered in an xml document or similar.
+If you don't want to use the same basic damage formula for everything (e.g. calculate magic damage differently from physical damage), create subclasses of Attack for each formula you need and override Attack, and specify which type you want in your XML file.
+Make a generic Attack class which contains the parameters you want to work with - base damage, which stats affects the damage, a set of potential status effects... stuff like that:

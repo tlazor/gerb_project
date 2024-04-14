@@ -1,0 +1,9 @@
+This means that as a bonus, you have the potential of keeping more than one day of backups for not much extra space (only the disk space used by the changes each day), and you can flexibly delete the backups, keeping weekly, monthly, or yearly backups as you desire.
+Man, it takes such a long time to scan 5,000,000 inodes every single day to find files that changed!
+Note: Exclude -i app-pool/data@LAST_BACKUP_TIMESTAMP from the last command if this is the first backup.
+We would like to backup the data daily in a remote offsite server. We thought of using rsync but we're not sure if it's going to be fastest way.
+Both are copy-on-write file systems.  What that practically means for you is that they keep track of the changes since the last snapshot so that when you send the latest snapshot to the backup server, only the changes get sent but you still have a complete copy of all daily backups that you decide to keep.
+This is an example of commands you can run to make incremental backups and send them to your backup server:
+Note: Exclude -p /backup/app-data-LAST_BACKUP_TIMESTAMP from the last command if this is the first backup.
+This is an example of commands you can run to make incremental backups and send them to your backup server:
+We have an application that has generated so far over 540k images. The images are kept in a tree structure which is using 5 million Inodes so far.

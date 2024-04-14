@@ -1,0 +1,7 @@
+ReplicaSet will work in this scenario. However, I cannot tell if having two MongoDB instances at the same server is a good idea -- this depends on the server hardware/software and load.
+NOTE: if you cannot have downtime, you SHOULD have at least 2 primary MongoDB nodes in ReplicaSet, see article
+The only potential problem I see is that under certain circumstances your secondary may be promoted to your primary and you'll either a) need to take your backup from the new secondary, or b) make your backup script smart enough to tell that instance of MongoDB to step down.
+Replica sets are preferred in general but also in this case simply because of their auto-recovery and auto-resync functionality. The backup method you are describing sounds perfectly reasonable and has been used before with other databases as well.
+Is this viable, and if so, what potential problems could I have? If not, how do I conceptualize this to work?
+I've got a single dedicated server with a MongoDB database of around 10GB. I need to do daily backups, but I can't have downtime with the database. Is it possible to use a replica set on a single disk (with 2 instances of mongod running on different ports), and simply take the secondary one offline and backup the data files to an offsite storage such as S3 (journaling is turned on)? Or would using master/slave be better than a replica set?
+One strategy to consider is using the "hidden" option on the backup node on your replicaset. From the MongoDB blog:

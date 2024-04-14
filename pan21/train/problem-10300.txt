@@ -1,0 +1,7 @@
+Notice the number next to each volume. [3/1] indicates it's a 3 disk array, but only one disk is available. The __U shows that the first and second disks in the array are down.
+However, your configuration indicates that you are using Raid1 (mirroring) rather than Raid5 (striping + parity). Your data should still be okay.
+These errors indicate that you've lost multiple drives from each array. Given that this is a mirror set, your data is still fine, but your system will run like garbage until the failed disks are replaced.
+Please note that you have no redundancy in either of these sets now. If you lose one more drive in either array, your data is toast. I would power this server down immediately until replacement drives can be sourced.
+Judging by this output, you need to replace no less than 7 volumes. Two in md127, three in md0, and two in md1. A full guide to running the appropriate commands can be found here.
+As the comment above said, if you were using Raid5, your data is gone. Raid5 can only tolerate the loss of one single drive. Losing two drives breaks the array.
+I don't know what happened to your system, but losing 7 drives seems like an excessive rate of failure especially if it came up all at once. This may indicate a problem with the storage controller, rather than the hard drives. If the server this is on has any kind of onboard diagnostics for the controller your drives are connected to, you should run those.

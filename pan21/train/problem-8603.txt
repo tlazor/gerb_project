@@ -1,0 +1,5 @@
+If you are using tmux or screen, and none of the above works, you could still kill the pane by <prefix> x, then the process is also killed.
+where '%1' refers to the job number being killed.  It might be '%2' (or something else) if you already have other jobs sleeping.  You can see which job number it is when you hit Ctrl-z:
+You could also make life a little easier by installing htop, which is a more versatile version of top that allows you to selectively kill running processes. Most distros have htop in a repo.
+3) if you are just stuck in a hung ssh session (to another system, for example), try pressing tilde (~), which is the escape key, and then press CTRL-Z to drop back to the host session, then you can kill the stuck ssh process or wait for it to timeout, which most sill do after a period of inactivity.
+1) If you are on the console and in multi-user mode, you could press CTRL-ALT-Fn and login on another screen, use ps -ef | grep <myprocessname> or pidof <myprocessname> and then kill -9 the process by ID number.

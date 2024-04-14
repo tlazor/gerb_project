@@ -1,0 +1,5 @@
+Documentation: ideally the code would have docstrings in accordance with PEP-257.  Failing that, comments in the pop and peek methods explaining that an exception will occur on an empty stack are helpful to the reader, and document that the behaviour is intentional rather than a bug.
+One suggestion I didn't see is that you can replace isEmpty with __bool__. Then, you can check whether the stack is empty with if not stack. This is more in line with other python collections.
+Error handling: popping or peeking on an empty stack will raise an IndexError.  It might be friendlier to raise a custom EmptyStackError, although a bare IndexError could still be ok, depending on ...
+Overall looks good.  Your code does assume the user is keeping accurate track of the state of the stack.  I don't know the domain you're in here but that's something to keep in mind.
+Pop and peek will crash with IndexError if applied to an empty stack. This may be acceptable (and is the only thing to do if you regard None as stack-able data), but otherwise you could add the lines

@@ -1,0 +1,5 @@
+If the response to these requests aren't time sensitive (eg. it's a log and it doesn't matter if the log isn't delivered immediately so long as it's recorded) then I'd definitely consider using a queue based architecture.
+Also make sure your infrastructure is replicated across availability zones, and preferably also regions. Your client could for example try SQS in another region when submitting to the primary region fails.
+Implementing a web service that never fails to process even a single HTTP request is very hard. And it is probably not worth the effort. Even if you manage to get the service to handle every single POST request and send a successful reply, there are other problems the client could experience:
+All of those has to be handled in exactly the same way by the client as a 5xx error code, which is as follows:
+First and foremost, if you absolutely can't handle even small amounts of downtime (such as when a fail over occurs) then you should implement retry logic in your client application.

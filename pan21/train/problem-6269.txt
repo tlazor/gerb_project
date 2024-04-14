@@ -1,0 +1,9 @@
+That should fix your 403 (forbidden), although I realize you said you tried changing that to 127.0.0.1, and accessing it directly from the server. Have you tried changing 127.0.0.1 to localhost?
+So if your home has an IP address of 2.2.2.2, you would put allow from 2.2.2.2 and NOT allow from yourownwebsite.com.
+Check if you have right VertualHost configuration. You can try to create VirtualHost config for 127.0.0.1, like this:
+The Allow from line doesn't have to do with your website. Allow from allows people with a specified IP address (or domain name that resolves to an IP) to access your website. 
+this will cause the RewriteCond to match the endpoint uri, and then have the RewriteRule skip over the controlling rule that rewrites all endpoints to index.php so the wordpress engine can work with dynamic urls.
+VirtualHost containers, by default, aren't really meant to be used with mod_status. It simply will not work. According to this website, you have 2 options:
+the page shows up, however to me the conflation of the .htaccess file and and the httpd.conf, along with the God awful mess that is all the conf files of Apache, I choose to attend to this in a different way.
+Now, regarding the 404. That's a different issue entirely. That's a "Not Found" error, and not a "forbidden" error.
+I dont know much about WordPress, but if it is anything like Laravel, Magento, or just about any other web software that runs on Apache, there is a .htaccess file that is located in the root directory, a simple example from https://codex.wordpress.org/htaccess is right here:

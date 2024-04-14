@@ -1,0 +1,6 @@
+Would be also great if you can share any links to the up-to-date articles/manuals that cover this topic as I can only find a couple of 3 to 5-year-old ones and they don't really work as expected.
+I have quite a few Ubuntu Server 17.04 hosts that must be joined to an existing Windows AD domain (Windows Server 2016). I've never done it before, but I'm aware about several ways to achieve this, such as: Likewise, Centrify, SSSD and Winbind.
+Sssd was pretty simple on Ubuntu.  I followed the docs on their site https://help.ubuntu.com/lts/serverguide/sssd-ad.html and it worked perfectly.  I liked that it was very simple to implement and there were no changes required to the DCs.
+I've actually used Centrify commercial version and can totally recommend it. However, it's not worth buying the full version for a pair of Linux hosts, really.  
+Winbind is a good free alternative though. Here's an updated guidance on how to deploy and configure it: https://www.starwindsoftware.com/blog/ubuntu-join-a-server-to-an-active-directory-domain
+Could you share your general experience and tell how reliable, easy to configure / maintain are each of these solutions?

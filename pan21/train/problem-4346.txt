@@ -1,0 +1,6 @@
+Although MySQL manual doesn't talk about actual scenarios, you can imagine some. E.g. developer relied on table being locked during ALTER INDEX operation so table is read-only or fully locked and there is a process that reads static table during index rebuild.  
+In versions of MySQL that support InnoDB tablespace encryption, when you alter a table to add encryption, the alteration is done using the copy algorithm out of necessity.
+Optimization flags fall into this category, but there is even more reason to hang onto the previous actions -- the Optimizer will always "do it wrong" sometimes; there are simply too many possibilities.
+I have seen things like this (in flags, sql_mode, my.cnf settings, etc) over the years.  The intent of the new release is clearly to bring out the new, better, feature.
+It is important to understand that MySQL introduced new feature - Online DLL processing in version 5.6. It did not remove offline processing. So there is a need to differentiate between these 2 modes:
+@Stoleg probably has the best answer, but here is another one.  It's an educated guess that the developers left =COPY in as an escape hatch in case there was a serious bug in =INLINE.  This would let users continue to use ALTER even if the new feature is broken.

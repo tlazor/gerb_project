@@ -1,0 +1,7 @@
+I have used the safari "Main Contents of this Page" function to mail the WHOLE webpage including images, etc to my email address. 
+It sounds a little like you're trying to use Mail.app as a webpage archive of sorts. I would advise against this; it's really not what the Mail.app is made for, since email isn't webpages and will likely never be.
+The best way to archive pages and keep them intact from Safari is File->Save As... Format: Web Archive. This will keep all of the source code AND images in the same place. The most seamless way I can think of to store this file in Mail.app with a minimum of clicks is to designate a specific folder where you will save the web archive, and then apply an AppleScript folder action to watch that folder and automatically email any files that appear there to yourself as an attachment.
+When browsing these emails later, you won't see the whole page displayed—but the attachment webarchives can be viewed in full with QuickLook in their contextual menus.
+That's basically what Safari does in the new history viewer anyway, and Dropbox gives you the freedom of access from anywhere without forcing email to do things it wasn't designed to do.
+I would like to Permanently keep [store] these "pages" intact with images, text, etc using apple mail software.
+My approach to achieving this same purpose (assuming the criteria are complete web archival, easy browsing, and remote access) would be thus:

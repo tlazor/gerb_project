@@ -1,0 +1,11 @@
+I'm assuming that you are speaking about the "identification" field in the IPv4 header and not about some TCP-specific field.
+1) If you want to know if different fragments of the same fragmented IPv4 packet have different "identification" values:
+Because a TCP implementation is totally free how to calculate these values, a receiving computer must assume that the "identification" values of two TCP packets are "totally different" (as you call it).
+However, if I understand RFC 791 correctly, some layer-4 protocol may use the "identification" value to check if packets are lost. In this case the specification of that layer-4 protocol may specify that the "identification" field must be incremented by 1 for each packet.
+RFC 791 says that the layer-4 protocol is responsible for selecting "unique" "identification" values and that it is up to layer-4 how these values are calculated (e.g. increment by 1).
+2) If you want to know if a router is allowed to change the "identification" value of a not-yet-fragmented packet when fragmenting it the first time:
+To save computation time, a TCP implementation on a little-endian computer might increment the value 1 but don't swap the bytes of the value. This would result in the following sequence:
+In the case of TCP the TCP header has additional fields - "Sequence Number" and "Acknowledgment Number" - which are used to check where in a TCP connection a certain packet belongs.
+No. RFC 791 (IPv4) says that different fragments belonging to the same IPv4 packet are identified by having "the same" "identification" value.
+Because these two fields can also be used to detect duplicate packets, I doubt that TCP would even evaluate the "identification" value of a packet received.
+RFC 791 does not explicitly say that a router is not allowed to change this field. But it says that the layer-4 protocol may evaluate the "identification" value. This implies that the "identification" field must pass routers unchanged.

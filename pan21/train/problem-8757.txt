@@ -1,0 +1,11 @@
+But I still think it is much better to just not use the same file over and over again in the first place. IMHO.
+You could load that info into a temp table if you need to have some control flow about whether you can reuse the file or need to reinitialise it. Something like:
+We have recently upgraded from SQL Server 2005 to SQL Server 2012.  Under SQL Server 2005 there is no option to create compressed backups as there is in 2012.
+This stored proc demonstrates how to determine if a file exists in various ways, including using xp_cmdshell with a TRY...CATCH block in case xp_cmdshell is not enabled, and my preferred method, xp_fileexists.
+Maybe instead of backing up over and over again to the same file, you should consider using WITH INIT and a new file always. I think it is simpler to manage multiple backup files, all with their own timestamp embedded into the filename, and be able to archive/purge each file individually. When you keep dumping backups to the same file, it just gets bigger and bigger, and harder to manage IMHO. Never mind that you no longer have to care that 
+To see if a particular database backup file was backed up using compression or not you can interrorgate the header information of the file:
+Also I am not sure why you would ever be turning backup compression on and off. Have you found a case where disabling it is better? Do you have real use cases where on an edition that supports compression you are taking one-off backups without compression, and using the same file? Why?
+If you attempt BACKUP DATABASE ... WITH (COMPRESSION); to a file that has already been initialized without compression, the BACKUP DATABASE command will fail with the following error message:
+I created the following stored procedure that can be used to determine if a database backup file is initialized for compression:
+If this is going into production you should add some error trapping for things like the file not existing.
+I'm not incredibly happy with how this stored proc works - I would prefer a more light-weight version.

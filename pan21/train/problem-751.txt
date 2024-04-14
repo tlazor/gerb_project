@@ -1,0 +1,6 @@
+I know you can do this using network namespaces because thats how I did it. But it is pretty complicated.
+Note things are more complicated if you use nslcd or nscd for name resolution service as the unix socket that is used for inter process communication is invalid in the child namespace. The only way I was able to fix this was to patch these programs to provide a TCP transport and do name resolution services in the parent namespace over TCP.
+Now, the untrusted user of course has complete ownership of that IP, but you can use IPtables in the parent namespace to do DNATing to the specific port they are allowed to bind to and restrict communication out to only that port.
+Its impossible for the user to effectively deny service on another port for another user as he has a specific IP that works only from within that users namespace.
+I also wrote a program in C that uses netlink calls to set all the above up. The program is closed source so unfortunately I cannot share it with you.
+For the record, doing this in Fedora is a bit easier because you can create named network namespaces in it. But EL6 does not provide the /proc/<pid>/ns functionality to do this.

@@ -1,0 +1,6 @@
+Also, if you're storing your SQL backups on the server you'll want to manage them and depending on your SQL recovery model and backup strategy you'll want to keep an eye on transaction log growth as well.
+For example, I worked on an application that sent thousands of emails a day to user-entered email accounts, so we ignored undeliverables.  You might only send a handful to corporate users, where undeliverables would be critical.
+But what else can i check or add to my tool to check for me? So I can have an automatic summary of things checked, and alerts via the web, what I need to keep an eye on.
+But my question today, is for sql, iis, coldfusion administrators, what kind of daily checklists, do you use or do. Can any of those be checked/done/verified via coldfusion/sql/wmi?
+These may not be daily items, they may be weekly or monthly, but you definitely want to manage the IIS logs to make sure they don't eat too much hard drive space on the server.
+Not all of these will apply.  What you need depends more on your application than a generic list could provide.  Possibilities include:

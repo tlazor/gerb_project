@@ -1,0 +1,9 @@
+Keepalive configuration on the client will handle the first case here but cannot help in the second case. The firewall would usually be at your office perimeter and therefore might be configurable. That would also help on the first point.
+However, I do have an issue at my work site where I get disconnected from sessions, where at home they are fine. I believe my firewall (SonicWall) may be flucking with TCPKeepAlive, maybe because of NAT.
+This is probably because when your are connecting from home you pass through a firewall that close TCP session after a small amount of time.
+My SSH client, SecureCRT, fortunately has an option for a "NO-OP" protocol, which I believe basically sends a command that doesn't do anything to the server. By manually enabling this I am able to remain connected. Not sure what the MacOSX terminal client has that is similar to that. There is a writeup on how to implement "NO-OP" on command line.
+Like radius says, some state-full firewalls do 'forget' a connection after certain (usually configurable) time and will not allow further communication for the connection; they expect the connection to start with a TCP SYN (i refer to your SSH communication here).
+There is another possibility. The network path between your home and office may have losses (of the packet kind). When you try to type on the SSH client, if your link has stalled for a while, the client might give up and fail.
+To check if you are having intermittent link losses you could keep a 'ping' active in the background from your client machine. 
+You can also add the settings suggested by others as defaults in your ~/.ssh/config file, so you don't have to pass them to ssh every time you initiate a connection:
+Finally, you may wish to use Wireshark or other sniffer to watch your actual TCP connection to find out what is going on with it.  That would be the final way to see why it is still disconnecting occasionally.

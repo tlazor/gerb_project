@@ -1,0 +1,6 @@
+Have you made sure that DNS scavenging is turned on? It'll process the records and delete the old ones on a regular schedule. 
+This is perfectly normal for servers, especially ones that are doing several jobs such as hosting several websites, one per address.
+It's not uncommon to see multiple host records for the same IP in the forward lookup zone.  Aliases (CNAMEs) should be used instead, though.  Again, this is not typical for client/workstation addresses.
+I'm interning at a company, and it seems like the DNS is really screwed up. There are a bunch of cases where multiple IP addresses are assigned to the same machine in the reverse lookup zone section, and multiple machines are assigned to the same IP in the forward lookup zone section. Is this normal? I feel like it's really messed up and should be fixed. If anyone has any suggestions on how to fix this, please let me know, any help would be appreciated.
+Multiple machine names in the reverse zone can be perfectly normal in an environment where machines with multiple IP addresses exist.  I'd question that for client/workstation addresses, though.
+Are these client machine records that are being autocreated?  If so check that DNS scavenging is enabled.

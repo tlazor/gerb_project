@@ -1,0 +1,12 @@
+W 7 VM - 1 Network Adapter (Internal) On the guest side not configuring the IP as it should just pick it up assuming correct configuration of you DHCP service on the server side.
+I would recommend looking into exactly how you want your network to be setup. You pretty much have these two options. Note here that you could have more but these are my go to for test environments.  
+By default, VM machines in VirtualBox are deployed with network interfaces configured as NAT. This allows them to access to the internet. However, traffic between host and VMs can be a tricky issue.
+Notes: Internet and and if you give your host an adapter to talk with the VMs you could also allow your host to talk to the server / client VMs. 
+The problem is I can add the machine to the domain created on the server it can ping the server as well, but the problem is the server can't ping the PC and the group policies not getting applied on the Win 7 system.
+PFSense VM - 2 Network Adapters (Bridged) (Internal) - The bridged (which could also be NAT) connects PFSense to the internet and the Internal connects PFSense to the internal network. 
+Option B, you configure again with internal but now either add a PFSense VM (or another VM with like software (OpenWrt, OPNSense, etc). That setup would be as follows. 
+WS 2012 R2 VM - 1 Network Adapter (Internal) On the guest side you would want to statically configure your IP Subnet Mask and DNS but not gateway since your not reaching outside your network. 
+W 7 VM - 1 Network Adapter (Internal) On the guest side not configuring the IP as it should just pick it up assuming correct configuration of you DHCP service on the server side. This one doesn't really change as it should pick all of the needed info from DHCP. 
+WS 2012 R2 VM - 1 Network Adapter (Internal) On the guest side again static conf but inclusion of a gateway specifically the IP of the PFSense box from above. 
+You could use, bridged interfaces configured with static IPs, that would allow external access to the VM deployed in your host, but the classical solution to this (and the one used by automatic provisioning systems as chef-kitchen-vagrant) is to configure VM with 2 interfaces, one of them, the NAT interface to external acess and the other configured in a Host only way, to do a LAN with the host and with other VM (you should check the host IP address in the configuration for Host only network).
+Option A, you configure with internal only. Basically the VMs can't reach out to the internet. This would look something like the below.

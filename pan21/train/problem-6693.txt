@@ -1,0 +1,5 @@
+I was recently given an HP Proliant Server from a friend as a gift. It has Windows Server 2003 installed on it. When I go to boot the system however to log in to Windows Server 2003 it requires an Admin password. I can't figure out the password and my friend doesn't know it either as it has been years since hes used the machine. I don't care about any of the data on the machine I just want to have a new clean version of Windows server 2003 running on it.
+The better solution is to get the recovery CD from your friend, or download it from HP, its called "Smart Start".
+Download Ultimate Boot CD. This has an NTPasswd tool on it that should be able to recognise the admin account and let you blank the password and regain control of the machine.
+You can format the server like any computer and install server 2003 (you will just need to supply the RAID drivers), just like formatting and installing windows xp
+A working server will have a lot of software and services running on it, and for sure you are not going to need them.

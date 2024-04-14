@@ -1,0 +1,5 @@
+Is this a case where a Singleton would be a good thing, or is there some elegant solution I'm missing?
+I've heard countless times about the pitfalls of Singletons / globals, and I understand why they're so often frowned upon.
+For example, in my game, I preload some assets when the game starts up.  These assets aren't used until much later when the player navigates through the main menu and enters the game.  Am I supposed to pass this data from my Game object, to my ScreenManager object (despite the fact that only one Screen actually cares about this data), then to the appropriate Screen object, and anywhere else?
+What I don't understand is what the elegant, non-messy alternative is.  It seems that the alternative to using Singletons/globals always involves passing objects a million levels down through your engine objects until they reach the objects that need them.
+It just seems that I'm trading global state data for cluttered dependency injection, passing data to objects that don't even care about the data except for the purpose of passing it on to child objects.

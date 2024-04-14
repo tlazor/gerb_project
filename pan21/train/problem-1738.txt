@@ -1,0 +1,5 @@
+It may be that it is still able to read and detect errors in its own memory as, being the only program loaded, it should have access to practically all of the memory on the system and so be able to read and compare that memory to a "known good" sample.
+For example, test 0 uses a walking ones algorithm, and all it requires for that test is a single pointer (probably cached), because it's only comparing two consecutive memory addresses.
+By being small.  If some RAM is bad, the smaller the program is, the less likely it is that some part of the program will be in one of the bad spots.  Considering that booting far enough to load the memory test will involve some firmware code using RAM, odds are that if you can get that far, the low areas of RAM are working well enough that memtest will be able to run from them.
+Mostly because the amount of ram that it takes to load memtest is extremely small. If the program runs, it's likely that the memory in this one area is ok.
+Memtest absolutely has to make at least one assumption, that at least the memory it itself is loaded into is good.  After that it is able to scan and test the rest of memory in its entirety.

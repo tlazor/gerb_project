@@ -1,0 +1,10 @@
+for VSS. Please be advised that I've tried this method on all of my failed to backup of Windows Server 2008/2003 x64 VMs
+I have tried a lot of different things that I have read on different forums but none of them have worked. The link here (http://communities.vmware.com/docs/DOC-11987;jsessionid=070C27B939C0BFAA66DA7537C42E00ED) seemed promising, especially the instructions to do the following: 
+"Cannot create a quiesced snapshot because the create snapshot operation exceeded the time limit for holding off I/O in the frozen virtual machine."
+See the following KB URL: _http://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=1009073&sliceId=1&docTypeID=DT_KB_1_1&dialogID=38752513&stateId=0%200%2038754922_
+I'm not sure if the problems are due to it being Server 2008 or due to it being a DC but it won't work and would appreciate any help.
+I'm having a problem creating clones of my backup domain controller VM. When I try to create a clone of the VM using vSphere Client I get the following error message:
+The reason why I'm doing this again is that I feel uncomfortable in removing the VSS snapshot provider support in VMWare tools:
+However, when I followed those instructions it just caused a lot of problems so I'm not sure they are compatible with Windows Server 2008. I have sorted out the problems that created but I haven't been able to get the clones to work yet.
+and then in the services.msc list of services snap ins, make sure the following services are Started Automatically:
+This is the solution that i tried around myself without uninstalling the VSS Provider support in VMWare tools.

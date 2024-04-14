@@ -1,0 +1,6 @@
+The problems disappear when I restart the system. Anyone know how to 'refresh' the network without restart the whole system?
+My solution is simple. Turn of wifi hardware. In my laptop, there are mechanical switch for wifi. If your laptop do not have hardware switch, just turn off networking in network applet if you are using gnome. Wait about 5 minutes or more, before turning the wifi or networking on again. The network should connected again, without the timeout error.
+This morning when I'm about to browsing using google chrome in Ubuntu Linux 10.04.1, I got this error message:
+Chrome often displays this error instead of loading websites. Mainly get resolved by clicking refresh once or twice, but should not be occurring at all.
+The network have no problems, my coworker can access the internet without problems. I have leave my laptop on for the past 2 days, I only sleep(suspend) it when I'm bringing it home or to office. 
+The problems is not in the application, but in the OS or the hardware itself. I have stated that I rarely turn off my laptop. It seems that after a few days, the buffer for the wifi is got full. I still don't know if this is true or not, this is just my assumption. If anyone know something about it, please give comment.

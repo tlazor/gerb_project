@@ -1,0 +1,5 @@
+In my case, wpa_supplicant was being started by NetworkManager, which is a daemon used on most modern linux distros to control the network. While it works well in a desktop environment, it does not seem to support AP configuration, and constantly re-spawned wpa_supplicant even when I tried to manually stop it.
+I had the same problem, running pidora 2014 (Fedora 20 remix for Raspberry Pi). The answer is basically the same as the other two given here: wpa_supplicant was running which prevented hostapd from using the device.
+The solution was to disable the NetworkManager service and enable the "legacy" network service, which uses simple init scripts to control the network interfaces:
+I basically trying to configure a linux laptop as a wifi router which other laptops and mobiles can connect to and then I can manipulate the traffic on for some network traffic testing (with lower bandwidths and caps etc.)
+The error code is an indication that something else is using the device so the channel change is disallowed - perhaps wpa_supplicant is running in the background?

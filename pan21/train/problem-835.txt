@@ -1,0 +1,6 @@
+Your declaration of variables is not consistent, I can understand why you want to declare twitchPlayer on top, because it could get modified and you could consider the top part a 'config section'. But then you declare changeVars inside build().. I think you need to re-think where to put which variables
+function getStorage(){ is funny and shows a general problem with the code. Instead of return what is in storage, as the name would let you believe, a global variable gets set. On the whole, your code is too reliant on globals
+HTML building in general: consider a template function, either find a good library or build your own
+addList has total copy pastage, please consider using a helper function, or perhaps even a temporary variable to hold the <li></li> and then concatenate into the right string
+I hope my feedback does not sound too harsh, it is still an impressive piece of code. You have extracted a lot of constants into well named variables, your functionality is well split over functions. I think you could just use a few more rounds of polishing.
+In addChannel you should not check for if(title.val() == '' && url.val() == '') as you are basically combining what you already coded for else if(title.val() == '') and else if(url.val() == '')

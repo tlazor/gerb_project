@@ -1,0 +1,9 @@
+For example, a i7 could handle a die temperature of around 100°C or so, and start to throtle down at something like 105°C to 110°C.
+What CPU's can (and will) do is begin to throttle their operating frequencies down when the temperature of the cores gets too high.
+The safe temperature of CPUs can vary a lot in general, some bugging out when they go past about 65°C but I think this may be more on older CPUs.
+The real safe operating temperature is documented in the data sheet of you CPU model - there are some variants o i7 CPUs
+I have noticed if I leave a render process for an extended period of time, the CPU will get to a high temperature and start buzzing. I always immediately cancel/halt the process and let it cool down before continuing, but I would like to know if modern CPU's automatically adjust their workload to current temperature, and if not, what are common and acceptable temperatures for a CPU when performing a heavy workload (like rendering a video file or an output from a 3D application, or similar intensive tasks)? 
+Temperature measurements of a cpu can be taken in different locations, resulting in different values.
+Also note that your software monitor may be reporting the CPU core temp, whereas the motherboard socket temp may be higher - I have a gigabyte motherboard on my i7 950 at home and I can monitor all of the sensor readings directly in the BIOS (though obviously you won't be able to test under load).
+As others have said, the core temp of an i7 should be able to go up past 100° C and will start to go into throttling if it gets hotter than this, and if it gets dangerously hot should shut down automatically to prevent damage.
+You can however on many motherboards go into the BIOS settings at boot and change the warning temperature threshold - this may be set too low for your particular CPU, for some reason. You may also need to look at the emergency shutdown temp threshold if there's one shown in your particular BIOS.

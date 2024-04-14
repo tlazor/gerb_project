@@ -1,0 +1,7 @@
+None that I know or can think of. Even ignoring the difficulties of syncing different configurations, an automatic merging of whole Windows installations would present a lot of licensing problems.
+There is no automated process for merging two Windows installations. But you may be able to copy settings and data for some installed applications from your home to your Pro installation:
+On the other installation unzip the files to the same location but make sure you don't overwrite any directories.
+I have two Windows 7 on my computer in dualboot. One is Home Edition, the other one Professional. I used to work with the Home before installing the Pro and now I am working exclusively with the Pro. On the home I have still some programs and data (like favorites) which I would like to move to the Pro. Is there a Way to merge two Windows 7 installations into one?
+Windows applications can store settings and further data in the registry as well as in the hidden Appdata directory in you user profile (%userprofile%\Appdata). 
+Manual backup/restore of your user data is no big deal anyway. Do it, then change your MBS to load Pro, and format the partition with Home on it.
+If you don't know much about the registry you should skip it and only look into the folders inside the Appdata folder. For each app identify the used folders (usually the name indicates it) and ZIP/RAR everything and save the archive somewhere where you have access from both installations. Don't copy the files directly as you will otherwise run into a permission problem. 

@@ -1,0 +1,5 @@
+All you need to do is move the files into your c:\users\{YOURUSERNAME}\ folder (or sub folders). You have complete control over that folder, with no permission issues.
+Ender, the reason you couldn't edit your MP3s was because you had them in a protected folder. Windows Vista and 7 protect files in certain folders to help secure your system. You can disable this protection by turning off UAC, but I wouldn't recommend it.
+Windows shows that 'everyone' has full control but isn't it a surprise that we are still not allowed to change the details :)
+Enough of me ranting.. All you need to do is do a right click on the folder.. Properties.. select the security tab.. click on edit, for the permissions.. search for your username.. click check names.. your name should appear with as hyperlink now.. click on it and then give check the full control box for your username.
+Had the same issue on Windows 7 Professional N, and resolved by installing Media Feature Pack from Microsoft. I suppose this pack should be there by default on non N systems. ID3 tags suddenly started to show up on Explorer and it is editable through file Properties -> Details tab.

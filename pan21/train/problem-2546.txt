@@ -1,0 +1,5 @@
+With second approach, you have a downside of not being able to easily extend swap. Ofcourse you can always add another swap volume, which will be similar to extension of the existing one in LVM regarding fragmentation (but you'll have to separate volumes, instead of one that consists of two parts).
+LVM can cause fragmented volumes, if you extend/shrink them often, but since swap is defined at creation time, it should stay pretty much continuous.
+So, both approaches are fine. I would choose the first one, because messing up with partitions post-install is much harder and often requires downtime/reboot while LVM is flexible and enables you to do online manipulations of volumes.
+Both approaches are OK. What you want is for your swap to be continuous and not fragmented, and both approaches will ensure that.
+But then again - you don't want your machine to start swapping in first place. Swap is like a last line of defence for memory exhaustion. Try to tune your machine to avoid relaying on swap memory.

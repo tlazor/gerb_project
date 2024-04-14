@@ -1,0 +1,5 @@
+This results in a background that is way too small to work with. Removing the inverse only serves to make the background massive.
+Depending on exactly what you are trying to achieve, I might recommend not scaling anything (either the camera or your sprites) and instead just worry about the differing aspect ratios (eg. moving things to the edges of wider screens). Things will scale to fill the screen automatically; the graphics won't be pixel-perfect anymore, but with the high-resolution displays these days, that may not matter.
+My background images are high quality and quite large (let's say 4096 x 3072), and I'm trying to scale them down to at least fit into the viewport. However, try as I may, the scaled image always seems to end up either too large for the viewport or much too small.
+I'm using an ortographic camera that automatically adjusts its size based on the current screen size using the formula (Screen.height / 2f) / 100.
+I'm working on a point-and-click adventure game using Unity2D for mobile devices and possible PCs and I'm trying to wrap my head around supporting devices with different screen sizes and aspect ratios.

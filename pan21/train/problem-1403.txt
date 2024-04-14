@@ -1,0 +1,7 @@
+From what I've read, as Wait(), Result or Exception are not called the AggregateException will not have been marshalled. Also the Task may not even of started yet.
+You should definitely check the "Exception Handling (Task Parallel Library)" article in MSDN for the proper ways to handle Task exceptions. 
+I'm thinking of using Joe Albahari's extension method that uses a continuation as these are mainly fire and forget Tasks
+You are quite right. These exception handling blocks will never catch any task exceptions. The code should be modified to check the Task.IsFaulted flag in the continuation and check the Task.Exception property for the actual exception. 
+You can use the CTP just by adding a reference to the appropriate DLL. The resulting code will certainly be safer that what you posted here, CTP or not.
+In fact, should an exception occur it will remain unhandled and your application will crash unless you attach an exception handler to TaskScheduler.UnobservedTaskException.
+You should also take a look at the Async CTP for C#. It has a production license even though it is technically a CTP and it will make coding with Tasks a lot easier and safer, as you can see from the snippet I found here:

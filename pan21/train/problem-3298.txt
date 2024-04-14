@@ -1,0 +1,11 @@
+Apache serves the requests from the clients using the threads' childs, but it'll only call PHP-FPM for php files - images, css and js should be served directly from Apache, and thus not consume a PHP-FPM thread.
+However, mpm_worker has the following configurations: MinSpareThreads, MaxSpareThreads,  StartServers and ThreadLimit. Again, isolated to mpm_worker I understand what they do. 
+The relationship is dynamically mapped. They are separate processes which can also be run under separate servers, thus you have plenty of configuration options.
+I've been tuning an Apache server myself recently and found out that if you have multiple cores it's better to increase the number of childs per thread.
+Apache processes/threads handle initial connections which then use php-fpm processes to parse PHP files for returning requests. 
+So what is the relationship between these 50 "Apache" threads and 50 "PHP-FPM" processes? Does each Apache thread utilize one PHP-FPM process?
+My question is: How does these configurations relate to each other? Let's say I set StartServers=2 and ThreadsPerChild=25. This would give me 50 threads to begin with with respect to Apache/mpm_worker. If I then set pm.start_servers = 50, PHP-FPM will spawn 50 processes initially. 
+E.g., PHP-FPM has configurations: pm.min_spare_servers, pm.max_spare_servers, pm.start_servers and max_children. I understand what these options mean with respect to PHP-FPM. 
+Reading in the documentation I'm a bit confused about the relation between options in PHP-FPM and mpm_worker. 
+AFAIK, multiple requests from the same client (loading the page, plus images, css and js) should consume multiple threads if you don't have KeepAlive set in Apache. See this link for more info on KeepAlive.
+There are a lot of variables in place here to advise you on how to configure which, but generally configure apache so it has enough threads to handle requests real-time and configure php-fpm so your PHP scripts/wensites have enough memory to run. With various possible caching options, this can only be decided by benchmarking a running system.

@@ -1,0 +1,6 @@
+This is my network setup right now, and unfortunately it's set in stone (IP addresses changed to protect the innocent):
+I've then tried adding another persistent route on NIC1 with gateway 0.0.0.0 (also 1.1.1.1), thinking I'd just drown out those packets. That also didn't work, the pings kept reaching PC1, and a tracert showed me the first hop is the gateway hostname of the first network. 
+I've tried adding a persistent route on the NIC2 interface with metric 1 on that specific IP (10.0.9.12 netmask 255.255.255.255), but that didn't help at all. I think it's because the two gateways also are the same IP. 
+PC1 and PC2 are two different physical machines, each on a different network which goes through two interfaces on CONTROLLER. The two never see each other.
+My requirement is to determine if PC2 is running by using a ping packet, however every time I try to send it with the computer offline it goes to PC1 and returns that it's alive.
+Unfortunately I'm a software guy and my expertise quickly reached its limit -- I have no more ideas. Without changing any of the IP addresses involved, how would I solve this? 

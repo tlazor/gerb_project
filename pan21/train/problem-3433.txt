@@ -1,0 +1,6 @@
+So basically it’s HTTPS only for this domain and sub domains going forward I’m afraid. At least until Chrome removes this code and all your users stop using any versions of Chrome with that code.
+You normally need to be publishing HSTS headers for that to happen and they may remove it from the code since this domain is no longer doing it.did you do this? Or a previous owner or administrator of this domain?
+I have a root domain (https://kernl.us) that is secured via a Let's Encrypt SSL certificate. This works fine, but when I try to go to a new sub-domain (http://status.kernl.us) Chrome redirects me to HTTPS. The sub-domain is a CNAME record that points to a Pingdom status page. I have no control over it's HTTP/S status.
+If I open Firefox there is no HTTPS redirect. I suspect that this has to do with the Let's Encrypt SSL cert and some stored behavior in Chrome, but I'm not sure where to start looking.
+If you look here: https://hstspreload.org/?domain=kernl.us or here: https://www.ssllabs.com/ssltest/analyze.html?d=kernl.us&hideResults=on you can see HATS is preloaded (i.e. hardcoded) into the Chrome code.
+I found this: https://community.letsencrypt.org/t/every-subdomain-is-redirecting-to-https-even-non-existent-ones/18095 which seems to be my problem, but my Nginx config isn't setting any HSTS settings.

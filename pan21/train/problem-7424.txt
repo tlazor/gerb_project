@@ -1,0 +1,10 @@
+Are there any glaring reasons why Java deployment on Steam would be a nightmare to deploy and maintain vs something like C# using Monogame?
+I am currently considering my options for game development and deploying to Steam Greenlight. I really like Java with libGDX, especially for its cross platform Android potential, and I understand that it is possible to deploy Java games on Steam. I am also very comfortable with having to create some sort of wrapper so that my Java game could call into the C++ Steamworks API.
+For example, you can use a tool like Launch4j to package up your final game; optionally, you can tell it to include the JRE (or not) in order to create a fully self-contained binary.
+My question is about what deployment problems I might run into. Specifically, with the client machine's installation of the JRE. I have seen many Steam installers check for the .NET runtime. Should I do a similar check and install for the JRE?
+In terms of legal concerns, I don't believe that you are in any grey or red zones of the law. According to the License FAQ, you can quite simply distribute the Java Environment with you're software, according to the item stating:
+If you have UX concerns, don't worry, the JRE installer is not very intrusive, and many games get away with runtime installations, or even multiple dependencies.
+I think that it is absolutely OK to check the user's runtime, given the language requires one. I think that in .NET, Java, Python, Lua, or other programming languages that require a runtime environment, simply because the game cannot run without it.
+Try including a portable Java Runtime Environment so that you will always have a consistent build of Java to run the game on, I'm sure there are some around that will suit your needs.
+This way, you don't care if or what JREs the client has installled; you just package up your app, and ship it. The downside is that your final binary will be significantly larger.
+Some users may not have Java installed and I don't believe that Steam has a native way of checking for / installing Java as that would be irritating for the user and only a small minority of games on Steam require Java.

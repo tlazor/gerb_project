@@ -1,0 +1,6 @@
+If it's possible change the recovery model to simple. No matter how much records you're modifying in total: you only need the batch chunk size as transaction log. Make sure you can restart the whole job and only untouched rows are updated and not every row from the start!
+If you haven't got a clustered index (theoretically because you have one): Please pay attention what you update on the column. If you increase the record size you might end with a lot of forwarded records (see dm_db_index_physical_stats - forwarded_record_count).
+You'll be using update with the top limiter and running the statement multiple times until you get all the rows updated. 
+You might want to check about statistics on these column - but that's a performance question which you don't asked.
+Basically you're option is to batch the updates into smaller chunks of 1000 or 10000 rows so that you don't have one massive transaction. If there's an ID column or a date column you can use  this becomes easy, if not it's a little trickier but still doable. 
+But also with a clustered index you should pay attention to the updated row size. It might lead to page splits and fragmentation. If you've got a scheduled maintenance it could lead to a delayed increased transaction log size.

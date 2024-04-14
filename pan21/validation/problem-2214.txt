@@ -1,0 +1,6 @@
+You were on the right track with Action delegates. There is another problem however: the loop variable i is captured inside the lambda expression. Since it is the same variable in each Task, when you do i++ in the for-loop, other Tasks will use the new value as well.
+I would like to write a function instead that contains all of this code and passes in as a parameter, the method that each section calls.  Something like this, obviously this doesn't work as is...
+I've looked into Action and Func delegates, but I do not understand exactly how that work.  Any help would be appreciated.
+(This is a very weird problem, more on this on Eric Lippert's blog: Closing over the loop variable considered harmful) It can be solved by simply creating a copy of i.
+An Action variable would be what you're looking for as it appears as though your method doesn't return anything. (If it returns something, use a Func.) So create another method that will do the following:
+I have some code that run a series of functions in order and then outputs the results of each.  When I execute this code, I am reusing a ton of it, where only the function itself in the code is changing.  MethodThatChanges in the below example, is a method that returns void.

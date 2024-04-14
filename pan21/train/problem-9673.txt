@@ -1,0 +1,10 @@
+I even tried to change the PreferredPlan in Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel\NameSpace\{025A5937-A6BE-4686-A844-36FE4BEC8B6D} to the "Power saver" plan (a1841308-3541-4fab-bc81-f71556f20b4a), but there was still no "Power saver" plan in the Control panel.
+1 You can open Windows Mobility Center either by right-clicking the battery icon on the system tray and clicking the Windows Mobility Center option, or by simply launching it directly by searching for it.
+Power plans disappeared after Windows 10 Fall update (1709), which was sited in the original question.
+I recently upgraded to Windows 10 Fall Creators Update on my Razer Blade 2017. Now the "Power saver" and "High Performance" power plans are gone.
+I know that you can use these power plans by creating a new plan and choosing one of the templates as described here: Power plans disappeared after Windows 10 Fall update (1709).
+The power plan and the Power options are designed that way in the latest update of Windows 10. You'll only see the Balanced (recommended) option. If you want another power plan, you can create a new one by selecting the Create a power plan option.
+When 'unhidden' (exposed) through the Mobility Center these are the embedded original plans and have a 'Restore default settings' option that custom, personal plans do not.
+But when I create a new power plan with the "Power saver" template, that new power plan is not the "Power saver" power plan of 1703, it is just a custom power plan. And this plan cannot be selected by Razer Synapse when I choose "Battery Saver" in the "Power" tab like it could before the update.
+Is there any way to bring the 1703 "Power saver" plan back? Or if that is not possible, can I make Razer Synapse use a custom power plan?
+The builtin power plans for Power saver and High Performance are not 'gone'.  They are still accessible through the tray Battery, right-mouse-click > Mobility Center.  

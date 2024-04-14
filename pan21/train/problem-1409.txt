@@ -1,0 +1,6 @@
+If you are using windows you could put that vdi on a compressed folder (right click on folder, general tab, advanced button, check on "compress contents to save disk space")... 
+WARNING: Make a backup of all vdi/vdmk files you wish to compact just incase something goes wrong during the process.
+1. Use an android app inside of genymotion such as "Secure Eraser" to Zero fill the free space for the corresponding vdi/vdmk (Use the 0000-0000 option from the drop down list)
+I know this is a workaround, but could work for you as i don't know any method to defrag a android OS as i believe it is designed to work on flash storage.
+3. Because step 2 will create a new uuid for the cloned vdi/vdmk you will need to set the old uuid to the cloned copy using the following command
+As in title. I use Genymotion to emulate Android devices. With time passing, VDI size increases to the point there's no space left on the partition I placed it in. After reading guides I found out that I'm supposed to zero-out space as a guest and then defrag as a host, but how to do so if I have Android as guest?

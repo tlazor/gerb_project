@@ -1,0 +1,7 @@
+Disable the unused services. On centos/redhat, use "chkconfig --list" for example and check everything that is started at level 3. If it's not a useful service (bluetooth) then disable it. (chkconfig service off).
+Your number one item on the agenda should be to set up a good firewall.  The CentOS wiki has some good explanations about how to get started.
+Keep in mind that these recommendations are only a start.  If you're really serious about learning server security, I'd recommend the Linux Security Cookbook from O'Reilly.
+Once that's done, ensure that you have a strong password configured for your local users as well as the Plesk interface itself.  If you plan to run PHP sites, you may want to learn about PHP accelerators and select one to install.
+for very specific needs you can install nagios, it will monitor your system and warn you if a parameter goes beyond your boundaries. But it's not user friendly! Use it only if you have specific needs.
+redirect the root email to your own email in /etc/aliases, and run "newaliases". This will ensure that you receive the daily email containing the informations reported by the system.
+Keep the settings as default as possible, except for the firewall as said before. A default linux machine is really secure by default, and just like in Windows, you don't need to add stuff to make it fast.

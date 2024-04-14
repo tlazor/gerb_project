@@ -1,0 +1,5 @@
+I realized right away that I was having problems with file names that had spaces in them. So I modified my SQL query such that the filenames would be quoted. So what I've ended up with was:
+This outputs a list of all the filenames I'm looking for in the database (along with empty "" entries for the null values), however the result for every line is zip warning: name not matched: "filename.jpg".
+My problem is pretty straight foward, and I think I'm close but need a boost in the right direction.
+I have a MySQL table that contains a lot of file names that are used by a website. These files all exist in a directory images. What I'm trying to achieve is to be able to SELECT some of those file names based on various conditions, and then have those files, and only those files added to a .zip file.
+I believe the issue is something with file name escaping. I've escaped the double-quotes in the query such that the CONCAT's have become CONCAT('\"', ifnull(products_image, ''), '\"'),.... but still have the same result.

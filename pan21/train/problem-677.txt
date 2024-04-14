@@ -1,0 +1,6 @@
+I wrote a Javascript parser to convert the SQL from Web Data into the nearly universal Netscape Bookmark File Format in HTML (ironic that the definitive standard for that format seems to be Microsoft) if you're interested in getting the keywords into other browsers like Firefox or Opera.
+I wrote a python script which loads definitions from JSON data. Now you can manage your configuration as code:
+If you get more errors, that means that you added search engines to your new profile.  Delete them all, including these new ones just added and re-run this step.  Or edit the SQL file by hand.
+For me, I'm on Windows 10 and I wanted to copy search engines from my personal chrome profile to my corporate chrome profile.  I did the following:
+I did following to share my Google Chrome search engine entries and it worked perfectly fine for me:
+If you're interested in an alternative solution, I created Shortmarks to allow you to use the same set of custom search engines in any browser, and I plan to implement the ability to share with others soon.  The upcoming release in a few days will have the import code I mentioned above as soon as I'm finished testing the new features.

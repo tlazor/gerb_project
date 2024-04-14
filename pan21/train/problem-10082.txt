@@ -1,0 +1,11 @@
+There is 2 way to do this. If you have layer 2 link between you site, just use a switch. But as you talk about router I guess your site are connected with layer 3 so you can use L2TP to do Layer 2 over Layer 3 (4 in fact).
+How are you creating subnets using ASA. Are you using subinterfaces and vlans OR are you using seperate ethernet interface for each LAN segment. 
+http://www.cisco.com/en/US/prod/collateral/iosswrel/ps6537/ps6549/ps6587/prod_white_paper0900aecd8066d3f5.html
+What you want to do is really not recommand. Extending a broadcast domain over a WAN is not a good idea.
+In any case although it is bad design I think switch will be more useful then router. You do not need router to connect vlans at two sites as same VLANs are required at both sides. Router would have helped in connecting from one network to another. 
+It is generally not a good idea to extend layer-2 (vlans) across long distances.  If the propagation delay is to long, you will get a lot retransmissions (at best).  This is the same reason why Cat-5 and fiber links have distance limitations.  For every TCP packet that a machine sends, it is expecting an ACK back within a certain period of time -- if it does not get one it will have to retransmit (assuming the connection is able to be established at all).
+If you absolutely need to do this, you will need to establish a layer-2 tunnel between the locations.  You may also need an appliance at both ends to do local ACKs and re-timing of the packets.
+You can certainly use the same vlan numbers at both locations and just have a layer-3 link in the middle.  The IP addresses will be different at each location, but the vlan numbers could be the same.
+This may be a good time to dig a little deeper and ask some more questions to try and determine what the goals are verse having someone who may not have the technical background say "I want vlans".
+For you application any layer 2 or layer 3 manageable switch that can do trunking using VTP (VLAN Trunking Protocol) is more than enough. Just trunk VLANs from both side on the interface that is common to both sides and similar VLANs on both sides will get connected.
+I would highly suggest you do some additional investigation into the technical and business requirements.

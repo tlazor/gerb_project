@@ -1,0 +1,8 @@
+many clients simply pick a generic value of say 10 rows (as JDCB does i think) which makes it pretty unlikely the packet use is -very- inefficient for typical row sizes.
+I'm trying to determine a value for the number of rows an oracle client will prefetch (i.e. OCI_ATTR_PREFETCH_ROWS, exposed as setFetchSize in JDBC) that will minimize the number of server round trips without excessively increasing memory usage.
+To do this, I need to gather information on queries either from the application or from the database. Can oracle provide disaggregated historical information about 
+how many rows fit in your network packet depends on the MSS (for MTU 1500 around 1460), and obviously the size of a returned row.
+If the database server cannot provide this information, but you have ideas for other ways I could gather it, feel free to answer with those.
+Note that prefetching the entire result set may not be the most efficient approach. For example, when I tested with a 5000-row result set, I found a 500-row prefetch to be fastest. I recommend putting together a test harness and running some scenarios based on real application SQL. 
+You could try and tune this per SQL, which is what i do for the SQL where it matters. In fact most software i write using OCI will 'learn and adjust' the fetch size automatically.
+however, note that using 1.1 packets/exec is better than 0.1 packets/exec, but still inefficient. a more practical approach is to make sure each fetch fill enough packets to make the last not-so-filled packet insignificant with respect to the total number of packets sent.

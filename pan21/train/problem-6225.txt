@@ -1,0 +1,7 @@
+The term "L3 Switch" describes a switch that is also a router.  A layer 3 switch should be a serviceable, but likely limited, router.
+If you 3550 has an SMI image installed, the switch will be Layer 2 only, and won't support routing.  If it has an EMI image installed, it will support Layer 3 switching.  3550s will route, but lack the functionality of a dedicated router (such as support for advanced routing protocols), so don't expect to be able to do NAT and eBGP on any scale, if at all.
+After enabling IP routing, create at least one SVI, and VLANs for the SVI.  Place ports in VLANs as required, and create a static route, if necessary, using "ip route X.X.X.X Y.Y.Y.Y Z.Z.Z.Z".
+Try putting "ip routing" in the configuration - if the switch supports this, you have an EMI image.  If not, you need to download an EMI image from Cisco.com and make sure you have a licence for the software.
+default routes to transit providers. Thanks to the Cisco Express Forwarding technology, it will actually do more PPS than it's cousins ISR 2800 serie, according to the cisco specifications anyway.
+Most layer 3 switches, including the Cisco 3550, do not have TCAMs large enough to allow the routing engine to hold Internet-scale routing tables. It will do a fine job of simple LAN routing, but you're probably not going to get away with running BGP on it.
+A 3550 will do great routing packets and even using BGP, but as mentioned by jgoldschrafe it won't hold complete BGP tables (that is, every route announced on the internet by any AS, with a CIDR larger than /25).

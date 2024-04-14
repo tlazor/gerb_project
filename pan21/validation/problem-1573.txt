@@ -1,0 +1,11 @@
+I'm not saying don't do regular code audits or fix your bugs, but with a properly tuned/configured Web Application Firewall, you can mitigate against the risks and vulnerabilities you don't even know exist yet.
+Obviously we'll need to have the server/IP scanned, but what about the php script collecting the data?
+The complete list of rules you need to follow are here:  https://www.pcisecuritystandards.org/documents/pci_saq_d.pdf
+Unfortunately, cardholder data storage E-commerce environments are subject to the most stringent PCI-DSS requirements (type D).
+NOTE:  People will tell you that Level-1 merchants are subject to more stringent rules than Level-4.  This is simply not true.    Audits are only required for Level-1 merchants, but if you are a level-4 that is caught breaking the rules you are still subject to some massive penalties and legal liability. 
+There's no real "one size fits all" answer to PCI compliance unfortunately, so the required steps will be different from situation to situation.  The best way to find out what's required is to go through the PCI DSS Self Assessment questionaire.
+As the client is a Level 4 Merchant (no actual transactions, just storage of cardholder information), what scans do we need to go out and find?
+Often, I recommend that small shops outsource cardholder data storage and even shopping cart stuff if possible in order to reduce headache and liability.  NetSuite, Paypal, Google Checkout and many others can help you there.
+Based on your description and the information in the PCI DSS SAQ Guidelines (pdf), it sounds like you'll need to work through SAQ D, but you'll want to double check that it's correct.  If you have any specific questions on one of those steps, feel free to update your question and I'll see if I can add more specific info.
+I wholeheartedly recommend buying a Barracuda Web Application Firewall.  I don't work for them, but it's a great product (albeit with a fairly steep learning curve) and provides PCI compliance "out-of-the-box".
+We're developing a new piece of software (really just a single php script) that collects cardholder information and stores it in a MySQL database. Obviously we're taking every precaution with security (Firewall, Anti-Virus, SELinux, restrictive access to the machines), but we're trying to understand what steps we need to take next before taking it live.

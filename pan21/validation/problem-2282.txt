@@ -1,0 +1,6 @@
+The problem comes with microservices delivery pipeline targeted for enterprise environments such as Openshift. 
+Internally openshift should be able to allocate dedicated pods to test the services and they should be disposed once merged with develop branch, another problem with this approach is running integrated test or if services have dependency with consumer apis. Modifying the service name based on feature branch is not a good idea.
+With git-workflow, the expectation is feature branches once developed and tested will be merged to the develop branch, however, when there are numerous features being developed a developer needs a platform to test the service feature he just built before submitting a pull request.
+Recently my team started adapting git workflow for agile-based delivery, we've been using JIRA, TeamCity and various other CI tools to complete the pipeline. The workflow works great for monolith or SOA applications in JAVA.
+With openshift/K8s we expose a service, let's assume each service built out of the feature branch looks like below.
+Does anyone know a better way of handling this delivery model in microservices based platform. Thanks

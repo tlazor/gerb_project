@@ -1,0 +1,9 @@
+Simple answer +1 for NFS. I have NFS shares that have been mounted for years at a stretch without issue.
+You have a bunch of options, with a variety of costs. Shared SAN with FC, iSCSI or one of the more recent additions. In any case they can be expensive to set 
+Lastly, make sure to look into Jumbo Frames, and if data integrity is critical, use CRC32 checksumming if you use iSCSI with Jumbo Frames.
+The only other option (that I'm familiar with) is iSCSI but it can be a pain in the rear to configure...
+GFS is some seriously black voodoo. The amount of work required to get a simple two client cluster working is staggering compared to the alternatives. OCFS2 is a lot simpler to deploy  but is very picky when it comes to the kernel module versions involved on all attached servers - and that's just the beginning.
+The redhat paper does a good job listing the pros and cons of a cluster FS vs NFS. Basically if you want a lot of room to scale, GFS is probably worth the effort. Also, the GFS example uses a Fibre Channel SAN as an example, but that could just as easily be a RAID, DAS, or iSCSI SAN. 
+If you're looking for super reliability then consider throwing DRBD into the mix as well for a distributed, auto failover NFS filesystem.
+But, you've got more options! You should consider a cluster FS like GFS, which is a filesystem multiple computers can access at once. Basically, you share a block device via iSCSI which is a GFS filesystem. All clients (initiators in iSCSI parlance) can read and write to it. Redhat has a whitepaper . You can also use oracle's cluster FS OCFS to manage the same thing.
+Unless you really need the kind of low-level access a cluster filesystem offers, NFS or CIFS is probably all you need.

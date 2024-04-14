@@ -1,0 +1,8 @@
+You don't need to loop. The function SubString and the property Length is enought to handle what you want.
+The reason I am saying this, is that there isn't much that is dynamic about this application, it is pretty set in simple rules.
+I was looking at the fancy for loop from the_lotus's answer, and I am thinking that my single if block is going to be more efficient and easier to read. 
+Although the for loop is shorter (code character wise) it is doing a lot more than this simple if statement.
+Whitespace can help make your code nice and readable. However, TOO much whitespace can make your code hard to read. You fall into the latter case: you have way too much whitespace. A single blank line is all that is necessary to distinguish different logical sections.
+Keep indents on the same level, otherwise you can confuse both yourself and potential readers later on. Currently you have:
+This is confusing: does the Else statement go with another if statement? Do all the Module1.insert... statements belong inside the if statement or in another outside block of code?
+Each iteration through your for loop, you get the length of sa(i) 3 times and could have to convert sa(i) to a string at most 3 times. Instead, do the calculations up front and store the results in a variable.

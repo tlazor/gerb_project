@@ -1,0 +1,6 @@
+Using rsync by itself will give you a copy of your data but there will be no retention, ie. once a file is changed in the source, when rsync runs again, that file will be changed in the target as well.
+There is a package called rsnapshot which should make setup easy. In Ubuntu type sudo apt-get install rsnapshot.
+By mounting the target backup location's parent folder read only, general users can browse historic backups and retrieve files without the need for any special graphical or web interface.
+In order to get daily/weekly/monthly/yearly retention, you can combine rsync with some simple scripts that copy the target with hard links (so very little extra space is used in the target) before the next rsync executes.
+rsync is a free tool you can use to securely make copies of files and folders from one computer to another via the network. Once the initial copy is complete, only differences are sent on each future use.
+Take a look at http://www.mikerubel.org/computers/rsync_snapshots/ for a detailed explanation on how this works.

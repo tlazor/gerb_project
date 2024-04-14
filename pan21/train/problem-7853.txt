@@ -1,0 +1,5 @@
+If there are no statistics, the optimiser has to guess or use defaults, and while the optimiser's defaults may be suitable or not matter that much at small volumes of data, when the volume of data in the table increases or the skew changes, this can make a huge difference to how quickly a query runs.
+The optimiser uses table statistics to achieve this.  If it knows that there is a particular type of data, or a particular distribution of values, or any number of different things going on in the table, it can change the way it executes the query that's being asked of it.
+Oracle's optimiser is clever, it makes decisions about how best to do certain things (e.g. joins) based on what the contents of the tables are.  At least, it can do if it knows what the contents of the tables are.
+Have a look here (http://docs.oracle.com/cd/E25054_01/server.1111/e16638/stats.htm) for Oracle's documentation on optimiser statistics.
+By analysing the tables, the statistics for the tables are rebuilt, and the optimiser has up-to-date information on what the contents of the table are, and can make more informed decisions.

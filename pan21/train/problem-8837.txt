@@ -1,0 +1,7 @@
+I have an application that would test the HDD performance for me. When I open the application for first time it would ask for Initial setup and I would setup the configurations and save it. Whenever I open the application later on it will show the saved config and pressing enter will open the program. However when I open the program using cmd, suppose if the application is located in D:\any_folder\app.exe 
+I want know if there is anyway to open the application via cmd by loading the config that I saved already ? 
+In the batch file itself, travel to the directory via cd to the app.exe directory, OR place the config file where the batch file is (if you know where it is).
+I also believe setting up a PATH in the environment variable may allow the exe to access its config file, but I don't have any application on hand to test it, so take this last suggestion with a grain of salt.
+I want to open via cmd because I want to write a batch file program to automate the application running.
+The issue is that when I open the application via cmd, the initial configuration that I saved already doesn't load and asks to setup again. Where as if I open the application using the mouse click it works fine.
+The option of adding the config file as a parameter is unlikely to be supported, since the exe has to be specifically coded to handle that.

@@ -1,0 +1,8 @@
+But you definitely don't want to scale the image itself if you want to regain the full resolution at a later time.
+I think it's impossible not to lose quality if you are working with JPEG. JPEG is a format which compress the images in exchange to "destroy" some information.
+That's not possible. By decreasing the images size, you are compressing multiple pixels into fewer pixels, so pixels will have to be condensed.
+That way the browser would have the full-size image and does the scaling for you while the complete image would still be retained behind the scenes and could be used.
+Open your image in any photo editor, zoom out, then pick it with any screen capture device. At least you are guaranteed an image with good resolution - Man Miyo
+Since you're dealing with raster images here, continuous scaling simply doesn't work. The only way it could possibly work like you expect would be to use higher-level mechanisms to scale your image, such as in HTML
+Try to use another format first (let's say PNG for instance), which also compress the image but does not destroy any information. Anyway, as all the previous replies told you, you are going to get a physically smaller image, so it's impossible not to lose quality. 
+Note that HTML was an example, I have no idea what you are using the image for. You could also try fiddling with the dpi settings of the image so that it displays smaller in contexts like printing while still being the same pixel size.

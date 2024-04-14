@@ -1,0 +1,6 @@
+Also interesting - I couldn't verify the Nagios config as suggested in those instructions because /usr/local/nagios/bin/nagios doesn't exist. Not sure what's happened to that.
+If I create an empty pid file then try starting the service again I get an error saying it contains an invalid value, then it gets deleted.
+After that service nagios start hangs for several minutes, then claims to have timed out. Despite this, Nagios seems to be running.
+That /var/nagios/nagios.pid file doesn't exist. Initially, the /var/nagios directory didn't exist, so I created it. I've tried changing its owner to nagios and I've tried changing its owner to root.
+The answer to this appeared to be re-running the various make install-* commands. I didn't see any errors during the first install, but it looks like some aspects failed anyway - most notably the missing /usr/local/nagios/bin directory.
+Having followed the instructions here http://linoxide.com/how-tos/install-configure-nagios-centos-7/ (but downloading Nagios 4.0.2 instead of 4.0.7 - I have to use that version), I have reached a point where the Nagios service won't start.

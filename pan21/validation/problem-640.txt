@@ -1,0 +1,10 @@
+If all the machines start up at the same time is there some kind of bottleneck in giving out DHCP addresses?
+Check the order of machine start-up. Is there a pattern or correlation between start order and failure?
+But - I had a similar issue on one PC. It had 2 network cards in it, both were recognised fine, but we were using only one. Then we removed one and for a few days the other worked fine then it started not working on the network. After one or two reboots it would start working - or sometimes delete it from device manager and then rescan for hardware changes would make it work. But it happened too often to be acceptable.
+My problem was a bit different because the wire was not connected and everything seemed OK. Then you plugged the wire, but the PC did not detect the network until the PC was restarted the network. The network card seemed and everything seemed to be OK. The solution was to remove the Power Management.
+So we put the old card back in again and now both cards seem to work fine. The cards are a generic Realtek clone of some sort and a D-Link 528.
+This is the only PC it is happening on. The two other Windows 8 PCs work fine. All other XP and Win7 machines are fine.
+Because of the number of machines it happens on it seems more network related but if all the machines are the same spec it may also be hardware related.
+- Power Options/Choose what power buttons do/Change settings that are currently unavailable/De-select "Turn on fast start-up".
+This could be a problem with the driver in Windows 8. I saw other problem reports with the Windows 8 network adapter driver.
+Try removing the Power Management for the network cards. I had a similar issue and after removing it, the problem was solved.

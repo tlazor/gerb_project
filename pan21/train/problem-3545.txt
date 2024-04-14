@@ -1,0 +1,6 @@
+The wrapping will cost two moves or one copy + one move per argument passed by value and one forward for reference types. It is transparent to the client; he or she won't need to use std::move unless the original function would already have him required to. Notice that the first copy or move of a by-value argument must be paid no matter what; the real opportunity cost of the wrapper is the (potential) move that comes after that, to pass the argument to the real function.
+Use C++0x features to make function interposition safer. The problem is that it's easy to make a typo when wrapping and interposing on functions.
+By comparison using Args const&... breaks if the wrapped function is void foo(T&&);, due to reference collapsing rules the signature will be void operator()(T&);
+Perhaps the macro should take the name of the variable as an argument; but that may not be necessary depending on your planned usage.
+[ I'm assuming your example is meant to return x(dpy, drawable); rather than call itself recursively. ]
+Minor pet peeve: meaningful names. I would have called the constructor parameter symbol. The time it takes to type three more characters each time is simply negligible compared to the time it takes to write and maintain code. function_type instead of real_func possibly, too.

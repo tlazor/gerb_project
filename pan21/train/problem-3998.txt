@@ -1,0 +1,6 @@
+I couldn´t find it in "/var/webmin", in "/etc/iptable*", "/etc/sysconfig/iptables", or in "iptables.up.rules".
+I want to copy the firewall configuration for iptables from one server to the other. Both servers run Debian Squeeze and have Webmin 1.660 installed, so I want to copy the configuration that Webmin uses.
+But! You can change the Webmin Module Config (see the link on top of the webmin "Linux Firewall" page). On this configuration page, there's a line "IPtables save file to edit". Change this from "Use operating system or Webmin default" to the second value where you can provide a path+filename (e.g. "/etc/webmin/firewall/iptables.save").
+"/var/lib/iptables/active" is the current configuration and when I edit it, those changes won´t show up in Webmin. Though, when I click on "Revert Configuration" my changes are lost in that file and replaced.
+Like @Satanicpuppy says in a comment:  It doesn't really "store" anything outside the actual config file.
+Hmm, seems I must have done something wrong before, because you can simply replace "/var/lib/iptables/active" with the content or file you need and in Webmin click on the "Showing IPtable" button to have Webmin reload and display the new rules.

@@ -1,0 +1,11 @@
+Looking beyond the current implementation, you'll find that arrays, which have a fixed-size, are usually pretty limiting, at least until RFC 2000 is implemented.
+I'm rather new to Rust myself and must admit the indexless function Shepmaster alludes to is not obvious. If it does occur to me I'll post again.
+Take your learning a step further and make the functions take arrays of varying lengths and see if your implementation still works. From the looks of it, it should still work without being heavily modified.
+I am not too familiar with Rust, but if it supports generics, then why don't you make the function generic so that it can take any two arrays of the same data type and merge them.
+That is all. The code didn't really have a lot of ways things can go wrong because of the fixed size of the arrays. But you did a good job with the merge function which is what I think you were going for in the first place. See if you can implement the two suggestions above, then create another post
+Assignment via tuples is nice for related variables but at some point is gets too crowded and hard to read. You could expand it out if you like.
+Until then, it's common to either use a macro to implement a trait for many concrete types, or to take a slice (&[T]) and return a Vec<T>. The macro route is visible in the standard library and is why many array implementations only go up to 32 elements.
+I can't see any obvious glaring bugs, but I can make a few suggestions to improve your initial baby steps, namely
+Your code is quite reasonable. I'm happy to see that you included both a main function and tests, which make it easy to see that the function works.
+I'd encourage you to write a version that takes two slices, returns a Vec, and uses a match statement inside a loop; I think such a merge sort is a nice showcase of some of Rust's abilities. In such a solution, you should not need to use any indexing operations!
+For a short function like this I see no harm in abbreviated variable names. I used mostly two-character names here, but would never do that were more variables in use.

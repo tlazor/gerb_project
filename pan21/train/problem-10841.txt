@@ -1,0 +1,7 @@
+That works because randint generates a number in the range 0x10000 to 0x20000 and we then pick off the last four hex digits.
+The code fails with an exception if it's invoked with no command line arguments because it attempts to use argv[1] and there isn't any.  I'd suggest that it would be nice to print a "usage" message if the user enters either an invalid or no argument.
+It's possible that you'll produce an output that's reserved for a particular purpose, such as loopback (127.0.0.1 or ::1) or broadcast (255.255.255.255, ff02::1, ff02::2).  Build in knowledge of such addresses, and if you find you've produced one, then replace it.  You can do that recursively:
+List comprehensions are extremely useful and very Pythonic.  It's really good to become proficient with them.  Here's how to use one to generate a random IPv4 address:
+That being said, I think it would make more sense to provide 2 functions instead of a single one: random_ipv4 and random_ipv6.
+You could also feed generator expressions to join. They are both faster to process than [] + for + append and easier to read:
+For someone not familiar with Python, you have picked pretty good habits. Not everyone uses functions or the if __name__ == '__main__' guard first try.

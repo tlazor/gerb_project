@@ -1,0 +1,10 @@
+Otherwise, Sun's Java usually installs somewhere into /opt/java* or /usr/lib/java* or sometimes /usr/java*. You'll find individual install directories there, such as /usr/java/jdk1.5.8. This is the directory that is your JAVA_HOME. Underneath it is /bin, where the binaries reside. Just run the javathere to check, e.g.
+If you do not have a package manager or are trying to manually install the JDK, I assume you already got the correct version of the JDK From the Sun website.  You can find their Java SE downloads page here:  http://java.sun.com/javase/downloads/index.jsp
+Once you have got the packages installed (and I agree with other posters regarding their preference for official distro-specific packagings), pointing your browser at Sun's Java tester page should give you confirmation the browser plugin and therefore Java applets are working.
+To install the browser plugin, find the plugin which will be somewhere under jree/plugin and just copy/symlink it into your browser's plugins folder. In firefox, about:plugins should then list Java.
+If you're sure it was installed, but are unsure where it might have installed, you could try running updatedb and then using locate to find the java runtime:
+https://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/ViewFilteredProducts-SingleVariationTypeFilter
+If you're running a debian-based installation, I highly recommend you get the JDK from the repositories.  You can simply run the following in a terminal:
+I'm not sure whether other distributions also carry Sun's JDK.  You may find openjdk-6-jdk to be an equivalent FOSS alternative.
+This should give you an idea of the directory that you may need to add to the PATH environment variable.
+If you've done all this, then running "java" at the terminal should just work.  If this doesn't, it could mean it wasn't installed correctly, or that it was simply installed into a location that isn't on your path.

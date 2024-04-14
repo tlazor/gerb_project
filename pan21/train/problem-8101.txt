@@ -1,0 +1,8 @@
+When all of the joining and aggregation logic is expressed in one SQL query rather than spread out over several C++ functions, it's a lot easier to verify its correctness!
+In my opinion, trying to accomplish this query in C++ is crazy.  Your C++ program consists of a huge amount of custom code, which is hard to understand (as evidenced by the bug above), and will likely be unmaintainable by your successor if you ever move on to another job.  Furthermore, the program does one task only, and would be a lot of work to modify it to perform any other queries.
+I think that you are not using the right tool for the job.  Running queries on relational data is traditionally done using SQL, and that's what you should use.
+Assuming that this doesn't mean that goods magically double in quantity when moved from group 38 to 39, you'll have to be extra careful in the calculations.  Perhaps you have another bug in the part of your system that generates sgm.csv.
+Once you switch to an SQL-based solution, the choice of programming language becomes much less of an issue.  You could even switch to Python, like the other implementation you have in your GitLab repository.  Python even has a built-in SQLite3 engine and library.
+The output, shop_stock_total.csv, contains the following lines, each of which is a tuple of (item, shop, quantity available, quantity available excluding transfers from warehouse stores):
+Obviously, there should be at most one row representing item 100971 at store 1.  These results were not aggregated correctly.  There are many more occurrences of this bug.
+Is the solution above faster than your C++ program?  Admittedly, no: it takes about twice as long.  However, consider what steps you can easily take to improve its performance:

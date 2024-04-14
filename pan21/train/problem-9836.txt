@@ -1,0 +1,6 @@
+Is there any way to open an existing process's standard-error in a new Terminal, or something like that?
+Open two terminals. In the second one, figure out its tty device by running the tty command. It'll print something like /dev/pts/8.
+I often execute a cat in the second terminal before starting the actual app, just in case that I accidentally type something there it's harmless, and to make the cursor go to the first column. It's not mandatory though.
+I've tried things like rse to differentiate standard-output and standard-error streams from a program; but I'd really like the option of viewing the two in separate terminals, without redirecting to a file and tailing it or something (let's assume that either one of the streams can print ANSI terminal-control codes.)
+Standard error is redirected to a process substitution where the content is collected and then passed to a script executed in an xterm.
+I use this so often for debugging that I set the terminal title to contain the tty number, so I don't even have to run the tty command. I do this in the shell prompt, combining the escape sequence that changes the title with bash's \l (that's a lowercase L) for the tty line number, i.e. PS1=$'\\[\e]0;\l\a\\] ...'

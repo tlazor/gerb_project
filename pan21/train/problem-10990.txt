@@ -1,0 +1,6 @@
+This cmdlet also works with PSTs up to 32GB in size.  However bizarrely it only works on 32bit Windows, since Exchange 2007 is only supported on 64bit Windows you need to set up a 32bit machine to do the archiving (Thanks MS).
+I am familiar with archiving messages on the client side to .pst's... Are there good methods of archiving messages from multiple mailboxes on the server side?
+If you are looking for ongoing archiving of email for legal reasons etc. you might consider google postini.  See here.
+I recommend Barracuda's Message Archiver. It keeps a complete archive of all mail. It can also trim attachments from exchange and host them itself. It provides a link in the original message to the trimmed attachments.
+And while this won't be of any help now, many of the features in Exchange Server 2010 will focus on easing archiving and retention.
+Exmerge is not supported on Exchange 2007 (although it can be made to work).  As of Exchange 2007 SP1 there is a new cmdlet, Export-Mailbox, that replaces the exmerge functionality allowing you to archive multiple mailboxes to PSTs.

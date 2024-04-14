@@ -1,0 +1,13 @@
+The point is that I don't have the password for postgres user, so I cannot install the extension using pgAdmin. (This is already an issue that scares me a bit, if I have other problems and I need the administrator. But I've been browsing around and haven't found any comment about this.)
+In the section Using pgAdmin III GUI , they suggest to change the pg_hba.conf first rule from auth peer to md5, after having set a password. Personally I don't quite get why. I'd rather leave that rule alone and run pgAdmin from my own Unix account, choosing localhost TCP connections.
+postgres has no password after an automated install, it's expected to authenticate through the peer method.  sudo su - postgres is the first step to it. The second step is to connect through the Unix local domain socket, but your command doesn't do that, it connects through TCP, that's why you're stuck with the password problem.
+I had some problems during installation of PostgreSQL and I eventually decided to go for a VM solution managed with vagrant, as explained in postgresql wiki.
+When doing a TCP connection with -h localhost... the first rule doesn't match. The second rule matches and it triggers the demand for a password, but as none was set this can only fail (empty passwords are not allowed either).
+My question is then, if there is a way to install the extension for the vagrant VM (or anyway to run any command with the superuser). Also, I'll be much happier having the superuser password, so that I could manage everything from pgAdmin.
+Once logged to psql as the postgres user, you may set a password with the \password command or ALTER USER postgres PASSWORD 'foobar';
+In postgres wiki, link above, it describes a way to connect to the VM as superuser, which I also tried,
+The virtual machine creates a user for the application when you run it first time, which is fine, and it creates a database for the application as well. But if I try to install the extension with the application user
+but again when I tried to run the command for the installation I was asked for the password of postgres user in the database. For example, one of the trials:
+The solution is to remove -h localhost from psql invocation, for the first rule to be taken instead. As it's on a Unix system, it will attempt a connection through the Unix domain socket.
+I started working with it and everything looked very good. But eventually I wanted to use crosstab(doc), however tablefunc extension was not installed in the virtual machine, and I can't find a way to install it.
+(At the beginning my motivation was just to solve the installation issue but I find that a virtual machine solution has many advantages).

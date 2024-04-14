@@ -1,0 +1,8 @@
+It don't even access any method of JFrame. So your class should not even know that there is a JFrame class out there.
+You should better do this Calculation in the  GameCharacter class where you have all the information at hand, so all of this code should be in the method throwFireBall(target) in that class. 
+You should have two more classes Player and Enemy that extend  GameCharacter  which are holding the special behavior of either one:
+The ultimate goal of OOP is to reduce code duplication, improve readability and support reuse as well as extending the code.
+If for some reason you get another type of GameCharacter you simply create a new child class of GameCharacter  and modify its behavior in that new class file instead of skimming all over your existing code looking out for places to add the new behavior. 
+At certain places your code uses some information out of the GameCharacter object to calculate some information on it. E.g.:
+Your class GameCharacter holds a property of type CharacterType and you select different behavior based on this property. This is a sign that you're missing a class hierarchy.  
+In OOP we inherit from a super class if we extend its behavior. This is: we override a method to do something more and/or something different then the same method in the super class.

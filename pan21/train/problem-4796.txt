@@ -1,0 +1,7 @@
+You may also find that some services require rights assigned to their service account in Active Directory, in this case I will attempt to apply access with role based groups ("Read Student Account", "Read Staff Account", "Write Student Account", etc.) and place the service account in that group.
+From my experience with UNIX I like all my services to run as different unprivileged users. The way this has translated to windows is as follows:
+In addition, I further restrict and grant additional rights to domain accounts with User Rights Assignment in Group Policy:
+I'm asking the question in general for the average custom developed NT service or unix OSS daemon ported to windows with SCM support. However, at the moment my immediate concern is for mongodb.
+The bottom line is there shouldn't be anything the built-in service accounts can do that a created service account can not do, the only exception to this rule is when the service itself has been hard coded to expect the service account to be a specific username.
+I believe it is always good practice to use a least privaledged user for as many services as possible. I have a quite similar process to you however I prefer to use domain accounts over local accounts so as to provide a central mechanism for organising these accounts.
+My feeling is that the unprivileged users are less powerful than the 3 special service users. I also feel that by isolating which users run which services, I would limit collateral damage if a way to compromise one service was found.

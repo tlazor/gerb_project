@@ -1,0 +1,9 @@
+Usually I find that less is the best man page viewer for me; I can scroll up and down and do searches in it to find the words I am looking for.  
+The Description and Examples sections of man man are a great help in understanding how man pages are organized and how to use them.
+Don't forget that the info files often have more detail and are navigable (have a form of hyperlink).
+I don't view man pages as a source for primary learning.  I view man pages as a useful trigger for reminding me how to do something I already know how to do.
+In general, I find the Examples, See Also and Files sections of many man pages to be very useful since they give clues where to look next when you're trying to track down something that may be obscure.
+man pages often look like a wall of text when you open them, with huge amounts of options and often not much context. But they are a great mine of information for how to use the commands.
+Usually you can find tutorials or how-tos on the internet which teach how and why things go together the way they do.  Then when you come to actually do it, you read the man pages to remind yourself of the particular flag or syntax of how to get it done.  My personal rule of thumb is that if I can't figure out what I need to do in two passes of the man page, I need Google... and probably to create some notes for myself.
+So how do you go about making sense of man pages? What are the standard sections about? How are they organised? Is there a mental map that makes it easier to make sense of man?
+If your pager is less you can set the LESS_TERMCAP_* variables to show color in man pages. Here are mine:

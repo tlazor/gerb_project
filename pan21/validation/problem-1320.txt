@@ -1,0 +1,7 @@
+Again who owns the data. If the container ownes the data then you need to add manual code to destroy the objects.
+OK. Got bored. Sorry slightly irreverent towards the end. But there is plenty in here that shows you are not an experienced C++ programmer (you are basically using C with classes).
+It appears that you overlooked the most important part of the assignment (it calls for network of transformations):
+That clearly assumes that a module may have more than one incoming connection. Now the input is initially fed to just one module. In order to achieve miltiple incoming connections, modules must support multiple outgoing connections.
+EOF is not set till you try and read past the EOF. The last succesful read will read up to (but not past the eof). So the next read will fail, but eof() is still false.
+There is a RAW pointer in this class. You don't obey the rule of three. Immediate fail. In the trash you are not a C++ programmer.
+Obviously not an experienced C++ programmer. You are using a C style. Fail. I'll move onto the next candidate here.

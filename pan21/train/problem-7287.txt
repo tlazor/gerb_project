@@ -1,0 +1,9 @@
+If all goes well you can then test it out by creating an application pool and then go to advanced settings and run it as DOMAIN\user or some other user that it needs to be.
+Try changing /section:applicationPools to /section:system.applicationHost/applicationPools and adding /commit:apphost to the end
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319>aspnet_regiis -px "iisWasKey" "C:\temp\AESKeys.xml" -pri
+I did never figure out why I could not set the password so I retorted to editing my applicationHost.config file directly. Unfortunately with the the password is in clear text.
+Second you can restore that key on the broken machine (copy the key to the other server and put it in the same place):
+Check the bindings for the applications that is configured on this application pool, if they have any incorrect bindings eg. invalid characters, space and so on. 
+You can grab the private key from another server and simply import it in to this server by first exporting a key from another IIS server that works:
+Third you edit the c:\windows\system32\inetsrv\applicationhost.config and use the configprotecteddata section from the known working server to use in place of the one already in this file.
+If you remove the last parameter when using appcmd, the password, you will succeed changing identity type and setting the username. 

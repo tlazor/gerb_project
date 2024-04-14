@@ -1,0 +1,14 @@
+I've just come across this same issue. I presume that "Select New Certificates" is a mistake in the TechNet article you reference, and this should read "Request New Certificates". Either way, the instructions don't work for a standalone CA. 
+Right-click, select All Tasks, and then click Select New Certificates. (I don't have the Select New Certificates option).
+I have tried to follow the instructions at the following URL for renewing service certificates but they don't seem to be correct for the scenario we are in (likely the standalone CA).
+It's not ideal because it requires one reboot of the server in order to complete the removal of the NDES service, but it achieved the desired outcome with minimal effort. 
+turns out the standalone CA scenario was causing the issue. The renewal and certificate request process built into the certificate MMC GUI requires a policy web server (which can't run on a standalone CA as it requires domain permissions to install).
+We currently use the NDES Service on Windows 2008 R2 Enterprise where the same box is also the standalone Certificate Authority.
+As a result, you need to manually remove, request and accept the new certs. Found a blog post that details instructions on how to do it manually using certutil. 
+Can anyone help me with the error and educate me on how to renew these service certificates in this scenario?
+http://social.technet.microsoft.com/wiki/contents/articles/9063.network-device-enrollment-service-ndes-in-active-directory-certificate-services-ad-cs.aspx#Renewing_Service_Certificates
+In the Certificate Enrollment dialog box, click Next.  (on all renewal/request tasks I choose I receive the error noted above)
+Rather than trying to manually renew the certs, I resolved the issue by removing the NDES Service from the Active Directory Certificate Services role, and re-adding the NDES service again, thus creating two new certificates. 
+During initial setup, NDES created 2 service certificates for SCEP based on the templates CEPEncryption and EnrollmentAgentOffline.
+Attempting to renew them using the certificates MMC snap with the same key (all tasks->advanced operations->renew this certificate with the same key) produces an error 
+http://blogs.technet.com/b/askds/archive/2008/04/28/configuring-network-device-enrollment-service-for-windows-server-2008-with-custom-certificates.aspx

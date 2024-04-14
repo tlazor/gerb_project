@@ -1,0 +1,6 @@
+Logically, it must use twice the power of having a single hard drive, assuming you are accessing data on both all of the time.
+It won't drain that much more the battery. What is draining battery is the LCD backlight, the CPU, and the GPU (in some cases, for this one).
+If you're worried about power drain, why not make at least one of the "hard drives" a solid-state drive?  Lower power use, lighter, faster ... and of course more expensive.
+There will be some additional power draw, but as already pointed out the screen backlight is likely to be a more significant drain.
+Unless you really really need the extra space, I would not separate OS and data onto two drives. The point (usually) of having two drives in a high-end developer machine is be able to mirror them (RAID 1) to give much faster read speeds, as well as some degree of redundancy against hardware failure. Ideally you need a machine with a simple hardware RAID chipset rather than doing this in the OS.
+If you use a program like Notebook Hardware Control to force cpu, gpu to lower frequencies during battery mode, and lower your backlight, this will increase the duration. However, not much difference with two hard drives, in comparison to these ones.

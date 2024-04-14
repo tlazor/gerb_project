@@ -1,0 +1,6 @@
+You can put them directly on the CD unsing nLite (great tool to customize installation)! That's what I did for my SATA controller
+Of course, a floppy drive is so cheap that buying one is probably the most reasonable option. But probably not as fun though ;-) 
+I'd prefer if the new machine didn't have a floppy drive. It's pretty much pointless now. But this poses the problem of loading the RAID driver. Can XP read this driver from somewhere else (maybe USB) or will I have to install a floppy drive just for this?
+I'm planning to install XP Pro on a new machine with a motherboard that supports RAID. The partition XP will run from will be on RAID 1. To set this up you normally enter a floppy disk with the motherboard RAID driver at the beginning of the XP installation. 
+You could use nLite to add the appropriate driver to a copy of your install CD, then boot and let Windows find the driver by itself. 
+it will work when the BIOS has an Option to Boot from USB-Devices, because it will check for attached usb-devices during the start

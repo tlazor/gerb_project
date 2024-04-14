@@ -1,0 +1,8 @@
+Also, the dump was taken in a Linux machine and I'm importing this into Windows, not sure if that could add to the problems (I understand it shouldn't)
+Now, that binary garbage is why I think the images in the file might be a problem, but i've been able to import similar dumps from the same hosting company in the past, so i'm not sure what might be the issue.
+I'm not very attached to the data in particular, since I just want this as a copy for dev, so if I have to lose a few records, i'm fine with that, as long as the schema remains perfectly sound.
+I'm not exactly sure what the problem is, but two potential issues are the size of the file (2 Gb) which is not insanely large, but it's not trivially small either, and the other is the fact that many of these tables have JPG images in them (which is why the file is 2Gb large, for the most part).
+The file might be corrupted, but i'm not exactly sure how to check it. What I downloaded was a .gz file, which I "tested" with WinRar and it says it looks OK (i'm assuming gz has some kind of CRC). If you can think of a better way to test it, I'd love to try that.
+'╖?*á±dÆ╦N╪Æ·h^ye"π╩i╪       Z+-$▼₧╬Y.∞┌|↕╘l∞/l╞⌂î7æ▌X█XE.ºΓ[ ;╦ï♣éµ♂º╜┤║].♂┐φ9dë╟█'╕ÿG∟═0à¡úè♦╥↑ù♣♦¥'╔NÑ' (11004)
+I'm trying to import a MySQL dump file, which I got from my hosting company, into my Windows dev machine, and i'm running into problems.
+Also, trying to look into this file (and line 3118 in particular) is kind of impossible given its size (i'm not really handy with Linux command line tools like grep, sed, etc).

@@ -1,0 +1,5 @@
+You'll then gather a full JSON dataset containing all the needed informations, from there you can use Jinja2 capabilities within the playbook to extract newly created IP addresses, i.e.:
+Some may ask why the headache, well imagine that instead of having an hideous userdata which will git clone both Ansible and a playbook from the Internet, you can trigger the instance setup from your own deployment center by setting up a simple SNS topic which will publish to a SQS queue, watched by a 10 lines python code (https://github.com/alexandregama/python-sqs-consumer/blob/master/sqs-message-consumer-polling.py) which will trigger Ansible when a new instance comes out.
+Assuming your ASG fired up instances with the env: cool_asg_instance tag, just add the following under the ec2_asg playbook call:
+While the meta: refresh_inventory is the "preferred method", I tend to like OP's proposal of using ec2_remote_facts in conjunction with add_host. I've setup such a playbook and it has the strength to be 100% dynamic without caching glitches.
+Filter is courtesy of this wonerfull blog post: https://bonovoxly.github.io/2016-02-11-ansible-stuffs-ec2_remote_facts_instead_of_ec2_py

@@ -1,0 +1,7 @@
+I know the easiest solution is changing the IP area of one of the networks but unfortunately this is not an option right now. I'm looking for a solution that can be applied via Windows settings. If that is not possible my last option is using a firewall for the second network.
+I made the entry static using "-p" option and restarted the machine. After restart, situation rewinded to beginning. First adapter was communicating while the second one was not.
+It didn't worked while both adapters were connected. After unplugging the ethernet cable from the first adapter and running the command again everything started working. Both adapters were communicating with related networks successfully.
+The first thing I have tried is giving higher priority to the second adapter but that didn't change anything. First adapter was communicating, second one was not.
+Adapters are connected to physically seperate networks. First adapter communicates with the devices in its network successfully. However, second one cannot communicate. When I unplug the ethernet cable from the first adapter, second one starts communicating. After plugging again, first one starts communicating and second one stops.
+When I added 255.255.255.0 to the second adapter's subnet mask list, it started communicating but the first adapter stopped.
+There is something I should mention. When I printed the route table second adapter's interface was sometimes 0x3, sometimes 0x20003. That might be clue about the problem.

@@ -1,0 +1,7 @@
+I just realized that I should have used the Boot Camp Assistant to remove BOOTCAMP partition, but since I have erased BOOTCAMP partition, this way no longer works.
+I have decided to remove Windows from my MacBook. I used to the Disk Utility tool erased BOOTCAMP partition, but when I tried to use "Partition" menu to merge BOOTCAMP partition into Machintosh HD, Machintosh HD's size couldn't adjusted.
+To do this, power down and Press and hold one of the key sequences below immediately after you turn on your Mac and hear the startup sound. 
+Once you're in OS Setup, you can choose Disk Manager from the Tools menu and resize your Macintosh HD partition.
+My MacBook Air was installed two systems, OSX and Windows, thus it has two disk partitions: Machintosh HD (40G) and BOOTCAMP (80G).
+You cannot actively resize the boot partition for OS X and a few other operating systems. What you can do start up your Mac in Recovery mode. 
+Given my current situation, how can be remove BOOTCAMP, and merge all disk space back to Machintosh HD?

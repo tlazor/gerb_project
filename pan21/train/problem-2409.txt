@@ -1,0 +1,11 @@
+For decent security you should consider using a Microsoft ISA server in the DMZ and open external access to the ISA box instead of direct access to your Exchange box. 
+Has anyone experience with exposing the web access (OWA) of an Exchange 2010 server through a Cisco ASA (my goal is to something like a DMZ)? If so could you give me some advice?
+It's quite neat and gives a lot more functionality (there are SSH and RDP applets available as well), but it does require additional licenses. Depending on the number of users this might make it a less attractive option (it did for me!)
+We don't use the VPN features much at the moment but plan on doing that in the future, but OWA should be there if VPN is not possible from outside.
+If you don't mind using a free product Apache HTTPD (on either Linux or Windows) can obviously do this but the standard Microsoft solution would be ISA Server.
+The ASA will run a HTTPS server and handle the authentication. It then reverse proxies HTTP back to the internal server, with SSO if necessary.
+I know that Exchange doesn't support DMZ and that MS recommends using TMG. Still, I'd like to know if someone has managed this (I've tried and wasn't very successsful so far).
+The advantage of this is that you're only exposing the ASA to the outside world (rather than full HTTP access to your mail server), and they only get "deeper" access after the authentication.
+Or would it be better to ditch (read: sell) the ASA and use a TMG server instead? We're completely on Windows Server 2008 R2 and some remaining 2003 server running mostly as file servers.
+Don't dump your ASA.  TMG is very easy to manage inside of your DMZ of the ASA.  The TMG will have to be dual-homed...that is, have a foot in both your DMZ network AND your inside network.  Setting it up is a breeze and TMG makes it easy to publish OWA to the web.  Remember that dual-homed servers only ever like to have one default gateway, so be aware of that or it can cause you issues.
+From the ISA box you permit http/https connections back to your Exchange server and configure ISA to reverse proxy the requests.

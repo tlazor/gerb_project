@@ -1,0 +1,5 @@
+These errors are exactly correlated with reset TCP connections when someone is attempting to connect and logon through port 3389 ms-wbt-server. If the person fails the system security "black box", then the incoming connection is aborted with a reset packet. The error message you are seeing is then thrown up to the Windows Systems Log.  If you are experiencing a lot of these still, then you might want to change the listening port from 3389 to something else, and see if the errors diminish. 
+Occasionally we will get this on our Exchange server or an IIS server, however it is mostly from our Remote Desktop Terminal Servers that are running 2008 R2 64bit.
+Any suggestions on how to find out what is causing these issues? Should we just disable schannel debugging?
+As you can see by the following graph that we get spikes such as this semi frequently. This graph is of 1 terminal server for the past 12 hours which gave us 407 errors.
+We are experiencing the following schannel errors most frequently on our Remote Desktop Terminal Servers. 

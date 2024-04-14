@@ -1,0 +1,11 @@
+The default set of indexed folders was based on the defaults from my media PC which had a clean install of Windows 10 (wasn't upgraded from Windows 7 -> Windows 8 -> Windows 8.1 -> Windows 10 like my main machine)
+Be aware some test showed me the there seems to be no difference copying files to "C:\ProgramData\Microsoft\Windows\Start Menu\Programs" OR "C:\Users\John\AppData\Roaming\Microsoft\Windows\Start Menu\Programs". 
+As well i read on some topics that you should NOT exclude the default library folders (e.g. dokuments, pictures etc) from the indexed folders because this will cause massive problems with the search.
+After waiting a little while for things to re-index the start menu is returning correct results as quickly as I can type!
+I think you're actually indexing too many files and that's stopping the search from returning useful results. Your Indexing Options screen shows around 1.9 million items indexed.
+After upgrading to Windows 10, Cortana search was not finding applications for me because the Samsung Magician software I installed for my SSD drive was configured to Maximum Reliability mode, which disabled indexing service/search. In order get Cortana to find applications installed on my machine again, I needed to change to Maximum Reliability mode in the Samsung Magician software. This answer will be helpful for anyone with Samsung SSD and Samsung Magician software.
+I fixed this problem by Enabling the Windows Search service in services.msc. Not sure if I disabled it during tweaking by accident or if it came like that after Win 8.1 upgrade. After re-enabling and starting the Windows Search service I could search my apps again.
+If you do skip the step 4 windows will create on every restart a new temporary user folder with will be removed with a reboot.
+I had about 1.5 million files in my index as well, with all of my development files under my C:\Users\<username>\ directory. My start menu search was really slow and was wasn't returning useful results (wouldn't find built in apps like Internet Explorer or Edge). 
+I was able to fix it by resetting my "Indexed Locations" to the Windows defaults (Right-click start button -> Control Panel -> Indexing Options -> Modify).
+Finally I triggered a rebuild of the index (Right-click start button -> Control Panel -> Indexing Options -> Advanced -> Rebuild).

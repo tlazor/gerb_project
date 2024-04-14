@@ -1,0 +1,6 @@
+I was googling for a solution to this and came across this question. In the end I figured it out myself.
+On a Windows Server 2008 R2 machine, the security descriptor for the ActionSetActive action (i.e. changing the current active power plan) is retrieved by using this command:
+There are other actions which may need similar tweaking if you want to exactly mirror the Windows 7 behaviour (after doing the above, you still won't be able to change things like the behaviour of the power button, sleep button etc when logged in under a standard account.
+Windows 7 allows non-administrative users to change the current power plan (clicking the power icon in the notification area allows you to switch power plans), but this is greyed out on Server 2008. Therefore it's definitely a rights problem. Here's how you solve it:
+Only administrators are allowed to change system-wide settings, and determining when and how the system powers on and off definitely counts as a 'system setting'. :)
+You can set the security on the action to be the same as a Windows 7 machine by issuing the following in an elevated command prompt:

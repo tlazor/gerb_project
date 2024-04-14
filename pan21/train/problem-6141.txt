@@ -1,0 +1,6 @@
+Can anyone recommend a workaround? I should point out that this is a testing setup on which I am moving things around all the time so I would prefer a solution that does not involve too many moving parts.
+I don't think you can do that. The fact that the loopback interface responds on every ip on the configured subnet (i.e. ping 10.0.2.15 works as expected), doesn't mean every IP is bindable.
+What you can do as a workaround for testing is to create a virtual interface lo:1 and assign the address 10.0.2.15 to it and bring it up 
+After a bit of testing...  Bind doesn't appear to work the way you have observed other daemons working. I have noted 2 workarounds the first is add an additional address to lo to allow bind to bind to it
+(I've tried without "port 53" too). The problem is that for BIND, listen-on is like a "binding whitelist", that it matches to all IPs it can find on all interfaces. In this case, it does not find 10.0.2.15 on any interfaces, so it does not bind.
+'lo' is magical in the sense that that 10.0.2.0/24 line actually creates ~250 bindable addresses. Most daemons bind to these without trouble. However, this does not work in my BIND9-config:

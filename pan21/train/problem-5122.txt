@@ -1,0 +1,6 @@
+So ater unzipping everything i'm still unable to boot. I've managed to make it to grub rescue, after wich i followed online instructions for :
+I've tried repairing the filesystem, i've booted from 3 different LiveCDs/ Rescue disks, i ran boot-repair from 2 different dicsc. I did force fscks... 
+I'm really out of ideas and i NEED to get this server to at least boot so i can recover my SQL databases. I'm desperate for help, i'll even pay if need be.
+And that gave EVERY SINGLE FILE a .gz extension. Now i undid it as soon as i noticed but it was kinda too late. Upon completion of the command none of my bash commands would work because the $PATH variable emptied itself. I tried lots of things before realising what was the problem.
+So, i was given the task of making a script that found files that are older than 6 months, zipped them and then deleted them. On my way in making tihs script i ran this : 
+I've been lurking forums for 3 days straight all day to find a possible solution and i'm still at the same point... Help please?

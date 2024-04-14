@@ -1,0 +1,8 @@
+Credential Manager did not work for me, but this registry setting worked in my case (Alfresco with Kerberos Auth):
+I don't think the config is the reason for this odd behavior, but more that windows is unable to automatically respond to requests for login credentials (and in the situation with the machines running Vista and lower that they can't even save them for some odd reason).
+The mapping works fine, I provide my credentials and it logs me in, but the windows machines are unable to remember my credentials and I am forced to hit the "Login" button every time I open a new document, as well as when the machine is turned on or woken up from sleep mode. On machines running anything lower then Windows 7, I am also forced to manually type my username and password into the login box for every resource used in a document (such as images in a word document and similar).
+Avoid using wildcards, if possible, because you are deactivating a security feature for given URLs. More Infos: https://support.microsoft.com/en-us/help/943280
+Create this entry as MULTI_SZ (Multi-String Value) and populate it with your webdav URL. In my case I added:
+I have a WebDAV server running on a linux server through Apache, which I am then attempting to map on a windows machine.
+Manually adding the credentials to Credential Manager has worked for me in the past, on Vista and XP systems, when the system 'loses' credentials on a logoff/reboot. Windows 7 seems to do a much better job of automagically caching them, which may explain why the problem isn't observed there.
+If you want something scriptable, you can try: http://social.technet.microsoft.com/Forums/en-US/ITCG/thread/e91769eb-dbce-4e77-8b61-d3e55690b511/

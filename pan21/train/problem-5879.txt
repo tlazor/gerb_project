@@ -1,0 +1,8 @@
+Apply the exclude hostgroup to the host(s) you want to exclude in addition to the normal one(s) it's a member of. 
+You can create one or more hostgroup(s) for excluding things - add it/them to hosts where you want to exclude one or more checks - naming it something like ~no-ipv6 or ~no-ssl or whatever makes it pretty obvious what it's meant to do. 
+The effect of this would be that all hosts in the hostgroup webservers are checked against SSL - but those that are also in hostgroup ~no-ssl won't have SSL checked. Handy!
+In the Service description, where the hostgroup name(s) that have that service applied are defined, use an ! (in this context, meaning "not") to exclude them. 
+Haven't yet tried it with hosts, but with hostgroups, prefixing with a ! works. I use this for running a different load check on busy servers:
+This abstraction is tremendously useful; even more so is using templates to assign (or exclude) a whole bunch of services to a type of host (which then means you can use the hostgroups definitions on each host simply for "extra" additional checks you want to run, or specific exclusions - i.e. template is the "norm", hostgroups are the exception(s)). 
+So if you have a hostgroup "webservers", where some hosts can't do ssl, you might create another hostgroup "~no-ssl". In the services.cfg file, on the service definition that checks https, under hostgroup name, you would put webservers,!~no-ssl
+Add the specific host with a ! prefix in the service definition.  The service check below will apply to all hosts in agroup apart from ahost.

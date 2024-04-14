@@ -1,0 +1,10 @@
+I believe it stems from home users that may have a "family PC".  Kids don't want "Family Tree Maker" and parents don't want "Spongebob Squarepants - the Video Game" on their respective start menus.
+If you force "install for everybody", you may be limiting the application, as only users with admin rights will be able to install it.
+Sometimes the others users don't use the programs you install. You don't want shortcuts to be placed on the desktops of the other users or the program to be started when the others users logs in.
+Does it correctly place all user-created data into appropriate folders under a user's profile, or is it designed to run universally (and store user-created data in a common folder structure such as all users)?
+Some of the more recent OSes such as Vista frown on certain designs (such as requiring UAC for certain functionality) or not allowing modifications to HKLM in the registry.  IN other words, you'd better check the application will run nicely for all users (including non-administrators).
+Does it rely on registry keys in a user's profile (HKCU) or does it rely on a common registry (e.g. HKLM).  
+Depending on the answers to the other questions (assuming the application will run fine for any user) I'd think it's probably safe, but it also depends which operating system you're installing on too.  
+"Just for me" should mean that the application installs into a user directory and only creates shortcuts for the current user. This could be useful e.g. when the user does not have admin rights (and therefore can't write into %PROGRAMFILES%, HKEY_LOCAL_MACHINE, and other interesting places).
+Does it require admistrative permissions to execute? (might be a good reason for the "Just for me" option, if non-admins shouldn't see the application).
+To clarify: if you specify "for everybody", it's a hint for the installer to install the program into global locations (e.g. %PROGRAMFILES% or HKLM, as opposed to %APPDATA% and HKCU). If you're the one creating the installer, of course you have ways to subvert this convention, but in general this is the case.

@@ -1,0 +1,6 @@
+It requires that the device previously identifies itself with the server. The server recognizes it and from then, the server will be able to send a notification to the device when it is needed.
+I'm creating an application that has to realtime be live with the server. I'm not sure whether to have an always live (or checking with server every 2mins) app because it might drain the battery. What are my alternatives?
+Google provides a free service to make this technology work in Android / iOS devices called Firebase
+You are right, that would drain your battery very fast and this´d be blocked by the mobile OS as they force Apps to go to sleep after some time in background.
+If the device needs a little amount of data, then it can come in the notification, or, the notification can act as wake up call that forces the app/device to connect to the server and pull the data.
+It means that, instead of making the device pulling data from the server every x seconds or minutes, the server pushes data when it's neccesary to send data to the device.

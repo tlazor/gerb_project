@@ -1,0 +1,10 @@
+As this is about new workbooks, the easiest way would be to create a default template that is automatically used by Excel.
+I've looked in the usual places, page settings, and printer settings, but unless I go to Page Layout and select A4 for each new sheet, it opens as letter.
+Create a new workbook and set all settings you want to have, especially the paper size. For testing purposes I would also suggest that you add some text to a cell in the first sheet so you can easily see when Excel is using the file.
+Means, if you are using an English Excel, the file should be named Book.xltx. Since you want to use DIN A4 paper, I’m assuming that you are using a German Excel – in this case the filename has to be Mappe.xltx.
+You may find that this issue also shows up in Notepad and Wordpad, but not another Office application like Word.  If so try this.
+If it does not show up, it can be because a user default template exists (Excel favors user templates over system templates). The location of the user default template is C:\Users\\AppData\Roaming\Microsoft\Excel\XLSTART.
+Save this as “Excel Template (*.xltx)” and copy it over to the XLStart of your Office Installation (e.g. C:\Program Files (x86)\Microsoft Office\Office12\XLSTART). The file name is a little bit tricky since Excel will use a localized filename. 
+Exit Excel and restart it. If the new workbook shows the test text you have entered, it has successfully picked up the file.
+More information on this topic (for example, a template when adding sheets to an existing workbook) can be found here, here or here.
+I've found a few workarounds, but they all require more steps than I can rely on my co-workers to remember everyday.

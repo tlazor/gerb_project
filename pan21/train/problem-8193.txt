@@ -1,0 +1,5 @@
+Most likely your clients have a cached version and they dont check if they are modified on your server. So you'd need to fix your cache settings, then you can move them to a different folder. Eg. if you move /styles/*.css to /css/ instead, and all js files from scripts to /js/ their browsers would have to refetch resources.
+I recently pushed a major update to a site and I'm having an issue where some people can't log in because their browser is loading old javascript files. Some of the things I have done include:
+I believe that having add_header Cache-Control no-cache; set should keep things from being cached, but perhaps you have something that was cached in there before you set that?
+You are ignoring the cache of your readers browser.  Unless you change the name of your objects (eg. add a version number to the .js), or the objects were sent with an ETag or Modification-Date, the browser may consider his version of the object is still valid for a couple of decennia, and never consult your server.
+Have you tried manually deleting everything that is in your cache?  This is typically /var/cache/nginx.

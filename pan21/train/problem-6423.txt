@@ -1,0 +1,6 @@
+I just don't see the purpose of ACK in 3) as there is already an acknowledgement in 2). Also, in older Cisco study materials, the process goes without 2) as well.
+An acknowledgement isn't a one-time thing, subsequent packets will all acknowledge the same data if no more has been received (by the end that sends the ACK).  This works in both directions. 
+Could someone give me a little insight if all those are possible in certain situations or which one is correct?
+I was learning about the process of closing TCP connection and the process differs in many sources I've come across. In official Cisco cert guide (100-105) the process is as follows:
+Basically the same thing, what is the extra ACK in packet #38 for? Acknowledgement was already sent in #37. And both also have the same Ack number. 
+The ACK flag is set when the acknowledgment number is valid.  It is therefore set on all packets in a TCP flow except for the initial SYN packet, so by the time you are sending FINs, all packets will be ACKs.  You don't need to worry abut it.

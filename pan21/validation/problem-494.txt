@@ -1,0 +1,6 @@
+We just went through this and decided on truecrypt because of it's track record. We currently have 15 users on it and could grow quite large. There are two options:
+gdurham has the best solution for dealing with the password issue and it should keep you out of trouble.
+Our organization is in the process of implementing laptop encryption as well. I know that the testing showed TrueCrypt to be viable for our needs, though discovered the same password problems that you mention.
+The price associated with TrueCrypt will be the time they pay you to admin it. This is not insignificant so try and do an assessment based on the knowns between the "free" solution and a paid.
+create an image with a complicated password. Create the restore cd from this. Then have the user change it. Do not create another cd. 
+Or create a complcated password and have the user change it after creating the cd. After changing do not recreate the cd. This allows you to reset the password with your password that you made sure to remember.

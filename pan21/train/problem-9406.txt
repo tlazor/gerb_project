@@ -1,0 +1,6 @@
+Its designed for schools, but I think it will do what you want. It logs what windows have been opened, as well as various other activity. You can also block stuff. Try the demo.
+Save 10 screenshots in a loop, and wait 60 seconds between the screenshot save calls. The filenames of the screenshot will contain the time and date of the saved screenshot. 
+I would agree with the above comments though. Make sure you have an acceptable use policy in place, and that you have your management on your side.
+Are these locally-installed games?  If yes, why are they there in the first place?  If you suspect Web games, you can check your firewall logs to track what IPs his machine goes to fairly easily or setup a proxy server to also track/filter with more detail.
+We have a user who we believe is abusing his computer privileges.  We have our suspicions that he may be playing games, etc.  We need to monitor his screen without him being aware of it.
+Currently, the IT Department here is using Dameware Mini Remote Control to view his login sessions.  But there isn't an option to set up automatic periodic screenshots.  I'm hoping to find a tool that has this option and can be centrally managed as well.

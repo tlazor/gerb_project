@@ -1,0 +1,6 @@
+I would also NOT recommend you to resize it to 30 gb. Make it 60 or even 80. I have filled 60 gigabytes and the Windows folder alone had like 25 GB!
+Still, use it at your own risk and always look again and again before applying a change, so you understand what you are doing right now.
+Boot to a Gparted live cd and you should be able to resize your partition and create a new ones. Gparted will be able to move files around as they will not be locked in use by the OS. 
+Step 2: I then tried clearing restore files & also disabled hibernation. After doing second step, now it is showing that 0 GB is available for shrinking (= shrinking not possible).
+Gparted Live, but read and understand FAQ, "Use GParted to Resize the Windows 7 or Vista Partition" mini-howto and Vox Populi (STFW) in common
+I am trying to partition my c drive into 2 drives. My c drive has 412 GB free of 450 GB. I wish to participate as 30 GB: 382 GB. But when i try to shrink volume (by going through My Computer --> Manage --> Disk Management) i see that i can shrink around 200 GB. I believe that we cannot shrink upto certain volume due to unmovable files located.

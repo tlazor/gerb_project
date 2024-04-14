@@ -1,0 +1,7 @@
+In the old days (i.e.: Linux 1.2, i386, SunOS 4.x), you'd have maybe 5-15 MB of daemon processes running and anywhere from 4-32MB of RAM and so daemons that were just blocked waiting for I/O could be swapped out with no real performance hit... And they'd better since the user programs might have as few as 2-3MB of RAM available. Swapping made a lot of sense.
+The exception is for laptops and workstations that might sleep. Many OS will use the swap area to save the suspend image and in those cases, the swap must be larger then physical memory. In Linux with suspend2/tuxonice you should have 2xRAM in swap size to support suspend-to-disk.
+Given the speed of modern hard disk drives, large swaps are just an invitation to thrashing. Maybe SSDs will reverse this trend, but with maybe 300MB/s maximum transfer speed for a disk, swapping in 2-4GB is going to take a good while.
+Now in my environment, most servers have single memory heavy workloads and RAM can be fairly accurately estimated... Swap is there for emergencies, run-away processes and so on.
+If you're interested by analysing these dumps and don't have specified another dump destination, your swap should be at least as big as your RAM.
+If you expect your system to be able to hibernate and then resume successfully :-) , it's probably better to allocate more space for the swap partition than the amount of physical RAM
+Ideally you wont be using the swap at all, and the 2x RAM thing is really something left over from years past.

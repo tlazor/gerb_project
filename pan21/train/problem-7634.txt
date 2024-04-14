@@ -1,0 +1,7 @@
+I am new to Linux, and trying to get a definitive understanding of the Linux boot processs, before attending a Linux Server Admin class starting in June.
+The kernel relinquishes control from the moment it first executes an init process, be it from an initramfs or a “real” partition. It does not load modules by itself, and it most certainly doesn’t do “other things”. These are all userspace procedures.
+An initramfs is typically used when mounting the root filesystem requires more than simply mounting a basic partition. After the initramfs’ init process/script is finished, it starts the init program from the root partition using exec(). This replaces the current init process. It is imperative the init program never terminate—this results in a kernel panic.
+Setting up the Question: During Linux boot, after the kernel and initramfs are loaded into memory... Then, the kernel decompresses in memory to /boot/, a RAM-based virtual file system via cpio, loads necessary modules among other things, and then....  
+.... When does the Kernel stop using the RAM-based file system, and start using the physical / partition?
+The command mount will tell you how your file systems are mounted.  It is entirely possible that your init is being run from a ram-disk.
+Question:  Is the Kernel executing the "init" program from /sbin/init from the RAM-based virtual file system,  OR... from the physical disk, since the / partition has already been mounted by the Kernel?

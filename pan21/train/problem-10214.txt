@@ -1,0 +1,7 @@
+This is probably disabled by the VPN policy and is called dual-homing.  If this is the case, then it may not be possible to get around short of using a separate machine -- even a virtual machine will be trapped in the tunnel.
+Try going into Advanced Mode (Ctrl-M), go to the Options menu, and uncheck Stateful Firewall (Always On). This has sometimes worked for me.
+Dual-homing is usually disabled to prevent your machine from become a gateway for the transmission of virus, hacking or other nasty bits.
+I am not aware of any circumstances where fiddling with the local routing table gets any lasting effects -- you would probably have to write a script to to repeat the fiddling during each connection to the VPN.
+Brent's solution is perhaps the easiest.  I personally have a VM for each customer network just so I can be connected to multiple VPNs (mostly SSL-based, but some Cisco clients too) at the same time without having to worry about conflicts.
+You could set up a virtual machine (using virtualbox or something similar), and use that to connect to the client, leaving your main connection open to the internet.
+Pip is correct about the remote default gateway.  This is a specific choice made by the VPN administrators.  It is sometimes for connectivity reasons -- ie connecting to non-local systems across a corporate network -- and it is sometimes sold as a "security" feature, in that systems connected to the VPN either cannot contact the internet or must do so through the corporate internet presence where presumably such activity can be logged.

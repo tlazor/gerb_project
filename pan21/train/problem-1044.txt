@@ -1,0 +1,7 @@
+For me, with the T520, it was the adorably Engrish Drive Erase Utility for the Resetting the Cryptographic Key and the Erasing the Solid State Drive.
+So if you have a ThinkPad newer than circa 2011, check the "Storage" subsection under the drivers/downloads area for your model ThinkPad at the Lenovo web site.
+The Lenovo utility accomplishes the unfreeze by generating some sort of key you have to write down, then rebooting the machine (presumably doing some magic to power cycle the SATA device without re-freezing it) and asking you for the key again.
+Note that you may wish to ensure that you have the latest BIOS update for your PC installed (as well as the latest firmware for your SSD drives). BIOS updates can also be found on the Lenovo site in the section for your model laptop.
+I cannot explain why I am able to hotplug the M4 but not the 840. It does not really matter now but I'd still be interested to know just for academic reasons.
+To create a bootable USB drive that can be used to reset the SSD in a T520 (and many other ThinkPad models), follow these instructions:
+I was able to do this. It turns out Lenovo makes a utility specifically for secure erasing drives that is compatible with the T520 (and many other models). It looks like this utility is the more modern replacement for the BIOS extension that is available for older models.

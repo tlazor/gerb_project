@@ -1,0 +1,7 @@
+A lot of people will get here not realising that they are doing the certificate process wrongly for adding SSL to their public websites. They will have downloaded a certificate from someone like godaddy and not realised they have done it in the wrong order! They wont get any error messages, all that will happen is that the certificate in IIS will disappear as soon as you click to another section.
+If you have a PFX (private key) and password you can import it (as other said), but if you just made a certificate request probably you won't have it. 
+Supposing that you are on the correct server (the same where you requested the certificate), probably the private key got corrupted somehow. You can open the public certificate, get the serial number, and try to restore the private key from the key store like described here. 
+Note: I would also check out YouTube/Sachin Sammy on how to do a redirect script from http to https.
+You can check in the mmc - Certificates - Personal store, and confirm that the certificate was installed but its missing a private key.
+If the server does not have a private key associated for the imported certificate the certificate disappears on refresh (and also it won't be available for bindings).
+Is this in IIS 6 or IIS 7? Did you import it in the MMC console or in IIS? Try importing it in the MMC console first, and then selecting it in  IIS. Also, make sure that the file you are importing is a .pfx file that includes the private key.

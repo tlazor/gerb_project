@@ -1,0 +1,9 @@
+What media player do you use to watch your DVD's? If you tell us the exact one, then we can see if that player has that option. For Linux, I'm sure 'mplayer' must have an option to do this, it has like 10000 options in it.
+If you are watching a DVD with multi (5.1) channel audio on only 2.0 speakers then the player and/or sound card will have to compress all of the 6 channels into the 2 you have, and will not know how the mix should be made
+I expect you mostly want a compressor plugin for this usage, but based on Shivek's answer, you could also use it to apply your own mixdown and equalization from 5+-channel audio to 2-channel audio instead.
+JACK is like a software patch bay; it takes audio output from a program, routes that signal through VST plugins to do signal processing, and finally sends that signal to your destination of choice (your soundcard, or another program's audio input).
+I use an audio compressor (hardware) between my source and my speakers.  Depending on how it's set, this flattens the dynamic range by lowering the loud sections and raising the quiet sections.
+This only half answers your question as I only know of a Windows application but I think what you need is the Linux equivalent of Breakaway Audio Enhancer
+Some movie playing applications will have a "night mode" or similar. Basically it makes the loud parts quieter, and the quiet parts louder, to even out the overall volume. 
+You want JACK and a set of plugins to do some combination of signal compression, equalization, mixing, and/or normalization.  
+If your hardware has 5.1 or greater capacity then you could try connecting up a 5.1 (or better) speaker system which will then allow you to hear all the channels in the correct spatial locations.

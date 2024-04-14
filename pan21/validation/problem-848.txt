@@ -1,0 +1,6 @@
+You need to capture in 802.11 Monitor Mode, with an 802.11 link type, not just promiscuous mode with an Ethernet-style link type.
+So, my question is, what is this thing that is sent so that my adapter can get info from networks it is not connected to? Why isn't Wireshark displaying it? 
+Lastly, promiscuous mode will be helpful on a wireless network you are authenticated to, when you want to sniff other peoples packets. So might help turning this off if you are being overwhelmed with packets you don't want.
+When I connect a wifi adapter to my computer I can see the available wireless networks listed, but when I use Wireshark and set it to listen with that interface/adapter, no packets are captured (when I am not connected to any network, because if I am I will effectively capture the packets from that network.
+Do you have other traffic being captured on the network? for example when you open a website and browse do you see that traffic?
+But how is the computer able to display the name of the wireless networks? There must be something that is sent so that my adapter can get the computer to display the network's name.

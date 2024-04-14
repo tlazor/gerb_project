@@ -1,0 +1,6 @@
+I am sorry I cannot suggest any applications to actually do this, but I hope that information helps you make a decision.
+First of all you need to have two different internet connections, it makes no sense using the same one. 
+However, I cannot definitively give that answer without more information. Is this machine in your office (I'm assuming, given the ethernet connection)? If it is, consider this:
+If you are on a home machine, are you using a VPN to connect to your company network? If so, there are probably many more options out there, and piping network data through a wireless device WOULD work in this case, so long as the VPN operates solely off of your wired connection.
+The wifi you are going to be connecting to is probably managed by the company. I know that the company I work for has access logs for all access points, including guest wifi. In that case, they could absolutely look up traffic on both their LAN as well as their wireless access points. Piping network data through a different device won't help you in this situation since the final point of contact is still the company router.
+Try using connectify application , if that doesn't work, there is an application called forcebindip, or you need a router which supports two incoming connections , or the final option is to buy a motherboard which supports two different network cards

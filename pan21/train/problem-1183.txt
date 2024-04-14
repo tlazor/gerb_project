@@ -1,0 +1,7 @@
+Here is a list from wikipedia on some different link functions: https://en.wikipedia.org/wiki/Generalized_linear_model#Link_function
+From Generalized Linear Models by John P. Hoffman: "...generalized linear models...[refer] to a class of regression models that allows us to generalized the linear regression approach to accomodate many types of dependent variables. We no longer have to assume that the outcome in our regression model is a continuous and normally distributed variable."
+Within all of these equations is the original OLS equation. Each equation is a link function that modifies the OLS equation to give you the result in an output that is more applicable to your particular problem.
+Linear regression, or Ordinary Least Squares (OLS) regression, is the foundation for generalized linear regression. I am not sure what you mean by "degree 1."
+An example of this is logistic regression. The output in a logistic regression model is a value between 0 and 1, which the modeller can use to make a binary prediction. For example...
+What is the difference between Linear Regression and Generalized Linear regression of degree 1? because linear regression uses ordinary least square method to find the best fit but GLM uses least squares approximation for finding the best fit I wonder whether the best fit we get from both is same for degree 1
+OLS is "generalized" to other applications via link functions. A link function is a transformation of the OLS equation so that the prediction is in an acceptable form.

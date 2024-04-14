@@ -1,0 +1,16 @@
+I put all the labeled bits where the Z170-A manual said they should go, and the USB cable from the front which wasn't labeled but clearly went into a USB connector. 
+I put the CPU Fan onto the MB's CPU fan connector, the upper left, light colored one, of the EIGHT connectors marked "(3)" in 1.2.3 "Motherboard layout" on the user's guide page 1-2. I put one case fan on CHA_FAN1 and one on CHA_FAN2. 
+Neither chassis fan turned on. So I swapped them around and ended up with them on the second CPU Fan connector, upper right, and on the CPU Opt (water pump) which BOTH start, if there's a fan on the left hand CPU fan connector, #3.
+Turn on the PSU and the green LED (Standby Power LED, item 1, page 1-34) lights up. Press the motherboard's Power On Button (item 17, page 1-2) and the CPU fan starts running. KVM dongle gets a green LED from USB connection.
+Conclusion: bad board with an intermittent connection somewhere in the CPU area.  As a design engineer, I know that the most common reason for this is a bad solder joint.  I'm exchanging the board.
+leftovers were a SATA-peripheral-power-like connector (something that plugs INTO the bandoleer cable that came with the PSU)
+Then it was quite clear that the problem was the PSU. So now I have a new Power Supply and everything is working perfectly.
+If this is running for anyone I'd love to hear how they rigged the wiring. I've got the front panel reset button and white LED working
+When I start the motherboard (the z170-a has a small pwr switch directly on the board), the CPU-FAN runs but no other LEDs light up (not even blink).
+I disconnected SATA drive and power, no difference. I put the ram in A2 and B2, as the booklet shows. Maybe I'll move it.
+I only suggest this as I've made this mistake a number of times when the motherboard hasn't had it clearly marked.
+My case was a little bit more complicated: My PSU had worked fine with my older Gigabyte motherboard. But on the new ASUS board I had No POST. Then after trying again on the older motherboard, that one also failed! But other than the ASUS board the Gigabyte board did provide continuos beeps. And the Gigabyte manual states:
+I discovered quite by accident that if I push on the CPU fan in the direction of the PCI sockets while I also turn on the power, the board would boot.  This persisted even when the board was removed from the case and run bare on my bench.  It also persisted when I removed and reinstalled the CPU.
+I had similar symptoms in my brand new Asus Z170-A.  There was no beep at power on and the diagnostic LEDs got no further than the memory check.  I was able to get beeps indicating no RAM if I removed all four memory sticks, but restoring any or all sticks killed the beep.  
+But no output on the D-25 connector OR the HDMI connector. No flash of subsystem LEDs as the systems are autotested.  Nuthin. No beeps. I put a pair of headphones on it, an amplified desktop speaker on the back pannel left channel, nothing.
+Without wishing to offend you, have you checked and triple checked that the CPU fan is connected to the primary CPU fan connector and not a secondary optional connector?

@@ -1,0 +1,5 @@
+What is the difference in using the Tab key and the space key to create spacing between words. Seems they work differently; TAB separates words with "available space" (for lack of a proper term; Im not computer literate) and space key separates words with "invisible but space-filling" blocks? Is there a program, a lesson or an example that can help me visualize this difference? 
+In addition, if you subsequently add a in from of both words, the TAB will not shift the 1 because in both case, the location of 1 have not exceed 8.
+even though cat is 1 character shorter than text. TAB will always bring the next text to the offset of multiple of 8 (as defined by the text editor or display software).
+Imagine the computer is dumping characters on screen one by one, left to right and top to bottom. When it sees a TAB, it will inject a number of spaces until it reached offset 8, 16, 24, 32, ... whichever come first. Let's say you type text and press TAB. Your next input 1 will start at offset 8 (first offset is 0)
+TAB is often used to align text. The default tab size is often determined by the application. In text mode, the size is usually 8. 

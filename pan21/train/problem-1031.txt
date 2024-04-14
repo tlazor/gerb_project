@@ -1,0 +1,6 @@
+for your situation. Memory tables shine for low writes, many-reads that you don't care if  you lose the data (loading configuration values, for instance). But when you start writing a lot, the table locks kill you if you have many connections accessing it:
+If you delete 19 rows is it faster by a factor of 1000 times? This could be explained as an (O)n linear cost.
+My best guess is that with 19k rows, the 8 seconds is being spent managing the linked list data structure behind the scenes that is being handed the deleted rows. 
+If you remember from freshman comp sci, a list insertion requires the next pointer of the last element to be updated to point to the new element and the tail pointer of the list to be updated to the new element, as well as the list count. I can imagine that 19k x those takes some cycles, plus removing the data and swapping the memory. 
+Tracking of session data may seem like a good candidate because of not caring of the data-loss, but I think you might gain significant benefit of removing table locks by switching to InnoDB in this case.
+"Deleted rows are put in a linked list and are reused when you insert new data into the table." - http://dev.mysql.com/doc/refman/5.5/en/memory-storage-engine.html

@@ -1,0 +1,7 @@
+You'll want to create some form of persistent data storage. Persistent data, if you're not familiar, is data that can be saved/stored on the hard drive for use in-between scenes, after the game/computer has been shut down, etc. In short, you're writing it to a file of some kind. More info on persistent data can be found here.
+Once the user has completed the tutorial and earned the reward, you would switch this variable to OfferTutorial = false. 
+I want to know how to make something happen only once like a tutorial in a game which appears only when you first start your game and then when your game got saved to a further point it never appears again even when you close your game and start again.
+As Draco18s mentioned in the comments, your best bet is to store some kind of OfferTutorial variable in persistent data. By default, you'll have this set as OfferTutorial = true. 
+Now in any script that runs only once per game launch (script in splash screen for example), you can handle very first launch like,
+It is my normal practice in my every game. First I'd like you to add a small script named Utils.cs made by me that I do use in my every game. No such requirement but easy to handle these kind of stuff. Main benifit of this script is you can use bool in PlayerPrefs through int.
+I want to give players some amount of gold when they first got their hands on my game ... but I do not want to give them that again and again whenever they restart the game ...

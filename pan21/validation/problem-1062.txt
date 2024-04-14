@@ -1,0 +1,8 @@
+I guess one way to look at it is Return on Investment (ROI) : If I turn off the disk how long does it need to be off to break even on the spin up cost (in wear and tear and power)?
+Power management on Windows XP is a waste of time unless you buy 3rd party products to take care of all of the things that don't work. Buggy drivers, open network files, etc will all stop most XP power management features.
+I've got a Win XP Pro machine that we're using as a Server. It's mostly used during the day (and early evening for backups) but can be on for days at a time.
+Constantly stopping and starting your disk in this way can take it's toll. I agree with the power reduction but you may well cause your disk to fail prematurely with the constant fluctuation in temperature. If you want them to shut off over night then it might be an idea to set the shut-off to about 1 hour. 
+Just my two cents: reducing power-consumption: okay, but extending the life-time? I guess that spinning up and slowing down the HD will burn it out much faster.
+I've recently moved a lot of our data from SATA drives onto SSD which is proving quite useful with the amount of traffic on the drives. Less power hungry and with no moving parts you're less likely to have the same kinds of problems. Still new tech at the minute but I thought it might be worth looking at. So far, so good.
+Apparently Google did a study that showed that if a HD doesn't fail in the first year it'll have a long life, but they were runnng their HD's 24/7. That suggests that running them constantly is a good thing
+To reduce power consumption and extend the HD life, I'm setting the HD to automatically turn off after X hours. I've read that there is a "cost" (in power and wear & tear on the HD) of spinning up the HD.

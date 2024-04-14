@@ -1,0 +1,8 @@
+.. it is quite likely that you have two users logged onto your client PC. That is, the local computer from which you are connecting to your office network..
+None of the options above worked for me.  For me, it came down to a Wireshark capture. It turns out that most VPN users were trying to hit a 'wpad' server via wpad.mydomain.com.  We have a wildcard lookup on mydomain.com, and so wpad.mydomain.com resolved there.  It obviously failed to get proxy settings from that IP and came up with the error "The VPN client failed to establish a connection"
+I was not able to find this information on the day, but if I had, i'd have been able to reconnect to the company VPN - instead I got the sack, thanks Cisco!
+Unfortunately, none of the above worked for me. I disabled/enabled my wireless network adapter and that resolved the issue.
+I had this problem, and eventually my company support team fixed it by clicking the properties icon on the "Cisco AnyConnect Secure Mobility Client" window.
+On the Preferences tab of the window that appears, locate the 'Check for updates on VPN connect' tick box, and ensure its ticked. Then, when connecting to the VPN, the client looks to see if there are updates available, and installs itself. 
+The security risk is obvious. You can force a log-off on the other user, then it will work (**NB: Unsaved data for that user will be lost).
+If, your experience is similar to mine, where you have seemed to successfully authenticate, and then where you see the following two responses...

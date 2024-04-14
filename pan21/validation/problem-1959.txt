@@ -1,0 +1,5 @@
+I only want to copy to the local filesystem. Is there a way to do this in parallel - with multiple processes each responsible for copying a file - in a simple manner?
+I can easily write a multithreaded program to do this, but I'm interested in finding out if there's a low level Linux method for doing this.
+The only answer that will not trash your machine's responsiveneess isn't exactly a 'copy', but it is very fast.  If you won't be editing the files in the new or old location, then a hard link is effectively like a copy, and (only) if you're on the same filesystem, they are created very very very fast.
+There is no low-level mechanism for this for a very simple reason: doing this will destroy your system performance. With platter drives each write will contend for placement of the head, leading to massive I/O wait. With SSDs, this will end up saturating one or more of your system buses, causing other problems.
+I have a list of files I need to copy on a Linux system - each file ranges from 10 to 100GB in size.

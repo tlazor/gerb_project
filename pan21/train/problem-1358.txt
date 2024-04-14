@@ -1,0 +1,7 @@
+This configuration assumes that your root directive points to the directory where /directory is located.
+/sub-directory/ is not fixed value (in this example below it is), it can be /sub-directory-new/ - depends.
+Should I add some arguments for the rule, like: location /directory$1? If so, which one and how to get it working?
+/sub-directory/ from given URL actually is not real directory inside /directory/. If I visit the URL, i got 404 error - which is real ok, but /sub-directory/ is friendly URL (without query ?argument=value).
+So, here nginx will try first if the file or directory exists in the real filesystem. If the file does not exist, then it forwards the request to your PHP file. Naturally you need to have your PHP processing block correctly configured in nginx.
+I cannot figure out how should I setup my index.php file with Nginx rewrite rules that it will work like example below.
+So, for any value within /value/ after /directory/ in URL, how could I not get 404 error if I visit that kind of URL?

@@ -1,0 +1,9 @@
+Example: I can ping Google's root DNS server 8.8.8.8 from my home internet and get about 40ms, through 12 (!) hops, yet I get a under-1ms ping to 8.8.8.8 from another location in the same city, from a different ISP, on a faster connection, through only four hops. 
+Suppose I want to determine if an IP is located in my country, without a third-party servvice. Could I estimate that to a certain degree by measuring ping times? Or is it better to look at the number of hops in the trace route? Or something else?
+With regards to ping times, ping time is determined by a great number of factors, including but not limited to:    
+If it goes by satellite then like 22000 miles * 2 one way is like 44000/186282.4 or like 236 milliseconds at least since macines are more like 50%c you can expect one way times to be greater. then if the pings are shorter it can not be going by satellite, something funny is going on. :-O
+Yes there is certainly a correlation between ping time and distance. However there are many factors other than distance that can lead to a high ping. Congestion, crappy routing, Satellite links etc. 
+Long answer: IP addresses aren't determined by geographical reason insomuch as the geographical region simply might only have a certain block assigned to it. 
+In the case of the USA, France, Germany, South Korea, Japan or others, the number of IP blocks assigned to their ISPs is much greater, so simply glancing at an IP to see if it starts with a certain number won't necessarily guarantee that that entire network is assigned to a single geographical region. 
+So attempting to use ping time as a geoblocking measure is likely to have an unacceptably high false positive rate.
+Example: North Korea has a relatively small block of IP addresses, which makes it easy to tell when someone from that country has visited your website. 

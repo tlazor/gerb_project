@@ -1,0 +1,6 @@
+Apparently, the "what does it show" issue has been fixed (silently). In the current version (Windows 10 14393.105) hovering over the "Like what you see?" tag shows the name of the location:
+I found this article which gives a handy VBScript to find the current image, copy it to your Pictures folder, and open it in your favorite image viewer
+You will also find that when your computer is locked, now you can just press any key to bring up the login.  This does NOT negate having to log in - just not having to press Ctrl+Alt+Del.
+From there, it is easy to open in Google Image search by copy and pasting the image to the upload form located at https://images.google.com/
+That's it.  Lock your computer (windows + L) and you should magically see all the info everyone else has.  If that doesn't work like I said and you're worried about security, simply recheck the box and you're no worse for wear.
+Since I was encountering similar frustrations, I wrote a Python script to perform this lookup not long ago. Hope it helps.

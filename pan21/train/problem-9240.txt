@@ -1,0 +1,6 @@
+Until to reinstall drivers with new update try to see if the ethernet/usb is connected properly, if you use USB try to connect through different port on machine.
+Assuming other devices are able to print to those printers, then the issue is either your PC or network related. If you can ping, then it most likely is your computer.
+Try assigning a static IP to the printer, relaying on DHCP will make the printer IP changes every x time, where x equals the DHCP lease time, so when the windows tries to connect to printer it appears offline to it, some printer drivers can make the windows looks from some dynamic value in the network like a domain which can be mapped to different IP's from time to time.
+Even though you can ping the web management page, the actual port the printer is listening on may be blocked or inaccessible.
+So upgrading the driver or define the printer in the right way may solve the issue without having a static IP.
+My assumption is that you are using Windows 7, but the general troubleshooting can be applied to either Win 8 or XP.

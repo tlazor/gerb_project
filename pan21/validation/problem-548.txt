@@ -1,0 +1,6 @@
+Once you have that list, disable and re-enable your suspects one at a time until you figure out the culprit.
+I tried to track down where the file was opened from by turning on "Audit process tracking" and looking in the event viewer for clues.
+I had this problem too. If you use "DisplayFusion", it's probably the cause. the newest Beta fixes it. displayfusion.com/Download/Beta 
+Which doesn't tell me a whole lot. Does anyone have any idea how to track down the process that keeps starting it?
+It tells you it was SVCHost.exe that ran it ("Creator Process Name").  Use the PID ("Creator Process ID") and Task Manager to figure out which SVCHost.exe is the one in question, and then use Task Manager to figure out which services are running under that specific SVCHost.exe process...  
+Since I upgraded to Windows 10 the calculator has started randomly opening when I go away from my computer. After googling I found out that there could be a worm doing this, but I can't recall downloading any suspicious files and BitDefender's scan came up clean.

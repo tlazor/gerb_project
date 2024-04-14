@@ -1,0 +1,6 @@
+Until that NAT session expires, or you manually expire it from (Monitoring/Sessions) you will continue to access the resource even though the firewall rule no longer exists for it
+So the only thing that seems to make sense is if TMG is caching the authentication request coming from the machine I'm working on.
+From there, I kept the correct information in the receive port but put an invalid name/password into the send adapter but the process completed successfully (should have failed with 407).
+Validate credentials every (seconds) — This option enables the caching of client credentials for a configurable period of time. 
+that shouldn't be your problem but the steps to configure revese caching rules can be found here:  Configure Forefront TMG as a Proxy Cache
+I'm testing a client machine that makes requests to a biztalk server using a forefront machine as a web proxy. Upon first test I put in an invalid name/password into the receive port and received the correct error message (407). Then, I set the correct name/password and everything worked correctly.

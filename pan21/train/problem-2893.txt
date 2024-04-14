@@ -1,0 +1,8 @@
+AppData folders store per user information for applications, so if you delete an applications data, it will have to recreate it from default values. In effect the program will forget that you have used it before, configuration choices you may have made, saved files (like game savefiles), etc.
+http://www.pcworld.com/article/2690709/windows/whats-in-the-hidden-windows-appdata-folder-and-how-to-find-it-if-you-need-it.html
+If you use Windows Subsystem for Linux (WSL) you will blow away your entire file system for any linux distribution used if you delete this folder. 
+If you have a game or program that you bought on the Windows Store it may be that this is where it is storing its files, saves or other state information.
+You should check each folder in there and figure out what exactly you do and do not care about.  Do not just delete the Packages without knowing exactly what you are deleting.  A program like TreeSize will show you what is actually taking up the space so you can work out if you truly want to remove the data.
+At a quick glance that specific folder appears to be the location where the "per user" settings and state information for the  Windows Store apps are saved. When a UWP Windows App is paused it can save its state so that it reopens in the same place when you launch it again.
+Please don't go arbitrarily deleting (or pruning as you put it) large system folders. There could very well be stuff in there you don't need.. but please go and look for it and delete it judiciously.
+I would recommend you use a tool like windirstat to determine where the space is being used, and what application(s) rely on it. From there you can then begin to determine the impact of your proposed deletion. 

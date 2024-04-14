@@ -1,0 +1,9 @@
+POSIX reserves '/' and null from filenames. This is sensible: one is the directory separator, and one is a string terminator. To support that point, Wikipedia says ext2, ext3, and ext4 allow all bytes in filenames except null and the forward slash. NTFS, whether or not in POSIX-compatibility mode, disallows little more than that; and FAT variants also disallow null. In theory, it really depends on the file system. But I wouldn't hold my breath trying to find a case where null finds its way into a filename.
+Every file-system in existence makes assumptions as regarding maximum lengths, directory recursion limits and more. So a POSIX name that's legal on one operating system might not be legal on another.
+Even names that are legal when tested on one POSIX system, may be rejected by another, because of implementation restrictions.
+/dev/null/impossible cannot exist. This is because /dev/null must be a file, and so cannot be a directory.
+"Legal path in POSIX" already means that it can point to a filesystem object (file, directory, symlink, etc).
+The complete list of pre-determined files and directories is given in chapter 10, POSIX Directory Structure and Devices, of the IEEE Open Group Base Specifications Issue 6:
+To answer the second question, test -e "$LEGITIMATEPOSIXPATHNAME" fails when the file does not exist, obviously.
+On the second thought, some filesystems (such as FAT) have restrictions on allowed characters in filenames. So in my computer, ~/fs/phone/This:is*a?file|name.txt would be rejected by the vfat filesystem driver.
+Since the final question is whether there are special places that couldn't normally have a file, like in the /dev directory stipulated in POSIX, then the andswer is YES.

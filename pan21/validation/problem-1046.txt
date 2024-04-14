@@ -1,0 +1,8 @@
+You might revise step 1. You are limiting your customer base. You could limit the set of distributions supported, but I wouldn't go for just one.
+If you need to spawn many nodes at a time bittorent is tempting but beware, you could bring some switches/routers to their knees if you don't pay attention.
+For application distribution I would provide packages in a format native to the OS of the nodes. Application update would be a simple package update then, which is as easy on sysadmin as it can be.
+Is that common practice? Is there a better strategy? Are there any additional angles I should think about?
+Or you might prepare an automated-install system/image (using the distributions native non-interactive installation system, or combine it with e.g. xCat), which would deploy a complete OS, configure it, and then load your application on top.
+If you want to prepare a whole environment, from the OS level up, you have 2 options. You might prepare a VM file in a chosen format (or formats). Then you would have to prepare the whole environment, from the OS up.
+You could try tools like SystemImager which supports PXE Multicast distribution and even bittorent protocol to disitrbute changes.
+It sounds like you are a prime candidate for a cloud-based computing solution. I would investigate using something like Amazon's EC2, which automates all of the steps you listed down to the click of a button. And don't restrict yourself to just EC2, there are plenty of competitors out there.

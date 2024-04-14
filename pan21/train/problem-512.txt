@@ -1,0 +1,7 @@
+i is not declared, so it's in the global scope. I also prefer i < 6 instead of i <= 5, since it loops 6 times. This is also how you would loop over an array or a string.
+You are not assigning a function to handle the event, you are calling the function, and then assigning what it returns, which is nothing. It works because, as I said before, everything is already loaded at this point.
+You are not parsing any HTML, so there are no reason to use .innerHTML. When you are just inserting text use .innerText.
+That way, you can add all the content you want to your page without fear of accidentally scrolling down (and it won't scroll down Code Review when I try your embedded snippet, either).
+in the code you have to capture spacebar presses, add the line e.preventDefault(). This will prevent the default behaviour for the space key (which is scrolling a screen down).
+you don't need to generate a random number for every hex character. You are choosing among 256^3 (16 777 216) colours, labeled with every number from 0x0 (0 in decimal) to 0xFFFFFF (256^3-1 in decimal, or 16 777 215).
+You are looking for elements without making sure they are even loaded yet. This only works here because the stack snippet puts the JavaScript at the bottom of the body, which is not standard. Normally the JavaScript is included from the head, in which case these will be null.

@@ -1,0 +1,6 @@
+Once the predictive model, was in place, it could be used for optimization - determining which weights to put on the questions when holding all other variables constant, maximizing the average match percentage to women in his target audience. 
+So he used python scripts to collect lots of information! At the end of this, he had a table of data, where each row had three pieces of information:
+AdaBoost is a supervised learning method; it starts with a table of 'correct' answers and generates a predictive model for a target, which is known. It is then possible to inspect this model to figure out how it works, what it judged was more important. With that in mind, here is my guess for what he did:
+On this, he could use AdaBoost to create a predictive model, predicting the match percentage from the available information. The weak learners were probably decision stumps, greedily choosing one variable at a time to split on, that's the standard that people refer to when talking about AdaBoost. 
+Of course, this is just a guess. The article doesn't have much detail. But it's a potential way to use AdaBoost for that purpose. 
+First, he created a training dataset. The dataset was created, according to the article, like this: 

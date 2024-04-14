@@ -1,0 +1,5 @@
+The variable query_cache_size is again set to 0 despite there is the event in mysql every 5 seconds:
+If you have console access check the Linux processlist for signs of an agent running locally that could point to Chef or Puppet. Depending on your level of experience and the amount of control you have on your machine, it could be useful to set up some audit logging to check who/what is connecting to your instance and altering the config. 
+I would look at investigating what is going on with that instance. It might be that the provider manages it with some config management tool (Chef, Puppet, Saltstack, Ansible) and the MySQL variables are being set to a value that the owner thinks will protect the memory use on the hypervisor. 
+In general the query_cache is not very useful. Amongst it's problems are global mutex, eviction of cached results occurs when you update a table (all the cached results for said table, ALL of them). 
+You might be able to brute force it's state by using the event scheduler inside mysql (select your preferred interval). 

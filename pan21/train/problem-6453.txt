@@ -1,0 +1,7 @@
+The question is: Is there any existing VPN service that will make my dreams come true, and is easy to use, which I could connect over PPTP or OpenVPN (I want to set up connection to VPN in my router settings).
+So, in order to get a good internet connection I made a plan: connect to the VPN-service over IPv6, and pass all IPv4 traffic through IPv6 tunnel, or something like that, I think you get the idea.
+Edit: It seems like there are couple of VPN services that supports IPv6 (it's odd, but the biggest VPN services support only IPv4), and there is none providing 4in6 tunnels.
+I'm not good at networking, never did things like that, and don't know where to start, and what should I do.
+You're (potentially) on the right track with an OpenVPN and VPS type solution. The part you're likely missing is a route statement in the OpenVPN config to force it to take all IPv4 traffic.
+I have a local network with internet access. But unfortunately IPv4 internet connection speed is limited to 1mbps, which is realy sad. Fortunately I have a native IPv6, and there is no connection speed limit over IPv6.
+The use case, as I undestand, should look like this: I connect from my home computer to the VPS via OpenVPN, and after that all my IPv4 traffic pass through IPv6 (server do the job). OpenVPN - because I want to configure VPN connection to server in my router (Asus RT-N16?).

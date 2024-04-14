@@ -1,0 +1,7 @@
+I like to have, if possible to save me time looking, the real source file  where  such function is executed.
+Choose any implementation from http://elinux.org/RPi_GPIO_Code_Samples which meets your definition of open source.  Generally the source code will be linked to from that page.
+All current Pis have the same GPIO peripheral (although the peripheral may appear at different addresses in the memory map and different GPIO are brought out to the expansion header).
+Not being familiar with actual implementation of "canned" GPIO functions - YES there are numerous function each and every GPIO port can have, not limited to "canned" configuration,
+can someone point me in the direction of Raspberry load process and actual code implementation of these function(s)  ? 
+here is a different verbage for same - where is the "Open source" code for implementing such functions, and I not need "in github" (duh) as an answer.
+I have not found similar document published by Bradcom for BCM2837 , but would assume it allows similar manipulations of internal registers.

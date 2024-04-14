@@ -1,0 +1,6 @@
+traversing the array will take O(N) time and updating the two indices for each query will take O(1)* number of queries(m)
+To calculate the max prefix sum, accumulate the difference array to  while taking the maximum accumulated prefix. 
+so you can see K=5 add to all the element till the end after applying prefix sum but we don't have to add k till the end. so to negate this effect we have to add -K also after b+1 index so that only from [a,b] range only will have K element addition effect.
+instead of adding k to all the elements within a range from a to b in an array, accumulate the difference array
+Whenever we add anything at any index into an array and apply prefix sum algorithm the same element will be added to every element till the end of the array.
+Today generation system can perform 10^8 operation in one second. keep this in mind you have to process N=10^7 input per query in worse case. so if you use your solution with O(NM) complexity it has to handle (10^7 *10 ^5)= 10^12 operation in worse case (which can not be computed in 1 sec at all)

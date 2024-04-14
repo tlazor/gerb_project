@@ -1,0 +1,6 @@
+If you read ifdown, it actually unenslaves an interface from a bond before setting it down. This does nothing to test bonding failover under the conditions you want to survive a failover, this just tests the bonding driver's ability to have its active slave changed.
+The end result is that an "ifdown" on the interface causes the host to become unavailable on the network for about 20 seconds.  On the other hand, if I shutdown the port from the switch, downtime is under 1 second.
+Not all NICs work like this, some actually need their electrical connection to the switch to be broken, so you can shut the switchport but the NIC doesn't consider the link as failed enough to fail over a bond.
+You're lucky enough that your NICs consider PHY to be down when the switchport is shut, hence the working fast failover when you shut the switchport.
+I am trying to test out active/active LACP bonding between CentOS 6.4 and Arista. One of the tests I'm doing is to shut down an interface on the host and see what happens.
+Bonding with miimon is high availability against physical link failure. The way to test against physical link failure is to physically fail the link, no other way.

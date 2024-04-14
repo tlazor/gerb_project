@@ -1,0 +1,13 @@
+1) The servers (A and B) need to be set-up in Active Directory(AD) with delegation for Kerberos enabled. (this is set through your active directory admin panel)
+3) The Servers need to have SPN's defined for the instance and the HOST and the machine name. (Using a tool called SetSPN in the windows support tools)
+http://blogs.msdn.com/sql_protocols/archive/2006/12/02/understanding-kerberos-and-ntlm-authentication-in-sql-server-connections.aspx
+2) The service account that your SQL Servers run under need to have delegation enabled also (this is also set through your active directory admin panel).
+It's a slippy slope, KERBEROS and Pass-through delegation, stick with it and you will eventually figure it out.
+In SQL Server 2005 they have added a whole load of security issues that make this harder than it should be. The words "Kerberos Authentication" will become the bain of most sys-admins/DBA's lives. It effectively is used for pass-through authentication.
+http://blogs.iis.net/brian-murphy-booth/archive/2007/03/09/the-biggest-mistake-serviceprincipalname-s.aspx
+[Edit] I started a discussion on Sql Server Central about this.  Basically, you have to do some complicated configuration related to Kerberos delegation to get this to work.
+I decided to just create a single, limited Sql Login account to handle the linked queries.  I hate resorting to that, but it seems more secure than the changes you have to make to get it working with windows auth.
+I'm going nuts with the same problem!  I remember doing this with 2000 was always easy.  I have been all over google and I can't get this to work.  Exact same setup, both servers running on a domain account, Windows auth.
+This might have something to do with enabling names pipes, but I can connect via sqlcmd from server A to server B like this:
+If you do a search on sp_addlinkedserver and sp_linkedservers, you get some examples.  It is pretty straightforward to setup.
+http://www.microsoft.com/downloads/details.aspx?FamilyID=96a35011-fd83-419d-939b-9a772ea2df90&DisplayLang=en

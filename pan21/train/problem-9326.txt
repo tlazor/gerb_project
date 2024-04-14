@@ -1,0 +1,9 @@
+There are plenty of guides on making them.  The particular device I linked to will even downgrade gigabit connections to 100mbit, so it will still work, but might slow down the network.
+I stuck a dumb hub in between the two routers and then connected a laptop on another interface of the hub to capture the traffic in Wireshark.
+The advantage of passive taps is that you are completely unable to transmit onto the network - the transmit pairs of your network cards aren't wired to anything.  So you won't interfere with anything accidentally, or affect the results that you are looking for.  They are also incredibly cheap and easy to make - all you really need are 4 cat5 punchdowns and a bit of wire to make a basic one.
+Depending on your requirements, you could also use RITE (Traffic Export).  This will send target packets on one interface to a MAC address on another interface.
+While there are several solutions offered by others here that may work, I ended up doing the following:
+Your question is tagged "Cisco" -- if these are Cisco routers, you can use IOS to capture packets right on the router.  See https://supportforums.cisco.com/docs/DOC-5799 for details and some examples.
+You need 2 network cards to capture both sides of the conversation.  Newer versions of wireshark can handle capturing from multiple interfaces simultaneously.
+This device gets inserted between the two devices.  Then you get 2 ethernet ports to tap into - each one has the transmit pair from one device wired to receive on your laptop.
+You can do it with a passive network tap, assuming it's a 100mbit connection (or you are willing to make it a 100mbit connection).

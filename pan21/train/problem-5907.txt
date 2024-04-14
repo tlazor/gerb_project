@@ -1,0 +1,7 @@
+I use that for web development and especially find it handy that it allows you to modify and replay a previously recorded http request.
+I've found Charles. It's free and avalible for Windows, Linux & Mac. Looks very similar to Chromes dev tools in my opinion.
+The resulting output will contain each request made by your system (this is potentially more than just your browser session: you may prefer to further filter the traffic by adding "&& ip.addr==" to the filter if you're getting too much traffic in your output).  If you only know the server's name, you can use "nslookup .com" in a command line to resolve the server's IP address.
+It looks like you're interested in HTTP headers and content but for all traffic.  Though it's a more complex tool, Wireshark can easily provide what you're looking for, despite it's initially intimidating layout and wealth of capabilities.
+Finally, if you're interested in viewing the response headers or content, right click on the request of interest in the top frame and click "Follow TCP Stream".
+NOTE: All of the above assumes you're not trying to capture traffic to a webserver hosting on localhost, 127.0.0.1.
+When you click a request in the top frame of Wireshark, the middle frame will present the layers within.  Expand the "Hypertext Transfer Protocol" layer by pressing the + next to it to expose the headers for the request.

@@ -1,0 +1,5 @@
+First off, I wasn't sure if this was a question better suited to Super User or one of the other communities like Cross Validated, so please let me know if this is in the wrong place.
+This shows up in Task Manager with the new little green leaf symbol as seen here. The leaf icon shows up in Task Manager next to Apps/Background processes that have at least one sub-process that is suspended, which you can see when you expand the list on the process tab of Task Manager OR if you look at the blue/ 'Status: Suspended' processes in Resource Monitor.
+I've looked for info on whether other people are having the same issue specifically with RStudio and didn't find anything useful. I also searched for general information on how to tell Windows 10 not to suspend a particular app.
+I am using RStudio (Version 1.1.453 / R version 3.5.0 (2018-04-23) -- "Joy in Playing") with the 'enhanced R distribution from Microsoft (Microsoft R Open 3.5.0, CRAN mirror snapshot taken on 2018-06-01) on Windows 10 (Version  10.0.17134 Build 17134).
+I'm having an issue where while I am actively using RStudio, Windows 10 suspends the Rstudio App process and RStudio freezes.

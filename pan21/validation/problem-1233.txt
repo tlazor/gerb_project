@@ -1,0 +1,5 @@
+At the end of your file so that values are overriden only for the group groupname (you must use name, not numerical ID). If the client does not respond for more than one message sent every 30s, the client will be disconnected. You can fiddle with numerical values to your satisfaction. Seems to work on my RHEL 6.
+I have an ssh server.  Some of my users login several times simultaneously; some of those who are doing that should not be, and I suspect account sharing.  The ones who shouldn't are all members of a particular unix group.
+What I'd like is a way to restrict the number of concurrent logins that members of group 402 can have to "one each", with the most recent login taking precedence.
+That last bit is important; these users sometimes legitimately lose their connection to the machine and need to re-establish it, and I don't want them to be locked out of the machine because there's a hanging session which they can't kill.  Instead, I want a new authenticated connection attempt to automatically disconnect the old one.
+As for the lost sessions, could you set a low ClientAliveInterval in sshd to ensure dead sessions don't hang around for too long?

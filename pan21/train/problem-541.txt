@@ -1,0 +1,8 @@
+Depending on the services you are running, you have to look for specific tuning of the installed software.
+First identify the services(ports) your server will provide, then disable everything else, there are a plenty of tools you can use to secure your server like bastille or tripwire.
+E.g. if you suddenly decide you need more IO and the best way to get it is raid 10 then your SOL if you didn't think about that first.
+If this is the case, it is a good idea to take an md5sum and perhaps a copy of critical low-level system tools that would be used in case of a system compromise (such as ls, ps, netstat, etc AND md5sum) in their pristine state before you ever connect the system to the internet.
+I'm not going to talk here much about optimizing it, but because you asked about installing a new server, I'll list some issues about security... but beware of overkill
+Then set up a process to monitor those files and notify you if the md5sums ever change.  One of the first things most rootkits do is to replace these tools to hide their presence on your system.
+It asks you a few questions about how the server will be used, and tightens up some of the default security settings.
+If you running 32 bit you might want to check your kernel to make sure it can use all the memory you have installed.

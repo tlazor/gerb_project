@@ -1,0 +1,5 @@
+As I understand it, less is more + the ability to scroll up. Is it correct? Is there any reason to use more instead of less? Are there any significant differences I'm missing out?
+more just prints the text as is, stopping for page breaks, and does not clear the screen, it can be backgrounded but it doesn't clear the screen.  more also only reads in the file as it displays where less may read the file into memory first.  each handles line wrapping differently which gives different results when selecting and pasting text.
+both tools fulfill the same function but they do it in different ways, so you can pick whichever one you want for the situation at hand.
+If you check, you may find that on your system, less is in fact precisely more, with compatibility as described above:
+less is a full-screen application that gives you a searchable, scrollable window and clears the screen after you exit, less can also be backgrounded and restored like other full screen terminal applications.  less also has a command to open the currently viewed file in your default editor.

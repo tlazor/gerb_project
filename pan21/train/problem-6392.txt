@@ -1,0 +1,8 @@
+The ID (in the cookie) is probably a lookup key into a database table to find all the other info.  And some of that info is used to validate that the ID is for the "current session", not yesterday's session.  That is, it is more than "user_id".
+My first thought was to generate a random string like 4r5psPxuRw and use it as a primary key (CHAR(10)). But in this case index will be 30 bytes per record and I assume that with the large amount of records INSERT performance will suffer.
+You need to pass an ID from one web page to the 'next'?  But HTTP is stateless?  And you don't want to expose that ID in a URL?
+You want prevent external party going through every page of you site and saving information about your users.
+UUID as a key (PRIMARY or otherwise) suck for performance.  Avoid them if at all possible.  That goes for your 'short' uuid.
+I'm building an app aimed to store lots of records (millions) and trying to find a best way to store records identifiers that is publicly accessible from the web (record URL).
+Now I came to a random numeric string, for example 16 digits from 1 to 9, and store it as BIGINT(16).
+Then use a cookie for passing it.  That's what all the heavy hitters do.  Think about how shopping sites work.

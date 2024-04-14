@@ -1,0 +1,8 @@
+The argument for dynamic linking the CRT is that you get bug fixes for free. If a bug is fixed in the CRT and the user updates his machine and gets the fix then your program is fixed where it wouldn't be if you were static linked.
+Imo, static linking of the CRT should be avoided, as lot of older games had this, but some of them now suffer due to changes in the CRT of the host not matching what the internal CRT is doing.
+it also adds ease to certain debugging tools that replace crt calls(IAT hooks are easier than finding every call instance and rerouting it).
+The argument against is that you get bug fixes for free. You might be relying on the potentially undocumented and incorrect behaviour and the 'fix' breaks your code. Suddenly your game stops working for 'no reason'. 
+So, why don't games statically link their CRT so they can reduce the extra step of installing MSVC runtime?
+Doesn't it come preinstalled with windows? I am not a full-time gamer, but I don't remember a single time when I had to install/update MSVC runtime. 
+If the CRT contains a critical bug, it means they don't need to recompile their huge code base as they would have to do with static linking. 
+Almost all big titles that I have played require you to install the MSVC runtime. There have been numerous questions about "statically vs. dynamically linked CRT" on StackOverflow, the reasons for dynamic CRT generally boil down to:

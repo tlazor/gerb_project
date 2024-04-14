@@ -1,0 +1,7 @@
+You will want to write something short and sweet and put it in there for early running, say K01shutmail.  The server will be shutting down your MTA very shortly thereafter, so you'll only have a short time to get this mail sent; don't make your script over-complex.
+I'm running ec2 instance with ubuntu server and sometimes it seems to be shut down. Is it possible to send an email notification, if server switches to runlevel 0? And how?
+This will still only help you if the server shuts down gracefully, and if you're finding it shut down for no clear reason, that may not be so.  If the availability of your box is important to you, I would personally recommend putting a small nagios installation on a cheap shared-hosting server elsewhere, and have that monitor your ec2 box.
+and looking at the second of the colon-separated fields.  It's usually 3 or 5, with the former more common in servers.
+Just set your thresholds (in this case, probably INSUFFICIENT_DATA) and where you want the alert to go (in your case, probably email) and let Amazon handle the rest.
+Probably a better alternative that will handle external shutdown cases (server crash, service disruption, kernel panic, etc) is to use Amazon's CloudWatch and Simple Notification Services to send you Alarms.
+Assuming it's 3, look in /etc/rc3.d at the scripts which start Knn, where nn is a two-digit number.  These are normally run in increasing numerical order when the server leaves that runlevel.

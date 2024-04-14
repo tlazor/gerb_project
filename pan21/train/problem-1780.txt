@@ -1,0 +1,9 @@
+Both yumdownloader and yum --downloadonly are (by-design) sensitive to the existence of already-installed packages, and should be run before any packages or their dependencies are installed.
+The latter option is a lot better for acquiring every dependency you will need for populating your own single-source repository.
+Yum --downloadonly downloads the actual dependencies you need for that particular box.  This makes it easy to install *.rpm.
+Repotrack downloads ALL POSSIBLE dependencies of your package - dozens or hundreds.  Usually the only coherent way of locally installing these is a local repo.
+This downloads the packages and all of their dependencies along with the sub-level dependencies that are needed.
+For example if you download bash, which needs glibc, it will resolve glibc and skip it, since it is installed. If you want to download all dependencies, use a different installroot instead.
+My guess is that repotrack is downloading all the dependencies for any architecture since it doesn't appear you specified the architecture which could account for the difference in what you see downloaded.
+This seems to download the packages and their primary dependencies. What it does not do is download the dependencies of the dependencies. It Only downloads the top level dependencies of the package.
+Yumdownloader --resolve downloads the actual dependencies you need, plus all first level dependencies, even if you don't need them.  Its a little odd in that sense, but sometimes useful.

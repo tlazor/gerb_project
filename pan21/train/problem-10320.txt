@@ -1,0 +1,6 @@
+I'm not entirely sure whether "Block" in Pidgin is server-side or not. I think it's server-side if your server supports the feature, but not all do.
+I'm wondering which of these options are local, which of these has an effect on the server's state, and what's the difference?
+In traditional XMPP/Jabber, there are several "components" of adding a contact, partly influenced by the fact that it's designed to be a federated network (like email).
+All three options are server-side. In most chat apps, adding someone as a "contact" consists of 2, 3, and 4 together. The same applies to Google Talk, I believe – if you have someone in your contact list, that automatically lets them see when you're online, and some of these menu items won't work at all.
+Pidgin has numerous options for the Google Talk contact (you can see them when you right-click on the contact):
+(Of course, in most XMPP clients, the steps are simplified into one. The menu items are there just in case someone needed more precise control.)

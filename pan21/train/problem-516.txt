@@ -1,0 +1,9 @@
+It's actually so bad, that a fork() on Windows is at least one order of magnitude slower than on Linux
+On what basis do you say the other machines "actually were slower"?  There are a lot of things that contribute to a computer's actual speed and to the user's perception of the computer speed.  What sort of things are you doing where forks/sec is a good measure of performance?  What's the memory speed, architecture and amount?  Disk I/O speed and buffering?  
+Which do you think will do more forks/sec: a Core i7 running Vista with 512MB of RAM or a Celeron running a minimal Linux with 2 GB?
+You're not seeing forks; you're seeing fork, exec, system call to read time of day clock, format and convert the output.  Not to mention whatever else is time sharing in parallel.
+Windows does not have a native fork() syscall so Cygwin has to emulate this. The implementation of this emulation is very inefficient though. (See Cygwin FAQ)
+The above example shows the difference between an i5-2500k @ 4GHz, 32GiB RAM Windows 10 Pro box vs. a feeble one-core, 1GiB RAM VPS
+MSYS2, which is often used in applications where one wants a possibly fully featured Linux-like command line environment on windows, is based on Cygwin, which is why it's also affected by this.
+I've seen cygwin run dog slow when the windows "home" directory was on a network drive.  Every single command would search there for binaries slowing things down tremendously.
+otherwise try running bash via strace/ltrace (if they even work on cygwin) and see what it is doing when it takes 1 second to execute date.

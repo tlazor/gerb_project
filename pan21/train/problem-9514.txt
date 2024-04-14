@@ -1,0 +1,5 @@
+Sometimes when free memory reaches values around 100 Mb, OOM-killer is invoked, killing vital processes (php, clamd, ...). How is that possible? Shouldnt OS free slab reclaimable before invoking OOM?
+Perhaps its a bug in kernel itself https://bugzilla.kernel.org/buglist.cgi?quicksearch=oom&list_id=904801
+Correct me if I am wrong, but to my understanding slab reclaimable holds cached kernel objects which can be freed if needed. So if application needs to allocate more space, even if the 'free' memory is low, OS will drop some pages from slab reclaimable and privide application with the requested amount of memory (unless its not possible). 
+The bug in the kernel mentioned in Linux process killed even though enough memory available seems to be talking about order 2 memory (16kb of physically contiguous memory allocations) and i believe that problem has been addressed in the later kernel (https://lkml.org/lkml/2016/11/29/618)
+First thing I noticed is that the slab and cache are the exact copy of memory used, meaning is contant. 

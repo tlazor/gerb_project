@@ -1,0 +1,9 @@
+We tried to debug those headless instances using the --remote-debugging-port option, but we didn't find anything suspicious in the console or anywhere else.
+We have a special Java application for that, that uses the following CDT client for launching the chrome instances and communicating with them: https://github.com/kklisura/chrome-devtools-java-client
+This problem is caused by the underlying websocket API implementation, Tyrus. It has a default maximum message size of 4MB. This URL, and many others (especially if you enable printing backgrounds), results in PDFs that (when encoded as base 64) are larger than that 4MB limit. In this case the websocket is closed with a Buffer overflow error, however we don't see it as chrome-devtools-java-client doesn't listen to the websocket's onClose events.
+We were not able to get any useful logs from the headless instances of chrome, even though we followed all the necessary steps specified here: https://www.chromium.org/for-testers/enable-logging
+In most cases everything works as expected and we get our PDFs, but for some web pages headless-chrome just hangs during the PDF printing step.
+I'm not sure about the offset treatment in the case where the result isn't base 64 encoded, but I don't think we're going to see that when printing!
+Did somebody else have similar issues? Or maybe somebody has any idea as to why does it happen? Maybe somebody has some tips on how to enable the logging on the headless instances of chrome?
+Pass the PrintToPDFTransferMode.RETURN_AS_STREAM as the transferMode parameter to Page.printToPdf and then read from the stream with a buffer significantly less than the 4MB limit (even after the increase due to base 64). I use 1MB:
+The page appeared to be loaded successfully and it seems that chrome just refused to print the pages.

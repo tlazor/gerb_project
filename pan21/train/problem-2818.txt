@@ -1,0 +1,10 @@
+It dawned on me. You keep mentioning MX records, but those are not what you're looking for. The DNS feature you want to leverage is the TXT record with the SPF line.
+Spamhaus and/or greylisting will drop most of the problem addresses.  Requiring FQDN in the helo/ehlo messages will catch a lot of the rest.  
+Doing what you propose here will likely eventually result in you no longer receiving email from the biggest and most widely used domains in the world (gmail, hotmail, yahoo, etc.).
+But ultimately, and I know this answer sucks, I think the only thing you are going to be able to do to properly send to those domains that currently reject you is to get a new IP address for your mail host. I know, it isn't fair. And I strongly urge you to fight the good fight. But when you get tired of your mail getting lost sporadically, then I think you'll decide that getting a new IP is what you've gotta do (or bite the bullet and move to a different server/host that works).
+This allows you to whitelist IPs that are allowed to send mail for that domain. But be careful, you can easily cut yourself off if you fail to whitelist your ISP's SMTP relay or if it changes.
+DNS and rDNS need to agree for your server.  If your address is listed as dynamic at Spamhaus, you will be refused by a large number of servers, mine included. 
+Dropping messages from servers which don't accept messages won't work if they also do the same.  There are a number of legitimate senders who don't accept bounce messages after the fact.
+The first thing I'd try is to make sure the PTR record for your IP matches your domain, and does not resolve to something like "user1235.big-isp-adsl-for-the-masses.com".
+Bounce the message during the connection not afterwards or you will contribute to SPAM through backscatter.  
+You could use ppolicy to add new policies. You will probably need to write your own module, but it should be do-able

@@ -1,0 +1,5 @@
+Divide the assigned disk_read_bytes_sec and disk_write_bytes_sec by 512 (the sector size) to get the limits in sectors the virtual disk will support. (10 MB = 10000000 bytes)  / 512 = 19531
+Using the queue length (the UPPERcase  -W and -C options) seems a bit more universal. When you get an increased IO queue  that  is bad, regardless of how fast the underlying storage is, you're pushing more reads/writes than it can support and your applications will slow down. 
+Setting meaningful thresholds based on the absolute number of IOPs and sectors read from or written to a block device (the lowercase  -w and -c options) requires a priori knowledge of the actual capabilities of that particular block device (for instance by benchmarking them). 
+I have no idea though if the documented 50 and 100 milliseconds are reasonable or completely arbitrary  values.
+For my virtual servers using absolute numbers is relatively easy, they are provisioned in flavors  with specific limits   and I would only need to set the the warning/critical levels at for instance 80% respectively  95% of those assigned limits. 

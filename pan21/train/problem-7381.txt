@@ -1,0 +1,5 @@
+There are many things that you could check here: temporary files created by your processes, integrity of your /tmp filesystem partition, if you have recently mounted/unmounted that partition, trying to change your /tmpdir, etc. Unfortunately Percona Server 5.5 SHOW TEMPORARY TABLES is not available in 5.6 (yet?).
+This may be caused by a new feature of 5.6, where subquery execution may generate indexes for faster processing.
+I'm running percona 5.6 on a new centos 6.4 server. Things seem to work OK. I personally only really use InnoDB tables for my databases, but only the standard 'mysql' table is in MyISAM format. 
+Actually, your problem comes from temporary tables, that may be created in MyISAM format (in fact, up to 5.5, this was the only format for temporary tables on disk), not from the system tables in the mysql database, that are mostly also in MyISAM format.
+By experience, do not trust what a simple filesystem inspection may tell you about available free space- in particular with files that are deleted very often, but they have still a file descriptor open. 

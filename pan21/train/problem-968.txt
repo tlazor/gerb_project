@@ -1,0 +1,9 @@
+Thus this would fire off much faster in comparison to Fail2ban (which monitors logs for e.g. repeat login failures), because the banning happens as soon as the request has arrived. This can work as a complementary measure to Fail2ban though.
+However, suppose that your website handles just / (homepage), then some /shop/<product name> and /blog/<name-of-the-article>.
+Once defined in config you need to pass through those requests to a FastCGI script which interacts with your firewall to immediately ban. 
+Typically bots are trying to check for software/plugins which are vulnerable, but not even present on your website to begin with.
+You can leverage the fact that you know you don't have them. And then instantly ban whoever tries to load those endpoints. (e.g. see this honeypot for NGINX technique).
+You can implement the same with Apache. Essentially you'll need to list locations which are not belonging to your website and commonly attempted for exploits.
+If it uses a front-controller pattern, which is, e.g. a single index.php processing virtually unlimited number of different SEO URLs, e.g. /foo/bar, and there are too many of different "category" (first level) pages to list in the configuration, then there is no luck there. 
+E.g. you know you have a Magento website, but so many bots will try to see/login as Wordpress. So /wp-login.php is one of your honeypot locations.
+Which would have the web server deliver straight not found error without invoking PHP at all, for requests which are know to be not part of your app URL "scheme".

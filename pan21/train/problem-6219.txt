@@ -1,0 +1,10 @@
+If you want to install syslinux bootloader for ISO files which are not meant to target USB drives, use -b option:
+For Windows-based bootable USB drives, you'll need to add the bootmgr compatible code with bootsect.exe, then you can simply copy an entire Windows CD/DVD to the USB drive. Guide for Windows 7 found here.
+Some ISO images already have the appropriate boot sector; for example, Arch Linux ISOs. In this case, all you need is to write the image using dd ... of=/dev/sda or similar. (Using a partition, sda1, will not work.)
+Open the folder /run/media/<YOUR_USER>/<ISO_NAME> and copy all ISO files to the USB drive (pendrive) including the hidden ones.
+IMPORTANT I: In order for the USB drive (pendrive) be bootable the ISO needs to be bootable. Use the same reasoning for UEFI ("BOOT/UEFI") compatibility.
+IMPORTANT II: If the ISO is not compatible with UEFI ("BOOT/UEFI") method it may be necessary to enable the "Launch CSM", disabling "Secure Boot Option" and enabling some other legacy suports on machine bios.
+It will also autodetect USB device if there is exactly one USB drive connected to your system, see it in action:
+But if the ISO image is not specially prepared to be used from a USB drive, you will have to copy the .iso file to the disk as an ordinary file – mount, cp, all that – and install a bootloader such as Syslinux or lilo or GRUB. (There already are several pages on the Internet on this topic.)
+For Linux Live USB drives, I'd recommend using Pen Drive Linux. They tell you how to make pretty much every distribution bootable from a pen drive, and they link you to the tools needed. 
+bootiso will check that selected device /dev/sdd is connected through USB and fails if it doesn't, which is a big security plus.

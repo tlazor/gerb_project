@@ -1,0 +1,6 @@
+2) Manually editing /etc/hostname in the container: has no effect after container restart, and has no purpose without restarting.
+For easy updating, do it on the docker host machine. Use the options like this with your docker run commands.
+You’ll be able to update the file on the host machine without having to get inside the container and update the file.
+GitLab seems to pass its current hostname to a GitLab runner for it to clone repositories. In the default network, the container can not be reached by name, only by IP address. That means I need to set the hostname of the gitlab container to the IP address, but I only have the IP address once it is already running. The only solution is thus to:
+The other (clean) option would be to start the containers (gitlab and gitlab-runner) in a custom network, so that they can be reached by real hostname, but currently I have the problem that the containers started by the gitlab runner are not able to reach the required container services spawned by the runner when using custom networks.
+4) Changing the hostname of the container in the host using namespaces tools, as described here: not possible in Ubuntu 16.04.4 LTS since I have no access to the namespaces tools.

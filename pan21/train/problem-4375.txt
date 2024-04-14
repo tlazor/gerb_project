@@ -1,0 +1,7 @@
+It is also always worth checking that the public key you put on your server didn't end up there in multiple lines. One public key = one single line in the authorized_keys file.
+On your server, check the system logs in /var/log. I am not sure where failed login attempts get logged on your machine, but look for the log files that have been changed recently after a failed login and you should be able to come up with something.
+I was speaking to the hosts and it would seem that the key I generate needs to be made in Putty on a windows machine, the converted to work on my Ubuntu machine.  This doesn't seem right like but I am going to give it a go and see what happens!
+My solution was to just give up and move authorized keys to /etc/ssh/users/[user name]/authorized_keys and then changed /etc/ssh/sshd_config's AuthorizedKeysFile setting:
+One thing to check is permissions on the key file on the server. I have found in the past that sshd will not use the authorised_keys file unless the permissions are greatly restricted.
+This should give you debug info on both sides. The sshd process will probably be more interesting because it will tell you why it's rejecting the key.
+If that didn't help, try getting a verbose out put from ssh: ssh -v -l username hostname. The output is hard to read and understand, but it might give you a clue about what might have gone wrong.

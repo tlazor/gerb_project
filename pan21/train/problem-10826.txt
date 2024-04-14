@@ -1,0 +1,5 @@
+You should be able to 'hard code' DHCP entries into the lease table but, yes, if the clients and the Server are set to allocate IPs on the fly, you'll get random IPs.
+You will want to make sure you don't have any devices that are statically configured with an IP and that your new DHCP server hands out addresses within your old server's range so you don't step on devices with static IP's.
+If you have scripts that depend on IP's staying as they are, why are you handing them out with DHCP? The devices you need to keep static should be assigned statically; in a small network, I'd set up a block of IP's for the DHCP server and another block divided for particular devices like printers and servers and aren't in the DHCP server's range.
+You'll have some weirdness until the PC's and devices get new IP's. It may get ironed out with a restart. Otherwise you might have to to go machines acting wonky and do a manual release and renew of the IP.
+Many machines, especially Windows, will try to get their old IP back, and if they fail to get it are supposed to renew it.

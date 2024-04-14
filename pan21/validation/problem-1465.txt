@@ -1,0 +1,7 @@
+I was under the impression that relative paths are always resolved by appending them to the basename, not the current URL. (Which would lead to localhost/static/admin/base.css, which is where the file actually IS).
+Have I thought wrong (and my Django settings are mixed up), or have I miss-configured my apache server? The following would be my 000-default file in site-enabled folder:
+Relative URLs are constructed by stripping everything following the final / from the base URL and then appending the relative URL. So http://localhost/admin/ has nothing after the final / and would have nothing stripped before adding static/admin/base.css.
+Therefore, the constructed URL http://localhost/admin/static/admin/base.css is constructed correctly.
+I haven't changed anything in apache2.conf, ports.conf, envar or wsgi.conf. For testing purposes, my .htaccess file is also empty.
+I've set up a new apache2 server on a Mint System (Ubuntu-base, which also means Debian-based). I've also installed a Django backend and the wsgi_mod extension. I'm just serving from localhost for testing purposes.
+The Django admin interface (accessible with localhost/admin/) refers to its css file with a relative URL like static/admin/base.css. Now I see in my apache logs that the browser is trying to fetch it under the full URL localhost/admin/static/admin/base.css, which doesn't exist.

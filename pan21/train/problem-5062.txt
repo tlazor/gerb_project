@@ -1,0 +1,5 @@
+One way you might approach this is to store the tag data for the table in an array, then convert the array into a string something like this:
+When you need to retrieve the table's tags, you'd retrieve this big string, SPLIT it on ~ to create an array of strings, each element of which represents a row of tags for the corresponding row of the table.  You could then split that element to get the individual tags for each cell in the row.  
+Row1Cell1Value|Row1Cell2Value|...|Row1CellNValue~Row2Cell1Value|Row2Cell2Value|...|Row2CellNValue and so on, where | is the separator between tag values for each cell in the array and ~ is the separator between rows.
+Depending on your needs, it might be conceptually easier to do this doublesplit trick to rebuild the original array of tags, so that each (x,y) element of the array corresponds to the same (row,col) cell of the table.
+You should probably post this question in StackOverflow rather than here; SuperUser is devoted to "How to use this program" questions, StackOverflow to "How do I program this" queries.

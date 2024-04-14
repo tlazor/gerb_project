@@ -1,0 +1,5 @@
+I used it in the past to download certain GMail folders (labels) to my computer, which that page gives goods instructions for.
+Now, I don't know much about the mbox format, but the following steps will allow you to download your messages to a local client like Mail.app or Microsoft Exchange:
+Click to select all of the messages and then apply your label.  Then follow the instructions from http://lifehacker.com/5521065/how-to-migrate-email-from-one-gmail-account-to-another
+Next, label all of your email that you want to download with a common label.  So, do your particular search in GMail, check the select all box to select all of the messages.  If there are more than one page of messages then GMail will notify you like so:  "All 20 conversations on this page are selected. Select all 900 conversations in Search results".
+Using this method, you might be able to actually keep a synced backup of this search for any new items that come in by creating a GMail filter to automatically label them, and having the local email software keep that folder synced.

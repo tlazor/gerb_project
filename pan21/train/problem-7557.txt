@@ -1,0 +1,9 @@
+I saved the .ics file on the desktop and tried to "open with" but found that "open with" doesn't give me the option to choose a random app or the calendar app but only Outlook, an assorted list of some applications including Notepad, and the Windows Store.
+Looks like inconsistency in the contents of the ICS may be a major issue hence missing from Windows Callender App. 
+I don't think the Windows Calendar app supports .ics import. I think the only way to do it is to import into calendar.live.com
+However, I was able to import into Outlook 2007, then Save a fresh ICS then import to calendar.live.com
+Windows 10 opens the attached .ics file with Outlook and proceeds to add it to one of the inactive calendars in there. I don't want to use Outlook (or any inactive calendars which don't sync).
+I opened Windows 10 Calendar and the entry was there. it was actually there twice since the first click worked anyway, just no notification so I did not know it worked
+ I then right clicked on the .ics file and I selected "open with": and then  Windows "Calendar" app from list. 
+I tried to set a default for calendar in the Windows 10 "All settings" -> "Default apps" and found that no program is configured for "Calendar". When I try to configure one (the calendar app), it says it cannot find any suitable app on my PC and proceeds not to find a suitable app in the Store.
+I had an attachment on an email which was labelled "not supported calendar message.ics" - I clicked on it anyway - nothing seemed to happen.

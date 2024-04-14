@@ -1,0 +1,6 @@
+This can also be caused by a failing hard drive.  This happened to me recently, in fact, when the RAID controller on my motherboard began to fail and files on my hard drive were becoming corrupted.  I didn't realize, until too late, what was happening and lost most of my recent data.  
+This isn't normal. It typically happens either when it hasn't been run in a large amount of time (Not sure what this actually is) or when a hard drive related problem is detected.
+It seems every time I restart my PC (W7 ultimate 64-bit) it runs CHKDSK. Is this normal, and if so is it configurable?
+If this runs, let it run on a couple of boots and watch for any errors it may find.  If it does not find any errors after you watched it run a couple times, you're most likely ok and you can follow suggestions offered by others to alter the behavior.  If it's finding errors every time it runs, it could be pointing to a serious problem.  You are backing up your data frequently, right???  :)
+I can't think of a reson why this should happen but have you tried Task Scheaukder to see if anything in that is causing it to happen.
+It is also possible to remove AutoCheck from startup using Autoruns or from Regedit directly, but I would not recommend this method.

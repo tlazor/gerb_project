@@ -1,0 +1,7 @@
+Also, wherever possible, we try to use some form of strain relief on the server/device side.  See if you can Zip tie power cords against the back of the server so they are not taut.
+For the last hop of the power connection (C13-C14, which seems to be what you are asking about), we use these special locking power cords from APC.
+Every rack mount server I have purchased in the last 5 years, has came with power cable strain relief clips of some kind.  If properly used it would take a lot of force to pull the power cable.
+Note that you only see the benefit using the APC cords with an APC PDU.  The APC PDU still accepts normal power cords.
+We use APC racks, UPSes, and PDUs.  UPSes are hard-wired.  Connection from the UPS to the PDU is with a twist-lock cord (L5-20 or L5-30).
+I use mostly IBM servers and they have various methods of anchoring the power cable.  NetApp filers are the same way, as are Juniper switches and I think routers. 
+I have used Panduit cable-tie anchors for this sort of thing.  They have small "loops" through which you pass a cable tie and are backed with adhesive to stick to the chassis.

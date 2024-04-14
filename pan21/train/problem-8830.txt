@@ -1,0 +1,11 @@
+Neither of these symptoms are viral in nature. If someone told you they were viral, they were playing cruel prank on you.
+To make this "virus" go away, in a My Computer window, go to Tools -> Folder Options. In the View tab:
+It sounds like you're probably running into the malware described here: http://cleanbytes.net/google-images-redirecting-to-a-new-virus
+The only infection you did describe was a standard fake antivirus malware, which are not usually too difficult to remove.
+My main suggestion for avoiding it in the future would be to use Firefox with the NoScript plugin, which will prevent sites from running any type of active content in your browser unless you've whitelisted that specific site.  By preventing this attack from running its JavaScript payload, that should prevent it from infecting your system.
+From a quick googling, I didn't find anything specific about how to remove it, although http://www.google.com/support/forum/p/Web%20Search/thread?tid=6df7e15519290612&hl=en has a list of malware removal forums which may be able to help.
+You make several vague references to other system issues you believe are related to this infection. Providing more detail on what these other issues are may clue us in to what sort of real infection you actually have. Just remember. desktop.ini and System Volume Information files and directories are not indicative of a virus at all.
+Adaptability for the recovery of both MS Windows and Linux operating systems (FAT32 and NTFS file systems).
+Or, if you have a second computer you can connect your hard drives to as secondary or slave drives, do this and scan them from there. Once the safemode or slaved drive scan is complete, connect the drives to their normal computer or boot into normal mode and run the Malware Bytes full scan again to get any leftovers.
+I used this Rescue CD and it helped me out. Hope it will do the same with you. Here are some feature of this you will find on link also.
+desktop.ini files are created in any folder you have set view preferences for. System Volume Information folders are be default created on every drive in Windows.

@@ -1,0 +1,5 @@
+yes, you can choose the QSFP LR4 PSM type ,I have project for Brocade , and EMC storage ,the 2 buliding so far the 500M , We are use the type for install, something liek the QSFP SR 4 with Breakout cable. to 10G LR ,
+These 4 ports will behave like individual ports but be aware that they are the same QSFP (and the same cable until the breakout happens). If it breaks all four of them break. This may sound silly but I've seen people expecting redundancy when connecting all ports of a system to one QSFP.
+A fan-out cable looks very simple. It takes one (large bandwidth) physical interface and breaks it out into several (smaller bandwidth) interfaces. This 4 x 10G breakout cable takes one 40G QSFP interface on one end and uses a fan-out cable to break it into four SFP+ interfaces one the other end. These four LC modules then go to different ports.
+The Cisco 5696Q supports this according to the Cisco datasheet. There are instructions on how to configure it.
+A 1x40G QSFP port can be fanned-out to 4x10G SFP+ ports.  You need to configure that 40G port as 4 Tengig ports in the switch. The break out cables on the other end can go to different hosts.

@@ -1,0 +1,8 @@
+I came upon the same problem earlier today. I found that you can authorize regular users to do certain operations with the "zfs allow" command:
+I can't use sudo -S to pass the password as the zfs stream is already hooked up to the standard input. And the two examples above that expects an interactive terminal and not stdin.
+You can then add security by using the ForceCommand directive in the authorized_keys file to permit only the zfs command to be executed.
+One key to increased security, including avoiding the need for root logins, is to use the built-in permissions structure of ZFS, and also to structure your backup transfers the other way 'round and pull your backups over the network, rather than pushing them.  The ability to back up filesystems without root access is one of the major design achievements of the ZFS filesystem.
+Afterwards, you'll be able to ssh into the server using your_username and you'll have zfs privileges to receive.
+Perhaps it's silly not to want to enable root login on a server. But it leaves one more thing for a brute force attacker to guess which is nice.
+Set up an SSH trust by copying the local user's public key (usually ~/.ssh/id_rsa.pub) to the authorized_keys file (~/.ssh/authorized_keys) for the remote user. This eliminates password prompts, and improves security as SSH keys are harder to bruteforce. You probably also want to make sure that sshd_config has PermitRootLogin without-password -- this restricts remote root logins to SSH keys only (even the correct password will fail).
+I wish to replicate the file system storage/photos from source to destination without enabling ssh login as root. I've tried a number of different combinations such as:

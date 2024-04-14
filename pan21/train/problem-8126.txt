@@ -1,0 +1,8 @@
+But images are still missing. By inspecting the source code, I noticed that many of the missing images are requested by inline javascript. For example:
+A an ending note, if you have some files where the name is in "Content-Disposable" headers. (domaine.com/something_that_returns_a_file.php for example). You can try to use those if supported by your version. You can use them toghether.
+In your case, you could programmatically parse the javascript code to extract file names (like images/button.gif), then load them with more calls to wget. But of course that is no general solution to that problem. I have also seen web pages with embedded javascript which do compute image URLs/file names during runtime - per session!
+If there are redirections that give you some troubles like bring you back to the home page and then you start download-ception, you can set the --max-redirect=0.
+A viable approach to circumvent these javascript obfuscation measures would be to loading the web page into a standard browser, but through a local proxy (squid comes to my mind); and then to examine (save) the proxy cache.
+I am trying to download an entire website for a project. I'm working on Linux and usually use this wget command to do the job
+I'm not sure how you're site is sturctured but indeed wget cand do that, there are tons of examples to do that in the manual. There is a little note about --requisite, so that would depends on the structure of your website. I never had suck problem so can hardly point to the "fix".
+Not really, that's not a thing wget was build for (neither curl, for example). Javascript might even delay loading images by a certain amount of time, or wait for images to appear on screen (cf. long scrolling pages).

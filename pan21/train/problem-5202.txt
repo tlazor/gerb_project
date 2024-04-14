@@ -1,0 +1,10 @@
+There is one huge reason to run Linux as well as Windows, you can browse the internet without worrying about viruses. Use Linux for web browsing and Windows for other apps abd you have a secure system which runs whatever software you want to use.
+Here's a take on it: if you don't really think you need to run it, it would probably be better not to dual-boot. If you need to do something Linuxy, you could use a LiveCD or stick a tiny distro on a thumb drive.
+If you choose to dual boot, there are programs like Wubi (used for Ubuntu) which make installation very simple - it creates a virtual "partition" to install Linux into, and if you decide you don't like it, run Wubi a second time and your system is back to normal.
+It's hard to say much more unless you give more information. What sorts of things do you use your computer for? Why did your previous experiment with Linux end? 
+Your real question, I think, is "Do I have any particular reason to install Linux?" Based on what you wrote above, the answer seems to be "No."
+That said, unless you like to experiment and explore, or unless you've got apps that really need a native linux environment, Windows should suffice. Basically, if you need to run Linux, you'll know you need to run it, and if you don't...
+There are hundreds of practical reasons to use Linux and hundreds of practical reasons not to run it.
+HOWEVER, a better option is tp run Linux in a virtual machine, as it makes switching between OSs much simpler and easier. VirtualBox (www.virtualbox.org) is a free way to do this which works very well.
+Ultimately, nobody else can tell you what's good for you. I suppose they can (and often do) but it rarely does either side any good.
+If you were a Linux user, dual-booting just might be helpful. You could do a lot of stuff in Linux, but you might need to boot into Windows for a few things (like some gaming). And Windows is somewhat harder to use LiveCD style or from a thumb drive (just because it's not really designed for that).

@@ -1,0 +1,8 @@
+But more importantly, should I be creating normal maps dynamically? Obviously generating them on the fly will be computationally expensive, but how else would I get a normal map for something I won't know the shape of until last minute?
+ var sprite = PIXI.Sprite.fromImage("http://www.goodboydigital.com/pixijs/examples/20/couch.jpg"); //(pondFloorTexture);
+Note that at line 15 I've added a bit of code that attempts to replace the normal map with a dynamically created rectangle. But for some reason this results in everything appearing black. Am I doing something wrong? Is there a better way to do this?
+In your case you would probably need to calculate the normals of the entire mesh terrain. This would give you a position and normal per vertex. If the terrain doesnt rotate or scale then there is also no need to apply any matrix to the vertices 
+If all your tiles are flat squares there isnt a need of a normal map. Just apply the inverse transform matrix of your modelview.
+I am building a tile game using Pixi.js. The game features dynamically-generated terrain and a day/night cycle. I'd like to use a normal map to give the sense of sloping hills or mountains.
+The purpose of normal maps is to contain some detail that is used to calculate how much light will contribute lighting up parts of a polygon.
+  var pondFloorTexture = PIXI.Texture.fromImage("http://www.goodboydigital.com/pixijs/examples/20/counch_norm.jpg");

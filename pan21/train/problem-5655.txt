@@ -1,0 +1,7 @@
+You might find the Minimum Password Age setting is close; unfortunately, from memory it takes an integer as a number of days that a password must be valid for, meaning 1 is the minimum.
+It's a simple privilege against the user account, which overrides the password change rate-limiting restrictions in the password policy, as well as other aspects like password history restrictions.
+The privilege path that the password reset system is taking is identical to what happens when an administrator resets the password; the service account that the self service software is using will be assigned the same rights.
+Windows domain environment here. We're looking at putting in a self-service password reset system (using Citrix Single Sign-on), and I'm trying to figure out if we can limit the number of password resets a user can initiate down to 2 per day.
+So, no, a limit on resets per day would unfortunately need to be implemented and enforced in the self service tool.
+I'm not sure that this can be done with Citrix Single Sign-on (correct me if I'm wrong), but is it possible to restrict this with an AD password policy, without preventing Administrators from being able to reset the password if the user calls?
+It shouldn't prevent Admin-driven password resets, but will prevent users re-resetting the password after an Admin reset (at least, the docs for MinPasswordAge say so)

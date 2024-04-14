@@ -1,0 +1,6 @@
+Your IO subsystem (aka disks) are your problem here. Your system is spending a huge amount of time waiting for IO requests to be fulfilled. I tend to start looking at upgrades whenever my systems reach ~5% iowait. Needless to say, you're way beyond that.
+It looks to be high disk utilization as iostat is at 100 for the majority of the time with respect to %util (last column):
+Currently we have a number of Amazon AWS c3.large setups and I'm trying to figure out the bottle neck. The load is very high on most of them during our peak periods.
+You'll need to increase the amount of IOPS that are available to your system. Your first option is migrate to a PIOPS (Provisioned IOPS) EBS volume if you're not already using one. After doing that, then increase the IOPS setting until you get the performance you need.
+Although watching the tps (IOPS) seems to average about 70-80. So it seems to be enough. But I do notice some occasional high bursts well above that. I believe that shouldn't be a problem either as the bursts are up to 3000.
+The thought might be that the IOPS used with the 64 GB General Purpose SSD might not be enough (192 IOPS).

@@ -1,0 +1,7 @@
+Instead, is it possible for me to take that existing vim session and open it with my second login?  That way it would for sure preserve all my changes, and I wouldn't have to open all the same tabs again.
+You can kill vim (but don't use -9) and all your changes will be saved in the .swp files. Then you start a new vim and use Recover.
+You can't take over processes that have been started from another terminal. Had you started vim inside screen, you would have been able to detach the screen session and then reattach from a different terminal (including an external one over ssh).
+Another option is to do :mks (make session) every now and then; if you then kill vim and start it from a different terminal, you can simply source the Session.vim file that the mks command has created (or start vim with vim -S Session.vim) and resume your session (you may have to respond to a few restore prompts though).
+Then there's retty, but it's not available for all hardware platforms, and it's in an experiental stage - basically, use at your own risk.
+I know I could just force logout my other user, but that would kill the existing vim session.  I think my changes would all be saved in the .swp file.
+When I left work yesterday I left vim open with the files I was working on.  I'm working from home today, so I VPN'ed in, and when I go to edit those same files, I get the warning that there's another current vim session open with those files.

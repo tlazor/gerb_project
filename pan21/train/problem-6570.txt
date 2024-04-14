@@ -1,0 +1,9 @@
+I rebooted the computer into command prompt (Shift + Restart > Command prompt) and was able to access and move the directory out of the protected drive. I was then able to access it normally inside windows.
+I have tried using the property dialog, cmd prompt takeown and icacls. All give file not found error.
+Clearly, the file is there on the server because it contributes to file item count and folder size. It is visually there in the folder as well. But when performing any action on it e.g. moving, opening, setting security information, windows reports "specified file not found".
+I had issues where the files were offline with conflicts.  If you are using offline files try to clear the conflicts
+We boot into safemode on the server itself and was able to takeownship directly on the affected files and folders. That solved the problem.
+that is what appears even when accessing as domain\administrator on a windows 7 client machine. I have read information from various places such as this, but they are all looking to delete the file. In my case, I want to recover that file.
+Again, i think this is something that should have been in a KB or something than having us to trial and error.
+Something or someone had recently deleted 90% of the files on the network. The recovery was done by copying backup files from a Linux based NAS (Baffalo Terastation Pro) back into the win2k8 servers.
+I had the same error when I accidentally dropped a folder in the WindowsApps directory in the root of the secondary drive. When I tried to access it through command prompt - it would throw Bad data. 

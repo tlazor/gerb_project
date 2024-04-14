@@ -1,0 +1,5 @@
+I have a workshop in my backyard, and it is an unfriendly place to position a computer; so I was wondering if there is a product on the market, that would allow me to control the computer in the house.
+Assuming your mouse and keyboard are USB and your monitor is HDMI, you could just attach those directly using range extenders for USB and HDMI. Range extenders usually connect using ethernet cable. 
+Is there anything like this? IF yes, what is the proper name? I was thinking to use a raspberry PI and use it to connect via network using remote desktop, but it is incredibly slow and inefficient
+A KVM is uses to connect one monitor, keyboard and mouse to different computers; while I need something that does the opposite: I need a way to connect 1 computer to 2 monitor, 2 keyboard and 2 mouse (one at my desk in the house, one in the workshop in the backyard).
+Another, in my view better alternative is to install a thin client (faster than the Raspberry, of course) or small format PC and connect via Remote Desktop or some other remote view technology such as VNC.

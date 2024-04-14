@@ -1,0 +1,7 @@
+APC (or xcache for that matter) is a keeper, it avoids recompiling php source to opcodes in each execution. Also, if you are running all in one machine you could use APC for data caching and scale to memcached later if you code a good abstraction from start. 
+Is this a valid configuration? Do I need to bother running APC if some of my PHP is already being cached by Varnish?
+They do cache completely different things. APC caches the compiled PHP Code and Varnish or any other webcache caches the content (that may be produces by that code).
+Varnish in front to cache and split traffic between nginx for static content and Apache with mod_php for dynamic content.
+Then, if you are not using edge side includes or some advanced cache invalidation I would use nginx for dynamic content caching instead of varnish. Static content should be given a large expiration time in nginx config and use versioning in file name to avoid serving stale content.
+This is a valid setup although i guess it may be oversized for most uses and would need a lot of RAM to act as intended.
+There are several places to reduce layers... e.g. the nginx / static webserver can probably be replaced by a clever caching strategy and using just apache and varnish (cache static content longer and use cache invalidation techniques if you change content). But that depends on your special application and needs.

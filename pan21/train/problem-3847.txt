@@ -1,0 +1,7 @@
+In theory, you buy the ram for prod machines that are under a service contract from the maker, under the one neck to squeeze theory. This is expensive. But, if not critical, sure, buy Crucial, it should work just fine, it just might make HP less than thrilled if you have an issue.
+Nowadays I bguy SuperMicro stuff barebone and get good components (well, CPU, discs, RAM) from regular shops. The saved money keeps some spares on site.
+I'm something of a HP server geek and I can assure you that Crucial P/N: CT850337 is the correct part, they are £124.99 each before VAT and will work just fine.
+Although some manufacturers memory is better made and less likely to kill your server, in the same way as a delicious sangwitch from one shop might be better than from another less tasty outlet, they both do the basic job perfectly well.
+They quoted 4 times the Kingston rate. They justified that with 4 hour on site replacements. I told them I could buy 2 sets of RAM (note: we talk og 64gb here) and would have on site in 5 minutes, as the on hands technicians in the hosting center could do it, too - and it would STILL be HALF as expensive. And that ssumes I keep a full 64gb replacement on site, which makes little sense.
+It's entirely possible that the RAM your supplier is selling is ECC RAM, which is more suitable for servers that need to never, ever crash. Likewise, the cost goes way up.
+Sounds to me like the supplier is trying to earn too much. I remember the same thing with Dell Blades - the reason I stil dont have them.

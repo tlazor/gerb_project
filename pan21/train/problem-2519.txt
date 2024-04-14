@@ -1,0 +1,8 @@
+Look them up... and if you can't find anything (private registrant via proxy) then who cares? You can always set your reverse-DNS for your machine yourself.
+If the name for the reverse address does not match the forward address, it is likely that the name you see was the name assigned to your IP address when the IP was used by a different customer of your provider.  
+Why don't you just look up the registrant info for this domain, and contact them? Usually postmaster@domain.com works, or webmaster@domain.com for contact as well.
+If the name does match, you should talk to your provider and make sure something else isn't going on.
+When you do a reverse lookup of your IP address, does the name that is returned resolve back to your IP when looked up as a forward address?
+If contacting them does not work, and you are concerned about the search for their company showing up with your company's information. Implement a quick named based virtual host for "their" name(s) on "your" server and put whatever you like there. Then the next time the search engine spiders come by you can have anything you like show up for their name as it is your server. If it is obnoxious enough, maybe they will go away.
+Since I do not see why would anyone do what they do, it is probable they've made an honest mistake. In that case, why not contacting them and reporting the issue?
+PS: are you sure they point at "your" IP address? Or is it simply that "your" IP address is shared hosting?

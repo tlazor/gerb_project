@@ -1,0 +1,7 @@
+- Maximum Processor State: 5% (you can set this to 1%) but if your system is not that fast, it may crash. 5% is a safe setting that will already safe lots of power.
+There are programs to change between powerschemes and it is possible to use powercfg commandline options to switch different schemes.
+If your computer uses wireless, You will want to change it to maximum power savings, though using a lan cable and disablign wireless will of course be more effective.
+With the powercfg commandline option, it is even possible to use Scheduled Tasks to make the computer go into extreme power savings mode at 23:00 and get back to normal operations at 7:00.
+You need to create a new powerscheme and put everything on low etc, including turning off the screen. I did this to mine bitcoins on a laptop when I closed the lid and resume normally when I opened the lid. The system went from 120 Watt usage to 15 watt usage, or something similar.
+With this new power scheme in place, the laptop will work really slow, but it will also not consume much power.
+Set everything relevant to as low as possible, but the most important settings is the following one (it will have significant impact on power reserve and system performance)

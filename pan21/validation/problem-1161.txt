@@ -1,0 +1,7 @@
+I started my Windows XP virtual machine and now I want it to join the domain on Windows Server 2012, but I don't know how am I supposed to do it since both the machines are virtual and not connected to each other using any switch or anything.
+Now I setup the Domain Controller in Windows Server 2012 with the domain name testServer.com, and also setup the DHCP server.
+Now, I configured Windows Server's own IPv4 address as, 192.168.10.201 and preferred DNS server is the same IP address.
+I have downloaded and installed Windows Server 2012 in VMWare and also installed Windows XP Professional. 
+In our University lab, everything is setup with different virtual machines connected to each other, And I am trying to create the same scenario at home since most of the required Windows are free for us to download and use.
+I am confused here, if I have changed Windows Server IP configuration, doesn't that mean that it is not connected to the VMWare NAT network anymore ?
+Both the machines are setup in VMWare Workstation with the network connection type of VMware as NAT.

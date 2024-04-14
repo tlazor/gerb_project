@@ -1,0 +1,9 @@
+Unlike others here I much prefer to be able to immediately identify a machine and its user, as well as the location, and am more than happy to rename machines when staff changes, rather than put up with a cryptic and hard to work with arrangement. Of course that won't work in all situations but has worked very well where I've worked.
+i.e. 044THDBA410211 is in the UK (044), data centre called THD, rack BA41, blade enclosure  02, blade slot 11.
+Then the server gets a logical name that typically states the platform it's part of, its OS and it's function but not its location as that will frequently change.
+Our servers have two names; a physical one and a logical one. The reason is that cabling doesnt care what a server is, just where it is; and logical names change more frequently than position.
+I've only used two different schemes, depending on the scale of the operation. For a small company, such as where I work now, each machine is named after its user. I'm fortunate enough not to have any duplicate names.
+For a large global network the scheme was CC-COMP-HOST, where CC is a country code, COMP is a company code and HOST is the machine name. Servers were named sequentially and workstations had a combination of a two character department (or city for small offices) name and as much of a user name as could be fit in.
+For VMs we just look in vCentre to find where it is, for physicals and VM hosts we simply have a lookup web page.
+So the first laptop with XP3 would be L-000-XP3. The first ubuntu one would be L-000-UBT. It's flexible and provides an easy structure, much better then {companyname}01, 02, 03, etc.
+Knowing what OS it is is helpful when/if trying to connect remotely. You can get city (hell office location if not actual desk) from your CMDB by looking up the asset tag number.

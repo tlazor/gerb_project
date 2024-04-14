@@ -1,0 +1,5 @@
+Similar memory problems also manifest in queries, not only during build, specially if you use versions prior to SQL Server 2012.
+Strictly speaking creating a non-clustered index on a partitioning scheme is done exactly as the clustered index, much as Thomas already showed you:
+But the real problem is the futility of partitioning a non-clustered index by a boolean. Aside from the general issues with misunderstanding partitioning and abusing this very expensive and invasive feature (see How To Decide if You Should Use Table Partitioning), partitioning on a boolean is non-sense, especially on a column that appear to be very volatile (changes often) and highly skewed (far more 0s that 1s). Filtered indexes are probably what you're after. See Filtered Indexes vs. Table Partitioning.
+Having a non-aligned non-clustered index is usually not recommend, see Special Guidelines for Partitioned Indexes:
+And, finally, having an 'isLocked' column is never a sign of healthy data modeling. In fact a big code smell. You probably need to read about application locks and/or using tables as queues.

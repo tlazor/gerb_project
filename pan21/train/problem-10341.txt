@@ -1,0 +1,11 @@
+I had to do this today on my Debian system. First, I identified the time range when the offending upgrade happened, and retrieved the log entries giving the old and new version numbers of the upgraded packages:
+2) Change your /etc/apt/sources.list (and sources.list.d/*) to the previous version (comment all non-official repositories).
+It looks like I don't have the older ethtool package for some reason. Still, let's carry on by force-installing the older package files:
+Next, I tried to find the still-cached package files on disk (luckily for me I hadn't run autoclean):
+I have successfully done that few times but I won't recommended it. This is what I did (if I recall correctly):
+5) Repeat #4 until all software belongs to your target version (check on version column in aptitude).
+As the error message said, one of my packages depended on a -common package just before the upgrade, but the upgrade removed it (and apt-get can't find it any more). Luckily, its package file is still in /var/cache/apt so I can just add it to the list and try again:
+1) Remove any non-official software which are not included in the default ubuntu repositories (it may not be required, but I suggest it as they may get in your way).
+I believe not, aside from taking a full backup of the relevant filesystems (those that contain /, /bin, /lib, /sbin, /usr, /var, /etc and /boot (which may all be on on filesystem) and your boot record) so you can roll the machine back afterwards.
+4) Using aptitude, downgrade core packages (like X11, libraries, etc). It will start firing a lot of broken packages... so you will need to solve each case (you need to know how to do that in aptitude). The way you downgrade it is by going to the description panel and installing the version (by pressing +) at the bottom.
+I would highly recommend to do a clean install and move your configuration little by little. It also takes time, but at the end you have a stable version.

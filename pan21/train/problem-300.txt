@@ -1,0 +1,9 @@
+Is there a rule of thumb? ex: "if I have a dataset of 500k it's reasonable to have 50 variables..." or is this really depending from case to case, and I should figure out variable importance to the model, once it is done?
+So the better way to choose how many features to keep is to check if you are able to build a reliable model or not: start training your model with all the features; if the model gives you a good performance keeping the overfit under control, than you are ok with that. Otherwise you start pruning features.
+So the Bayesian one will require much less samples in the dataset in order to give reliable results w.r.t. the non regularized Neural Network.
+I am new to the ML/DS field. I started a project where I need to predict the age of users. I'd like to build two models, one predicting the age group (I created 6 age groups), and the other one predicting the age explicitly (as a number). I cleaned the data, and did the correlation between the possible input variables and target variables.
+What I get confused about is: how many variables is too little compering to the dataset, and how many variables is too much?
+The robustness will also depend on the number of parameters on which your model is built on: a Neural Network with 50 Million of parameters need more data w.r.t. one with just one Million parameters.
+Please let me know if something needs to be clarified, I'd really like if someone could help me with their experience and/or direct me to an article/paper that deals with this subject. 
+Also because the robustness of a model depends on it's ability to handle the overfit: a neural network without any regularization will be much less robust w.r.t one with regularization. And both will be less robust w.r.t. a Bayesian Neural Network.
+Some people are suggesting that "the more the better", but I am also aware that too many features can cause overfitting...

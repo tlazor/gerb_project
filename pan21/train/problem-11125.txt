@@ -1,0 +1,5 @@
+I understand SNMP agent on a server collects information such as CPU, Memory, Network, IO stat ... information.  How to I know what exactly information being collecting on a linux server by SNMP agent?
+Well if you don't have access to the application that is doing the query, then I'd start by performing a packet capture. Though some SNMP implementations support TLS, the vast majority just use plain latest UDP, so finding the OIDs queried should be fairly easy once you have a packet capture. 
+The above snmptranslate examples only work if the MIB files are installed and if all the paths are correctly set, but this is out of the scope of this question.
+Note that probably not all fields are really available. Some might be platform-specific, others deprecated and some are only available if configured.
+The various MIB files that come with Net-SNMP tell you what values might possibly be available. Using snmptranslate you can see a tree view of the different values under the ucdavid subtree (which contains the Net-SNMP specific values):

@@ -1,0 +1,9 @@
+Subuids aren't meant to work the way you expect them to work. They are designed to map UIDs in a user namespace to different UIDs outside that namespace, which comes in handy (and actually was designed) for containers.
+However, I can remove the file as user, if I use sudo to chown it - but it shows as a write protected file when I do. This indicates I do in fact have permissions to modify files with this subuid.
+As of why can you remove the file: it has actually nothing to do with subuids, instead, it all depends on you having the ownership of the directory the file resides in. Since file deletion changes the directory, and not the file itself, if you can write the directory, you can remove any files from that (except for "sticky" directories).
+There is a program lxc-usernsexec that comes along with lxc. This allows you to remap user id's using the maps /etc/subuid and /etc/subgid.
+I have a set of subuids for my user. I want to chown a file to specific subuid which is part of this user's allocation 
+Hope this helps! The above probably requires various things setup for unprivileged LXC container use. In particular, I think /proc/sys/kernel/unprivileged_userns_clone should be 1.
+This is why the chown command fails: it doesn't matter if you could have some other UID, should the namespace was different, at that moment, you don't have that UID, and therefore, you can't change the ownership of any files (since you're not root).
+Can anyone explain the inner workings which is going on here? I've probably misunderstood something basic somewhere. I can't tag this as subuid because not enough rep, so I'll use uid.
+However, a process still can have only one UID set (user namespace), and users are not permitted to change ownership of files, for obvious security reasons. It doesn't matter, as far as the process itself is concerned, if the user is actually someone else outside the namespace.

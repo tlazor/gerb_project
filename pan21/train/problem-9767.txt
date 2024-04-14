@@ -1,0 +1,5 @@
+I use WinSCP as my ftp client. I have used it countless times on different web hosts via ftp without any problems....except my own web hosting. 
+I was wondering if anyone knew what the problem was or an idea? My web host is ran by a friend who is pretty clueless when it comes to this sort of stuff.
+The problem is that when I attempt to edit or upload a file that is larger then about 10K, it appears to minify the file by removing line breaks and spaces in the code. This is pretty problematic when it comes to PHP files as it produced a syntax error.
+There's three possibilities I see here - firstly, it may be a consequence of using ASCII rather than binary mode - you might want to switch modes. The second is its some server side wierdness, but that is out of our hands. The third would be to try another client to rule out client wierdness. I never had any issues with winscp when I was using it, but wouldn't hurt to see if filezilla, or cyberduck (my personal favourite) would work better.
+My hosting is running cPanel (if thats relevant), although I have used it without any problem on other cPanel web hosts.

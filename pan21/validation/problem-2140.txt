@@ -1,0 +1,7 @@
+As far as I can tell, this is not documented by Unity. But, if you look at that bug report and the dialog I had with Unity's rep, it is the intended behavior.
+I don't see any option in the importer that might be doing that.  And I'm using the same localToWorldMatrix and the same coordinate data in the .obj file.  Hmmm
+Look at the mesh instead of the game object in the inspector and see the orientation. Most of the times, exporters apply an overall transform.
+Note that none of this depends on any modeling app. I did my tests with a file I created in Notepad. It all comes down to the OBJ file being specified as using a right-hand system, Unity using a left-hand system, and Unity negating the X-coordinate to convert from one to the other.
+The difference between a r/h coordinate system & a l/h coordinate system is that the x axis is negated. I wonder if the object was created in a modeling app that uses one system while your development framework uses the other.
+When I import my wavefront obj model into unity and then draw lines over it with the same coordinates in the obj file, the x coordinate is negated.
+I had quite a discussion about this with Unity customer support, which you can see here. The short of it is this:

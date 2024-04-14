@@ -1,0 +1,5 @@
+Yes it is! Raspbian is a Debian, and quite an old one - too many programs are far further in versions rather than in Raspbian repos. So the only potential issue you can occur is the case when a driver is added in the mainline kernel : AFAIK Raspbian still in 4.1 line, but mainline is 4.6 nowdays
+The reason for this is that vendors that provide Linux drivers are often doing so with opaque binary blobs compiled for x86 CPUs. The Pi boards are all based on ARM CPUs, so a binary blob targeting x86 won't work.
+Raspbian is Debian Linux. If the USB WiFi dongle claims to be supported in current Linux kernels, then you should be fine. But if it includes a Linux driver, then you may be in trouble.
+Usually the hardware is implicit / assumed to be PC hardware (Intel / AMD CPU).  If you are buying a USB wifi adapter for your rPi, stick to what others are using in the forums or Google the device to see if other are using it with rPi.
+I think that you are trying to determine whether the USB device is compatible with your stack: chipset (ARM) + OS (Debian).  If that is the case, then it the question is whether a device driver is available for the stack. 

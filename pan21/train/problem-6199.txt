@@ -1,0 +1,5 @@
+If you wanted to swap the HDD back and forth between Pis, you'd either have to keep swapping the one BerryBoot card OR clone the card using something like dd. 
+I have one Pi and I'm thinking about getting a second one, and would like to do as much preparation as I can before the second one arrives.
+If I use berryboot on a Raspberry Pi to install an OS to a USB hard drive, and then move that USB hard drive to a second Raspberry Pi, will berryboot be able to detect the already-installed image so that I can select it without initiating a new install?
+However. If you used the BerryBoot card that you originally installed the OS with in the new Pi, then yes, it's almost guaranteed to work! All Pis of a given model have the same hardware, more or less.
+From the way I read the documentation, it doesn't appear that BerryBoot can auto-detect what OSes are installed on a hard drive. In that sense, you wouldn't be able to install BerryBoot on a new card and get it to autodetect an already-installed image.

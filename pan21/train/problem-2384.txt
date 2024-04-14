@@ -1,0 +1,6 @@
+However in this case, on the link you provide, the full line what you are refering to is actually this:
+Unfortunately you will find that specification sheets are often mangled, usually in an attempt to simplify the specs to your average person.
+No spinning hard drive will approach 3.0Gbits/sec except when it is transferring data from its buffer - buffers on hard drives are pretty small compared to the storage on the drive so it's usually not something that would be a dealbreaker.  The speed benefit between 3.0Gbits/sec and 6.0Gbits/sec (SATA-III) is minimal for spinning hard drive.
+An SSD that can transfer at 6.0Gbits/sec rate will still be much faster than a spinning drive on a 3.0Gbits/sec interface.
+So that means the interface is rated to support a speed up to 3.0Gbits/sec - this would be a SATA-II interface.
+You have to read the specifications on the hard drive and see what its maximum transfer rate (for both read and write) is to determine whether it can take advantage of 3.0Gbit/sec or higher.

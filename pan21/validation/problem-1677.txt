@@ -1,0 +1,6 @@
+The passport is effectively being defined as an attribute (by proxy of possession) on the person. We store attribute on tables in columns.
+In my opinion, if there are persons without passport (as in real life), the third solution is the most straightforward (and efficient) one, with PersonId in Passport both as primary key and foreign key towards Persons. 
+If each person must have a passport, then both the first and the third solutions are reasonable, and the choice among them can be done on non-strictly “modeling” aspects like efficiency, hypotheses on the stability of the structures of the relations, etc.
+If a passport can only belong to one owner and an owner can only have one passport then the first approach is the right one
+To me, whether you need to use multiple tables (or entities) to present the 1:1 relationship really depends on some business facts. Let's use your passport case as an example, this is a perfect 1:1 relationship, but I probably would choose option 4, not only for the advantages you mentioned, but also for the following advantages:
+So in short summary, I'd say separate [Person] and [Passport] to make a concise and flexible data model. If you need to join them, you can create a view to link the two tables together.

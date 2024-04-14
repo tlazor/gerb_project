@@ -1,0 +1,7 @@
+Is there anything that I can do (except restarting my Windows after each document is sent to print)? Is there any way I can "clean" network "path" to printer or force my Windows to understand that printer is in fact on-line?
+tl;dr Is there anything that I can do to "clean" network "path" to my printer or otherwise force my Windows 7 to recognize my printer as being on-line (which is true), while it claims that is off-line?
+The situation came to the (curiosum?) point that I can print my documents via HP Connected (I'm sending them over email and printer "captures" them and prints them; unfortunately I can't select only certain pages or print both sides this way), but I can't print it directly over network.
+I'm must admit that having printer with 100% ping responses that, Windows claims, is turned off, actually limits my knowledge and resolution ideas to minimum.
+Actually I am able to print something only upon system start / restart (from "old" printer spool), as immediately after full system startup / "old" spool cleanup my Windows 7 starts claiming that my printer is offline.
+Or to the point where after system restart printer prints documents (from "old" spool) and minute or two later it is unable to print another document:
+I have Windows 7 Home Premium SP1 (with all recent WU updates installed) and HP LaserJet Pro MFP M426fdn. And for past few days I have a terrible problems with printing.

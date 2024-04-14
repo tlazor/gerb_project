@@ -1,0 +1,8 @@
+You could certainly set up the snort box to be a (set of) front end proxy and let it sniff the traffic as it directs and load balances it. 
+Whether it is worth it is a question for you though, whether you think your application is at enough risk to warrant the additional work / cost. 
+Is it possible to forward all traffic to a VM with an IDS (snort) and then to the actual VM serving the content?
+With the new v2 / Resource Manager machines it isn't possible to have a machine that isn't in a VNet. 
+Only you can decide whether to use a VN vs direct-connect over the Internet. However, once you go over the Internet, you'll need to concern yourself with:
+As for linking a machine from another account? Do you mean having machine from separate subscriptions in the same VNet? no you can't. What you can do though is create a VPN link between them and have them within a similar IP range. 
+You can set the routing table for a VNet to feed all traffic into a particular VM. That could be a snort box. 
+Virtual Networks do not span Azure subscriptions. You must have all of your VMs in the same subscription, for them to share a Virtual Network. You can bridge VNs across regions, and across deployments. Just not past the subscription edge (e.g. the billing boundary).

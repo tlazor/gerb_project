@@ -1,0 +1,6 @@
+I've always had email notifications from my Windows server, but with Linux I am yet to come across such an option.
+There are other systems that will perform specific checks on machine health and alert you immediately as well. Nagios is very user-extensible and you can write a plugin to monitor almost anything.
+There are a number of widely available, well-supported, and open source systems to monitor your server health in near-real-time. Check out the following in combination with logwatch:
+I'm looking for open-source software or other solution to install on my linux server that will keep me up to date on the server's performance and status by email.
+i have one small code which send you cpu load like wise i'm developing for memory and network usage you try following link for the same
+I use logwatch for monitoring servers, it doesn't do performance logging by default though, it's very simple to configure. Nagios will do very precise availability and performance monitoring, it also can send e-mails when some thresholds are met.

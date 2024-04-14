@@ -1,0 +1,6 @@
+Another is to set your kubectl.exe path "C:\Program Files (x86)" in environment variables. You can use do that in prompt like this:
+For your issue, you want to install kubectl in window, but get the error. And the error that your kubectl path is not in your environment variables. You have two choices.
+Once you're sure that kubectl is installed, then add C:\Program Files (x86) to your PATH and you should be good.
+Odds are it's the second option, but I'd suggest checking C:\Program Files (x86) just to make sure kubectl.exe is there.
+If you're on Windows 10, you can do that by going to Command Prompt, search for System, click into System.  Then on the right left hand side click on Advanced System Settings, you'll get a popup window.  At the bottom of that popup window you'll want to click on Environment Variables.  You'll get another popup, and in that popup you'll want to look at the list of System Variable and click on the 'Path' variable.  That'll bring you to your last popup, where you'll click either new or just click on an empty cell and type in 'C:\Program Files (x86)' to add it to your path.
+Then add "C:\Users{user}.azure-kubectl" to your PATH in control panel -> system -> advanced -> environment variables

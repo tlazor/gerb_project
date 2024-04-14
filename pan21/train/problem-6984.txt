@@ -1,0 +1,5 @@
+I'd like to preface this by saying I'm not a system administrator at all, just a lowly Java programmer. However, I've been tasked with writing a batch script to be run on a sizable number of laptop computers. The script is done, but there's a catch (of course).
+As to how to achieve this? SO awaits! And the use of the %TEMP% folder is because it will be cleared out by the system eventually I believe.
+They want to be able to plug in a thumb drive containing the script, start it, and pull the thumb drive for the next computer but leave the script running. Oh, and for some reason, using the laptops' built-in wireless to pull the script from a shared network folder isn't an option.
+This is really more of a question for stack overflow I think, because these are all problems that can be solved programatically.
+I want to know if there's a good (and preferably easy) way to do this. I thought about having a script on the thumb drive copy the needed script to the hard drive then start it, but I don't know if it will work and I don't really want to leave it on the hard drive after it's done.

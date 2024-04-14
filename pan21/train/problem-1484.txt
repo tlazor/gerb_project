@@ -1,0 +1,6 @@
+I asked before, and WPF was suggested, and it looks excellent.. However i really need to keep to Java (work standards).. So the question is what XNA style API is the best for this, I can see that JMonkey etc seem to provide 3d stuff, but I also need sprites etc.
+If your application is primarily 2D(like 95% to really make this a viable option) then use the Slick engine which is a 2D engine.  3D models will have to be done directly in openGL via SlickCallable.
+Depending on how much interleaving of 2D and 3D technology you need it might be more beneficial to create your own hybrid engine straight from LWJGL.
+For example: Think, defused 3d planet rotating in the background, while call stats are printed over the top.
+It might be a lot easier to use the JMonkeyEngine 3 and use textured billboards if you need a lot of 3D graphics.  A lot of the expected sprite handling will needed to be coded by yourself though, although you can stay within the world of JMonkey and not have to drop to openGL.
+As part of the project i am working on I am looking to produce some software that works on a LCD display (think call center info boards) and displays various graphs (the bars grow etc in realtime, so incoming call stats etc etc) and flicks between various 'plug-ins'.

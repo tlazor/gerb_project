@@ -1,0 +1,6 @@
+2) Find areas using the good old Divide and Conquer. It all looks to me like a set of linked rectangles and triangles. It's easy to compute the area using basic shapes
+4) If you wan to get curvy I'd suggest approximating curves with triangles. Other approaches will require more power and coding.
+It is an c# with XNA library to work with shapes of every kind. I dont know what language / platform you are targeting but with the source code provided by codeplex you should get an idea of how to handle shape creation, collision and picking.
+1) If you mean how to modify the shapes programmatically just add 2 new vertices at the intersection points.
+Depending on your desired shapes you may want to have a look at metaballs, which handle composition of bodies (and therefore shapes in 2D) from particles.
+Slicing is a problem for itself, you need either to composit your shapes of smaller shapes and split them after slice, which would be the easier approach, but also limit the player. Or you regenerate your new shapes with your algorithm after the users sliced the old one.

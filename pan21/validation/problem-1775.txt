@@ -1,0 +1,9 @@
+Typically when you get that kind of prompt, the XP box is looking to authenticate against something and failing.  Does this network have a domain?  If so, is the OS X machine part of that domain?  
+Is your Samba server configured to only accept plaintext username/passwords by any chance? Windows will refuse to do this by default, whereas Mac OS X and Linux may not.
+Is the valid username part of a domain or is it a local account on the computer that is hosting that share?
+The second request for valid credentials by Windows XP is either meaning the username and password you entered is incorrect or they don't have access to that share.
+You say Windows is on the domain, but OSX and Samba are not; I'll take a guess you're also saying your Samba server is Linux based? Let us know what your password options are set to in smb.conf; would "security = server" be a good guess what you have running? And what is the value of your 'workgroup' line - the same as the domain?
+If the above is true, check your linux server to see if 'winbind' is running - if so, turn it off as it's trying to use your domain. I have a setup similar to yours and the Windows XP guests have a problem accessing this non-domain Red Hat samba server if winbind is running, even though security = server on it. (/etc/init.d/winbind stop; chkconfig winbind off)
+Based on the fact that the XP box is coming back with the name of the server, I'm guessing that the account does not exist on the server.
+The login you provide must match either a domain account or an account that exists on the machine it's connecting to that has permission to that share.
+For example, let's say I have a domain called, "MyDomain.local" with a server called, "MyServer".  If the account you're using exists in the domain, you'd have to type in the username like this: "MyDomain\Username".  If the account does not belong to the domain and only exists on the server, then it'd be "MyServer\Username".  

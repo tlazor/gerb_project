@@ -1,0 +1,6 @@
+I haven't run into this problem with losing my settings, but you should be able to back up your preferences by simply making a copy of C:\Users\<username>\AppData\Roaming\vlc (or equivalent location on your machine).
+Drag everything (except the $PLUGINSDIR in the installer) into the C:\Program Files (x86)\VideoLAN\VLC folder (or other destination). You will need to do this as Administrator and answer Yes to *Overwrite current files?" 
+This should not affect preferences, whether stored locally or in the Registry. However, manually updating does have a small risk that some current setting may not work well with the new version. That said, I've never had an issue using manual update.
+Open the file in a utility such as 7-Zip [Yes, even the installer executable is compressed, and can be unpacked!].
+To restore your settings, first make sure VLC isn't running, and then just replace that folder with your backup copy.
+This has happened more than once. Is there any way to stop it? Or any way to back them up at least? Using Windows 10.

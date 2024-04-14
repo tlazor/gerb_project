@@ -1,0 +1,10 @@
+Final this to do is have modprob and irexec run on startup. To do this edit /etc/rc.local. sudo pico /etc/rc.local
+If all this works go and create some actions to be performed on IR-input. Run pico ~/.lircrc and type something like:
+I'm using a logitech universal remote (harmony 300), which is programmed to replace my sony-stereo's remote. The Pi's audio is connected to my stereo. If my stereo is set to AUX, most of the button on the remote don't do anything. So I use those buttons to control the Pi.
+You'll need the lirc_rpi module. This is available in the latest kernel. Check if it is available in your system by  running find /lib/modules/ -name *lirc_rpi*. If nothing is found do the following to upgrade the kernel
+Now load the lirc_rpi module (change gpio number is you are using different ones. note that these are gpio numbers, not pin numbers)
+Someone already implemented a module for LIRC (http://aron.ws/projects/lirc_rpi/). Just connect the sensor to the gpio pins. lirc_rpi is already present in current raspbian builds. The only thing you need to take into account is that some IR-sensors don't work on 3.3volt.
+Here a detailed explanation of how I added remote control to my pi (my orignal post at: http://www.mightyohm.com/forum/viewtopic.php?f=2&t=3420#p5621):
+(skip the modeprobe line I you are using default pins, and have set MODULES=lirc_rpi in hardware.conf)
+I did run into one problem, that is, that the sony remote sent out 2 different lengths of pulses. I don't think many remotes will have this though. I fixed by making lirc think that the shorter code where from a different remote (you can setup LIRC to use multiple remotes at the same time).
+Connect the TSOP plus to the 3.3V, and ground to ground. I connected the OUT to GPIO 4, which is pin 7 on the board. I added a 2.2K resister just to be sure. Note that lirc_rpi defaults to using PIN12 (GPIO18) for input, and PIN11 (GPIO17) for output. If these pins are free, using those pins would be preferable. The output is for a IR blaster, but I don't need that. So I set output to GPIO 7 as that one isn't connected in my setup.

@@ -1,0 +1,5 @@
+I am completely stumped. Currently I'm making a remote desktop connection to the working computer and then using that to RDP to this one...
+So I have two Windows 7 computers I've set to allow remote desktop connections (Not requiring Network Level Authentication). One of them works just fine both locally and across the NAT. The other works locally, but not across the NAT. Instead, mstsc hangs on "Configuring remote session" and then says computer can't connect to the remote computer.
+As an example say you had a computer called A-RDP running an RDP server, and a pair of routers R and G. Router G is the gateway to the internet. Router R is a router behind gateway G.
+If server A-RDP has a default gateway of router R, but the port forwarding from gateway G goes directly to server A-RDS, then the connection will not establish, and it will take at least 10 seconds to figure that out and say it cannot connect.
+I've encountered the same symptoms when the inbound and outbound traffic was being routed via different routes.

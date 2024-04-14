@@ -1,0 +1,6 @@
+Simply specify which local IP the rule applies to, and fill out the rest of the options as you navigate the wizard.
+I currently circumvent this issue by allowing the application on all adapters but only from a certain source network. However this network might change in the future whereas the TAP's name might not.
+It will open up more options, including Scope in which you can designate which IP range you want to allow traffic into.
+When creating your firewall rule in Windows using the Inbound / outbound rule Wizard, check the Custom Rule button.
+I want to allow an application on a Windows 7 Professional System to only be accessible through the OpenVPN TAP adapter by configuring the Windows Firewall accordingly.
+Unfortunately I cannot find an option therefor. I found out that it is possible to allow applications on certain NIC-types, but the OpenVPN adapter is recognized as an Ethernet adapter and I do not want the application to be accessible through ethernet adapters other than the TAP adapter.

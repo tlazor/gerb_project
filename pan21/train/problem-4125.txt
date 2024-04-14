@@ -1,0 +1,17 @@
+Essentially you simply apply the concept of your local lan to every lan.  I count 5 local networks between the pc and server, excluding the lines that go off the page.  The network doesn't function differently if there are only 2 routers in the local lan as is the case with the line connecting both routers circled in yellow.
+Q. Is there a real use for the MAC address outside of the LAN, for example when a Router is passing a packet directly to another Router (like the two Routers I circled in yellow in the above image).
+A. The routers need an address to use when communicating between each other locally, just like between your pc and router.
+Your original source mac address in the packet is replaced, but when the router gets the packet coming back with PC1's IP in the destination ip field, it will replace the destination mac address in the packet to that of PC1.  And that is the reverse of the process you described.
+Arp is all the addresses of all the trucks and post-offices and planes that are along the way.  Post Office 32 -> Post office 35 -> truck 15... 
+(There are also situations where routers and hosts are connected to the same link... For example, when you stack two "wifi routers" but forget to switch the inner one to bridging mode.)
+The reason the first router puts the target router's MAC address in the destination part of the header, is so that when it transmits it over the wire, the target router will know that the packet is destined for it, and will pick it up.
+A. Yes, the source mac address is replaced by the source mac address of the router and the process repeats.
+MAC Addresses are used on layer 2 only, and Layer 2 is effectively a single Local Area Network with its own broadcast domains and link-local networks.  The source MAC Address and target MAC address inside TCP/IP Packets is changed as they travel from network to network by routers which are forwarding the packets based on destination IP Address.
+Communication between routers is not necessarily a one-to-one (peer-to-peer) link; frequently it's just a regular Ethernet connection (the same as between router & PC). More importantly in this case, frequently there are more than two routers connected to the same link. (I think that's how an IX works?)
+The IP system is for communicating outside of local networks.  The routers cannot send the packets to each other by using the source and destination ip field as it has the webserver or pc address in it.
+Here is some information from Cisco. Historically, they are one of the best sources for this type of information in general (non-product specific).
+Both routers in each of the 3 "middle" lan's communicate with their own Mac addresses.  The ip is only for the originating and final destination.  
+There is no usefulness of a PC's MAC address outside of its own local network, apart from potentially being able to use it to find the vendor of the network card for support purposes.
+So you could say that the network between routers is also a "LAN", and it follows the same rules and protocols that end hosts do. This includes the same kind of Ethernet switching and such. Where is the benefit in making things different and unnecessarily complex?
+Q. When a Router is passing a packet directly to another Router, where is the benefit in it putting the MAC address in the packet of the next Router?
+They have another system because all they need to know is who is just  before or just after them in the chain.  They don't care about originating and end destinations. 

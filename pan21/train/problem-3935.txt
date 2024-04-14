@@ -1,0 +1,5 @@
+If the item in the file is larger than the strcpy destination buffers (the ones in your structure), then strcpy will keep going till it gets to the end of the destination string, overwriting other variables in your memory - a buffer overrun. This is a serius security flaw. 
+Why not use a YAML libary? I mean, it a way that's a dumb question - you are figuring out file IO right? But I think 'is there a libary I could use for this' is a good question to be in the habit of asking...
+You want to detect EOF otherwise the function might hang if there are no '\n' left. For this reason always use int to get the result of getchar().
+Also, I suggest taking all the input first, as a dense block of fgetgs(), and then outputting the captured text for the user to confirm as a single printf statement. You can format the text like this for readability: http://dalelane.co.uk/blog/?p=88
+If the file content is malformed, and there is no item for e.g. the last strcpy line to read, then strtok will return null, and strcpy will try to copy a null pointer. Crash. 

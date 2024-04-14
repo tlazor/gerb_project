@@ -1,0 +1,8 @@
+I first made the obj file processor class that deals with the typical obj file problem: having multiple indices for vertex position, vertex texture coordinates, and vertex normals like this f 52/49/224 57/54/224 279/270/224. I made a function that shrinks the multiple index arrays to one index array.
+Would this be the right approach? I am afraid that linearly searching the multiple VERTEX objects who have the same position value as the particle object is going to take a lot of time. Any help would be appreciated. Thanks in advance!
+However, in order to do physics simulation, I need a particle class that deals with calculating the force, speed, position for every loop of each cloth particle.
+Assuming that your object is made up of triangle faces, use the center of those triangles for the position data of that particular face. 
+Then I use out_vertices and out_indices to set up the VAO, VBO, and EBO for rendering. The problem here is that in the VBO, there are multiple VERTEX objects that have the same position value.
+And if I just copy the the VERTEX objects' position values to the particle objects, then there will be multiple particle objects with the same position value. But this doesn't seem right as there should be only one particle object for each unique position.
+To be short what I want to seek advice about is how to seperate and handle the rendering data and the physics simulation data efficiently.
+So my solution at the moment is, to first make particle objects that each have unique position values. Then, after each physics loop calculating a particle's speed, force, position, I update all the VERTEX objects whose position value has changed for the corresponding 'position' object. Lastly I update the VBO.

@@ -1,0 +1,7 @@
+So far I able to utilize ssh-agent.exe by changing environment setting in my home account manually to set an environment variable as follow:
+You need to run cygwin once to start the agent, but after that it doesn't have to be running. This could probably be setup as a service as well.
+The environment variable should not set in cmd box or else other process accessing ssh.exe may not recognize the environment variable.  It has to set in Windows user account.
+I would like to access a SSH service with pass-phrase protected private key in Windows using ssh-agent.exe.  
+Is there any good way to automate the launching of ssh-agent and setting the SSH_AUTH_SOCK in the context of native Windows session?
+This doesn't quite accomplish what you are looking for (running ssh-agent without cygwin), but it works perfectly for storing keys in memory.
+When you run ssh-agent you should save the SSH_AUTH_SOCK and SSH_AGENT_PID environment variables to a file, and use them to see if the agent is already running.

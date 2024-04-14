@@ -1,0 +1,6 @@
+The most robust design would be one that used a single endpoint with %{Acct-Unique-Session-ID} as the object identifier, accepted PUT or POST methods interchangeably, and did the REST equivalent of "upserts", ignoring requests where Event-Timestamp is older than the last received Event-Timestamp.
+When rlm_sql gets an interim it hasn't seen a start for it'll automatically create a record for that session.
+At a high level RADIUS accounting doesn't really map to RESTfull design perfectly. You don't know whether you need to PUT or POST requests, because you don't know whether you're creating an object or updating a pre-existing one.
+rlm_rest is designed to be a transport for AVPs it doesn't really implement session management logic in the same way as rlm_sql.
+It's up to you whether you use different endpoints for start/interim/stop packets.  If you do want to, you can use the expansion %{Acct-Status-Type} in the URL string to get what type of packet it was.
+With rlm_rest all that logic is up to the rest API you're calling.  All rlm_rest will do is serialize the attributes that FreeRADIUS received in the Access-request and send them to an API endpoint.

@@ -1,0 +1,5 @@
+example: split the file "cfg.pm", 3 lines per output file; use 3 digits for the generated suffixes (making sure the name space isn't exhausted); use number-only suffixes; trick split to generate digit-only file names by specifying a directory as a prefix
+If your system has the Perl script called rename (and it's a version that will support doing this) you can rename your files so that each number is incremented by one and have a prefix and a suffix:
+The standard split command on Unix/Linux allows you to split files into fixed size pieces in terms of bytes or lines, with the output file names suffixed with letters or numbers (e.g. PREFIXaa, PREFIXab, ... or PREFIX1, PREFIX2, ...)
+Is there a standard tool that will do this, i.e. outputting to e.g. PREFIX1of4, PREFIX2of4... or similar? Or is this a job for Perl (i.e. I find a Perl script).
+if you need to fully identify the "piece number" from the generated "piece files" names you can use "-d" and have the suffix argument to be a directory name where the "piece files" should be generated.  Using "-a" you can specify the number of digits to be used to generate the suffix names.

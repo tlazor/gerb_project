@@ -1,0 +1,6 @@
+Also, I strongly suggest you edit that last line, to reflect which file types you want to add to the exception list.
+I must first warn you that what you want to do is a serious security risk and that fiddling with the registry is not something you normally would want to do anyways, but since you don't have the Group Policies Editor on XP Home, you can try this:
+If you want to remove the warning for a particular executable file, you can trick Windows into thinking that the file originated from a safe location. You can't accomplish this by a simple copy (in Windows 7 or later, at least), but I most frequently bypass the warning by archiving the file (e.g. in a ZIP file) and then extracting it to a new location, or to the same location after deleting the original file.
+Open Notepad, copy all of the above in a new file, and save it as filetyperisk.reg file. The name doesn't really matter, but the extension does, so make sure that in the Save as type: field you have selected All Files. Click on save, run the file and on the dialog window that appears, click on Yes.
+I notice you mention having to do it every time you run an application, suggesting that it's something specific you've downloaded, and this doesn't need to be done for all future downloads.
+If that's the case, find the executable. Right-click on it and select properties. Then click unblock.

@@ -1,0 +1,6 @@
+I have entered two lines in a wide enough cell. I used CTRL+Return combination at the end of the first line to wrap the text and entered the second line.
+The row height can be set by selecting the row (click on row number in left most column) and then right clicking to get a drop down menu that includes "Row height..." and "Optimal Row height...".  This is not as convenient as, for example, choosing a line spacing of 1.5x, but it does work.
+Writer has line spacing settings, but Calc does not.  Format -> Spacing and Format -> Paragraph are permanently disabled in Calc.
+I was able to set different style for the two lines, however I could not find how to set the line-height, the space between the two lines.
+This question was also asked at https://ask.libreoffice.org/en/question/31054/how-can-i-adjust-line-spacing-for-cells-with-word-wrap-in-calc/, where more ideas for workarounds are given.
+My suggested workaround is to insert an empty line and a space (Ctrl+Enter, Space).  Then select the space and change the font size.  Here is an example using font size 2 for the space, and normal size 10 text.

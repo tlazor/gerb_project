@@ -1,0 +1,11 @@
+Recently, I had an issue with my iTunes library and try to recover it from TimeMachineHD to MultiMediaHD (it's original location).
+Until now, I was using TimeMachine smoothly and didn't remember any recent changes that could have cause this.
+You may need to go back to 10.4.11 as it achieves more than the newest mac O.S. It has taken me about a week of trouble-shooting to get any action happening… the best thing to do is try trouble-shooting in various ways… (at one stage I also had disk utility operational and Techtool Pro 5.0.7 loaded, until ttp 5.0.7 started misbehaving).
+Disk Warrior can also do data recovery & repair, but starts with building a complete replacement directory, from the data recovered from the original data....
+I have a WD My Book 2Tb configured in RAID and connected to my mac mini using FW 800 chained connection
+Disk Utility just does basic structure testing, and basic repair..  Disk Warrior and Tech Tool Pro will be significantly more sensitive to issues and assist in repairing the disk.
+Error Code -36 means an I/O error occurred. It could either be an issue with either hard drive or simply that an error is occurring along your chain. I'd suggest trying to connect one of the drives to another bus (eg. via USB, FW400 is on the same bus) or connecting to the Time Machine HD and then to the MultiMediaHD to see if that changes anything.
+Tech Tool Pro will check the structures, as well as the underlying media, attempt recovery of bad sectors, and more.... Basically a high powered hardware test.
+Personally the only times I've seen -36 errors with Time Machine were when the external hard drive was starting to exhibit issues before dying. If you are able to run a program such as DiskWarrior to check the health of the drive I highly recommend it.
+from what I can ascertain from trial and error is that an error -36 is a mount/unmount issue… maybe I'm wrong on that one but that's how it appears. Best of Luck.
+Try starting in safe mode (shift at startup), I've recently had a similar issue with an external wd hd se. You will need both Disk Warrior 4.2 and Techtool Pro 5.0.3 (with the 5.0.4 update) and Activity Monitor to watch what is happening.

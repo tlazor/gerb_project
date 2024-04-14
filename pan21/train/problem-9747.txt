@@ -1,0 +1,13 @@
+In this way, if you have 4GB of ram and you try to allocate 4.2 GB with malloc of virtual memory, your allocation will fail.
+With no specifics of applications (e.g. database, network service server, real-time video processing) and the server's usage (few power users, 100-1000s of user/client connections), I cannot think of any general recommendations in regards to dealing with the OOM problem.
+So by default linux doesn't overcommit, if your application more memory then you have, maybe your code is buggy
+For many applications allocating more than two time (2x) the amount of RAM as swap provides diminishing return on improvement. In some large computational simulations, this may be acceptable if the speed slow-down is bearable.
+@voretaq7 linux doesn't has brain-damaged concept of memory management, by default vm.overcommit_ratio is 0,
+A server that routinely enough experienced OOM (Out-Of-Memory) errors, then besides the VM (virtual memory) manager's overcommit sysctl option in Linux kernels, this is not a good thing.
+However at the time I could not reboot my machine so some kind of ugly workaround was to login as root and clear system caches with this command:
+Upping the amount of swap (virtual memory that has been paged out to disk by the kernel's memory manager) will help if the current values are low, and the usage involves many tasks each such large amounts of memory, rather than a one or a few processes each requesting a huge amount of the total virtual memory available (RAM + swap).
+While it's not advised to follow this exact route, we adjusted overcommit-memory from the default 50 to 90 which alleviated some of the problem. We did end up having to move all the users to another terminal server and restart to see the full benefit.
+With RAM (ECC or not) be quite affordable for modest quantities, e.g. 4-16 GB, I have to admit, I haven't experienced this problem myself in a long time. 
+The basics at looking at the memory consumption including using free and top, sorted by memory usage, as the two most common quick evaluations of memory usage patterns. So be sure you understand the meaning of each field in the output of those commands at the very least.
+We've recently duplicated cases where multi-user Linux terminal servers massively over-commit the virtual memory allocation but very few of the requested pages are actually consumed.
+When it was running poorly (and before we adjusted overcommit_memory from 50 to 90, we would see behavior with vmcom running well over 50G, oom-killer blowing up processes every few seconds, and the load kept radically bouncing due to NFSd child processes getting blown up and re-created continually.

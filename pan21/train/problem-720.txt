@@ -1,0 +1,7 @@
+I have installed Supervisor package for Ubuntu as someone recommended me here on serverfault to keep all my processes always alive.
+I did the restart of all processes and they have been restored successfully. So why Supervisor didn't did that? How to set the permanent restoring of broken processes? 
+Supervisor did try to restart your processes, but they exited too quickly so it gave up after trying a configured number of times. 
+Or what should I use to keep trying restore processes all the time without any timeout even if the process will be failing all the time? Because Database connection can be restored even after 8 hours, so it should be trying to reach the database without quiting all the time. 
+Don't do that - fix whatever it is that is preventing the process from running properly. Mindless restarting won't lead you anywhere. If you really need such behaviour (which is doubtful), explore systemd services. 
+But after two days of using it I saw by supervisorctl command: 4 processes of 10 has fatal error and not running.
+You can increase startretries value from default 3 to a higher number, so that supervisor doesn't give up too quickly. But first, you should inspect the logs of the process you are trying to restart and check why it failed to start these default three times. 

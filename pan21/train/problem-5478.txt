@@ -1,0 +1,5 @@
+Take a look at the HTTP agent string. (this should also be in your access log)  That may help you figure out /what/ it's coming from.
+This seems to be occurring literally every few seconds all day every day, each time with a different path on our website, and it all comes from one IP address within my university.  Sometimes it only has the path and no "7z|aac|arc|arj..." appended to the end.  I am new to running a webserver, so this may be obvious to professionals — am I simply being crawled or is this something sinister that I should block?
+It does NOT look like a normal webcrawler request, it looks like an attempt to find downloadable material.
+And lastly, whenever you see traffic that isn't what you want/expect to your own website, feel free to block it.  If you don't see any legitimate requests coming from this IP, then it's effectively overloading your logs with junk that you don't want.  My advice, block it.
+I am running a little apache2 webserver for a department at my university, and I noticed the access logs are filled with messages like the following:

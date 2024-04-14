@@ -1,0 +1,5 @@
+the script tries to download http://172.16.20.5/alias/cpu.tcl and run it. So i can have a very short script deployed on all devices, but can still modify and deploy new scripts centrally.
+But they only work for Log messages. The Loading commands aren't log messages but direct outputs to the CLI. I tried the file prompt quiet command as well, as i thought maybe the copy command is behind the TCLsh command. But without any luck. Anyone else maybe had to deal with this type of request?
+I managed to do what i wanted with a TCL script, that is sitting on the local flash storage. If i give a command, it will try to download a TCL script with the same name from the TFTP Server and does not show the "loading" part in the CLI. This is the local script:
+I would like to know if we can suppress certain lines from being displayed on the CLI. Example: I call following TCL script, that in itself calls some other scripts. What i Get on the screen is this:
+So im looking for a way to suppres the Loading commands to the SSH VTY terminal output. I already tried with some discriminator commands:

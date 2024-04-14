@@ -1,0 +1,5 @@
+Connect the old and new computers via LAN (ethernet), directly, with a cable inside the case. If the new computer should get connected to LAN, use a second LAN adapter. That will take care of the private communication.
+However, using the BIOS without a monitor and keyboard will be hard - PC BIOS are not built for that. 
+Using the "old" computer without monitor, keyboard, mouse is easy under Linux: Just configure it for no console/graphics, allow remote login etc. There are plenty of embedded systems using Linux that work this way. There'll still be a lot of details to take care of before you can use it as "slave", though.
+If you are in luck, your BIOS will boot properly without monitor and keyboard, and you'll only have to reconnect monitor and keyboard in the rare case where you'll have to change anything.
+If you are adventurous, you can try to replace the BIOS with an Open-Source BIOS and customize it to your needs, but this is going to be very difficult, and next to impossible if your "old" hardware needs special initialization.

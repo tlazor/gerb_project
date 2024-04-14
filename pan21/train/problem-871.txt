@@ -1,0 +1,6 @@
+It also has an "Archive host" function, which would allow you to archive the backups for off-site purposes, perhaps to that 500 GB external USB HD?
+I need a sort of ideal ;) backup strategy that helps me in reducing the on-line backup storage costs (around 0.80$ per GB) and/or management time (I can burn a DVD every week but not more frequently than that). I got a small linux silent server with:
+Explicitly exclude AutoCAD .bak files. They are the previous copy of the DWG file. That should save you some space.
+I rotate backups to a few external HDDs and take at least one offsite. They are Bitlockered so the data should be safe. I have used Acronis True Image for years and it has been very good.
+Anyway, your backup needs seems to be so modest that BackupPC will handle them without sweat. It can also detect duplicate files and physically store them only once, which will spare you the precious HD space.
+I feel like a BackupPC evangelist here nowadays, but here goes: BackupPC might help you. I don't know how you are actually planning to backup, but for the actual backup process BackupPC allows you to use rsync, tar, smb or nfs as transfer mechanism. 

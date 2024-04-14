@@ -1,0 +1,7 @@
+If you want to monitor the cpu temperature alone you can load the cpu temperature sensors via (for intel processors)
+Forget the hi-tech way, just buy yourself a Maximum/Minimum Thermometer - they're $20, portable and useful elsewhere.
+Google has lead me to looking into freeipmi and the ipmi-sensors command, which I got installed from ports but doesn't help much.  I get this output:
+At this point you can retrieve tempeture readings for each core of each processor in the server via 
+I'm trying to remotely monitor temperature sensors within two Dell PowerEdge 6850's.  I have a fear that the building we are in is turning off the air conditioning on the weekends to save power, which doesn't bode well for a server room which normally sits around 75 degrees anyway.
+I'm at a loss on how to move forward.  I no longer have physical access to the building on the weekends, so I need to do this monitoring remotely.
+And it will give you the output of all the various sensors including dimm and other sensors on the motherboard. If your machine isn't supported by the ipmi kernel module then /dev/ipmi0 will not be created. At that point your only other option would be to monitor the cpu temperature itself.

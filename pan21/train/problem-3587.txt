@@ -1,0 +1,7 @@
+When you state "The code in the site does not perform impersonation", you need to keep in mind that if the IIS machine account is not performing the access to the remote systems, it needs to be delegated the capability to authenticate on behalf of other accounts such as the DOMAIN\AV1 account.  If you are using unconstrained delegation, the configuration is straightforward.
+http://blogs.msdn.com/b/webtopics/archive/2009/01/19/service-principal-name-spn-checklist-for-kerberos-authentication-with-iis-7-0.aspx
+http://blogs.iis.net/brian-murphy-booth/archive/2007/03/09/the-biggest-mistake-serviceprincipalname-s.aspx
+Yes, you cannot authenticate in Kerberos without an SPN.  A checklist for setting up the SPN for the machine account is here:  
+If it is only a single web server, the standard two SPN's for the machine account.  If it is a web farm, you probably want to opt for a domain account and ensure that account has the required SPN's. 
+http://blogs.iis.net/brian-murphy-booth/archive/2007/03/09/delegconfig-delegation-configuration-reporting-tool.aspx 
+You may want test with the DelegConfig tool that you can drop onto a web site and configure an application folder for.  It provides a simple GUI that performs the necessary checks for you.

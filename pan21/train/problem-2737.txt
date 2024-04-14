@@ -1,0 +1,6 @@
+Executing the command directly on the shell will also not send sunwait to the background. I tried nohup too with no success.
+So, direct answer to your question is most common: it is not "working" (not doing what you want) because it is working (doing what you command).
+After examining your syntax I guess that this interpretation is wrong. In your example sunwait executes nothing, in fact there is no command given to it. I am not familiar with sunwait, but quick research revealed to me that it just waits for astronomical event and then finishes.
+I used the ampersand at the end to send it to the background so my script can continue to do other things but this does not work and i don't know why.
+In the first line the two commands inside {} appear to & as if it was single command, so everything goes to the background. Simple and often good enough. The second case is slightly different: mycommand will run if and only if sunwait finishes without error (unless sunwait is poorly coded). It is the behavior you expected in the first place, isn't it?. Personally I find the second fix more elegant. Imagine you made a mistake typing mycommand and realized after a while that it is a ticking bomb. Killing sunwait will trigger the bomb in 1st scenario, defuse it in 2nd.
+Sunwait is a binary that will wait for astronomical events to happen before executing a given command.

@@ -1,0 +1,5 @@
+Also, the next time it happens, see if you can ping the router from both networks or if it's just one.  If it's just one, then it will probably be the wired side.
+Can be dying hardware. First thing I'd check is to pinpoint the device causing it. Reboot only one device and test if it works. If not, reboot the 2nd and test if it works. Its likely the router. If rebooting it points to the device, you can focus your attention to that device rather than rebooting all devices all the time.
+Sometimes a misbehaving device one network can flood the router's internal bridge between WiFi and wired networks, causing them to get partitioned off and act as two independent networks.  See if removing certain wired or WiFi devices helps.  I'd probably start with the wired ones... or just replace the equipment.
+If its not, on the next time things go bad, choose a different device as first device and repeat the circle until one device seems to need the reboot.
+Lastly, I'd update the firmware of that device and see if it solves your problem. If not, maybe reset to factory defaults or in worst case, replace the device for a new one.

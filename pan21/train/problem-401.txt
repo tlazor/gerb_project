@@ -1,0 +1,6 @@
+However, if Windows recreates the log again (following reboot, or changing log settings), the permissions are reverted back.
+One thing to check: is the file >0KB? If so, it seems several applications aren't checking READ permission, and instead just displaying an "empty" file.
+The file was always being created 'inherit security permissions' turned off, and explicitly had no read access for my user account (despite being local admin).
+I've found that log viewers like CM Trace or Trace 32 have trouble viewing anything more than the firewall log headers. If you open it with notepad I think you'll find that it's logging properly.
+Adding the NT SERVICE\MPSSVC account with Full Controll permissions on the C:\Windows\System32\LogFiles\Firewall folder and restarting the server solved my problem.
+There are 3 profiles available (domain/private/public). You can view which is "active" on the top node "Windows Firewall with Advanced Security" of the MMC.  Please ensure the profile that is active is the one you enabled and configure the firewall logging for. You can configure the settings the same for all 3 profiles or have a unique configuration for each.

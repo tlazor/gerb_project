@@ -1,0 +1,12 @@
+iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE -m comment --comment "Masquerade OpenVPN traffic"
+The problem I'm having is that a VPN client will connect fine, but can't reach anything on the internet. 
+If I use tshark to watch tun0 I can see DNS queries being performed, but there doesn't appear to be any response:
+I copied the configuration from a known working server so I was pretty sure the server was configured correctly.
+Thu Aug 20 06:55:00 2015 us=350681 David/31.108.32.42:55065 UDPv4 READ [56] from [AF_INET]31.108.32.42:55065: P_CONTROL_V1 kid=0 [ ] pid=6 DATA len=42
+Thu Aug 20 06:54:59 2015 us=94789 MULTI: new connection by client 'David' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
+Thu Aug 20 06:55:00 2015 us=351282 David/31.108.32.42:55065 SENT CONTROL [David]: 'PUSH_REPLY,redirect-gateway def1 bypass-dhcp,dhcp-option DNS 8.8.8.8,route 172.16.1.1,topology net30,ping 10,ping-restart 120,ifconfig 172.16.1.6 172.16.1.5' (status=1)
+Thu Aug 20 06:55:00 2015 us=351165 David/31.108.32.42:55065 PUSH: Received control message: 'PUSH_REQUEST'
+Thu Aug 20 06:54:59 2015 us=94453 31.108.32.42:55065 [David] Peer Connection Initiated with [AF_INET]31.108.32.42:55065
+1.935018671   172.16.1.6 -> 8.8.8.8      DNS 74 Standard query 0xe4a3  A external-lhr3-1.xx.fbcdn.net
+Thu Aug 20 06:54:59 2015 us=95013 MULTI: primary virtual IP for David/31.108.32.42:55065: 172.16.1.6
+2.628983231   172.16.1.6 -> 8.8.8.8      DNS 75 Standard query 0x803d  A fbcdn-photos-a-a.akamaihd.net

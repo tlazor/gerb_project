@@ -1,0 +1,7 @@
+First of for your pinpoint issue. You don't send an AI to walk exactly to a point. That is your first issue. You have to change the following:
+So this gives me a dx:4.775320684056187 and dy:1.4819960743622644, so that is the value that is added each frame, so in the end it gets to coords 399:191 next one is 404:193 etc. I have to pick a close one, or force object to move to the one I wanted, it never reaches exactly 400:200.
+Then you could simply additianlly snap the object of the agent to the exact point or slowly interpolate the remaining distance as an example.
+It becomes a problem when path finding and collision comes to play, because I can get 2 pixels on an obstacle etc.
+I do a check each frame if my character reached the destination, but because of the nature of how it all works, it can never be perfectly accurate. When I normalize my vector and multiply it by speed, I will always end up around that point but never directly at it. The bigger the speed, the more distance is passed in one frame and the further I get from where I wanted to be.
+When a mouse button is pressed, coordinates are stored and character begins to move towards that point.
+On your AI/Pathfindining Agent, get the distance remaining to the target vector. If distance is lower or equal to defined radius, the target aquired radius, then the agent has reached his target.

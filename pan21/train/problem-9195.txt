@@ -1,0 +1,6 @@
+Could be motherboard, could be power supply.  Could even be a really badly failed hard drive that's shorted and drawing so much power it prevents booting.  If you have a multimeter or can borrow one, you can check the power supply outputs directly.
+If you don't have (or can't get) replacement parts, though, you should look at replacing the motherboard/CPU entirely.
+I'd strip the system down as far as you can (disconnect all drives, remove any PCI cards except possibly video), try it on a different PSU if possible, try it with a different CPU if possible.  You can probably "borrow" a PSU from a home desktop system.
+Before spending too much time taking parts out, and testing everything individually, take a good look around at the parts and see if anything is odd. 
+Definitely sounds like a motherboard problem, but it could also indicate a power supply or CPU problem.  
+I know I had the same issue with my "server" the other week, and it was two blown capacitors (The small cylinders on the motherboard, look at the base for them pushing away from the board and solid matter coming from the bottom)

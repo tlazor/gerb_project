@@ -1,0 +1,5 @@
+The second function already takes constant, but you can get rid of the multiplication and division, by simply returning cur_no + idx and using cur_no < ULLONG_MAX - idx to check whether there'd be an overflow.
+Lastly I would not recommend dropping (some) vowels from variable names like you do in divsrs - that just leads to typos.
+Further your while(1) loop in find_no_of_divisors is actually a pretty plain for-loop and should be written as one. No need for complicated control flow for something so simple.
+First of all, it seems strange to me to pass the file handle to the functions, if they don't actually write to (or read from) the file. I see that you did so you could close the file before exiting the program in case of an overflow. I would rather recommend that you return an error value when an overflow occurs and then close the file and exit in the calling code.
+The first function can be sped up by just iterating up to sqrt(myno) and adding 2 instead of 1 to divsrs when k divides myno unless k is the square root of myno (in which case you would only add 1).

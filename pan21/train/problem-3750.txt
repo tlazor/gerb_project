@@ -1,0 +1,6 @@
+I'm working on some teaching examples showing the perils of accessing the Dictionary class concurrently.  In the code below each function is designed to do a word count across a number of files.  (This isn't the best way of doing the count but it's there to make a point about Dictionary.)
+The second example, using a Dictionary and Array.parallel can fail with an exception and also produces different results each time.  This is deliberate and is there to make the point.
+The final example uses ConcurrentDictionary and seems to me to work fine.  My concern is: given this uses a delegate to do the count addition, is this version genuinely thread safe?
+But you're using the AddOrUpdate method instead, which is guaranteed to be thread-safe (i.e. atomic), so this use is thread-safe.
+If you don't actually want seq, but an array, Directory has a method just for that: Directory.GetFiles.
+If you just used your original code (TryGetValue followed by an indexer set) with ConcurrentDictionary, then that wouldn't be thread-safe.

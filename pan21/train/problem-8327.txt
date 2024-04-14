@@ -1,0 +1,5 @@
+I'm wondering if it's possible to loadbalance two sites from one load balancer running HAproxy (or pound or varnish or some other *nix based balancer).  We have
+It is possible to load balance thousands of sites with a single load balancer running LVS, ZXTM, Big IP or cisco. 
+There is no limitation on load balancing over port 80. The http get request sends a name, if the name matches a vhost, files are returned. This is how the same server can server thousands of vhosts.   
+qae.site.com that load balances to qae1.site.com and qae2.site.com and it would be nice if we just had one machine handling the load balancing for both of these non-production sites.
+I've been dinkering around with a ZXTM balancer that we got from our host and for all it's expensive niceness, it wont balance more than one site per physical machine.  Is this an actual limitation due to trying to balance over port 80?  I'd think that there'd be a way around that ala apache's virtualhost:80 setup, but then again, I'm not that well versed in networking.

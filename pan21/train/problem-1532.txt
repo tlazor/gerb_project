@@ -1,0 +1,5 @@
+Your doubts are correct, and separating your interact method into two would solve this problem. Let interact handle acceleration and velocities, and make a new method that sets the positions of all of the planets after they have interacted.
+The exact numbers will depend on optimization level and particular architecture, but those are rules of thumb. Using the power operator involves taking logs of each of the operators, multiplying, and then taking the inverse log, each a rather expensive operation in itself.
+I have used zero of the expensive operations. I will be so bold as to say that I bet you can get rid of ALL of your pow() calls and reduce your sqrt() calls to a single call in one strategic spot.
+Just some notes about sqrt and pow. These are computationally expensive. Use them sparingly. Besides what the others have already pointed out you are also using the distance to calculate force. So in your code you go :
+For comparisons sake let's say the simplest operation takes 1 unit of time. Then the operations are roughly like so:

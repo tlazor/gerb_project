@@ -1,0 +1,11 @@
+Whether or not it is legal for your employer to do this to you though is another matter, and it varies GREATLY depending on where you live (UK, USA, Australia, etc)
+1) In system logs some identification that would tell me that someone might log into my PC such as an Admin
+Nothing you do on your local area network is private. Nothing. If someone is sniffing traffic at the router, you can't tell. If someone has attached a hub and is using a promiscuous sniffer, you can't tell. This is the reality of being on a corporate network.
+If the company owns the computer, they have the legal right to read every character you type (not that I agree with that, it's just a fact). They can replace the SSL certificates and read even what appears to be secure web connections if they like.
+is there a good way to basically monitor for this as an end user?  Could someone log in and basically watch me work and if so, would there be any goodies left behind for me to find out if this has happened other than visual signs which would not be present...maybe some running processes?
+If you are visiting a website that uses SSL or TLS encryption, then the content of your messages is probably safe. They will know WHERE the content is heading, but not what is in it. This can be compromised by something called  'man-in-the-middle' attack, but that requires intimate knowledge of the network. That said, if it's your own IT manager who's doing it, it's a possibility.
+If I were in that situation and I could get away with it, I would do my work from an operating system running off of a CD which I brought with me. 
+3) How can I be sure that my gmail, hotmail, and chat is not being sniffed. I know there are things like Simp, etc.  I'm talking about specific hidden system signs either in registry or logs.
+Obviously I'm not going to raise any suspicion by  me asking our network admin.  I don't trust anyone at this company.
+Because of the place I work has some real issues (people) especially in IT and the owner, I wonder if we are being sniffed.
+The fact of the matter is that all this monitoring happens outside the realm of your local machine, which means that it's undetectable.

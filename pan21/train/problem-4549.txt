@@ -1,0 +1,7 @@
+These new controllers have the SFF (small form factor) cables.  Each group of four SATA/SAS cables has a single connector on the controller.  These are custom cables, and you probably should get the "kit" that includes the cables.  There are also "forward" and "reverse" flavors of these cables, so if you acquire a less expensive generic variety, ensure you understand what you need.   
+The very first RAID card I used was a DEC Storageworks unit.  It failed once, but we had no problem restoring the configuration to a replacement card.
+I know and trust HP's mid-to-top-end controllers but that's when used in HP servers with HP disks, if I had to build from off-the-shelf parts I'd have no hesitation using Adaptec controllers.
+The cache can be configured for write-back without a battery.  The battery is rather expensive - $170.  
+Since then, I've only used 2 brands: HP and 3Ware.  Both have been extremely reliable.  In about 10 years of using Compaq/HP Smartarray controllers, we've never had one fail.  We've only used a couple of 3ware controllers, but neither of those has failed.
+The administration gui and documentation are equally impressive.  Performing firmware upgrades is simple and quick using the CLI.  
+Performance on 8k - 64k block sizes with a consumer device such as this will never be anything close to what can be obtained with an HP P4xx, but is quite respectable on the larger block sizes.

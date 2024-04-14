@@ -1,0 +1,6 @@
+Best solution is : edit your "hosts" file. Goto : C:\Windows\System32\drivers\etc\hosts. Copy "hosts" file to other directory. Except directory under C. Add one line to the end of the file. Example : if I want to block google, then I need to add lines as :
+Then save it and replace the original hosts file (ie. C:\Windows\System32\drivers\etc\hosts) with this modified one.
+No technical solution exists to actually, effectively do what you want to do.  If China's government can't effectively censor the internet, having spent untold billions of dollars to do so, and actually owning their country's telecommunications infrastructure, why would you think you'd be able to, as an end-consumer?
+So here is something that might help. Set some websites that you want to block, disable read/write privileges on this file for their account, and I guess this will do.
+The only way to stop someone from accessing objectionable material online is to prevent them from getting online.  You may as well make your peace with that, and proceed accordingly.
+Porn is everywhere online anyway, and blocking porn sites doesn't stop that.  They'll still be able to get it on general filesharing sites, through social networking and from their peers, so you're fighting a hopelessly lost cause.

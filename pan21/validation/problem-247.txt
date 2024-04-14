@@ -1,0 +1,10 @@
+Expanding on user289229's answer, you could edit the device label from any computer (windows, mac, etc), and it should work.
+I have a Chromebook where I installed Crouton. I have plugged an SD Card and Chromebook detects it as "External Drive".
+In my Ubuntu instance, it's located at /media/removable/External Drive/ but this poses some problems for executing some applications I have installed on that external drive.
+In order to fix the problem, I need to remove all the spaces in the path, which is located in "External Drive".
+I found an even easier way. Just go into ChromeOS file manager, right (2finger) click on the external drive, and rename as in "SD Drive" to "sd-drive"
+It will switch into Ubuntu. Your going to need gparted so open your terminal and (sudo apt-get install gparted) Launch gparted (sudo gparted).
+Okay. Take out the SD Card (USB, whatever) you want to rename. Reboot. At the login screen pres CRTL+ALT+F2. 
+My question is simple, is it possible to move/rename the mount name "External Drive" to something else and doing it automatically at every mount/boot ?
+Once gparted is open stick in your SD Card then refresh devices. 'Right click' (doublefinger?)on the box that contains your drive and goto 'label' and proceed to type the new name you would like this to appear as. Make sure you run the operation (press okay when the WARNING tells you you may loose data). Reboot your system, log into chromebook normally and VIOALA! Hope you enjoy the first mile ^^
+Login using 'chronos'. Enter the command: sudo startunity (If you have a different brew just substitute unity for the one your running)

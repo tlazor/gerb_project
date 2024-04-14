@@ -1,0 +1,7 @@
+You might want to have a look at Intel® Xeon® Processor 5600 Series Datasheet Volume 2, pages 57 ff and the Intel® Xeon® Processor 5500 Series Datasheet Volume 2 (125 ff) it builds upon.
+Only the high performance parts, X56xx, can reach 6,4 GT/s, 1333 MHz and have to switch down to 5.8 GT/s with a second dimm on a channel. 
+So only X56xx incur bandwidth penalties for a second dimm per channel. (As long as there are no interleaving penalties I'm unaware of.) Have a look at Siliconmechanics info , page 2.
+Oh and You might want to refrain from using 4 rank (quad rank ("qr") dimms instead of 1 (single) rank ("sr") or 2 (double) rank ("dr") dimms.
+At least the tables 3.2 ff on pages 58 ff of Intel® Xeon® Processor 5600 Series Datasheet Volume 2 say so as far as I understand.
+Also You might want to have a look at Siliconmechanics info, which has a nice tables and illustrations on page 2, 5 and 6 or a xeon 5600 applicable server manual , pages 26 ff, at HP. 
+All the other parts (E56xx, L56xx) are maxcapped to 5.8 GT/s, 1066 MHz at best, so they don't switch down with a second dimm anyways.

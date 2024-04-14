@@ -1,0 +1,10 @@
+I initially had issues with some UART Wifi boards (marketed as TLG10UA03), because they wouldn't communicate via RS232 at all, and I suspected that either I'd damaged them by applying the wrong RS232 voltage or they were faulty.
+and this revealed that the modules were working, but that the data rate had been set to 9600 despite all the documentation that I'd previously seen, specifying that the data rate was 115200.
+I presume that the module must have been in a different mode, as the +++ switched it into a mode that can communicate with the UART-WIFI.exe
+I was then able to use the UART-WIFI.exe, making sure to set the data rate to 9600N81, as the default on this program seems to be 115200.
+There may also be a way to enter this mode using the hardware pins on the board, however I've not investigated this yet.
+However, I do get one error message of "command not supported", but this doesn't seem to stop any of the UART-WIFI.exe functionality from working.
+I'm hoping to write my own exe to communicate with the board when I get chance, which will remove the need for use of a separate terminal program to put the module into the correct mode.
+But using the "Hercules SETUP utility by HW-group.com", which was a download on one of the many sites for the UART-Wifi, I used the "Serial" (tab) and selected my USB to RS232 TTL board (dongle), and set the data rate to 9600N81.
+However initially at 9600 the board would not communicate with the PC "UART-WIFI Configuration" program (UART-WIFI.exe)
+Module has no obvious ROM on it. I'd guess that with reset attempts you cleared MAC address and you need to program it back.

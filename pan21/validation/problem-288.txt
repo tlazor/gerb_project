@@ -1,0 +1,5 @@
+Or replace ImageMagick all together, it's a sheer memory hog (try stichting tiles of little pictures together. At one point you will remember why you are still having a swap partition).
+Can you show me the OOM killer stack traces in a pastebin at least so that I can see which zones are getting depleted or how allocation is failing. Not a solution to the problem you have but some more usual debugging that I would rather do.
+However, I really don't think of a way to limit a binary to use a certain amount of RAM. That's hardly possible, I guess. 
+Create a new user, just for ImageMagick. Give it the memory limits you want. Set up the sudoers file in a way, that Apache may call ImageMagick as this user. Change the exec() call in your PHP code to run convert via sudo or replace the original convert binary with a wrapper script. If ImageMagick is eating all the memory, let it die and let the PHP script throw an appropriate error messages.
+The simple answer is: You cannot. If the program cannot allocate more memory, it will crash. You can keep the server memory in certain borders by setting the workers and everything but this will limit the performance.

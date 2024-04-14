@@ -1,0 +1,5 @@
+If you're asking which is more easily migrated to another server: software RAID. All you need is enough SATA ports. If your hardware controller breaks, this often leads to issues, and you'd better have a spare handy.
+If you're asking what happens to your data in case of unexpected shutdown, hardware RAID has better protection against that, if you have battery backup. Software RAID often times has to initiate a full rebuild, unless you have a write-intent bitmap, which slows things down.
+In short, I strongly favor Linux MDRAID rather than cacheless hardware RAID: its code is open, in contrast of the bynary blobs found inside hardware RAID cards. That said, a proper hardware RAID with a generous FBWC can be required to hit higher performance.
+Rather than software vs hardware RAID, the different behaviors are due to the presence (or absence) of a powerloss protected cache:
+In this case, if I want to transfer my RAID10 cluster to another server, what happens if it is a software RAID or a hardware RAID?

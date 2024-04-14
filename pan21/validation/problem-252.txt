@@ -1,0 +1,5 @@
+This is of course computationally expensive, but if crowd sizes get really large, and many in the crowd share a common goal, then that extra cost is amortized, and you pretty much get larger crowds essentially for free.
+For 10 units I would probably use some hack where I would adjust the tolerance for hitting waypoints. The denser the crowd, the more lax with hitting waypoints. Not the cleanest, and not necessarily a robust solution, but it may suffice, so it's worth trying.
+This method solves the path to the goal not for a specific source to a specific goal. Instead it computes the path (in the form of a gradient field) for every location on the map, to a goal.
+I've used it myself, and the results are very impressive. The agents will avoid bottlenecks, take alternate routes, and will even automatically form lanes if two groups (with different goals) travel in opposite directions.
+If in your case, you want the group to always stay together, then a flow field approach like Continuum Crowds may not be the best, as it would not guarantee this.

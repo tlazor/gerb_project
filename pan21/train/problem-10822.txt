@@ -1,0 +1,9 @@
+I have purchased an OpenVZ VPS from one of the hundreds of internet hosting companies. I dont pay much for it, but lately performance has been terrible.
+Commands like 'top' only seem to show the usage for my specific VPS, but 'cat /proc/cpuinfo' shows the cpuinfo for the underlying host CPU
+You can infer the available CPU time by running something that normally would take up 100% an then looking at top to see how much CPU time the program is able to grab at a given time.
+But the limit of CPU units is not there. You will not see explicitly how of much of CPU is shared with others. 
+Bit late in replying but I have written a program in PHP that will show you the CPU and RAM usage stats of your server, including shared hosting.
+They are obviously overselling, but I am trying to determine by how much. Is it possible to, from within an OpenVZ VPS, check CPU usage/memory usage of the host machine?
+cat /proc/cpuinfo is the processor that you are using. OpenVZ does not emulate any hardware. It simply uses real hardware and shares among the containers. OpenVZ provides enough isolation that the containers are just like virtual machines.
+Your vm is effectively sandboxed. without something on the host specifically giving you the info, you wont be able to get it. 
+edit: Also, try linnode. They've been great for me, one of the few internet companies I dont have a single complaint about :-)

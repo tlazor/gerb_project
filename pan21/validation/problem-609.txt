@@ -1,0 +1,5 @@
+Some information about how you generated the ssh key might also lead to an answer. Did you use Putty's keygen?
+I can now run the Gerrit web app successfully and can now continue configuring the client side ssh keys/accounts for client access.
+I have just figured this out.  The problem was not with authentication as such, i didn't get to the client access stage, i have been struggling to configure the server side ssh key to be used for subsequent client authentication. 
+I know next to nothing about Windows - On a *NIX environment a simple reason for ssh auth failure has to do with permissions on the file. I make sure it is owned by the 'whoami' user and is 'chmod 600' - that is the file istself is rw by the owner only.
+It seems gerrit is looking for the server side ssh key file to be named 'ssh_host_key' in the config/etc folder not 'id_rsa.pub' which is the original name that the ssh-keygen program generates for the key.  I don't know if this is a general server side ssh host key configuration but this seems to work for me.

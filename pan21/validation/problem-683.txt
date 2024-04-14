@@ -1,0 +1,7 @@
+And then after about 30 days, the emails stop coming, it is as if something has filled up, and requires flushing again.
+Source: http://configserver.com/free/csf/readme.txt, csf.conf in http://www.configserver.com/free/csf.tgz
+I recommend reading over the configuration scripts and reviewing your logs to verify that this is what is happening.
+I don't know much about CSF/LFD, but I would have imagined that this would work in a FIFO manner, so it should be able to run indefinitely within finite space.
+My cat /proc/version says Linux version 2.6.18-028stab066.8 (root@rhel5-64-build) (gcc version 4.1.2 20070626 (Red Hat 4.1.2-14)) #1 SMP Fri Nov 27 20:19:25 MSK 2009
+When I give /etc/csf/csf.pl -r , I see lots of lines flushing, then I begin to get the notification emails again, (several emails per day), for example:
+By default, the Login Failure Daemon (LFD) will block an IP temporarily only so many times for attempting to brute force a service before permanently blocking that IP. Presumably at which point you would no longer see notification emails for temporary blocks. The related settings are in csf.conf. Look for "LF_PERMBLOCK". Additionally the FIFO idea is correct. CSF will block up to a maximum number of IPs as determined by the configuration directives DENY_IP_LIMIT and DENY_TEMP_IP_LIMIT, at which point the oldest (first) blocked IP will be unblocked in favor of the newest offender.

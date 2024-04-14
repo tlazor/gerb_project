@@ -1,0 +1,6 @@
+I wasted a lot of time today when the simple answer was in front of me. PuTTy lost my pem key somehow, and all I had to do was re-assign it and I was able to connect immediately.
+In the beginning of the day I "sudo passwd ubuntu" and set a password for user ubuntu (the default login for Amazon EC2 ubuntu boxes). Normally this is where you would modify the /etc/ssh/sshd_config and set "PasswordAuthentication" to YES, then restart the ssh service, thus allowing yourself to login with a password in addition to your keys.
+Does anyone, anywhere, have a resolution for me besides "migrate your entire project and don't do that again, cause you're screwed?"
+Is the code you need to get at mounted on an EBS? You can unmount it, and mount it to another instance I believe to get at the code.
+Unfortunately for me I somehow completely forgot to edit the sshd_config and now whenever I attempt to login to the instance I get an error from putty that reads "No supported authentication methods available"
+So, I pulled an absolutely amateur move and worked for twelve hours yesterday on a test installation on Amazon AWS/EC2. Full Drupal project nearly completed in one day, but, I screwed up ROYALLY.

@@ -1,0 +1,5 @@
+You need to check what firewall you're running, on cPanel servers, it's common that apf or csf are running, type "csf" or "apf", if you get an answer for apf, I can't help you, never used it.
+I've tried doing it through iptables then when i've restarted the tables it freezes and timesout when i reload it seems that the iptables have reverted to what they were at before.
+Sounds like your method of connecting is getting cut off. How are you going about it? If it's by SSH, then you'll also need to open tcp/22. VNC uses 5900 for display :0, 5901 for display :1, etc. I'd also allow anything from interface "lo"; this ensures that the localhost can talk to itself, thereby enabling things like X and the font server, assuming you're using the GUI. It will also enable mysql, smtp, and other services. I haven't used postgresql, but I'm fairly sure it will use the same method.
+If you get nothing for all those, you might just have a saved set, check out and see if there are any rules at /etc/sysconfig/iptables
+If you get something like csf help, edit /etc/csf/csf.conf and modify the TCP_IN and TCP_OUT variables and then issue "service csf restart".

@@ -1,0 +1,5 @@
+I'm working on a script which runs on various types of CentOS/Redhat servers where it needs to find out which files were loaded into the kernel. Running lsmod provides me with the name of the module (which may be set using -o in the call to insmod) but not the file that was loaded.
+Is there anyway to find out which files were loaded into the kernel as modules? Preferably, with the ability to cross reference with the name as it appears in lsmod?
+gives you the list (detailed) of the loaded modules (RedHat, Ubuntu, I guess it works for CentOS from which Redhat is based).
+Given a module name foo, modprobe -l foo shows what file would now be loaded if the module foo was requested. But if modprobe -o bar was used to load a module, the default module name is not recorded, only bar.
+This information is not recorded anywhere, as far as I know. Even if it was, the information might not be accurate if the file was moved or removed in the meantime (which would explain why no one implemented such a feature).

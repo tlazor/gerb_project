@@ -1,0 +1,5 @@
+It will be a very read-heavy site and I'd like to use Varnish for HTTP caching. I guess it should be possible to set up my own Varnish instance, point the site's A record to that instance and then have it fetch and cache the content from my Heroku app.
+I thought that for minimizing latency, it would be a good idea to host that instance on EC2 in the same availability zone Heroku is in.
+I'm planning to set up a Django site on Heroku. It will run on Heroku's Cedar stack, which allows Python apps, but doesn't include or support HTTP upstream caching with Varnish like the other stacks do.
+You're on a bad track trying to do that; Heroku could, at any time, move their stuff around to somewhere far, far away from your instance.  You'd be far better off talking to Heroku to get your concerns addressed within their platform.
+Do you think the overall idea is feasible? Do you have any experience how to choose the right geographical location for that EC2 instance so that its requests to the Heroku app will be as fast as possible?

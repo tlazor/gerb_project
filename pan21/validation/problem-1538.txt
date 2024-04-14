@@ -1,0 +1,11 @@
+Then if application performs redirect in application, client/browser is redirected to HTTP instead of HTTPS.
+1. Tomcat web container is receiving requests on http so the redirects it would construct would be on the same. Spring helps upto some length but falls short.
+I want to setup ELB to terminate SSL at load balancer and communicate with backend instances over HTTP. I have uploaded valid certificate on ELB. When I set up following configuration
+For the first problem one of the solutions that worked for me was adding additional property (redirectHttp10Compatible) in the view resolver for spring servlet.
+I am using Tomcat on backend instances and do not want to use any other layer in between(e.g. nginx or haproxy)
+BTW: remember HTTP redirects with 301s are cached in the browser and if it works once, you won't see it work again until you get rid of the browser cached redirect
+The rewrite.config rules in Ravi's answer did not work for me. Using Tomcat 8.0.32, AWS ELB and EC2 my rules are:
+I found this article which seems pretty similar to your problem: http://willwarren.com/2014/01/27/running-apache-tomcat-with-ssl-behind-amazon-elb/
+Life was good if only the redirects were issues by spring but since the problem is with the container itself it required more help. The final solution is to manipulate the server.xml and add a RemoteIpValve property for the tomcat engine
+The second problem is easy one since ELB sends this information in header. It can be done by adding a simple code in the existing filters or in a new one
+Although, if I set ELB to use HTTPS and backend instances also on HTTPS(even using self signed certificate) everything works fine as both the configurations are on HTTPS!

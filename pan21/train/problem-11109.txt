@@ -1,0 +1,5 @@
+This is just one option/solution I have found. We are using Surface's for Kiosks and Training Systems and we've had multiple Surface's with this same issue. This fix/workaround will only work on Win 10 Pro/Enterprise (due to Group Policy access). 
+This will lock down the power settings so they can not be changed, unless you turn the Group Policy option back off (which you can do to adjust settings as needed). 
+If you restore the Windows Default Power Plan options (other than the Surface's mandatory Balanced Plan), you can use one of those other plans and that fixed our issue immediately and long term. For our purpose, we used the High Performance plan. This registry option will bring these default Power Plans back. 
+Group Policy> Computer Configuration > Administrative Templates > System > Power Management > Select an active power plan > set to High Performance (or what ever plan you want). 
+Reboot. Then set your desired power options. Once you have configured your desired power settings, you then have to lock down the power options in Group Policy. Otherwise, every time you reboot, the Surface will force switch back to Balanced. 

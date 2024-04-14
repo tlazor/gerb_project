@@ -1,0 +1,5 @@
+Steam itself can be reinstalled from scratch. You just need to move over the location your games are installed to, and point steam at it as a library. 
+I did a fresh install on the W8 machine then I copied the steamapps\common folder from the W7 to the W8 machine.  When you run Steam (on the W8 machine) you'll see that all the games need to be installed.  However when you install them the app detects the existing files and therefore any download size is greatly reduced.
+In my case I have my games on a seperate drive so I can reinstall my system and not need to download everything again. In addition, your savegames are often saved in the cloud, and will follow you around different installs.
+Install steam, fresh, on the Windows 8 computer and login.  Unless your internet connection is really slow you should just go to library, and double click the games you want to re-install and let them download.
+You can copy the steam folder over and then re-install steam on top of that.  This will preserve your game downloads.  Beyond that copy and paste the save games folders within my documents and paste them on the new PC.

@@ -1,0 +1,5 @@
+Save just what you want to show on playback - if it's just position and heading, fine, if you also want to show stats save that, too, but in general save as little as possible.
+Tweak the encoding. Use as few bits as possible for everything. The replay doesn't have to be perfect as long as it looks good enough. Even if you use a float for, say, heading, you can save it in a byte and get 256 possible values (1.4º precision). That may be enough or even too much for your particular problem.
+If you want easy rewind, add keyframes (full data, no deltas) every N frames. This way you can get away with lower precision for deltas and other values, rounding errors won't be so problematic if you reset to "true" values periodically.
+I'd vote against deterministic replaying. It's FAR simpler and FAR less error-prone to save the state of every entity every 1/Nth of a second. 
+Use delta encoding. Unless your entities teleport (and if they do, treat the case separately), encode positions as the difference between the new position and the old position - for short movements, you can get away with far less bits than you'd need for full positions. 

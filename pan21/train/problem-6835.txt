@@ -1,0 +1,5 @@
+If you could supply us with more information such as the size of your environment, some of the specific things you want to monitor for and what type of switches you have, we could provide more detailed information.
+You will need a network device that supports at least SNMP, such as with most managed network switches. The SNMP data can be collected, stored, and displayed by various network management programs. 
+Yes, this is possible and an available option on most business class switches. The protocol that you would most likely use to cull this information from the switch is SNMP. Look for a good SNMP collector that has the features you want.
+Most business class switches have built in functionality for such monitoring. E.g. HP Procurve has a built in web server which displays graphical statistics.
+For example, have a look at Orion's NPM (expensive) or even look at the FOSS Cacti. If your switch supports netflow/sflow, that might offer you some of the type of information you're interested in. For example, InMon offers a free sFlow tool. Plenty of other sFlow/NetFlow tools are out there.

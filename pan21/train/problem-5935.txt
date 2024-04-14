@@ -1,0 +1,6 @@
+Now I would inject the CommandManger class into your ViewModel and set it's property from properties from the CommandManager.  This class now is reusable in all your viewmodels and each one doesn't have to iterate over the list of commands to find the one it needs.  
+Now I don't want to keep updating the manager each time a new command is created.  Which is why the t4 templates were created.  We can make a template that reads the command directory and creates a property for each command and assigns that value in the constructor.  
+I would typically create a manager for this.   Make a class that contains all the properties for each command.  Not a factory because we will still allow the DI container to create the commands we just making a nicer way to access them.  
+Notes about this.  This reads the file name and assumes the class is the same as the file.  If not the linq shouldn't fail the command will just be null.  Up to you if you want it to throw at runtime so you know you have an issue or not. 
+Also I made the class partial so if there is anything special that you need added that doesn't have to be in the t4 template you can create another partial class and add it there.    
+I would register this class as a singleton and I made the properties read-only.  This will create a class something like this

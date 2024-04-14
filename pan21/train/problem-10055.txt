@@ -1,0 +1,6 @@
+He's referring to a module installed on the Apache server.  I was refreshing so much during development that the server mistook me for an attacker.  
+My advice would be to setup an external monitoring service, like Pingdom. Gather some data for a week and then present it to your web host. If they can't resolve the issue, move hosts.
+But since this has started to happen, traffic has gone down considerably of course, and it is still happening, that "heavy traffic" is the cause I find a bit illogical since if it is caused by heavy traffic, less traffic would solve the problem.
+I stumbled upon this thread after looking around for others experiencing what I was.  Your post was EXACTLY what I was struggling with.  My server techs found the issue and it hasn't returned, in case this is helpful for anyone else here's the response I got from tech support:
+It looks like your shared host is overloaded. Because you are sharing this machine with other users, the page load your site puts on the server may be the straw that breaks the camels back. 
+All of a sudden last week it started to randomly drop images, sometimes does not load the CSS file, and often gets 503 errors.

@@ -1,0 +1,5 @@
+It is also able to resume when a transfer of a large file (or files) is interrupted in case of bad connection, or even when the computer hosting the program crashes.
+There are a few small files and several large files (10-20 gigabytes). I'm familiar with rsync on *nix platforms but have had bad luck with windows and I don't know that it will really keep partially transfered files. What do you use? 
+40 GB of files are going to take more than 60 hours to copy over a T-1.  It might be easier to mail an external hard drive in both directions.  You can have someone plug it into the server, copy/encrypt your files and then have them mail it back to you.
+I've got an old windows 2000 box in a remote location with a T1 connection and a vpn to my location. I normally use smb mounts to transfer files but now it's time to decommission the server and copy it's backups to my location. I have about 40 gigabytes (compressed) to copy. I'm prepared for it to take a long time, but I have a few caveats.
+You could try setting up FTP on the 2000 box, and using a FTP client at the other end, like filezilla to deal with partial copies.

@@ -1,0 +1,6 @@
+If you got the money for it try and get a SAN that you can expand on later and 2 Physical servers. This way you can do hardware maintenance on the servers without going offline. 
+In our production enviornment we have ~45 VM's running accross 4 ESX boxes with no problems what so ever. We could run even more from a CPU usage standpoint. RAM is the first thing that we will run out of. However we are only consuming about 50% right now (each system has 32GB so we have 128GB total).
+I can tell you that if the load is "average", you can probably get away with running all of these server's on a single ESXi box. 
+Without more information about the average load placed on these servers it's going to be hard to give a great answer.
+Instead of trying to size-up a BIG machine to do it, I'd recommend exploiting the fact that you have VMs and can spawn them as and when necessary. So, I'd recommend buying a bunch of smaller machines and distributing your work-load across them.
+Vmware Capacity Planner is your best bet. However, you will have to sign up as a partner (easy to do), or have a partner/reseller run it for you. In the end, you will have accurate details about the utilization of your current hardware, as well as a good idea of what you will need.

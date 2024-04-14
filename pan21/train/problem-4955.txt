@@ -1,0 +1,8 @@
+My Rule of Thumb:  CHAR should almost always be restricted to truly fixed length strings, and most of them are hex or ascii:
+I seriously doubt that it ever held true for InnoDB.  Even for MyISAM (which really can have FIXED length rows) it was rarely true.
+(See also my answer to the first link.  It starts "Most of the answers in this thread are 5 years old, written before InnoDB and utf8 were defaults. So, let me start over..")
+I've only found a performance comparison explanation that is 7 year old. I've checked the official MySQL 8 CHAR vs VARCHAR but the article speaks about storage only, not about performance. I've also read a notice that VARCHAR causes some problems with table fragmentation (see the very 1st comment to this answer.
+There is insignificant difference especially considering CHAR has a maximum length of 255 (VARCHAR is 64K). With the effective equivalent limited to 255 that is a very quick comparison in the case of this field being used as join criteria.
+If the data is bigger (as in CHAR being padded), the #1 is impacted.  The rest pales into insignificance.
+The fragmentation is no longer an consideration as <768 bytes is stored inline. This is still strictly possible in utf8mb4, "InnoDB encodes fixed-length fields greater than or equal to 768 bytes in length as variable-length fields"1 so no difference between CHAR and VARCHAR.
+Allegedly, the "fixed" size of a CHAR (which, is not all that fixed), tends to prevent block splits.  But I kinda doubt it.

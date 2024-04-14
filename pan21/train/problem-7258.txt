@@ -1,0 +1,7 @@
+The Butler book is quite old by now but I still have yet to find a better introduction on finite permutation group algorithms.
+The above is a book on "just" group theory, but of the books on pure group theory, it is probably the most relevant to Graph Isomorphism.
+If you're interested in the group theory that's relevant for Graph Isomorphism, then in addition to Seress's book that David Eppstein mentioned, I would highly recommend
+If you're only concerned about finite permutation groups, I found the book "Fundamental Algorithms for Permutation Groups" by Gregory Butler very readable.  It's only for finite permutation groups but was one of the only books that gave pseudo code and algorithmic descriptions that I could understand (for Schreirer-Sims, strong generating sets, etc.).  The Seress book recommended by others is decent but for some reason he has an aversion to pseudo code so it was very difficult for me to understand.  Personally, I used the Butler book for a concrete understanding of the algorithms and the Seress book as aid in understanding proofs of correctness.
+A book that is more directly about algorithms for graph isomorphism, which puts group-theoretic algorithms at center stage, is:
+The latter (together with Paolo Codenotti's thesis) is currently one of the few widely accessible places where you can really find a complete account of some of the more group-theoretic algorithms for graph isomorphism.
+The most modern and comprehensive reference is probably "Handbook of Computational Group Theory" by Holt, Eick and O'Brien (link)

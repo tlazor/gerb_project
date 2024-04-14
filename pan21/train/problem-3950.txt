@@ -1,0 +1,5 @@
+I ended up setting 'Service receives' to 'no input' in 'Finder.app' as this means that it is always shown in the services menu of Finder instead of having to have a file or folder selected.
+I'm afraid this isn't possible. It is just all or nothing. Here are a few alternatives to make it a bit smoother:
+You could probably make this work better so it only shows all files for the folder selected, but I don't know enough about shell scripting to know hoe to do this.
+A workaround could be to use a FTP client and to view the folder from there by using the application itself as a finder window. Only thing you have to do is to navigate to the desired folder. From what I understand you only want to view the folder structure and wether there is a htaccess in it or not. You can also use the FTP client to open the file in your preferred editor in case edits are necessary. Advantage: your finder stays neat and clean.
+I found a couple of site which helped me to build a service using Automator which allows you to show and hide all files from the services menu (Finder > Service)

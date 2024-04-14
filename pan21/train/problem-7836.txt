@@ -1,0 +1,6 @@
+I have about 60 skills within my game, which are loaded from a JSON file. Each skill is a subclass of a skill object and has attributes like range, cost, target type, etc. Currently each skill has an integer index to identify the skill. Warrior skills begin at 100, wizard at 200, rogue at 300, etc.
+In other words, would there be any benefit from creating more specialized separate class hierarchies for skills, or passing them around as Maps/Dictionaries?
+Now I'm at a point where I'm implementing the mechanics of what these skills actually do, I have created an enumerated type with 60 integers corresponding to the indices from within a JSON file. And what I have right now is a switch statement with 60 cases:
+At some point you may notice that you're writing a lot of very similar code in different 'case' blocks within the switch statement.  If and when you notice that, that's the time to refactor the code so that those similar cases can be coalesced into a single block.
+I'm working in Objective-C, an object oriented language and am interested if there's a better or more flexible to refer to skills within the game engine?
+Until then, go with the switch statement.  It will get you back to coding your game more quickly than trying to do something clever at this point.

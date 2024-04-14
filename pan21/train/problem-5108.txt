@@ -1,0 +1,5 @@
+I can think of one solution, but that involves duplicating the some_value field in table t3 so I can enforce a unique key directly on it. This obviously breaks the normalisation design rule, but is there any other way?
+The problem here is that two records in t3 link the same t1 record (t1_id=10) to two different t2 records that have the same some_value. Is there any way to prevent this from happening? To my knowledge MySql does not allow constraints to be defined that span multiple tables.
+From what I can tell, you'll have to create the 'some_value' in table3. Here's a link to the manual page on foreign key constraints
+There is an example with a 'complex' foreign key constraint that is similar to your setup, which duplicates the content in the third table. There is (minimal) comfort in knowing that hey, at least it's handled by a Foreign Key.
+The problem I have is that I want to add a constraint to table t3 that involves the field t2.some_value. Basically I want the combination of t1.t1_id and t2.some_value to be unique within table t3. For example here is a situation I want to avoid:

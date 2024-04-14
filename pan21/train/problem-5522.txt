@@ -1,0 +1,5 @@
+Instead of using a raw array to store the children you can instead use a HashMap<Character, RadixTreeNode>. This will better optimize the allocations that you do.
+If you really only need to "check if a specific word exists in this list", then you need no radix tree. A HashMap would be the fastest, a sorted ArrayList would also perform pretty well.
+If you need to save even more, then store only the indexes and/or hashcodes of the words in memory and use a RandomAccessFile to get the word. The memory consumption could be something like 8 * 240000 bytes, i.e., 2 MB (not exactly negligible, but your data structure must need much more). A single disk access should be pretty fast (sub-millisecond, and if you're really lucky, your file may get cached by the OS outside of your poor 16 MB).
+If you can stick with English (or a 8-bit charset), then you could replace char by byte and save half the memory.
+Also you can get the individual characters in a String by using charAt, no need to get the char array.

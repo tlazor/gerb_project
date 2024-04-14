@@ -1,0 +1,6 @@
+Adding the row and column gives the number of horizontal and vertical steps away from the top-left tile.
+XOR together the row and column indices and look at the least-significant bit.  Changing the row or column index by one will invert the result, hence it generates a checker pattern.
+If I was to go as far as I could with this and make it as easy to redesign the pattern on the Chess board as possible, here is what I would do:
+Again, this is a lot harder than is necessary for a Chess board. I think in general, though, when working on more complicated projects, it's best to come up with generalized solutions like this instead of writing code that's difficult to change later.
+2) I would write a class/component/whatever that can read this file and create some kind of object that represents the board pattern:
+Although this approach isn't really necessary for something as simple as a chess board, when I think of an elegant way to render something related to the view, I want to make it as easy as possible to change the rendered view as possible. For example, suppose you decided you wanted to alternate black and white on each row, but not each column. The one-liners used in answers so far would have to be re-written.

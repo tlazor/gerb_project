@@ -1,0 +1,17 @@
+If this is constantly you have a problem. If this is only one or two times each day, watch out for IO expensive cronjobs and modify the time they are executed.
+Also another problem can be a script or programm wich starts 25 threads or processes at a given time and these processes or threads are blocking each other. I guess you CPU utilization at the given time is very high also and the system doesn´t satisfy all the requests wich are requested at this time.
+In situations like this I like to have Munin, or similar, monitor the server in question. That way you get a history, presented in graph form, which might very well give good hints in what area the load originally started to manifest itself.Also, a default install of Munin comes with a good set of preperd tests. 
+You didn't run out of space, did you? You mention no hardware problems, lots of free ram, etc. Either no more free space (perhaps in /var?) or your mysql db is mounted on a remote drive and there are network issues. 
+A load of 25 means there are constantly 25 Processes in your system wich are in Running (R) or Uninteruptable (D) state. 
+What other tools/metrics should I have used to help diagnose this issue and possibly determine what was causing the server load to run so high?
+The "load average" on a *nix machine is the "average length of the run queue", or in other words, the average number of processes that are doing something (or waiting to do something). While the concept is simple enough to understand, troubleshooting the problem can be less straight-forward.
+I eventually "fixed" the problem by restarting MySQLd... which doesn't make a lot of sense, because according to mysql's "show processlist" command, the server was theoretically idle.
+Here's the statistics on a server I worked on today that made me wonder the best way to fix this sort of thing. Here's the statistics:
+The reason why you can get a load average of 25 with only 3 running processes is because each thread individually counts toward load average. The H option to ps displays threads as if they were processes.
+Coming back to this 6 years later, I realized that no answer here is all that useful. Here's by far and away the simplest way to see what's contributing to your load average on Linux:
+So my guess is that at the time your load pushes up to 25 you have too many processes that needs io and don´t get it. So they block and are waiting for input or write access. They all land in the actual run queue and your load pushes that high.
+If you only have 2-3 processes active watch out for threads. Your System can only reach a load average of 25 if processes and/or threads are in the sum 25 at a given time period.
+Some comment notices that threads which are not shown in ps aux are counted like an active process in the run queue. You can see Thread with ps axms. It depends on the System used how they are counted exactly in the load.
+But what is really important to know. The load has absolutely nothing to do with CPU utilization. If each of this processes only uses 1% CPU and then blocks you have an average load of 25 also.
+Another great tool to show CPU Usage and processes is htop. It shows you CPU utilisation of each cpu as a little graph, all three loads + graphical bar of mem and swap space currently used.
+If you hav a kernel > 2.6.20 I suggest iotop over vmstat. iotop shows you the cureent IO of the system in a realtime top like view. Maybe this will help you.

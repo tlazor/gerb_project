@@ -1,0 +1,5 @@
+In addition to @goldilocks answer, I would add that the ground pins have been strategically placed to make it easier to connect to specific functions with smaller connectors.  For example, physical pins 17 and 25 are at opposite ends of the SPI0 bus pins. 
+The breakout could be shrunk so that there are only two power pins instead of four, and only 1 ground, on the premise that if you need more attachments to power or ground you can fan those out with a breadboard.  However, that could get a tad tedious and awkward.
+On the image below the pin layout is shown for the Raspberry Pi and it can be seen that there are 8 GND pins for only 2 5V + 2 3.3V pins. What is the purpose?
+Check out the Raspberry Pi Pinout site for more information. It has a ton of information about the RPi pins as well as various hats, boards, and other accessories. 
+It's a breakout on a development oriented board, and ground is probably required more than anything -- everytime you connect one of the power rails, you need a ground connection, but in addition, attached devices with their own power still need a common ground.

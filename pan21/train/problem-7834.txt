@@ -1,0 +1,10 @@
+Alternatively a short shell script that runs at first launch and removes itself afterwards to ensure that the configuration settings are set up (eg. bound to an Open Directory, can access servers, read certain preferences using PlistBuddy or defaults, check the MCXCache is correct, etc.)
+If so, I can't speak to the Mac-specific parts, but my approach would be to include a little XML-RPC program as part of the image. It doesn't have to be XML-RPC, but that is an approach I've found useful before. 
+...save that as an Application out of AppleScript Editor (so it'll run when opened), then add it to a test account's Login Items list (System Preferences -> Accounts pane -> Login Items tab).
+By "test" do you mean "validate that certain packages and programs exist and that they run as expected"?
+The program would expose an API on the box for various tests. By default it would run when the machine boots, listening on (say) port 8080. Your control script would connect and run a sequence of commands, unit-test style. You get to control the level of exposure, from "does this directory exist" to "what happens when you run photoshop". 
+After passing tests, the package could respond to a final command to remove itself from the image :)
+I've seen Eggplant suggested many times for a way to automate testing - especially with a GUI application(s).
+I suppose that would depend on what you're trying to test. I would assume that you could use an apple script to automate whatever action you were trying to test.
+AppleScript seems like the obvious choice.  Here's a quick start at it (with some notes on the applications that didn't play along in the minimal testing I did) (note: replace reportEvent with something more relevant...):
+I'll defer the problem of getting a network account to autologin at boot.  I suspect there's a not-too-hard way to do it (maybe via managed preferences, or just dropping in the relevant settings files by "hand" -- i.e. post-restore script), but I don't have a useful test setup handy at the moment.

@@ -1,0 +1,7 @@
+With this configuration, the gateway itself is connected to the Internet and works properly - but all of the internal 10.0.0.0/24 hosts have no connectivity.
+I'd really like to have a dead simple gateway with nothing but gateway_enable="yes" and a single, static route ... but I wonder if this is not possible because both networks are non-routable, private address space ?
+If you can check the internet gateway configuration and add a static route to 10.0.0.0/24 via 10.1.1.20 you will not need any NAT.
+I think that you are missing a route. The internet gateway might be unaware that there is a 10.0.0.0/24 network behind 10.1.1.20.
+I don't want to run a firewall or have a pf or ipfw ruleset - I just want a simple gateway between the two networks.
+Default gateway to the Internet is 10.1.1.1 and my gateway system gets assigned 10.1.1.20 on the external interface and has 10.0.0.1 on the internal interface.
+Do I require NAT in this situation, or is it possible to have a simple router with no NAT or firewall config ?

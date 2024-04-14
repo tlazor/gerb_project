@@ -1,0 +1,6 @@
+I had the same symptom. So maybe this will save someone else some time. My problem was that I was missing the .cfg extension on the files in the include directory.
+But in this case, it's claiming the NRPE command isn't even defined, so it's not even getting as far as running it...
+This suggests to me that the problem is in the definition on the NRPE server.  Is it possible that your obfuscated variables for myHOST, myUSERNAME, or myPASSWORD contain a character that is interpreted non-literally by NRPE?  (I'm assuming you've already checked for typos and duplicate definitions!)  
+Normally, I would suspect a permissions problem with that plugin. Be sure to run your manual tests as the nagios (or nrpe) user.
+I had a similar issue sometime ago, it turned out that someone already installed NRPE in the server (i didn't know), and when i tried to access it took the old NRPE version and configuration, the solution was look for the old NRPE and redirect the access...
+I recall having a similar problem (but with the NRPE from EPEL), a few years ago, where it wouldn't include another file in nrpe.cfg for some reason. I never did figure out why the include file didn't work, though.

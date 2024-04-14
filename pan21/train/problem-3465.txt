@@ -1,0 +1,6 @@
+This is something I was wondering since I'm planning to partition a aggregation table with 10 mil records where rebuilding indexes cause table locks for some time.
+As for the shared lock for ALTER TABLE, all partitions are locked in the same time, so partitioning does not help.
+Because partitions are bluntly put just multiple tables that have their own index and our system only inserts new records into a single partition that is kept small (Only data from the current day is added).
+So when rebuilding or adding indexes will the table lock occur on all partitions or only the partitions it is rebuilding at that moment?
+Partitioning usually rather decreases ALTER TABLE speed. Index and data is stored in separate files for each partition (a separate .ibd file for INNODB if innodb_file_per_table=1), so that you might make alter in parallel. But partitioning add an extra processing step to choose the partition for storing data/index, thus the whole operation is made slower.
+Also because you have to add your partition key to the primary key are there other troubles that I might run into when partitioning a existing table?

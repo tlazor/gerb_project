@@ -1,0 +1,6 @@
+The /b makes it display the result in "bare" format with no heading information or summary (ie. you will just get the path and filename).
+The /s means search subdirectories, and since you are starting in the root folder (C:) it will search all the folders on that drive.
+Even better, if you're invoking it by name only (without an extension, as in "ObscureTool"), it'll still find the right thing. This might be an issue if you have two "executable" files: "ObscureTool.exe" and "ObscureTool.bat". In this case, WHICH will find the one that occurs first in the path. In this case, you'd merely say"
+If I have a long and involved PATH and I type the name of some command, how do I find out where the EXE or BAT file actually lives.  I thought TRUENAME did this but it's gone from XP and I'm not sure it did exactly what I want.
+when the folder C:\Program Files\Obscure Tools Limited\Obscure Tool\ is on my path.  What is WHEREIS called, or can it be done with a batch file?
+I am running regular Windows 7 and simply typing "where java.exe" seems to work great without any additional software.

@@ -1,0 +1,5 @@
+I'm running an LDAP authentication service (OpenLDAP with phpLdapAdmin) on a Debian box, and at the moment it's connected to a local Samba share and an instance of DokuWiki.
+And, moreover, since I'm using DokuWiki, I'd like users to be able to be able to change their LDAP password through DokuWiki's password change utility - this works, but it doesn't change the Samba share password, so the user ends up confused with his/her new password working on everything except the samba fileshare, where the old password is still valid.
+Everything is working fine, except that when I'm creating a new user (let's say testuser) in the correct user group (which I do with creating a new posixAccount and then adding the objectClass sambaSamAccount to it in phpLdapAdmin) I also need to log in to the server and execute
+Okay, fine, this works, but I really want this to happen automatically, with the same password as I typed for the user in phpLdapAdmin.
+From what I can gather, it's the sambaNTPassword attribute that controls this, isn't there a way to control this from phpLdapAdmin?? I.e. make the change to the posixAccount password also change the samba password.

@@ -1,0 +1,6 @@
+After a bit of looking around on Amazon, here's a small dedicated 2.4GHz access point. (Try searching for "wireless access point" if this one doesn't suit your needs)
+My wifi is not working, but I can access internet via ethernet cable. How can I make a hotspot with this connection? Is there some device I can use? I have tried searching on Amazon with the terms I now but haven't been able to know for sure what device I need.
+Now you should be able to access the Internet from any device correctly connected to the access point. And maybe a bit of DNS tweaking :)
+I don't want to create hotspot with laptop. I want a more permanent solution, and would prefer some simple dedicated device.
+If you're using a Linux-based laptop/desktop there is a program called hostapd that allows you to setup your existing WiFi card as a fully functional AP. To install on a system using apt: There are a few quirks to it such as no support for some cards, and setting up its configuration may be a bit confusing. I use it a lot, so for a bit of an example here's my configuration file (/etc/hostapd/hostapd.conf, with some modifications): 
+However, if you're willing to use your existing laptop for the job or as a temporary solution, read below.

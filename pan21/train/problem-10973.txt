@@ -1,0 +1,6 @@
+Not really sure how I'd be able to do it programatically; but I would start by restarting the computer, but stop any programs that are set to run on startup.
+Use Process Monitor and use a filter to track down the process using sound files (say wav or mp3 or ...).
+Turn them on one by one and wait for a while to see if the sound reappears.  If it does; it's most likely the latest program you turned on.
+I had something similar with a "whoosh, whoosh" sound playing on my XP computer.  Turns out I had a search window open and the stupid animated dog makes that sound when it scratches itself, even when the sound theme is set to "no sound".  Perhaps you have a similar issue and an animated "helper" is continually proving that he is, in fact, an abomination.
+If I had to take a stab in the dark; check your IM clients; this was happening to me until I figured out that someone on my contact list somehow configured it to play a sound every time they logged on/off
+We pulled a prank like this with the use of telnet access on Windows XP. If you issue some commands which don't draw window boxes (in your case presumably a command line VLC player or something) you'll only hear the sound. So go look for MP3/WAV/OGG files on your pc which resembles the sound you're experiencing, delete/rename/move it so the program playing it will crash/throw an error.

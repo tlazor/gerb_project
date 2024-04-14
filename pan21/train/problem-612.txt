@@ -1,0 +1,6 @@
+I want to install more than 10 VMs on this server. All VMs should be able to access the Internet. But only some of them should be visible from the Internet. All VMs should be able to communicate with each other.
+I have installed XenServer on my server at the Hetzner datacenter. I have bought an additional /29 subnet containing 6 usable IP addresses from them.
+I have configured the additional subnet on the XenServer using these instructions. In short, the first usable IP of the subnet is assigned to the xenbr0 interface as an alias (xenbr0:1). Then, the remaining IPs of the subnet can be used on the VMs and the xenbr0:1 IP is used as the gateway on the VMs. This makes these VMs visible from the Internet, publicly accessible. This works fine.
+How do I configure some VMs with private IPs (maybe 192.168.1.x) such that they can access the Internet, but are not visible from the Internet?
+I know about Single Server Private Networks in XenServer. But such a network does not allow the VMs to access the Internet.
+I don't want to assign publicly visible IPs to all my VMs. Moreover, the number of public IPs are limited - I can't assign one to every VM. 

@@ -1,0 +1,7 @@
+How to use subversion in Linux without the help of fancy graphical interfaces that may not be available.
+For shells like bash and ksh, you can make the command line respond to navigation commands like your text editor:
+Handy for generating HTML, PHP, configuration files, or damn near anything else inside of a shell script .. even other shell scripts :)
+will allow you to search your history and move about the command line in the way that you are used to doing in text files (e.g. in vi mode, pressing ESC then typing /string will search your previous commands for "string" - you can use n and N to move between matches)
+With grep (a well known command) you can do the same for lines. The following sentence will ignore the lines which have no interest for you:
+cut and grep are a very nice way to manage plain text files. You can retrieve whatever you want. cut allows you to "vertical" split the file, and grep allows you to "horizontal" split the file.
+grep can be also for reverse: ignore lines not matching the pattern and also you can use regular expressions.

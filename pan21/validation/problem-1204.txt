@@ -1,0 +1,6 @@
+I'm trying very hard to get away from a set of Kemp Loadmasters that I bought years ago to provide HA access to our website. Part of that process is going to be putting the key and certificate in the new solution (HAproxy with nginx doing SSL). Unfortunately, I've come up against a problem...
+Of course, I'm not going to give up that easily. I ran "file" on the saved cert bundle and got this: 
+Had the same problem, I took a blind guess that maybe it was encrypted with a symmetric openssl cipher.
+Try peeking at the file with od -c client1.certs.backup | less to see if there is an obvious format that file isn't recognizing due to a prepended header. Another option would be to try strings client1.certs.backup | less to view the printable strings in the file.
+Well, awesome, I thought. Maybe it's just a .tar.gz, so I unzipped it, and that went fine, but my attempts to untar it didn't work, and running "file" on it now just gives this: 
+The Kemp has built-in certificate management, and it generates CSR's at the touch of a button. It also supported importing of signed certificates, however it does not, so far as I can tell, allow any kind of export of the key itself. 

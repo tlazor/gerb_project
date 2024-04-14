@@ -1,0 +1,6 @@
+After the reboot, nothing comes up to tell me to configure the RAID. On the PERC cards in some of the other servers, it usually says press ctrl + R to configure RAID, but nothing of that sort comes up. I looked all around the BIOS to see if I was missing something but I can only conclude that our R720 is not recognizing this RAID card. Can anyone help me verify that this is indeed the problem?
+RAID config for your SAN is done via a Dell utility from the server, not from BIOS on the server utilizing the SAN.  The LSI card is a host bus adapter, allowing the host (server) to talk to the SAN (storage) via external SAS connections.
+When I opened up the R720, it plugged into the PCI slot snugly. After booting the server it said it new PCI configuration detected, will reboot after power optimization. 
+I suspect the LSI card is already working properly, but check device manager on the server to verify that drivers are already installed.  If not, download the right driver here.
+We recently bought a PowerVault MD3420 and I sent Dell the specs of the server I was going to use to connect it to.
+Remember, the SAN takes care of RAID config and pretty much everything else in terms of storage config for this kind of setup.  Storage is completely seperate from the host(s) utilizing the SAN.

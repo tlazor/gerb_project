@@ -1,0 +1,6 @@
+I have a Windows 2003 system that for a long time has had a CD drive with a non-bootable CD stuck in it (it's really stuck - the paperclip trick does not work)
+appears on the screen and then you wait for ever as if the machine has concluded that the CD is bootable and is waiting to read it .
+I tried taking the CD drive out of the boot sequence altogether but that results only in the message:
+Is if feasible to think that the CD has failed in such a way the OS thinks it's bootable and so is waiting to boot from it ?
+The boot sequence included the CD drive. When the machine booted the option to boot from the CD was passed over and the machine booted from the hard-drive.
+I tried physically removing and disconnecting the CD drive from the machine. The result of that seemed to be that the RAID Array (Type 1) which holds all the disk the machine has is not able to be found (a message along the lines of 'Seeking Array' appears). When the CD drive is in place normally the RAID utility reports a healthy array as part of the boot sequence which occurs before it gets stuck. FWIW the RAID is a hardware array.

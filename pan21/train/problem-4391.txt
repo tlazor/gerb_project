@@ -1,0 +1,16 @@
+Depending on the nature / version of the filesystem, each entry will take some amount of disk space to represent the metadata information.
+And this abstraction is only the tip of the iceberg, as filesystem itself works on an abstraction of underlying physical disk space, provided by low level disk routines, so actually only the disk's internal logic will know how many actual memory positions are available for higher levels and how many are marked as not reliable, reserved, or used for checksum.
+I created a copy of the file in my flash memory. And again take a look at the free space. it has 1,717,514,240 bytes free space :
+The "metadata file" is the directory that contains the file. That's basically what a directory is -- a collection of metadata describing the contents of the directory.
+I connect my flash memory to my computer. the free space on the flash memory is 1,717,518,336 bytes :
+Moreover alongside the space allocated in the Master File Table, some filesystems will also keep journal about files change (taking extra space), and some filesystems can even be extended with extra fields containing special purpose metadata.
+A good example of a FAT FS is an open source implementation - and you can see that the list of operations available does not include "get/set user" and "check access by user". No identity = no storage of that identity.
+Yes, in the directory. In most filesytems, the same file can have two different names if it's linked into two different directories.
+So technically metadata takes disk space, but it is not taken in account by most file management utilities which works calling system's API that query the filesystem for file space, not for metadata space.
+So, check the FS type. If it is FAT, then you probably don't have a user recorded in metadata on the media. Hence... no space used. :)
+I put 4096 characters in a text file and save it.Since every character is 1 byte, Size of the text file must be 4K byte.As you see below that's OK:
+As you see in the last picture above, the only space that the file occupy on the flash, is the space for its contents [characters].So where is metadata file ?
+When you use more advanced file systems, with journalling and users, you get metadata, and journal entries and possibly a forensic chain to recover previous file versions, etc. Then a small file can explode in used storage.
+The metadata depends on the file system. The most basic file systems usually used on exchangeable media is based on a DOS file system (FAT). DOS doesn't have users, and permissions. Or, more correctly, some of that information is carried in the 8th data bit of the file name. The only resource overhead that is used in a basic DOS FS is to account for the blocks of the file, or the directory that it is in - and that block is probably already committed for handling ".", already. IOW, adding an empty file wouldn't add another bit of storage, but it would change some existing consumed and allocated bits.
+I mean, when I move the file to another computer, how it understand name of file, Owner of file, Date created and modified and ... ?
+Metadata is not stored (nor reported by usual file management tools) as files, it is stored on filesystem's data on disk.

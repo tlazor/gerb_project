@@ -1,0 +1,7 @@
+You can rename the file - but again this does not stop it being written to (but if you are starting background jobs regularly the newer ones will write to the same file).
+You can unlink the file (rm) but the data still has a footprint on the disk and will continue to be written to as long as there is an open file handle.
+You can copy the file first and then truncate it, if you need to save the output. But there is a small window for a race, where output can be written after you copied the file but before you truncated it. Any output written during that window will be forever lost.
+You cannot rotate it. You can truncate it with the command >nohup.out, which will delete all contents in the file.
+Logrotate has a copytruncate option available, which will truncate (empty) your specified file after it has been copied into the normal rotation (and compression, if set) scheme.
+Really you should explicitly redirect the output of the job to something designed to handle this (e.g. apache rotatelogs).
+You should take a look at flog in combination with logrotate. If you pipe your application output through this you can then SIGHUP the flog process without having to kill your running application.

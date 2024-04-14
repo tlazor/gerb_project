@@ -1,0 +1,6 @@
+Remote Desktop can't find the computer "BLAH". This might mean that "BLAH" does not belong to the specified network.  Verify the computer name and domain that you are trying to connect to.
+If it helps any, both my home and work PCs are fully-updated versions of Windows 7 Pro, and the server I'm able to connect through is Windows Server 2003.
+I've been connecting to my work PC from home via a VPN and RDP for the past few years. A few days ago, my work PC suddenly became invisible from outside the network, even when connected to the VPN.
+I also can't connect to the machine via Explorer or pinging. It just thinks it's not on the network, which I can obviously access since the server is up, and they're on the same network.
+So, I know the machine is up, and my credentials are fine. I've run Windows Update and restarted both my home and work PCs, but still, no luck. I've got the sysadmins looking into it as well, but haven't heard anything back in nearly a week, and I'd rather not tie up one of the few free RDP slots on the server.
+However, I am able to RDP into another machine on the network, and from there, RDP again into my work PC.

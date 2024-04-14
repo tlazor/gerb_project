@@ -1,0 +1,6 @@
+I discovered this when I had a 25gb AI_RecycleBin folder. When I looked at the contents, I realized it was from the constant reinstalling I had done for testing that particular app. 
+AI is a tool that can create install packages for just about any software, it works best with .NET and Java. It only builds installers for Windows.
+There are some posts indicating that  "AI_RecycleBin" may be part of a virus. That came up in some Google searches recently. Most of the posts were in forums trying to push antivirus software, and free PC scans. I don't know if there is currently a virus that presents itself this way. 
+There is a setting in AI where you can specify specific folders to backup prior to upgrading. If the installer is an upgrade on software already installed. AI will backup things like user specific settings or data. It will store this in that folder, with a key that ties to a version. You can see disable this feature in the install parameters. 
+These folders get created when you install software when the installer was built by Advanced Installer (AI).
+It seems like prior to AI 10.2 these files might not be deleted properly when the install succeeds. 

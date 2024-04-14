@@ -1,0 +1,7 @@
+Yes, you can save the state of the VM to disk and resume it later, but the upgrade to windows 10 will break it. I speak out of experience.
+I wanted to have a backup of this state. So now there is also a clone option. You can't clone a running VM. But you can clone a Snapshot of running VM :-) 
+What I would do in your case would be to click on "Save the machine state" in VirtualBox and then simply copy the whole VM folder to your backup drive. This way, when your laptop is returned to you with Windows 10, you can simply copy the VM folder back again to your VirtualBox VMs folder and then click on the yourVMName.vbox file to import the VM back into VirtualBox.
+But to answer the question that I came here with: Can I backup a running virtualbox Virtual machine? 
+I am not sure about the whole system & virtual box change effect on your saved (cloned) VM. Honestly, I do not think it should break anything, that is what export is for, right?
+What you can do is use VirtualBox Snapshot. During snapshotting VBox freezes your system for a while, but it saves its current state. 
+Technically speaking it should be possible to save and resume, but pratically I found out that it won't.

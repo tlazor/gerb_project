@@ -1,0 +1,6 @@
+I'm a student, I have this assignment where I need to know how to disable the user from changing the background to a client computer, thing is that I've been looking around to know what language does the logon script use, any site with handy information, tried googling but I really can't find anything useful, don't know if I'm googling the right terms
+You don't want to use a logon script for this. You want to use group policy. You'll need to read up on Group Policy, there's plenty of resources to learn with (like GPOGuy.com), but here's the specifics on how to absolutely prevent the wallpaper from being changed.
+A logon script is not the appropriate place for what you are trying to accomplish. Group Policy is what you want to do as previously noted. Alternatively you could set a mandatory profile for the user(s).
+Microsoft KB Article: You can change the desktop wallpaper setting after administrator selects "Prevent Changing Wallpaper" option in Group Policy (327998)
+On the Setting tab, click Enabled, type the path to the desktop wallpaper that you want to use, and then click OK.
+Under the Domains Policy, expand User Configuration, expand Administrative Templates, expand Desktop, and then click Active Desktop.

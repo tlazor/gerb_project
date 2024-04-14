@@ -1,0 +1,7 @@
+The 1st option does not work for me. Latex always adds extra padding and margin to the image, so the image is not readable anymore.
+Download one of the PDF printer drivers, such as Nitro or PrimoPDF, and just open your image in Photoshop and print it with the PDF driver. We use these a lot to make excellent quality, small PDFs to email to customers.
+I have a JPG file, scanned image of a document. It is a 2-page document and I united them in Photoshop. Now the JPG file is only 500KB, and the image quality is good. The JPG file's dimensions are 2481x5152 pixels
+But the application form I'm uploading this document requires a *.PDF file format. I can think of two ways here : 
+In output tab, I choose image quality as Minimum, so that dimensions and resolution are preserved but the file size is nearly as the JPG size.
+Does somebody know a good setting in this menu, that will produce a PDF file less than 5MB, and with good quality?
+The second option, I tried, but photoshop Extracts a 40MB file, or a 130KB file (Smallest File Size in the PDF settings), but then the image in the PDF is not readable anymore.

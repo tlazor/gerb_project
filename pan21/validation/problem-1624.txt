@@ -1,0 +1,6 @@
+Really what I do typically is just bring in all the data I think I'll ever need into the SQL database. Maximize ease of import and future flexibility.
+If you don't want to show "milk" twice --- deal with that downstream. A secondary table or view that has these calculations or additional logic applied.
+It doesn't appear that your JSON contains much dynamic structure anyway (a field like tags, or other stuff like that).
+If there are dynamic fields, that only pop up in relatively unstructured ways on certain items, create a field or two that simply contains a full brain-dump of these fields and deal with them later in SQL as well. That's been my experience with JSON to SQL.
+So you really you can just do a 1:1 translation of all the JSON fields you care about into SQL columns, and make one row per entry. I would do this route personally -- you can call it the staging table. Apply calculation or visual logic afterward into a separate table, view, or logic.
+Typically with JSON-->SQL, the only major problem is that JSON can contain dynamic fields, whereas SQL tables have fixed fields.

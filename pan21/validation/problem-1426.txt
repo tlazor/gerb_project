@@ -1,0 +1,6 @@
+As you mention, partitioning will help. If you partition on the leading column in the index and make sure all partitions are equally sized, you can gain super scale. However, the total CPU required to build the index wont be much lower if you partition. But it will save you memory (if you have a slow I/O system, this can be useful)
+We have a nightly ETL process that involves data from many different sources being flattened, and loaded into a completely denormalized table on SQL Server 2008 for reporting.  The clustered index on the table consists of a composite key of four columns.
+The only things I can think of to speed this up would be partitioning and throwing more hardware at the problem.  Am I missing anything else that would help?
+This way, you can keep the benefit of the old table being sorted and avoid resorting all the rows (only the ones that have changed).
+Due to where the data is coming from, there really isn't any way to load the data in the same order as the clustered index.  Keeping the index active during load or dropping/rebuilding it after the load both take more time than the load itself without an index.  On the other hand no clustered with proper non-clustered indexes can still result in some reporting queries taking hours to process.
+If this is a traditional data warehouse fact table, you might be better off with a columnstore index

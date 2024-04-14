@@ -1,0 +1,8 @@
+Is there a content filter available for windows that's both affordable and simple, that we could run on the DC?
+I would also like to allow guests to connect to our WiFi (we have 5 WAPs) and would like to filter any content coming in (for obvious reasons).
+For these type of situations, my favourite is untangle - cheap (maybe even cheaper if you qualify for their educational/non profit license), also very easy to configure and use.
+We have about 5 PCs on site full time which will make use of the DC and access it's shared drives etc.
+Our church has been gifted an old Dell Poweredge box which we'd like to use as a DC and content filter for our LAN.
+Problem is however you need another whole machine. (or you could run it in a HyperV VM if you aren't using any voip services).
+Look into buying a used Barracuda Web Filter on eBay... It will definitely do the job. The units are available at substantial discounts when purchased used because Barracuda no longer supports them. This offloads the content filtering from your server and gives you some granular control over web filtering...
+Although its normally bad practice to run your gateway / firewall in the same box as your DC our needs are small enough that this isn't a big issue.

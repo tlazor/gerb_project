@@ -1,0 +1,6 @@
+If I apply PCA to this data set, the first principle component would relate to weather since 75% of the predictors are weather related. Is this principle component relevant? It's not. 
+The two options you've highlighted boil down to using CFS or not using it. The option that uses CFS does better because it explicitly selects variables that have relevance to the target variable.
+Correlated Variables should be removed from PCA, as the variables together tend to exaggerate the effect they are expressing.  CFS selects uncorrelated subsets of variables.
+So before PCA, the classes were perfectly linearly separable, but after PCA they are not separable at all. I'm not saying this happens in your case, but it could be.
+If you have a classification problem, you should you LDA instead of PCA. PCA ignores classes, whereas LDA is class-aware.
+PCA simply finds more compact ways of representing correlated data. PCA does not explicitly compact the data in order to better explain the target variable. In some cases, most of your inputs might be correlated with each other but have minimal relevance to your target variable. That's probably what is happening in your case.

@@ -1,0 +1,9 @@
+Divide-and-conquer is trickier than it may seem because it's really easy to access the array out-of-bounds. Iterator interfaces likes those of the C++ standard library make it easier and clearer:
+2) If not but the last element is smaller than the second-to-last, the whole array was inverted and the last element is the minimum. (not sure if this is allowed)
+The the approach could be as follows (with the added assumption of no duplicates that you ignored in your sample):
+log(n) suggests a divide-and-conquer strategy like binary-search, as you found out by yourself. But what are you looking for in this case? Not a value, but the position where a[n] > a[n+1]. Notice that if a[n] > a[n+1], then also a[0] > a[n+1]: the "direction change" occurred in that range. If not, it occurred in the range [a[n+1], a[len(a)]).
+The test is flawed, because the input is not a rotation of a sorted array.  Also, a single test isn't enough - include more tests, ideally as the functionality is developed.
+3) If neither is the case, the first part of the array is decreasing, the second part is increasing and the minimum is the unique element a[i] with a[i-1] > a[i] < a[i+1]. That element can be found in O(log n) implementing a binary search as opposed to your idea of checking both sides again, leading to O(n log n).
+The variable and function names could be much more expressive.  Is the interface pre-determined by the challenge, or did you assume that inputs are integers?  It would be easier to use if it accepted a standard container, or an iterator pair in the usual way.
+1) Check if the first element is smaller than the second one. If so, either the inverted part was the single first element or the second part was inverted. Consequently return the minimum of the first and last element of the array.
+It ought to be clear that the algorithm inspects every element at least once.  Therefore its complexity cannot be less than O(n).

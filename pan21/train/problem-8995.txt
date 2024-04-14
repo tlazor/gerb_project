@@ -1,0 +1,5 @@
+then when you run an application from that terminal window, it opens its windows directly on your non-VM Ubuntu.
+Then connect to the virtual machine with ssh or with the virtual machine terminal and open up a terminal application and write:
+If security isn't a requirement, like in your case of running virtualized OS. You can open the X11 windows directly to your non-VM Ubuntu screen. This should in theory give you the best possible speed and lowest latency, though in some cases I've noticed that VNC does better job. The only drawback is that without some extra helper apps, you cannot close the connection the app and reconnect later.
+On your non-VM Ubuntu you need to use xhost command to allow incoming X11 connection from the VM, to do this write on terminal application:
+Lets assume that your VM Ubuntu has IP address of 10.0.0.2 and the "real" Ubuntu has virtual interface IP 10.0.0.1 and is the GW for the virtual machine (this would be something you would have with NAT mode. With bridge-mode, both OS have IP given either some external DHCP server, or they are set manually).

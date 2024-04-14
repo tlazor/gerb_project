@@ -1,0 +1,8 @@
+This said, Apache httpd delivers a nice module named mod_usertrack, which uses cookies to track users on your site. Of course it will only work if users allow cookies from your domain and their web browser supports cookies at all.
+As already mentioned in the other answers, you cannot track the users of your website with dead certainty.
+Apache logs are best at counting raw traffic. They can be used to track individual sessions if the application that Apache is serving puts some unique identifier (like a session id) in the url. 
+The same would be true for any JavaScript-based solution like Google Analytics or Piwik: they only work if the client supports the specific technology (JavaScript, cookies...).
+I don't think so, not unless you are having them log in with Apache authentication - in that case, their username would show up in the log file.
+The common log format generally shows the remote IP address. For users behind a router or NAT, this will be the address of their router. 
+User tracking is difficult at best, and should be done at the application level. Web applications can track individual user actions and correlate them with who is logged in, etc. 
+You would see the proxy server's IP because the users are connecting to you through the proxy. Similarly, any group of users NAT'ed on a LAN will appear to come from a single IP.

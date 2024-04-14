@@ -1,0 +1,7 @@
+If you remote desktop into the server you should be able to go into Control Panel -> Admin Tools -> Event Viewer.
+"Windows Home Server updates installation can not complete.  Please try again later.  If the problem persists, please restart the server."
+Look through the Application and System logs around the time that your updates failed, you should see sets of MsiInstaller, Windows Update Agent and NTServicePack events around the time that your install failed. Have a look at what those say, and any other events logged at the same time, this should give you more info.
+Would it be possible for someone to explain to me how I can check to see what is blocking the connection of this device, which apparently has a valid internet connection, to the Microsoft Windows Update site?  
+I have rebooted the server numerous times, and I have also used remote desktop to connect to the machine to perform the update this way, however the browser is unable to pull up http://windowsupdate.microsoft.com.   This is very strange behavior because I am able to access all other sites (gmail.com, serverfault.com, etc).   
+note #1  Using the shortcut: %SystemRoot%\system32\wupdmgr.exe  does not work either.  It says "Connecting to 65.55.200.155..." but nothing ever happens.  This is strange because all other sites seem fine.  Also, I can connect to windowsupdate.microsoft.com on my local desktop so I know this is running as well
+Clicking "Update Now..." inside my EX470 control panel for Windows Update produces the following error message:

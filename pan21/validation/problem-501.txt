@@ -1,0 +1,5 @@
+Not really.  Hyper-v dynamic memory will only allocate what the system uses anyway.  The amount you assign is the startup value.  If you are not using dynamic memory the only advantage I can see is to better align the physical memory to virtual.
+The physical memory in the server is a multiple of a power of two, so it will slice evenly if you use other multiples. There may be some incredibly minor improvements with SLAT and such if they're properly aligned too. Otherwise no.
+I suspect its a matter of tradition, and aligning it with how physical systems are built. Physical systems have memory in base 2 amounts (and least with every x86 ever made, this is true), and chances are some if not many OSes would expect this in managing memory.
+The title pretty much says it all, is there any advantage to giving a VM 2048MB of memory instead of rounding to base-10 and doing 2000MB?
+In short, it really is because a virtual machine reflects a real machine, rather than a hypothetical one. Not a very technical answer, but I think that is the real one

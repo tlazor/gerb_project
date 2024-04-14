@@ -1,0 +1,7 @@
+Right now, my router leases IP addresses via DHCP, and so when I copy the OS image to the SD card, I have to hook up a keyboard and monitor to each RPi to log in and manually set the IP to a static IP. 
+Yes there is. You might want to look at my project Nard SDK which has what you seek. Here is a link to the documentation explaining how to preset the SDcard static IP and host name with any standard Windows PC.
+I am building a cluster of RPi's and as I keep adding nodes, I have to repeat this cumbersome task for each new node. 
+There is no easy way to preset host name, but it is stored in /etc/hostname, and you could set this if you mount the FS. I use a simple script to copy to this file.
+If you search this Forum you will find hundreds of posts about setting static IP including setting in /boot/cmdline.txt. I would recommend you don't do this, rather reserve in your router.
+Is there some software that can administer a cluster of RPi's? Assume I have a closed network RPi cluster (all nodes linked by a simple switch), can I setup a "master" node that will automatically setup the newly added nodes? 
+When we download the RPi operating system (anyone of them) images, is there a way to preset the RPi unit so that it takes a certain IP address? 

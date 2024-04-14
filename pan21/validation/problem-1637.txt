@@ -1,0 +1,7 @@
+Each file is rather short. I assume that you probably wanted to have a very dedicated scope for each file, but splitting the logic that much makes it a bit harder to follow through, especially on small projects like that. I would have used 2 files, one dedicated to decks and cards, and the other one for the game itself, with player and input handling.
+I also feel that there is not much added value to write a Game class and a function or two would suffice, example code latter.
+Your use of classmethod is also unconventional. Especially in the Player class. If you want to be able to build a Player without specifying the amount of cards, it would be better to give this parameter a default value in the constructor:
+You define __init__ methods on subclasses of cards that just use super on generic arguments. There is absolutely no need to that as it is the default behaviour in Python. What is left is just 3 classes with the __eq__ method which thus would be better of as functions:
+I don't know if I misunderstood slightly the requirements, but I thought user input should be handled from the command line. Which is ofter neater as you can use modules that encapsulate boilerplate code from sanitizing it. For example, using argparse:
+Which means Cards would only be a class to store attributes, but a namedtuple would fit better there, as it would make a Card immutable:
+get_empty_deck being only Deck([]) doesn't add much value here. What could have been a better classmethod, however, is a merge method:

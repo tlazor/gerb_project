@@ -1,0 +1,9 @@
+Run a packet capture program on the DNS server, start a capture and filter for only DNS, run the capture for an hour, calculate from the data collected in the capture.
+If you do run the DNS server, I prefer joeqwerty's solution (a capture program like DSC) to tinkertim's solution (tuen on query logging) because query logging is:
+In any case, whether you run the DNS server or not, no, you cannot say what happened at the client side. If your name server receives a DNS request, you can be reasonably sure it means it wxs not in the cache at the other side. If you don't receive the request, you know nothing.
+While  this slows down the server (a tiny bit), you can simply turn on query logging. This produces a log of queries with timestamp .. after that its relatively easy to take averages over periods of time.
+Its rather easy to do in most versions of BIND, not sure about others. I use the same thing to police some DNS servers that we have no choice but to allow almost wide open recursion. 
+The idea is to be able to tell if you are adequately able to meet demand with your existing DNS server.
+If you're not running your own dns server (or if you must run your own to do this assume you are) how would you measure how many DNS queries per second you get for your domain?
+AFAIK, there's no way to know how a client resolved a DNS lookup unless you run a packet capture on the client.
+Is there anyway to tell if a web request came using your DNS server as the authoritative source or a cached result?

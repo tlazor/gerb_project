@@ -1,0 +1,6 @@
+=MID(A2,9,4) to extract the third element into a separate cell, so that you can then sort on that column.  My formula example picks out the 4 character starting at the 9th character position, which seems to work for the examples of data shown.
+The approach I would take is to generate an extra column of data.  Assuming the format of your values in column one are always fixed length as in your example, I would use,
+Basically I want to want to know how to write code for excel where I can make a custom compare that will be like
+If you need a formula that extracts the 3rd element based on finding the 2nd and 3rd dashes and the number between them it can be done too, I just need to actually play with that one to find the shortest approach, but it can be done easily.
+Create a helper column.  In row 2 of that column (assuming that row 1 has headers) enter the formula
+And I want to be able to sort the data by the third parameter, so that im comparing by the numbers in the middle of the string, so that it will end up like

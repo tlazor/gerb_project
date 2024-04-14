@@ -1,0 +1,7 @@
+I'm assuming this isn't possible with S3; I can use any similar service. It just needs to be able to serve static files.
+I'm assuming that you would create separate S3 buckets for each subdomain. You would need your DNS server to have a wildcard record, but where the requested name is prepended to the response. For example, the following domains would be dynamically generated:
+S3 requires the bucket to exist in the first place... so without a bit of work, the short answer is that it can't be done out of the box.
+1. When a user signs up - use the AWSSDK to create an s3 bucket with the slug at the front... (ie - company.example.com)
+Then you've got to configure all the permissions issues as well - who can access etc - using IAM and s3 policies.  Fair bit of work.
+(Note: I'm making a file host, where people can sign up for their-subdomain.my-host-domain.com. The host would just serve static files from their subdomain on my domain.)
+I know it's possible to have a subdomain point to an s3 bucket (so, I could use something like s3.example.com). Is it possible to use wildcard DNS with S3 (or something like it) to do the following?

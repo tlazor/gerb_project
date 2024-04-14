@@ -1,0 +1,6 @@
+Skip the "network" lines in the kickstart and just use network --activate [--device=DEVICENAME] (Add --device if you have multiple and want to just use 1)
+You can't use variables from one block with another one as they are separate scripts executed at different points in time; These code sections will be split and placed into single separate files and then executed (not even) in the order you write them, meaning that if you have 3 %pre sections, they won't get necessarily be executed in order, so keep that into account.
+I went a different way, I literally have created a full bait-and-switch for anaconda that allows me to place a fake kickstart on disk, and then run a script in place to substitute variables in the likes of %%IP%% or %%HOSTNAME%% with a sed.
+the kickstart allows you to use "--interpreter=/bin/bash" in your %pre/%post line but after extensive testing in the past I've found it to be wonky and not working all the time, so usually I add the shebang right at the first line of the block.
+Anyway you don't need to do any of this, you can just place the setting of ip1 ip2 ip3 ip4 at the top of your %post block, this way you're gonna have the variables set.
+One idea would be to use satellite files where to keep your data (like you write a /tmp/file in your %pre and then get it back in your %post... that you can do)

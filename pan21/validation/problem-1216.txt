@@ -1,0 +1,9 @@
+Now that I have all that information above I wanted to ask: if I choose the latest option "User-specific options" and knowing that by default a vagrant user is created, knowing also that MySQL runs as root (I think so I might be wrong): 
+I know the solution is to increase such value by editing the my.cnf file and add it to the section [mysqld].
+Because the provisioner script should do this by default I am looking for the easiest way to do it which for me is: copy a file from the host to the guest while provisioning. I could use commands like sed to insert that line in the default my.cnf file but is overcomplicate something easy.
+I am working in a Vagrant box (for development) and I have a provisioner script written in Bash. The script does install MySQL and setup a few things: basically it does what mysql_secure_installation does but without use it. See below:
+That worked as expected however I need to import a "large" SQL file and MySQL complaints and fails with the famous max_allowed_packet error. 
+I am open to suggestions as well if the best way to do it is by running the query or by putting the needed config in some other path just let me know.
+Where I should store the custom file? The vagrant user home directory? The root user home directory? 
+Having said that I did some research and from docs found here I can see a few places where I could store that custom file:
+I do know also that I could execute a query as follow (not sure if it's correct since I took it from here during my research):

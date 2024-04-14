@@ -1,0 +1,6 @@
+And as for security, from what I can tell this is largely a non-issue considering that it seems like a fundamentally non-working setup.
+However, while your setup allows recursion from absolutely anywhere, which is normally disastrous, it is set to forward only and lists your own presumably authoritative-only nameservers (if they do allow recursion, however, stick to "disastrously bad"), the set of names that you can actually get answers on is limited and I suppose the end result is not that much more problematic than just a normal authoritative server.
+Forwarding will happen if someone has your nameserver in resolv.conf (the OS stub resolver does set RD) but when a domain has been delegated to your server and some recursor out there queries your server RD is not set.
+Actual errors, like SERVFAIL or lack of a response would cause it to try the next server as well, though.
+Secondly, NXDOMAIN is a valid response and will not trigger retries, so if the first forwarder that is used answers with NXDOMAIN this is what the response to the client will be.
+First of all, forwarding in BIND works as a variation of recursion. Ie, it will only be acted upon if the RD (Recursion Desired) bit is set in the incoming query.

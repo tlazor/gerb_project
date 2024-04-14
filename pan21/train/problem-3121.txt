@@ -1,0 +1,19 @@
+But, that's not all, as my predecessors already said, there are some brands that are more compatible with each other than others.
+I'm interested in a short guide for selecting a motherboard, especially- what pitfalls to avoid (for example, can bus speed become a bottleneck?).
+Also, you should look for what interfaces you want to have on your mainboard. (e.g. SATA6GB,USB3) etc.
+To clarify: I'm not looking for motherboard recommendations. I'm looking for guidance regarding how to evaluate the fitness of a motherboard given the rest of the computer parts.
+And if you still do not know, what mainboard to take, you can read the specs of the high-end PCs (lets say from AlienWare etc.) and look what mainboards they build into their PCs.
+I have specific names which I can assign to all three of these, but S.U. is not the place the name them. Some research should quickly identify them though.
+ - Do you want a specific feature? E.g. Firewire to connect to professional audio equipment? eSATA for rapid connection to an external (backup) drive. A Thunderbolt interface? A PS/2 connector for that comfortable keyboard you already had? etc. etc.
+Find the defining parameters of your peripheral and internal devices to make sure that the main-board support their speeds. 
+Usually you end up with only a few choices. Add price and availability and the choice is usually not a hard one.
+Those things are uniform for any computer - that is the mobo must be capable of running the internal devices on their maximum speed. 
+A mother board is more complicated though. Its features are not as obvious as "this motherboard is faster than that motherboard". Now you need to deal with part compatibilities, bus speeds, maybe power management stuff, etc. 
+Step 2 may require special attention depending on the manufacturer of the motherboard. I don't see why people are afraid of naming brands. Intel, for instance will not always support "custom" speed RAM because their server and workstation boards aim at stability. This varies. Check the documentation of potential motherboards.
+If you are planning to upgrade the computer in the future, then you need to consider cashing out for a more expensive alternative that support faster RAM and CPU than you can currently afford. It is also unwise to get a mATX mobo with 2 or less PCIe slots in that case. 
+When building your own computer one part was always a mystery to me: the motherboard. Picking a CPU/GPU/memory is easy- you just figure out where the various chips are in the low end to high end scale, do a little market research on what current games demand, and pick the parts from their respective continuums of low-to-high-end models.
+It depends on what you want to do with your PC. Shall it be fast for games? Shall it only be "good" enough for work?
+ - How many expansion slots. (currently PCIe slots).  Many people have enough with one x8 or 16 slot. Sometimes you want more for other cards and or dual GPU setups.
+An interesting question. Not quite one matching the most asked questions on this site, and a bit to broad to give a clear precise answer.
+In whatever case, you should direct your choices to what you want, e.g. if you want to play Battlefield 3 on highest settings, you'll need a good RAM, a high-end GC and a high-end CPU. Now, if you found the RAM, GC and CPU you can adapt the motherboard to it.
+Next I select which brand. Without naming specific companies there are significant differences between brands.

@@ -1,0 +1,6 @@
+I've used this trick before to kickstart replication.  Assuming that the sites have faster internet access then the link between them.
+There's a new initialize-from-LSN method but it was only introduced in 2008. There's no way to do the equivalent in earlier versions, including 2000. Sorry.
+I used this technique to setup replication between the US and China and it cut the time from 43 days to 17 hours which is well within the subscriber timeout window.
+Setup your replication, but use a local path that exists on both servers for the snapshot location.  Run the snapshot.  Compress the text files that are created (they will compress a lot).  FTP the files to an outside FTP server that you can access from both sites.  When they are done uploading, download them at the other site.  Decompress them and put them in the correct folder.  Startup the distribution agent at the REMOTE site so that it is reading the local files and inserting into the local database.  Once it has loaded up the snapshot you can run the distribution agent at which ever site you prefer.
+I do not believe there is a way to re-initialize without a new snapshot, at least I've always had to and I can't find anything now either.
+I thought I had seen some kb article describing a way to adjust the time out for slow connections, but that seems to have disappeared, or may have been a dream.

@@ -1,0 +1,7 @@
+As far as security fixes are concerned, you're all set; your compliance scanner is the one that's wrong.
+A lot of those scanners do their vulnerability detection via a check of the version string (in this case, a check of the string that OpenSSH sends to connecting clients including its version), which often leads to false positives when those scanners assume "issue X was fixed in OpenSSH version 5.whatever).  Try changing an Apache server to ServerTokens Major and watch the scanner light up with a bunch of 2.0 vulnerabilities, regardless of what version you're actually on.
+To have PCI compliance I had to recently upgrade openssh on centos7(openssh6.6) to openssh7.5 (latest version). I referred this blog to upgrade. Hope this helps for centos7 upgrade for openssh.
+Of course you could build a package for a more recent version of OpenSSH yourself but I doubt that this would solve your "PCI compliance issues".
+Where name is the name of the rpms for the service in which you are interested.  In this case "ssh" will do. 
+Figure out exactly what vulnerabilities the scan thinks you have, find them in the RPM's changelog, and send your scan vendor the version that you're on as proof that the scan's detection is a false positive.  And this link, for good measure.
+Every PCI scanning company has different methods, but typically you can contest the result as a False Positive.  

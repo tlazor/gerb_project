@@ -1,0 +1,7 @@
+I prefer the second option you can train a set of base learners ( decisions. Trees) by using random subsets and random feature ( keep training base learners until you cover the whole set of features) 
+You can either use Adabbost augmented with feature selection (in this consider both sparse and dense features) or stacking based (random feature - random subspace) 
+The meta classifier will figure out which feature is more important and what kind of relationship should be utilized 
+So you'll get dense set of (original) features + dense set of features (which were originally sparse).
+In addition to some of the suggestions above, I would recommend using a two-step modeling approach. 
+The next step is to test the Training set to generate the meta data. Use this meta data to train a meta classifier. 
+The variable groups may be multicollinear or the conversion between sparse and dense might go wrong. Have you thought about using a voting classifier/ ensemble classification? http://scikit-learn.org/stable/modules/ensemble.html

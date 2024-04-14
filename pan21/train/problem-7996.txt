@@ -1,0 +1,6 @@
+I know this is a bad idea, but I need it only for testing. So my question is: what is the latest update of JRE1.8 version that support out-of-box installation on WinXP (between JRE8u25 and todays JRE8u172? I tried 8u25 and it works. However 8u172 doesn't install. 
+It's worth noting that some of the later updates break compatibility with parts of JavaFX.  Starting with u112, the JavaFX WebView does not work on XP (it works on u111), and starting with u151, nearly any JavaFX action will crash the VM.  Thus I recommend an update in the u60 to u111 range if you are using JavaFX (u60 added additional JavaFX controls).  These issues affect both XP 32-bit and XP Pro x64.
+I have not found any other bugs with Java 8 on XP over the past 4 years, but there are areas of the JDK that I don't use.
+Hmm maybe the JRE8u172 suffers from the installer compatibility problem?  More here: https://stackoverflow.com/questions/20965564/installing-jdk8-on-windows-xp-advapi32-dll-error/21202600#21202600
+JDK 8u152 will install out-of-the box, and I have it working on my XP 32-bit laptop.  I have not been able to install u162 or u161 successfully thus far.
+I read here in an answer Oracle has announced fix for Windows XP installation error that Oracle fixed that bug in JRE8u25. Quote: 

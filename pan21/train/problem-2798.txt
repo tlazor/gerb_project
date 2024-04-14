@@ -1,0 +1,7 @@
+You can see that in the following screen shot of a collection of 12 VMs in a single availability set:
+Server1 : restarted at 1:30pm, web application starts at 1:35, services are stable after .net compilation at around 1:38
+But we can add a VM to the availability set to ensure that at least one virtual machine will be available.
+given the above scenario, there is a "downtime" on the service availability between 1:35-1:38pm while Server1 is ramping up.
+We have a 2 server instance Azure Cloud service and during an automatic update on the servers, sometimes the restarts between the different servers are so close together that the service becomes temporarily unavailable or times out.
+Server2 : restarted at 1:35pm, web application starts at 1:40, servers are stable after .net compilation at around 1:43
+Because the default available set has two fault domains and five update domains. So add the VM to the availability set, the VM will be create in the different update domain, during an automatic update on the servers, the availability set to make sure your service doesn’t go offline because of an update, it will walk through your update domains one after the other. 

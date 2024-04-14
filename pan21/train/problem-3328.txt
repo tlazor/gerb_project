@@ -1,0 +1,9 @@
+For example, in PHP you can use $_SERVER['HTTP_HOST'] to find the domain name requested, and  then build your page depending on the domain. You'll have to have a mapping somewhere  to link the arbitrary domain names to your users.
+For the custom domain name, you can have your client enter a CNAME to map their custom domain to your domain.  
+I'm not familiar with Gunicorn specifically, but if it's anything like the way Apache (and several other servers) works, it should accept requests for all domains that point to it. It's then up to you to detect in code what the requested domain was and handle it accordingly.
+Yes you can do this with RewriteRules, but in my experience it does not scale well and be be cumbersome if you have to re-organize your filesystem.  
+I am going to build an album website using Django 1.5. one of the feature I want to provide my members is to use their own domain name.
+Your application will then need to take an environment variable or host header and then deliver the correct web site.  Also be sure to handle non-existing domains and normalize your URLS (www.domain.com vs. domain.com) to make things easier to manage.
+Please point me to a right direction, let me know how I should get started.  if possible i want to automate this whole process.
+This will make this virtual host the default for any on the selected IP address.  If you host multiple sites on your server, I recommend you put this virtualhost on its own IP.
+now, the site is almost ready. but this domain part I am still clueless.  I dont think I can do it just in the coding.  I believe I have to config something in the server.  this is why I post my question here.

@@ -1,0 +1,5 @@
+Run "show spanning-tree summary" command on both switches and on first line it will show operational mode. It should be "Switch is in rapid-pvst mode". If no - than do "spanning-tree mode rapid" on both stacks.
+An interesting counter from Gi1/0/28 (Site A) are the input errors on the interface. Might be a layer 1 issue but since you do not have any crc errors and the realibility is 255/255 it may be due to repluging cables.
+You may also remove the "access vlan configuration" since your trunk configuration with native vlan 666 will be preferred. Also change your allowed vlan configuration to match the primary link. I do not know which vlans you actually use, but inconsistency may become a big pain in case your primary link fails.
+First of all you may want to remove the unnecessary spanning-tree configuration on your secondary uplink. STP calculates the cost metric based on the link speed. Your 100Mbit/sec CU uplink has a default cost of 19 and your primary 1Gbit/sec SM Fibre uplink got a cost of 4, so no need to set it manually.
+Since there are no obvious configuration issues I would recommand re-enabling the port and posting the output of:

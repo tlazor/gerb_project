@@ -1,0 +1,8 @@
+As I've mentioned before, the closer to the end of the disk you read from or write to, the slower the operation is going to be.  We can see this behavior from a screenshot in Why does performance of a regular hard drive decrease over the duration of a benchmark while SSD doesn't?:
+It then makes sense that you're only getting around 60MB/s in your benchmark of the expected peak of 100MB/s if you're reading from closer to the end of the disk.
+When CrystalDiskMark does a sequential read test, it first writes a file in the existing file system (in your case, your D: drive) to read from for the test.
+The disk benchmarked above has a peak sequential speed of 73.5MB/s at the beginning of the disk, but at the end of the disk, it was only reading at 37.5MB/s.
+As for your 160GB hard drive, I'm guessing it's less full than your 2TB hard drive, so the sequential read test is more likely to be reading from the beginning of the file system.
+Since you said you already defragmented the file system, the test file was probably written around 77% into the disk layout (your total disk space utilization).
+To test sequential reads without a file system getting in the way, see the suggestions in How to measure disk performance under Windows?.
+There is also the matter of where the test file is written in the file system.  If there is fragmentation, like if the test file is split up into multiple parts on the physical disk, that may also slow down the "sequential" read test, because the disk's reading head will have to seek to the next part of the file.

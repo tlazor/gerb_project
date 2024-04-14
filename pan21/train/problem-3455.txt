@@ -1,0 +1,7 @@
+These plugs or cables have some active circuitry (hence the name) inside the connector that generate the analog VGA signals out of the digital HDMI signal.
+I want to connect the HDMI socket on my newish laptop to the VGA socket on a pretty old monitor screen. I shan't want to bother with any audio. I've briefly looked but found reference only to DVI to HDMI. Is there a solution to this or is VGA obselete ?
+You need an "HDMI to VGA adapter". Use Google, or any search engine. I've found this on Amazon Italy, but sells from Germany. Description and technical details seems good.
+A plain converter cable (just wires with different plugs on each side) is not going to work because HDMI and VGA are totally different.
+Because this is a custom (not standardized) solution it only works with the specific combination of cable and device.
+I have seen some specialty cables that came with a HDMI-only tablet or notebook that didn't work with other devices.
+In that case the laptop or tablet has the converter already build-in in the device itself and it will switch some of the pins on the HDMI output to "VGA mode" when it detects the special cable.

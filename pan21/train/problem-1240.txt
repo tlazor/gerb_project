@@ -1,0 +1,6 @@
+I recently did install the GNOME Desktop and Graphical Administration Tools package groups to my remote host, for remote desktop connection. After the installation of nearly 550 dependencies was done, I could not connect to my personal website which is also hosted on that server.
+After being shocked by the results of my update, I checked other ports too, but I can't access on any port, but 22.
+Sounds like a firewall issue. Try using nmap from another machine on the same network to see what ports are open. If no other machine is available to you, perhaps you can ask support for the hosting service to do this for you. If you are still able to log into the machine, then as root, use netstat -al to see what ports are listening. Use iptables -L or firewall-cmd to see what firewall rules are in place.
+I did almost exactly the same as described in this tutorial about setting up the gnome gui on centos 7.
+Interesting stuff is, that I have no log entry in the access log of the web server, even though the web server (nginx) is running.
+Since i have no entry in /var/log/nginx/access.log neither in /var/log/messages which would explain this behaviour, i have no idea where to start to fix.

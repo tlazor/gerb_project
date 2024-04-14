@@ -1,0 +1,5 @@
+I was able to get the issue resolved by recreating the virtual directories for Exchange Control Panel, but did it through the Exchange Management Console by performing the below steps:
+Check under server config>client access>Exchange control panel>properties of ecp. Check the URL's  - There's a good change you have your internal URL pointing to /OWA rather than /ECP, as that's where the EMC pulls it from when you go to message tracking. EMC needs a restart for it to take effect.
+Try removing and recreating the OWA and ECP vDirs as described in this article under Resolution -> For Exchange Server 2010 -> "Step 1: Delete and then re-create the Outlook Web Access-related virtual directories" 
+Nope, no one had the exact same problem on Exchange Server 2010, but somebody had on Exchange Server 2007: http://forums.msexchange.org/m_1800506166/mpage_1/key_/tm.htm#1800506175
+Mathias answer appeared to be what I was looking for but after scheduling a maintenance window and doing the work, the commands listed did not work with Exchange 2010.

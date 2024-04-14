@@ -1,0 +1,8 @@
+Based on dimensions alone it would appear that the R420/R430 will fit, but I'm wondering if there is any real world info.... - Does anyone have either of these servers and could tell me how far apart the posts need to be to accommodate the rack server?
+I'm wondering if a Dell R420 or R430 (they appear to be identical in size according to the Dell spec sheet - max 642mm deep with redundant PSU) will fit in my client's rack?
+My client's rack is 800mm deep (external dimension) and appears to have 750mm usable interior space - measured myself. The rack is 42U 4 post that can be wheeled about (I have no idea of the brand and nobody seems to be able to tell me as it was there prior to my arrival on scene). Currently the front and rear posts are 550mm apart (front edge of front post to rear edge of rear post). There is room to move the front and rear posts further apart if necessary.
+I can't actually speak to the Dell rails, but I know that on the HP ones the back rail ears (the part that clicks into the post), can slide along the rail to account for different rack post spacing.
+Whether or not the Dell rails can do this, or whether or not they can go far enough is another story entirely.
+The R420/R430 servers are in the 65cm depth range as you have already found out so yes, they will fit and you will have plenty of space for your cables behind the servers.
+But, on the other hand, I can only speak good about Dell sliding rails (without cable arm!): you mount them without any tool needed and they're useful when racking / deracking systems. They are also adjustable to accomodate various rack dimensions.
+The cable management arm would take a lot of space and, IMHO, does more harm than good: I'm with you in not buying them.

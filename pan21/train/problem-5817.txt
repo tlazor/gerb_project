@@ -1,0 +1,8 @@
+I'm looking for feedback on my implementation of Item() objects in my beginner project (work in progress) or indeed any other feedback you feel is appropriate. I'm sure what I've managed is very primitive, but I've alot on atm and my brain is creaking(enjoying though!). 
+You can also easily have a progression of difficulty, by having multiple levels in a dungeon, with eg.
+I've done the following to simplify choosing from a list of objects (still think there must be a better way however), takes out plenty of repetition:
+The plan is for the items to be an integral part of the game (checking attributes of found items, using and consuming etc) so I'd like to get the code right early on.
+Or you might implement a database system for enemies/items and could then just write a different generate method:
+Character.attack(self) should have the signature Character.attack(self, other), unless you want to play a game of "stop hitting yourself, stop hitting yourself".
+Note that the convention for classmethods seems to be to call the first variable cls (for class), instead of self, but this is just a label in the end.
+This way you can, if you want to, just create a specific enemy (like Enemy("Ginourmous Spider", sys.maxint, 1000) in a specific quest). 

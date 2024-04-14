@@ -1,0 +1,5 @@
+First, you need to generate a black and white map as a 2D array of booleans that is the size of the world where the blocks are True and empty is False.  
+what we do is treat True values as 1 and False values as 0. Then you average the 9 numbers and put it into the correct part of the array.  NOTE: Make sure that when you are sampling edges you use treat outer values as context sensitive. 
+If your current lighting algorithm gives you a light value per block, you could change it to give you a value per vertex .  Alternately, at each vertex you could average the light color of the current block plus its three neighbors.  Either solution would be inexpensive.
+Then you need to create a new 2D array that is the same size as the first array but is an array of floats. Then you go from black(True) block to black block in the array and average the nearby sampled value(explained below)
+Note: this assumes that the pseudo-function rgba takes floats from 0-1 instead of 0-255, if it does, just do this:

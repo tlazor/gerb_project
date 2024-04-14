@@ -1,0 +1,10 @@
+Instead, make sure that your NFS server isn't a single point of failure anymore and setup a HA system at this point. Since this is not really easy, I just link to a tutorial for this.
+I'm considering setting up a way to automate data redundancy and synchronisation of multiple workstations at the office. The way our office is setup, nobody has a fixed desk and anyone can login and work on any workstation on the network.
+One way of doing this would be to have a NFS mounted /home filesystem. However, that would slow down file access as everything would need to be pulled off the network plus it creates a single point of failure.
+Ideally, the data should synchronise and propagate itself across all the workstations WS-B, WS-C, etc on the network. This propagation and synchronisation does not need to be instantaneous and can be asynchronous as long as the same user can log into any workstation at another time (but only one machine at a time) and find their latest files present.
+With DRBD you will run into trouble if you have a single user with multiple logins. If you use rsync -e ssh -auHS --delete the last update will win and the latest delete before logout will propagate.
+The idea is for someone to work on WS-A and whatever file saved is automatically synchronised with another machine (backup). So, the data is now available on more than one machine.
+Basically you could achieve the same using rsync during login and logout from/to a central server (which should be HA, of course).
+Putting workstations into a DRBD cluster sounds like a terrible idea to me. I doubt that this will ever work reliable because now users can't restart their workstation anymore.  
+PS: We currently have a similar setup that uses glusterfs and it seems to work thus far, except that the performance drops when accessing a large git repository over it.
+Also, if any workstation crashes, the setup will automatically recover and resync after the machine comes back onto the network, preventing split-brain problems.

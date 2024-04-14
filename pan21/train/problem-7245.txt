@@ -1,0 +1,7 @@
+anyway i tried everything but eventually i got it working by changing my drive letter for the mount. 
+I actually deleted the partition and started all over again. And it worked fine for a few days and then i had the same issue again.
+True Crypt was working fine and then suddenly one day after using it for about a month, it just would not mount and kept telling me the password was wrong (the password was not wrong).
+I used to get this same problem and searched the net and tried everything others had. I was on a Lenovo 64 bit laptop (T410) running Windows 7. I had a separate logical drive and was encrypting the entire drive. The HDD on my laptop is a 500gb, 150 odd for my C drive and another 350 odd for my X drive. I encrypted my entire X drive (logical drive).
+I have a truecrypt volume on a hard drive.  When I try to mount the volume from the hard drive I get an error with Incorrect password or not a truecrypt volume.  If I copy the truecrypt volume onto my local hard drive and then mount it, it works fine.
+Is the truecrypt volume a file?  If it is, when you mount it from the hard drive it might think you're trying to mount the entire partition, instead of the file.  Make sure you're selecting the actual file and not just a full partition.
+I suspect that something i installed was locking up the partition so when i changed the drive letter from x to s it suddenly started working again. I changed this in My computer, Manage, Disk Management, right click on the drive and then change the drive letter. 

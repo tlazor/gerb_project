@@ -1,0 +1,7 @@
+The documentation on the RPi website has no information upon embedded Bluetooth API (at least I wasn't able to find).
+Well, if you're scanning for BLE devices (I suspect this is the case, since you mentioned your phone), you want to mimic "inquiry-with-rssi.py" which you can Google for, or look though the following examples on github:
+Some of the Python modules (pyblues, native sockets) are not well documented and almost no solution available on the web.
+Of course I can run bluetoothctl in the shell and then use scan on command but it is not the thing I'm looking for:
+Keep in mind also, that your phone most likely randomizes its BLE MAC address periodically, in support of the "privacy" feature in BLE which using random MAC addresses in advertising broadcasts. 
+For getting RSSI (Signal Strength) of EDR (Bluetooth "classic") devices, I have not found reasonable python libraries...so for those devices, you may want to write a wrapper around a console command like hcitool.
+I'm trying to scan the invironment of the Pi for active bluetooth devices. I'd like to have MACs, names and signal strength.

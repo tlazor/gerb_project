@@ -1,0 +1,6 @@
+Sometimes just changing the time on the screensaver (not the type) to something else, say from 10 min down to 1 and then back to what you had it before will allow the screen saver to function normally.
+I find the culprit is typically a media player.  You'd think it'd only be when playing video, but I have had some music players hold off the screen saver.  For example I had Amazon Music and Groove open and paused today, and just found my screen still unlocked after an hour. 
+Which indicates that Origin was playing a video and this was preventing the screensaver from running.
+If you apply this function to all of the threads in the system and then call GetProcessIdOfThread on the thread that you find, you'll have found the process that is blocking the screensaver.
+I don't know of any program that does this, but the way to find out is via the GetThreadExecutionState() function which will hold the value ES_DISPLAY_REQUIRED if the thread is currently blocking the screensaver from being activated.
+I'm not sure which is to blame, but I suspect them over the IDE and browser I was running, both of which do let the screen lock.

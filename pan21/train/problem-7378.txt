@@ -1,0 +1,7 @@
+There's not a simple math formula to determine the load you'll be facing.  Your load can change dramatically based on:
+Be sure to do load tests targeting 1.5-2 times the load your project teams anticipates. If you handle this load succesfully then I would keep increasing the load so you know what the breaking point is.
+I don't think there is any rule of thumb you can apply, except that the only way to know how your application will perform is to watch how your application performs.
+There is no silver bullet; and depending on the nature of your application you may see more load with fewer users. For example alot of Ajax on a site can drastically increase the load on Web and DB servers.
+There are schools of thought around how to do capacity planning, but it's a lot more complicated than a few formulas.
+If you are using IIS and SQL Server, Microsoft makes a few tools for stress testing / capacity testing your websites. IIS Tools 
+I have heard that ~75 concurrent users per 1GB RAM and single Core CPU on the web server is a safe estimate. So your typical 8GB / Quad Core Server should handle alot of users. If you get to that point, bandwidth may also start to play a role in your load. 

@@ -1,0 +1,6 @@
+I have just launched chrome portable and regular chrome on my pc and then browsed a website, added a favourite, signed into facebook (setting a cookie) and deleted my browsing history on the portable version as well as replying to your other question on incognito mode.  None of these changes carried through to the desktop version of chrome.
+Is it really okay, or am I risking something? Is it really working portably (my portable browsers) even if I run it alongside with Standard Installed Chrome, nothing on the Portable Browser will be left behind the host pc?
+In any other browser, I cannot do this even in Chrome. But I just tried it now, it works with no problem. 
+This leads me to believe that although it is not officially supported by Google, it is perfectly ok to do.
+Installed Chrome and 2 Portable Chrome (paf format) - can open alongside simultaneously. Is it really official?
+to my knowledge, it is perfectly safe to open the two side by side.  The PAF instance runs within its own "sandbox" or "container" with access only to its own environment - thats the whole idea of portable apps.

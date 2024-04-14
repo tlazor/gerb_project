@@ -1,0 +1,16 @@
+epel/primary_db                                                                                  | 6.0 MB     00:02
+epel                                                                                             | 4.2 kB     00:00
+All of this is documented clearly on the top half of:  http://aws.amazon.com/amazon-linux-ami/2015.03-release-notes/
+Is this my only route? I am not experienced enough with compiling packages from source to feel confident that will be done correctly.
+Unfortunately, while I can install 2.6.X with very little effort, and 2.7.3 with only slightly more, I can't seem to find a way to get my desired version on this AMI short of compiling from source.
+Please note that the Amazon Linux AMI repositories are configured with a higher priority than any third-party repositories. The reason for this is because there are several packages that are part of the Amazon Linux AMI that are also in third-party repositories, and we want to make sure that the Amazon Linux AMI version is installed in the default case. 
+amzn-main                                                                                        | 2.1 kB     00:00
+amzn-updates                                                                                     | 2.3 kB     00:00
+Download and compile from source.  Not that hard, then just use the #!/usr/local/bin/python or whatever location you install to.
+===================================================Matched: python3 ===================================================
+Additionally, should I uninstall the older versions of Python that were added through yum before installing my desired version?
+I have an EC2 instance running a standard AMI, and have exhausted the limit of my abilities with yum and similar avenues to update python to 2.7.4 or 3.3.1 for a library I need to use.
+epel/pkgtags                                                                                     | 998 kB     00:01
+Another option is to install/setup the EPEL repo which has the 2.7 and 3 packages and just do the yum install.
+epel/metalink                                                                                    |  12 kB     00:00
+As of Amazon Linux AMI 2015.03, Python 2.7 or Python 3 is supported directly by Amazon by default.  Python 2.6, 2.7, and 3.4 can be installed simultaneously and are managed by the alternatives command.

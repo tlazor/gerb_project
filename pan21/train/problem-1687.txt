@@ -1,0 +1,15 @@
+Not everything is open source, even on Linux so assuming the source code isn't available to you for some reason, perhaps just because you don't want to bother with searching the source code and downloading it or viewing it online, you might find clues by looking for strings in the command binary file.
+For example, you now the the lscommand is accepting the -T <tabsize> option, so assuming it is using getopt to parse its arguments, the sequence of characters T: should be in the getopt option list.
+Options are also passed from command line to the program as arguments. If the options are handed using getopt() API, you'll probably see a while loop checking through options using switch-case. This allows parsing the options and their arguments regardless of their order.
+Many developers that neglect updating documentation will still mention new features in the Changelog they maintain. Changelogs are although frequently quite concise, still in normal English rather than code. 
+The source code is the ultimate (or maybe the first) place to look for what is supported, but you may need some background in software development to be able to read code and understand the implication/implementation of a certain feature. 
+You can only find hidden options and arguments from the source code, but that's not a problem as GNU/Linux is open source. On programs written in C you start by looking from main() function how the int argc for argument count and char *argv[] argument pointer array are handled.
+Iv come across a couple of packages recently where there was hidden options that I would not of known had I not found out from the internet when troubleshooting an issue. 
+On Linux if I install a new package and it contains commands I haven't used before, is there a way to find hidden options and args that are not documented in the MAN page or with the --help option.
+You might also look for long options but unless you have already a clue about what the hidden option names might be, it is more complex as you need to have a look to all the strings.
+Even if not maintained by the developer frequently a packager will still maintain a Changelog that includes an overview of security updates and any new features that were backported.
+The -- option is as far as I know not explicitly documented for many if not most of the commands that do support it and it has become a slightly obscure syntax.
+The problem with undocumented features/options/switches is that there is of course no standard place where you can find them. 
+Should you already know one of the long options, you might limit your search to the strings appearing close to them.
+Typically by the package maintainer installs the Changelog  in /usr/share/doc/<package-name/ and includes a version of it in the package itself, query your installed RPM packages with rpm -q -changelog <package> or use apt-get changelog <package> on Debian and Ubuntu.  
+It finds it's origins in the getopt function and is used to "delimit the end of the options and the start of the parameters" and is what you would use when (possibly) your arguments may have the appearance of options. example here 

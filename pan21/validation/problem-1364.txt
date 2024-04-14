@@ -1,0 +1,6 @@
+Matching up the contact patches exactly will be a key part of making these structures stand up - tiny gaps or interpenetration will cause real problems. It will also help to make sure that the rigid bodies are created already "asleep".
+I'd start with subsections that have perfectly level spans and get that working first, then you could add information to each subsection for the amount of slope it can tolerate below it. (this might be pretty tricky as the center of mass changes the way the structure below will deal with the lateral force of friction)
+After that is working you could probably layer on some more sophisticated stability analysis to handle the more exotic substructure types.
+My approach would be to prebuild sub structures that are guaranteed to be stable. Have each substructure store two sets of spans"
+I think the crucial part of this question is how you can procedurally generate stable structures (as generating an unstable pile of blocks in real time should be no problem)
+It's worth noting that this method doesn't support some types of stable block piles. All of the sub structures need to be stable on their own. (i.e. you couldn't have a structure that requires a heavy structure above it to hold down some off balance lever)

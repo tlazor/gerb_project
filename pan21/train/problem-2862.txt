@@ -1,0 +1,8 @@
+In order to maintain a good table structure, data consistency and integrity, what are you're suggestions regarding this topic?
+0- CASCADE means to 'replicate' the changes that happens on the 'master' table to the 'details' tables. For simplicity, assume the relation (country, city). Each city[detail] belongs to a country[master], or each city is a child of a country. With cascade, if you delete a country, all cities belong to that country will be deleted. 
+1- When I delete a general_orders the cascade will delete all the records on natural_person and legal_person tables?
+So, I have this relations on my tables (see image) and I need to understand some things. I'll enumerate what I understand and what I need from yours is to say if I'm right or not and in case I'm not give me the good answer.
+2- Nothing will happen to general_order table. (If you delete a city, the country will still be there)
+In your case, general_orders is the master table (call it the parent). When you delete an order, the referenced rows from natural_person and legal_person will be deleted. 
+If general_orders_id is FK on natural_person and legal_person tables if I set onUpdate and onDelete to CASCADE what this mean?
+Regarding the design: It depends on your model, but I feel that the design is not right. i.e. I think each order should belong to a 'person', and this person's type is either natural or legal. So, I would have:

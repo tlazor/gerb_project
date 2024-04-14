@@ -1,0 +1,11 @@
+Windows Updates take a LONG time and it would save so much time being able to create an image that's up to date with all Windows Updates and deploy it using Windows Deployment Services (WDS).
+I have read that it is more difficult if you are using Windows 8 or want to extract the key for resale of the operating system, but unfortunately I don't remember the source.
+Newer Dell PCs with the Windows 8 logo and downgrade rights to 7 seem to be missing readable codes altogether (maybe they are stored in the EFI, but I don't know for certain).
+Having installed a Dell OEM image onto a VM, updated it, snapshotted it, ran sysprep generalize, captured an image to WDS and deployed that image to a physical Dell OptiPlex box, I had issues activating the OEM key from the COA sticker online and had to phone up for a manual activation... which went through fine, but was a painful process of listening to an automated system and punching in loads of numbers.
+Purchase 1 copy of Windows under a Volume License Agreement, and you receive permission to use that key to register your OEM licensed machines (image rights). Put your VLK MAK License in your answer file, and register windows like normal. 
+With an image made from Dell OEM media, I never had to enter a license code on either Win 7 PCs or ones bought with Win 8 on them.
+At the last place I worked we bought a ton of new and refurbished Dell PCs, they either had Dell Windows 7 Certificates of Authenticity or they came with Windows 8.
+Each year, I find myself installing Windows 7 dozens of times, on both brand new PCs and before passing on a used PC from one user to the next.  I'm sure a LOT of network administrators are in the same boat.
+With an image made from generic MS OEM media, during the OOBE setup you're prompted to enter the license code.  Entering the license code from the Dell COA sticker always worked fine.
+On those systems, I did essentially the same thing you said you're trying to do - build a base system, sysprep it (it has to be the OOBE option), make an image, then restore that image.  
+You get a shared OEM key in the Windows 7 system settings on all computers (or at least on identical models), and even full images (like Clonezilla) work without problems or difference to normal installations.

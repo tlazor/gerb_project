@@ -1,0 +1,10 @@
+Basically I prefer to have /home separate on any Linux system and I don't see any reason for this to be different.
+But if you think that gparted is risky (depends on how common power outages are in your area...), that might be too risky for you :)
+I haven't used it in this manner, but you could possibly use remastersys to make a live installer cd with your exact same set-up, and use that to do a fresh wubi install with all your files still on it.
+An alternate that might be worth trying is to get a live cd, make a bigger image, and DD the current image contents to a bigger image, and edit wubi to point to that instead.
+This might be not for a newbie, but if you have some experience with Linux, you can boot from a Live CD, just tar up the whole filesystem (include sparse files, permissions, owner and xattrs, but limit to the root filesystem only) to somewhere else, resize your partition (maybe even choose a different filesystem), and restore the filesystem (do not forget to preserver permissions here again). Then chroot into your new system and re-write the bootloader.
+That is one advantage to using LVM, which your probably to late in the game to do, but an option to consider for future deployments.
+Yes, there is no magic about file locations in Linux at all, except that the bootloader in the MBR or boot sector might point to its stage2 or to the kernel. Other OSes (from Redmond) might not like a similar treatment... :)
+If it is user data files that are causing you to run out of space, you could move them onto the NTFS partition, see here on the same page about resizing the hard disk; this will free up space for the Ubuntu install and allow access to the files from both operating systems
+If you are sure you did not do anything special (i. e. all your files are in /home), you need only backup your dpkg-get-selections, your /etc and your /home and can rebuild the system from there.
+It depends on the size of the virtual disk on which you installed Ubuntu and why you are running out of space, but I would favour moving /home to a different (virtual) disk, as mentioned on your link about resizing.

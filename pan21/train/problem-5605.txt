@@ -1,0 +1,6 @@
+Creating the database and tables should not be part of the database connection/configuration class. You don't want this to execute on every connection, but just once when you set up your website. Create a separate setup script. 
+Be harsh, please find out as many small noob mistakes as you can. Suggestions and Feedbacks are always welcomed !
+This has the additional advantage of simplifying your dbConfig class. Right now, it stores the database configuration, connects to the database, and sets up tables (in addition to echoing and dying, which no class should do). That's too much responsibility for one class, so it's good to extract code from it.
+While copy-pasting the code here, I was getting feeling that I made the code a bit more lengthier for such a small task. Please let me know how to minify the code and other various aspects of my code.
+I am relatively new to programming and OOP in PHP. I tried to create a Simple Login Register Script using my basic knowledge of OOP. I'm sure my code can be better in a lot of way. I'm trying to code better and learn new things.
+Right now, an attacker does not need to know the password of a user to login, just the username. This is because of the precedence of and over or. Your query is executed as: 

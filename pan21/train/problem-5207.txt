@@ -1,0 +1,13 @@
+As you can see, with this topology the BGP neighbors are not directly connected. So I have multiple possibilities of interruptions (not only link flapping). I try to find out how issues along the path influence the BGP peering, especially the dampaning.
+To answer your concerns about the eBGP peers not being directly connected: In that case, the stability of the adjacency is your concern, not BGP route dampening. There's ways to tune or help BGP a bit to allow for faster detection of connectivity issues between peers:
+Disclaimer: I am not suggesting to add any form of redistribution of internal routing information to an eBGP peering to an ISP. Please make sure that you know exactly what you are doing (and why), if you consider doing this. 
+Quoting & highlighting from https://supportforums.cisco.com/t5/network-infrastructure-blogs/bgp-route-dampening-confused/ba-p/3101999
+In other words: Your test setup and procedure act on the BGP adjacency of the peers. That will not trigger BGP route dampening at either end.
+If you want to see BGP route dampening at work, you have to make one of the  routers send WITHDRAW/UPDATE messages repeatedly. A simple test case for your lab (should work, I am composing this freehandedly, not from a lab):
+http://www.networkers-online.com/blog/2008/12/bgp-performance-tunning-convergence-stability-scalability-and-nsf-part-2/
+I try to find out which events inside of our network can trigger the route dampaning mechanism at the ISP site.
+When removing vlan 11 from SW1 port facing towards BGPRT01 no dampening takes place. After the hold time expires the BGP session is closed, thats it. When adding back the vlan the session is reestablished, thats it. nothing else. If i add the vlan back before the hold time expires nothing special happen.
+I would like to know what are the technical events which are responsible to consider a route as instable? Are there events when two eBGP peers are not directly connected which can leads to dampening my route? I read somewhere when receiving a WITHDRAW and an UPDATE for a route. This might be true for example when two ISPs speaks together about a route from another party.
+http://blog.ine.com/2010/11/22/understanding-bgp-convergence/#S2 , Section "BGP Fast Peering Session Deactivation"
+Losing and re-establishing the BGP peering session will not increase penalty for BGP route dampening. 
+The best option might be to talk to your ISP and ask them if BFD based BGP peering is available, or (big style) what kind of redundancy options they have on offer. 

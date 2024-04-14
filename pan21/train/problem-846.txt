@@ -1,0 +1,11 @@
+When I release a new version of my web application, I try it first on a staging website, which is basically a clone of the production environment.
+Is there a way in Chrome to temporarily send all requests for a given domain name to a given IP address?
+If the production site is yourdomain.com and the development site is test.yourdomain.com, in your DNS server you want to create an alias for test that points to it's IP address, there's is no need (and you actually shouldn't) change the IP to yourdomain.com. Consider a snippet of the DNS settings for example.com (your production site):
+Also the Cumbersome nature can be mitigated by keeping the file open, and using # to comment/comment the IP's needed. 
+I can do it from my hosts file, but it's quite cumbersome, and I doubt the changes will be taken into consideration immediately (and without a restart of Chrome), both to set the temporary DNS and to revert them back to their default value.
+What I'd like to do ideally, is temporarily override my DNS settings in Chrome, to force it to load mydomain.com and *.mydomain.com from the clone server.
+I don't know you manages your DNS, or what they used as a DNS server, but the implementation is the same. 
+The Hosts File will redirect your requests immediately, and you will not need to restart chrome. (I just tested on my PC)
+It's not enough for me to access the staging server by typing the IP address in my browser, as the application uses virtual hosts and thus replies on several domains and sub-domains.
+Give the Hosts file another go without closing it (Make sure you run your editor as admin to speed things along)
+Sorry to disappoint, but DNS is not an instant standard. If I understand you correctly though, you want to load an entirely different site in chrome from a different server. This is doable. 

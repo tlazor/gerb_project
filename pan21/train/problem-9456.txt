@@ -1,0 +1,6 @@
+MySQL clustering will gain you scalability of writes by breaking your database into fragments that are spread over multiple machines. But it will drastically slow down complex queries that pull data from multiple fragments. Only you can determine the effect of this on your application's performance.
+Remember, that MySQL replication is single threaded, so probably your replication will be not limited by master capacity, but by slaves, which can't keep behind the master and will be out of sync. From this article:
+You might want to look at sharding the data manually rather than letting the clustering engine do it for you. It will take more configuration, but if you understand how your application uses the database, you may be able to come up with a sharding scheme that allows most queries to only access one shard.
+if we have a problem with the read (SELECT) queries, we can just add another slave database and tell the application, that there is another salve. so it scales well...
+i have a master-slave-slave replication running. the application that uses the database does read (SELECT) queries just on one of the 2 slaves and write (DELETE/INSERT/UPDATE) queries on the master. the application does way more reads, than writes. 
+So i'm thinking about how to scale the the database in the future. Because one day the master will be overloaded.

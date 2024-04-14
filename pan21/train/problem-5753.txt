@@ -1,0 +1,7 @@
+Sample query to select all parent rows for which exists a combination of children rows with TypeId = 1 and 2 (query should return parent with Id = 1 and 5):
+As a performance comparison, I traced your "double exists" query at 0.2 ms for this sample data and my query at 0.7 ms, so it is somewhat slower.
+Sample query to select all parent rows for which exists children row with TypeId = 4, 5 and 6 (should return parent with Id = 3)
+I can't think of a solution that would be more optimised, but offer this as a solution that does not need re-writing when the list changes.
+I would like to select all parent rows for which exists a combination of children rows with desired value. The easiest approach is to use multiple exists clauses, but this is not optimal - anyone knows better solution? Here is a SQL fiddle: http://sqlfiddle.com/#!6/8da76/5
+A Non-Clustered Index on the child table by ParentID and TypeID will cover the subquery.  An Indexed View on the subquery is possible also.
+Apply the GROUP BY logic before the join. If TypeId is not unique do a COUNT(DISTINCT TypeId) instead:

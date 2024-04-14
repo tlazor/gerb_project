@@ -1,0 +1,8 @@
+However, if you desire to see every character typed into the terminal, then you will have to use another tool.
+pseudopod and rootsh can be used for logging legitimate sudos. And shwatcr is another thing to monitor logins.
+Changing the shell is very trivial to circumvent, patching the shell itself is better, but you have to patch all shells. Our favourite cracker uses this, as a bonus he doesn't bother himself with disabling bash_history.
+as root, you could replace their shell with a simple wrapper script that logged their commands before passing them to the real shell. This would only work prior to them logging in.
+ttysnoop uses the same method, but it is unmaintained. (I probably had issues making it log ssh connections, can't rememeber)
+If you want live view of commands executed on your system, this may be it. Warning: snoopy is not proper audit solution and can easily be circumvented.
+Snoopy is a wrapper around exec functions, and logs any  external binary that is executed(not shell builtins)
+Be aware though, that spying on your users might be subject to regulations or even outright illegal depending on your local legislation.

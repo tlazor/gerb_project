@@ -1,0 +1,6 @@
+When you next open or run that scene or spawn an instance of that prefab, Unity creates an instance of the component with the default constructor, then overwrites its members with those serialized values.
+But since this deserialization happens after the constructor has run, it can stomp or override values set by the constructor. In this case, you may have created the object in the editor with the initial default value of 0, which got saved into your scene file, before adding the 3.5 value to your constructor. The constructor value can't override what's saved in the scene.
+When you attach a component to an object in a Unity scene, or to a saved prefab object, unity serializes the values of its public (or serializable) members into the scene / prefab file.
+Normally this is a good thing: I set speed to 5 in the inspector when editing my scene / assets, I still see the value of 5 the next time I open the editor, and I get a value of 5 at runtime in the game.
+If you want to set up a default value that the developer can override in the Unity editor's inspector, a field initializer suffices, eg..
+For reasons like this, it's recommended not to use constructors for MonoBehaviours. Instead, use the Awake, OnEnable, or Start methods if you want to do additional initialization after the component has been deserialized.

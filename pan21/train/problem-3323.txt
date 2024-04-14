@@ -1,0 +1,6 @@
+What you are looking for is a machine learning algorithm. Although the easiest way would be to take the average scores and use that, there are much more accurate ways to make predictive models.
+If you're looking for a short answer, something you can just look up how to implement, I'd check out Random Forests.
+This was the first data science tutorial I did. It's perfect for getting started. Here is it in R and in Python.
+I am working on a problem(non competition) from hacker rank https://www.hackerrank.com/challenges/predict-missing-grade
+Basically you're given test data of a bunch of students of their scores in other subjects but math and you are to predict their score in math based off all their other test scores. Say you were passed data of
+How would you go about generating that student's score in mathematics or coming up with a prediction engine to generate the math score? I know that's the whole point of this question but can someone give me a hint or a resource to go to so I can have a chance of figuring this out and actually get started? I really want to learn.

@@ -1,0 +1,6 @@
+Is it possible to make this process more efficient? I'm ready to take a dive and look into gunzip and bzip2's source codes if necessary, but I just want to be sure of the payoff. Is there any hope of improving the efficiency of the process? 
+Rather than gunzip in one step and bzip2 in another, I wonder if it would perhaps be more efficient to use pipes.  Something like gunzip --to-stdout foo.gz | bzip2 > foo.bz2
+I have a bunch of gzip files that I have to convert to bzip2 every now and then. Currently, I'm using a shell script that simply 'gunzip's each file and then 'bzip2's it. Though this works, it takes a lot of time to complete. 
+What you're currently doing is your best bet. There is no conversion tool available, and attempting to bzip2 an already gzipped file is not really an option, as it frequently has undesired effects. Since the algorithm is different, converting would involve retrieving the original data regardless. Unless of course gzipping was a step in the bzip2 process, in which it isn't unfortunately.
+I'm thinking with two or more CPUs, this would definitely be faster.  But perhaps even with only a single core.  I shamefully admit to not having tried this out, though.
+GNU parallel (http://www.gnu.org/software/parallel) might be an option if you have multiple cores (or even multiple machines):

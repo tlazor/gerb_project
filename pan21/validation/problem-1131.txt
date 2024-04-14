@@ -1,0 +1,8 @@
+Naming issues aside, this approach has been used for many years in places where you wanted to push around less data, for whatever reason. E.g. the demoscene often uses procedural generation techniques to keep files small.
+I'm not sure this is exactly what you have in mind, but the PCG wiki describes something similar under "Dynamic World Generation". That name feels like a poor fit to me, so there could certainly be other names for it, but I'm not aware of any.
+Is there an accepted terrain building practice in which developers create a generation engine which accepts various seed values to control terrain in a non-random environment?
+What limits the applicability of the idea is that quite often, tight data/storage constraints are coupled to slower CPUs. E.g. it's not clear whether generating your worlds is a good idea on a mobile - it's hard enough to keep framerate up when you're not generating everything on the fly.
+You might be able to find additional resources by digging around "compression" topics. Generating specific game data on the fly given a seed is essentially just very efficient, hyper-specialized compression.
+I'm thinking of a method of, instead of storing gigabytes of map data, just storing a couple of megabytes of seed data, different types of seed data values for each chunk of the map, allowing the client to dynamically generate the map of your desired "design" (Not random gen), with only building and structure component configurations to be saved as map data. 
+Is there a name for this? It seems like it would be a good method of keeping a game's file size small. 
+I'm a web programmer but I do like the idea of working on games at some point. As an enthusiast, I'm curious:

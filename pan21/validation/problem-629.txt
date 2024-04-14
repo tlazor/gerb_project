@@ -1,0 +1,8 @@
+Thing is that my mouse device is a Razer Abyssus, and it comes with a very slow move configuration when you plug it to a Linux distro.
+That last command should say something along the lines of xinput is already the newest version (1.6.2-xxx). if it was previously properly installed.
+Sorry if I'm not explaining myself very well. English not my talent. But I really hope someone can help me because the default options are so slow that it gets uncomfortable to work with this mouse.
+If you still can't run the command after doing all of that, your system might be broken beyond repair, but I highly doubt you won't be able to. We'll troubleshoot if that happens.
+I installed Xinput but it doesn't work the same. Can't find the right options to make that alias work as before.
+I installed Debian 10 Buster and can't find the way to control my mouse options from Xinput like I do on Ubuntu 18 or Debian 9.
+Then you haven't installed xinput, or you haven't installed it properly. There is no other way you'd get this error if you had. 
+You will need to run these commands as root, either run su then these commands, or put sudo in front of the commands - depending on your system.

@@ -1,0 +1,6 @@
+but it seems quite old. That in itself is not a problem, but I wanted to be sure that I have information that is relevant. Is this the best resource for understanding how postgresql processes queries (using plans, statistics etc.) or are there others?
+The Postgres documentation is the best source for the most up-to-date information on how the system works -- second only to the code itself.
+I'm looking for some up-to-date information about postgresql internals, specifically the query optimizer. I've found this link (referred to in the "Further Reading" section of the 8.4 docs):-
+That being said, Your link is still valid for reference.  There's also http://neilconway.org/talks/optimizer/optimizer.pdf and all of section VII of the manual @ http://www.postgresql.org/docs/9.0/interactive/index.html (Chapters 44, 50 & 56 may be of particular interest to you).
+If you're looking for something more specific than that you'll have to narrow the scope of your question a bit more -- The query planner/optimizer is a pretty complex area and you really need to put a sharp point on your questions to avoid getting buried in information :-)
+src/backend/optimizer/README contains a lot of information.  Many source files under that directory also contain big comments.  That's about as up-to-date and relevant as you can hope for.

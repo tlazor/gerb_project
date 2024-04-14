@@ -1,0 +1,6 @@
+Leaving the keyboard paired I exited and restarted the Unify software and tried to pair the mouse again from the Advanced screen and it immediately paired and started working.  Now everything is good again.
+Finally, I unpaired the mouse and paired the keyboard.  The keyboard started working.  Then I tried to re-pair the mouse and it initially exhibited the same bad behavior that the keyboard had: it would pair but no mouse activity was getting to the computer.
+However, after getting the keyboard to a state where the Function keys would work (such as muting the sound and so on) I restarted my computer with everything connected to it.  After the restart, the keyboard worked as expected
+I found a solution that worked for me. Go to control panel - ease of access - make keyboard easer to use, then turn off "turn on filter keys"
+For others with this problem, changing the Filter Keys option didn't make the keyboard work for myself.
+I had the same problem with a K750 and Performance MX: mouse worked fine, keyboard would seem to pair but no characters would make it to the computer.  I tried the Filter Keys solution recommended here.  No joy.

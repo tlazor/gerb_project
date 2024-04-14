@@ -1,0 +1,9 @@
+So my question is, whats the difference between passing the parameters on the command line and passing them through an ini file?
+Check if u deleted any init.py file from the Djano apps. As django uses them to know which folders are apps, so they are kind of important.
+When I run uwsgi and pass in all the parameters on the command line, it works properly.  My uwsgi call looks like this:
+There is a lot of discussion about this sort of thing with various error messages reported. Hopefully althou' not entirely relevant to the question it might help someone.
+Just to add to the overall confusion concerning uwsgi & django here is an ini file that works for me. 
+THis all needs to be done because you need to be able to stear the correct settings files from outside of the django code and thus can't have lines setting DJANGO_SETTINGS_MODULE inside wsgi.py or indeed manage.py (use django-admin)
+I am trying to setup my server with a nginx to uwsgi to django stack, but I am having problems with the uwsgi part.
+Most notable are the lines "no app loaded. going in full dynamic mode and no python application found, check your startup logs for errors
+it is designed to run with multiple settings files in a directory settings a'la two scoops of django multiple deployment files ( which is why I was testing) 

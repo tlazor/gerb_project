@@ -1,0 +1,7 @@
+HP has a couple tools that can be used to make USBs bootable. I've had mixed success with them depending on what it is I'm putting on them. Their strength, apparently, is that they are supposed to work with anything.
+The HP USB Disk Storage Format Tool is another. It works best for creating MS-DOS style boot disks: http://files.extremeoverclocking.com/file.php?f=197
+Unetbootin worked for me in the end. Installed syslinux correctly, though I had to use an older version 494. The new version produced an error:
+The problem was with syslinux installation on USB (syslinux is a lightweight bootloader). I've tried installing it from Linux terminal, didn't work.
+The HP Drive Key Boot Utility is one: http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareDescription.jsp?swItem=MTX-UNITY-I23839
+There are several known issues with a  unetbootin and several flavours of Linux. It can work but if like me you find it causing issues, I have had more luck with Rufus. 
+I use liveusb-creator. It was designed for Fedora, but it's worked with every other live ISO I've put on it.

@@ -1,0 +1,6 @@
+Non-constant indexing into uniform array can be tricky and depends on GLSL version. I think that what you are doing should be within spec (even for GLES 2.0), but it still might be problem. 
+To form an array using std140 out of PLight, you need to pad it with an extra float at the end. Otherwise, PLight pLights[TOTAL_LIGHTS] is misaligned and you will fetch the wrong memory from pLights [1] -- everything will be off by 1 scalar component on the second light in this array of structures.
+The entire array size needs to be padded out to a multiple of the base-alignment for std140. Your base-alignment in this case is vec4 (4N). So that means to satisfy this alignment you need to add a float to the end. GLSL will do this for you automatically, and this float padding element is something you need to take care of when you declare this structure in code outside of the shader.
+I'm trying to pass a point light from an array to a CalcLight function in a fragment shader.  It works when I hard code in the value, but not when I use a loop.  Here's the code:
+On desktop it should be better, but still could cause problem, as you have to have specified const. array size (which you did).
+I know this is not much helpful in solving problem, but may give some clue to what might be going on.

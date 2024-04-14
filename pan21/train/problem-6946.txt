@@ -1,0 +1,12 @@
+You should probably only use a list like that in the DMZ. Internal systems should never be able to just contact random services on the internet using UDP port 123.
+So if you have a good reason to have a trusted time server, get one that interacts with a good time source device and don't hook it up to the internet.
+Consuming or providing bad time can probably be filed under "internet misdemeanors". All of the CentOS NTP names are a batch of IP addresses, probably meant to provide a broad sample for time sources (because drawing a complete NTP blank might be worse?).
+As for the safeness of the servers in the NTP.org pool, the servers in the pool are being monitored, but as they explicitly say, if you have a better (more trusted and reliable) option you should use that.
+Here is a snippet of a tcpdump capture, taken on the outbound interface of our drbd-store-02-ch host:
+Every time I setup a new Linux host (CentOS, lately), expecially when such an host will have some roles within our small datacenter (around 100 hosts), I take care to:
+During investigation, it cames out that there where also other hosts, not included in the list above. I even found hosts whose reverse hostname clearly pointed to some big ISPs, referring to VPSs and stuff like that.
+This looks like the rather common case of a software vendor (Centos) shipping with the free public NTP.org pool in their default NTP configuration rather than providing their own NTP infrastructure or relying on the user to have NTP infrastructure in place.
+So, as for systems with Internet access, the server-list configured in the ntp.conf is the following:
+P.S.: as a side note, I'm absolutely aware about the DNS resolution process and so the problem is not "why" I'm contacting those servers. The problem is: "is it safe?"
+Personally, I'd give moderate trust to the list that CentOS produces but if you're concerned or if there's a business need, you should be able to find NTP from your provider network or from NIST (time-a.nist.gov, etc) if you trust them. In circumstances where security was paramount, I've consumed time from my provider network and re-hosted that time reference on the core routers so that consumers within the network can all use a unified and known source.
+While investigating completely different issues, I discovered that above configuration generate traffic to remote hosts I'm totally unaware of. 

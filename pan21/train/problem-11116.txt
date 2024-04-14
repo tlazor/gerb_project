@@ -1,0 +1,5 @@
+Another possibility; I ran into this today.  A pvcreate on my /dev/sdb came back with "...excluded by a filter."  No filters in lvm.conf and the size was fine.  But the -vvv option recommended by @Zatarra helped.  In it I saw,
+Which was wrong, so I did a lil bit of reading and found out dat I have to use a driver for it (becaue of imagine metadata) so I did the following:
+Check /etc/lvm/lvm.conf for uncommented filter = and global_filter = lines. One of these will likely contain some filter which matches /dev/sdb. The default configuration specifies no filters, so this will have been modified in your environment by someone else.
+In my personal case: I needed to initialization sharedstorage such as iscsi target, but I couldn't. And the reason was table label of sharestorage and after I executed 'wipefs -a /dev/sdb' everything had done.
+lsblk showed no partitions and fdisk wasn't helpful.  But gdisk showed there was GPT partitioning information written to the device.  A dd to it probably would have worked - but I used the "zap" option under expert functionality in gdisk (danger!).

@@ -1,0 +1,11 @@
+Your proposal requires the funneling of all traffic through a "smart" server at the ISP with a full textual routing table (replacing DNS), and never tells my machine who it should be talking to -- so that poor "smart" server at the ISP has to handle traffic from everyone at the ISP.
+What you are proposing would require every ISP to keep a complete list of every host on the internet (either in the form of the above routing table, or as a hosts file which is what you appear to be suggesting.
+Please gain an understanding of the history of the Internet, how things work, and why they were implemented that way before proposing radical architectural changes.  I suggest acquiring and reading a copy of DNS and BIND as well (any edition).
+Storing routing tables for arbitrary text (as opposed to the relatively rigid structure of IP networks/subnets) would be an enormous task - totally impossible in the 1960s-1970s when this technology was born, and even with today's technology it's infeasible.
+DNS takes care of turning those words into addresses, which the network then knows how to route from point A to point B.
+Currently a you ask a DNS server for the address that goes with a name, and then you talk directly with the server you were looking for after that, with "routing magic" happening behind the scenes to get the data from your machine to its destination and back.
+The brokenness I've identified is just what has occurred to me between projects while doing actual work -- I'm sure there's a litany of other reasons why this idea is ill-conceived...
+The DNS is an elegant solution to a complex problem -- What you are proposing is architecturally broken.
+Way back in the stone age there was THE Hosts File, which listed every single host on the network.  You would get an updated copy of THE Hosts File (via mail, UUCP, or someone bringing you a printout and you typing it in).  This was back when there were about 50 machines connected to The Internet.
+Again, back in the 1960s-1970s this was totally impossible.  Today it's infeasible -- the workload would crush the server and internet access would cost thousands of dollars per month to pay for the infrastructure.
+Words like "yahoo.com" have no meaning in terms of internet addresses and routing - Only IP addresses matter.

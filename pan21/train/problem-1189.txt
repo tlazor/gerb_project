@@ -1,0 +1,7 @@
+Is there any way to get this working? (The problem is that I don't want to create a new domain user for that task and I need to access a remote share from this task.)
+If you want access to a networked share you have to use an account that is known in the network, so use a domainaccount. And the service you want to run MUST support UNC addressing. If it needs network drive letter access, you need a user session with mapped drives, other wise this also will fail.
+It is quite simple to set up a task to run as a SYSTEM, but when setting it to NETWORK SERVICE it show "Access is denied" error message.
+Network Service is a local (computer) account. It will therefore never have rights on another computer (where the share resides).
+Try adding the "Log on as a service" right to the network service account. Detailed instructions here.
+The second part of that should be taken with a shovel full of salt! As what it means here is that you do not have credentials, but if you run something that do not need the account to have credentials, it DOES have access to the network!
+(I suppose you know this already, looking at the date of your post. My answer is just an extra for people who wil find this post with a similar issue)

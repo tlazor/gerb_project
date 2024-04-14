@@ -1,0 +1,7 @@
+I've also tried using <?php ini_set('short_open_tag','1'); ?> at the start of a page and it still doesn't parse code in short tags.
+don't add the tag there as it is set later on in a "Language Options" section (which would overwrite your setting):
+I'm setting up an Apache2, PHP 5.3.3 server running on CentOS 6. My web application uses the short tags <? and <?=. I can't seem to get the short tags enabled. When I run phpinfo() I see short_open_tag = off, however in /etc/php.ini I have this: short_open_tag = on (and yes I've restarted the server).
+In reality all 21st Century PHP apps will have FastCGI Process Manager(php-fpm) so once you have added php-info() into your test.php script and checked the correct path for php.ini
+Most likely, you have eAccelerator or something similar enabled. Pre-compiled pages are not processed, so just clear eAccelerator cache, or (ugly) uninstall eAccelerator, restart Apache, re-install eAccelerator, restart Apache..
+The only thing I can think of is there's another php.ini file somewhere that is being used instead of, or overriding the one at /etc/php.ini.
+on centos6 /etc/php.ini should be the place, make sure it is not defined multiple times in the file.

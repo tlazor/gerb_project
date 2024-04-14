@@ -1,0 +1,16 @@
+When you think about it it makes perfect sense since the delta disks are block-based, not file-based. If the same disk block happens to get re-written 10 times while the snapshot is active, the delta doesn't track ALL the changes, just the current state of that block.
+The IO pattern for a read starts by looking for the requested blocks in the most recent snapshot (aka delta disks) of the current branch, then works it's way up the branch until it reaches the base disk, until it finds it.
+If later on rather than restoring the snapshot i choose to delete the snapshot so it merges the delta file with the base disk. As i understand, it will bring the base disk in-sync by replaying/merging the create/modify transactions from the snapshot. 
+This has the benefit of using less space, when you start and growing over time. However, VMDKs never shrink. Well, not without much effort from the virtual admin anyway.
+If i take a snapshot in vmware/vbox for example and soon after i delete a 5GB file.. the snapshot delta file will grow +5GB with the deleted files content to allow it to be recovered by restoring the snapshot. 
+If you delete the snapshot, nothing at all is merged; the snapshot is simply destroyed and your volume, which already has the current state of your filesystem, is unchanged.
+If you revert to your snapshot, then whatever is in it is replayed (in reverse) and merged to the volume from which the snapshot was taken. This makes the volume identical to the snapshot, and the snapshot is destroyed.
+Reverting to a snapshot on the otherhand is effectively saying I don't like these blocks and wish they never happened. Doing so changes the VM's disk pointers to use the parent, ignoring the contents of the delta and leaving them be.
+I can confirm this because, after the comments to Michael's answer, I went and tested it on my vSphere 5.5 system.
+When you delete a file from a VM with an active snapshot, the delta disk doesn't increase by the size of a deleted file.
+What is the logic for the 5GB file that resides in the snapshot ? It won't be recreated on the base disk during the merge. How does it know to skip over this file during the merge ? Does it just look for the inode existing ?
+Generally, deleting a file doesn't result in having it's consumed blocks zeroed out, but rather updates the pointers that let the filesystem find the blocks get deleted. There are likely exceptions to this, but let's keep it general.
+Now, when you delete the snapshot, you're effectively saying I like these blocks and wish to make them 'permanent'. Doing so takes the blocks from the snapshot in question and applies them to the parent.
+If you're using thin provisioned disks, then none of the blocks actually exist in the VMDK until the OS requests them to be written. At that point, they're zeroed out and then handed over the OS. Presumably, reading a block that's never been used just results in the hypervisor just returning zeros.
+Also, reverting != deleting. You revert without deleting, and you can revert to a snapshot as many times as you want.
+Alaright, I've gone on long enough here, and I'm sure I could have worded and organized this answer much better, but I think it's all there..

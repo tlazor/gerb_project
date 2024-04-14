@@ -1,0 +1,8 @@
+My VMs all seem to have 10.0.2.15 as IPs, but maybe that's a coincidence. Check that, if it doesn't work.
+The above answer (by cosmo0) should solve the problem, except if you need authenticated connection. For authentication, choose external in  VM Settings > Display > Remote Display > Authentication Method. Then in RDP client, press Show Options and tick Allow me to save credentials. Press connect and it should prompt you with loging/password dialog.
+Locate VBoxManage.exe command line tool (in my case it was inC:\Program Files\Oracle\VirtualBox\) and perform following commands while VM is off:
+This way your create an RDP user that should work. NOTE, this user is NOT related to any existing users in guest or host os, its for VirtualBox only.
+On the guest OS, check that RDP is enabled: on Win7, right click computer > properties > Remote settings (on the left panel) > Allow connections (I used the "less secure" one)
+The host's IP must be the actual host's IP if you want to connect with another computer, or 127.0.0.1 if you want to connect on the host computer.
+The VMs downloaded on modern.ie have an "auto-logon" feature that's nice in general, but annoying in this scenario (they might prevent you from logging in). On Win7, run "netplwiz" and check "Users must enter a user name and password". The password of the user can be found here (it's Passw0rd!)
+This should work without running a server on the VM. It is VirtualBox's server you are connecting to.

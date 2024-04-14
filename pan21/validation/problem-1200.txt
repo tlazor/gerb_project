@@ -1,0 +1,10 @@
+This is what i used and it returns no results. (not the most efficient but just a quick proof of concept)
+Aaron hinted the answer. There is a connect item filed about this. dbid being NULL for ad hoc and prepared SQL statements. There is also a workaround mentioned in the same article.  It is closed now.
+I slightly modified the workaround to get all the columns you need.  This will run significantly longer than your query as it is getting the dbid from the plan itself.
+There's an easy (and free!) way to do that using sp_BlitzCache (full disclosure, I contribute to this OSS).
+That will give you your top 10 statements by overall CPU. If you want to order by other metrics, you can use the @SortOrder parameter to go by reads, duration, executions, and more.
+You can run it with the @QueryFilter option (which can also get only stored procs, and only functions (but functions are only 2016+).
+I know there are several queries submitted regularly from client apps that don't use stored procs and take a long time to execute. I would have thought SQL keeps a record of these somewhere.
+sys.dm_exec_query_stats only appears to contain these, i need to gather similar stats that are in this dmv but for just normal queries submitted by ssms/EF/Web etc.
+I finally got the right balance of performance and accuracy. The below will return the top 100 queries based on average total elapsed time.
+Thanks to @SQLWorldWide who's suggestion about reading the DB from the xml, that added alot of time (3mins) but while i was playing around within dm_exe_query_plan i noticed the value column was equal to the Database ID. it might not be 100% encompassing of all traffic but its fast (1 second) and works for what i need.

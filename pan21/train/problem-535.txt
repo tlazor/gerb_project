@@ -1,0 +1,9 @@
+Ensure that the Windows 10 client that is failing is on Win 10 build 1803 and TSpkg.dll in %Windir%\System32 is at File version 10.0.17134.48.
+By the way, all these servers, including the one I cannot log into, as well as all the clients trying to connect are behind a firewall. 
+I have read this advisory mentioned in the error I get when my client tries to log into our server. 
+You may be, but this server may not. There is a compatibility matrix which works with which and the registry setting you can use to modify you servers behaviour.
+If these are not true then you are incorrect about having all relevant updates installed.  Review the update links mentioned in MS KB 4295591
+It is a CredSSP error trying to log into a Windows 2012 Server R2 that Win 8 and Win 7 clients can log into. Another Win 10 client can also log into the same server.
+The problem seems like there is a setting on my workstation that needs to change, but I cannot tell what to set. 
+You can try to set the AllowEncryptionOracle DWORD in HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters to "2".
+I would appreciate any advice on what to check. Also, I am fully updated with Microsoft Windows updates.

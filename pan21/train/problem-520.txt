@@ -1,0 +1,11 @@
+This doesn't seem to change anything at all, as files still have the -rwx------ 1 admin    admin permissions after being copied over.
+I have Samba running on a plug computer running Debian Squeeze which I'm trying to configure to act as a web-based file server.
+The problem is that now only admin has the rights to rwx the file. No other users have any rights at all. This means that www-data (which is the web server) has no rights to this file. The result is a 403 - Forbidden if I try to open foo.pdf through a web browser.
+Everything is fine, because the user has full rights to rwx the file, even though no-one else does -- which isn't a problem. But now, the user decides they want to copy foo.pdf from their local machine onto the plug computer -- and things start to go wrong!
+My *nix knowledge is fairly limited, but I reckon that what needs to happen to fix this is that Samba needs to relax these permissions when copying over files to allow other users to read the file.
+As a test, I used those options to force 0777 (obviously unsafe for a production environment, but just wanted to test) and found that it made no change whatsoever to the file permissions of copied over files.
+The machine runs Lighttpd for the web server, and Samba for the file sharing. The user is able to use Samba to copy files from their local machine onto the plug computer using Samba, and then view them through the web browser (script I wrote).
+The problem is that I'm having permissions difficulties when a user copies files from their machine over Samba. Let's take an example with a file called foo.pdf:-
+Lighttpd runs as www-data, Samba runs as root and the user authenticates with Samba through a user account called admin.
+Reading similar questions on SF and other sites indicates that a potential solution may lie in the create mode/mask and force create mode/mask -- however it's not clear whether this only applies to new files, or also to copied files -- because it's not working for me!
+foo.pdf is stored on a separate NAS drive on the LAN, which the user copies over to their local machine running OS X. The permissions right now are as follows:-

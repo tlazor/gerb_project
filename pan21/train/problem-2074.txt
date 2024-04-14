@@ -1,0 +1,6 @@
+This is a better long term solution, as it can grow and morph without much effort or performance issues.
+The answer really depends on whether your switching and routing environment can easily support VLANs and if you have enough knowledge to deploy them.
+2- other VLAN's as you wish for workstations and other clients.  DHCP will be your biggest headache .. it has to be setup for each VLAN.  Typically a DCHP server can serve more than one scope, and the VLAN control switch can be told to pass DHCP requests properly.
+Note: This is not a good long term solution, but it is a great temporary measure to buy some time.  It has downsides, primarily around performance due to more broadcast traffic.
+If the answer is NO and you are not willing or able to make it YES, then I would make a bigger network (i.e. increase the size of the address space) by changing the network subnet mask.  If you are currently using the 10.10.0.1 to 10.10.0.254 space, the subnet mask is 255.255.255.0.  If you change the subnet mask to 255.255.254.0, get the space 10.10.0.1 to 10.10.1.254, adding 254 usable addresses.
+3- once it is stable, use the central routing device (likely your main switch) to control/secure traffic among the VLANs.  

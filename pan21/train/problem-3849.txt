@@ -1,0 +1,5 @@
+I have a theme installed on my Ubuntu 9.04 desktop. It's quite nice, but there are a few issues, where some styles have been left at the default, thereby leaving white text (set by the theme) on a white background (the default).
+All Ubuntu's system themes are in /usr/share/themes. If you installed the theme manually (drag and drop on the appearance dialog or something similar), it will be in /home/yourname/.themes
+You might also look at your custom theme colors. Those can carry over across themes and make things look fugly.
+I'm not able to access a linux desktop at the moment, but if I recall, you can edit the theme file as found in /usr/share/themes/ or /usr/local/themes/ There will be no dialog for setting variables, but you have much more control over the appearance.
+Break out your text editor and start tweaking. Note that the theme will not update in real time. I recommend having the appearance dialog up so you can switch to another style and back to yours. This will update the UI with your changes.

@@ -1,0 +1,5 @@
+As far as network discovery, many scripts are written to see if they get a valid result from the URLs above - if not, then it is not an iLO as far as the script it concerned.
+One such example for iLO discovery is located at http://blog.nachotech.com/?p=63 and uses a BASH script. I've written powershell scripts that do audits of iLO devices and they too scrape data from the xml URL.
+xmldata?item=CpqKey will return licensing information such as advanced license key, install date etc. As far as I know these are the only two documented XML queries and I suspect by virtue of the name (cpq - compaq?), that they are a legacy item in the iLOs.
+That response and tag information are used by other HP products like Systems Insight Manager, It's mostly association data, so that the SIM server can figure out which iLO corresponds to which system, and some generic details about the iLO.
+As you say, the HSI (Hardware Support Information?) Tag refers to the machine itself, and the MP (Management Processor) Tag the iLO.

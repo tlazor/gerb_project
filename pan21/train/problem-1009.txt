@@ -1,0 +1,5 @@
+In the first row below the first header, enter the following formula as an array formula (paste the formula into the formula bar and press Ctrl+Shift+Enter), where A2:A3653 is your big column of dates and B1 is the header for the first year's column:
+This formula can be filled over through all 10 columns. Finally fill down as far as you need (probably 400-500 rows, depending on the distribution of the dates). Array formulas do a lot of computational work, so this will probably take a few seconds to calculate. 
+In this example, the formula is entered in row 2. If your output columns start on a different row, you will need to adjust the ROW() - 1 part of the formula so that ROW() - x is equal to 1 for the first date (e.g., if your headers are on row 3 and the first row of dates is in row 4, you will want to change this part of the formula to ROW()-3.
+Go ahead and create your column headers manually (label as the year, e.g. 2013, because this will be used in the formula).
+Once your data is split, you may want to copy all these cells and paste special the values back into the same range. This will remove the formulas and improve the performance of your worksheet.

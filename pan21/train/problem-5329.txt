@@ -1,0 +1,6 @@
+I don't understand how this can run in linear time. If the forest-finding runs in O(|V|+|E|) time, and |V| is not guaranteed to decrease in any predictable fashion, then the algorithm should be bounded by O(|V| log |V| + |E|).
+Finally, observe that at each stage $|E|$ goes down by a factor of two, so all these $O(|E|)$ bounds add in a geometric series to be linear in the size of the original graph.
+Camerini's algorithm does this by splitting the edges by weight into heavy and light halves in O(|E|) time, then building a maximal forest from the light edges. If there is only one tree, then it recurses on the lighter half of edges, but if there are multiple trees, it reduces each tree to a super-vertex, then recurses with the new set of vertices and the heavy edges.
+First, after each stage throw away any isolated vertices. With these vertices removed (even when the graph is disconnected) the number of vertices in the next stage will be at most twice the number of edges.
+Next, use the fact that (with isolated vertices removed, in each stage after the first) $|V|\le 2|E|$ to simplify the time bound in each stage (after the first) from $O(|V|+|E|)$ to $O(|E|)$.
+I'm having a difficult time understanding Camerini's algorithm because there are very few clear explanations online. The goal is to find a minimum-bottleneck spanning tree in linear time. 

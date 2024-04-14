@@ -1,0 +1,7 @@
+so, for four GB of RAM your swap needs to be at least 4294967296 bytes or 4295 MB to use all the features.
+The Ubuntu SwapFaq will probably answer a lot of your questions.  With larger amounts of RAM you may benefit from changing the default "swappiness" as outlined in this article.
+first of all, if you want to use hibernation etc, you'll need a swap partition at least the size of your RAM.
+From my personal experience with Linux, I came to know that the conventional formula of 2X the size of RAM suits only older systems with 1 GB - 2 GB of RAM.
+Although I recommend to use the original amount of RAM if your memory is atleast 4 GB. That should keep the system stable and efficient.
+secondly, remember that RAM is sized in multiples of 2 and not multiples of 10, so declaring 1GB of space for 2 sticks 512MiB of RAM (each 536870912 bytes) is not enough, as this is only 1000MB (1000000000 bytes) and not 1024MiB (1073741824 bytes) as required... instead you'll need to take a calculator, and do 1024 * 1024 * 1024 * # of GiB
+According to the Ubuntu SwapFAQ here the calculation is 2*MB of RAM. So in this case 8GB. Realistically however you should not need more then 2GB. 

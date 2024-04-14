@@ -1,0 +1,8 @@
+If you're looking at a router, try to find SNMP data for it, then you can graph it with munin, mrtg, or a whole bunch of other SNMP handling devices.
+If you had a cisco router capable of supporting NetFlow data, you could use this and a NetFlow listener  to look at the traffic data.
+If you're looking at a linux box, install something like iptraf (command line, ncurses traffic monitor), or munin (graphing util).
+If all you want with your monitoring is to see which programs access the Internet then a normal software firewall should do the trick as well.
+If you actually want to look at the traffic, the a program like WireShark might be what you are looking for.
+The idea is that you could boot your actual system (i.e. your Windows XP installed on your C:) in virtual machine using VirtualBox.
+If by look at you mean to measure the bandwidth then maybe a program like BitMeter II or BitMeter OS is what you are looking for.
+You should create new virtual machine and set your real partition (C:) to be used as HDD in this virtual machine.

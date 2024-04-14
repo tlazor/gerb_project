@@ -1,0 +1,7 @@
+When nothing is connected to the GPIO to force it high or low it will float randomly showing low or high.  That is why you use a weak pull-up or pull-down to force the GPIO high or low in the absence of a stronger signal (from your sensor).
+When the PIR is attached to the GPIO there should not be random signals.  If there are random signals your wiring or components are faulty.
+Add a pull-up if your sensor gives 0 for an alarm.  Use a pull-down if your sensor gives 1 for an alarm.  You can enable the internal pull-ups/downs in software.  Check your library docementation.
+I get "no" a few seconds, then I get "Motion" a few seconds and so on. But if I disconnect the cable from the Pi there's only "No" readouts.
+After some testing I realized that whenever I have a cable connected to that pin (cobbler or single) I constantly get random signals.
+I also tried setting the wifi dongle on a extension cable to get it away from the Pi but that didn't help either.
+I unplugged everything from the breadboard, including the motion sensor but I still got a signal to the GPIO pin. 

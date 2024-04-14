@@ -1,0 +1,6 @@
+Then connect one to one switch and the other to a second switch, these can be L2 switches easily, so long as you're using Active/Passive and both switches connect to one or more routers - actually even without dual routers you'd have added a great deal of resilience by just doing what I said. IP is pretty irrelevant here too by the way.
+From eth0 ie NIC 1's wire goes to Main Switch from Main Switch wire goes to Node1's Switch & as Daisy Chain its going on till last Node's Switch.
+Or I have to write program which maintain ip address & check its connectivity. If one node fails to communicate with server's 1 NIC then that java program send request from different NIC which have different network address '10.111.18.xxx'. I can keep program in each node so they can change their own ip as per NIC response.(These program is also theoretical right now if i got reply yes then i try to find out how to write these program)
+I am Trying to achieve Network Redundancy in network which have 1 server & lots of node which use 1 switch for each.
+Can anybody tell me whether this thought really work in same network means all ip within 10.111.17.0 to 10.111.17.254
+You really don't need L3 switches to add resilience, it's almost irrelevant - what you need is dual NICs, ideally using different processors and drivers - and team them within the OS.

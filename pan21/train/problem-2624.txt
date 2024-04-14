@@ -1,0 +1,8 @@
+I have servers at x.x.x.x and y.y.y.y.  I want to “pretend” that the server y.y.y.y is the server x.x.x.x.
+I’ve also tried just about every other iptables command I could gather from the Internet and NOTHING works.  Always a hang.
+I want to be able to simply type the command ssh y.y.y.y and be able to poke around inside the server at x.x.x.x.  I don’t want to have to add any extra parameters to ssh that would imply I even knew that x.x.x.x existed.
+Now, if y.y.y.y is NOT a router between the Internet and destination server x.x.x.x (which I believe might be a case here) then you additionally have to force return traffic to pass through y.y.y.y to properly "fix" the return packets source address so they are correctly matched to existing connection on the source (ssh client) system. To do that you need SNAT to modify source address of the packet redirected to x.x.x.x:
+As you are not very clear about what you want to achieve I assume that you want to redirect any ssh connections to y.y.y.y to ssh server running on x.x.x.x.
+On the y.y.y.y you have to enable forwarding (which you did correctly) and to forward any connections destined to port 22 on y.y.y.y to x.x.x.x:
+My server is an Ubuntu 16.04 Amazon EC2 instance.  I have allowed traffic through port 22 with the instance’s security group.
+I’ve tried sysctl -w net.ipv4.ip_forward=1 and then sudo iptables -t nat -A PREROUTING -d 0.0.0.0/0 -p tcp --dport 22 -j DNAT --to-destination x.x.x.x:22, but SSH always hangs when I try to connect with ssh y.y.y.y.

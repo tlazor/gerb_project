@@ -1,0 +1,9 @@
+EBS volumes cost per-GB, per-month regardless of their usability. So yes, you are still being charged for that volume.
+As it is brand new, you may want to detach it, blow it away, create another one, and reassociate it. If that shows a garbled name as well, see if a reboot causes the name to become less weird.
+The first problem isn't on your instance at all... it's your terminal, which isn't correctly configured for utf-8, so you're seeing characters other than what's supposed to be displayed.
+Your second volume is xvdf.  If you add a partition table and partitions, you'll see xvdf1, etc., and this doesn't incur any billing above the charge for the volume itself.
+The second problem is that you are confusing volumes (disks) and partitions.  xvda1 is the first partition on disk xvda.
+What is this garbled name duplicate? I can't find any information on it.  Does this count towards my billing as well?
+In many cases in Linux, you don't actually need to partition a disk; the filesystem can just occupy the entire disk (EBS or ephemeral volume in EC2) so you won't have partitions.  The root volume, though, typically does have a partition table and often boots from the first partition.
+You are not being billed separately for xvda1 -- it's a partition on xvda -- note how it is labeled part, not disk.
+Googling ââ linux will find many examples of this, such as https://bugzilla.redhat.com/show_bug.cgi?id=517447

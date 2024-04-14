@@ -1,0 +1,8 @@
+According to JSLint, you should use fourspace indentation, not two-space indentation (http://jslint.com/).  I don't know the official standard on this, though.
+Generally speaking, not safe to specify widths of text elements using px, since the user is the one who has the final say in the font size that is used.  Ideally, you should be using ems.  This goes for both your label and your input elements.
+Left is the default alignment, you don't need to specify it on your label (and I don't see anywhere where this is overriding a previous alignment declaration).
+Perhaps declaring them with capitalization would be more ideal? I'm sure there is a reason you did this but it doesn't appear to be the most elegant to me. 
+If you use larger number than 100 and you start seeing values with 3-4 matches, it would be a nice touch to have a space in between. Example:
+Most display properties are ignored when you float an element (inline-block, table-cell, etc.).  Either float it or change it to inline-block, not both.  However, what you're really looking for here is this:
+I find that in your naming, while it appears consistent, the constant use of the fizz prefix is a bit odd, since when you run it you use other words than Fizz or Buzz. 
+You're using a fieldset, but never using legend?  Seems like a strange choice.  The fieldset element is meant to group similar controls together, not just contain everything.  If it were me, there would have been 2 fieldsets:

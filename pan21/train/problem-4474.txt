@@ -1,0 +1,6 @@
+That's pretty convoluted. You can just take ZFS snapshots of your original backups, share them out as iSCSI volumes and mount them on the Macintosh workstations as (read-only?) Mac-formatted drives. The .dmg portion is unnecessary.
+What I'd like to do is take snapshots from previous backups and make them available as OS X .dmg files. If I could somehow take the ZFS volume and share it over NFS to the OS X clients, named something.dmg, they should be able to mount the volume on their desktops and view all the files therein...
+Here's what I'm doing: I have ZFS Volumes which I am sharing via iSCSI to a Mac OS X workstations. The workstations format the iSCSI devices as Mac OS X extended, and then back up to them.
+Ok... sounds like a strange question, but bear with me. Can I access a ZFS volume as if it were a file? Specifically, can I share a ZFS volume as a file over NFS?
+You can for example share zfs volume (/dev/zvol/rdsk/...) via iSCSI and mount it to you mac, over the network with GlobalSAN iSCSI initiator.
+You're making this question appear more complicated than it really is. You have a set of files. You want to create a dmg image from them on Solaris. You probably can't, because dmg is a proprietary format and there are no tools that I know of (outside of the ones included with OS X) that can create a dmg image.

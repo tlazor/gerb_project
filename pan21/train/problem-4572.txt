@@ -1,0 +1,6 @@
+I am running Debian Sid and i was able to get windows 7 and xp to run in seamless in dual monitor mode, with 3D acceleration, you need to install your guest additions in safe mode.
+This one confused me. I looked all over the Guest Additions and couldn't find it. In the hopes that it might help someone else, it is talking about the Control Panel in Windows itself. In the Control Panel click on Display -> Setting and there you will see the "Extend the desktop onto this display".
+I found that if I moved the Virtual Box VM Launcher on to the secondary monitor, and THEN pressed "Start" I was able to resize the window that appeared to fit onto my secondary monitor. If I started it from my primary monitor, I could not resize it any larger than my primary monitor.
+Start your guest and perform the standard "Extend the desktop onto this display" method based on the Guest OS. (Guest Additions need to be installed.)
+Settings -> Display -> Monitor count -> Change to two (This is with the machine powered off running Windows 10).
+install os with dual screens enabled already, if your o/s is already installed i am unsure if you will get support, though i would recommend following the below to do so.

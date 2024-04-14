@@ -1,0 +1,5 @@
+If no tuning has been done, it's likely that the users are being forced off due to the resources the database is using on the server itself. 
+Also, at the time of the block, when you try accessing the machine using putty from another computer with different IP, does the login work ?
+This is just a shot in the dark but what security measurements do you have on the server ? maybe your connection is triggering something that is causing the block and when the server is restarted the block is gone and the loop continues.
+i am able to login with out any issues , but it gets timed out after a short while and after that every time i enter the password it rejects. But at the same time if I try accessing the Konsole the password is working fine. The connection via putty will work again only once I have restarted the server.
+I have a RH 4   , 2.6 kernel , running on a server in our office, this has our oracle DB running in it. we are facing continues disconnection issue when we try connecting to the db.  I tried accessing the server using putty and noticed some thing,

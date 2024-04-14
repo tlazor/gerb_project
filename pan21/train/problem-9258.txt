@@ -1,0 +1,10 @@
+WDS can be a real pain to setup though. Hardware has to be compatible, and it can be finicky. Honestly, as great as it is, if you can avoid it I would.
+If you do want to attempt a DD-WRT repeater/WDS setup, you're in for a lot of reading and research. I'd read the DD-WRT wikis very thoroughly. And if you want to try WDS, I would recommend buying two identical routers.
+If you see any APs overlapping, then they're overlapping! There's some spill over between channels, so make sure you've got plenty of room between them.
+You should start with a good quantitative analysis of what's going on with your WiFi. There's a number of tools out there you can use to accomplish this. My favorites are inSSIDer and WiFi Heat for Android. I'd stick with a mobile device so you can easily run around and check your signal.
+Your mileage may vary. I've used a couple other repeaters, and while I didn't dive as deep in to the numbers, I can definitely say they did little to nothing for my signal.
+I've had awful experience using a WRT54G with DD-WRT as a repeater. It did nothing. Just plain nothing. I even mapped it out using WiFi Heat.
+That's a whole extra AP on top of the first one. It's up to the client device to choose which one to use. I have seen consumer "repeater" devices perform this exact function. They tend to perform markedly better.
+Where's your wireless router located now? Do you know which direction the signal is going? Nothing boosted my signal more than lifting my router 5ft off the ground and pointing it the right direction (which happened to be with the antennas flat and the unit mounted on the wall.) Play with the location and orientation of the router as much as you can.
+If you can run an cable anywhere that's closer to your room, it might be worth simply setting up another access point. You can also give PLC a try.
+Next, look at your signal strength. In my experience, -70 isn't that bad. Obviously, the higher the better. If you're down at -90, then it's a pretty poor signal. However, I've seen -94 function perfectly well with wireless-N. It dropped out now and then, but the bandwidth was just fine.

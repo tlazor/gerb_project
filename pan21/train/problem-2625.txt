@@ -1,0 +1,10 @@
+Here is what i have my terminal icon mapped to, which is close to center on my 1900x1200 resolution:
+So, since GNOME v3.30 there is a visible option in GNOME Tweaks, which makes it easy to enable it for all windows:
+most (probably all) window managers have configuration options that you can tweak to set where new windows are opened.
+I couldn't figure out the centering problem (in X) either, so I just did some rough math on my screen dimensions to determine a close centerpoint.  I needed this for my terminal window, similar to Ken above.
+(*) by default, that is.  if they're opened with a specific geometry then that overrides the default.
+i can't remember exactly what metacity is capable of...haven't used it for ages.  i think it can centre windows by default.
+The question title is only about the Terminal, however, it seems the body is more general about "programs start at the top left of [… the] screen".
+To add to this, I have an alias in my .bashrc which I use when I need to open 4 terminals fast.  The below will open 4 terminals, each pinned to the 4 corners, and 100 columns by 23 rows.  Note that I go out of order in the calls so that the last line executed (the last terminal opened) is the upper left one, allowing me to start there.
+openbox has a check-box "Center new windows when they are placed".  that causes all new windows(*) to open in the centre of the screen.
+sawfish is very flexible and programmable - you can set rules so that windows matching certain criteria are always centered, always opened in desktop 2, have a different frame style, and so.

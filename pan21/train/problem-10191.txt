@@ -1,0 +1,6 @@
+Just a little note: There are this Asus STRIX Graphics cards that do exactly that, the fans do not spin when the cards are not under load. I like my entire system work like that.
+I want to have the best of both this worlds. Passive and active cooling. Preferably as low budget as it can go.
+My mainboard is only allowing me to spin down my CPU fan to 12.5%. I am looking for a solution to activate fans only if my system is on load.
+Please please please only answer if you really know a solution, I have had horrible experience with a tech board with this question.
+I imagine something like a fan controller that actually reads the PWM signal from the mainboard and switches them on based on how high it is, meaning off in 12.5% mode and if my smart fan control kicks in the next tier power on fans.
+In case picking up a signal from the mainboard is to complicated maybe just a external sensor bases solution like picking up the temp from behind the CPU (so cool air not messes to much with it) and have a fan controller that powers on fans based a temperature I can define.

@@ -1,0 +1,7 @@
+Either options is really downloading and updating in background after any file is edited. Not the ideal solution.  I'd personally write a script to do the updates. However, if it's only to be done once, use what ever might work.
+As the comment says, ftp doesn't allow this. You probably really want the 'download all, replace, upload back'.
+Check out UltraEdit also. It reads/writes files directly on FTP sites. It performs find/replace across multiple open files like Notepad++.
+The best I can think of is an editor that understands ftp. Behind the scenes, it's downloading the file, editing it locally, and then uploading, but maybe this 'invisible background ftp' is what you want.  I don't know if any do multiple files though.  There are individual programs that can do this, and I think any true KDE editor (e.g. kate) can do this through KIOSlaves. 
+Set up the site in the FTP Account Manager within UltraEdit under the File menu. Open all of the files from the FTP site in UltraEdit that you want to change.  Then perform your find/replace.  Then do a save all.
+You may be able to do this with putty if you have telnet access to the server as well as ftp. Then, depending on if you are on a linux or windows server, you'd use the appropriate command line text editor to modify the files.
+Windows can map a ftp site to a drive letter, at least in XP, Linux has curlftpfs, which can mount a ftp site.

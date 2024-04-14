@@ -1,0 +1,6 @@
+Don't worry about the voltage ratings of the diode or MOSFET ~50V will be OK, but you will definitely need a power device.
+Build your circuit (without connecting to the Pi) and check it works by connecting the input to 3.3V. You are unlikely to damage anything (provided you use a MOSFET with a high enough current ratting).
+@Milliways has some great pointers. You appear to have a diode in there, that should go over the FET's source and drain to cope with any nasty currents the solenoid will create when activeted/deactivated by the FET (without the diode the FET will die eventually).
+With that, the IRF540 becomes almost a clean cut solid state relais; you can leave out R1, You need R2 if the GPIO pin won't ground hard but go Open Collector. I use this with Atmel AVR processors that can control their IO pins as push pull (hard 0 or hard 1) and I have them drive the FET directly without any resistors involved.
+R1 is not strictly necessary with a MOSFET, but does not harm, and provides some protection if you make a bad connection - use ~1kΩ.
+I use IRF540's to do this kind of stuff. Big, heavy, very low resistance when closed meaning no heat even when you run severals amps through. I use them to control/PWM power leds, 12v halogen lights etc. The IRF540's have this diode built in, so one less component to mount :)

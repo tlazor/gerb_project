@@ -1,0 +1,5 @@
+I can't do this with the Default Programs utility that comes with Windows 7, because it only works with extensions that have been 'encountered'.
+At the minimum, you need to create one registry key which gives notepad++ an ID and path and then one for each extension you wish to register to use it.
+I am thinking for the future, wouldn't it be grand to have some kind of batch file that could automatically associate a selection of file extensions with N++ at the click of a button, rather than having to wait until I encounter all these extensions then go through the rigmarole of navigating to the N++ exe etc.
+I've just recently reinstalled Windows and in setting up my environment I've noticed that all my associations for the various programming languages I edit in Notepad++ have gone (naturally).
+Save this file with the extension .reg and you should now be able to re-associate all the extensions just by double-clicking on this file and confirming you want to import the entries into the registry.

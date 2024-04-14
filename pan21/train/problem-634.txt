@@ -1,0 +1,6 @@
+Our tool of choice is called imapsync; an open source Perl script.  It uses the actual IMAP protocol to handle migrations thus alleviating the need to deal with underlying specifics to each implementation (aildir formats, mailbox annotations such as DONT (.) vs. slash (/) seperators.  
+I've done many such migrations on much larger systems; 300+ mailboxes and I've migrated in many directions:  Courier -> Cyrus, Exchange -> Cyrus, Courier -> Exchange, and Cyrus -> Exchange...
+Do not use imapsync or any other IMAP to IMAP based sync engine.  It sort of works, but much of the metadata will be screwed up -- specifically dates.  Even with the --syncinternaldates option, Exchange will still overwrite the dates to the current date, and you will have a botched migration.
+I've used the "imapsync" program before to mmigrate from an IMAP server to Scalix (an Exchange-like system).  Think rsync for IMAP mailboxes.
+IMAPSYNC is also re-entrant safe.  You can run it multiple times over the same accounts and it will only copy what has not been copied the first time through or any new emails that may have arrived.
+Basically, you import a CSV file of the IMAP users and passwords, and it will import the data correctly.  You can also import users one at a time if you are scared of doing a batch process.  It's actually pretty hard to botch an import.

@@ -1,0 +1,5 @@
+This simply iterates over the list of files (in reverse order), renames each one in turn and increments a counter for each rename.
+This uses seq to format the number to use two digits (2) zero-padded from the left (%0) with no decimal places (g) for a total format string of %02g. There's probably a more efficient way to do it, but with so few files, I wouldn't bother micro-optimizing.
+I have a series of files named in alphabetical order (xaa.tif to xdg.tif). I need to reverse the order of the filenames so that the last file is processed first in a script. I would like to rename them by adding a number at the beginning of the filename (01xdg.tif to 60xaa.tif).
+Note that the above may very well fall apart if the file names have anything more unusual in them than simple a-z, periods and digits to begin with. Particularly, I'm not sure how well it'll handle spaces.
+Because the file names contain no special characters, including spaces, this can be pretty easily accomplished using ls -r (that's -r for --reverse, not -R for --recursive).

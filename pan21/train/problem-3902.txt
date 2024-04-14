@@ -1,0 +1,11 @@
+Once you have the Log Shipping Backup Job running multiple times without and error, run your FULL Backup job once more. 
+Go back into your database properties and check 'Enable this as as primary database', and then click the Backup Settings button.
+On the copy tab, enter the local folder on the Secondary server where you want to Log Shipping backup files to be copy to. Be sure that the Secondary SQL Agent Service Account has read and write permissions to this folder.
+Run the Copy job on the Secondary server. Any errors are most likely related to folder and its permissions. Post the details. Log at the job history. Use the built-in Log Shipping reports to see how far it's getting.
+Go back into database properties and the Log Shipping section. Under the Secondary Databases area click on Add. Connect to your Secondary server.
+Here you need to specify two things: the network path to your LOG Backups, and the local path to the same.
+Right-click the job and run it. Any errors are most likely related to folder and share permissions. Post the details.
+Before we begin, be sure to remove the exiting Log Shipping setup since it's not working. Remove the Secondary, and then remove the Primary.
+Next, locate this folder in Windows Explorer, right-click, choose propertities and select the Permissions tab. Here, you will need to add your Primary SQL Agent Service account and ensure that it has Read and Write permissions on this folder. 
+Next, select the Sharing tab. Here, you will need to share the folder and ensure that the Secondary SQL Server Service account has Read permissions on the share.
+Once you have this in place, let's test your Log Shipping Backups. Look in SQL Agent Jobs and you should see something named LSBackup_YourDatabase. 

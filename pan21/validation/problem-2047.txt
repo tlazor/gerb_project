@@ -1,0 +1,10 @@
+The red circles are the points which are used to draw the FoV lines and they are childed to the white sphere. If the angle is not modified after start they follow the white sphere nicely and show the FoV correctly.
+There is of course a ghetto way of resetting the whole thing when changing the angle, but I'd prefer not to do it that way.
+You could use a transform heirarchy, making the transforms of the 2 red balls children of the transform of the white ball.
+I am doing an angle indicator which shows a field of view, which works fantastic when the angle is static. But I cannot get the
+And an affine transformation is equivalent to a linear transformation followed by a translation, which I believe is the ghetto method you were talking about?
+Currently I am changing the red circles' position based on the angle given(transform is the green square in the middle.):
+Here is how it looks after trying the dynamic angle changing. The FoV lines should be pointing to the right and the white sphere should be in the middle.
+How do I add the position of the FoV direction sphere to emulate parent-child relationship with the objects?
+field of view indicators to play nice with the angle changing. Everytime I change the angle, the indicators are reset to
+Solved this by checking the angle of the EyeDirection(white sphere) and then substracting that amount from the indicator angles.

@@ -1,0 +1,5 @@
+In SQL you do it by making a FOREIGN KEY constraint from campsite to campground and not declaring the foreign key id in campsite as NOT NULL.
+This is quite normal in database design. If you look at this guide about cardinality notations you will see that one option is zero to one (optional) (one campsite has zero to one campgrounds).
+In general, a campground has many campsites in it. that lead to one to many relationships. but sometimes campsite has no campground, it appears as the single entity with no parent. then what relationship should be used for these?
+In answer to your specific question, why not allow a campsite to also be a campground with itself as its own default campsite? In this scenario, a child can be its own parent - not uncommon in the employee/manager scenario where the CEO is his own boss.
+What I would advise you to do is to Google "open source campsite software" (I got 2 million results). Then download a few of these and explore which one(s) correspond to your needs and then adapt and develop according to your abilities. That's the great thing about F/LOSS - it allows you to see database schemas and code in action.

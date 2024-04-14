@@ -1,0 +1,6 @@
+In this case, the dollar sign in the awk command needs to be doubled (print $$2) so that expands to a literal dollar sign and not as the empty variable $(2).
+Replace with curly braces instead, i.e. GIT_SHA1=${SHA1} and you will get the intended variable assignment instead.
+This shows what is happening is SHA1 gets assigned the entire first line of git log output, not just the SHA, and that includes spaces. The expanded env command would then have invalid syntax.
+The round braces, parentheses, used with a $ just before them in this way will cause the text between the parentheses to be sent to Bash as a command line to try to execute.
+I am trying to set an env var which is git sha1 commit for a makefile target. I am setting a lot of env vars and only this fails with no such file or directory error. I am hell confused. Please help me pass this as env var to my makefile target. This is what I do in the beginning of my Makefile.
+I don't have enough rep to comment on @Hannu's wrong answer (curly and round parenthesis are equivalent in Make).

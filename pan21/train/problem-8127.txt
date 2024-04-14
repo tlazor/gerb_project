@@ -1,0 +1,7 @@
+COUNT(*) is also much slower with PSQL. You're supposed to create triggers for this kind of functionality.
+The auto_increment field being 'handy' is not very relevant is it? Oracle has sequences and is undoubtedly the most widely used commercial database in the world.
+Anyways, to answer your question, the biggest thing MySQL has had going for it has been easy to set up replication that allows for replication chaining and read slaves.  However, Postgres will have that in the next release, 9.0 (which is already out in alpha status).
+auto_increment is handy until you realize that they suck for tables with extremely high insert concurrency, at which point they become a bottle neck and you're forced to implement a sequence using a MyISAM table.
+The is a huge amount of information to be found about how PostgreSQL if more crash safe and so on. I'm just going to point you to this page on the PostgreSQL wiki (no doubt a coloured opinion, but that's what you are looking for anyway).
+A lot of people are mentioning on this page that MySQL is more friendly to newbies. So? Explain to me how that matters in a mission-critical environment.
+Because Postgres effectively does a copy-on-write for every update (so that it can deal with transactions), if you don't need transactions, and do a lot of writes relative to reads, MySQL won't have the overhead that PostgreS will.  (every updated record needs to write more, update indexes, etc.)

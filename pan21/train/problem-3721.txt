@@ -1,0 +1,10 @@
+-Session lifetime: if the lifetime is too large or is 0, the stale sessions will fill up all disk space you have, given enough time. Take a look on session.gc-maxlifetime to tips on how to set this.
+-Session termination: Try to destroy the session with session_destroy() when the session is not needed anymore.
+Running PHP, Apache2... Our login stopped working and anything trying to grab session data. It all stopped working randomly at 7pm last night. 
+Check your session lifetime - if it's too high, maybe the server keeps the files until the disk fills up.
+-Session start: are you using sessions only when needed? Maybe you are starting sessions on parts that don't need them. It will waste resources and slow down your site.
+Try to free some disk space and see the logs. Lots of requests to uncommon resources can indicate that you are under attack. If you clean space and thigs gets normal, you found the problem. If the number of sessions keeps increasing, you could be under attack.
+If you are out of disk space, no session file will be written and no log will be updated. It will disable your login system, and your users will keep trying to get in, worsening the effect.
+I found out the sessions directory is being filled with tons of sessions per second. If I remove all the sessions it fills up quickly again. Access logs for some reason have stopped working. 
+Another cause for many files might be session.auto_start set to 1; in this case, you may be initializing sessions when you don't really need them - however they won't take too much space.
+Also, check gc settings, probability, divisor and lifetime, and try to set them at default values and see if that improves the situation. The GC - garbage collector, runs at 1% of the requests, and cleans up old unused sessions. If it doesn't work, or turned off, then your disk will fill up at some point.

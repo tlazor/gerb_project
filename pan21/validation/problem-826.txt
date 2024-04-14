@@ -1,0 +1,9 @@
+Chrome and Firefox support the notion of HTTP Strict Transport Security Preload Lists which are lists of sites which should only be contacted via HTTPS, even if referenced with a HTTP URL.
+When i open my web browser and type in the address: stackexchange.com, it first performs a DNS query, receives an answer, and then sends a TCP Syn packet to proper IP address at port 80.
+Google Chrome, Mozilla Firefox and Internet Explorer/Microsoft Edge address this limitation by implementing a "HSTS preloaded list", which is a list that contains known sites supporting HSTS.
+Otherwise, there had to be a http request and the server would have had to redirect to https (in case of HSTS, the server responds with header - use only HTTPS: Strict-Transport-Security: max-age=31536000).
+Note that i don't type in http://stackexchange.com or https://www.paypal.com, but simply stackexchange.com and www.paypal.com.
+The browser usually tries HTTP first, then gets a redirect to HTTPS. That's the common case, but not the only one. 
+The DNS answer doesn't seem to include destination port, neither is there any protocol negotiation between my browser and target site. How does my browser know destination port?
+So, the request from your browser goes to the respective HSTS configured server domain directly on https.
+But when i type in www.paypal.com, it does the same but TCP Syn packet is sent directly to port 443. 

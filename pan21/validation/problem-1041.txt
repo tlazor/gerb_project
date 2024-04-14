@@ -1,0 +1,6 @@
+My first spontaneous thought was Urxvt's Perl capabilities. If you used that terminal emulator, it would be easy to make any text googleable (that's how I would have solved it if I wanted the function since I already use Urxvt). This wouldn't work with GVim, however.
+If you switch firefox in the above commands with open this will work with whatever your default browser is set to. As long as you are on OS X.
+Expanding on frabjous's idea because the function as it was blacked my screen and printed "Created new window in existing browser session" in the middle (which is the terminal output from running google-chrome directly).
+This uses the g register, so don't use the g register for anything you don't want overwritten by calling this command. I haven't tested it much either.
+I wrote this in about 5 minutes when I read your question, but it works on Linux anyway. Of course, change "firefox" to the command for your favorite browser, and change <F6> to whatever key or key combination you want to do this.
+My second spontaneous thought is that Vim is open source, and thus it should be possible to customize GVim to do this. More or less work craving though, probably there are better solutions.

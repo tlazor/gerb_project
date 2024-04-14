@@ -1,0 +1,10 @@
+Installation under Linux is simple because packages are provided – instructions here. Before the first usage, go to the local target directory and configure access to your Google Drive with:
+Without the -export option, Google Docs & Spreadsheet files would end up locally just as links in .desktop files. You can configure exporting to other formats as well [see].
+You can use the open source command-line utility drive to back up your Google Docs, Google Spreadsheets etc. by exporting them and all other files in Google Drive by downloading them.
+File->Download File As... and select the type, then you can save it locally to your desktop. Not really automated, but it will make a local backup.
+(This seems to work for both traditional Google accounts and Google Apps Premium accounts, the only ones I've got available to test)
+Click on the "Download" button, it might take a few minutes to prepare the ZIP file if you have a large volume of documents.
+Change tabs from "Selected Items" to "All Items" and configure how you would like your different documents to be downloaded.
+This is my favourite solution because it can be fully automated. However, "it probably doesn't work on Windows" [source], so may not be suitable for your case.
+There is a Python script where you can choose output format. It simply downloads ans converts you documents and puts them in a directory.
+There is a new feature in Google Docs where it is possible to download all of your documents as a zip file.

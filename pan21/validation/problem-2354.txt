@@ -1,0 +1,13 @@
+We are using the shared library Jenkins plugin for our Jenkins code, namely workflow-cps-global-lib. 
+If that's the case then how can we have control over which jar version is called? WE tried using grape to grab our version of the jaxb implementation and api but still, the jaxbcontext that was loaded was still the one from xlrelease-plugin.
+If anyone has insight as to why I get those classes loaded it in my pipeline exécution it would be very helpful. 
+You found a valid document, though it does not touch on class loading from user Groovy library code, only from code in plugins. Groovy libraries are offered classes from the UberClassLoader, so if multiple plugins offer the same class, it is not defined where it will be loaded from.
+I looked a bit at the code of workflow-cps-global-lib on github. As expected there's some class loader manipulation.
+At some point it was loaded from deployit-plugin (jenkins/plugins/deployit-plugin/web-inf/lib/jaxb-impl-xxx.jar).
+"workflow-cps-global-lib" does not depend on xlrelease-plugin or deployit-plugin thus should not inherit their class paths. 
+You might be able to work around this by explicitly @Grabbing the JAR you need for your library. But it would be better to avoid using JAXB from your library at all. In-process scripting and third-party libraries really do not mix well. Try to stick to the Java platform and Groovy built-ins for straightforward “glue” code, and for any actual computation just sh out to the tool of your choice (ideally moving some or all of the functionality out of the Groovy library altogether).
+If I understood correctly what's stated in the Jenkins documentation, when plugin A depends on plugin B, plugin class loader inherits jars from plugin B. 
+We implemented workflows successfully on different project types with groovy code  in one single shared library. 
+Today we are encountering an issue which seem class-loading related and I m not sure where the problem lies. 
+My guess for now is that somehow, because we call those plug-ins in our code, we inherit their class path. 
+After installing xlrelease-plugin (xlrelease-plugin/web-inf/lib/jaxb-impl-xxx.jar), it seems that JAXBContext is now loaded from this plugin and we don't get "ClassCastException" anymore.

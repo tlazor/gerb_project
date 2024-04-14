@@ -1,0 +1,7 @@
+The second form is probably the most commonly used form, but it sounds like you want the first form in your case.
+You could then type your Prefix and C-m in any client attached to any session in any server that has this binding and it will switch the session matching main to its window at index 1.
+Although it is optional, the target window specifier that tmux window commands accept (i.e. for their -t and -s options) can directly specify an window in any session. The syntax for a target window works like this:
+I have never used screen’s at command, but it also looks like it has iteration features. There is currently no direct match for that in tmux, but it should be fairly easy to “script” by parsing the output of list-clients, list-sessions, list-windows, and list-panes (newer versions of tmux have the -F option for these commands that can help generate output that it is easier to parse).
+The “target specifier” syntax is described in the “Commands” section of the tmux manpage (search for the first occurrence of target-client, target-session, target-window, or target-pane to find the relevant descriptions).
+You can also do it as a binding (e.g. in a ~/.tmux.conf file or at a tmux : prompt; adjust the key specifier as desired):
+from anywhere to achieve your goal. For example, it will work from a shell script that is executed completely outside the context of a tmux session (e.g. via cron)—as long as you supply any non-default -L or -S tmux option values so that the command can find the server’s socket.

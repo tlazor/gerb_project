@@ -1,0 +1,9 @@
+When connecting to a domain network, but using a local login, the "." in default domain name for logon in gpedit.msc does not change the user name to authenticate locally by default. Whenever I log off the local user to change to the local admin, I always have to type ".\" or I get a bad user name or password error. 
+If using GP look under Computer Configuration, Administrative Templates, System, Logon.  The setting is labeled "Assign a default domain for logon".  However, entering %COMPUTERNAME% here does not appear to be correctly interpolated prior to the logon display.
+Manually entering the "computer name" in the default domain name gpo works, but is a hassle when deploying multiple workstations from a single image, when there should be a default setting.
+Direct registry edit seems to work best for us.  We use a generic script to assign the local computer name, with the variable %COMPUTERNAME%, as the default domain for logon where needed.  Run the following:
+Windows 7/Vista and Windows Server 2008 already log into local accounts by default.  When you enter a username, Windows sets the domain to the local PC if the username is associated with a local account.  If there is no matching local account, then Windows assumes that it is a domain login.
+For example, if stafflaptop\User1 and domain.org\User1 both exist, Windows 7 will default to stafflaptop\User1.
+Windows 7 tries to log into the domain by default, it doesn't seem to remember where the user last logged into.  
+The laptops are used by staff on away days. They log on to a local account on the machine - say User1 with no password.
+On the Windows XP Login screen there was a drop down menu allowing them to log on to the Local Machine. However in Windows7 there is no such box and it is confusing staff.

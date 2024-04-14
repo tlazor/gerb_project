@@ -1,0 +1,8 @@
+I would suggest putting some sort of caching solution in front of lighttpd, which could serve requests from cache and not hit the back-end everytime, as I can you are not using the memory completely.
+The site itself is a very simply PHP site, no MySQL involved.  I do have APC installed and configured.
+Another way would be using spawn-fcgi combined with multiwatch (multiwatch does the 'max-procs' part) - in this solution, all php backends are on the same socket, so you don't have balancing problems.
+I have tried a variety of things.  I know that having a high mac procs is generally not good, however if I put it any lower the server immediately starts throwing 500 errors.
+Does anyone have any suggestions on what else to try to adjust to keep the site stable?  Is it even plausible to support this level of traffic on a single server?
+I'd go for a lower max-procs number, and instead increase PHP_FCGI_CHILDREN, for example "max-procs" => 2 and "PHP_FCGI_CHILDREN" => "210", or 4 and 100 (or 1 and 400).
+"backend is overloaded" - this means that one of the 14 max-procs backends is overloaded (lighttpd creates different sockets for each max-procs backend by append "-[number]" to the socket filenames).
+This should decrease the chance that one of the backends is "full" while another can still accept requests. I'm not sure though how good APC is scaling with the number of PHP_FCGI_CHILDREN.

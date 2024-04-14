@@ -1,0 +1,14 @@
+The index variables i should be an unsigned type to compare against string length or vector size - I recommend using the same type as those methods return.
+This algorithm is wasteful. The algorithm for addition that we learn in primary school is usually something more like:
+This is a big red flag for me. You are using std::string to represent your numbers; use a class instead. Defining a class is quick and easy:
+Note that auto means that we don't have to write out the type, which would be something like std::string::reverse_iterator (or since we take the string as const&, std::string::const_reverse_iterator). I strongly recommend using auto in almost all places.
+Reassembling the string afterwards character by character is also inefficient.  This can be improved by telling the string how long it will need to be:
+Greater gains can be made by keeping the long integer as a chain of digits without adding '0' to make them printable characters at each stage; it also helps to store them in little-endian order (so that any carry gets appended rather than prepended).  See Digit-by-digit addition using vectors for a start.  You could reduce storage requirements by using base-100 instead of base-10 (char is guaranteed to hold ranging at least from 0 to 127).
+Note that instead of (char)(digit + '0'), I used static_cast<char>(...). It is recommended in C++ that you use the appropriate cast.
+At this point, the string will contain the sum, plus possibly an irrelevant char at the beginning, which we have to detect and remove if necessary:
+Luckily for us, std::string has something that allows us to iterate in reverse: rbegin(). string.rbegin() returns an iterator. So we can write this:
+You also take n1 and n2 by value. This means that the strings have to be copied in (sometimes they can be moved, but for many cases, copied). All that copying is wasteful when you really don't need a copy. Take them by const& instead to save the copies.
+Prepending zeros one at a time is quite inefficient.  It could be improved by making a string of the appropriate length in one go:
+We can estimate the resulting size we need as max(n1.size(), n2.size()) + 1. This might be 1 more digit than we need, though.
+I'm going to ignore that using a string is inefficient for this type of thing (each char could represent 256 values, theoretically, but you only represent 10).
+You could even define the operator+ function inline. To put it simply, "stringly typed" values should be avoided.

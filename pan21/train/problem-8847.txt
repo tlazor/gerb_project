@@ -1,0 +1,5 @@
+This retrieves for the company $a$16 in the year huidig the year end net value of the General Ledger account listed in $A17.
+I am posting transaction in two companies in Exact Online for inter-company reconciliation. In Excel I am using the following formula to check that the balance across companies is identical:
+However, when I add additional transaction lines in Exact Online, the value in Excel does not change.
+If you want to have all recently posted transactions included, please log off / log on again using the Connect button in the ribbon labeled 'Invantive Control'. It will reload all data from Exact Online using the APIs and you should see the same outcome in Exact Online and Excel.
+Good question! The balance year end value is retrieved from Exact Online using SQL by Invantive Control. However, once retrieved for a specific combination of year, GL account and company, the outcome is cached to improve performance considerably. This cached value is also used when you use Recalculate All in Excel or CTRL+ALT+F9.

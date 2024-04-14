@@ -1,0 +1,6 @@
+unpack the driver files and copy the main inf-file 7 times - for example slot1.inf, slot2.inf and so on.
+Inside the every inf-file give a name to graphic card - it was NVidia Ti4200? Add to the name Ti4200_Slot1, to the second card’s inf-file Nvidia_Riva_Slot2, NVidia_GEFORCE_Slot3, NVidia_Slot4 and so on.
+The motherboard manual may indicate how bus-numbers used in Windows Device Manager correspond to the physical slots on the motherboard, but this is very rarely the case. (I have only seen this on some server-grade motherboards.)  
+If you can get the GPU/card serial number from the information shown in Windows (device manager or WMIC), you may be able to identify the correct GPU card by the corresponding serial-number label on the card itself, if there is one.
+It is even possible that these bus-numbers are assigned dynamically and shift depending on bios version/configuration, number of cards installed and OS used. (Quite common in consumer grade equipment.)
+The motherboard manual generally shows diagrams of which slot is which number.  It's also usually written onto the motherboard, but may be very small letters and you have hardware in the way.

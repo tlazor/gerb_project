@@ -1,0 +1,5 @@
+For testing purposes, you might be able to give the full path to python 2.7 explicitly in your python scripts. This is kinda hacky and dosen't scale. Do only if you know that the production environment will be identical, and other options seem unpalatable. 
+In my system I have installed python 2.7.By default it have python 2.6. My application need to run on 2.7 but it is running on python 2.6  by default .How can I change this.?
+You really want to use virtualenv instead to set up a python environment for your use. There's a few nice things here - it lets you select the version of python you want (and pull in the dependencies for just that environment), doesn't risk hosing important software that relies on python 2.6, and doesn't clobber your whole system since you aren't trying to rewire a system to work in a manner its not designed to.
+Python is one of those things you don't want to mess with too much since important things in your OS rely on it. You could break your system horribly.
+See also pyenv and pythonz for more options - they will let you have an isolated python environment as a user which is pretty cool

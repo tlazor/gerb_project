@@ -1,0 +1,5 @@
+rzlines' answer is, electrically, kind of weird. It may work, but I would guess it's because the headsets are identical and you're not talking over each other. The audio quality is almost certainly degraded, however. See this article on why using a Y-splitter backwards is bad.
+However, what I would recommend in your situation is to simply split your headphone output and use a simple desktop microphone to pick up both of your voices. When you think about typical conference-calling systems in company boardrooms, they're usually just using an omnidirectional condenser in the middle of the table.
+You can always do the call on the PC with a microphone and speakers.  I often use my laptop's built in mic and speakers when joining a Skype conference with more than one person in the room.
+The "right way" to do this would be to use a tiny little mixer to mix your microphone signals before going to the input of your sound card (or build the project described in the article referenced above).
+It's for making conference call with 2 computers but with 3 people (2 of them in the same computer under 1 skype account).

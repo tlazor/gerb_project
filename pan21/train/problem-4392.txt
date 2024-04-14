@@ -1,0 +1,8 @@
+Create an A record to match your DDNS record but to point to the internal IP instead. This way when you are inside your network the router will send your request to the DVR internal IP. 
+Some router also allows to create firewall rules to route the traffic back to the DVR but in some instances this create a risk that can be exploited by pentesting software.
+When connected everywhere on the internet. your MyDVR.ddns.org URL will resolve 1.1.1.1 so it will connect to your WAN IP and NAT will forward to your DVR.
+I had this same issue with not being able to access my IP camera from my inside private network using my public IP address. I have a Linksys router and found under the security settings internet NAT redirect filtering. Once I disabled this I can now just use my public IP address even while on the inside.
+What I did was simply to set it up in my camera software as if it were two separate cameras, one with the internal address & one with the external.  Then it's just a matter of clicking on the right camera in the software (and easy to tell, as one shows an image & the other doesn't.)
+You can accomplish by having a DNS server on your network. (sounds expensive but some routers have the DNS role on them).
+When connected whiting your LAN. your MyDVR.ddns.org URL will resolve 192.168.1.1 So it will connect directly to your DVR. 
+The only other way to do this is to have a separate dedicated outside IP address that is just for the camera.  Computers on the LAN will see the current camera as on the same LAN, so you are using the internal IP address for the camera.  Computers outside the LAN (i.e. over the internet) are seeing your modem's/router's IP address, which forwards just that port to the internal IP address.

@@ -1,0 +1,7 @@
+Section 4 of the man pages contains information about various devices. If you don't see anything promising in /usr/share/man/man4 then you can use man -k <keyword> to try to find a relevant page. In this case man -k via finds the openchrome(4) man page, so run man 4 openchrome and read up.
+You could try using a LiveCD on his machine, but I did a search at http://ubuntuforums.org and it doesn't look promising.
+If you have picked a specific card just look up '[modelNumber] in [linuxDistro]' on google and you'll probably find plenty of results saying it didn't work if it isn't supported by that specific flavor of *nix.
+I find that Ubuntu has great compatibility with all kinds of hardware. Awesome hardware support. Try popping in a live CD and running it without installing. Check for the drivers available for your video card.
+Graphics cards aren't as much of an issue as they used to be since the major manufacturers released proprietary drivers for linux. It takes a little additional work to initially get it up and working properly but it's not *impossible'.
+If you get the drivers, and it says that you need to reboot, then you may have to install the OS. Go ahead, do it. You can install it and see if you can get it to work. If it does, everything's great. Otherwise, you can very well uninstall it.
+Try downloading the version of Linux you want to use and burn it to a CD or put it on a flash drive. Then try running it. 

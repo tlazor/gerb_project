@@ -1,0 +1,7 @@
+Then, you'll have updated IP on your permanent hostname, every time your PC is on, updated by the installed client.
+Unless you talk with your ISP to give you static IP, you can't. But you can have a permanent hostname. I recommend duckdns.org - as they seem best till now, and they don't require much confirmation/etc.
+I think what you mean is that your public-IP is changing. In this case you can use a free Dynamic DNS provider to associate the IP  with a name.
+Then, you can have access to your PC using this new permanent hostname (like welliam.duckdns.org or what you choose).
+you then type in test.dyndns.org instead of your IP address and that will keep track of the IP changes.
+Remote in, and sign up with dyn.com for a dynamic dns account. They don't cost much, and they check via an app you install on the machine if the IP address changes and update it to whatever address you have chosen, for example test.dyndns.org = your.ip.add.ress - The software you need to install is called dyn updater.
+Don't bother with free dyndns services as these require you have to sign in every 30 days to make it work month by month. 

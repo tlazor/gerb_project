@@ -1,0 +1,5 @@
+Client computers in System Center Configuration Manager that run Windows Firewall often require you to configure exceptions to allow communication with their site. The exceptions that you must configure depend on the management features that you use with the Configuration Manager client.
+We have started to roll out windows 10, proxy settings and exceptions are deployed using preferences as per windows 7.
+Use the following sections to identify these management features and for more information about how to configure Windows Firewall for these exceptions.
+I am getting a lot more load on the proxy server which looks like internal traffic is being sent via it, this looks to be only from windows 10 workstations, among others there is a proxy exception for *.mydomain.com but it looks to be ignoring this, it also seems that the proxy settings are applying to the whole system rather than just internet explorer so SCCM communication etc is going via the proxy server.
+Use the following procedure to modify the ports and programs on Windows Firewall for the Configuration Manager client.

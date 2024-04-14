@@ -1,0 +1,8 @@
+While the question is tagged with iis-7, this is the top hit when searching on X-Forwarded-For and IIS so I thought I would go ahead and provide this information for IIS 8.5.
+IIS 8.5 introduced the Enhanced Logging feature that easily allows the administrator to log HTTP request headers such as X-Forwarded-For. This answer is adapted from the linked page.
+This isn't built into IIS, but there is a module you can install that will perform this functionality. It is called ARR helper, but it will work for any proxy in front of IIS:
+(note: I'm a linux admin, not a windows one, so explicit instructions & links are sincerely appreciated)
+Note that the total size of data collected from all custom fields cannot exceed 65,536 bytes. If the total exceeds 65,536 bytes, then IIS will truncate the data.
+http://blogs.iis.net/anilr/archive/2009/03/03/client-ip-not-logged-on-content-server-when-using-arr.aspx
+Once the custom fields have been configured, IIS will create new text log files with "_x" appended to the file name to indicate that the file contains custom fields.
+The reverse proxy is sending the standard "HTTP_X_FORWARDED_FOR" header with the visitor IP address, but IIS7 logging is only logging the IP address of the nginx server (which makes sense, but it's not what I want).

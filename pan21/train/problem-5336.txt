@@ -1,0 +1,8 @@
+Texture mapping is at least theoretically reversible. That is, given a particular texel, you can use the texture mapping to determine where on an object that texel appears. Of course, not every texture mapping is reversible. Some mapping cause a texel to be used in multiple locations on a surface, and not every mapping uses every texel in the texture.
+At at section 3.2, it mentioned that "each shading calculation represents some region on a surface". And "each region to be shaded is mapped to a region in the shadow map".
+For my understanding, using Opengl fragment shader, for each shading calculation, we just operate on each pixel. We do the shadow calculation on each pixel in the camera image.
+I am reading the percentage closer filtering (PCF) paper by Reeves, W. et al. (https://graphics.pixar.com/library/ShadowMaps/paper.pdf).
+But the important part of the reverse mapping operation is this: a texel maps to some area of the surface, not a single point.
+If you reverse this mapping, a texel in the shadow map maps to an area in the scene. This is the "region in the scene".
+Shadow mapping is a form of texture mapping. It defines a mapping from the scene to a texture by performing perspective projection of the points in the scene onto the surface of a texture, based on a light position.
+Texture mapping is the process of providing a mapping from the surface to a location on the texture. That is, given a particular point on a surface, you can find a specific point in a texture that corresponds to it. Giving positions a UV texture coordinate is a common means of defining a texture mapping, but you can use a function of arbitrary complexity.

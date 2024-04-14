@@ -1,0 +1,5 @@
+I'm pretty desperate at this point, so if anyone can offer some assistance it would be greatly appreciated. Thanks.
+Here are the sounds themselves. The first one is the input file as I recorded it, and the second is the output recorded from the game:
+You can hear the difference very clearly with headphones. I've looked high and low and can't find anything about this. The libGDX audio stuff seems to be pretty much a black box. The only reference I found to setting stereo or mono is with the newAudioDevice method which is only for writing PCM data directly.
+To test this out I made a sound file that is just me saying "left" in the left channel and "right" in the right channel. After playing this through libGDX's music class it has blended the channels to the point where the difference is only slight. This is much more noticeable with stereo music where the difference is smaller to begin with.
+I'm trying to get some music to play back in stereo in libGDX, but it seems to be blending the left and right channels so much that it sounds like it was mono. 

@@ -1,0 +1,5 @@
+I guess you answered your own question, the XFS option seems to be the best one (i guess you even get a performance boost). 
+If your storage is not a unique physical RAID VD (and you didn't make the fs directy on  the BlockDevice - mkfs.ext4 /dev/sdb) then I might suggest you into partitioning your fs tree into smaller blocks and mount them accordingly, configuring your software to write to both locations simultaneosly, and splitting the writes if possible.
+I would suggest that you use a network server with a filesystem designed to handle what you need. The first thing that comes to mind would be something that supports zfs (freenas and nexenta, though the free version of the latter has some limitations) or if you can afford it you can buy something like netapp.
+If splitting the writes is not possible from the application, you could create a cron which moves the files from the ext4 partition into the new XFS every n minutes
+Of all these, automatically pushing files into .tar.gz archives is my favorite. It saves you space and inodes, and is just plain tidy. Large numbers of small files make filsystems much less performant than expected.

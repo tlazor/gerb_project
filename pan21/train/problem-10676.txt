@@ -1,0 +1,11 @@
+Option one is to use two separate web sites pointing to the same physical directory and using the same web.config in the site root.
+The binding information for a web site are used to determine to which web site incoming requests are routed. (by Windows Activation Service and http.sys). 
+We are re-writing all requests to use the secure virtual directory but only if the host name is secure.serverfault.com
+Create a virtual directory secure under the site root but point it to the same physical directory of the site itself (same as the root).
+The drawback here is that you have two sets of logfiles and certain changes to the configuration have to be done twice as well.
+Now users using normal.serverfault.com can still access the site without authentication, but when using secure.serverfault.com they have to login.
+One problem I see with this option is that the web.config in the root of your site is basically processed twice for the re-written requests.
+You should test your site with this setup, but because the browser never knows the URL has been rewritten, it should work fine.
+For each web site you can enable the various authentication methods for the whole site, or a specific url within a site, but not based on the host name.
+Lets assume you have two host names bound to the site normal.serverfault.com and secure.serverfault.com.
+Even though it only exists once physically, when executing a request in \secure\ it is once seen as the local one for the virtual directory and once more for the parent directory. So you have to make sure you don't have any settings that don't support this. For example <add... nodes can not be duplicated, you have to use <clear... or <remove... to work around this. Or you move settings into ApplicationHost.config.

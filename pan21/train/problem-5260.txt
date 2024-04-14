@@ -1,0 +1,5 @@
+3) Your question itself is a bit flawed as the data itself is carried over a GPRS link even when a carrier is involved. GSM only handles voice and SMS.
+Without a carrier to provision the devices, I doubt that you would be able to do this for a few reasons.
+If you are trying to configure short haul point to point communications, you might have better luck using 802.11a/b/g/n in ad-hoc mode instead.  The communications link would be free and you could use telnet to communicate between the two given the proper software.  There are also unlicensed radio bands that allow for packet data as well.  In the US, MURS comes to mind for this.  There are others as well, but you'd need to check with local authorities to find out what is available.
+Admittedly, I don't know that much technical detail about your modems.  Maybe someone with a more technical background can chime in and either agree or disagree.
+2) The radios in the modems aren't designed to talk directly to each other.  The modems would expect to an APN setup to talk to to configure services.

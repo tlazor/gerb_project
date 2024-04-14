@@ -1,0 +1,8 @@
+So can I swap 5/6 and 3/4 in the plug to solve this problem? Anything else I should consider? I haven't been able to find much online about how to interpret the network tester results. 
+However the sockets in these two rooms are behind furniture so I would like to avoid moving it, opening the socket and re-wiring the socket. 
+The cat6 sockets installed by the electrician should have been configured with T568B setup, like the others. 
+However when I connect a network tester (like this) the results are showing a wiring problem but I'm unsure how to resolve.
+When I first connected the tester, the lights lit up as: 8, 7, 4, 3, 6, 5, 2, 1. I then discovered I had put the wires into the plug the wrong way around. So I re-crimped the cable.
+From what I can tell this means that there is a problem of cable 2 (orange) which may be not crimped properly (it worked before so isn't dead completely) and that the 5/6 and 3/4 are the wrong way around on the socket installed by the electrician. Given that it is the same in two rooms, it seems like an installation problem.
+I have a cat6 wired home network and am facing some issues when terminating the cables on two cables so I can connect to my switch. I have crimped about 5 other cables but two remain elusive.
+However instead of lighting up 1-8 in sequence I am getting the following on two different cables: 1 (2 is not lit), 5, 6, 3, 4, 7, 8.

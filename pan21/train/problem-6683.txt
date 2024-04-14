@@ -1,0 +1,7 @@
+Either you move the background past the camera and the player, or you move the player and the camera with him. I suppose there's one less thing to do if you just move the background. 
+At the end of the day, it depends on the project. If someone is making an original Mario clone, moving the world could be complicated, while moving the player doesn't really create many problems. Wanting to make a huge open-world game though, it may be better to move the world instead.
+I always move the camera and would recommend it - there are many reasons why I prefer this, but the most significant probably boils down to this:
+If you move the player, and attach the camera to the player then there is minimal resource usage. The game will get to its render phase, loop through everything once like it does every frame, and draw them at position - camera.position. Camera position would always equal your players position in this case.
+Other answers are good, but I'd like to add a few points of what's better, hoping to help someone who tries to make the same decision for a different project.
+Move the camera (attached to your player). I would imagine that your world has multiple objects such as enemies. If you went with moving the world, you would have to loop through all these objects to update their positions every time the world moved.
+Although I suppose if you move the background you'll have to parent any pickups and enemies to that, which again, is trivial but it's something to think about.

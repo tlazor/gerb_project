@@ -1,0 +1,9 @@
+In a home network, it is unusual to use shielded twisted pair cabling. You'd only use shielded cables (F/UTP, U/FTP, F/FTP) in an environment where you expect a significant amount of electromagnetic radiation or crosstalk between cables.
+I would advise that you stick to category cabling (Cat5, Cat6, Cat6e, etc.) and regular unshielded twisted pair cabling. You will most likely save yourself some money too.
+And, to answer your question, unless you have the [expensive] equipment to test and verify your circuit is grounded and set up correctly, it is highly likely you will burn your house down.
+Since this is for my personal use at home, I was planning on buying only U/UTP but it seems like certain lengths of these cables are only available in F/FTP or U/FTP. 
+Would I have to modify the cable itself like I’ve seen in some videos? They were putting the RJ45 plugs on the actual cable but this is probably irrelevant since I am buying this pre-built, right?
+I did some research and whenever I came across a shielded cable there was a mentioning of a grounding wire inside the cable and how to properly ground it (RJ45 plugs, grounded patch panel etc.)
+Read this if you want to find out more about shielded cables and the process required to install them in your network without starting a fire
+You can get these in either U/UTP, U/FTP or F/FTP and I will primarily use them for connecting devices like modem <-> router or router <-> pc etc. Basic stuff.
+Are there any extra steps to take if I would be using such a shielded cable? I really don’t know if the slots on my devices are grounded or not or if that even matters?

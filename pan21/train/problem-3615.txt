@@ -1,0 +1,9 @@
+Looks like you don't have much data in there at the moment (1373 rows) so the difference in the above will be minimal at the moment, more significant when the volume grows.
+Depending on query, you need to index all of these columns (and maybe have some multiple column ones)
+* day field for all affected calendar dates, ie. 1990-01-01 to 2020-12-31. This field will be joined
+This approach requires accessing every record in BillDetails. A better approach would be to index BillDate and query as follows:
+May I make a suggestion and read up on indexing? Indexing is a great help, but if you over-index, it's as bad as under-indexing.
+A variation of @Mark Storey-Smith's solution is to store specific date information in a calendar table. This table may contain as fields:
+One area that stands out is the way you are accessing the BillDetails table. All queries appear to be using MONTH and YEAR operators on BillDate. For example:
+First off, most of these seem to be 'slow' because they're not using indexes. You need to analyze how you're accessing the data in your tables to determine proper indexes. But a few pointers from this file:
+These currently only have 1 row, but if they ever grow, you're asking for slowdown. A couple things you can do here is add a WHERE clause (I can't make a recommendation without knowing the DDL) or at the very least only select the columns you need instead of '*'.

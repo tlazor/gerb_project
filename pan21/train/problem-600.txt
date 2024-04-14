@@ -1,0 +1,10 @@
+Then one day you realize you want only certain users to be able to get into a machine.  Say, developers should only be able to get into the dev boxes, not prod.  You do some googling around and find pam_groupdn which goes in your LDAP config (/etc/ldap.conf) like so:
+The user has to be member of developers or QA. If he is not member of one of these groups, there is an error message in the response from the LDAP server and the password will not even be sent to the LDAP-Server.
+"Filter to AND with uid=%s" means the Filter sent to the LDAP-Server will be like this: &(uid=<your username>)(<your pam_filter>)
+Assuming you have some configuration management system like puppet you can devise a PAM-based solution (so it is more general than AllowGroups in sshd_config) by using pam_listfile. Have puppet manage something like /etc/allowed_groups for each server/server group and add to your PAM config:
+There's got to be a better way to do this, right?  I emailed the developers of pam_ldap, and they said that unfortunately there's no way to make pam_groupdn take multiple values (without hacking around in the code).
+And, again, it is good.  You make another group for prod, another for QA, etc.  Maybe one day you have a second product dev group, so they get their own group.  Whatever.
+Then one day you've got a server that both developers and QA need to be able to log in to.  Uh... It turns out that pam_groupdn doesn't take multiple values.  What do you do?  Well, if you're not thinking much, you say "oh, I'll just make a developers-and-QA group!".
+Then one day you get another developer, and you realize you need to add them to 15 groups because there's developers-and-QA, product1-and-product2, developers-who-have-access-to-prod and so on.  Crap.
+So, you've got some users in an LDAP directory, and one day you say "hey!  I can authenticate against this thing for SSH!"  And it is good.
+I'm sure that some of you have dealt with this same problem.  I'm hoping that someone has a better answer than what I'm doing now.

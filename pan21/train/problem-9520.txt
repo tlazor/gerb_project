@@ -1,0 +1,7 @@
+You have four calls to System.out.println(arg).  If you want to change your code from printing to the console to writing to a file or a database, you have to change four lines in your code even though you're really only changing one "thing".  Why not pull out the four System.out.println(arg)s and insert one after the if conditions like so:
+Also note a de facto formatting convention: Put a space after if and for, and before any opening { brace.
+To actually answer your question: "Is there any possible way to [...] optimize the solution? Like bitwise tricks?"
+The code formatting, on the other hand, could be improved.  The most glaring issue is the omission of the braces for the final else.  Why make your code ugly to save a couple of bytes?
+That's a classic FizzBuzz solution.  I wouldn't try to do any clever optimization — it won't make any difference to performance.  One hundred iterations of anything is trivial for a computer.  Furthermore, most of the time will be dominated by the output routines, which you can't do much about.
+They are magic numbers though, and should be replaced with meaningful constants. Otherwise, I wouldn't change another thing. (Disclaimer: Someone will come behind me and talk about ways to make the code more efficient, but none of them will be as readable as this algorithm.)
+Most people would have used 15 which I believe to be wrong. The way you've done it, it's clear that the first case is a multiple of the other two cases. Well done!

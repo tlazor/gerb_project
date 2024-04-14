@@ -1,0 +1,9 @@
+This sounds like a very unusual arrangement. I'm used to ADSL where the router/modem handles the authentication transparently for all connected PC's regardless of whether they use HTTP at all. The authentication you describe sounds more like the system used at Internet cafes. I believe some WiFi routers support this (for people who share WiFi access with customers or friends).
+Some ISP's only allow one PC to connect, call your ISP to confirm this. You may have to pay more for a second PC to access the internet.
+A way around this is to share your internet connection on one PC with the second, in Windows is is called ICS, Internet Connection Sharing.
+It is possible your ISP's T&C's prohibit multiple PC's (perhaps they charge more for more simultaneously connected PCs)
+I have set up a WiFi router to share my internet connection. My ISP is such that when I first try to open a site after connecting through the wifi network, it presents the ISP's login page. After I login, I can surf normally.
+Perhaps your ISP is storing authentication-state in a client-side session cookie? In which case your second login probably invalidates the cookie stored at the first PC.
+Now my question is whether I have screwed up the settings on my router or is it a problem on my ISP's end?
+When I connect a second laptop to the wifi network, it connects successfully. However when I try to open any site on it, the whole ISP login thingie kicks off again. Now the problem is that after I login to the ISP on the second laptop, the internet connection on 1st one stops working. In a nutshell, I can use internet on any one machine at a time (although I can successfully connect to the wifi network).
+Login to your router and fill in all the credentials there, this way your router will be constantly connected to the internet allowing any computer that connects to it to have access to the internet without any trouble.

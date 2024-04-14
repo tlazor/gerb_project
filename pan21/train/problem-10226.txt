@@ -1,0 +1,5 @@
+The "FETCH_API_CURSOR" is part of the application using server side cursors to grab data. It's what happens when some APIs send server side cursosrs to SQL. You can learn more about the commands here.
+It is quite hard to capture via trace or extended events because you have to have a wide open filter and that can be expensive. If you can catch a query as it is still live or in session, you can see the details about the running cursor using the sys.dm_exec_cursors DMV. This DMV accepts a SESSION_ID as an input argument and it returns useful information. You can join this with various other DMVs about executing queries to see more.
+If you know the application from where these come, you can also try and filter for just that application or a host the application runs on or possibly do it in a dev environment where there is less noise.
+Some are more expensive than others because the fetch can be for any number of queries being sent down.
+You are probably running an expensive or top query extended event here. When you do that you are only seeing queries that pass a minimum expense threshold. So you won't see the prepare for this fetch, you'll just see the fetch.

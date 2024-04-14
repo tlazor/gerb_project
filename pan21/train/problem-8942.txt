@@ -1,0 +1,5 @@
+Had the same issue using a laptop and an external monitor since the laptop screen is small and high-res. RealVNC was constantly trying to scale no matter what I did or would take on a very small size w/respect to the larger monitor (related to the laptop screen size I expect) when scaling was disabled.
+Normally I would just disable the laptop screen when docked w/a larger monitor. But leaving it on fixed the issue with RealVNC.
+I worked around the issue by enabling the external monitor as display #2 and kept the laptop on as display #1. After doing that RealVNC started behaving normally again and I could stretch the window to its size set when starting the vncserver to get normal (non-scaled) resolution. 
+If I set it up to 100% scaling (session resolution being the same as monitor resolution), the screen is not filled, and if I let automatic scaling, then the screen is all blurred.
+I had about the same problem you are facing. I am using a laptop and an external monitor. Since the laptop screen is small and high-res, I use the windows scaling option only on it. But RealVNC applies this "correction" even when using the external monitor.

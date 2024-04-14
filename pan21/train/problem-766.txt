@@ -1,0 +1,10 @@
+I usually recommend proper NTP (the Windows compile of it I use can be found here though there are others available) inside VMs as this does not step the clock with large changes like many other time sync techniques. Make sure you specify the option 
+It should be noted that the VMWare time sync is not perfect (it can usually only correct time in one direction) and should not be used at the same time as any another time synchronisation technique so should be turned off for you DC VM.
+You should ensure that something not running in a VM (say, the host) has an accurate clock by running ensuring that either the Windows time service or an alternative like NTP is running and correctly configured. Then you should ensure that the OS in the VM is similarly configured to keep its clock in sync with that clock.
+at the top of the config file in VMs though, otherwise it will give in and stop working if a sudden spike of load on the VM or host causes the clock to temporarily drift beyond a certain point.
+This is the command I use to setup time on NTP on my PDC (by default all other DCs look to the PDC to sync time with and all member servers and workstations look to their logon server.
+Or is there a way to get VMware (or any other virtualization solution) running peacefully on the same install (I hade some problem with the virtual network adapters)?
+The reason I have the Domain controller not directly running on the Win2k8 box on physical hardware is that it made some problems to install Vmware on the Domain controller box (and I need it because of some stuff which runs on a virtual Linux).
+I currently run a Win2k3 Domain controller inside a VMware Server for a small setup, the Vmware runs on a Win2k8 system.
+w32tm /config /manualpeerlist:"0.us.pool.ntp.org,0x08 1.us.pool.ntp.org,0x08 2.us.pool.ntp.org,0x08 3.us.pool.ntp.org,0x08" /syncfromflags:manual /reliable:yes /update & net stop w32time & net start w32time & w32tm /resync
+The problem i have is that the time on the Domain Controller is extremely unstable, is there any way to redirect the authoritative time source from the domain controller to the Host (which is also in the Domain).

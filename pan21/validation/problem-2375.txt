@@ -1,0 +1,6 @@
+Is there any way I can connect to it again to change the settings, considering this server is in London and out of my control (hosted with a dedicated server provider). I don't really want to email them as 1 I will feel stupid and 2 I have already contacted them about installing Windows Server on my machine (there were troubles with the wrong ISO from Microsoft)
+If you've locked yourself out via the firewall and have no out-of-band management abilities, then I believe your only choice would be to contact the hosting provider.
+I hope you can help. I have a Windows Web Server 2008 R2 machine which I am currently setting up and going to move most of my sites over to it.
+If you left the Windows Management ports enabled you could use psexec and netsh to temporarily remove the firewall rule or disable the firewall altogether long enough for you to get back in.
+As soon as I hit the apply button I knew I did something wrong because nothing was responding in the remote desktop window. Oh great! Trying to connect again I get the worrying error message 
+I forgot that I had remote desktop on a different port (33899) instead of the standard 3389 for security reasons, etc.

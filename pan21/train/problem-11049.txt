@@ -1,0 +1,7 @@
+An alternative if you're not dead set on Cisco you could get a small branch series Juniper SRX220 or 240 with two ADSL2 adapters in it. Set equal cost routing to each interface and it would load balance or set a secondary default route preference to the other interface. I like things integrated. This would also give you a ton more ethernet interfaces and they're not too pricy.
+You could buy either a PPPoA/PPPoE modem and an ethernet HWIC, or an ADSL HWIC, but be aware they're bloody expensive.
+I have a Cisco 1841 router with 4 interfaces: FE 0/0 , FE0/1, AUX, CONSOLE. I have DSL line (WAN - PPP0E) which goes to FE0/1 & FE 0/0 goes to my LAN Switch.
+If it's VLAN capable, you could have one VLAN on the switch for each DSL connection, and  trunk them both back into Fa0/1, then split them back out on the router's subinterfaces.
+If you stick with the Cisco, you're short on Ethernet interfaces to be able to connect to the device upstream to two DSL modem. I'd get the ADSL WIC myself.
+Now we want to get another DSL line for the purpose of Load balncing/bonding/failover. I have some questions:
+The cisco etherswitch modules are similarly pricy.  I'd probably be tempted to get a second hand Cisco Catalyst 2950 off ebay, and use that for the Vlan solution.

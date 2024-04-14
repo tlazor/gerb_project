@@ -1,0 +1,6 @@
+It's not an access violation because it's running under an admin user who is DBO of the database specified, so it's most likely an error with the column names. That begs the question... what exactly did -fixcolnames do?
+It's supposed to sanitize the field names (extracted from the input file) to comply with the standard SQL syntax for column names. This doesn't say much however about your error. Using SQL Profiler might show what's really happening with the communication with SQL Server.
+logparser "Select * into IISCounters from C:\Logfiles\IIS_Log.csv" -i:CSV -o:SQL -server:MJNHNX4 -database:PerfmonCounters -driver:"SQL Server" -fixcolnames:ON -createTable:ON
+The file it's looking in has header names that are pretty weird, like: \\perfiis06\network interfaceintel[r] pro_1000 mt network connection _2\bytes received/sec
+ and \\perfiis06\network interfaceisatap.{3ab7a9d7-115b-4e2a-b7e3-613e431174a3}\bytes received/sec so previously I would just find and replace all non alpha numeric characters and bring the data in. However, I'm looking to try to avoid that work in the future (and I noticed that log parser has the -fixcolnames switch which purportedly does that).
+I'm using Logparser 2.2 to try to bring a .csv filled with Performance Counter information into a SQL database, and I'm using the following command line command:

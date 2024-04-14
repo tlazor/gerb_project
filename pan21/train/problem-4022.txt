@@ -1,0 +1,7 @@
+I'm interested in how you would do this, or if you've already made a similar system, how you solved it in your own code.
+Clearly this is five years late, but I created a menu system in Python that isn't necessarily tied to state machines or games. However, it does require that you separately define the submenus and/or leaf procedures that menu options lead to. My approach takes advantage of the fact that functions in Python are first-class objects (and can therefore be stored in dictionaries, as you noted).
+An example of what I mean: A unit has the ability to construct buildings, and to cast some spells. The selection of buildings and spells are accessed either through pressing a hotkey or clicking an icon in the user interface. What is the best way to achieve this in the code?
+Menu base state: options are A and B. If the players clicks A: change state and display the suboptions of A, and so on. But how is this achieved in the actual code? Perhaps a dict() containing functions:
+I'm wondering what would be a clever way of making a layered menu system, in terms of what data structures to use.
+Note that it does take some code to set up the menu hierarchy at first. But after you set everything up, all you have to do is invoke run on the mainMenu and let it do its thing.
+And so on, this seems really tedious and if possible I want to avoid if / else loops and just define everything in the simplest, and shortest manner.

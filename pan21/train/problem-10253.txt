@@ -1,0 +1,9 @@
+Yes, you can set the folder permission in Outlook 2010. Although you have not specified, I'm supposing that you're using Exchange. In Outlook there are two types of sharing available that you can set. First you can share as Folder Permissions and then you can share as Delegates. 
+At work we have a shared e-mail account for our team. As of now, only the boss, me (2nd in command) and the secretary have full access to it. We would like to have the rest of the team (about 30 employees) to have access to the calender but not beeing able to read any e-mails in any folders of the account.
+From the menu select Properties and click on the Permissions tab. If Permission tab is not present, then you probably had set Personal Folders as your default delivery location. Just set the default delivery location to your Exchange Server Mailbox in this case.
+Click on Add and select the people you want to grant permission. After each selection click Add and when you're done please click OK.
+Now you need to select which permission you want to grant them. If you only want to give them the ability to view items in this particular folder then assign the role of Reviewer. Here is the list of roles:
+This is possible. You can specify required permissions for Calendar folder in its Properties -> Permissions.
+Is this possible to achieve on Outlook 2010? If so, is it possible to set read only-rights on the calender for the employees?
+Owner: Allows full rights to the mailbox, including assigning permissions; you should not assign this role to anyone
+To share calendar only: right-click the Calendar folder, select Share -> Share Calendar. After that specify all required employees in the "To" field and click Send.

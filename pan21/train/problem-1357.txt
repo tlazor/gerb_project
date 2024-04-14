@@ -1,0 +1,8 @@
+I would suggest getting your own domain name (which you can control and configure) so in the future such changes doesn't affect you.
+Requiring machines to have a designated hostname (or machinename) within the site DNS is a generally reasonable requirement, particularly if as it appears this is part of an Active Directory based system.
+You should make a distinction between the name that the machine thinks it has, and the name of the services that it is offering to the outside world.  Not least, this would enable you to reprovision those services to another machine if needed.
+From what I see, you have your solution, you need a CNAME record or an additional A record pointing your old hostname to your new name, other that not too mucho to do.
+Ask for the CNAME, but if possible also considering longer-term migration to sitename.univ.edu. rather than machinename.univ.edu.
+They should also recognise that it's undesirable to have University services ending up on domain names that are not part of their "brand".
+If your problem is long typing, consider a simple "search domain" in your resolver, or see /etc/hosts in unix.
+However the University's site people should also recognise the need for specific services to have short names, and hence permit creation of the CNAME that you require.

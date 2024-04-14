@@ -1,0 +1,9 @@
+Starting from these, you will learn practice and methods, which will inform how you collaborate and use tools.
+Understanding why thes practices and methods are useful comes with experience, but you don't have that luxury. I would therefore point you to 
+That being said, to try and answer your question, I can only speak from personal experience: I started my learning journey with the excellent Docker Get started guide.
+The Continuous Delivery website also has a set of Principles and Foundations which give you the relevant grounding when starting.
+Other answers here have focussed on tools. In my opinion, gaining competence in a toolkit is of course a good thing, but will not make you a good fit in a DevOps culture. DevOps is first a set of practices, or methods.
+To add to @jhamfler's answer: Ask yourself, why do you want to learn about it? Which context are you coming from? DevOps usually has to do with breaking down manual hurdles, or also silo structures in teams (everyone just doing their own task and relying on somebody else to think about integrating the results). Are there such "gaps" in your project (I assume you have one)? What parts of it could benefit from automation? 
+This is the kind of question I have been asking myself many times, and that tends to follow me (now that I am barely out of "beginner", I am wondering where to learn more advanced topics). Sadly, as you pointed out, asking those questions on search engine tends to flood with websites targeting executives and trying to explain What is devops? and Why should we industrialize the software cycle with devops?
+Perhaps a search for "continuous deployment" and "continuous integration" (CI/CD) could also help you.
+"Learning DevOps" strikes me as too broad a query, as you also found out, but I can remember having to google the same thing.

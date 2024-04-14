@@ -1,0 +1,5 @@
+1x Role (Web, CGI, or Worker) with a single instance set == an hourly charge no matter what it is doing in the cloud.  If it is deployed and not running, it still accrues a charge.
+If a Role has 2x Instances running, then each of those instances is included as compute.  So if a Web Role is up and deployed in the cloud (again, running or not) with 2x instances set, then that is effectively 2 hours of compute.
+I see that someone is trying to close this Question. I think this is a fair question for stackoverflow, it's on the edge of being a programming question (Azure compute is an environment very relevant to programming) and doesn't fit nicely anywhere else.
+The charge is based on a Web, CGI, or Service Role running within Windows Azure with a single Instance executing.  As long as something is posted to the role, whatever it is, even if not "live" and set to "run" it is still using compute, and thus being charged.
+This is the time that your process (Hosted by Azure) is loaded and executing. Your charges are calculated by a combination of Compute Hour and bandwidth used.

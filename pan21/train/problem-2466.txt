@@ -1,0 +1,5 @@
+Just because you can doesn't mean you should.  Never ever use RAID-5 (or 4 or 3.)  http://www.baarf.com/
+Absolutely no problem.  You probably won't be able to get the full capacity of the drives due to different geometry, but you'll be just fine with those three drives. 
+Your array will be of the size of the smallest disk in the array, and at the performance of the slowest disk in the array. This rule counts for any raid, software or hardware.
+I'd suggest setting up a RAID-1 with a hot spare.  Use one of the maxtors for the hot spare (not the WD.)  You want to make sure the RAID will work with mismatched drives.  You don't want to find out AFTER a drive failure that your hot spare won't work.
+Unlike osij2is I always recommend software raid. I've run many many large disk installations, and HW raid have always given me more headache in the form of drivers, performance, stability, userspace utils for raid maintenance and recovery when moving the disks between controllers, slots or controller manufacturers.

@@ -1,0 +1,8 @@
+I am pretty sure there a similar questions but None of them really helped me and I have restricted Internet-Access (for example I can't Access badlogicgames.com).
+Right now my LevelScreen contains a Background-Actor which is pan-able and some zones to buy Towers - after buying them you can upgrade them further.
+I am looking for a way of letting some Actors stay relative to Screen while moving some Actors with the world while panning around.
+When you click a Zone or a Tower, a small overlay on the bottom appears (another actor) - click it to buy. 
+It's the solution i'm using, and for me it's working fine. Assuming that by "couldn't access" you meant you couldn't handle input, you have to know there is a solution for this : InputMultiplexer.
+My main Problem was that the overlay stayed where you clicked and didn't move when you pan the Screen.
+I am now only able to fire the touchDown Event on these actors when I pan to the bottom left of the Screen and click where the Actor's Icon is.
+I set it backwards for further Actors who should stay where they are - Towers for example - but I kinda don't know what I am really doing. 

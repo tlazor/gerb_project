@@ -1,0 +1,8 @@
+The obvious workaround that I'm using right now is to create the cluster, add my own node pools, then delete the default node pool, but it would be better if I didn't have to go through this extra step (plus the default pool setup/deletion incurs unnecessary wait time while creating the cluster).
+. Therefore, there is no option on the WUI or flag on gcloud that can be used for this. You might want to reply to Robert’s comment, your use case and feedback is important to improve Google’s products. 
+Is there any way to create a cluster in Container Engine without creating the associated default node pool?
+You cannot do this using gcloud or the cloud console, but you can achieve what you are trying to do if you use the raw GKE API. In the request body you would need to specify multiple NodePool objects, putting in the name you'd like for each one. You can make programmatic calls using a client library so that you don't have to craft raw HTTP requests by hand. 
+a node pool ("default-pool") is created as well.  I don't want this default pool to be created - I want to manually create my own node pools in order to have full control over what nodes are actually being created by the cluster.
+I'm aware of options like --machine-type, --num-nodes, etc. for gcloud container clusters create, but specifying those doesn't matter because the default node pool still gets created, which is what I'm trying to avoid.
+you have to delete default one and create your own either via terraform or any other programmatic approach.
+What you are trying to achieve is not possible without using the additional steps you are following. All the clusters are created using a default node pool named “default pool”

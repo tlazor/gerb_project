@@ -1,0 +1,10 @@
+I've been exhaustively Googling this issue to no avail, and am at the point where Microsoft's $2000 support quote is actually looking reasonable, but I was hoping maybe someone here would have an idea.
+I know this issue is pretty niche (given that I've found only a few similar incidents on Google), but I'm hoping someone here might be able to figure out what I'm doing wrong. Thanks in advance!
+I feel like this shouldn't be this hard. We're not concerned about external access to OWA, since we have a two-factor appliance in front of it that. Disabling autodiscover won't do either; any requests to authenticate to Exchange from a public IP should be shot down, period. 
+You need a reverse proxy. The Exchange product team outlined how to do it in a blog posting from 2013. 
+That will allow you to control access to 443, so you can allow OWA, ActiveSync, but block Outlook Anywhere. 
+The easiest way is just to not expose your mail server on ports 80/443 to the external world if you don't want ANYONE external to be able to access it. Still allows for internal communication. If you have firewall rules allowing it then turn them off.
+http://blogs.technet.com/b/exchange/archive/2013/07/19/reverse-proxy-for-exchange-server-2013-using-iis-arr-part-1.aspx
+Although the IP address restrictions should have worked. Did you run IISRESET afterwards so it took effect? 
+We tackled the mobile device thing with Exchange's quarantining function, but no such thing exists for desktop users. I have tried:
+PROBLEM: we would like to disable Exchange access for anyone not on our corporate LAN. The location is a small offshoot of the main branch and has its email hosted locally for security reasons. We don't want anyone outside the building to be able to add their Exchange account to an Outlook install or mobile device or anything like that. We are running Exchange 2013 on Server 2012R2, IIS 8.

@@ -1,0 +1,8 @@
+If it were just P2P link (single cable) between the routers, interface would go down right on peer's failure and IGP would reconverge in sub-second interval.
+However I have found the following information which suggests additional issues with BFD (From this NANOG presentation, there is more in the presentation, it's a good one, give it a read!)
+BFD is a feature that was invented to detect L2 connectivity issue when there is some intermediary device in between two peers.
+Typically we need BFD if we have 2 routers interconnected via L2 switch 9or any other L2 cloud). In this case if single router goes down, link state won't be reflected on another router, as switch would keep the link up.
+As of the ISR G2/ASR timeframe, BFD is no longer in the "IP Base" licensing package.  You have to upgrade to at least the "Data" licensing level to unlock BFD.  See this white paper from Cisco.
+I am only directly aware of one issue with BFD, which is CPU demand. I am currently investigating an issues with a Cisco 7301 which when pushing more traffic during our peak hours, compared to the rest of the day, BFD is sometimes timing out and routing trips over to the next link.
+This licensing requirement may not be an issue, as you may already be purchasing a higher licensing level for other features, but it is something to be aware of.
+It seems that under high traffic volumes the router CPU usage is rising (which isn't unusual) but at about 40-50% CPU BFD packets aren't receiving enough resources.

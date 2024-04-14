@@ -1,0 +1,6 @@
+You choice must be based on your needs and the skills of your teams to rollup and manage these solutions. Open source means more skills, commercials means direct money
+Backup: they could stick with your current solution. An autoloader would be helpful, so they don't have to ask someone to switch backup tape everyday
+First of all, they will need remote access through the networ, like through a VPN. They will need admin accounts or so to do the job
+Network monitoring: a big universe. Open Source (Nagios with centreon / cacti/smokeping...), commercial (Solarwinds, what's up gold, Microsoft SCOM...)
+Help Desk support: They can remote desktop to computer (assistance mode), or use software like DameWare
+It will probably cost more if you want to use your own monitoring software, and then outsource support.  HP's criticalwatch or Inteq's infraops will do the monitoring using their blend of software.  Cost per system will depend on what exactly you want them to do, it probably wouldn't be a per node cost since you aren't looking for per node monitoring (help desk, maintenance network mon. etc).

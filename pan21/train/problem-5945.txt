@@ -1,0 +1,5 @@
+In order to find this, I started process monitor, applied a filter to path containing ".wav" and let it run until the click happened again.
+I had found this similar issue and found that it was bittorrent.exe client. Killing it stopped the sound.
+One of my users had it. He was hearing the "C:\Windows\Media\Windows Navigation Start.wav" 2 times per second every time he opened some Office application, for example PowerPoint. His Office 365 password was out of sync with his Active Directory password. When he logged in to Office 365 with his current password then he didn't hear the "clicks" anymore.
+My PC keeps making a mouse click sound that happens when you open a folder or click a link on the internet. Thing is- it does it when nothing is open and there is no user activity.
+Using Process Monitor, I found that sdxhelper.exe was causing this on my computer in December 2018. This executable is a background process used for updating Microsoft Office and is cryptographically signed by Microsoft, so it appears to be legitimate.

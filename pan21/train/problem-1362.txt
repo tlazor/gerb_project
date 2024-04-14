@@ -1,0 +1,8 @@
+Apart from that I don't see much potential for time-saving. Curious to see the measurement after that change... :-)
+Another smaller optimisation would be to to loop over the strings in a simple for loop instead of using a stream. The stream causes extra overhead.
+Based on that switch including the case "x" I would expect that "xx" is also a possible combination, which means your comment earlier on is wrong. Do you increment both the xxCount and rreCount/rrdCount ? Is this intentional?
+In this case, you split the lines twice with the same parameter, which repeatedly applies a regular expression under the hood. Instead of
+You can also use that method for both mapping1 and mapping2 when passing in the list of Strings from the split.
+If you're using a profiler to see where your code is taking most time it might help if you put these lines into a separate method:
+It might help if you store the result of line.split("\t") into a variable and use it for both those statements.
+I'm not convinced you really have that much potential to speed things up as you think. On each iteration of that while loop you're actually looping through the tab-separated strings of both lines which sounds like a lot of "work" for the computer to do. My gut feeling says you're not going to get close to the 28s runtime.

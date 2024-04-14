@@ -1,0 +1,7 @@
+Also, have you controlled for the difference in environment variables? When you run from Terminal you get the dot files' effect (.profile, .bash_profile, .bashrc, etc.) but GUI launches don't use any of those. (That environment can be modified using ~/.MacOSX/environment.plist (relogin after changes), should you wish to do so.)
+This is quite the necro, but I can't find another hit on google where this has been asked and answered. I finally figured it out (on 10.7 now):
+I've successfully built applications whose executables are shell scripts. However, they have always gone on to exec a normal GUI process (or an atypical one such as a Java program); perhaps that makes a difference.
+The shell script itself might be bad. This normally happens between PPC / Intel platforms or vice-versa.
+If you put a 27 character script in, and touch the package, the icon will change to an app with a line through it. Add one character to the script and touch it again, and BOOM, it works.
+You can create an application executing the script in Automator using a single Run Shell Script action.
+The shell script file must begin with "#!" and here's the weird part: it must be at least 28 characters long.

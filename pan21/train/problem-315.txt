@@ -1,0 +1,7 @@
+Check the versions of the software on your server with those in the vulnerability report, and if you are running some variant of RHEL then also check the package changelogs to see if the security fix has been backported.
+The Mitre Web Site will tell you the details of the vulnerability e.g. what software it affects, links to vendors responses and so on: 
+Obtain the recommended replacement for openssl from your vendor, apply  Repeat this for all the packages the vendor recommends in the response and you are done.
+So now we know that 2009-3555 is an SSL protocol vulnerability so affects the openssl package, openjdk package etc.
+Then follow the link to your vendor's response to the incident. The RedHat one is a good write up of this particular problem so I'll follow that:
+The NVD site give you (in my opinion) an unbiased statement on the severity of the problem. That should help you decide how much of a priority you give this problem but that will also depend on what your site provides, whether you have PCI DSS obligations etc.
+You can check the packages on your server by looking at the changelog for the openssl rpm  installed:

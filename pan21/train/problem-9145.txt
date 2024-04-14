@@ -1,0 +1,7 @@
+If the firewall on the computer blocks UPnP then it doesn't matter if it's enabled on the device or not.  Since the firewall status could change for many reasons it may be difficult to tell how useful or available UPnP actually is.
+I understand this would mainly be influenced by the number of routers that have this enabled by default, i heard that manufactorers were required to have UPnP enabled by default in order to be able to have the "Windows Vista/7 Ready/Compatible" sticker on their routers. Is this true?
+Org's with less than 15 users will be varied as to how their network is managed.  Since most consumer routers ship w/ UPnP enabled then some large (?) percentage will leave it enabled.  The % enabled will most likely increase the smaller the org.
+Alternatively, you could just let me know your routers brand, which year you purchased it, and weather UPnP was enabled on it by default or not. That would be a very useful answer for me also.
+Most org's w/ more than 15 users have some type of professional admin and the majority would disable UPnP. The % disabled will increase the larger the org.
+UPnP is insecure and should be disabled by default. Making software depend on it is a bad business decision.
+Basically, I just need to know approx the percentage of people that have UPnP enabled at current times (2010) so that I can make a business desicion on a free, open source software product (built for Windows only) that I'm building (mainly SOHO users).

@@ -1,0 +1,6 @@
+This could be an issue with Outlook not authenticating properly against your exchange server. I have seen this issue when users upgraded to Office 2010. One thing you could try doing is repairing the email account. To do this, go to Start > Control Panel > then search Mail > Email Accounts. Highlight your email account and click "repair". Once this is done, restart the machine and see if this issue continues. If you do not have access to your exchange server, I recommend contacting your system administrator. This should be a simple fix. Good luck!
+  http://office.microsoft.com/en-us/outlook-help/i-get-an-enter-network-password-prompt-HA010151354.aspx
+This worked for me. Basically delete all the wrong credentials in your vault and save the correct ones in. Here's how:
+Then it should ask you for your credentials again. But this time make sure you have them right and click "remember me".
+How to get rid of this dialog ? - "Remember my credentials" is checked, but it doesn't ... remember.
+What you're seeing is a prompt for your network password.  It probably is related to the second solution that explains how to clear out the Protected Storage System Provider sub-key in the Windows Registry.  Unfortunately this is not a new problem and I remember having to fix it many times with MS-Office 2003 on Windows XP when MS-Exchange was a part of the picture too.

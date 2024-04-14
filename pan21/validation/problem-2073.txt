@@ -1,0 +1,8 @@
+I'm looking for something that makes standard flowcharts in an attractive manner and autoformats them. Ideally I'd like to be able to easily add the start, end points and boxes without having to drag & drop or try and line things up extra carefully pixel for pixel manually- mind mapping software already does this (by letting you press 'enter' and 'insert' to insert child & sibling nodes), so I would think there should be a reasonable equivalent for flowcharts?
+Click simple commands and SmartDraw builds your flowchart for you, automatically. Add or remove a box, and SmartDraw realigns and arranges all the elements so that everything looks great.
+This feels not comfortable for some users, but the main advantage is that you are independent from the layout!
+This article by Vikitech entitled "25+ Free Online Tools for Creating Diagrams, Processes and Charts" may provide better insight. 
+The GraphViz (Graph Visualization Software is able to do this. Take a look at the example gallery and give it a try. The Flowchart is not defined by a GUI, but in the DOT Language, e.g.:
+Over 60 professionally-designed flowchart examples make you instantly productive. Simply choose the flowchart template that is most similar to your project, and customize it to suit your needs.
+Gliffy is a flow chart tool that makes it easy to create online flow charts. Just drag and drop shapes and lines from the flow chart shape libraries and you can turn your ideas into professional-looking flow charts. It's free, and there's nothing to install.
+While there is no shortage of awesome concept mapping or mindmapping software, I'm left rather cold by the offerings of flowchart related software or apps available.

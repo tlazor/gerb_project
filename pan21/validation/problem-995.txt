@@ -1,0 +1,7 @@
+It is true that the assets within HTTPS web pages should also be served through HTTPS but there are reasons to not try to force the web server to push every request to HTTPS for all incoming HTTP requests for that domain  but continue to allow HTTP access. 
+If this was not the case any modern browser would inform the user about the website not being secure due to using mixed content.
+Website providers might consider not enforcing the switch from HTTP to HTTPS on those elements when loaded on their own. This might be to have a fallback and not enforce users that use the website with HTTP from the beginning to load the assets via HTTPS.
+For general use it's probably safest and simplest to allow redirect to https and forced to use https. Just keep in mind that there are cases that may require deviating from this default. 
+Though I don't see how this might happen, as all users getting the website via HTTP are redirected to HTTPS. Anyway ... strange decision was made, probably during the early phase of HTTPS adoption and they might have stuck to this odd decision.
+If you build a website which is loaded via HTTPS all its content has to be loaded via HTTPS as well. This includes CSS, JS, images and the like and even remote content not on the same domain.
+This question confronts people when running the Certbot/Let's Encrypt tools for creating Free HTTPS SSL Certificates and configuring the Nginx or Apache Web Server. The Web Servers provide mechanisms to force clients that request http to redirect to the https version. 

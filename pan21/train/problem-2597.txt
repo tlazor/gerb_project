@@ -1,0 +1,5 @@
+Without any diagnostics of the initiall stall I cannot say what caused that, but it could be one of many things, some severe, but most of them harmless.
+I was transfering files to my external hard drive when it stalled during the transfer.  I unplugged the hard drive.  Now when i connect it, the light on the hard drive comes on and flashes.  You can hear/feel the hard drive running.  On the pc when i go to "my computer" it no longer shows the hard drive.  Please help
+As per your description that you can hear and feel it spinning up, in addition to the lights looking healthy, I'm inclined to conclude that your harddrive is mechanically fine. 
+What should be done now is to verify that the drive does register as such by looking at the hardware in the control panel. Once that is done, see if you can delete any partitions on it and repartition it.
+The issue you're now facing is most likely due to filesystem corruption: The disk was being written to when it was unplugged. Effects of this can be many, these too ranging from minor ones solvable by a filesystem check, or more severe ones such as corruption of the partition table and/or the filesystem in general.

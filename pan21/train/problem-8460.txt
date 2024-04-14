@@ -1,0 +1,7 @@
+Merge replication often requires an application that is relatively aware of its environment. Techniques such as conflict resolution also have to be taken into consideration in order to ensure data consistency across the entire integrated environment.
+Replication is quite a diverse technology and can be used to cater for a number of different scenarios, the choice of which will determine the specific type of replication that is implemented. 
+There are also security considerations to be taken into account, for example if you data is to be replicated over the public internet or whether or will need to encrypt communications etc.
+The flavour of replication you use will determine the type of issues you may encounter and need to consider. For example, Merge Replication requires that Schema changes be made to your database.
+For a full listing of the available architectures see the following Microsoft Replication reference.
+For example, merge replication can be used to support distributed processing by spreading the workload of an application across several servers, i.e. distributed processing architectures. 
+Transactional Replication can be used in a similar fashion to log shipping however you can limit the specific objects that are replicated to the subscriber. This can be useful if only a subset of tables is required for reporting purposes.

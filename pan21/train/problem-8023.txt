@@ -1,0 +1,6 @@
+What you can do is share services based on the USB device on higher level, e.g. use the "share folder with host" functionality of a guest, if the USB device provides storage.
+With this command though, I still need to unplug and reconnect the devices every time - is there a better solution to this if my first question is not possible?
+USB devices can initiate messages on the USB bus so even if there were an abstraction layer, it would have to terminate protocols and route the messages, which is a bit difficult if a device initiates a message -- should that be routet to all operating systems?
+I have an OSX host with an OSX guest using VirtualBox and have multiple mobile phone devices attached, shared to the guest. When they are shared to the guest using VirtualBox USB filters I cannot access the mobile phone devices via the host (For USB debugging etc).
+A USB port is a hardware entity which is not designed to talk to several operating systems at the same time.
+I am currently using the following VBoxManage commend to toggle my VirtualBox USB filter on and off:

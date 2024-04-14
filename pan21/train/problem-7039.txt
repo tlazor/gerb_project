@@ -1,0 +1,6 @@
+I'm wondering whether the installed OS isn't properly shutting the laptop down (ACPI) because the user is having to "press and hold" the power button or remove the battery (cutting the power supply). This is usually done to forcibly power off the machine if it freezes or doesn't (or can't) shutdown properly using ACPI. If the user has Windows 8 installed then its hybrid shutdown/hibernate may be a contributing factor.
+Power LED: Should only be on when the laptop is powered on or should fade on/off when the laptop is in sleep or other low power state.
+A picture of a Dell n5050 (http://hotline.ua/img/tx/754/7546335.jpg) shows that there are separate LEDs for "powered on" and "charging".
+Charging LED: Should only be on when a mains power source is connected (or possibly flashes when the battery requires charging).
+The battery charge continues after you shut down your laptop. The long press on the power button stops this charging
+This LED reflects the fact that your laptop is plugged into the power network. Unplug it and the LED will be switched off.

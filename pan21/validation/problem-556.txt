@@ -1,0 +1,6 @@
+You could do an arms-length integration by using a web cam and image recognition to decide what number was rolled.  Get fancy and call it an "optical air interface" to make it sound official.
+Parallel port is nice, but hard to find on a modern pc, and windows has made its programming rather difficult since XP or so.
+You'll have to build an additional or different circuit to communicate with the PC. Something you make yourself would likely be over the Parallel port.
+However, I'd recommend using a micro controller for communication. Something like the Arduino. Many have USB connections and will allow you to interface with your existing circuit with a few changes. Arduino also has plenty of helpful tutorials. Additionally, a micro controller will allow you to easily expand to other types of control inputs and hardware outputs. 
+Or you could connect a button and 6 diodes to the port and let the computer do the rolling and lighting.
+FYI this is how those lava lamp random number generators work, so there is good precedent.  http://en.wikipedia.org/wiki/Lavarand

@@ -1,0 +1,7 @@
+DELETE FROM $tableName WHERE id NOT IN (SELECT MAX(id) FROM (SELECT * FROM $tableName) AS sth GROUP BY $date 
+The system has to update rows from the past as the external source normalizes data backwords in time so records from the past will change occasionally, and I'm always interested in the last 30 days.
+E.g. let's say it's 1 May and report is downloaded for the last 30 days and we end up with 30 rows in the table (let's have each day be represented by one row). Then on 2 May we fetch the report and we end up with 31 rows in the table - 1 row from the report fetched on 1 May, and 30 rows from 2 May. 29 older rows that overlap are discarded. The rows from the latest report replace them. Then on 3 May we end up with 32 rows in the table, 4 May, 33 rows, etc.
+Now the query that does the clean-up of the older data in my application looks like this (records with the same date that have a lower ID are deleted):
+I've built an application that fetches reports from an external source. It downloads report data once a day. Each report covers the time from now to 30 days ago.
+I'd be grateful for advice on how I can optimize this part of the application, how I can overcome the performance problem of this SELECT and DELETE statement.
+The problem is that this query is very inefficient. As the amount of data in the table grows, it's starting to kill the database server as each the select statement is applied to the whole dataset. Aslo NOT IN and MAX become less and less efficient as number of rows grows.

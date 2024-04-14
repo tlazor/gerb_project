@@ -1,0 +1,8 @@
+Looking at sources like /etc/init/mysql.conf and http://upstart.ubuntu.com/cookbook/#start-on it seems to me you should change your start on line to something like this:
+The documentation for Upstart user jobs is pretty limited. What is the correct technique to have a user job start automatically on startup of the system?
+What's strange, is that although the job doesn't begin on bootup, if I use sudo to restart mysql it does indeed start my job. The following commands are run as myuser from a fresh startup:
+The problem is that the job is not starting automatically at boot when mysql starts. After a fresh boot, mysql is running but my sensors job is not.
+I've described it in more detail at http://bradleyayers.blogspot.com.au/2012/04/enabling-upstart-user-jobs-to-start-at.html and also written an Upstart job that works around the problem.
+I'm not sure I agree that upstart lacks documentation, but I sure do have a tough time understanding the docs sometimes. I usually just do trial and error until its working. The solution above may be overkill actually... something as simple as this may be sufficient:
+The problem is that user jobs aren't loaded into Upstart until the user creates an Upstart session by running one of the initctl commands.
+I know I can just throw something in rc.local to start it, or I could move my sensors.conf to /etc/init but I'm curious if there is a way to do it using just Upstart.

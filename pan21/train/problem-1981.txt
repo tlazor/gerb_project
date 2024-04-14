@@ -1,0 +1,8 @@
+Regarding the SERVFAIL errors, do check the BIND logs to see what is actually going on. named-checkconf -zj may also be useful for validating the configuration itself.
+For testing, I'm just trying to use the OpenDNS resolvers with DNSCrypt. My goal is to eventually send my traffic to a VPS I use to then forward to my desired DNS servers. It's important that the local BIND servers are able to respond to queries for internal DNS as well. I do have a zone I need to be able to resolve internally.
+I then configure BIND with the forwarder of 127.0.1.2 and this is where it stops working. If I now run a dig command against 127.0.0.1 I get a SERVFAIL error, but the dig against 127.0.1.2 still works.
+I'm stuck. I'm trying to leverage DNSCrypt in the wake of the recent changes with ISP laws in the USA. Here's my setup:
+The idea of censoring (changing) DNS data is fundamentally at odds with validating authenticity of DNS data, so I don't expect this to change.
+recursion no is not what you want as forwarding is essentially considered a special case of recursion.
+If you must use OpenDNS, make sure you disable DNSSEC validation in BIND as the OpenDNS servvice is incompatible with DNSSEC.
+In addition to this, performing a pcap from my router shows plenty of outbound DNS queries over port 53 (instead of the 443 used by dnscrypt) to the various root servers.

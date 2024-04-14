@@ -1,0 +1,12 @@
+If your host is a Windows or you can access VHD files from a windows there is a trick to MERGE all changes into parent, grand-parent, etc.
+Or you could use this vboxmerge.py script to handle the merging for you.  Given the number of snapshots you have, I would expect the export/import cycle to be quicker.
+If you only want to keep a single snaphot, make it your current state & then export the VM & re-import it.  Exported appliances don't retain their snapshot history.
+Note: Windows 7 and Up, XP and Vista can mount VHD with an external M$ tool but DiskPart has no VHD support on XP & Vista... all this also works on Windows HOME editions (7 and Up), no need for a SERVER edition.
+Also remember there is no need for ugly VirtualBox Snapshots, you can use DiskPart create vdisk command to create a differencing disk from an existing one (that can also be a differencing disk, etc), also can create a huge tree.
+I would like to merge the current development branch of snapshots together with the base disk, but I am unsure if the following command would produce the correct outcome. I am not able to boot this disk after the procedure completes (5-6 hours).
+Remember, after merging all intermediate VHDs can be deleted (it does not delete them for you) and do not forget to attach into VirtualBox that parent where you merged.
+Hope that can give another different aproach since VHD/VHDX is in use (not valid for VMDK, VDI, etc, only for Windows Host).
+For all the rest: The poster is using VHD (not VDI) so can use native tools like DiskPart and Disk Managment to access that disks out of the Guest (on the Host, if Host is Windows).
+I have a virtual machine with about 30 snapshots in branches. The current development path is 22 snapshots plus the base disk. The amount of files is seemingly having an impact now on IO and the dev laptop I'm using (don't know if it is host disk performance issues with the 140GB total size over a lot of fragments, or just the fact that it is hitting sectors distributed across a lot of files). 
+Where # is the number of hierarchy levels you want to move, 1 for dirent parent, 2 for grand parent, etc.
+For you, the poster: Remember to allways have a full BackUp prior to Merge, VirtualBox clone does not work in place, it creates a new file (copy on write), but DiskPart merge works in place (modify the file, do not create a new one).

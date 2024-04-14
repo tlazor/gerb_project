@@ -1,0 +1,6 @@
+The good thing is you have a lot of options when you start out with a low traffic website. I wouldn't go with something dedicated with such low traffic. Shared servers are a dieing bunch with the cost not much better than virtual. Virtual should treat you good, I would head that way.
+Another tip to think about is AWS has their RDS database service that can be pretty nice if you just want to spin up a MySQL instance without having to think about it. The downside is that it is a little expensive.
+Each virtual provider has their own pros/cons that you can find a lot of punditry on. The best thing to do is test and that is pretty easy to do these days. AWS is going to have the least friction to get started but Rackspace isn't too bad. I have used Linode for 8 years and they are great too, I haven't had to use their support but I hear it is the best. 
+Also they currently have 5 cms based sites that will have probably no more than 1000 visits a day max for the foreseeable future.  But the number of sites and visits will hopefully grow in the future.  There is currently no heavy media etc on the sites so I dont think they need anything super heavy.
+Hi I am an experienced website developer but have not had much experiences of hardware server con fig.
+I think your headed in the right direction looking at the cloud.  Some other reasons this make sense are.

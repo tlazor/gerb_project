@@ -1,0 +1,5 @@
+Sure.  Write routines that compute each of Godel's primitive recursive functions, and write a routine for an unbounded search operator.  The set of functions you can compute this way is equivalent to the set of functions Turing machines can compute.  More information here.
+The downside is that any input to your universal program would need to be framed in terms of those simple operations.  Of course, that is what compilers are for.
+While this answer is not entirely serious, it does show that a compiler or an interpreter for a Haskell-like language already contains all the building parts needed for a universal function. The moral of the story is that time is better spent studying how compilers and interpreters work than to worry about implementing a universal function in terms of Turing machines.
+A universal function u can be written quite easily in a Haskell-like language (no side effects, higher-order functions), namely:
+The function u is universal because it accepts (the description of) a program f and an input tape x, and tells you the result of running f on x.

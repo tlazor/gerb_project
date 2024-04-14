@@ -1,0 +1,6 @@
+where user.name is the name of a random user (not one of the two that already show), not only do I get the correct output from cat, but the next time I run
+the output shows 3 key files! Two files for the two users previously shown and a third file that is the user whose key file I just manually looked at.
+Edit: Forgot to mention that this behavior "resets" if I leave the ssh session to the server. By that I mean that I can logout and log back in via SSH, and I am back to the starting conditions (only two user accounts are shown with *).
+Basically, I am using puppet for ssh key management and wanted to ensure the keys were present. What is unusual about this simple command is that the keys are only shown for two users (the first and third user created on the user if that is relevant) when the * should catch something like 7 or 8 users' homes.
+I can continue to play this "game", and each time I manually specify a user and then run the * command, that previously viewed user shows up in the globbed output. To me, this is unusual behavior, especially for a bog-standard Ubuntu image. Is there something I am missing? Special properties of * expansion or cat?
+I'm running the following command on a fairly standard Ubuntu 11.04 installation running under vSphere:

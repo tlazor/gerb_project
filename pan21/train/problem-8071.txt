@@ -1,0 +1,6 @@
+This allowed me, as a developer, to assume this devops role. I built code release tools, in python, fabric. I used the same script to bootstrap my application onto new servers that are autoscaled. 
+I looked for a AWS engineer, with puppet experience. Together, we architected an autoscalable, infrastructure, written as code in cloudformation. All configuration files were versioned within puppet.
+If a system has a degraded performance I simply terminate it, and another one spins up in his place. 
+I was the first developer working at a very busy ecommerce startup, with incredibly high traffic. I realise the company was still young, and that, for a while, I would be the only technical in-house resource. 
+Knowing this, I decided to structure my infrastructure in such a way, that I would have to do ZERO systems administration. 
+This worked very well, and today, 3 years later, I still don't do any system maintenance. We have a systems admin (the same AWS engineer) for 10 hrs a month, and I try to structure his sprints in such a way that I don't become an annoyance for him. In that way I respect his time, and manage his sprints in the best way I can.

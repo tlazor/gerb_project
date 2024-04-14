@@ -1,0 +1,8 @@
+This collision implementation seems backwards, in all honesty, but maybe you may have specific reasons for it. 
+You should take a look at quad trees. Its a common datastructure to store spatial data in cells. When you do the collision testing, you simply test against the objects in the same cell...
+As far as I know, finding collisions between circles can be taxing because of the use of square roots. 
+Instead, you could use a bounding box for every object on the grid. The box dimensions are dictated by the greatest x and y dimension of an arbitrarily-oriented object.
+During every frame, you check to see if there are any collisions between the bounding boxes (which shouldn't be too bad performance and complexity-wise). If there is a collision, you then perform a sub-check of two objects in question and see if the ACTUAL objects are colliding. 
+Big or small, if an object exceeds one pixel it could show up in multiple grid squares.  You have to put it in multiple lists.
+When the object spans over multiple cells ,you can add it to both cells. Just make sure to remove the duplicates ,when you use the results from the selection method. I'm currently on my phone, so I have no code examples here ,but a quick google for quadtree should help.
+I use the same datastructure for rendering. I pass the rect that defines the viewport into a selection method of the tree and receive a list of cells. Now i just have to render all sprites from those nodes...

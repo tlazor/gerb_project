@@ -1,0 +1,11 @@
+The journaling implementation of HFS will copy files on write, it's advised that if you have data that is less important then you should create separate non-journaled volumes and mount those individually. Temp area is a candidate for a non journaled partition.
+Also utilities such as Cocktail and Onyx are good for clearing out general rubbish on the drive.  Grand perspective can give you a look at the drive and all the cruft you've accumulated. 
+I have tried iDefrag, and it does what it says on the tin, very nice UI and the best defrag software for OS X by far (hot file aware for example which many others aren't). I've also tried Disk defrag, which is part of Speed tools, which does very basic defragging but doesn't require a roboot which is good.
+I can't personally vouch for it but I am interested and may look at buying it when I've got some spare cash knocking around.
+A very simple solution: clone your drive using CarbonCopyCloner and then restore it - it makes files contiguous, and you get a backup in the process!!! :-)
+I would not recommend defragging as this can actually reduce performance on OSX, especially if it will move the hot area of the drive (system files usually in the fastest area of the disk).
+Here is a whitepaper from the Superduper! guys (a great commercial alternative to CCC) on this type of defragmentation:
+Some apps (such as iDefrag) also offer disk optimisation and this MacFix article suggests that they may be right getting some performance improvements on a machine that didn't meet the apple criteria:
+iDefrag is very good and respects the 'Hot Zone' for the Mac OS, check the existing directory structure first using Disk Utility, repair it if it's showing any problems - use DiskWarrior if DU fails.  You can also check out Tech Tools Pro and Drive Genius.
+Defraging (you'll need a third party app such as iDefrag) may make a difference in specific instances (specifically if you're running at more than 90% capacity or use particularly big files):
+Also if you're storing a database on your volumes then you want to turn journalling off as they usually have an BI (Before-Image) associated which is effectively a journal in itself.

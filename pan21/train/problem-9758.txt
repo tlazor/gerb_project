@@ -1,0 +1,7 @@
+Look for steal cpu cycles.  You can get this in top for example.  "If your VM displays a high %st in top (steal time), this means CPU cycles are being taken away from your VM to serve other purposes."  
+Basically it's extremely hard for a VM to match the real time clock with the CPU counters.  If you have access to install a driver, you should be able to put the system into no interrupts and watch the counters.  If you have a virtualised system then your clock will drift in chunks when the VM is switched out by the hypervisor (which is supposedly impossible based on the interrupt bit).
+Is there anykind of benchmarking script (or something analogous) I could run and see the actual performance of the server ?
+There are things that were looked at by the antivirus companies for detecting blue pill virus variants.
+On Linux, it is possible to look for tell-tale signs of virtualisation depending on the type of hypervisor used. You can typically start by looking in /proc/cpuinfo for the CPU type. Some hypervisors report fake CPU types such as "QEMU Virtual CPU". If it is running VZ, you can find /proc/user_beancounters that report resource usage. With Xen, you will find a /proc/xen directory.
+sometimes I feel my server not responding as smoothly as I would expect (i have a Intel(R) Xeon(TM) CPU 2.80GHz Quad Core), given that for example, the 'top' commands reports a low load < 0.5, CPU are almost completely idle ...
+I maybe have internet connectivity issues, so I don't really know if it's me or if it's the server itself.

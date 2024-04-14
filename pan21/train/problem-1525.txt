@@ -1,0 +1,7 @@
+Live CDs are not configured to search for their source iso on a LVM; you can maybe modify the boot scripts of the image to do it, but I don't think any current distro official .iso file does that. You can try to contact your favorite distro's devs to have that integrated maybe ?
+The other option, of course, is to 'edit' such ISO to incorporate at boot some scripts to search for and mount LVM / LUKS / etc.
+This should make GRUB recognize the lvm2 volume, making it possible to read the ISO file in it. However, probably the ISO will still not be found...
+means that at boot, the live system you're starting is searching for a cd/dvd drive and not finding any.
+Sample without LVM, LUKS, etc... if a normal Linux LiveCD ISO is not designed to search and mount a loop to a .iso file while booting, it will never be possible to boot into it from Grub2 (with .iso as a file).
+For such cases you need a hardware CD/DVD emulator (if on real hardware), or just mount the .iso on the Virtual CD/DVD unit of a Virtual machine.
+Grub2 can see the ISO with insmod... commands, but that makes nothing else than let Grub2 read inside the ISO, loop mount it, etc, but as soon as the Linux inside the ISO starts the LVM / LUKS / loop / etc is not there (not mounted), the boot scripts inside the ISO must know how to mount that LVM / LUKS / loop; so if that Linux is not prepared to do so, it will not be possible to boot from it.

@@ -1,0 +1,5 @@
+the easiest approach would be to download Eagle CAD -- it's free for hobby users, but quite powerful. check the tutorials and included samples. read manuals on the web, you might get your first board designed in no time.
+then you have to find a PCB production house on the web, depending on your country of residence there should a few different choices. send the files, pay the money, they will send you back your boards in a week or two.
+I would like to design a "shield" (arduino terminology) that will sit on top of the pi connected to the GPIO pins, although I have no idea how I should go about starting the design et.c Does anyone know how I would go about designing and manufacturing the circuit board for commercial use?
+as long as you use your own designs and don't borrow from someone else, there won't be any copyright issued you need to worry about. chips and other parts are sold with the sole purpose to be used in some design that might be sold further.
+P.S. I don't know much about copyright, law et.c, so I was wondering, would I need to get some kind of licence if I were to buy chips from a manufacturer and resell them soldered to the "shield"?

@@ -1,0 +1,5 @@
+The fact that some emails are passing through successfully is a strong indication that the issue may be at the remote end - gmail in this case. You might also see if there are any particular trends that can be identified - possibly gmail servers that are constantly working.
+I've seen this issue reported a lot around the internet but with no real solutions. I checked my postfix config but can't see that anything has changed.
+I've tried flushing my mail queues (deleting all deferred mail) and restarting the server. I guess I'm running Linux and not Windows so this didn't help :)
+I have several domains on my VPS server, and postfix relaying the email to the appropriate gmail accounts via a virtual users table. This week I performed a sudo apt-get upgrade, this may be unrelated.
+Further validation to isolate any chance of an actual network related issue may be to possibly perform a traceroute to one of the non-working servers and then ping the second to last hop. If the network is working correctly, then continuous pings (assuming that the particular host is not dropping ICMP -ping) should be successful without errors. 

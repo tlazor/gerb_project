@@ -1,0 +1,8 @@
+But we do not give a direct link to the user. So we give the links to the documents, like the following.
+If we create a CNAME alias like docs.xyz.com pointing to mybucket.s3.amazonaws.com, does the end user gets to know the source link or where we stored our documents. We do not want the end user know where we stored the documents, and a lot of times those documents are not ours.
+So when user's browser tries to access the link, browser hits our site docs.mysite.com and we have two approaches on how to serve the documents.
+CNAME aliases one DNS label to another. A URL is NOT a DNS label. And for the record, a URL is NOT a domain.
+No, this will not work. DNS is protocol agnostic. You can setup a webserver to take those, and redirect to the link you want to send your users to. 
+If we have a CNAME alias like docs.xyz.com pointing to mybucket.s3.amazonaws.com, can we MX records and other records on xyz.com domain?
+For each link, we will compute the actual link (source link) of the document and download the document from the source link. We will then stream the document to user.
+The advantage is that there is no load and bandwidth usage on the server. But I am not sure whether this approach is possible.

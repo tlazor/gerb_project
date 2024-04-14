@@ -1,0 +1,26 @@
+While I'm not in any way arguing that CS theory is bad; you do need to realize that pretty much every argument of code quality rests on convention, not objectively provable superiority. If something were actually illogical or inferior, then no one would keep advocating its use, thus eventually rendering it outdated.
+When doing so, I strongly recommend explaining why particular rules are in place, because it moves disagreement into "arguing principles" instead of having "arbitrary rules".
+If you want to force a particular answer, you must phrase your question accordingly. Do not punish students for an implicit convention, because most students expect questions that reveal how their answer will be graded.
+Just out of curiosity, when is var ever a necessity? I can't think of a single case. As far as I'm aware, var is merely shorthand, not an actual technical benefit.
+Being better than your surrounding is not always objectively better. The first company I worked in was comprised of self-taught developers and one university graduate. His solutions were much more theoretical than ours. But he couldn't make those solutions work in our company, because everyone else disagreed with him.  
+They'll probably use a hard cast, at which point the issue is no longer that they use object, but that they are losing out on type safety.
+What you're trying to do, with the best of intentions, can also be construed to be bordering on requiring students to adhere to your preferred standard as opposed to the average community standard.
+But you may have to single them out for this complex task; which can in and of itself signal that they don't need to complete this hard task (since you can't just make tests harder for a particular student).
+The problem here is that an adequately skilled student who is ahead of the curve will always be able to work around simple pitfalls. If he is overskilled for the example, he has more than enough brainpower to ensure that his hard casts always work.
+This is again a matter of convention. If students are predominantly exposed to "StackOverflow code quality", then it makes sense for them to adapt "StackOverflow code quality". 
+"Just because it works, does not mean it works well." is what my teacher used to tell me. And I was the kind of student who needed to repeatedly be told that.
+Or, the rules could be a bit more esoteric/practical. As a grader many years ago I got the professor to agree to a style score as a portion of the coursework. I told the class "I will be reviewing your code with the program less in an 80-character wide terminal.  If I have to horizontally scroll you will get 0 points for style." -- I think I gave a 0 for breaking that rule just once.
+The only way to force them to make mistakes is to give them a sufficiently complex example, where they're struggling with the core intention so much that having to manage hard casts on top of that just makes everything so much worse.
+Your conclusion does not match your observation. Suppose the community is split 50/50 between either using var freely, or not using it at all. That means that either choice is equally correct.
+Any other (more implicit) approach is liable to be a cause for complaints when the student loses grades over this.
+The only things you should be telling your students to not do are the things that a majority of the community agrees are bad approaches (such as hard casting for no good reason).
+an implicit reference to a Disney movie is not explicitly declared, so it's not an anchor point for my argument.
+As a teacher, it is your prerogative to be selective about what you consider a correct answer. However, if you are requiring a particular standard to be upheld, then you should explicitly mention this.
+If you expect that many of the students will pursue software development careers, it would not be unreasonable to declare style standards for the course, and include it in their grading.
+The explanation could be as simple as "we're going to follow the corefx style guidelines" because the majority of example code produced by the .NET development team will adhere to these rules.
+You're seeing this as two similar issues, but it's much more likely that one (object) is a consequence of your reluctance to allow the other (var).
+If you ask your student for "an application that does [thing] and avoids string concatenation (+)", then you've made it clear that working code that uses string concatenation is not a correct answer to the question.
+This goes even further. var may actually be the solution to your object-focused students. In all likelihood, they are choosing the blanket use of object because they find it unnecessarily hard to always write the correct type. var solves that problem by having the compiler (not the developer) figure out the types that are trivial to look up. 
+Teach them c/c++ first, or go into the common uses of each data type first so they have to understand the intrinsic properties.
+If you ask your students for "an application that does [thing]", then you're implying that any working code is a correct answer to the question (which deserves full marks).
+In all cases a strict type declares to my reader (myself in 6 months) that this is important.  If it's less important, let it go.

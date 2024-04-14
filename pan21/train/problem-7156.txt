@@ -1,0 +1,8 @@
+If you can live without the separate Linux boot partition, I would suggest moving the Linux boot stuff from its own partition (/dev/sda1) to / (/dev/sda2), formatting sda1 as ntfs (and mark it as being active), and then installing Windows onto /dev/sda6: the Windows installer should be quite happy to do it.
+I would like to convert sda6 to a primary partition, the reason for this it to install windows 7 starter.
+The best you can do is delete sda4, sda5 and sda6 and create the primary partition in the emptied space.
+Windows does not need to be installed onto a primary partition. It does however need to have a primary partition onto which it can put its boot stuff.
+You can't. There are already 3 primary partitions plus one extended partition on the disk. In any case, there's no reason why Windows 7 (or any >NT version of Windows) won't/can't install on a logical partition.
+I have the following partition setup. I would like to know how can I convert the logical partition sda6 to a primary partition.
+(As an example I've just created a Virtual machine, and, on the hard disk made a primary 512MB partition (marked active and formatted as ntfs) and an extended partition containing one logical partition formatted as ntfs. Windows XP installed quite happily on the logical partition.)
+With that partition layout you will not be able to change sda6 to a primary partition without first deleting both sda5 and sda4 (the extended partition itself) as you can only have a maximum of 4 primary partitions on a drive.  This is a limitation of how drives are partitioned and is why you end up with extended (logical) partitions in the first place.  

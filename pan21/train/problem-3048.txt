@@ -1,0 +1,9 @@
+So, zoom all pages to the default zoom level, and then only change the zoom via this default, without )Ctrl 0, Ctrl +, Ctrl +.
+When I switch to the 27 inch monitor, I had to Ctrl - once not just for 1 page, but for every single different domain that I'd visited/will visit.
+The problem is that whenever I use the 14 inch laptop, I had the pages (Google Chrome) zoomed twice (Ctrl 0, Ctrl +, Ctrl +).
+So basically half of the times i'm using a 14 inch screen and half of the times i'm using the 27 inch monitor.
+One less then ideal solution would be to use two copies of Portable Chrome.  One will be set with the larger zoom levels, and one with the smaller.  Then use extensions like lastpass and xmarks to sync your bookmarks/passwords/tabs.
+You can set the global zoom (for all pages) in "Preferences -> Under the Hood -> Web Content". This option will set the default zoom level. When you change this, any page which has its last zoom level different than the original default will not be affected by the change; to "forget" the zoom level of a page, simply zoom it to the default zoom level (not necessarily 100%!).
+The gist of it is there is a default CSS file that Chrome loads up. You can set your zoom level there.  Even better.  If you perform a manual zoom, Chrome will remember it for that site.
+it's slowly getting annoying, I was wondering is there any fix to this problem? (Like I was thinking I could save the chrome's zoom state then revert or perhaps something else altogether)
+http://farter.users.sourceforge.net/blog/2010/11/12/setting-a-default-zoom-level-for-chrome-browser/

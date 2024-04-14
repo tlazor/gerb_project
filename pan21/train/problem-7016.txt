@@ -1,0 +1,7 @@
+We launched a mobile app that report continuously data to be saved in RDS MySQL, this resulted in a high performance impact, we were using db.t2.micro to take advantage the free tier. 
+Is there any way to auto-scale this RDS, with automated Read-Replicas or database size upgrade, or do I have to do this manually in some way?
+No, Elastic Beanstalk can only create new RDS instances (and I think that even this can only be done through the web interface). Elastic Beanstalk really only manages EC2 instances and does not directly manage RDS.
+However, as I understand this, this only creates new EC2-Instances and does not touch the RDS-Data-Layer (which I also configured in the settings).
+I can confirm, Elastic Beanstalk does not autoscale RDS. However, the environment were re-configured and set other server for RDS, db.m3.medium, the process was smooth from the users, the database was able to continue serving read/write queries and the server was upgraded without downtime.
+Note that RDS "scaling" is not seamless; an instance size change will result in some downtime as the underlying EC2 instance that the RDS DB is running on is basically being shut down and restarted.
+I'm planning to run a PHP/MySQL application using Amazon Elastic Beanstalk. In the settings  I can define when it should launch new instances automatically (Auto-Scaling).

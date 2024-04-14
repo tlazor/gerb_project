@@ -1,0 +1,7 @@
+I was reading in the PHP docs about SSL support http://php.net/manual/en/ref.pdo-mysql.php and I'm left with these questions:
+1) Not in most circumstances - you can(should) configure MySQL to be local only so unless someone has admin access to the box or is able to run as the MySQL user the SSL won't make a difference.
+Yes. SSL/TLS provides transport security ensuring that neither the credentials nor the transactions are transmitted in clear text. Traditional thinking is that in a trusted network the risk of eavesdropping by a malicious third party is extremely slim and the benefits of securing such traffic are negligible compared to the overhead. That is shifting though, the overhead isn't that big and better safe than sorry...
+4) Sort of, they don't need to be the same keys or anything but if your organization has a CA then you can simplify things but getting them to approve ("sign") your certificates which could make things simpler from a management point of view.
+2) Absolutely, it prevents man in the middle (someone spoofing your webserver so they can query the database for instance) and sniffing data.
+I primarily develop PHP applications using MySQL as my database. Generally, the server running the application is on the same box as the MySQL server, though not always.
+3)Same as with most SSL - use strong encryption (no SHA1), guard your keys, change them regularly etc.

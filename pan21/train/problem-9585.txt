@@ -1,0 +1,6 @@
+There is a user rights setting that restricts interactive login.  Look for Local security policy and User rights assignment.  Test before you go too far.  
+In this article I remember you can create the domain admin user "Backup" however have it not able to login interactively. 
+It's unfortunate that some backup systems, such as BackupExec, require the account to be Domain Admin, even though Backup is all it really needs. That's just poor design but of course we users don't have any control over it.
+I remember there was a tech-net or WindowsITpro article about how to harden windows 2003 service accounts a couple of years ago. 
+You might also use an insanely long password/passphrase since you won't need to enter it very often.  This is a great way to harden the account.
+For backup software purposes (such as BackupExec / AppAsure / Etc.. , please don't bash these) I have to create a domain admin account (usually called something such as "backup") and have the services run from that account. 

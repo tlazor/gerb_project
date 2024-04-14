@@ -1,0 +1,5 @@
+$\def\et{\mathbin\&}$Yes, and this holds much more generally. Note that a comparator can be thought of as a pair of gates, one of which computes $\min\{x,y\}$, and the other $\max\{x,y\}$. A linearly ordered set is a distributive lattice with $x\land y=\min\{x,y\}$ and $x\lor y=\max\{x,y\}$. We have the following 0–1 principle:
+Now, if $C$ is a comparator network with inputs $x_1,\dots,x_n,y_1,\dots,y_n$ and outputs $z_1,\dots,z_{2n}$, it automatically computes a permutation of the inputs, hence the property that it correctly merges sorted lists can be expressed by the conjunction of the quasi-identities
+Note that $t\le s$ is equivalent to $t\land s=t$, hence we can freely use inequalities instead of equalities in the statement above.
+This is an immediate consequence of the facts that the $2$-element lattice generates the quasivariety of distributive lattices (i.e., every distributive lattice can be embedded in a direct product of $2$-element lattices), and that values of nodes of $C$ are lattice terms in values of the input variables.
+for $i=1,\dots,2n-1$, hence if it works for $0$–$1$ inputs, it also works over arbitrary linearly ordered sets.

@@ -1,0 +1,6 @@
+The SSLCACertificateFile is the CA certificate which should issue the clients' certificates, so it should be the example.crt file in your case.
+You gave Apache the wrong files to work with. The SSLCertificateFile should point to the certificate your server will present to anyone speaking SSL, so in your case, it should be the example.pem file. The SSLCertificateKeyFile is the key file the server should use for SSL communication, so it should be the key for the example.pem certificate. These has nothing to do with client authentication whatsoever.
+The CAfile and CApath are the root CA file and its path respectively used by curl. Basically this contains all the root CA files that would be checked against whenever your client is authenticating to an external system. 
+Check the CA (Certifying authority) for the client certificate that you're using to authenticate to the Apache server. Then, you need to check if that's present as part of your CA list (the CAfile). 
+I bought a Gandi wildcard ssl certificate for my domain *.example.com and here is the configuration on the apache2 server :
+To make sure this works, I then transfered my "client.*" files on another private server and created this php script with curl to test the connection :

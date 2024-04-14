@@ -1,0 +1,6 @@
+We are running SQL SERVER 2008, I have a webpage that is executing a stored procedure. This stored procedures runs various updates to a several tables which have triggers. The error I am receiving when the web site runs is below
+Line1, message: A .NET framework error occurred during execution of user defined routine or aggregate 'trg_tAA_DFLRemoval':
+First, you'll want to grant the rights to the account that the web server is logging into the SQL Server as.  Hopefully that isn't the NETWORK SERVICE account.
+But there seems to be a syntax error in my sql generated script. While searching I found that Microsoft decided not to allow GRANT EXECUTE to function. Is this an accurate statement in regards to my problem. 
+That error "A .NET framework error occurred during execution of user defined routine or aggregate 'trg_tAA_DFLRemoval':" is an error from the .NET framework, not from the SQL Server, so something is blowing up within the .NET method you are calling.  What happens when you call the method manually from T/SQL?
+It was a sql permissioning error, we have an auditing system turned on. For some reason the user running the query triggered the auditing system. THis auditing system ran a trigger that the user didnt have rights to. I had to grant this user rights to the trigger.

@@ -1,0 +1,6 @@
+Removing access to shutdown.exe will result in some unexpected results when doing any system tasks which involve resets ect...
+You can disable this by either disabling the Remote Registry service or removing all other access to shutdown
+You could add the following into a file, say, C:\kill-shutdown.ps1, then put the file into the group policy: Local Computer Policy>Computer Configuration>Windows>Settings>Scripts (Startup/Shutdown)>Shutdown 
+Tell your friend that he needs to stop. Right now. Period. If he doesn't, you're going to have to talk to management.
+You are seeking technical solutions to a social problem and you're trying to address the symptoms instead of the underlying cause. This runs the risk of failure if he finds some other way of shutting down your machine.
+Talk to your friend and remind him that you're not pals messing about at university, any more: you're professionals being paid to do a job. His behaviour is completely unacceptable in the workplace. He is deliberately stopping you from doing your job which, ultimately, is putting your job at risk. What happens when your boss calls you in to explain your poor performance? Do you accept the blame and get yourself fired? Or do you blame your friend and get him fired? Friends don't put friends in that situation.

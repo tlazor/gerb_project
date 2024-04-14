@@ -1,0 +1,7 @@
+Eventually, it turned out I had previously restricted SMB server access to only a limited number of IP addresses by configuring /etc/samba/smb.conf:
+If you're having this problem with a Synology NAS, then check that the vers= option specified to mount and the min/max SMB versions on the NAS are compatible.
+I received the same error without further ado from a new Samba client, when trying to mount a CIFS SMB network share:
+I also just ran into the problem mentioned after an upgrad to Xubuntu 17.10. I use a Synology DiskStation.
+What I saw there: In the DiskStation, you can choose which protocols to support. By adding he relevant protocols (up to SBM3) in the advanced options for file services in control panel, you can also solve the problem.
+Specifically, I'm using vers=2.0, but my Synology Diskstation was triggering the Host is down error. I found a page, Windows 10 access to NAS share. SMB 1.0 and 3.0, on the Synology website that explained how to set the Diskstation to allow SMB v2.0 or newer...
+This can also be adapted to an automount setup so the mounting/unmounting can be handled by the system automatically via autofs.

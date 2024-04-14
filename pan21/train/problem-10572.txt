@@ -1,0 +1,5 @@
+"Pause Pause Pause!" stops GIF animations but is otherwise fundamentally broken -- it will, for example, get you blacklisted from Google searches due to excessive network activity or some such (I didn't debug it, but I sure got a lot of CAPTCHAs every time I tried to use Google!)
+"Paused!" does not have that problem, but that seems to be largely because it doesn't actually seem to do anything at all.  GIFs still animate merrily away.
+This seems unlikely to change any time soon.  It's already nearly two years since you asked this question, and there is still no reliable automatic solution in sight.  The Chrome bug is idling because WebKit does not support the necessary features.  The WebKit bug has basically not been touched since 2009.  The simple fact of the matter is this: you can use Chrome, or you can stop animated GIFs automatically, but not both at once.  Sorry.
+"gif pauser" automatically pauses gifs and animates them on hover: https://chrome.google.com/webstore/detail/gif-pauser/iejnbdgabckdhngpeckodhpobdhefgej
+You can't, basically.  Not without using one of the options that require tiresome manual intervention.

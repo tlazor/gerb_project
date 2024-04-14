@@ -1,0 +1,7 @@
+I know I'm late to the party but I'll try to address this. I think you may be misunderstanding either the difference between the synch and asynch methods or what those perfmon metrics deal with. 
+For an async replica, perhaps you could (a) create a table with a single row that has a timestamp column that is updated by an job scheduled to run every 10 secs (I don't think agent jobs can be scheduled to run with shorter frequency). This record will then be replicated over to the async replica. Then perform a query against both tables (primary replica and async secondary replica) and display the time difference.
+And then it says that if you want to get the data latency between two servers, you have to divide both values, but that result is not represented in the graph.
+The same blog post series you refer to deals with assessing asynch performance. But in this case it is about seeing whether there are queues in send or receiving logs and how much time has elapsed between the secondary receiving and hardening the logs.
+As an asynch replica does not reply to the primary as to the state of the transaction (whether it's committed or not), the perfmon metrics are not applicable.
+I recommend you to get the values of the two counters mentioned before with perfmon and put them in an Excel sheet, use a formula to get the data latency between the two servers and then make a graph.
+If you use DMV to get these values it wont be exactly as using PERFMON because DMV only shows an accumulative value since the last server start.

@@ -1,0 +1,9 @@
+In you android app get the scan list run decryption on the name (only your devices will succeed others will fail). extract SSID and psk. configure wpa_supplicant using the SSID and key.
+I'm looking for a solution for configuring wifi in headless mode, the same way as IoT devices : when not known wifi in range, toggle to AP mode with a predefined SSID, run a small web-server to list available network, and provide inputs to enter network Key.
+For your question I want to share what I have done for automatic network connection. You will have to develop a mobile app (in my case it was android).
+Your project is more ambitious. I suggest you get WiFi working first, then you can work on AP. I doubt you will find a ready made solution.
+The google coder project does exactly this and I've used it successfully to enter wifi credentials and connect a headless Raspi to a wireless network.
+The following shows 3 ways of setting up WiFi, http://www.raspberrypi.org/documentation/configuration/wireless/README.md
+Te easiest is to set up using GUI, but if you follow the detailed instructions you can do via the command line. (I assume you propose to use Ethernet to setup.)
+First, I gave each device a name and a psk. Then run an encryption on the name and get the generated SSID. Then configure this SSID through wpa_supplicant or hostapd.
+If you want to setup an IoT like network; it will be very painful (a loads of work has to do to make it automate).

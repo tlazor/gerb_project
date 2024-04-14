@@ -1,0 +1,6 @@
+The listed "workaround" suggested modifying the system stored procedure sp_dbcmptlevel, which although possible, is not recommended for a variety of good reasons.
+There's no way to intercept the database call and prevent it from being sent to the database engine.
+Another thread on this issue suggested changing the system account used by the reporting services service. I'm not sure if that applies to our situation. Has anyone found that this resolves the issue for you?
+Only other idea I had: is there any way to intercept and either block a query from being executed, or to alter the syntax of the query before it is executed? Like a kind of INSTEAD TRIGGER or something?
+I'm aware that this is a known bug in MS Reporting Services (marked "Closed as Won't Fix"). I'm looking for other ideas to resolve this. Using profiler, I found the code being run by the reporting server is:
+On several of my servers, I have "Setting database option Compatibility_Level" messages filling up the SQL log and application event log to the tune of twice every 5 seconds. This makes finding anything else in the SQL log nearly impossible.

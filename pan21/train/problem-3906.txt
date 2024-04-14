@@ -1,0 +1,6 @@
+1st) a Raspberry Pi with ssh and ftp in my home lan, which I access from outside via a dynamic DNS domain. 
+My ideas so far: since the hoster of the proper domain supports DDNS as well, I though of binding it to my first pi. This would (based on the port it is accessed) redirect the connection to the actual webspace or the second pi. Is this possible? Maybe with ip tables? Maybe with a private dns (probably not, since it's only used for the address translation not for ports)? Maybe it's similar to load balancing? How would I do that? 
+What I want to achieve: access all of them on one domain, preferably the proper one used for my webspace. 
+Example configuration: port 80 of the domain should be connected to the webspace, port 22 to pi 1, Port 1234 to pi 2 with everything available on one domain. 
+2nd) a website on a webspace with a free hoster which is connect to a proper domain by another hoster (a record). 
+3rd) another Pi at my parents house which manly works as a backup for the first pi but also as a vpn for remote maintenance. Again it's access by another dynamic dns domain. 

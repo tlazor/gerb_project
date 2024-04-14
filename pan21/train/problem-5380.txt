@@ -1,0 +1,7 @@
+Now I want to bring the current VM into a ESXi Server (Because of Backup reasons, The XP License of the Host).
+As for automatic startup and shutdown of the VM - this would be supported by VMWare's VDI product - Horizon View, but this is an entirely different product line with a different license and a different communication protocol. If you need this functionality with stock ESXi, you would need to script it by yourself.
+Windows 2000 terminal services indeed did not support com port redirection via virtual circuits, but you might try to mimic this functionality through one of the freely available com port redirector software packages. If you do not have a Windows 2000 Server but only a Professional edition running, you would not have Terminal Services available anyway and have to access the VM through the vSphere client, a "thin client" would not be of any use.
+Regarding the serial ports - seriously consider using an ethernet serial server, such as the DigiBoard port server TS series. You can install the drivers into the VM guest OS, and put the serial server anyplace on your network.
+In this VMWare Player there is one VM with a Win2000 on it. The Serial Ports (COM1-COM4) from the Host are integrated in the VM.
+I heard about thin clients, which start and automatically connect to the virtual machine located on the ESXi.
+Is there any possibility to transfer the Serial Ports from the Host (where we install the Thin Client Software) into the VM Located on the ESXi Server?

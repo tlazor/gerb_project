@@ -1,0 +1,7 @@
+The canonical commercial example is Ghost; good open-source alternatives include FOG or  Clonezilla.
+Gotcha: DriveImageXML is not able to backup hidden partitions. It also only supports NTFS and FAT file systems.
+This method is only suitable for smaller to larger HDD drive upgrades. DriveImageXML will not restore to a drive that is not identical or smaller in size. It is highly suggested that the new drive be larger in all cases
+Doing this with DriveImageXML may seem like it has an extra step involved but the process allows you to have a reliable backup during which is important.
+Mount the destination drive read-write, then if the origin drive is SDB, run "dd if=/dev/sdb of=/mnt/sda/drivebackup.img".  Or, even better, "dd if=/dev/sdb | gzip -9 > /mnt/sda/drivebackup.img".
+Acronis works pretty well for this. They even offer a pluggin for BartPE I think, so you can boot off the BartPe CD and do your clone from there.
+(Also useful to know is you can make a bootable DOS USB key with the HP Drive Key Boot Utility.  Never touch a floppy disk again.)

@@ -1,0 +1,8 @@
+Finally, I'd make some simple class that have only one or two fields (such as Tag, Location, User...) immutable by duping and freezing the parameter and freezing the whole object : (note that it won't work if you expect a boolean, a number, a Symbol or nil as dup raise an exception in such case :()
+I've created my first gem as Instagram API wrapper https://github.com/agilie/instagram_api_gem. I would be very pleased if you give me some feedback on code organization, methods elegancy and so on.
+I'd consider making a private method that check id and also check if id is not empty (or even if it isn't strip.empty? to consider only-spaces strings).
+One important point : your code must be hard to unit test as it is coupled with HTTParty, you should consider using a Strategy pattern here.
+I haven't read your whole repo, so I'm not sure but does the Tag class really need to include both Search and Ressource ?
+For the create method, can the option parameters really can be an empty hash ? If not I'd consider at least removing the default value for this.
+I haven't done Ruby in some time so I'm a bit rusty but I hope my review helped you at least a bit :)
+I would be very pleased if you give me some feedback regarding the whole code organization and implementation, which could be found here https://github.com/agilie/instagram_api_gem

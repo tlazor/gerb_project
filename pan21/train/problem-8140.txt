@@ -1,0 +1,7 @@
+I have checked to make sure that all of the captions are not inserted in-line or in a text box. At this point I'm out of ideas.
+He did this because the formatting for the headers had not been set up yet which caused the numbers for the captions to be incorrect.
+The reason could be that Track Formatting is on, and some changes are not accepted. Accept all changes and try updating the fields again.
+I have a large word document with quite a few tables and figures. I have created a List of Tables and a List of Figures, but both of them are missing quite a few captions. For each Figure and Table, I used the add caption function. It appears that they are only listing captions from the first 8 sections, or about 15 pages. Everything after that is being ignored.
+same problem here ...then I finally realized what I was doing wrong... you need to insert each new set of tables(or figures) separately using the References/ Insert Table of Figures/label tabs... 
+I figured it out. Another project member had created the later captions and had replaced the auto-incrementing numbers with his own. 
+Scroll back up to your TOC, Right Click and Update entire Field (or Ctrl+A & F9). That table should now show up in your list.

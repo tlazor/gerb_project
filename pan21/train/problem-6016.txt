@@ -1,0 +1,5 @@
+I am looking to provide a upload feature for my application that accepts a uri like http or ftp, which would be downloaded by the server and stored. I know that the files uploaded would be large (>1GB). 
+Best I could find was this post regarding ftp and scp and  and Content-MD5 header field for HTTP which the file server may or may not support.
+No. Neither http nor ftp support this. (Indeed im unaware of any protocol that does, but ssh could be coerced to foing it and rsync and bittorrent can do something a little similar - theu dont help you here though)
+You might be able to do something in html5/ajax  to locally read and process the hash for the file before uploading it - but this is not protocol related - you are, in effect, writing a program to run client side, in the browser, rather then use thr protocol.
+I was wondering if there was a way to do a checksum through one of the protocols without first having to download the actual file. Since the files are large and would be stored, I'd like to prevent downloading duplicate data.

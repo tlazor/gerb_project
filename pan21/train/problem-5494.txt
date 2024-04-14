@@ -1,0 +1,6 @@
+I am trying to restore a SQL Server 2008 (standard edition) backup to my dev machine using the production database. I get an "insufficient free space" error when doing so. SQL Server claims that it needs 43 GB free to restore my db, but the .bak file is only 4.5 GB! Sure, I'll give it a little room to operate, but 10x the amount of actual space used seems a little excessive. I am not compressing this db (when I do compress the .bak file, it goes down to .8 GB).
+Another option outside of backup if you can get away with it is to detach, and then copy the database file and re-attach, SQL will then create a new transaction log file at the default size of like 1mb.
+Is there anything I can do to the original db to allow it to be installed within a smaller working space?
+Fix: more disk space (of course!). Try and restore to a compressed NTFS folder, external USB drive/pen, or another box to generate more temporary storage, sort the data out, backup again, restore "normally"
+Is it likely your transaction log file...the backup will want to create one as large as was on the original.
+A backup only takes used pages in the files, so it's entirely possible especially if you have heavy table/index fragmentation or have never managed your log files or never done index maintenance

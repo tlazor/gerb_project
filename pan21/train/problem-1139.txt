@@ -1,0 +1,6 @@
+Second, what python was doing is to set a 180 angle degrees in a clock direction above the player and another 180 angle degrees in a clockwise direction below the player. As anyone can see, this makes a huge mess.
+First, I set the mouse position with a value relative to the player's position, making the last the center (0,0). 
+where above point is the point in which forms the white line on the top, and platform is the object to be checked.
+To compute this, the following conditions are met: if the angle between the yellow line and the red line are small or equal to the angle between the yellow line and the white line above, then the object is considered to be inside the line of sight. It also works if the object are below the white line. Here is the code:
+However, as the second image shows, it doesn't work if the line of sight are inverted in the X axis. The problem is that I don't know how to set values right so it could also work when the player is looking to the left.
+This basically makes a true 360 angle degree around the player, making the sen() and cos() work properly. And then, the coordinate position of the points is set according to the window's coordinates.

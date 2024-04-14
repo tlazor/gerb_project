@@ -1,0 +1,7 @@
+Installed software can not be kept. The "repair" will put a list of removed software on the desktop so you can easily identify what to reinstall.
+If you want to continue using the old box as well, you need to create (and restore afterward) a complete image backup of the old harddrive.
+Even though you have two live machines, you will likely want to store the migration data as a file, instead of doing a live transfer. This also gives you a nice point-in-time .MIG backup file.
+Windows Easy Transfer is actually a wrapper for USMT functions, but the full USMT toolkit is more full featured, and it is included in the Windows 8.1 ADK, currently at version 5.0.
+User State Migration Tool will get you the closest, however it does not migrate installed software.  What does USMT Migrate? (applies to an older version)  There are a couple of supported applications.
+from an old windows 8.1 box to a new one. Basically replicate the awesome Mac OS migration assistant, but for Windows 8.1.
+I have not tried this exact procedure, but I have exprience with similar hacks. Windows 8 usually recovers quite well from these shenanigans.

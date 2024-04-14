@@ -1,0 +1,6 @@
+This tells ssh to forward port 80 on your DMZ host to port 80 on your internal server, and similarly for port 110.  The connections all travel over the ssh connection on port 22 so this does not require opening up any additional ports.
+Does this make any sense?  Port 22 is already open on my firewall and I don't want to have to open 2 more ports.  
+Unless stunnel has some way of differentiating which traffic is which protocol (which I doubt), this won't work.  You'll have to open one more port on your firewall.
+You could also accomplish the same thing with a point-to-point VPN (OpenVPN is good for this, for example), although honestly just opening up the ports on the firewall is simpler.
+I'm looking for some help regarding an stunnel configuration I'm working on.  Basically I want to have a DMZ machine accept inbound connections to port 80 and 110, and then forward them through my firewall on port 22 to a machine that will then forward the traffic to port 80 and 110 locally.  Is this even possible?
+sslh is a little program that analyse the protocol and redirect the package according to the protocol.

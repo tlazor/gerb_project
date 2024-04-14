@@ -1,0 +1,6 @@
+With both bridged together you don't really stand to gain anything if you're connecting to the internet because your bottleneck will almost always be the router.
+Considering that you're wireless connection will usually be either 54 mbit or higher and you're ethernet will be 100 or 1000 mbit. Whereas, internet connections usually top off @ 20 mbit for expensive premium accounts and 4-6 mbit for 'normal' user accounts.
+You can bridge the two connections in your network settings to make them act as one. Otherwise, depending on your system, it would either default to one or just not accept incoming data.
+However, unless you're using specific software like the above, or the software natively binds to one interface (common on linux), anything trying to access the Internet will just follow the default route in your routing table.
+It's based on binding order.  In windows XP this is in Network Settings -> Advanced -> Advanced settings.
+It is OS-dependent but, generally, the OS will not attempt to do any load-balancing but instead pick one network card and gateway to use and simply route all traffic through that unless the network is disconnected.

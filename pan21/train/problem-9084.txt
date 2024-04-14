@@ -1,0 +1,7 @@
+If you use Linux you can use tc - the traffic control program. It should be standard in your distro. For example, to set the upload maximum speed (in this case 100 kbit per second):
+I bet you could build a Fiddler plugin to simulate something like this, but I don't know a solution out of the box. 
+DummyNet is a free piece of software that can be used to simulate various network conditions. If you have a spare machine, install FreeBSD and DummyNet, and put it inline between your client and server. You can then tweak DummyNet to vary the latency, jitter and loss that you experience.
+Alternatively you could look into tcng - Traffic Control Next Generation - this uses tc at a low level, but has a slightly nicer language to specify what you do. I have not used it, but there is a tcng howto and a tcng manual.
+EDIT: just re-read the question and realised you don't own your network. In this case, configure DummyNet on a machine that has two NICs, and turn it into a router that has your corporate WAN on one side and your workstation on the other. Just be sure to speak to your IT department first to make sure that they don't have any issues with you doing this!
+There's a company called Shunra that specializes in this stuff. I don't have any experience with them but they've been around for a while.
+tc can do a lot more than that. I can't find the reference right now, but you can drop packets etc with tc. To find out more, you can read the traffic control howto. 

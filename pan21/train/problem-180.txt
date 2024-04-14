@@ -1,0 +1,6 @@
+I understand that values in the Nginx conf and PHP-FPM conf can overwrite those set in the PHP.ini, but surely running phpInfo(), would show the final config values?
+The error directory is pointing to your home directory, but I believe nginx don't have the access to write to your home directory, unless you are running nginx with your username.
+Make sure log_errors is set to On. And make sure the error_log file is writable by the user PHP is running as. (usually www-data)
+Some of the logs produced by Nginx and PHP-FPM contain the PHP errors, but they are mixed in with other Nginx log output. When I run phpInfo(), value in the error_log is set to a folder in my home directory, but nothing is ever created.
+I am using Nginx and PHP-FPM on Linux. I am not sure whether the issue is that PHP is not writing to the location specified in the PHP.ini, or if it just isn't working at all.
+I would like to be able to have 1 folder, with seperate files for the Nginx access and error log as well as PHP errors.

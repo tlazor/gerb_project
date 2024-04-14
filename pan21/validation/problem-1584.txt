@@ -1,0 +1,6 @@
+In my experience there are vendors whose software is so bad that their equipment is never silent, for example they ARP out every interface when they boot, or send out some upon a link up event on a port. Juniper, Cisco, Brocade can be muffled with varying degrees of persuasion, Extreme loops everything during EAPS transitions.
+Depending on your particular Cisco switch - Catalyst or Nexus, you may also search cisco.com for specific design practices. For example, for Catalyst 6500:
+This is where switches such as the Metro-E series from Cisco come in, by default all the downstream ports run in UNI mode which means that they dont send out CDP, STP or any frames at all from other UNI ports.
+cisco have the option 'switchport protected' that can provide basic L2 protection between ports. No traffic can be exchanged between protected ports. Yet, they can send and receive traffic to/from unprotected ports.
+You can search cisco-nsp@ for different propositions as to what to enable/disable on the ports. For example start here:
+You can check the Amsterdam Internet Exchange's Config Guide for hints on how to silence switches from a variety of vendors.

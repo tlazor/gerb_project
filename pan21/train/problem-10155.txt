@@ -1,0 +1,7 @@
+So, I had a day off in the meantime as well as was working on several different tests regarding this idea, and thus had not responded in a bit.
+Unfortunately free meant using SQL Express and one of the three instances breached the 10GB database cap nullifying the project test.
+Their options now are to purchase SQL server, utilize a MySQL server data migration, or simply query the live databases (not my first choice, that is for sure.)
+To recap.  The goal is to synchronize select tables, including data, key, indexes, etc... from one remote database server to another to form a sort of DIY data warehouse for reporting purposes.  Finally, this is to be done basically for free minus my time involved.
+I settled on an initial Export of the database using SSMS for the tables required, then followed up with a script generation of the database to capture table keys, indexes, and constraints, as well as other database information not captured with the simple database data export.
+This allowed a stripped-down dataset that still had keys, indexes, and constraints for the required tables while saving space on the destination server.
+Thank you all for the assistance folks.  If nothing else, it was very good taste of SQL work that I had not previously had, as well as investigating each and everyone's solution suggestions.  Thank you, all.

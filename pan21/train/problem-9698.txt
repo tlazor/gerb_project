@@ -1,0 +1,5 @@
+With this sort of solution you can make a copy of the server at any point in time, register it with AUTO-SCALE and when the machine comes up it will bring itself up to date. You can update the snapshot from time to time to make things quicker but it's not completely necessary to have it up to date with each and every change.
+You can use professional tools to manage each operating system, such as Puppet or Chef. These allow you to keep all of your Server Configuration in code, and deploy changes out to one or more machines.
+Of course these options might not be the best fit for you, it's all depends on what you're trying to achieve, and how you want to achieve it.
+For your application code, you could store it in a repository (git or svn) and depending on how you'd like to manage your deployment process you could automate your servers in such a way that when you check-in in code it causes all the servers to be updated. The command in SVN would be 'svn up'.
+There are a number of options available but it's hard to give you a 'correct' solution without much more information.

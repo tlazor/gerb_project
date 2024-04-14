@@ -1,0 +1,8 @@
+Not sure what version of php they implemented this in, but you don't need to use the __construct, you can use Auth instead like many other OOP langs. 
+And yeah, skip mysql_real_escape_string and move towards parameterized queries from PDO, you'll be better off:
+this is a basic PHP auth class I've put together for use with simple sites I do from time to time which don't warrant using a framework. I'm wondering if i'm separating out responsibilities all that well, even at this early stage! For example, I'm not sure where I should be filtering user input with mysql_real_escape_string, and I don't know if I should be passing the DB into the constructor, but then I need it to be able to run my auth check. 
+They wrap the functionality, restrict it to where it's available (php 5.3), and provide the hash generation function, and a test for whether a hash is blowfish or not, making it easier to move from an earlier hash system to a newer hash system.
+To make parameterizing queries at dead simple as possible, so that it becomes the default as opposed to a troublesome addition.
+You should check if $this->db is null before you do any sql work, otherwise login will fail with errors when used. 
+You should also filter the email and password using regex (preg_match) or the php filter function: http://www.php.net/manual/en/filter.examples.sanitization.php
+Another thing you should look into is using PDO (or anything that supports prepared statements). mysql_real_escape_string is not secure these days. 

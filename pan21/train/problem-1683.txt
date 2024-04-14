@@ -1,0 +1,9 @@
+But I want to modify this behavior and keep www.mydomain.com acessing the /var/www/mysite/portal/ folder on background while www.mydomain.com/abc/ still acessing the /var/www/mysite/abc/ folder as before.
+Try adding this to your http config (Somewhere in the config, it doesn't work at htaccess or virtualhost level)
+This will provide you with a line by line explaination of what it's trying to match against what regex, and what the final decision is.
+You could try using the REQUEST_FILENAME conditions the other way around - i.e. say "if REQUEST_FILENAME exists (and is a file/directory/symlink), don't rewrite it" - something like
+That Rewrite rule means "let the request go through untouched", and the [L] flag should stop rewrite processing without hitting the portal rewrites below.
+All requests keep goin to www.mydomain.com/portal/ when I use this .htaccess (with or without the commented lines)
+Other than that, I'd suggest using RewriteLog and RewriteLogLevel (at least level 3) to get more information about why the conditions aren't matching correctly.
+Today's my server is redirecting all requests of www.mydomain.com to www.mydomain.com/portal and that's ok...
+Remove these lines afterwards, otherwise one day you'll discover you don't have nearly as much disk space as you thought you should...

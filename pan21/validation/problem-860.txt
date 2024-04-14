@@ -1,0 +1,6 @@
+I'm not able to add a rule with "Subject", "is" and then leave the text area empty. The "OK" button is disabled until I enter something there. If I enter a space the rule doesn't match incoming e-mails with empty subject lines. 
+You can do this by switching your thinking around a little to make Outlook look to see if the subject line is NOT blank. 
+I also tried matching a specific header "Subject" "does not exist". That didn't work either. Maybe because the Subject line is included but is just the empty string.
+In essence, this rule will look to see if the subject line meets the criteria. If not (blank), it will reply with the template you choose.
+Create a template for the message you want to send in reply. Then create a rule which will use the exception: "subject line contains specific words". You will add single letters into the exception criteria. Vowels work best because most subject lines are going to have them in it.
+I would like to create a rule in Outlook (2011 for Mac) to match on a empty subject line and return a message hinting that it would be better to include an informative subject line next time. (Yes, it is a try to use a technical solution for a social problem.)

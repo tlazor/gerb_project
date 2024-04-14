@@ -1,0 +1,8 @@
+The instructions you followed are for Creating a Subdomain That Uses Amazon Route 53 as the DNS Service without Migrating the Parent Domain.
+The NS resource records you added to the DNS hosting panel at Go Daddy are not actually doing anything -- nothing you do in that particular screen is going to do anything, because even though Go Daddy is your registrar, their DNS servers are no longer authoritative for your domain.  DNS hosting and registrar are services that any providers bundle together, but they are actually two different things.
+I'm not sure how to do that in godaddy console.. so what I did is that I simply added 4 NS (nameserver) records in my godaddy and pointed them to the said aws nameservers like so:
+That's not what you're doing, here. The phrase "without migrating the parent domain" refers to migrating the DNS hosting for the parent domain -- not the registrar service.
+I've already added a zone for an S3 bucket to host my static site (pointing to lobolabshq.com), now I wanted to do the same for mattermost.lobolabshq.com)
+I followed the instructions here and added an A record for mattermost.lobolabshq.com, which worked just fine when I run the dig command and specify the name server of AWS:
+but when I dig mattermost.lobolabshq.com I get nothing (although I did this change more than an hour ago, and the TTL for the NSServers specifically says 1 hour):
+All you need to do is create an A-record called "mattermost" inside the existing "lobolabshq.com" Route 53 Hosted Zone (the one that uses the 4 nameservers shown above) and configure it as desired.

@@ -1,0 +1,9 @@
+I was thinking to create a rules file to divert all the traffic to a non-existant internal ip and switch it with the normal file when needed.
+you could make a little script that just stop shorewall and restart it with a different directory config:
+If you want to drop all traffic, do this in the shorewall rules file(Order of the rules are important):
+Ofcourse you need to exchange mailserver_ip to the correct  IP. Secondly, if the mailserver is located on the same server as shorewall. You should signify this with $FW instead of loc:mailserver_ip
+So, I don't risk to lose incoming mails if I need to move the mail server to another server, or something like that.
+You say port 22 and talk about mail. Im asuming you want to drop all traffic and only allow SSH traffic. Not allow all MAIL traffic?
+When I work on configuration files, especially of the mail server, I would like to temporarily drop all the incoming traffic except the port 22.
+I do a similar thing with my Watchguard firewall as Pier has suggested: I keep 2 configuratuion files, one is my production config file and the other one blocks all incoming services except those I want to continue coming in while I'm performing maintenance. When I have scheduled maintenence I simply load my maintenence config and when I'm done I load the production config.
+I assume that "internet" is NET and your internal machines are LOC. Changes as it fits your shorewall needs.

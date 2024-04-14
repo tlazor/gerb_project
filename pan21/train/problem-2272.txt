@@ -1,0 +1,5 @@
+Yes, if you want any amount of reliability. Dynamic IPs can work with IPSec, but it gets messy really fast.
+Assuming that the Firebox VPN is using IPsec, you should be able to connect with any router/firewall that supports IPsec. That said, for a non-technical person like yourself, integration is typically much more simple if you stay with one vendor.
+This project isn't completely out of reach for a newbie, but there are many ways you could shoot yourself in the foot and cause downtime, so consider enlisting the help of a network consultant to help you along.
+It could be, though, that things are much more complex than this. We can't know that without many more details on your setup.
+Yes, you will need to renumber one of the sites if you want to be able to route traffic between them. How involved or painful this change will be greatly depends on how the systems at the affected site are configured. It could be really simple if a majority of the devices are using DHCP, and you use DNS for everything that's statically-assigned. In this case, just make the change, re-address the few hosts that are statically-assigned and update their DNS records.

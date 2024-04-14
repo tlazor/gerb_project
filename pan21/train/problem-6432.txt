@@ -1,0 +1,8 @@
+The error suggests that the agent cannot connect to the master because it cannot resolve the hostname of the master. 
+View /etc/puppetlabs/puppet/puppet.conf and in section [main], confirm the value of server is correct.
+Lastly, check the firewall on the puppetmaster.  Ensure all the required ports are allowed in the firewall configuration as specified in the documentation https://docs.puppetlabs.com/pe/latest/install_system_requirements.html
+Ensure the puppet agent is configured with the puppetmaster's hostname or fully qualified domain name.
+This can be due to wrong networking setup (for example a wrong IP), missing DNS server entries or faulty DNS servers or due to a misconfiguration in the puppet.conf file on the agent.
+Second, ensure the puppetmaster's hostname or fully qualified domain name resolves to an IP address.  Fix your DNS if it does not resolve.
+See the puppetlabs configuration documentation https://docs.puppetlabs.com/puppet/latest/reference/config_file_main.html
+The error err: Could not retrieve catalog from remote server indicates that the puppet agent was unable to contact the puppetmaster.

@@ -1,0 +1,8 @@
+I'm trying to install mongodb for my centos 5.1 server via yum. I followed the instructions of creating a .repo file in the yum folder, but it still doesnt work. here's the screenshot of the issue: 
+If you are running a 32-bit system, which is not recommended for production deployments, use the following configuration:
+Create a /etc/yum.repos.d/mongodb.repo file to hold the following configuration information for the MongoDB repository:
+I was able to install using their instructions. You could try disabling the priorities plugin. Set enable = 0.  
+I typed yum install mongodb-org but im getting a "nothing to do" error. I'm not sure what i did wrong. I even did yum makecache and still didnt work.
+To install a specific release of MongoDB, specify each component package individually and append the version number to the package name, as in the following example that installs the 2.6.1` release of MongoDB:
+Your repository configuration seems to be correct, but why are you trying to install mongodb-org? Try installing mongo-10gen-server, that's the package you need.
+When you install the packages, you choose whether to install the current release or a previous one. This step provides the commands for both.

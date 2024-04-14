@@ -1,0 +1,7 @@
+If you wany to mitigate the hassle as much as possible, setup client-side targeting via group policy for your workstations/servers. This'll reduce your overall WSUS management overhead as well as making a rebuild pain-free.
+I backup my WSUS database so that I don't have to write down (or remember) what updates to decline (we have a custom word plug-in that crashes with a certain KB for example).
+What I think would happen is that it would be just like setting WSUS up again for the first time - change the group policy and the WSUS server will then build its database of computers and their installed updates from scratch.
+IMO no, the time/hassle to rebuild a WSUS server is negligable, and it's not a time-critical item that kills you when it's down.
+Backuping the database is a small task, and backup up updates is really no point as you would simply re-download them again if you have to rebuild your WSUS server. Most of the updates are already applied anyway.
+When you factor in the cost of a SQL backup CAL, or setting it up/maintaining it via a manual method, I really can't find a strong argument to back it up.
+Obviously, if my WSUS server dies I will have some hefty downloads to do once it is back up, and that's not a problem. I was thinking more of the database behind WSUS - should that be backed up?

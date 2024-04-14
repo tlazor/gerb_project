@@ -1,0 +1,5 @@
+From this point on you can launch your scripts or scp commands. If your key had been set properly, it will work seamlessly, without prompting for a password each time.
+Don't mess with the authorized keys: place the key be inside the home folder as it is mounted by Ubuntu.
+I am setting up an ubuntu server to use as remote backup and I plan to use rsync to keep it up-to-date.  I've encrypted the home directory though, which now prevents direct connection using standard scp syntax.  I've moved my 'authorized_keys' file outside the home directory, so I can ssh into the server and mount the encrypted directory, but is there a way to directly scp into the encrypted home directory, without enabling remote login on the client machines?
+I know, this breaks passwordless ssh or scp into the machine because the key is not actually there. Let's find a workaround.
+Run ssh username@server from a terminal, so that it will mount your encrypted folder, and now you have your key at the expected directory. (This is the default behavior in Ubuntu, when you ssh into a machine it also calls all the stuff that mounts your encrypted home, just like a local login.)

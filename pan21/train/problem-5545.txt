@@ -1,0 +1,12 @@
+I would not recommend manual map selecting mainly because it is an extra process. Also what if player 1 selected a map more advantageous for him than player 2?
+This is keeping your players happy and engaged, and also keeping the game attractive for new players.
+Again, simple is probably best here, and most games solve this problem in simple ways. Nevertheless, here's some examples of (very elaborate) schemes for you to think about, not only what they did but why they did it:
+Fifthly you can put in some kind of gradient for average game duration, usually games that last less then a certain time or more then a certain time aren't that much fun.
+thirdly you can keep track of arranged games (rather then quick games) and keep track of what maps are most often played there and use those more often. 
+A map can just be randomly selected. Many online games including World Of Tanks, War Thunder, and others use this sort of technique. I personally however notice that I dont like some of the maps, and so am annoyed that I have to play on it.
+This is going to depend on your game and what you're going for. Until you can answer that in detail, it's best to keep it simple, and tweak once you see issues.
+first of all you can look at maps with a low level of quits (quits per started game) and use that for how "fun" maps are.
+Lastly you can ask players to rate maps and use this in order to determine what maps are good, if you want to do this really well you could even look into matrix factorization in order to predict for each player which map he/she is going to like the most.
+Secondly you can weight based on fairless, is one player winning more often then the other, if so then reduce weight of that map
+The only thing I'd pre-empt is that with user-generated content, you want to curate it. You might maintain a collection of pre-approved maps that are allowed in random match-ups, unless the participants opt out. You might allow users to specify their own blacklist of maps.
+In my opinion, you should have the maps randomized but have configuration options for the player to be able to pre-set that they cannot join certain maps.

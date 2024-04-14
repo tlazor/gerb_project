@@ -1,0 +1,6 @@
+If you have an extremely large number of achievements, I would recommend looking into a hash table, it will give you constant time lookups instead of the linear time lookups you are using now.
+We can also store our allAchievements locally as an NSDictionary rather than an array.  If allAchievements is an NSDictionary, our code looks something more like this:
+I would eliminate the use of magic strings.  Define all of your keys as constants somewhere.  This serves multiple purposes.
+The first thing we can do to improve the efficiency of this code is to remember to check for an error and make sure that the returned objects array returns anything before we do anything.  Generally, code from Apple libraries would guarantee our objects array to be empty if there were any sort of error, but some libraries don't make that guarantee.
+Also, keep in mind that everything within the findObjectsInBackgroundWithBlock: is executing in the background.
+Now we eliminate the nested loop.  And we only run through the outer loop once per earnedAchievement (which may be zero times).

@@ -1,0 +1,7 @@
+There are MS Partner Solutions that also aid in this from the Management Pack side as well as the ACS reporting side.
+Is there any reliable way to monitor failed logon attempts on-the-fly in Windows XP? (well, Vista too for that matter).
+For a central solution, use one of the Windows syslog providers to forward security log entries to a central syslog aggregator. Watch for the right events and then take whatever actions you want after that. Same deal as in the UNIX world. Back in my Windows days we used NTsyslog on each host to feed the event log into a server running SL4NT. SL4NT is actually a pretty powerful syslog daemon and more fully featured than a lot of the UNIX versions. Both SL4NT and NTsyslog are very easy to setup.
+@Jonas: When you say "monitor failed log on attempts on-the-fly", do you mean you want something that reacts in real time to a failed log on? Or do you want to be able to run something that will tell you how many failed logons there has been, say, for a machine over a specific time period?
+Microsoft ACS does this very well.  It is a component of System Center Configuration manager.  You can look at the logon failures from the DC perspective or from the client perspective depending on your specific needs.  
+So my question is: Is there any (other) API I can rely on? Or do I have to roll out an entire GINA replacement DLL?
+I need to monitor failed logon attempts programmatically which is currently accomplished with a simple GINA Stub by subclassing the Login dialog from MSGINA.

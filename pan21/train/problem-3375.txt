@@ -1,0 +1,8 @@
+Second, if you are using wireless, go to your network control panel, manage your wireless networks and remove any networks you had previously created using this router.
+If you can't connect with that, reset the router by pressing and holding the reset button at the back of the router, next to the power button, until the lights on front turn off and turn back on again (about 10-30 seconds). Then login again using the info at bottom of router (your computer should be pre-configured to get IP address from DHCP of router).
+It was a very subtle point - that my machine needed a specific IP address - that I missed because I thought "Oh it's a network device, the sticker says the default is 192.168.1.1 blah blah done this before on similar equipment".
+Then please ensure you are connecting via a ethernet cable to your router as WLAN is normaly disabled after resetting.
+Verify you are in the same network as your router. Type in IPCONFIG /ALL in a CMD Prompt and see if the IP of your computer comes up as 192.168.1.xx (where xx is not equal 1). 
+If you can not get a connection wirelessly or via ethernet, try a different computer.  You stated that you reset your router, so if 2 computers can not access, it`s time to get a new router (always try resetting again hold 20 seconds and release)
+When trying to initially configure it, the manual told me to directly plug my PC into the access point's ethernet port with a regular network cable, and then set my PC to a specific IP address (rather than a random 192.168.1.x address).
+If it's still not working, try basic things like trying to ping the router and telling us any errors that appear.

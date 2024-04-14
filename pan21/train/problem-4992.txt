@@ -1,0 +1,11 @@
+Oddly, I can send mail using sendmail, but it initially gets the same timeout error and then falls back to an alternative server, which accepts a connection, e.g.
+The problem has seemingly resolved itself. Since I could still send email using alternative Google servers, I suspect it was some minor networking issue between my server and Google.
+Most of the times that I see similar problems with mail servers (and from the logs presented I  understand that you connect to ALT1.aspmx.l.google.com but mail is not sent) disabling TCP Window scaling helps bypassing (not solving) the problem.
+I've found Google has locked accounts/IP Addresses/ActiveSync etc when their automated protection systems suspect suspicious activity.
+Sending email from an EC2 instance is just not a good idea unless you are handing the email to a mail server that has specifically agreed to accept your mail. There are a variety of reasons, but the main one is that an EC2's IP address is dynamic and a mail server must be on a static IP address to accept bounces.
+This is only occurring from Amazon's cloud. I can connect to smtp.gmail.com from my localhost using the same credentials, and send email just fine. And I can ping smtp.gmail.com just fine from everywhere, so it doesn't seem to be a routing or firewall issue.
+Otherwise Google Tech Support once directed me to https://www.google.com/accounts/UnlockCaptcha or http://www.google.com/a/your_domain.com/UnlockCaptcha for an account that ActiveSync had locked down and nothing would bring it back.
+To 'unlock' an IP, you can log into the GMail account from that IP using the website gmail.com, and the account will usually come good in a few minutes.
+Basically, if you want to send mail, you need to send it to a real mail server that will take responsibility for delivering the mail to its destination. Amazon offers such services, with real mail servers hosted at static IP addresses.
+I'm getting a "Connection timeout" error when attempting to send email through smtp.gmail.com using the email facilities in Django running on a Linux machine on Amazon's EC2 service.
+The server in question sends very low volumes of email (10-20 a day), so I'd be surprised if it was flagged for spamming.

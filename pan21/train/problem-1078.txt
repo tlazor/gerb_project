@@ -1,0 +1,7 @@
+If ~all is specified, and your IP does not match, the server is supposed to accept the message but flag it.
+Use the a or mx entries as you describe and it will work if you update the DNS directly. The reverse lookup issue is most easily addressed by adding additional 'a' entry that corresponds to your current IP. 
+In my experience, a lot of receiving mailservers do not use the SPF check, and if they do they mostly add a point towards your spam-score.
+And also make your SPF record end with ~all in stead of -all (~all is the most commonly used mechanism in my experience)
+For example, my edge ip is 172.16.1.1 - host37.ispname.somecom. Rather than using 'myname.mycom' I put a CNAME in on my domain that points to the ISP FQDN. That way forward and reverse ultimately will check out. I don't believe there is any restriction for the SPF to point to a CNAME (which then points to the ISP FQDN). Or, more easily, just update the SPF rather than the 'a' to correspond to the real FQDN.
+I wouldn't recommend this if it is your residence though. You are potentially exposing location information by pushing your current IP up into DNS for anyone that has your email address.
+However, if you do want to continue using SPF-records in combination with your dynamic IP-address, make sure your TTL on that DNS-record is as low as possible. 

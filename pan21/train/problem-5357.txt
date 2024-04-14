@@ -1,0 +1,8 @@
+Since Everything search has been re-written (January 2013), you can now search for attributes. A query of "attrib:L" will reveal all Symbolic Links of various types on your computer. Show Attributes column (Ctrl+Shift+8) to sort by attribute.
+I'm looking for a way to search for all the symbolic links on a NTFS filesystem on Windows Vista or 7.
+You can also create a Filter for that particular attribute search (Search, Add to Filters) if you do that type of search often or want to assign a keyboard shortcut.
+If you want to determine if a specific file or folder is a reparse point, just type the utility name and file/folder name after. Be careful with folder names since adding a backslash may change results.
+It would be even better if I could specify a specific target to see if it has any symlinks pointing to it, but a way to search for them all would be great, too.
+I did notice the initial attrib: search appeared to lock-up Everything temporarily, but finished after a few seconds... worth the small wait for such a powerful tool.
+I too was looking for this capability and haven't seen it elsewhere. I've added it to my Windows libraries for Python. Unfortunately, if you aren't already an avid Python programmer, you have a few steps to get everything installed.
+After following these steps, you should have a script called \python26\scripts\find-symlinks.exe or \python26\scripts\find-symlinks-script.py which you can execute with an optional pathname to search out symlinks. It will search out the symlinks and report the results, one line each. I tested this procedure on a clean install of Windows 7.

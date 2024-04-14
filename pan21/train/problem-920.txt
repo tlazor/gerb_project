@@ -1,0 +1,9 @@
+You will find very little(if any) improvement by switching the OS you are using, unless you're running some really old version right now, and even then it might not get you the performance gain you're looking for.
+Ofcourse there is no easy way to judge this, you have to choose ideal hardware platform and install Soaris, Linux etc on same machine and run some tests to evaluate it. JIT Implementation to support target CPU will also makes a difference.
+Look into various extended JVM options supported by each platform, you will get a fair idea on how much optimization you may be able to do.
+The real answer is what is going to be the easiest and cost effective platform to manage, which is probably CentOS or Ubuntu Server.
+My guess is you're still limited by the hardware you're currently running, or perhaps your Java application is the main issue, and might be worth looking into before throwing more hardware at the problem.
+Surprisingly Windows is the fastest platform for Java as it is the developers native platform, Solaris ending up on the worst side.  On Linux you get to choose from Sun, IBM, OpenJDK, and BEA for your convenience.
+However.  You should choose an OS with support for modern hardware and chipsets (ie, a relatively new kernel), and a stable release schedule.  CentOS is good, 5.4 being the latest release, supports some good new features, like native FUSE support.
+I'd probably choose Ubuntu, regular releases every 6 months, a 3 year LTS release coming up in April, very new kernels and good patch releases, and good support for sun-java6.
+JVM Performance does vary from platform to platform. Its has been a while since I evaluate jvm performance on various platforms, but when I last did few years ago, on JDK1.4, solaris was best. That time JVM in linux was still new and there were threading support issues. Things have changed a lot in JVM implementations.

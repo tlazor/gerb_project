@@ -1,0 +1,5 @@
+To answer part of the question - no, Ruby does not get compiled into any sort of intermediate file-based bytecode (unlike, say, Java's class files).  But as Chris said, when running Rails in production mode you do have to restart the process to reload the source code.  
+One advantage of using Passenger vs Mongrel is that with Passenger you can cause the application to be restarted on the next HTTP request by doing a touch tmp/restart.txt in the application's current/ directory.
+When running in the Development environment, you do not need to restart Mongrel to have changes in the source applied immediately (Rails checks if the source file of any class descended from one of the Rails classes has changed before using that class). 
+In all cases, if the file is not one that Rails knows about (e.g. your own module or class) or is a configuration file then you must restart Mongrel to have the change take effect.
+I believe that it's not compiled, but that certain files (such as database.yml and routes.rb) are only read at startup. If you change (for example) a view then the change should take effect immediately.

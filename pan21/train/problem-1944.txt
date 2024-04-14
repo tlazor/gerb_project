@@ -1,0 +1,7 @@
+Take a pendrive and format with FAT32 and then copy your all data u want to open in android . Then start your machine and go to devices and in usb devices select your pendrive . It will run and show with the name [ usb0] :-)
+When using something in a VM, you always have to remember that conceptually it's like you have a separate system.  So, ask yourself, how would you get a file into Android-x86 if it was a separate system, like a phone or separate device?
+After I installed Android-x86 on Virtual Box from the ISO, and it working good but how to use a data like image and song from my computer to Virtual Box???
+Otherwise, if there is some type of app you can install to allow network access into Android, you could try that route.  I am not familiar with Android-x86 and if you can install the same .apk's as an Android phone or tablet.  You could try installing the AirDroid .apk here by browsing to it from your Android-x86 image.
+You may have seen "drag-and-drop" functionality on Virtual Box or VMware before.  This is possible under a Windows VM because VMware tools is installed within the VM.
+One thing you can do is run a local webserver (a quick and dirty one is mongoose) and then browse to your computer's IP on the LAN in the Android browser.  You can then navigate and download files into Android-x86 that way.
+If it was a phone, I'd install something like AirDroid or similar to transfer data via the web or your LAN.  The Android-x86 image you are using in a VM probably doesn't have an app store.

@@ -1,0 +1,10 @@
+You may be better off with a 6in4 tunnel. This uses protocol 41 does not require additional NAT rules.  There are brokers who provide free tunnels.  As long as you are the only one on your network using the tunnel broker IP, there should be no issues. 
+Support for both 6in4 and 6to4 is built into Linux. I originally started with 6to4 which worked but was not as stable as I liked.  With 6in4 I have had stable connectivity.  I have been using it for NTP connectivity, and get stable time sources over IPv6.
+First of all, it depends on the IPv4 address of the router. If that is subject to change, you have a problem.
+Now I need to access this computer remotely with IPv6. (I can't use IPv4 here because it is behind a NAT I and can't add new port forwardings.)
+If your router's IP address is not static, you will need to do additional configuration to reconfigure the network when the IP address changes.  This is similar to what you would need to do with DDNS.  
+Short answer: You may be able to get it to be the same most of the time, but your mileage may vary considerably. Likely, you won't be able to get this reliable because the NAT device may mangle your source port. You may be able to stop that by setting up port forwards on your firewall... but you already can't do that... so...
+Second, it depends on the source port used by Teredo, which may be translated and changed by the NAT device. If your NAT device does preserve the source port used by applications on the inside, you may be able to get this to be unchanging. If you're on Windows, the "clientport" option for Teredo might be useful. See this technet article.
+A better option might be to set up a dynamic DNS client, assuming you can find one that will publish an IPv6 address of a teredo interface.
+Apparently, since RFC 5991, some parts of the IPv6 address are always random in order to make it non-predictable.
+The problem is I can't add an AAAA DNS record because some part of the IP address changes randomly each time the computer connects to the network.

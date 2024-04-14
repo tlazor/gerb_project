@@ -1,0 +1,9 @@
+I've found one utility that has the capability of returning to the pre-boot status, Slimbrowser. I would dearly love more.
+The first script saves all processes to a text file in the specified folder (desktop) and all window names to a separate file. The second script reads and launches all processes from the file written by the first script. Both should be saved with extension .vbs. Also, the saving of window names requires Microsoft Word to be installed (Don't ask..). 
+I haven't yet found a way to programmatically get the file paths user78017 copies everytime he restarts. 
+I have the same problem. After a reboot, I have at least a half hour restart of all of the processes that I normally use.
+Not exactly what you asked, but you could simply put your computer in "suspend" mode overnight.  Unless you actually have processes running, this won't change anything about how it works, it will only take a second or two to unsuspend in the morning, and Windows Update can't run during suspension.
+2016 and still nothing from Microsoft... I decided to give it a try with vbscript. It's not great, but it does fire all programs back up and in some cases even it's windows. 
+I'd like to hear for what programs this script opens all open files back up and for what programs it doesn't.
+I've heard people use a program called CacheMyWork.  It will reopen the apps you had open, but it won't open the files you working on (unless the program has such a feature).
+Another option is you could sidestep the problem you can run your apps in a virtual machine.  Then when you go home you can pause the virtual machine with will persist the state of the virtual machine to disk.  Then resume the virtual machine when you return.  This sidesteps the issue because someday you will need to update/patch the virtual machine's OS.  Also, you will probably take a performance hit (how big depends on what you do).

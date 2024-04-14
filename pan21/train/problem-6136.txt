@@ -1,0 +1,6 @@
+Is there a way to modify the NIC bind order in Hyper-V Server/Server Core?  For some reason, one of our Hyper-V servers decided to reverse the bind order of two of the six NIC ports on the machine, making it inconsistent with all of our other servers (not to mention being out of sequence with the phyical layout of the NICs).
+On a side note; I normally name the Teamed Interfaces for their purpose, so it's consistent across the servers no matter how many NICs, what kind, or whatever. The NIC Teams are 'Mgmt', 'LAN', and 'iSCSI' usually (substitute you favorite names).
+I know this can be done via a network settings GUI in the full server installation, but alas, said GUI does not exist in Server Core.  I believe that this will require a direct registry edit, but I am not sure where.
+I looked this up because I could really use that.  If you are running Core, you probably do not want or have the authority to install extra software, even if it is a CodePlex dig (I have a lot more respect for that than straight up Microsoft garbage).  You can do it programmatically with WMI 
+Or, do a one-off from WMIC when you figure out the MAC address or unique identifier of the NIC in question.
+Nvspbind is great for many things in addition to this. If you're just looking to rename the interfaces, netsh can do that too.

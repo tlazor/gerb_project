@@ -1,0 +1,10 @@
+Instead of the traditional approach of "range" lowering hit chances, im thinking about some sort of system that throws vectors at each other to calculate relative bearing and speed to calculate hit chances. 
+Let's say you want a 100% hit chance when the angle difference is 0, and have the "good extremes" to be 75% at 330º and 30º, with intervals between those.
+Thinking about a 2d strategy game, where you move your starships turn by turn and fire guns at each other. 
+I.e. a fast, small ship is harder to hit than a slow, big chip, but in addition the relative bearing (im thinking: is the target flying straight towards your X/Y = good hitchance, or is it strafing very narrowly, low hitchances depending on speed).
+The first thing you should do is check if the angle is between 0 and 180, or between 180 and 360. If it's in the second bracket, you'll want to subtract 360 to its value. In either case, you'll then divide the angle by 30, to obtain a range of values that will go from -1 at 330, to 1 at 30.
+Using the angles you provided as example, I took the liberty of assuming a few other data / scenarios.
+You'll then want to divide that desired dispersion (in this case, 25%) by the inverse of the absolute value of this multiplier, in order to know how much to reduce from the accuracy.
+There are many things you can do with this, and there is room for several more variables / improvements. For instance, you can have each ship start with a default precision, different to 100%, and have that number be at its maximum when the angle difference is 0 by using its precision instead of the hard-coded "100".
+Getting the relative the bearing (angle) on an approaching vessel would be easy using atan2, but how could this be translated it into a hitchance that goes up if the angle is like 330 to 30 degree and goes down if its different (as an example) ?
+Also, keep in mind that the precision multiplier, if divided by 30, will vary from -6 to 6 when accounting all 360 degrees, so you can have a separate logic, indicating a different accuracy decay, by contemplating the cases in which its value is greater beyond the -1 to 1 range.

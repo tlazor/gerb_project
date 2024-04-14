@@ -1,0 +1,8 @@
+between the two of them, they seem to have it covered.  No, it's not perfect - if you carry a stick around and stick it into Macs, it HAS to have at least those few useless files on it.  Oh, well.
+.Trashes - A folder containing files that have been sent to trash but not yet deleted from the volume.
+.DS_Store - Created by Finder when you open a directory. It stores information about the folder (view options, icon positions, etc).
+In order to prevent them all from being created, you have to modify the behaviour of each application individually. That would include adding an exception to Spotlight, Disabling Finder's caching feature (if possible), changing the fseventsd daemon and so on. I'm not sure if it's even possible to add exclusions or disable all of these features. If you don't need to write to the disk, I'd just mount it as read only to make things easier.
+Well, there's also this and it's free, u might want to throw a folder called autorun.inf too for security in windows
+.fseventsd - created by the fseventsd daemon. It contains data about file system events such as modifications, deletion, creation, etc.
+One works on one machine for all flash drives, and stops the various services from writing to the drive.  It's fairly complex, so I'll let thexlab explain it themselves at http://www.thexlab.com/faqs/stopspotlightindex.html
+The other fixes one flash drive so you can poke into Macs and not have them index it.  You have to put a few files on the flash drive BEFORE you plug it into a Mac, that tell the OS not to write various things.  More info at http://hostilefork.com/2009/12/02/trashes-fseventsd-and-spotlight-v100/

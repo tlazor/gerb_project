@@ -1,0 +1,8 @@
+I had to re-install 6.5 from the vmware installer and then recreate the network and register the vms.  All the datastores can be preserved with the 
+I have an ESXi host, but it does not have local hard disk. It use disks which are shared via fibre channel. Afterthat, I setup passthrough for the fibre channel. After rebooting ESXi host, we cannot find any datastores. And I also cannot remove passthrough setup (after removing and reboot, it's still there). Does anyone know how to fix it?
+I realize that this is an old post but for all those that may end up here anyway, this may be helpful...
+I believe the answer from John Doe (edited by Thomas) is the correct one but if your ESXi had a chance to create a backup of the config before you enabled passthrough, there may be an even simpler solution.
+Some more details from http://pleasework.robbievance.net/howto-the-wrong-way-to-use-vmware-directpath/:
+The following workaround describes how to force the change from passthrough mode to non-passthrough mode:
+Reboot ESXi and at the boot screen press Shift-R to enter ESXi Recovery Mode. If you have a backup of the config, you can select it on that screen and it should fix the issue. 
+In vmware esxi 6.5, editing the esx.conf contained in the state.tgz didn't change the esx.conf file used during boot.  The file extracted from state.tgz and local.tgz did not contain a reference to the device assigned to passthru (in my case /device/00000:003:00.0/vmkname = "vmhba0" ).  Adding the device entry to the file and copying back to the vmware partition did not change the settings - the esx.conf file was edited or overwritten from another location.

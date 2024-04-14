@@ -1,0 +1,6 @@
+And I had to add this to ~/.screenrc to enable mouse scrolling from inside the window (still not with the sliders):
+You can also change the scrollback history size in a running screen with the sequence CTRL-a : (enter screen command-line mode), then scrollback 10000 if you want 10k lines of history buffer. The change applies immediately.
+When you start screen you can specify the size of the scrollback buffer with -h, so you can increase it from the default of 100 lines.   However, with a currently running screen, once the data has left the buffer, it is gone.
+You can also run your commands in the script command which will log the output to disk.  Or you can:  command 2>&1 | tee /tmp/cmd.out to log the output for future investigation in you wanted a (practically) infinite sized output history.
+I was able to scroll with the cursor inside the text using &uparrow; and &downarrow;  after I hit CRTL + a and then ESC.
+However, like @William Pursell said, with a currently running screen, once the data has left the buffer, it is gone.

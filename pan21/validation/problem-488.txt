@@ -1,0 +1,7 @@
+The USB drive has a DOS partition table, the first (primary) partition is type 07 and formatted as NTFS, the second one is an EFI partition (type ef), the 3rd to 7th are logical partitons of type 83, formatted as ext4.
+Now my question: How can I restore the old behaviour? Windows should only automount the first partition, but ignore the EFI partion and refrain from prompting me to format the ext4 partitions.
+Until Windows 10-1607, the behaviour was such that the system assigns a drive letter to the first partition (in NTFS) and tries to automount this partition, but ignores the others.
+Furthermore, drive letters are assigned to the ext4-partitions as well, and the user is prompted to format these partitions.
+Since Windows 10-1703, this behaviour has changed. The system does not only mount the NTFS partition, but also the EFI partition.
+P.S.: Globally disabling automount (in diskpart) does not help, since this disables the mounting of the first partition as well...
+This concerns an issue with an USB flash drive on Windows 10 - 1703 (occuring on both, Home and Prof)

@@ -1,0 +1,8 @@
+Note2: This is not really a key pair, as it seems to be a hash of the password stored on both sides.
+Unlike the no password, only local access solution, this prevents other users on the same host to connect to the vncserver. It can however be combined with the local access only, to restrict who can try to brute-force the vncserver.
+One simple method that I regularly use when access a Linux VNC server is to just setup VNC to not require a password at all.  But I also set it to only listen for connections on the loopback interface (127.0.0.1).
+Thus copying that file from the server on the client (using ssh with keypair) allows to log in without the need to enter a password:
+Then I simply create an SSH tunnel to my box and use the SSH port forwarding for the authentication and remote access.
+I use RealVNC to remote-control my computer while on the go. But it annoys me that I have to type the access password each time. Is it possible to make RealVNC (Or any other VNC implementation) work with my keypair instead of a password?
+If you pay for the Enterprise edition, presuming all your machines are in a domain, you can have RealVNC use your current login credentials instead of a separate user name and password using the single sign-on option.
+Note1: The documentation says the file needs to be on the same filesystem, but copying worked for me. Not sure whether the passwd file is ever changed and needs to be copied again. - from my observation this does not seem to be the case. 

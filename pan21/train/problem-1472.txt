@@ -1,0 +1,5 @@
+While I can't give you and answer for ADFS and Oauth, I can give you some experience with regard to integrating two different web-based SSO systems, which may give you something to think about.
+A word of warning: logout becomes more of an issue. I had to customise the SLO templates that come with the IdP to integrate the other systems logout system too.... ADFS won't be that flexible.
+In my situation, I was wanting to get a Shibboleth IdP (same role as ADFS with SAML 2.0) to make use of an existing propriatary SSO system.
+What I did was to configure my IdP to make use of 'external' authentication, in which case I had the proprietary SSO system guard just the external authentication URL; so that when people went to log-in they would hit the external-auth URL --- and work through the other SSO system --- then come back in an authenticated state to get through the external-auth URL to the IdP, which would then grant them a session.
+This illustrates that that you don't really 'convert' one system to the other, but you can uplift one to the other using external authentication.

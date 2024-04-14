@@ -1,0 +1,5 @@
+When they are talking about "Raw Ethernet," they are talking about data frames that do not contain any IP (L3) or TCP/UDP (L4) headers. They are not talking about using L2 frames without L2 headers.
+Of not including L2 headers? Absolutely. You would have to specify a specific adapter to get a specific answer, but I doubt you could even write drivers that would work with most 802.3 or 802.11 adapters that did not include the L2 headers. My guess is that most adapters would reject/drop the frame as malformed either before sending or upon receiving it.
+Of sending just an 802.3 or 802.11 frame that doesn't include IP or TCP/UDP headers? No. This happens all the time as part of normal network operations and has for decades (at least for 802.3; 802.11 hasn't been around as long but at least a decade).
+Without the L2 headers, a frame would be neither an 802.3 (Ethernet) nor an 802.11 frame. It would be something else entirely. A separate L2 protocol.
+Based on your questions and comments, I think you are missing the point of the two articles you are referencing.

@@ -1,0 +1,6 @@
+Can anyone help me get it back to how it was before without uninstalling Server, as I'm using it for VPN, File Sharing, Time Machine, etc.?
+You also need to create your own launchd startup scripts (or manually start your services at reboot), and make sure Apple's versions of these programs are not running to avoid creating conflicts.
+Apple "owns" the Apache that ships with OS X. They can (and will) do whatever they please with it, and this may (and probably will) break your configuration from time to time.  
+Can I have Mountain Lion server with all its benefits of AFP and Time Machine for multiple machines without it messing with my Apache configs?
+If you want to protect yourself from that you need to install your own copies of the necessary components, in a location that does not conflict with Apple's versions.
+If so, restore from them.  If not, you're pretty much out of luck -- rebuilding your configuration will be faster/easier than trying to figure out how to unwind everything that went on when you installed OS X Server.

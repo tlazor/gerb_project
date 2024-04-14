@@ -1,0 +1,5 @@
+As for you question in regards to your current software, a quick read on there website if i'm looking at the correct one shows they support NAS and Cloud Backup, although that is for the latest version which seems to be 15.
+A NAS is a once off payment of X amount, Cloud storage is X amount per month, you need to value your data, if you lost a backup how much would it cost the company? would you lose clients? would the company survive etc... after you value your data you can then decide which path you would like to take.
+https://www.veritas.com/en/uk/product/backup-and-recovery/backup-exec?om_sem_kw=backup%20exec%2010d&s_kwcid=AL!4649!3!100430979982!p!!g!!backup%20exec%2010d&CID=701j00000022c06AAAv&ef_id=VwKFkgAAAFqh6WcD:20160614155857:s
+We use a program called Backup4ALL, supports NAS and cloud Backups, Simultaneously as well, it also supports AWS, Dropbox, Google Drive, so you have plenty of providers to choose from.  
+If there was a power outage that corrupted multiple files that were open at the time, you can quickly restore them from the NAS.

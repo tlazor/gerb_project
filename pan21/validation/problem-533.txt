@@ -1,0 +1,8 @@
+This one is good if you have any shape that is convex. It works very well, albeit a little bit more complex to implement than the two others. Here's a very good tutorial about this algorithm: here
+EDIT: Just saw that I'm not answering your question directly... For your problem you could implement the SAT algorithm and detect if the shapes are not colliding with the inverse of your global canevas... anyways, sorry!
+That's a fairly efficient check to run, and (generally) finding the bounding rectangle for your shape should be fairly easy (just finding the minimum and maximum x and y coordinates)
+You can imagine a box around your canvas. This algorithm is perfect if the two colliding shapes are rectangles. Now your two boxes have a x-pos, y-pos, width and a height, right? Let's say the x and y positions are the bottom-left point of your bounding box (BB). In pseudocode,
+If you have concave shapes or want a more optimized algorithm (let's say you have more shapes than a thousand), well there's nothing a quick google search will not fix ;) You can also try to implement these on your own:
+This one's easy. If your two shapes are circles, you have two radii, r1 and r2. To detect the collision, you must calculate the distance between the shapes and substract to it the two radii. If this gives you a negative result, then your two shapes are colliding.
+If you know the canvas is a rectangle then this simplifies to the case of checking if the bounding rectangle of the shape being drawn is contained within the canvas' rectangle.
+The Good News: It's really easy to implement this type of algorithm yourself! Here's a couple, you can mix them to optimize your collision detection depending on the type of shape.

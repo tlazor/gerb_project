@@ -1,0 +1,6 @@
+In this case, the metadata file was corrupted while downloading so it tried another method. Firstly, this does not necessarily mean tampering or monitoring, it just means the connection may have broken at some point, or there was something wrong with the download. 
+On 2013.02.05 I installed a SL 6.3/64bit minimal, then after install I tried to install a libreoffice-base package. This has been showed to me: 
+Never attribute to malice what can be attributed to what's probably a random glitch. Its fairly unlikely that this (alone) would be the sign that someone's intercepting your communications.
+Lets start with what it is - SL (or Centos or fedora) downloads a file that basically lists all the files available on the repository and information about those files. It also downloads a 'checksum' file, which is a way to quickly and uniquely identify the other file by some means.
+I tried "yum clean metadata" and "yum clean all" but it didn't worked. The same message appeared to me for 2 days. 
+What does this mean that "metadata file does not match checksum"? Does it relates to security? Did someone had a proxy between me and ftp.scientificlinux.org?

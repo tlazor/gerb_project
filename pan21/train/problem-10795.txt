@@ -1,0 +1,13 @@
+Let's suppose I have process that does long calculations (e.g. it's been running for days), it uses a disk as temporary storage to store intermediate results (for example mounted at /mnt and I want to replace /dev/sda1 by /dev/sdb1).
+Be careful if process is communicating over network, when you stop it, connections could timeout so you need to do it as quick as possible (probably test command sequence on dummy process before and run it as batch)
+If your process holds a file open on /mnt, then you can't replace the device without causing the process to most probably fail in some undefined way, even if you manage to force-unmount the device.  Processes generally don't expect devices on which they have open files to disappear.  
+If there is still some opened or process don't close files you can try migrate file descriptors using GDB. I tried that by hand and it worked, but I found some script which can do that for you: http://ingvar.blog.redpill-linpro.com/2010/07/10/changing-a-process-file-descriptor-on-the-fly/
+EDIT: You can see opened network sockets in /proc/$pid/fd as well so you can determine if process is using network or not.
+How can I replace that disk by another disk without killing that process and without disturbing it too much?
+That said, there may be other scenarios, where you do want to keep a process alive for longer, and be able to replace a disk from under it. For those situations, you should look into decoupling the file system from the physical media.
+If your process opens, writes to, and then closes files on /mnt, you might be able to get away with stopping it, unmounting and remounting /mnt, and restarting it.  This depends on your being able to stop the process while it's not using /mnt.  So you could
+That's a general question I'm not thinking to a particular program. Let's say we run a recent version of linux.
+Any program doing calculations that goes on for days should be designed to commit sufficient state to disk periodically. If a restart of the process means you lose an hour of processing time, that may be fine, but if you lose more than that, I'd call that program poorly designed.
+If process is using some directory for creating and deleting temporary files, you can probably try to stop it with kill -STOP $pid command and take a look into /proc/$pid/fd for opened file descriptors.
+This won't necessarily work even if you stop the process with no files open on /mnt, because you might have interrupted some logic which relies on /mnt not changing; something like
+If there is none opened, you can safely change mount location, copy it's files and continue in work with kill -CONT $pid.

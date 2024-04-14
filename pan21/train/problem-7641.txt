@@ -1,0 +1,11 @@
+If I understood your question you want to run postfix in the foregroud, so it gets its logs sent to the stdout and you can display them using docker logs.
+I just want to know if there is any way to start it in foreground so i can check its logs from "docker logs 'container-name'"
+You cannot run Postfix in a way that its logs are sent to the stdout. From the  official docs "Postfix daemon processes run in the background, and log problems and normal activity to the syslog daemon.", so syslogd is used by Postfix to manage its logs, and that's a requirement you cannot avoid.
+Postfix needs a syslog daemon for logging. For a concise example of a Dockerfile running Postfix see jessfraz/dockerfiles/postfix.
+As Docker will "ignore" log output that is not sent to stdout/stderr you should have to look for alternatives.
+This conversation gives you more information about postfix and syslogd requirement and possible strategies in Docker. Basically it will try to send the syslog output to your host's syslog log files, but you won't be able to use docker logs to read them.
+When i manually run "postfix start" it runs and then starts in background. any way to keep it in foreground?
+I want to run postfix as PID 1 in docker. and i dont want to use any bash shell, supervisorD, or any wrapper to start it. 
+Finally, I found this article helpful (referenced in the nabble discussion) to understand the problem of getting the syslogd information out of a container.
+Starting with Postfix version 3.3, you can also use postfix start-fg, which according to the documentation:
+This old container in Docker Hub tries to do what you want, at least explains the same issue that you want to solve.

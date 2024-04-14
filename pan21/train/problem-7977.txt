@@ -1,0 +1,8 @@
+if pc1 and pc2 are on the same domain, with NIS authentication, and I'm logging in through SSH with the same user (as I didn't specify one), I wish I didn't have to type the password again, as I already did it when logging in at pc1.
+It is possible (depending on your ssh client) to setup keys for the entire host, instead of keys for individuals.  I have never used this, but there are some related links.
+The id_dsa (or rsa) is your private key. The .pub is your public key. It's a text file, so you can cat it. 
+Look in your home directory, under .ssh and see if you have id_dsa or id_rsa (and an accompanying .pub file). 
+This will also allow you to use agent forwarding to connect to other accounts (not necessarily with the same username), as long as your public key is propagated to given accounts@hosts.
+On the other machine, cd to the .ssh directory, and edit a new file called "authorized_keys". Paste the contents of the .pub file into this (it's all one big line). 
+If you're using SSH public/private keys (and you should IMHO) and you're using some kind of SSH agent, like ssh-agent(1), log to pc1 with -A flag, like:
+I want to use SSH between two computers on the same domain with the same user, and I don't want to type the password. here's an example:

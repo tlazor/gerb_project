@@ -1,0 +1,6 @@
+That is, is there any way to see how many total pulses have been executed by the currently-running wave chain? Am I just way off base here and need to try something different?
+For all those still searching: Actually there is - contradictory to the current answer - a pretty good solution also provided by pigpio (at least for me there was)!
+You will have to find an alternative mechanism.  There is no way to tell how many pulses have been transmitted by an interrupted wave chain (unless the pulses are quite slow and you have an alert set up on the pulse GPIO).
+You can use either piscope (a way too much overhead) or if the frequency is not too high you can use pigpio.callback() too keep accurate track of the total pulses sent.
+If you run a wave chain with a loop count to completion it will have executed the number of pulses in the loop count.
+Using Pigpio to drive a couple of stepper motors on a CNC-like system, I'd like to "initialize" by setting up a repeating wave to continually step until a limit switch has been reached, at which point I'd issue a wave_tx_stop() to halt the stepper. I'm curious if there's any way of seeing how many pulses have been issued at the point the wave was stopped, so that I could deduce how many steps "wide" the area is between limit switches.

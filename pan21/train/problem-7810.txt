@@ -1,0 +1,7 @@
+Copy and paste those in to the new account and there you go. Now right click your vault and hit Get Inventory. Wait some hours and enjoy.
+The last line above will print a Job ID to the command line. I'm still waiting for my job to finish though I plan to use the following code to get the vault inventory:
+Amazon Glacier data isn't really meant to be accessed on a whim. It takes considerable time to pull data out of a vault.
+I am new to Amazon Glacier. I have succesfully created a vault and uploaded some archives.  In the management console I can only see the name of the vault and that it contains 4 archives, taking up 4.2 GiB. But I simply can't find a way to list the archives in the vault. Subsequently I need to delete the archives as the contain wrong data.
+Inside the AWS console panel, there is no way to get the contents of a vault. You have to use an SDK or pre-packaged software to access this information. In my answer, I am using the PHP SDK v3 with Composer though this code can be adapted to other languages like Java. The key is to use the InitiateJob API function with Type set to inventory-retrieval. The following code will need to be modified to suit your particular case.
+https://portal.aws.amazon.com/gp/aws/securityCredentials or click your account name and select Security Credentials.
+I have looked and googled for more than an hour but still I can see no way of listing the content of a vault.

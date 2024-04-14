@@ -1,0 +1,7 @@
+The pi builds a connection to the SSL VPN server using openfortivpn (using PPP). Works like a charm. I'll worry about VPN later, right now I'm stuck at networking.
+I'm trying to set up my Pi as a sort of VPN gateway/router. I'd love to know which of the two would be a more apt description. Ultimately devices connected to the pi through eth1 (via USB) should be able to access both the internet and the VPN connection.
+As you wrote the next step would be to use the VPN interface. With an existing VPN connection it is only a routing issue but I don't know openfortivpn and how it can be setup together with systemd-networkd and with a bridge. But lets have a look at it later with a new question from you about it.
+I would say the easiest solution for this setup is to use a bridge because there is already a DHCP server running so we don't have to worry about it. You tagged systemd-networkd so I will use it. First switch over to it with:
+The pi access the interent through a local network on eth0 (ip 10.10.0.126, netmask 255.255.255.0) and gets it's address from a DHCP server.
+I would like to create a subnet on eth1 (via USB). I'm trying to wrap my head around dhcpcd.conf and whether I need to set up isc-dhcpd-server to create the subnet, but honestly I'm at a loss. Any help would be appreciated.
+Now all devices, also that are connected to eth1, will get an ip address from the existing DHCP server from subnet 10.10.0.0/24 and are member of that subnet with access to all its resources, also to the internet router.

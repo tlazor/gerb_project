@@ -1,0 +1,5 @@
+Take a look at DirSyncPro.  I don't think it's automatic, however I believe you can set it up for a manual kick off.  I haven't tried it yet but I plan to soon.  Also it's in java so will work with Windows, Linux as well as OSX.
+EDIT: I don't know if your primary concern is with data loss or simply programs/preferences/etc from a system failure, but I'll iterate again that dropbox is a perfect solution for file backup because it is all sync'd automatically.
+I'll go and get the obvious iLife reference out of the way. But if you want to go the el-cheapo route you can get creative with a free Dropbox account, including a tutorial I caught in Wired a few months back.
+Try using Unison.  It is a fast and efficient program and can work securely over ssh.  It takes a little setting up but you can run it on the command line (and automatically do it periodically using cron).
+Do you want it to happen online? Or is it OK when everything is synced when at home. In the last case, you could download Synkron and set it up to sync all the folders you like at any time you like over the local network.

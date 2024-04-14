@@ -1,0 +1,7 @@
+1) Download  Microsoft process explorer (http://technet.microsoft.com/en-us/sysinternals/bb896653.aspx). 
+Google came up completely empty on this.  Thinking it's probably malware related, but am unsure.  Anyone run across it before?
+Try running the registry cleaner part of  ccleaner - that will at least remove the possibility that it's just an artefact of something you've uninstalled. 
+Assuming this is the Vundo I think it is (or at least, the Vundo we've been seeing by the metric fuckton around the office the last 2-3 weeks) it's a virus thats a pain to remove. It creates random DLL names, but deleting the DLL's just creates error message on startup, and it simply creates more random DLL's to load. 
+Right-click on it and get properties and look at the info in the Version tab.  If it's empty then I'd place it under high suspicion.  If there is info in there including the author / company, version #, date, etc. then it's more likely ok.
+3) Delete the giberish DLL's attached to rundll (this will delete the part of the virus that keeps replicating)
+I've got a computer spewing messages from RUNDLL about errors loading "c:\windows\ajavuviy.dll".  Seems to happen mostly when idle and can generate probably 40-50 error windows pretty quick.

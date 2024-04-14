@@ -1,0 +1,6 @@
+So I haven't had to change my bad code that uses insert/select without any column lists, as long as the source table doesn't also change and assuming that the only change to the target is the addition of an identity column.
+Now, this still isn't exactly best practice - I highly recommend you stop embedding SQL code in your apps, especially SQL code that does insert/select without specifying column lists.
+(Note that the SELECT output will show you roughly what the command looks like, but due to output limitations in SSMS and depending on how many tables you have, it won't necessarily show you the full command that will get executed when you uncomment the EXEC.)
+In SQL Server you actually shouldn't need to make any changes to the outlying code or add an INSTEAD OF trigger to make this work. Here is a quick example, tested on SQL Server 2012, but should work fine on 2005 as well:
+And you'll want to do this while the database is in SINGLE_USER mode or while the application(s) are otherwise not able to connect to the database. You'll also want to test all this on a QA or dev system before unleashing any of it on production.
+PS here is how you can automate the generation of the IDENTITY columns (assuming you will want <tablename>ID):

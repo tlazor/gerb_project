@@ -1,0 +1,6 @@
+I have an automated emailer setup to send emails to our clients' emails and I've noticed that a few companies are actively rejecting the emails. When I look at the log, I read this:
+You can try to contact the host in question and inform them the world has changed, and new TLDs exist. 
+I sincerely doubt you'll ever escape the pain of getting your emails rejected from a gTLD of ".international". Playing a game of whack-a-mole with colleagues, clients, suppliers, and partners will get old very quickly. Until absolutely every spam filter is corrected by the developer to include .international as a valid .gTLD (and decides to trust it... see .biz), then you'll have rejections.
+You can email them (from a .com email address) and ask them nicely to fix their spam filter...assuming they want your emails.
+I would highly recommend that you switch your mailing domain to a .com, .net, or something similar. Feel free to accept email on .international, but sending anything either from that server (mail.company.international) or from an address (joe@company.international) will just give you headaches for years.
+I have a domain called "*******.international". I decided to go with the new gTLD because it fits the name of the company pretty well.

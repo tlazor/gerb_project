@@ -1,0 +1,5 @@
+I've looked at the user agents that are sending these requests and it's a mix: chrome 72 on mac, chrome 71 on linux, firefox 64 on mac. So presumably not a rogue browser or spider.
+Yes. That's the url. I know it doesn't look like a url. It's the first 270 characters of a CSS file that I'm using. Periodically other CSS files get requested as well.
+My plan is to write a little piece of middleware that will intercept these requests as they all start with a css comment /* and return an error before parameter parsing middleware gets grumpy. But this doesn't actually explain what's happening.
+I'm not sure quite how to express this but my NodeJS server has recently been getting errors because some middleware library is unable to parse certain parameters from urls. When I look at which urls this is occurring for, the url appears to be something like 
+/*!%20%20*%20angular-hotkeys%20v1.4.5%20*%20https://chieffancypants.github.io/angular-hotkeys%20*%20Copyright%20(c)%202014%20Wes%20Cruver%20*%20License:%20MIT%20*/.cfp-hotkeys-container%7Bdisplay:table!important;position:fixed;width:100%;height:100%;top:0;left:0;color:

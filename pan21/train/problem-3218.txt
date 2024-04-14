@@ -1,0 +1,10 @@
+This will open up three VLC instances, each with one of the three videos and all playing in a very synchronized fashion, at least to your eye. However, the three instances will be overlapping each other initially. You will need to click on the title bar of each of the instance to move them around without interrupting the playback so that you can see them playing side-by-side on your screen. This is rather annoying but I consider it a very small inconvenience. 
+This command only describes how to merge two videos, but I believe (i.e. I have not test it) you can run the command multiple times to incorporate multiple video files. 
+I have tried but it is not possible to control all the instances with hotkeys for stop, forward, backward etc. However, the option '--repeat' will put the videos in a loop, so you can just wait for them to start over.
+First, in VLC player, go to Tools->Preferences. Make sure to unchecked 'Allow only one running instance' and 'Pause on the last frame of a video'. 
+Whether they are able to start playing at exactly the same time is a different matter. Even if they are able to start straight away, I imagine there will be some fighting for the hard drive. Might want to make a RAM disk if this is an important evaluation.
+Then, type/edit the following commands in a text file. Open a windows command prompt, and run the commands by copy-and-paste (or save the text and run it as a batch file):
+If this is not something you do very often, I would use a video editing software like vegas to build one video with all of them showing.  
+I have the same problem but I have not seen any satisfactory solutions online so far (and believe me I had done a thorough search). At last I come up with my own solution that do not require any extra $. Although this is an old question, I hope my workaround will still be useful. 
+For very long videos, it may be best to merge the videos in a side-by-side composition into one video using e.g. ffmpeg: 
+I image you can use an AutoHotKey script to send a "Play" shortcut to all three players in a very short amount of time.

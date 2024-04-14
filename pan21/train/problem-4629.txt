@@ -1,0 +1,8 @@
+After applying the anniversary update, Windows 10 decided it was okay to change various settings for me. I've reversed some of the changes but one persists and I can't seem to find where to fix it. 
+I now click the icon for the same window, still in focus. Nothing happens. What I want is for the window to minimize, as it did before the update. 
+It appears to be an issue of the computer running out of resources (memory)  Mine was doing the same thing and doing the restart of the Windows Explorer in the Task Manager did the trick and noticed afterwards that I had available resources and the program would minimize by just clicking on it again.
+In windows 10 build 14393.576 if you click on another window icon in taskbar to make it active window then click again to minimize it. Then that appears to solve the problem with the previous window which wasn't minimizing.
+Whenever the problem occurs (and it does repeat itself) - run the batch file and hey-presto - job sorted.
+How do I change my settings so that a window in focus minimizes when I click its icon in the taskbar?
+Take Gaia's answer with the three commands in it. Create a .bat file somewhere and paste the three commands into it (I called mine rex.bat). Create a shortcut to rex.bat on your desktop
+Let's say I have a number of applications running, with icons in the taskbar. I click on the icon for a minimized window. It restores itself to its previous size/position and takes focus, as expected and as wanted.

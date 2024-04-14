@@ -1,0 +1,8 @@
+I've borked my blog server a few times already, so I have tested the backup strategy I had a few times.  https://trajano.net/2015/04/backup-wordpress-blog-to-github/
+Fleshed out details are still in my blog post https://trajano.net/2015/04/backup-wordpress-blog-to-github/
+Just backing up the files isn't enough, and not strictly necessary, since you can always reload WP, themes, and plugins if necessary.
+I utilized Github when I originally started, but I have switched to Visual Studio Online because it allows for for private repositories but the concept is still the same.
+More important is your database, which holds all your content, settings, authors, etc. There are a number of plugins you can use to backup your database; a popular one is WP-DB-Backup. Once installed, it's simple to use. You can do a backup manually, and download the backup immediately, or you can configure the plugin to email you the backups at a regular basis. If you're worried about up-to-date backups, this is a good way to do it.
+You'll probably want to look for a backup plugin that will help automate the backup process -- many will even email you the actual backups for storage.  Look through this list: http://wordpress.org/extend/plugins/search.php?q=backup
+Nope. That gives you your WordPress app files (that you can download again from WP at any time), your plugins and your themes. Certainly helpful, but you won't have any of your data -- Posts, Pages, configuration, etc.
+What is the recommended backup strategy for a wordpress blog.   Is there anything smarter than grabbing snapshots of the full directory?  Does that give me the most likelihood of being able to recover later?

@@ -1,0 +1,7 @@
+Only square matrices have an inverse, and neither $X$ nor $X^T$ here are (necessarily) square. I guess that's the most direct answer. $X$ may have a left-inverse $A$, such that $AX = I$. In that case, if $X\theta = y$ then $AX\theta = Ay$ so $\theta = Ay$. 
+In practice if you are using matrix library that supports inverses and pseudo-inverses, you can choose to use a longer formulation using inverses or the pseudo-inverse version and it will give near identical results.
+However, this is simply hiding the more basic derivation behind a complex function. The computation required is essentially the same.
+However, you can simplify the functional notation in a very similar way to your suggestion using a pseudo-inverse - note that the link here is direct to the part of the article that describes this inverse as a direct solution to the linear least squares problem. Noting the pseudo inverse as $pinv(X)$ then:
+The value of $inv(X)$ or $inv(X^T)$ cannot be calculated for non-square matrices, and usually your number of samples and features is different, so your simplification is not generic.
+The direct way to construct that $A$ is just where you started though; it's $(X^TX)^{-1}X^T$. The Gramian matrix $X^TX$ is (square, and) invertible if the features (columns) of $X$ are linearly independent, and, $X^TX$ is more importantly relatively quite small and so it's feasible to invert.
+You normally wouldn't compute the inverse anyway, but try to solve the system $X^TX\theta = X^Ty$ with QR decomposition or something, but that's not what you're asking.

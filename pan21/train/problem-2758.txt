@@ -1,0 +1,7 @@
+It will take some time for the change to propagate, but you can simulate it by adding the entry to your hosts file if you are in a particular hurry or want to test things out before making the change on Yahoo.
+EC2 doesn't 'care' about the domain - it is just providing the storage, computing power, and network access. Your elastic IP gives you a static address. You need this for the DNS domain mapping to work (or you need a dynamic DNS service)
+So, on EC2 you will setup your elastic IP and associate it to your instance (the instance itself will need some other things - a web server - and you may configure the domain in that (e.g. with VirtualHosts if you have multiple domains) - otherwise, with a single domain, you can typically omit that).
+My understanding (of your question) is that you a) have a domain registered with Yahoo (as your registrar, providing your DNS/nameservers) and b) you want to host the website on EC2.
+I am not entirely sure if I understand your question, but may be able to steer you in the right direction.
+To make an analogy, a bookstore may not know about Google Maps, but you can still use Google Maps to get there.
+Your DNS doesn't 'care' about the hosting - it simply points the domain to an IP address (in this case).

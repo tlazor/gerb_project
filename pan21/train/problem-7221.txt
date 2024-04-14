@@ -1,0 +1,7 @@
+You have to use either different IPs or different ports. SNI (deciding which SSL certificate based on the name the other person is trying to reach) isn't supported on enough browsers yet for name-based SSL hosting to work.
+The other way to make multiple domains to work is use an SSL with alternative names. Which I am not entirely sure how to use.
+Something that has sort of bugged me since the time it was installed is the way I have everything configured. When I set it up I wanted an SSL cert for each domain, as per a conversation on the Zimbra forums I was told I needed a separate IP address for EACH domain for SSL to work right.
+As you mentioned in one of your comments, since you are self-generating your certificates, you could make one certificate with Subject Alternative Names which includes all your domains. I don't see any problems doing it this way.
+Each of those IP addresses is NATed to a public IP and has basic port forwarded to it. While everything does in fact work I can help but think this is not correct.
+The original reason this was though to be the correct way was because of the command you must enter to make per domain ssl certs with zimbra.
+I have a Zimbra ZCS 7.1.3 server it running the OSE version. The server hosts 4 domains for email. Each of the email domains has its own SSL cert that is self generated.

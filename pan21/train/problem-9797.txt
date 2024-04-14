@@ -1,0 +1,10 @@
+You could create a forest trust with the two domains (and use VPN connection if necessary - if the split was external).
+Is it perhaps possible to access the share from the DC itself, then share the share as a new share and use that new share in my group policy? If so, how do I set that up?
+Users in this forest will not be able to access any resources in the specified forest. Continue to and the wizard.
+The situation is that these are 2 companies who used to be together, who are splitting up. Both need access to the same database which is hosted on the stand-alone server, and in no way, can I split this data or copy it and bring them over to the domain controllers.
+If I use group policy to map network drives, it refuses to connect. Given that I can't use the option to enter credentials (deprecated feature), how can I manage to do this?
+Users in this forest and users in the specified forest can access resources in either forest. To create a one-way, incoming forest trust, select One-way:incoming. Users in the specified forest will not be able to access any resources in this forest. To create a one-way, outgoing forest trust, use One-way:outgoing.
+I need to somehow make it so that when you log into the terminal server, a drive letter pops up that shows the share to this server without identifying the server itself.
+I've considered using a logon script, but that would reveal the server. I preferably would not want to use that.
+I managed to solve this by using a logon script to map the network drive, then use group policy to remove and remap it.
+I have setup the share to allow for guest access, so if I fire up the share in explorer, it comes with a login prompt, but regardless of what I enter, I get in.

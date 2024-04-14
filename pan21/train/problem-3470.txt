@@ -1,0 +1,8 @@
+AS @AMtwo already mentioned, the reason is you're "in" SQL Server, where the Get-ChildItem, but also other concepts like Move-Item apply to SQL Server object (as opposed to filesystem-objects).
+First, you will need to change your current location back to a drive location with Set-Location or cd. Then, you will be able to use Get-ChildItem for the folder, then navigate back to SQLSERVER:\ (if necessary):
+I should also note that the behavior of changing your location on importing the module is a bug that was fixed in SQL Server 2016. In the future, your current location would not be switched to SQLSERVER:\, so you would not need to Set-Location back to a drive location.
+To force the cmdlets to use the locations you provided as filesystem-locations, you could prepend the path with Microsoft.PowerShell.Core\FileSystem:: like this:
+However, as soon as I import the Sqlps module (which is the collection of SQL Server Management Objects - SMO) for interacting with the database, the networked locations can't be found anymore:
+I'm trying to automate a script that backups a database in one environment, copies it to the other, then restores it there. But there's some strange behavior going on.
+When you run the Import-Module Sqlps -DisableNameChecking; command, your current location is immediately changed to PS SQLSERVER:\>. Being "in" SQLSERVER prevents you from using Get-ChildItem related to a drive location.
+Now, PowerShell tries to access the path like a filesystem-path, and the network-path is available again.

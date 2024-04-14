@@ -1,0 +1,7 @@
+Unless the application is specifically written to require access to CPU0 (and I'm not even sure if that's a possibility) it shouldn't matter.
+A single threaded application can only run on one core and will never be able to use more resources than that single core can provide. 
+"Can I run a single threaded application on a multi-core machine and take full advantage of all the cores?"
+Are you saying that with say a 4 core 3Ghz CPU you want the OS to see it as a single core 12Ghz CPU?  If that's the case, then no, you can't do that.
+AMD a few years back had Core Control software that merged cores to increase clock speeds. The user was limited on core combinations, i used to run my 6 core down at 2  cores merged and was able to get up to 4.2 clocks from the base 3.2
+Toms hardware has a utility for having an application have affinity for a specific CPU when launched.  I haven't tried it so take it for what you will.  It can be found here
+as i understand you wish to transform dual core cpu to one cpu that would be [ from perspective of single threaded application ] twice as fast as each of cores. unfortunately this cannot be done. closest to it is idea implemented in intel's i7 cpus which can smartly overclock one of cores if they see it's mostly loaded while oder cores are idle.

@@ -1,0 +1,5 @@
+I found that if the reference project targets a different framework (ie my application is 4.0, but my model in 3.5), F12 goes to the object browser.
+You probably have added a binary file (dll) as your Reference. Try the following in Solution Explorer: 
+I miss being able to hit F12 and going to the definition of a method. Because my solution consists of like four separate projects, when I hit F12 and the method (or property, or whatever) is in another project, it opens up the completely worthless object browser. Is there some setting I can fix so that it will just go to the correct file and method? Or am I pretty much SOL...
+I found that a recently installed code productivity tool (Telerik JustCode) had hijacked the F12 hotkey.  F12(Global) was still associated with GoTo Definition, but apparently the F12(Edit) was taking precedence. There was something wrong with my JustCode install, so it was not working, and F12 utlimately no longer worked.
+Since I wasn't really using JustCode, I uninstalled it. After doing this, F12 began to do what it was supposed to do.

@@ -1,0 +1,5 @@
+If your motherboard has the fast boot app use that to go to bios, then go to boot settings and disable OS fast boot and enable MSI fast boot...it worked on my pc.. i have Z370 krait gaming MOBO.
+I found the tool by googling for my motherboards name, visiting it's site, going to the download section if it doesn't take you there automatically then go to Utility section.
+MSI has a tool called Fast Boot that one runs from within Windows and from there one can choose to disable Fast Boot or to restart and boot into BIOS automatically.
+For me, the reason for this was that I had MSI Fast Boot on. It disables USB communication to speed up the boot process to Windows. That could explain why older PS/2 keyboard works.
+i had the same bios problem like you and solved it by download the Live Update 6 from MSI. Then inside it click to scan for the ClickBios. After complete installing, you can access your BIOS from the app ClickBios in Windows. Then restore bios to default setting will make bios screen appear again.

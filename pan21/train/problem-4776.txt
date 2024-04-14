@@ -1,0 +1,12 @@
+UID 0 not being called "root" does not mean you are locked out. Here's a system after I manually edited /etc/passwd and /etc/shadow and logged back in as the new name for root:
+The OS administrator should have some way of becoming root from their usual personal user. Such as sudo rules or known password. If you are to change the login of root, you are an OS admin. 
+If it's a system that's built "out of the box", then you're likely screwed and will need to shut down the PC, mount the drive as a slave in another Linux host, and modify the file from there.
+I hope never been in your situation, it is really bad! I think do not have a lot of solution if there have no sudoers configured and reboot cannot be performed.
+Sorry man, it is a long time I'm seat here to think how can fix this problem, but I'm afraid that nothing can be done without user can elevate to uid 0 from that system (sudo) or by running a live system to access physically the data with uid 0.
+You cannot edit passwd as a regular user, that breaks its security. A user could impersonate anyone they want, including becoming uid 0. 
+You always need a maintenance window for system downtime. Security patches, if nothing else.  So if you still can't get in, get one on the calendar to fix this, even if it is a few months from now.
+Next is to look for any services that have exploits.  A program running as root that would allow you to execute an arbitrary command or that automatically executes a writable script/program.
+Do you not have a sudoer on the system that you have access to?  If not, you need to find an exploit on the system.  Perhaps something that root's cron executes that is writable by your user.  Check /var/spool/cron/root to see if anything applies.
+You don't need a text editor to change users in local files. See the man page of usermod and related commands from shadow-utils.
+Next, look for programs with setuid() and the applicable sticky bit set and see if there's something you can exploit there.
+Use the spelling that is in /etc/shadow which has the actual hashed passwords. However, only root can read this file. Possibly you want "root" if you only changed passwd to "Root". 

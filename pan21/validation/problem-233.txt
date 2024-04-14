@@ -1,0 +1,7 @@
+That said, SCCM 2012 and later can deploy applications to OS X in a very similar way to how it deploys applications to Windows clients. If you're already leveraging SCCM, you can extend it to support OS X with minimal effort and maintain a single pane of glass into your client configuration.
+The JAMF Casper Suite of products is the industry leader for OS X deployment and management. Think of it as being very similar in function to SCCM for Windows machines.
+Currently, I simply have a new Apple ID created under the staff's office email address and add in gift card credit (to avoid tying down a company CC to the account). And then manually download the relevant apps.
+An option that I know of would be to use Novell ZENworks as it supports the OSX environment.  You can research more about it here:
+I am wondering what is the proper way to deploy applications on OS X that will be scalable as my company grows. Especially applications that are only available on the App Store like Keynote, Pages, Numbers
+Novell typically is less expensive than Microsoft solutions.  But is also less reliable in my professional experience.  This option may not be feasible as you're dealing with a relatively small client base (cost x users).
+There were ideas of just having one Apple ID shared across all macbooks, but I am sure there are legal/licensing issues behind that.

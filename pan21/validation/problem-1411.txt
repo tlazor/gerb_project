@@ -1,0 +1,9 @@
+Currently we have a single nginx vhost to handle the whole network, and this is quite practical so we don't have to create a new vhost each time we create a website.
+We developped a wp-cli script using let's encrypt that generates a SAN SSL certificate containing all domains of the WordPress network, and we set up this SAN certificate in the server block of our nginx configuration using ssl_certificate so that all websites can use HTTPS.
+The nginx documentation states that recent versions of nginx might in some case accept multiple ssl_certificate entries, but this seems to apply for   certificates with different formats (RSA, SDA, etc.)
+The problem is Let's Encrypt limits SAN certificates to 100 domains so we soon won't be able to cover all websites.
+In the main nginx conf you'd just have something like the below to include all the vhost config files.
+Could you not create a vhost file for each site (or per <=100 hosts if you prefer), and just keep all the actual configuration (path/redirects/etc) as an include?
+I would recommend using a configuration management system to handle creation of domains - the currently most popular ones are ansible, puppet and chef. Whether you choose to have one vhost server 100 hostnames or just one is up to you, but the point of automating things with a CMS is that the amount of manual work needed to set up a web site is minimized, regardless of the specific configuration.
+I personally find using SAN certificates in this way a bit hacky and unprofessional looking when you view a cert for a website and see dozens of unrelated sites on the same certificate.
+We could end up creating one vhost and one SSL certificate per website, and point all websites to the same document root, but we have a complex nginx setup (ssl, memcached, redirects, etc.) and we would like to minimize the website creation process as much as possible, so this would be the last (and  most work needed) solution.

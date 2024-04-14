@@ -1,0 +1,6 @@
+Hold F8 as you start your computer and select Enable low-resolution video (640x480).  This will start the system normally, but with the resolution and refresh rate reset to safe values.  From there, you can test different resolution values and find the one that works best for you.
+Also test different frequencies as a too high frequency can trigger an out-of-range message as well! 
+You should be able to set a default resolution for windows 7. It's weird that it resets the resolution to native when you turn on your computer. Maybe you should have a look at that. 
+Finally the last obvious solution would be to try to send the monitor/graphic card (depending on how the last 'test' turned out) to the manufacturer. Propably the best when you are still under warranty.
+VGA transmits the images as a series of pulses on the different pins. If the cable or the socket is failing, the signal could become degraded so that the monitor cannot decode the pulses anymore. You should try another cable and see if it works or not.
+If all that doesn't help, test the monitor on another computer and see whether it's the monitor or the graphic card! From there on you can approach further solutions like trying to repair it, trying to re-install drivers (or windows in the worst case).

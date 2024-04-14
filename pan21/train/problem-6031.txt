@@ -1,0 +1,9 @@
+Are there any drawbacks, implication or gotchas with this setup? Any insights is much appreciated! Thank you.
+As you are using 2012 you do have the option of sending backups to a network share as well which could reduce the complexity of the cluster if you have a fileserver that you can use just to reduce the overhead in a DR situation (as in not having to add the LUN to the cluster etc etc).
+I have a SQL Server 2012 instance running on a 2 Node Failover Cluster Instance. Both nodes are VMs running Windows 2012 Server R2.
+Fairly verbose example of said process but confirms the validity of backups on shared storage in a cluster.
+I am thinking about adding another shared LUN in the FCI and set it up as the backup location for both nodes. My thinking is that, this way if the SQL Server role fails over to Node 2, the backup files will still get saved on the same shared LUN for backup files. 
+Looking at a couple of guides and articles around the place backup drives shared to the nodes is a common thing.
+The Backup volume however is not a shared LUN. There’s a separate disk drive added on the VM (Node 1) for a backup drive. The other VM, Node 2 has its own local disk drive for backup location.
+The flip side is that to restore a DB that independent storage must be available. Is that dependency in the corporate DR plan? Has anyone told the server and storage teams?
+Say you're running at the secondary and need to perform a restore. How do you get the backup files from the primary which is (most likely) down/ stolen/ on fire? Much better to have backups separated from the thing backed up.

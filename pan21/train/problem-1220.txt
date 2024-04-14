@@ -1,0 +1,11 @@
+Flip side is, you'll have more unknown unicast in the network, which you can workaround by making sure ARP timeout is less or equal to TCN/forward-time
+I know probably not the answer you're looking for, but if there is some silver bullet here, I'm missing it.
+If you'd ditch the idea of using VPLS loop-prevention and run unique siteID, you could go back to STP.
+In most applications I've worked on like this, we've had bi-directional traffic, such that the remove MACs that should move eventually come in via the backup port, and the old FIB entry is evicted, and the new port installed.
+Two MX routers connect to the same L2 site. Loop protection / redundancy is done via VPLS multihoming. On the other end are two switches (EX4200 for example).
+If your L2 site served by those EXes only ever sends traffic, then the only thing I could think to do would be to decrease the mac-table-aging-time to an acceptable amount.
+I don't think trill or EVPN draft would help you either in this scenario, if your VPLS or EVPN would be end-to-end right to the host port, then it would fix this right up. But just replacing VPLS to EVPN at the core and keeping disconnected LAN in either side, would provide same problem.
+Sticking to the options you provide, I personally would follow #1 on your list, but I would not use common ST.  I would rather use RST (or MST if you need to load balance VLANs across links) as it allows for must fast/smoother transition when a link comes up or goes down.
+Then you could tune your convergence budget by TCN/forward-time (MAC timeout, after TCN has been seen) or by bigger hammer 'mac aging-time'.
+The problem is, the yellow mac-table only gets filled when there is traffic arriving from the VPLS through the yellow link. If no traffic is received from a certain MAC address, traffic for that address will still be sent over the blue link and noone knows that that link is now broken (except perhaps the EX switch on the left if the link fails physically).
+When the blue link fails the two switches and the rest of the L2 infrastructure have to know that traffic must now go through the yellow link (and consequently trough the EX switch on the right).

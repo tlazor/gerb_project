@@ -1,0 +1,7 @@
+If you change the local clipboard (source), then the file reference will be removed from the clipboard and then the file copy will stop.
+The only alternative that I can think of is to redirect a folder or a drive to the remote machine and then copy it from there.
+Now the problem is, if I press ctrl+C to copy some text on the PPT application, the copy that was going on the remote connection gets terminated after showing an error message box. The error message box reads something equivalent to "Unable to identify the error". The case of selecting "copy" from menu or right click dropdown box gives the same outcome as mentioned above
+Remote Desktop uses a feature called "clipboard synchronization" - it basically tries to synchronize the clipboards on the local and remote computer. When you ctrl-c a file, the file does not end up in the clipboard, but just a reference. Then, when you actually do a file paste, the file starts being copied and it goes through the clipboard synchronization.
+Why is this ? Is there a way to avoid this from happening (other than not using the copy function as the remote file transfer is going on) ?
+So I go back to some work I have been doing on the local machine with the copy going on in the background.(for ex: preparing a ppt etc)
+I connect to a remote server on Remote Desktop connection. Then I copy some huge files (~40 GB in total) from the remote server onto the local machine. The copy process shows it might take 3 hours. 

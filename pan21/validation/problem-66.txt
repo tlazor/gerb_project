@@ -1,0 +1,8 @@
+I'm currently reviewing a case where an SSRS server is experiencing frequent blocking and deadlocking.
+However, I'm not entirely convinced that this will impact performance much (save for the newer hardware).
+However, this same SQL Server has some critical databases on it (it's sharing a sql server with a large sharepoint farm), that have been showing declining performance.
+The reasoning being that we will have better hardware (B), be able to get rid of an old server (A), and remove the reporting server (ends up at C) from the critical database server (now B).
+If I could show that the performance issues are unrelated (reporting and other databases) other than the shared hardware, I would like to set up shared datasets. As most of the reports, and all of the long-running reports, are querying the same small subset of data.
+What you see here is a request that is doing no work, as it is not in the running state.  When it is suspended then it is not on a processor doing any work.
+I've been monitoring the blocks for the better part of a week now, and it's consistently the WriteLockSession blocking a ReadChunkSegment. Which as far as I can tell from documentation (google) is perfectly fine.  
+Now look at any "work" this blocked request could be doing (query sys.dm_exec_requests for this blocked session, and then wait some time and query again to compare/contrast):

@@ -1,0 +1,6 @@
+Now this part i am not sure about, when i put load on the DB, sp_whoisactive never shows the locks in Didregistry, but in different tables and in different queries (see link on top), those queries are inside transactions, the transactions come from the Developers code, with SQLProfiler i didn't find a way to see what queries belong to what transactions.
+Also this question comes as a follow up to  Queries from different tables locking each other (LCK_M_X) .
+As you can see from "CreationMoment" column, This table gets lots of inserts.. i wanted to change Datetime to Datetime(2)7, what do you think?
+This DB has a lot of Unique Identifiers linked with FKs, (Tid,Did,Cid,id) and a few more not so big, every time i make a transaction its inserted in "DidRegistry" table.
+I am kind of new around DBA world, i am currently working with JMeter(front/back end performance testing) but when i have spare time (which is a lot lately..) i try to learn about DBA Development, also my company is looking for a DBA dev so there is that.
+I am at a loss if i am chasing the wrong rabbit hole or if this could be a Design problem for future bigger clients with more load profiles.

@@ -1,0 +1,8 @@
+In this example, imagine you have a lot of traffic on your network such as a heavy infrastructure of support machines all accessing a central database or application server.
+In a large campus switched network, you need to use VLANs to separate the broadcast domains into smaller more manageable units.  Once you get beyond a few hundred devices in your broadcast domain, your broadcast traffic gets to the point where it's making a serious negative impact on your network.  Try finding a broadcast storm on a huge flat network with thousands of devices.  Not so easy.  Also, ACLs.
+In a word "segmentation". For example if you want to run more than one separate network in a single location you either have to run multiple network cables or use a VLAN...
+Now let's just say your company decides to eliminate the $5k per month they are shelling out to the local telephone company for POTS lines and decide to implement a VoIP telephone system.  
+Ideally you would not want these two types of traffic on the same VLAN due to the fact that voice and data packets will have to compete for priority.  
+None of the other answers are incorrect to this question, however segmentation is the best explanation of why someone would want to setup VLANs on their network. Because an example was asked for, I am also providing answer to this question.
+There is also the added benefit of security.  Once again, I will quote the above article (it is a good read, so I suggest checking it out if you want to know more):
+We have one set of switches and separate vLans for general traffic, visitor connections (Internet only), Management traffic (iLO), SAN (iSCSI), and health remediation.

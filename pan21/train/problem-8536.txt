@@ -1,0 +1,6 @@
+Also storing all your scene in one vertex buffer is usually a bad idea. You may need to cull objects and not draw them in the first place in many occasions. Storing them in one VBO will particularly prevent you from doing culling operations.
+You may reuse VertexBuffer objects but this is harder to implement, but as @SeanMiddleditch said in his comment, this shouldn't be your goal, and creating new VBOs shouldn't matter in your application.
+Per quad is an overkill and is probably the worst. This way your practically emulating immediate mode which has been deprecated for good. 
+Vertex caching is an advanced optimization and shouldn't be done unless you have a very performance critical application (like the next big AAA game, or a scientific visualization that deals with millions of data chunks), and btw vertex caching shouldn't matter for smaller scenes.
+My recommendation is that it shouldn't be your concern unless your application really took a performance hit. In that case profile and optimize accordingly.
+Your best bet is to create new vertex buffers for each 3D model, try not to store small data or huge data.

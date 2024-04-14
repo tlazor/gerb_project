@@ -1,0 +1,6 @@
+Just beware that monkeying with system restore can get one into deep troubles if you or Windows have since installed anything else but WAMP and Apache. I myself try to avoid it if at all possible, even at the cost of a slightly mis-installed product.
+This normally occurs because of a bug in a php script; check that index.php doesn't have any bugs in it. If there's no obvious ones, xdebug could help you find it.
+WAMP includes Apache, so installing both has apparently caused some confusion and you got both. The sub-folder problem can be a matter of folder permissions.
+Optionally, you could try and return to a clean system. This is not required, since Apache is working. But if you wish to try, first uninstall everything, maybe using Revo Uninstaller Freeware, and even maybe do system restore to a time when both were not installed.
+You can use NetBeans to directly work on your local computer files in the www folder of Apache, then test using the browser on localhost. I suggest using Firefox with Firebug for debug. The only complication here are folder permissions.
+Without knowing your Apache configuration the best advice would be to check your error log (see ErrorLog directive in the configuration for it's location) to find out what causes the error 500.

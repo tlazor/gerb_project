@@ -1,0 +1,12 @@
+You can change this by using AUTHID CURRENT_USER, in which case, the package now uses the privileges of the user who calls it.
+So that AUTHID CURRENT_USER is telling the package to run using the privs of USERA ... the "Current user" ... the user who called the package.
+(so if you need INSERT on table UserC.XYZ, you need to GRANT INSERT ON UserC.XYZ TO UserB;, and not GRANT myrole TO UserB; .. even if Myrole has that same insert.
+"So clearly the procedure is ran as user A (package user) and not user B (user I want to run DML queries on)."
+clause in the body of procedure. This works perfectly fine for non-DML/DDL queries like SELECT, unfortunetely when I run the DML procedure there's an error about insufficient privileges. When I grant privileges to user A (the one which the package is stored on) the queries run with no problems. So clearly the procedure is ran as user A (package user) and not user B (user I want to run DML queries on).
+Note, however, that compiled objects do not see privileges in a ROLE, you need to grant access to underlying objects Directly.
+(this should fail, because "TESTUSERA" does not have an object "TEST", and there is no synonym pointing to the table in "TESTUSERB"
+A bit old question but if anybody is interested, there is a way to do it. Take a look at dbms_sys_sql package. It allows you to execute any SQL as any user on the database. It is how APEX does it. But be careful granting execute privileges to this package since it can be used to impersonate anybody on the database and it is very powerful.
+It sounds like you have the Package compiled in "User B" .. and want the DML to use the privileges of "User B" ... in which case, remove the AUTHID line as well as the ALTER SESSION SET CURRENT_SCHEMA .. and it should run fine.
+That statement does not change who YOU are.  It changes your default Schema for purposes of searching/finding an object.
+I would like to be able to run DML queries (INSERT,UPDATE,DELETE) by executing a procedure on a given schema. Those queries need to change data on different schemas on the same instance. So, basically, I need to run this procedure with all the privileges of a user that it needs to be ran on. I put the
+Is there anything I can do to make this happen? I want to keep all the code on user A without manually granting any privileges on all the users.

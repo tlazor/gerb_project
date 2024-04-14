@@ -1,0 +1,9 @@
+What's a good way to benchmark a network connection? I'm looking for something like the Windows Experience Index, but for my internet connection.
+Alternatively, while tethering through my phone, browsing the web is nice and brisk, but downloads are excruciatingly slow (bandwidth bad, latency good?).
+Make sure you run your tests to more than one endpoint, and at different times of the day.  This is especially important if you're on a shared connection (Cable).  
+In terms of evaluating your connection, your perceived bandwidth is a function of several factors: Your real bandwidth (how much can be pushed through the pipe), your end-to-end latency, and the percentage of packet loss are the big three. Your provider's oversubscription rate (how much more bandwidth they've promised than they really have available to deliver) is the other factor (which usually manifests itself as packet loss when their routers start dropping queued data that they can't get out the door quickly enough).  
+What's a good way to evaluate these variables (bandwidth and latency?) and are there others (load?) I should consider?
+http://speedtest.net/ and http://pingtest.net are good starting places -- they'll give you a rough idea of bandwidth and latency/jitter.
+Ultimately the evaluation is based on "Does the connection suck too much to be usable", and that's a subjective/qualitative call based on what you're using it for.  
+When conducting tests make sure you are eliminating intermediate sources of problems (e.g. don't test over wireless - Ideally you should be plugged directly into your network interface device (modem or router) to test your ISP's connection, and if that's OK start looking at the other internal components as possible trouble spots).
+For example, one place I visit has what seems to be a terrible connection. Pages load slow, etc. but file downloads are insanely fast once they get started (bandwidth good, latency bad?). 

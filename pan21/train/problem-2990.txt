@@ -1,0 +1,6 @@
+You can set your default currency and number format to display like Indian style by changing global settings in Control Panel.
+In XP, go to Control Panel -> Regional & Language option. In the dialogue box click customize. On the Number and Currency tab, in Digit grouping option, select appropriate grouping from Drop down.
+If this formula is in b1 and any name is written in a1 cell like joe desuja then it puts comma after first name and the result (in b1) is this- joe, desuja. I want this kind of formula which should work with the numeric digits. Kindly help me. Thanks a lot.
+To do it with formatting, use Format Cells... from the destination cells' context menu, change the Number category to Custom, and put:
+For this I want to use a formula. I also know that I can do this by format cell>number>use 1000 separator (,). But I need a formula for this task because we can use comma like eastern (especially Indian)  in M S Excel 2010 and its further versions but I have M S Excel 2007 in windows XP which does not allow to use comma like eastern (especially Indian). It puts comma like this- 
+There are a couple of ways to take care of this - through cell formatting and through the TEXT conversion formula.  Cell formatting allows more flexibility for working with the number after it is converted to the format, but it might not be suitable in every case.

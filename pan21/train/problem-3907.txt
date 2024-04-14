@@ -1,0 +1,11 @@
+I'll add a very concrete issue that we actually run into. It's a sideeffect of bad architecture that we're suffering currently:
+When I raise build size issue as a concern, it usually doesn't come from "it is so big, it will be expensive to store it".
+Since our build is large and we need to load a lot of dependencies simply putting it all together takes a very long time. We should have long since divided the build up into numerous small builds as an approach to a microservice architecture instead of one large monolith.
+Note: the reason I ask is because I see resources like storage and compute as being relatively cheap compared to in the past, so, if anything, I would expect build size to be less of an issue now than in the past
+I often hear (from people, but also from informative CLIs) that the "build/slug size is large". This is particularly so when the build is 0.5 - 2 GB in size
+Large artifacts usually create a problem in each of these metrics, and none of these metrics are really concerned with the cost of storage really - because that is cheap, time is expensive.
+Running all tests for the monolith takes around 45 minutes and blocks our CI environment for the time being.
+So, as posters before me have already stated on a more theoretical level, this should showcase some potential (and likely) side-implications a large build usually has outside of needing more space on the harddrive.
+Since it's so load intensive and takes such a long time it's currently impossible for us to run multiple builds parallel to each other.
+If the build is part of your CI/CD pipeline then the larger the build size the longer will the pipeline execution time be (performing the actual build and, if applicable, archiving, deploying for testing, analyzing in case of failure, cleaning up, etc.) - the slower/riskier/costlier your overall development may be.
+If you hit a hard limit you'll have to get creative to work around it (not always simple/possible). If it's just a performance/cost hit you also have the option of accepting and living with it and/or addressing it partially/gradually.

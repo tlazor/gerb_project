@@ -1,0 +1,8 @@
+Some services, such as Dynamic IP DNS providers, such as NO-IP provide a serivce that can help you do something similar to get round blocking of IP's on home DNS services.
+DNS does not have the capability to redirect to a specific Port, all DNS cares about is the IP address resolution of a name, and vice versa.
+In such a setup example.org could have addresses 192.0.2.1 and 2001:db8::1 while example.net has addresses 192.0.2.1 and 2001:db8::2.
+If you have a single IPv4 address as well, you can use port 80 on the IPv4 address to run a reverse proxy. That way IPv4-only clients can access both your web servers. The reverse proxy approach even works if some of the web servers are on the same host as the reverse proxy and some of the web servers are on other hosts.
+Most web servers e.g. (Apache, IIS etc.) do allow you to have two domains hosted on the same IP address by using the fact that web requests contain a host-header field that identifies the domain in the request itself.
+This is future proof, and your two domains can each have AAAA records pointing to the different IP addresses, so the domains end up at different web servers.
+If you say what the web server is that you are using I'm sure people can point you to the relevant documentation to set up your server as you wish 
+One approach to deploy two web servers on the same host is to have both of them listen on port 80 on two different IPv6 addresses. IPv6 officially specify that you can assign two addresses to an interface, and there are enough IPv6 addresses that you can do this without running out of addresses.

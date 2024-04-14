@@ -1,0 +1,6 @@
+You need to have backups in-house as well as off-site. The ones in-house are for quick recovery, and the ones off-site are in case your "in-house" blows up.
+I'd recommend using RAID-6 as much as possible with a controller with battery backup installed on any backup machine.
+At minimum, you should have a daily backup to tape of all data, and some sort of scheme for keeping those backups off-site. A full backup over the weekend and nightly incremental backups are OK.  I like a 4 week rotation of tapes.  The backups should be tested (via restores and via test server rebuilds) regularly.
+BTW -- IMHO our esteemed host needs to improve the off-site component of the Stack Overflow backup strategy.
+I don't know which backup services you know of, but any of them which offer you unlimited space are a seriously bad idea.
+A good strategy balances the value of the data and the cost of downtime against the likelihood of the failure, the funds available and the cost of the various kinds of backup systems.

@@ -1,0 +1,6 @@
+With this, I take the login credentials stored in a MySQL database, and use them to connect to a MSSQL database. (As seen in the "createUser" case of the controller).
+I'm not thrilled with the state of my mssql_connect() code but I really don't know the alternative as the PDO drivers are extremely complicated and, from what I gather, experimental.
+My Controller file currently points to 5 different cases (better than my old approach of five files point to different functions, which in turn was better than 5 files that didn't even have functions, they just ran procedural code and then redirected as necessary.)  Is that bad coding?
+I salt my passwords (so I'm ahead of LinkedIn) but that's about it.  I'm looking into measures to stop Brute force and XSS but I want to make sure this isn't completely broken first.  
+I'm VERY new to PHP and have begun writing a basic login for a website that uses data from a Microsoft SQL server to display information on the web.  Below are 3 snippets of code (two functions from the same file and one controller file that calls them.)
+Is this secure?  Is there a better way to be doing thing?  OOP probably would be a smart move but I really do struggle with the concepts.  I wrote my first line of HTML code in February of this year and had no real computer experience prior to that.

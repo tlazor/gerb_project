@@ -1,0 +1,12 @@
+To demonstrate that, I copied the tests only (not the 'production code') to a code base, and attempted to figure out what the implementation should be in order to pass each test. Keep in mind that an important principle in TDD is that you write only enough code to make the tests pass.
+You should care, however, about what it returns if it is invoked, and that's what the Stub specifies.
+You may, however, notice from the hard-coded 1 parameter that this can't be the final implementation yet. However, all tests are green at this point, so you must add more test cases.
+Since the BuildErrorMessage method is a Query this rules states that a Stub should be used for testing. That indicates that test 1 is more correct, which the two alternative implementations also seem to indicate.
+Compared to the 'production code' in the OP, this is obviously not the full implementation of GetErrorList, but it does pass the test(s).
+Obviously, neither alternative implementation is correct as is, but if test 1 is used as a foundation, a second unit test can exercise the 'Happy Path':
+Test 1 is better because it specifies an expected data flow through the method. Since the BuildErrorMessage is a Query you must expect that it has no side effects. When that is the case, then why care that it was invoked?
+This implementation passes the test(s), but doesn't look correct to me. The BuildErrorMessage method is called, but the return value is ignored. That's probably not what was intended.
+This question demonstrates why Test-Driven Development (TDD) is a valuable discipline. If TDD had been strictly followed, the answer would have almost presented itself.
+Since the goal of this answer is to explore which test is most correct, I'll now isolate each test. I'll first delete test 2 so that only test 1 is left and see where that goes, and then the other way around. After that, I'll compare the two implementations to figure out which one is best.
+//disclaimer// I'm certainly no UnitTesting expert; I'm still learning, but I that's how I read those two tests.
+Obviously this doesn't pass the tests, but at least the code compiles so that you can run the tests.

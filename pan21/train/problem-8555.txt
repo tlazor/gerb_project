@@ -1,0 +1,7 @@
+I am attempting to debug a connection issue with a client of ours and it seems to be a dns issue, but I'm not sure.
+Like all network requests that are made to a hostname, that name is resolved to an IP and all communication with the endpoint is strictly via IP. There really is no such thing as "communicating via hostname".
+do an strace on your traceroute command. In the strace output, you see very early on a call to libresolv which results in an ip address obtained. After this, then you see intermediate hops being obtained and network connections made to each piece of hardware at the hop, all via IP address. This indicates that the hostname is only used for the initial DNS lookup: everything afterwards is done by IP address. 
+For each hop in the traceroute, it looks up the PTR record for each IP. If it exists, that record is printed in traceroute's output. If a PTR record does not exist, the IP is printed.
+When you use tracert on Windows it will by default try to perform a rDNS lookup for each hop. You can alter this behavior by using the -d switch.
+The first step would be to determine what type of problem it is. Use nslookup or dig to test DNS. If this passes then it's not a DNS issue and you can move on to using tracert.
+I know that the traceroute command can either take a hostname or an ip address, but when a hostname is entered is that hostname used for each progressive request or does traceroute perform a dns lookup on that hostname and then use the ip address for each progressive request?

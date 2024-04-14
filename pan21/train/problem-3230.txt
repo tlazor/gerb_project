@@ -1,0 +1,14 @@
+INDEX takes in an array and returns a cell from somewhere within that array. To find the row I wanted, I used MATCH to find where the E value was in the range A3:A5. To find the column, I looked for the P value in B2:B4. That gave me the cost of going from E to P. I added the 1/(1/...) wrapper around the entire thing so it would return an error if the leg of the trip was zero, indicating that it was not available.
+these seaports, the containers are typically coupled with trucks and hauled to inland ports in I1, I2, and
+are the handling and the shipping costs ($/container) between each of the embarkation and destination
+overseas supply chain that will result in minimum total shipping cost and the total shipping cost incurred
+I3. There are a fixed number of freight haulers available at each port each month. These inland ports are
+A red cell signifies that the particular route is not a viable option and hence, cannot be considered.
+ABC Corporation is a Global Distributor of electrical parts and components. The company contracts to
+The containers are then shipped overseas by container ships to the ports of P1, P2, P3, and P4. From
+I then copied that formula to the fields $PI and $ID, adjusting each to reference the correct ranges. Finally, the Total Cost field simply added those three legs together. I sorted ascending and found the cheapest route. All the errors - the ones using unavailable routes - were sent to the bottom.
+The data on the left is what I copied from your spreadsheet. The table on the right is what I created. For each of the fields E, P, I, & D, I just manually typed them in groups. D1, D2, D3, D4, D5. Copy those five and paste them down a lot. I1, copy down for a set of D's, I2, copy down for a set of D's, etc. until the table was filled. For the field $EP, I combined INDEX and MATCH to lookup the cost of traveling from E(whatever) to P(whatever).
+If you want an ongoing system where you want to keep track of how many transports are current en route for each leg of the trip so you can select the cheapest route based on what's currently available, you may want to look at a database solution. Alternatively, you can use the sorted list and just start at the top, working down until you find a route where each leg is currently available.
+The method I used was not elegant. I made a table of every possible option, used INDEX and MATCH to look up the cost of each of leg of the trip, and then sorted by total cost ascending. Here's what my sheet looks like:
+ports, the containers are transported to ABC’s distribution centers in D1, D2, D3, D4, and D5. Following
+transferred from one transport mode to another (i.e. from truck to rail to vice versa). From the inland

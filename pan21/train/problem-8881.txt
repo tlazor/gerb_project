@@ -1,0 +1,8 @@
+If absolutely necessary, this could be done with a lengthy downtime and lots of knowledge about what you need to do. It would be quite error-prone though and I would not recommend to even try. 
+on my centos server I mounted a new volume /dev/sdb. I would like to add space to root filesystem /dev/vda1.
+Create a LVM volume group then logical volumes out of /dev/sdb, create a file system on that, and mount that where you need the space.  For example, this could be for a database, mount it at /var/lib/pgsql. (Your application will be different.)
+Is there any way to decrease /dev/sdb and increase /dev/vda1? If possible without losing data on /dev/vda1.
+Specific mount points like this isolate application data from the operating system. Which may make backups or capacity planning easier.  At the cost of having to manage more than one file system.
+Remember that you can mount volumes anywhere on the tree. Without modifying the root file system at /.
+If we consider /dev/vda and /dev/sdb as different (physical) disks, this is not easily achievable, to the point that it would be much easier to reinstall the server from scratch and put / into a LVM volume from the start. 
+/dev/vda suggests this is some kind of virtual system. Depending on what the underlying system allows, it might be possible to resize the disk image providing /dev/vda (and if necessary, delete/shrink the image providing /dev/sdb). Talk to your admin/provider.  In that case, after the system picks of the larger size of /dev/vda, you could extend /dev/vda1 and then grow the / file system. 

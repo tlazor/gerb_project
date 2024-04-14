@@ -1,0 +1,6 @@
+Alternatively also check that the correct graphics driver is loaded. I had a similiar problem recently on a collegues computer and it turned out that somehow his video driver was not loading correctly.
+I recall receiving an email from 4oD recently saying that the client software is to be retired and instead all catch-up tv could be viewed via the website.
+I would imagine that installing 4oD replaced some codecs on the machine. I would recommend downloading one of the following codec packs to determine if it makes a difference:
+You could try using an alternative media player.  Media Player Classic or VLC are both very good.  VLC doesn't rely on Windows codecs so it would decode the video regardless of your system configuration.
+If you took a restore point of your configuration, you could always go back to the time before the install and do a restore.
+With MPC, you can try to play the video, right-click and go to "Filters" to see which codecs are being used.  You may have to make some codecs higher priority.  You can change codec priority using GSpot.

@@ -1,0 +1,6 @@
+I’m now working in Tokyo, and the office offers a wifi. While my iphone is able to connect to it, my new clean ubuntu 18.04 cannot. Also, before I reinstalled the ubuntu, it can, too. (previous ubuntu version is the same, 18.04)
+When I select the office wifi from the panel, originally the ‘hotspot login’ window pop up and be connected after login.
+Most captive portal pages use a DNS name for redirection. If you can't resolve the DNS name you won't be able to hit the captive portal/radius server to login.
+To access a local DNS name you must use the local network DNS server that is resolving these local Host names.
+Also, I can use my phone (already connected to the office wifi) to browse ‘xxx.xxx.jp/aaa/bbb/index.html’ (the login page). However even when the Ubuntu cannect to iphone hotspot, it cannot browser the login page.
+I suspected it is a DNS issue so I have edited the /etc/network/interfaces and use 8.8.8.8 as a dns-nameserver. And now when I ping google.com it gives me its ip address. But I still cannot find the ip of ‘xxx.xxx.jp’.

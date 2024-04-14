@@ -1,0 +1,5 @@
+Also, the Endpoint in my EB database settings looks to be the same as the url for my RDS instance's endpoint `aa1xxxx.yyyyyyyyy.us-west-2.rds.amazonaws.com.
+ERROR: Updating RDS database named: aa1xxxxxxxxx failed Reason: Invalid storage size for engine name mysql and storage type gp2: 5
+I'm trying to deploy my (python/django) application to AWS Elastic Beanstalk, but I am getting the error. Deployments have been working fine for the last few months, so I'm confused what could be the cause. Here's the error:
+Someone helped me with the initial EB+RDS setup, so I'm not 100% familiar with how all of it was setup from the get go. However, now when I go into the AWS console, I see a RDS instance that has a storage field set to 100GiB and when I go into the EB configurations, I see a connection to my existing RDS instance, but the storage here only shows 5 GB. I tried updating the 5GB to 10GB, but I still get the same error and deployment still doesn't work.
+Note: I found this thread, which was similar, but not exactly my situation since I was able to edit the storage field, even though that didn't work.

@@ -1,0 +1,6 @@
+you must notice it's has no difference in HTTP protocol because in server and in router they use GZIP to zip packet and then send therefor if you zip or non they act the same.
+Not sure if this is related or not, but if you download one zipped file (zipped without compression) it's faster than downloading the same package as multiple (unzipped) files, due to the HTTP request overhead required before starting to download each individual file.
+share (i.e.download) with other people. Zipping works by compression, which means 'shrinking files' in common english. 
+Computer software is not perfect, and there may be weird edge cases where zipping a file would make it slightly larger and harder to share. Finding these edge cases where zipping fails will likely bore you to tears and is not worth your time.
+Hypothetical Answer: It's very complicated. The answer would depend on the zip program, transmission protocols, file size, file type, maybe even the browser type or antivirus software running on the client computer. In other words, "it depends."
+You may have read this at a time when people used phone modems instead of adsl/cable modems. In this situation, the text was compressed before sending or receiving, so your text file would have been sent faster. 

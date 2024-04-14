@@ -1,0 +1,9 @@
+Is it possible to create a Windows XP user if I have access to the windows partition, from a linux partition or pendrive, for example TinyCore?
+Reboot as the Administrator, do whatever you need to do, and change the Administrator's password back to something you'll remember.
+Hit the Windows key and type Computer Management. When the new window opens, look in the tree on the left under Local Users and Groups and then Users.  You should be able to see the account there.  Right click on the account and choose Reset Password....
+Also, The NT Offline Password Changer tool usually doesn't work if you try to change the password.  Instead, blank the password (always works in my experience) and then change the password inside of windows.
+First thing you should try is booting up in safe mode.  It usually gives you access to an account named "Administrator" which usually does not have a password set.
+If you have access to any account with administrator privileges you can recover the password entirely within Windows itself.
+Long story short, someone repaired my brother's computer and set a password on his account, now we can't get in and can't contact the person who set the password.
+Issue su -c "chntpw SAM" (or sudo, if that's your thing) and reset the password with the * (asterisk) character.
+If that doesn't work, just reset it using the Ultimate Boot CD.  The tool is called something like "NT Offline Password Changer."  In addition to being able to reset the password, you now have a CD full of useful tools.

@@ -1,0 +1,12 @@
+To summarize we divide our training set into input/output pairs, where output examples begin with a <START> token and end with <STOP>, and train a sequence to sequence model on these pairs, as described in the tutorial.
+The other answers had some interesting ideas, but unfortunately they didn't really address how to deal with variable length inputs and outputs. I believe seq2seq models based on RNNs are the best way to address this.
+One approach might be to train a stateful RNN on examples like How are you<END> I am fine<END>. But if I understand correctly this would also learn to predict words in the "How are you" part, which I think might detract from the goal.
+For example, my training set is a large corpus of question and answer pairs. Now I would like to predict the response to "How are you?" one word at a time.
+I would like to solve the following classification problem: Given an input sequence and zero or more initial terms of the true output, predict the next term in the output sequence.
+After some more research, I believe this can be solved with a straightforward application of encoder-decoder networks.
+Some reasonable responses might be "I'm fine.", "OK.", "Very well, thanks." etc. So the predicted distribution over possible first words would include the first words in those examples, among others.
+Then at inference time we feed the <START> token to the model to predict the next word. Then after we receive the actual next word, we feed the actual (observed) output so far into the model, and so on.
+But now if I see the first word is "Very", I would like my prediction for the second word to reflect that "OK" is now less likely, because "Very OK" is not a common response.
+In this tutorial, we can simply replace sampled_token_index and sampled_char with actual_token_index and actual_char, computed according. And of course in our case it's actual_word.
+And I would like to repeat this process of predicting the next word given the input sentence and every word so far in the output sentence.
+InputSeq is the prefix of the answer generated in all possible lengths between zero and the number of words minus one.

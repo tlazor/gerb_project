@@ -1,0 +1,6 @@
+When I view the federationmetadata.xml file I notice that these attribute are not present, only the items listed in "Claim Descriptions" are present.
+Using ADFS on Windows 2012 R2. I have created a Relaying Party Trust that has a claim rule defined that maps a Active Directory Attribute to a named attribute in the vendors system.
+This is normal. The metadata file contains the "claim descriptions" as you say, plus the endpoints of your ADFS farm, the public key of your token signing and token decrypting certificates; general information about your deployment. All of this, but not your relying party configuration (this would be a security issue in my opinion).
+Apparently the Application Vendors system is using PingFederate and they are expecting those attributes to be present in the metadata file.
+You must exchange metadata files with your application vendor. Then you must agree with your vendor on:
+Followed advice from Microsoft support and created claim description items which included the attributes I wanted to include, these were then present in the metadata file. Applying an Issuance Transform allowed me to map values to these attributes.

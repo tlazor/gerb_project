@@ -1,0 +1,5 @@
+"each server should have READ-WRITE access to these tables" -- What do you mean?  Perhaps you meant client?
+I much prefer the application decide what query (or set of queries) need to go to the Master and connect directly (without any proxy).  That puts the onus on you to get it right, and not to let yourself be lulled into assuming that the splitting will work.  Because when it does not work (because of a slowdown in replication), the bug will be difficult to track down.
+A mitigation technique...  Create Stored Procedure(s) on the Master for critical read cases and multi-write cases.  That may limit the latency to one round-trip to the Master.  We can discuss further.
+Latency -- good enough to get to the other side of the earth.  How wide is your network?  For example the US is less than 100ms wide.
+"MySQL splitting techniques" -- Be careful!  If you write to the Master, then read from the Slave, expecting it to be there, well, it might not be there yet!  This is the "critical read" problem.  There are numerous kludgy solutions.  We can discuss further.

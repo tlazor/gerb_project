@@ -1,0 +1,7 @@
+I've got data with measurements split between two different tables, but the data doesn't need to be present in both:
+An example of one such possible user-requirement combination is "fill t3 with data from t1 unless there is non-NULL data from t2 to replace NULL or non-existing data from t1."  The resulting table would be
+My users need to be able to combine the two tables into a third table, depending on their choice of whether data1 should take precedence over data2, whether NULL data should be copied, etc.
+You can combine these queries into one query using a UNION. Since the result from query1 and query2 will be disjoint you can safely use UNION ALL (for most DBMS UNION ALL is more efficient than UNION), i.e.:
+Not sure I understould you correctly but you can pick all rows from T1 where there is not a row from T2 that matches:
+There are other example, more simple or more complicated, I can give, but they all rely on first copying all data from one table into another, then doing a REPLACE INTO to overwrite data on conditions.
+My question is: How can I combine the above INSERT and REPLACE INTO commands into a single command so I'm not copying data from t1 that will just be replaced in the second command?

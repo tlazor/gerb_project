@@ -1,0 +1,7 @@
+The sad truth: This isn't currently possible.  There is some work being done to support EFI in Syslinux, but my impression that it is far from complete. 
+Even tough it would be more or less trivial to implement such a thing with the uEFI framework there are only toy uEFI applications which will boot a kernel image via http or tftp out there.
+Also most uEFI machines only have a BIOS-like text mode UI, so no graphical stuff there - but I'd expect some to appear soon as the uEFI adaptation has now progressed into mainstream desktop/laptop machinery. 
+Looks like you can even reuse most of you already existing system by just swapping out the bootloader image.
+I don't think there is a specific piece of software that accomplishes this.  Here's an article that might help you out: PXE Magic: Flexible Network Booting with Menus
+From my understandings of the standards, PXE doesn't really care if there's an EFI or plain old BIOS underlying.
+You (may) just need to make sure that the image you're loading over the network is compatible with EFI. GRUB2 is EFI-ready, can't confirm it for SYSLINUX, as the site is currently down (I do know however, that it was worked on).

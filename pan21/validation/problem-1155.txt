@@ -1,0 +1,5 @@
+As far as I am aware, NAT hairpinning in this manner is not supported in Cisco IOS routers. From a brief Google search, it appears there are a few possible workarounds however they may require some extra consideration.  
+On my router my dns is 8.8.8.8 and i am not using internal dns we have google dns inside our LAN network also.  
+If this is an issue because internal clients connect to the server via DNS, then you can "fix" the issue by using split DNS allowing you have different DNS resolution depending on whether the request is on the local network or over the internet.
+By doing this i can able to access my website from outside of office network but when i am trying this from inside of office network i can't able to access, cisco router always redirect to SDM page, Please let me know what i am missing.  
+2. Configure reverse proxy-server using public-IP (this could be a bit expensive for purchasing a new PublicIP cost) but their you dont need any local dns. Just configure proxy-server which can access your internal app-server. 

@@ -1,0 +1,6 @@
+Be careful on a  very high load system with a lot of short lived processes though. It could be that you kill the wrong process because sometimes the output of lsof proved not to be too reliable over time.
+I have a react-native application and I want to write a script for start test version. I need to shotdown the :8081 port if it is alive. The command:
+I think your whole approach is flawed, you should probably run your service under systemd   (or wrap it in a systemV style start-stop script that records the PID) which would simplify stopping the correct service greatly. 
+Alternatively the conventional tool to find a specific process is pgrep and the associated pkill allows you to easily kill them: 
+I tryed lsof -ti :8081 which return only the pids, but it's return back all of it. I tryed to extend it with grep: lsof -ti :8081 | grep node, which return nothing. 
+Having said that, to answer your literal question: in general the correct service processes to stop are the ones which provide the listener on that TCP port, i.e. restrict your lsof output with -sTCP:LISTEN 

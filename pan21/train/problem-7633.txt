@@ -1,0 +1,8 @@
+In this situation you probably wouldn't be using this outside of a LAN, and you would have the key stored securely on the server doing the procedure.
+When I first learned how to make ssh keys, the tutorials I read all stated that a good passphrase should be chosen. But recently, when setting up a daemon process that needs to ssh to another machine, I discovered that the only way (it seems) to have a key that I don't need to auth at every boot is to create a key with an empty passphrase. So my question is, what are the concerns with using a key with no passphrase?
+Then I also lock it down to the IP addresses that can connect in with that key (not 100% foolproof, but fine with the command restriction as well.)
+Basically, unless you know there is a good reason not to, create a passphrase.  Being too lazy to type in your password every time might be a good enough reason for you :-)
+Most tutorials discussing SSH will be anticipating a person logging in from an external network, possibly from an unsecure computer, in which case the advice is sound.
+Usually I provide a carefully written script at the remote end, which does exactly the job (or jobs - it can look at parameters) that I want to be permitted.
+For automated access, which as you say requires passphrase-less keys, I always use the extra options of authorized_keys (see sshd(8)) to limit the command that can be run.
+If you want to use ssh to do any kind of automated procedure - I'm thinking specifically of Nagios checks - then you probably wouldn't want to use a passphrase.  

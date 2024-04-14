@@ -1,0 +1,8 @@
+However, having "highest" on some LANs, "lowest" on some and router IPs half-way through the raneg on one or two will cause issues, down the line.
+You might as well use the middle one, but one thing that needs to be true is consistency. Its easier to remember the default gateway if you use one consistent way to assign them.
+I believe there is a RFC suggesting a common usage as you explained. You can check details in the following RFCs:
+Further, assigning them either at the end or at the beginning makes it administratively easier to assign DHCP ranges etc.
+There's no technical reason for a particular IP (and I have given a router some very strange IP addresses before) but it just makes more sense for the people working on the networks.
+For instance, in a home scenario (which I know isn't directly relevant, since you've tagged this with 'cisco') you'd better have a very good reason to not use 192.168.1.1/24 or 192.168.1.254/24 as the router IP address, and 'admin'/'admin' as the username and password for router administration. If a technician walks into a house, that's what they expect.
+It doesn't, really, matter what you pick as your "router IP". Just make sure you're consistent. I, personally, prefer "lowest host IP for default gateway" (with physical IPs for routers participating in HSRP being the next few up). But "highest possible host IP for default gateway" is equally good (you'd then presumably pick the next few lower IPs as the physical IPs for HSRP interfaces, to the extent you use HSRP).
+One thing to keep in mind is that other network administrators expect things, and something being configured different just makes everything a bit harder to understand.

@@ -1,0 +1,5 @@
+There is one very important point in the above statement - 'with the exception that in the program clock reference fields'. 
+"In transport streams, duplicate packets may be sent as two, and only two, consecutive transport stream packets of the same PID. The duplicate packets shall have the same continuity_counter value as the original packet and the
+adaptation_field_control field shall be equal to '01' or '11'. In duplicate packets each byte of the original packet shall be duplicated, with the exception that in the program clock reference fields, if present, a valid value shall be encoded."
+However, if PCR is transmitted then a decoder should compare both packets excluding PCR fields. if they are identical (excl. PCR) then the second packet is a replica of the first one.
+If a decoder senses two successive packets with the same PID and CC and PCR (program clock reference) is not signaled then it should compare these packets. If they are identical then the second packet is a replica of the first one.

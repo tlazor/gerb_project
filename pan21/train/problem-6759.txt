@@ -1,0 +1,8 @@
+I planning to upgrade one of my old harpertown based server to a new alternative but when I look at the comparison, this new one doesn't seem to be better at all, matter of fact if I look at the clock frequency it even seems to be worse:
+My suggestion is to go with a Sandy-Bridge enabled server, but with a model having Turbo Boost and HT at least.
+There is 6 years of difference between the two, would this comparison mean that I would actually get something worse for more money? 
+Looking at the specs is only part of evaluating a new system. To do the job properly you have to benchmark the old and new systems under typical workloads. Only when you have done that can you make an informed decision.  
+This server is running 10 VMs (linux, windows, bsd). Would I get better performance or actually worse after the upgrade? Is that the new cpus clock speed (GHZ) lower means that it is actually slower than my old one was?
+Well the bus type connecting the cpus seems to be the only advantage here and the new DDR3, DDR4? ram because the old 667mhz FB-DIMM heated up a lot.
+While Sandy Bridge is way faster than a similarly clocked Harpertown, you selected a very low-end Sandy: it has no Turbo, no HT, and its clock frequency is very low.
+Here you can find some benchmark between two similarly clocked Harpertown and Nehalem system. As a rule of thumb, consider an equally clocked Sandy-Bridge system about 30% faster than a Nehalem one.

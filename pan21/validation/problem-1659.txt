@@ -1,0 +1,6 @@
+Below is a manual graph that I built, but obviously it's annoying since it's manual, and also less accurate, since I don't know exactly where the $40 boundary lies. The graph highlights the OPPOSITE area (in red, the opposite color of green)
+If it helps I have Excel for Mac 2011, and I have Numbers 3.2 which I'm happy to use if it has this functionality, though I'd love if you could tell me what the functionality is since I've virtually never used it.
+Sorry for this terribly written question. At the time I really couldn't figure out how to say it properly. I wanted to make my sensitivity table into a chart. But there's no chart option for this.
+Since you didn't state your question, I think what you are looking for is to invert the vertical axis. 
+The answer was to build a separate, hidden table, whereby one of the two axes from the table would be used as the X-axis, and the other would be calculated (i.e., reversing whatever calculation was used to derive the table cells in the first place) as the Y-axis.
+Ok I'm having the hardest time explaining this so will use pictures. I have a sensitivity table with conditional formatting. Right now it's formatted to highlight everything <=$40. You see how there's that awesome boundary line between highlight vs. non-highlight spaces? Yeah... is there a way to turn that into a graph?

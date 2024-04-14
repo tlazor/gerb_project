@@ -1,0 +1,5 @@
+When you call azure login you are actually getting a token which only has a limited lifetime so even if you could persist across sessions it would expire after 12 hours anyway.  It is possible but not advised to specify the username and password as part of your script:
+In my experience, there are two approaches that would be more suitable in a company, enterprise or high-risk scenario:
+Azure Automation is an Azure Platform service that allows you to build parameterized workflows within Azure that you can trigger on a schedule, from the web UI or from the command line.  Repetitive tasks are simplified because the environment the workflows run in is consistent across time and multiple environments.
+To do this you must be using an Azure Active Directory account to authenticate, assuming that you are willing to take this risk on given the fact you are managing your personal Azure Subscription this may be the easiest option.
+Authentication with Azure using Service Principals allows you to use a certificate (.pfx) to login to Azure, assuming said certificate is stored without a password then you can achieve password-less login by following these steps:

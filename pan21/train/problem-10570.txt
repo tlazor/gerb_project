@@ -1,0 +1,5 @@
+I did really my best to build the above code and I was sure it is well structured, readable and maintainable. However, the criticism I received is that the code is not up to a good standard. I am about to go crazy. Do you think this criticism is fair? If yes, what are the points that denote the code is not good?
+Overall it looks good and readable but we should try to avoid nested if-else statements for simple condition by using ternary operator. say for your leftArrow function you can use it as below : 
+Also we can try to avoid if-else statements by replacing it with switch case where you have to compare only one variable value. You can replace your "clickPage" function to use switch case because every time you are checking only one variable value in it.
+I have built the following application which searches Flickr API and returns photos. I am presenting the code:
+You can also check your jsfile with https://www.npmjs.com/package/eslint which will give you some more optimization suggestion for your js code which will be helpful when we minify js.

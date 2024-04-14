@@ -1,0 +1,7 @@
+In my case, I had to add some line spacing before the wording in my first column to make both columns line up, but this was minor for me. 
+Adding a carriage return with the smallest possible font, in conjunction with removing any line spacing before and after the new line, in the second column before your text will work. Just make sure to make that new line Normal style.
+The behavior of page breaks is similar, but the UI for inserting them adds one additional paragraph by default - that's why the behavior seems different.
+You can explicitly add paragraph after the first part by pressing Enter after the it (just before the column break) - this will 'split' the paragraph to two separate paragraphs.
+Column break symbol doesn't start new paragraph - it behaves like other symbols contained within the paragraph - so technically you have one paragraph consisting of two parts separated in the two columns..
+This is an old post; however, I did have the same issue and resolved it today, albeit with a workaround.
+For debugging such issues, it's useful to turn the formatting symbols on by Home -> Paragraph -> Show/Hide Formatting Marks (Ctrl+*).

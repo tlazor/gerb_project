@@ -1,0 +1,10 @@
+The maximum I can achieve is 250 row/s. The below insert statement is inserting 1000 rows and require 4 seconds to finish.
+I tested this on two different machines, with high speed SSD drives, 8 cores 3.5 GHz processors. The server can read IO up to 700MB/s and can write up to 300MB/s
+Assuming your disk subsystem is not the bottleneck (and you seem confident that is not the problem), then the first place I would look would be at the number of VLFs in your log file.
+Instead, try looking at the wait type that you are experiencing when you experience slowness for this operation.
+I have a very strange slow insert issue, here I am providing the table structure, and the insert statement used.
+You can then investigate sys.dm_tran_database_transactions and sys.dm_io_pending_io_requests to zero in on whether the IO is pending at the OS or disk subsystem. 
+What Indexes do you have on the table (if any)?  Any constraints using those indexes?  Wondering if starting your Identity at a high number is causing an issue with the PK constraint/index at all during the insert.  Any chance you can remove that identity property or the PK, then insert to see if that helps at all?
+If you are experiencing WRITELOG waits, try wrapping the WHILE loop into an explicit transaction. This would reduce the number of times SQL Server flushes the log buffer to disk, and improve performance. 
+However, while executing the below insert statement, the processor is almost at 5% max and the IO operation less than 500KB/s which means that SQL Server is not using the server resources properly.
+Looking at physical IO is not a good indication of what work your query is doing. SQL Server does not write changes to disk immediately--it writes to the buffer cache (in memory), then flushes dirty pages to disk during the next checkpoint. Likely, all 1000 inserts will fit into memory, and no writes will happen on the data file until the next checkpoint. 

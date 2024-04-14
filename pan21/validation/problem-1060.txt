@@ -1,0 +1,6 @@
+I thought it was the dongle's fault so purchased another one (first one was EkoBuy "V8" chipset, second one was much more compatible Plugable "Broadcom" chipset) - both of these should work with Windows 10 out of the box - I also updated the driver to the alternatives on the respective company websites but the problem occurs in all cases.
+Through a lot of trial and error I have isolated this to the use of a bluetooth dongle for my bluetooth keyboard. Unplugging the dongle solves the problem.
+If I disable the "Power" service, then I can manually put the computer to sleep and resume works fine - however this is not ideal as I have to remember to do it!
+Hoping someone knows of a solution to this or that Microsoft are listening (I did submit feedback to their hub too) as this is really quite a pain!
+My other drivers/bios are all up to date and fairly modern hardware (Asus B360M-A motherboard, i5-8400 cpu, NVidia 1050ti)
+Since being upgraded to 1903, when my computer resume from sleep the screen remains off and I need to hard reset, losing my work.

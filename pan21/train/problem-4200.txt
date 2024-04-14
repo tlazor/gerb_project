@@ -1,0 +1,9 @@
+This requires knowing the source subnet or Individual IPs sending SSH requests, and the target subnets.
+It sounds like the described purpose of this server is to provide routing between the networks. If so you need a forwarding rule to accomplish. You could ideally have the middle server forward packets to its local gateway (router or firewall) and if it has a path to the destination SSH server, should forward the packet. The middle server does nothing but forward packets, and doesn't see the data traversing it.
+A VPN server was considered, but discarded since the server would have read access to the client data.
+How do I make it so the SSH traffic is not readable to the Jump server; and stays end-end encrypted between the 2 clients?
+Create a port forwarding rule in iptables (assuming this is a linux box such as centos). If you don't want the middle server to take part in SSH negotiation (i.e. SSH tunnelling, or just ssh'ing to the middle server, then jumping to target), then you need to have the middle server forward your SSH packets direct to target.
+A design question immediately comes up that "should you use a third party jump server you don't trust?"
+I need to SSH between 2 "clients", both behind CGNATs, by using a third party server as a jump. This use case has been covered on this site already but:
+Assuming this "insecure" server can't be trusted, but you decide to use it anyway (not recommended) to transport or handle ssh traffic between the two clients, you could do the following:
+2 customers have a server poking into each of their networks, connected via vpn, private line, or otherwise.

@@ -1,0 +1,5 @@
+Usually it is remarked that $c$ and $s$ have the following property $c-s = \frac{1}{poly(n)}$. This last condition is what confuses me. What is the intuition behind imposing this condition on the difference of $c$ and $s$? Not understanding this makes me feel I haven't fully understood QMA class definition. 
+I'm reading about the complexity classes related to quantum computation, currently I'm studying QMA class. A language is in QMA(c,s) if there exists a polynomial time verifier and polynomial $p(n)$ such that
+Something similar happens with the problem called Local Hamiltonian problem. Here two constants are defined such that $a-b = \frac{1}{poly(n)}$. If someone could explain the intuition behind this and if it is related to the previous question that would be great. Thanks!
+if $x \notin L \implies$ For all quantum states $\psi$ the probability that V accepts is less than $s$.
+if $x\in L \implies$ there exists quantum state $\psi$ such that the probability V accepts is greater than $c$ 

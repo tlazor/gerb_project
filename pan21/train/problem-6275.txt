@@ -1,0 +1,6 @@
+Note that I do not care how the postal part works. There could be some guy in a postal uniform. It could be a dedicated drivers.  Someone could take the envelopes and tie them to carrier pidgeons. All I care about is getting paper into and out of envelopes.
+How is ICMP unique? I tried to find out whether it's being used in a TCP packet or a UDP packet when running ping, but I kept reading that it's a "unique" protocol and couldn't find a definite answer for this.
+But in all cases I can check one specific place (same place in all pieces of paper) and read one value. Based on that I know how the layout of the rest of the paper.
+Each of the paper has a small marking in the corner. These markings are different for all three kinds (that is probably your unique)
+If the marking in the corner has the sign/value of TCP (0x06) then I know the paper will be laid out like this:
+IP is an envelope. Transmissions happens when someone hands me a paper and tells me where it has to go. I put the paper in an envelope, write the destination on it and put it in mail out. Receiving is the other way around. An envelope arrives in post-in, I get it out of the envelope and hand it to the next person.

@@ -1,0 +1,6 @@
+Any ideas? Somoene must've done this before! I don't want to switch to using winbind and AD to provide all the account information because of the hassle with maintaining consistent UID/GIDs on all machines. We've also put a lot into the existing Puppet-controlled user configuration that we don't want to reinvent.
+It looks like the problem is AD UID to UNIX UID mapping. The default TDB backend will create 'virtual' UNIX accounts on demand when AD users connect but I don't want this -- I want user foo to map to the local user foo. If I add idmap uid and idmap gid lines the users authenticate okay but their accounts aren't mapped to the UNIX accounts.
+I'd like to run Samba on these boxes and authenticate against our AD domain. I don't want AD authentication for anything besides Samba -- everything else is accessed via SSH and private keys.
+We have a lot of Linux development servers which are generally accessed via SSH. Each developer has a local account on each box, managed by Puppet. Logins are via private keys only; there are no local passwords.
+seems like if you just take winbind out of the equation things will be honkydorey assuming your AD users are the same as the local /etc/passwd users.
+Pam changes sometimes require a winbind restart.  Shouldn't, but practical experience says do it anyway.

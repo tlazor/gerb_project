@@ -1,0 +1,6 @@
+This sort of works. It grabs the name of the top level directories and sums them up by time as expected, except that it also displays HEAD requests as "NULL" or "OTHER." 
+I'm trying to grab the directory paths of GET requests and count them in Splunk using this capturing regex. 
+rex does not filter out records. It adds the fields you extract to the events, if the regex exists. So in your case you are adding the MYDIR field to all events that contain GET, but you are still getting all events.
+The regex works as expected in both perl and Python (ie, it doesn't match on a HEAD request.) Anyone have an idea what I have to do to make Splunk stop reporting the stuff that I didn't capture to begin with? This behavior is really counter-intuitive. 
+The reason you think Splunk is reporting stuff that you are not capturing to begin with is because you misunderstand how the rex command works.
+The sourcetype access_combined_wcookie is a pretained source type in Splunk, which already has field extractions defined. It would be easier to use the already-extracted method field to limit your search to just the GETs.

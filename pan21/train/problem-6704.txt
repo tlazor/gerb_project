@@ -1,0 +1,11 @@
+I agree with the comment posted above by Lex Li: bringing DLLs from a newer server operating system to an older one is asking for trouble.
+Depending on what you need the IISAdministration module for, you may be able to find a workable substitute in the Carbon module.  In my case, I was using IISAdministration solely for the Get-IISAppPool cmdlet.  It turns out that Carbon has a functionally similar Get-IisAppPool cmdlet which did the job for me on Windows 2008-R2. 
+The version of this file is 6.1.7601.17514 even while the assembly version is 7.0.0.0. This file does not have the SSLFlags enum type declared and this caused the problem.
+When I try to import the module in a script or directly in the PowerShell console, I am getting this error:
+It does not report any errors, but when I try to list the available modules, it does not show any cmdlets installed:
+I can see cmdlets in the ExportedCommands column when executing this command on my production Windows Server 2012 R2 machine.
+My website install script was built on Windows 10 and was supposed to only be used on Windows 2012 and above, but I found a Windows 2008-R2 server which needed a copy of the site and wouldn't import IISAdministration, giving the error the OP listed above.
+I resolved the issue by replacing this file with the file version 8.5.9600.17042 (with the same assembly version) taken from another machine.
+I need to use the new IISAdministration PowerShell cmdlets on Windows 7 to develop and debug scripts. Since this module does not exist on Windows 7 by default, I tried to install it. For this, I installed Windows Management Framework 5.1 on to make sure that I have PowerShell 5.1 with the PowerShellGet module available.
+After looking deeper, I have found the actual cause of the problem. The version of the Microsoft.Web.Administration.dll assembly was wrong on my machine:
+You can find the Carbon module by visiting the module's website.  I used Chocolatey and it was a painless install.

@@ -1,0 +1,8 @@
+Yes, anything over the internet that doesn't have a layer of security (for example, you use a secure VPN) is not secure. 
+If your server is remote, then your credentials are moving unencrypted through many other devices before reaching it, as they are going across the Internet, which is the ultimate (inter)network.
+My question is: if I connect to my web host from my home computer (which consists of 1 computer and 1 router with direct connection to the internet); would this still be insecure ? I mean, my computer does not belong to any network from which some other networked computer could listen on my traffic to steal my username & password, right ?
+hell yeah! I agree with @phoebus. I am probably looking at it right now...tell me what it is so I can compare with what I am seeing :)...just freaking with ya...
+Ask your provider what they offer for secure connection. That may depend on what OS they are running and if it's shared hosting etc. If you have a dedicated server you can setup your 
+Does your webhost provide any other means of connecting to it, for example, via SSH? This might be a question to ask your host if you are concerned about security. If it is your own host, consider setting up your own ssh server (Linux and Mac operating systems have an SSH server usually built right in or, use http://www.freesshd.com/ for Windows). 
+There are a couple of free hosts out there that provide SSH to their service. Most SSH clients have a built in file-transfer ability.
+ftp is regarded as an insecure protocol because it sends the password in clear text rather than in encrypted form like other protocols provide.

@@ -1,0 +1,6 @@
+It is easier to configure your router than your computer. For this to work, you need the mac address of your wireless card. This is commonly referred to 'Hardware address' and you can see it in control panel of by typing ifconfig in your console.
+On my local network (at home), I have a Linux machine called A, connected to the Internet through a modem. I want to give A a static local IP address when it's at home, but a dynamically allocated one when it's not. How would I achieve this?
+When you obtain your MAC address (it will look something like AA:BB:CC:DD:EE:FF) you can then configure it in your router. The option is probably under DHCP configuration called Static leases.
+I think one way I could do this is to check my public IP address and see whether it is within my ISP's allocation range, but this seems unelegant and I don't know how to do it. I could also check if my modem exists between me and the Internet, but again, I do not know how.
+After that, even though your computer is set to automatic configuration, it will always get the fixed IP from the router.
+There you can assign fixed ip to a mac address. So, for the mac address you put the one you just obtained, and for the IP you put the desired IP.

@@ -1,0 +1,6 @@
+We are currently using SSIS 2012. Is there any way for a user to view execution reports under SSIS Catalog without being ssis_admin or sysadmin?
+So this is an issues that I have run into over the last few days, and I have to say this post has definitely helped, although none of the answer were exactly what helped. 
+As the query checks for membership to the ssis_admin role.  I decided to grant my report_reader role to the ssis_admin database role.
+Executing the query standalone I was given a select permission error.  So, I granted the role select permissions to the catalog and internal schemas.
+So like this post states, I wanted to give access to view the canned Integration Services Catalog reports, without having to grant the SSIS_admin role in an environment where it isn't needed. And thanks to billinkc for helping me find the answer. Like he said, they fixed this issue in SQL 2016 by adding a database role that allows you to do what we are wanting. That gave me the idea of just copying what SQL 2016 did on the earlier versions. So here is what you have to do:
+I have also attached a script that will do all but the last step. Be warned though, it is nearly 700 lines long

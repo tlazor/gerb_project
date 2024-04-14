@@ -1,0 +1,6 @@
+For the purposes of learning general programming, you shouldn't need to worry about this unless you have particular real time problems in mind.
+A real-time system is a system which has real-time requirements.  A real-time requirement is typically expressed as follows:
+From the time an input event happens at the system boundary to the time all needed outputs are generated at the system boundary less than x seconds will have elapsed.
+Real-time is a term which seems to have lost all meaning due to incorrect overuse.  A lot of people seem to think it's a synonym with fast.
+It really depends on what you want to do.  A real-time system usually means that a system's response to stimulus is guaranteed within a specific timeframe. A simplified example is an immediate response, rather than a queueing. 
+Most operating systems aren't designed to work in real time; there's very little reason for them to be.  If you don't have a real time OS, it's very difficult (if not impossible) to run real time software.  The primary way to deal with this is to use hardware that's dedicated to the task, and then have your operating system interface with it.

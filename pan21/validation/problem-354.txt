@@ -1,0 +1,7 @@
+You should consider creating an Exchange mailbox with enough space to hold your mail. Then import the PST into the mailbox, this means services like OWA will work.
+Try creating a new PST with the new format and the simply dragging all items from the old PST into it. (Backup your old PST first - just in case).
+You need to upgrade to the newer version of Outlook and then Import the old PST or configure your "new" Outlook to use the existing PST as you wish
+You configure the default location for where mail is stored inside your Outlook profile, point it to the hosted Exchange mailbox.
+You cannot "convert" the old version to permit a size larger than 2GB with older versions of Outlook
+If you are a laptop user as long as you use 'Exchanged Cache Mode' your mail box is cached to the local disk therefore your mail is available if you are not connected to the network/internet.
+I have Microsoft Outlook 2010, but I still using a very old PST file in the format 97-2002. The main limitation I have is the file size capacity limited to 2GB. I would like to convert this PST file to the new format 2003 and above that has a much bigger max file size.

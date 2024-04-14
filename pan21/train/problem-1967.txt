@@ -1,0 +1,8 @@
+Now if you get a 3.0 micro cord that has two USB type A at the other end (1 for power, and 1 for data), You would get even better performance. This is because you're not drawing power from the same port you're transferring the data.
+As long as you have the drive you listed (Which is USB 3.0) and a compatible cable (On mine, the port on the HDD is the wider 3.0 micro, in which a cord with the narrower 2.0 micro end could still be plugged into) you will get better speeds.
+I have personally tried this and although I did not benchmark the drives on the different interfaces.  It was clear that the bottleneck was the drive speed and not the interface.   the USB2 drive will work perfectly on the USB3 port of new computer.   No need to upgrade the case of the drive though.
+Yes, moving to a faster interface would increase the speed. It does not matter if this is USB 3 (much faster, but not present on all computers), eSATA (native link speed to the disk and  no overhead), or something else.
+With a separate USB head for power, I've been able to get fluctuating 55MB/s - 75MB/s speeds.. with the average sitting at around 67MB/s
+It is not 60 MB/sec. Mostly because there is a lot of overhead in the USB protocol. And partially because and 10% of the bandwidth is reserved for USB 1 transactions.
+If I'm currently getting read/write speeds from the external HD on USB 2 of roughly 30 mb/s (both read and write), then would upgrading to USB 3 make a difference? Since USB 2 is roughly 480 mbps (60 mb/s), which is more than the 30 mb/s I'm getting now, then won't it technically make no difference at all?
+I never tried transferring any files not using a separate head for power, but it should be a little lower than what I've listed off.

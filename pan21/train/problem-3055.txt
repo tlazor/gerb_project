@@ -1,0 +1,12 @@
+Showing that you know things beyond the scope of the question sounds like a good idea, but it can obscure your solution, and possibly make you lose out when a simpler solution might have done the trick.
+(I assume you have some other test case that explains the replacement of country code by 0?, which is done by another method?)
+The way the test code is written doesn't matter, but look at the difference in talking to the object.
+The testing approach can test your function, but the most important thing is to actually answer the question, and demonstrate the result that they are looking for.
+You don't have an object to describe a phone number, but some Swiss army knife class that can do whatever you ask it to a string/phone number (I don't know if that was the requirement).
+This might be an example of a little 'over-thinking' for this kind of problem. However i like the abstract-factory pattern since you can easily add functionality to it.
+I don't know what was important in the given problem domain, but it might be that just getting the local number is enough. Then everything else might be seen as over thinking?
+In tech questions, I would tend to focus on the smallest amount of code that can provide the answer that is being requested.  Smaller code is easier for the reviewer to understand (if you're doing something tricky).
+You need to ask it: Can you replace the spaces for me and remove the non digit characters, and also replace the area code by 0 for this string?
+Your regex removes anything that's not 0-9 or a '.', then you replace the '.'.  You could have removed the '.' from the regex to do it all in one shot:
+I wouldn't take a TDD approach.  I would have a single function that can be called to produce the output (maybe with supporting functions or classes).
+Remember to make sure to answer the question that was asked. You've simplified the number, but the requirement is to get the country code.

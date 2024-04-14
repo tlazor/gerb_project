@@ -1,0 +1,6 @@
+I first heard this story in 1985 from a couple of sysadmins.  It was and "old" story then as well.  Slightly different details, but still the same story.  
+The problem is that when something starts making less noise than it was, it can be hard to find (ie quick -- find the quiet!)
+Well as someone who works in datacenters, I have found that for severe problems white noise level changes are something you can detect almost subconciously.  So when something starts overheating you can hear it and find it pretty quickly.
+During the LISA 2000 (Large Installations System Administration) conference, Michael Gilfix and Alva Couch presented a paper: Peep (The Network Auralizer): Monitoring Your Network With Sound (PDF).  While this research used jungle sounds instead of white noise, the idea is the same.
+Solaris has an option to snoop ( the equivalent of tcpdump ) which produced some audio when a packet was sent or received. This was used so you could hear the network.....
+I guess if you are alive long enough, all things will be new again.  Now where did I put those bell bottom pants.....

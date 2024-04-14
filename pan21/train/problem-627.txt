@@ -1,0 +1,5 @@
+Even if you're not particularly concerned by security issues (dangerous mindset though), it's just not worth the risk. One way to make this safer is to match the live against the expected format using the [[...]] built-in, or similar.
+Not only the evil script will get executed by whoever is the effective user (hopefully not root), you will not even realize it happened.
+It seems there are just two lines to parse. At this scale, I doubt performance is a serious concern, or that alternative approaches would make a noticeable difference.
+Judging by the eval, it seems the properties file contains assignment statements that bash understands. Or so you think. Using eval this way is most often a serious security risk. What if somebody fobs a way to tamper with the file and append a line like this:
+I find the way you compare the previous and current values of the two variables overly tedious. I would take a much simpler, lazier approach. For example, keep a copy of the previous version of the file at a place not editable by its current users, and replace the tedious checks for each variable with a simple diff.

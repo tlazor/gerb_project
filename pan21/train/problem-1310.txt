@@ -1,0 +1,6 @@
+The SPD tab shows a lookup table of settings based upon different frequency settings. This is a table which is stored on the stick of ram by the manufacturer. So the correct setting should be the one in the column with the clock frequency you have the RAM set to in the BIOS.
+If your frequency is not on the list, consider manually setting the values to ones from a column with next faster frequency (and higher latency).
+I bought this RAM for one of my systems. The BIOS (latest version for this mobo) has automatically set the timings for 9-9-9-24 1T. This passes memtest86+ fine (10 passes overnight.
+9-9-9-24-1t looks correct to me... perhaps the previous versions of the BIOS didn't support the 9-9-9-24 1t configuration... so it ran the sticks slower.  According to the manufactures site... they're rated for CL9... so going faster than that is probably a bad idea (lower-number = faster)
+How can I tell which timings are correct? The DIMMs don't have any timing information on the stickers and the packaging does not either. The newegg page doesn't have timings either. I do not understand how to tell which timings are the stock timings for this RAM. 
+If anybody could tell me what the proper timings for this RAM I would appreciate it. If you need any more information I will provide it if possible. 

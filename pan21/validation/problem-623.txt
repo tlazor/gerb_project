@@ -1,0 +1,5 @@
+For additional diagnostic, please provide the output of iostat -x -k 1 while executing some command you find particular slow.
+The behavior you describe is often due to an overloaded disk subsystem. The uninterruptible yum update is a good indication that some processes (yum in this case) are in D state (deep sleep), meaning they are waiting for disks to return/accept data.
+If I understand correctly, you are running linux vm on VMWARE? if so, please check network and disk performance from host machine, can see I/O wait and sy taking long time may be that mean something wrong with host resources allocation to guest machine. RAM looks good, CPU and I/O may be major factor for vm slowness.
+I have been running top, vmstat, sar, iotop, and those stats look good, but the VM is quite slow, even a simple yum search takes forever, to the point that cntl+C has a hard time trying to terminate the session.
+If you see, the server is pretty much idle, but for some strange reason things are taking forever to complete.

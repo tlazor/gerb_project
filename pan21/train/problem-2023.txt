@@ -1,0 +1,6 @@
+Bash should have line editing and a nice prompt set up by default. To set a more informative prompt, if it's not already, you can set the PS1 environment variable:
+I would advise leaving the root user's shell set to sh and on the rare occasions that it's necessary to login as root, if you want to use Bash, just start it at the command line.
+Also, when logged in as a user, I can't press the cursor keys to move the caret (blinking thing) around, or press up to see previously executed commands. Instead it gives me this representation of the button pressed: ^[[D ^[[A ^[[B ^[[C. Pressing Delete, too, gives me ^[[3~.
+In your question, you show # as the prompt. That usually indicates the root user. It's best if you don't run as root. Login as a normal user and use sudo to perform administrative functions.
+This is all strange to me, because when logged in as root, it all works fine. I'm hoping this is just something I've accidentally changed in Putty, or added the user wrongly, or perhaps just got caps lock on. Thanks.
+Ubuntu Server newbie here, got some annoying issues with remote accessing my box with Putty. When I create a user and then login as that user, the terminal always starts with just '#' and not 'user@hostname:~#' which isn't useful where I want to see where I've changed directory too, like I can normally.

@@ -1,0 +1,21 @@
+[  131.828146] cloud-init[548]: ci-info: ++++++++++++++++++++++++++++++Route IPv4 info+++++++++++++++++++++++++++++++
+[  132.029476] cloud-init[548]: ci-info: |   1   |     20.0.0.0    | 0.0.0.0  |  255.255.255.0  |    ens3   |   U   |
+Even I faced the same issue so tried to reboot the Instance and after some time in the Route Ipv4 info, am able to identify the 3rd destination with which the Instance trying to take the meta-data. This is not the exact solution to the problem but a kind of alternative.
+[  131.681617] cloud-init[548]: ci-info: |  sit0  | False |              .               |       .       |   .    |         .         |
+[  131.419546] cloud-init[548]: ci-info: | Device |   Up  |           Address            |      Mask     | Scope  |     Hw-Address    |
+[  131.398661] cloud-init[548]: ci-info: +--------+-------+------------------------------+---------------+--------+-------------------+
+[  131.912601] cloud-init[548]: ci-info: | Route |   Destination   | Gateway  |     Genmask     | Interface | Flags |
+[  132.058772] cloud-init[548]: ci-info: |   2   | 169.254.169.254 | 20.0.0.1 | 255.255.255.255 |    ens3   |  UGH  |
+[  131.935481] cloud-init[548]: ci-info: +-------+-----------------+----------+-----------------+-----------+-------+
+[  131.326590] cloud-init[548]: Cloud-init v. 18.4-0ubuntu1~16.04.2 running 'init' at Thu, 29 Nov 2018 13:01:17 +0000. Up 104.95 seconds.
+[  131.373908] cloud-init[548]: ci-info: +++++++++++++++++++++++++++++++++++++++Net device info++++++++++++++++++++++++++++++++++++++++
+[  131.515524] cloud-init[548]: ci-info: +--------+-------+------------------------------+---------------+--------+-------------------+
+[  131.621358] cloud-init[548]: ci-info: |   lo   |  True |          127.0.0.1           |   255.0.0.0   |  host  |         .         |
+[  131.981100] cloud-init[548]: ci-info: |   0   |     0.0.0.0     | 20.0.0.1 |     0.0.0.0     |    ens3   |   UG  |
+[  131.595173] cloud-init[548]: ci-info: |  ens3  |  True | fe80::f816:3eff:fefb:ba81/64 |       .       |  link  | fa:16:3e:fb:ba:81 |
+[  131.567586] cloud-init[548]: ci-info: |  ens3  |  True |           20.0.0.9           | 255.255.255.0 | global | fa:16:3e:fb:ba:81 |
+[  131.891154] cloud-init[548]: ci-info: +-------+-----------------+----------+-----------------+-----------+-------+
+[  131.747621] cloud-init[548]: ci-info: +--------+-------+------------------------------+---------------+--------+-------------------+
+[  132.097319] cloud-init[548]: ci-info: +-------+-----------------+----------+-----------------+-----------+-------+
+[  131.652707] cloud-init[548]: ci-info: |   lo   |  True |           ::1/128            |       .       |  host  |         .         |
+[  131.716687] cloud-init[548]: ci-info: | tunl0  | False |              .               |       .       |   .    |         .         |

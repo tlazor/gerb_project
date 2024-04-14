@@ -1,0 +1,7 @@
+1: full control: Create a website that lists your users and mail lists and select who goes where (not much better then the normal situation I guess)
+3: automatic: A script run from cron every half hour, which adds all email addresses from the database to the list file. 
+Depending on the how the database is populated now I can see three scenarios depending on the level of control when creating the list:
+Your Important note, should always depend on the configuration of the mailinglist. In majordomo it is possible to limit who can send to the list via the config of that list. I assume this is no different with mailman.
+With the Majordomo list manager the list is saved in text files on the server. If this is the same with Mailman one could write a script that fills the list file from your data in your database.
+1 seems to me a rewrite of the mailman web interface, 2 could be cumbersome when the website is an upgradable CMS, 3 seems to me the most logical assuming that it is no problem that there is a small delay in when someone is added.
+2: website control: Assuming you populate the database from subscription to a website. When a user is added to the database, the email address is added to the list file. On deletion the opposite. 

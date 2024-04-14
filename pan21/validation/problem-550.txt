@@ -1,0 +1,10 @@
+An advantage with a "real" FTP client as compared to batch wget use is that a single connection to the server can be reused, which might boost performance. I'm not sure there is such an alternative for wget, but maybe there is. If this is a true one-off operation, you could probably use more or less anything.
+Another alternative is rsync which also supports FTP, and perhaps you are already used to this. It also has quite advanced options ready as per filtering and resuming broken downloads.
+You can also script most command-line FTP clients, however (e.g. BSD ftp client). But wget is better in that you can configure it to not download files you already have, which makes it very convenient for syncs.
+I need to download 10,000 zip files from a client's FTP that has about 40,000 items on it.  I have contemplated doing:
+I use LFTP for transfers and syncing over both FTP and SFTP. It has an internal queuing system that works well for my use case, supports mirroring, reverse mirroring, FXP, all regular FTP functions and more (even Bittorrent nowadays).
+wget is good and competent and will probably work fine in this case as mentioned by Iserni's answer, if you dig into the manual for available options. I'll just state some alternatives.
+I've also used NcFTP that has a very nice batch system, but the deal breaker in LFTP's favor for me was that it supported both FTP and SFTP.
+wget supports (on Linux at least) also rate limiting, and it is quite easy to distribute the file list between several files in order to download in parallel, or you can use GNU parallel.
+In this case it seems simple enough to just use a script and wget, but I wanted to mention a program that simplified FTP transfers for me greatly.
+The solution is good and quite solid: with the proper options, wget will retry and download any file whose transfer got interrupted.

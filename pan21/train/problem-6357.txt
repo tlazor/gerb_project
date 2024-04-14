@@ -1,0 +1,6 @@
+I would check to see if cached mode is enabled or not and go from there. How is the user viewing the calendar? 
+It doesn't sound like the calendar is being viewed correctly. If the user is seeing the calendar items in bolded fonts, then that means they have not been read/addressed as far as her Outlook is concerned. 
+Interestingly, those records that she can't see, others see in regular font. The ones that she  can see, others see in bold font. Any suggestions?  
+However, one of the users, in fact one of the attendants approving vacation for her subordinates, can receive requests and approve them but then she can't see them (and some others) in Month view. She can only see them when she opens a date.
+Our resource mailbox is oriented towards discretion of the attendant. Policies are open, everyone is allowed to request in and out of policy events. Resource allows conflicting scheduling.
+We just implemented vacation calendar based on Exchange 2010 resource (room) mailbox and Outlook 2010 clients. Interestingly, some users can't see all entered records.

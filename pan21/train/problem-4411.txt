@@ -1,0 +1,8 @@
+I live a floor above the access point, so it can be because of distance (though I have a full signal sign) but I suspect it also has to do with the amount of load.
+Do you have a way to make the router prioritize my machine, or in another way improve my experience? 
+Once you have an open-source firmware installed, you can use the traffic control/QoS ("Quality of Service") features to prioritize your machine. I'd assume there are ready-made packages for OpenWRT or derivates like DD-WRT somewhere.
+OpenWRT can be installed in the WA901ND, but the description says it has low RAM, and won't be supported in the future. (Low RAM may be another reason your existing setup is slow).
+Sadly I can't do it all the time because the flatmates will complain, try to restart the router, etc.
+Sometimes when I have an important Whatsapp call to make, I change the SSID to an unrecognizable name and put a password on, so I have the wifi all to myself - and then my connection is smooth.
+However, in your place the first thing I'd do is to invest the 30 EUR or so and buy a router with more RAM (can be TP-Link again), and make sure to choose a model that will work well with open firmware.
+Even though it says "300Mbps Wireless N Access Point", tt's very slow most of the time so that I can't have a smooth Whatsapp call.

@@ -1,0 +1,8 @@
+The location 0x7c00 is considered free memory. so its not used by bios or other system things, just the bootloader is put there but that's not important. you can replace it with 0 if you want a pristine copy of memory.....
+After the BIOS boots, I'd like to dump the memory of the system. I have read about how it is possible using FireWire to do this, but have found no hard instructions or tutorials about it.
+It would be possible to write a custom boot sector, that copies everything in RAM to a disk, but I'm struggling to see the usefulness.
+write a small custom mbr which uses int 0x13 AH=43h: Extended Write Sectors to Drive in order to write memory to disk.  Just remember the 512 bytes starting at 0x7c00 is you. That memory will not be filled with anything before bios loads mbr there.  If you use that method, it does not depend on FireWire which is an uncommon interface.
+There wont be anything in memory except the BIOS, the constructs it has created, and any option rom data.
+Here you can find a general overview of low level system memory: https://wiki.osdev.org/Memory_Map_(x86) 
+The memory map can help you write out certain parts of memory which have contents so you don't need to dump bunches of 0s. 
+Alternatively to writing to disk you could dump over serial if you have a serial port to connect to with BIOS int 0x14 which could be more convenient depending on your setup.

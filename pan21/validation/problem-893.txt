@@ -1,0 +1,6 @@
+Next is a part that got me mixed up when I first got my 5510 so make sure you know which things to put where.
+That should be it. I believe the idea is you allow security access to the external/public IP, then NAT does the translation if the security rule permits.
+First, I've heard there are problems that crop up if you only have one external/public IP address. You have to do some extra configuration and I'm not sure what that is. I'll assume you have at least two and one of them is the firewall's external IP. We'll use an available one below.
+It looks like this hasn't been responded to in a while, but I'll try and explain what we have on our 5510.
+Go to Configuration -> Security Policy. Click Add and create a rule that permits incoming traffic from the outside interface (source any) to the internal IP address (specifying the port).
+Go to Configuration -> NAT. Click Add then "Add Static NAT rule". Put in your internal IP information under Real Address, and your external IP information under Static Translation. Check off "Enable PAT" and put in 80 (or 443).

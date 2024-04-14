@@ -1,0 +1,5 @@
+Why don't you just VPN to work and RDP to your work machine and connect to the rackspace server through there.  I hop and tunnel through other clients all the time.
+But in all honesty, you shouldn't do that: DNS isn't really a secure service unless you're using DNSSEC (which I doubt). In adition, you shouldn't need to do that, really, unless you have restriction on your outbound connections from an external machine. What are you really trying to do here ?
+This kind of thing really should be done on the perimeter firewall, not the server firewall. Having said that, I'm not aware of a satisfactory way to do what you are after. It would be far preferable in this instance to use a technique that doesn't rely on prior knowledge of the source address. Port knocking would be a good technique to employ but I don't know if that is readily achievable on Windows.
+Does Rackspace support IPv6? If so you can get a static v6 assignment from a tunnel broker (e.g. Hurricane Electric or SixXS) for your home machine.
+As far as I know, you cannot do that unless you write a script to do the lookup and adjust the rule.

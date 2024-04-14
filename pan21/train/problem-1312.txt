@@ -1,0 +1,10 @@
+The destination port(at the client side) of the Reverse SSH Tunnel is 80 and the source port(at public server side) depends on the user. We are planning on maintaining a map of port addresses for each user.
+I was about to recommend the same suggestion for using mod_owner within iptables, but Jeff has beaten me to it.
+Each of these clients create a Reverse SSH tunnel by using the ssh -R command from their web servers at port 80 to our public server.
+Your cleanest solution would just to modify this file (for example, you can use pw->pw_uid to get the uid of the user connecting, and map that to the correct port) and recompile your SSH server, but that would depend on how comfortable you are with this.
+If we were using the forward tunneling feature of SSH with ssh -L, we could permit which port to be tunneled by using the permitopen=host:port configuration. However, there is no equivalent for reverse SSH tunnel.
+Unfortunately, as you can see, there aren't many conditions that appear to prevent port forwarding aside from the standard ones.
+My suggestion is using SELinux for this. You'll have to configure user profiles that allow which ports to be open. The sshd process forks and drops to the user's privileges before opening a port to forward, so anything applied to the user's processes will be enforced on sshd. Be mindful that you'll need to restrict to all user processes since once could use netcat to forward another port. I'll try to sort out proper syntax for you later (or any other user is welcome to edit it in for me).
+For example, client A would tunnel their web server at port 80 to our port 8000; client B from 80 to 8001; client C from 80 to 8002.
+Since you've placed not allow in bold, I assume you want some kind of run-time rejection at the SSH client side that prevents the port bind. So, I've had a dig of the source code for you:
+Basically, what we are trying to do is bind each user with a port and not allow them to tunnel to any other ports. 

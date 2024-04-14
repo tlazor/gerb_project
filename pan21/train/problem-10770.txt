@@ -1,0 +1,6 @@
+I prefer it compared to tripwire because it is simple to install (just copy a file) and does not require administrator skills or root privileges. 
+If you are using Linux, incron will watch files in directories you designate or inotifywait can watch files recursively. Any action can be taken when there are changes.
+Not sure whether this is a Linux question. If it is, you can use basically any tool that interfaces with the inotify subsystem of the Linux kernel. Such as, for example, iwatch: http://iwatch.sf.net
+You want AIDE - an intrusion detection system. It scans the directories you tell it to, to build up a database of md5 hashes. Then you run it regularly, or on-demand to create another DB which it compares to the original. Differences are reported to you. then you can make the new DB into the baseline and repeat.
+It is also the only script/IDS I found that works with cheap hosting (Linux/Windows) without SSH access and without cron.
+You don't have to check file changes, it'll report on permission updates and other items as well. The report it produces is a text file that can be emailed after a run - google for examples.

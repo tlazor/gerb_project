@@ -1,0 +1,10 @@
+An Oracle database keeps track internally the number of rows affected by DML/DDL operations on a table since the last time statistics were gathered on it.
+I have never used it for anything important, but you can give it try. First flush the monitored data from the memory to the underlying table, so you can query it (this also happens periodically):
+My applications often need an accurate but perhaps imperfect row count. Billion-row tables often get frequent writes, so "perfect" is a matter of definition and timing.
+You will find that SAMPLE BLOCK is a great deal faster because it does a tiny fraction of the IO that SAMPLE does. Of course if the data isn't evenly distributed it will cause the result to be less accurate, but this can be more than offset by increasing the sample size.
+(There are other methods with different metadata). This provides a nearly perfect row count, perhaps omitting certain in-progress transactions or other minutiae. Such techniques work for all but the most demanding situations and are practically instantaneous.
+This is the real problem. Out of date stats cripple the CBO and are therefore "a bad thing". You likely need to change your DBA policy.
+This is unreliable because, if statistics have been gathered at all, they are often out of date depending on DBA policy.
+Does Oracle provide a practical means of getting an accurate, fast row count for arbitrary tables, such as that which Microsoft SQL and others provides?
+However this is inaccurate by design, still quite slow (115 seconds on a 500M row test), and is almost useless when the application does not already have a row count estimate. Running that SQL on a table with 800 rows is like asking, "what is the price of that candy bar, give or take $75.00?")
+Of course this is not 100 percent accurate, for example if the database was restarted just before an automatic flush, that information is lost.

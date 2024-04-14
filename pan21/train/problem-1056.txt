@@ -1,0 +1,6 @@
+But if I can, I would advise you at this point to do differentials from the first full backup; I'll explain. The difference is this:
+I'm the author of the tool. I can tell you that it would be enough to add a trivial parameter to your command: --mode Full. Without this parameter, Butterfly Backup defaults to the Incremental value.
+bb backup --computer srvfs1_1020 --destination /dev/nfs/bck --custom-data /mnt/nfs_share1 --type Unix --retention 7 --log 
+But now I need to backup a web server, but instead of an incremental, I have to do all full backups. Can you please me? I can't find the option. Thanks in advance.
+I used Butterfly Backup to make incremental backups of an NFS share, with a weekly retention. The command used is the following: 
+Therefore you should schedule a weekly backup in Full (--mode Full) and every other day of differential backups (--mode Differential). At this point you should have only the differences from the first full day, and then the second, third ... and so on.

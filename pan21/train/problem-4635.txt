@@ -1,0 +1,7 @@
+I have a ship at location X, Y and the ship has turrets which can turn 360 degrees. I want to aim at an asteroid at location Xa, Ya.
+I have found a site that says simultaneous equasions could be used to solve the problem but has anyone working knowledge of how this is done.
+I need a bit of help with the maths for a targeting system for a space simulator. The problem is working out the correct turret angle so that the bullets hit the target ship...
+Your aiming at a moving target routine is also just an approximation and not the correct math. In order to work this out we will describe where your bullet could be at a given time by a circle and we will describe where the ship you are targeting will be with a line.
+Now consider the asteroid is moving at a velocity vector of Xsa, Ysa and the bullets fired from the turret have a speed.
+I guess your atan2 routine takes y as the first parameter not the second and so you needed a correction factor. 
+Ok the bit I cant get to work right is when the ship is also moving, lets call this velocity vector Xs, Ys. When the ship is moving the bullets fire maintain the movement of the ship plus the bullet firing speed at the angle vector. Think of driving a car and shooting a bullet out the window the bullet would fire out sideways from the car but would also maintain the car's forward momentum as it traveled.

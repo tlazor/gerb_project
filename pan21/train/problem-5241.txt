@@ -1,0 +1,7 @@
+I'd hazard a guess (hard to be sure without more investigation) that someone is spoofing your IP as a source and you're getting the return traffic.
+Btw, I'm getting this packets from multiple sources, which leads me to think this might be some kind of (D)DoS. But I'm not sure which role I'm playing on this.
+You can't stop the packets coming to you (your provider needs to do that), all you can do is drop them to minimize the impact on your host.
+I keep getting ICMP type 3 code 13 packets on tcpdump. when I run tcpdump icmp, I get messages like:
+Be careful, ICMP is critical for the working of the 'net, it is used to tell you that some connection worn't work among a long list of other error messages. To swamp any reasonable machine via ICMP would take quite some ingenuity from a miscreant, don't worry too much about this.
+Remember that tcpdump examines the "wire" (ie, BEFORE iptables) so you'll still see the traffic in tcpdump even if iptables is dropping the traffic.
+Remember that the iptables rules are processed in the order given, so if the chain returns before it reaches your rule it won't have an effect.

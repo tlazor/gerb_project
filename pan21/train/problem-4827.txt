@@ -1,0 +1,5 @@
+If you're under heavy load the JRun never has a chance to do a garbage cleanup, read up on http://www.adobe.com/devnet/coldfusion/articles/coldfusion_performance.html and then check your own server to see if the garbage collection has a chance to run.
+You may also have a problem with the young generation specifically never having a chance to cleanup, if you are running 32-bit make sure your -Xmn value isn't too high, once again consult the first link.
+I forgot to mention that coldfusion is a 32bit application but the windows is a 64bit, this may be the problem?
+They are in production server and sometimes the the site is not available, I have to manually end the jrun.exe process from task manager and then the site is available. I realize that the process jrun.exe has abut 1.3Gb of memory used at the time it crash's. It happens 2-3 times a day, I have looking in the coldfusion logs and I did not found anything strange beside some warnings that some job exceeded the 300 sec of time execution.
+Check here: http://gruchalski.com/2011/03/24/coldfusion-9-crashing-try-different-garbage-collection/

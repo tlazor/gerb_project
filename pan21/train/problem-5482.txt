@@ -1,0 +1,7 @@
+Do not link to the files: link to the directory. If you link to the file, you may have a problem when the application creates a new log file, either as part of log rotation (depending how that is done) or when you stop and later restart the application.
+The fix to this is fairly simple: configure logrotate to rotate the logs in the new location. The old one will still have the growing file, but it'll only be the one.
+To answer your question, it kind of depends on what kind of rotating you do. For instance, the following progression will happen:
+I have a service which insists on keeping it's log files in terrible locations.  After all efforts to change where it keeps them failed, my next idea was to create hardlinks to those files somewhere cleaner.  This led me to a concern:
+If I configure logrotate to manage these log files, will it work as intended (rotate logs, keep my links working)?  Or will logrotate accidentally break the links, and leave the logs accumulating in their native locations but not in my central one?
+I believe I can configure logrotate to re-create the hard links after a rotation if necessary.  But, is it necessary?
+I think you can use symlinks to your desired new location and tell logrotate to rotate the logs in whatever folder they actually reside in;

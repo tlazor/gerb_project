@@ -1,0 +1,7 @@
+The new way is to use the iproute set of commands, which are all invoked with ip followed by an object. For example:
+Now, I hear you say, this is basically the same info! Yes, but this isn't the whole story. Before the routing tables (yes, plural) comes the rule table:
+The routing table we were looking at before is the main routing table. Your question concerns the local routing table, which contains all routes relating to local connections. This table can be shown as follows:
+(You can abbreviate ip options / parameters as long as they're still unique, hence ip ro sh is the same as ip route show.)
+You can do all sorts of wonderful things with this policy-based routing, I recommend you read Policy Routing with Linux by Matthew G. Marsh for all the info you'll ever need.
+When you're using ip route show the main table is displayed. To display the local table use ip route show table local.
+Doesn't this mean that 127.0.0.0/8 is routed towards the gateway of 172.17.42.1 and not the loopback device ? 

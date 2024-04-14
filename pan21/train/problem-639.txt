@@ -1,0 +1,7 @@
+A load balancer can be in front of one or more hosts. Yes all the back end hosts can be active. Two or more for high availability. 
+In many designs, the load balancer is the only component that needs a virtual IP (aka service address). It will pick a host and forward the request to be serviced.
+Does it possible to create a cluster architecture with my 2 CentOS servers and have a virtual IP to join my both servers ? 
+You probably want at least 3 VMs, one for the load balancer, and two for the back end hosts to serve requests. The number and specs would need design depending on your high availability and performance requirements. For example, you might make the load balancer a highly available VM or use a hardware appliance.
+Regarding terminology, I do not call most load balancers clusters. The hosts behind them can be quite independent, unlike clusters.
+Does it possible to get a Load Balancing with only 2 servers ? An active/active cluster. I know it's possible with HAProxy but in this case, we have to add a third server.
+Whether or not your application needs shared state (database) and how to implement that it is another topic.

@@ -1,0 +1,6 @@
+Honestly, run a long ping, drop the results into a csv, pull it into the spreadsheet of your choice and run with it. By long, perhaps a day or two to cover the different times of day.
+I would agree that even ping can give some interesting data - especially packet loss, round-trip-times and mean deviation for RTTs are directly streaming-relevant data. Of course, you would need to run ping with appropriate packet sizes (i.e. the sizes your streaming protocol is going to use) and the necessary frequency (i.e. as often as your streaming protocol is going to send). For a quick glance at a customer's site we are using this kind of script run every minute and evaluate the results:
+We are currently looking at doing some international video conferencing, and before we go ahead and buy a system we need to measure Site to Site Latency & bandwidth objectively.
+QCheck is a free tool specifically geared to the kind of testing you need to do. You install the endpoint on one end of the connection and run the test tool from the other end.
+Additionaly to what's being said already, the bing utility will give a rough estimate of the available bandwidth even without a client-server setup.
+I can't see any obvious products that will do this - can anybody make a recommendation here as tracert just won't cut it.

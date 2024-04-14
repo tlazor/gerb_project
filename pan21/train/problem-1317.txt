@@ -1,0 +1,7 @@
+Wan-2 (eth4) is the new wan connection I'm setting up. I can ping it from the outside and connect via SSH to it. But I can't connect to internal servers from this IP. 
+Wan-1 (eth2) is the current default gateway, everything is working here. I can access internal servers from the internet. No problems. I can ping it from the outside and connect via SSH.
+Wan-1 rules are working, and I can access all internal servers without problem, but I can't access servers when using Wan-2.
+Could someone please point me/help me out why aren't connexions coming from wan-2 being forward to the internal servers? The rules seem ok, but maybe I'm missing something.
+But when I was troubleshooting the problem I realized that this value was 1 in all the interfaces (except default):
+I have 2 Wan connections, both with static IP. Wan-1 is on eth2, Wan-2 is on eth4. I want both of them to forward to the same internal servers.
+http://nerdboys.com/2006/05/05/conning-the-mark-multiwan-connections-using-iptables-mark-connmark-and-iproute2/

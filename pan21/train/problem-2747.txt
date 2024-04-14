@@ -1,0 +1,9 @@
+Invoke-Command : Cannot evaluate parameter 'ConnectionUri' because its argument is specified as a script block and ther
++ Invoke-Command <<<<  -AllowRedirection {c:\ntutils\utils\subinacl.exe /printer http://$Server/$PrinterName /Grant=ter
+    + FullyQualifiedErrorId : ScriptBlockArgumentNoInput,Microsoft.PowerShell.Commands.InvokeCommandCommand
+This one bugged me for a while and with the help of this thread I got to where I needed. as Mike pointed out the script gave me errors, I tried modifying it but nothing. Finally I used good'ol CMD directly. 
+The default permissions on a printer usually seems to include manage permissions assigned to the domain group "Print Operators".  Consider adding your helpdesk group to "Print Operators".
+Also, there appears to be a global set of permissions that may allow for setting to be applied to all printers found under Print Server Properties which can be accesssed by right clicking the Print Server's name in printmanagement.msc.  
+Note: I have not used the Print Server Properties acl before, so I cannot say if it works the way you want.
+I recognize this is not a method by which to apply security permissions to all printers, but it may solve your problem.
+When I run this it appears to be pulling the server name and printer names but is erroring on running the command --

@@ -1,0 +1,9 @@
+What this does is tell Excel to populate that combobox with the list you tell it to when you open the workbook (you can check if it works by clicking the play button in VB Editor's toolbar). You'll need to have the option to enable macros.
+I would create a list of items you generally purchase on another sheet, then use data validation to put a drop down in the item column with all the items.
+For your list of matching items, if you want it to autocomplete, you're going to need to use a combobox + a macro.
+Then comes your "widget". You didn't specify which version of Excel you have, so you're going to need to find out how to add an ActiveX Combobox to your sheet.
+I'd like to have a widget in the top row so that I start typing an item's name and it shows a list of matching items that I can select from, or if I continue to type and there's only one item, completes its name. When the last item is selected, other widgets show the amount, which I can edit and clicking 'check' will check the item in the list. 
+In the left window, you'll see VBAProject([YourWorkbookName]) and folder under it called "Microsoft Excel Objects".
+I have an excel sheet for groceries. One column is the name, another is whether to buy it or not (checkbox) and another is the amount.
+First step is to create a list of groceries on your sheet or another worksheet. This list will be used to populate the "widget". You should make this list a Named Range to make your life a little easier later.
+Expand that folder so that you see something called ThisWorkbook. Double click that and, in the right window, place the following code:

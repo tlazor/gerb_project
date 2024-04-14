@@ -1,0 +1,6 @@
+So, I have two dsl lines, three wifi dsl routers, and a PC I can use as a server. Is there a way I can combine these to get one wifi network with connection to both dsl lines? I would like to get them to share load, so that I have a faster overall connection, but a load balancing situation would not be an unacceptable compromise. 
+I'm moving into a house with an existing dsl line. I am currently renting my own, and due to a contract I have with the phone company, I can't discontinue my subscription, but they said they would be able to transfer my line to the new house. 
+You need a load balancing router. It'll do all the work for you then. PFsense box would work too, but really that'd be a fair bit of work and typically uses a fair bit of mains power too.
+You could use something like pfSense on your server; You would need 3 NICs (2 for the WAN connections and 1 to attach your WiFi AP too).
+I wonder if someone could offer some advice. I've been looking around the Internet for a while, but have not been able to find the right info. 
+Then you could take your remaining 2 WiFi AP and use them to repeat the wireless signal for a greater range

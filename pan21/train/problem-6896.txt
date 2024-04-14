@@ -1,0 +1,7 @@
+No. This will replace whatever was stored under /home with the contents of the newly mounted filesystem.  
+Compare it to having a book. sdb is the book. sdb1 are the pages for the first story in that book. And most books only have one story, in which case it is almost the same.
+Yes. The first partition on that disk will be mounted at boot under /home. That assumes that you created an ext4 filessystem on that partition though.
+Back to the book analogy: The filesystem is like actually writing the page numbers rather than having blank paper.
+What will happen if I never assign a partition to be mounted on directories like /opt, /tmp, /usr... Where do they get disk space from?
+/dev/sdb1 is the first partition on that drive. If you only have one partition then it is usually as large as the whole drive.
+What you probably want to do is reboot into single user mode, then move the contents from /home to another location. (e.g. mv /home /home.old). Then mount the new disk in its old space (mkdir /home, mount /home) and make sure all old files and their permissions are then copied to the new disk.

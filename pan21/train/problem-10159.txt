@@ -1,0 +1,6 @@
+I have a corrupt VHD that I need to get data off of. It is a Windows 2003 x32 Hyper-V Virtual Machine (NTFS). I have a nearly identical version of that VM without the data on it that works.
+You could try opening it with VirtualBox.  Or get a VMware product and use VMware vCenter Converter to convert it.  There's a chance one of these products might compensate for the errors.
+Another option is to use partition/hard drive recovery software. Even though the hard drive is virtual, it should respond the same way to recovery software.
+Using a hex editor, I tried inserting the old vhd into the working one after a few pages (randomly trying to compare), but I can't seem to get it to work.
+It would be ideal to know the VHD file structure, so that I could know where the FAT is, where the VM header is, etc, so I can insert the bytes intelligently.
+I'm not sure about repairing the actual disk or the details of the VHD container format but if you haven't tried mounting outside of the Virtual Server environment proper, that may be worth a try.

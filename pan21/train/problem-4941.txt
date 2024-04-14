@@ -1,0 +1,7 @@
+Here's a slightly different take on this question. Here is an example of the two different swap operations being used in a more-or-less real-world context.
+Don't use stupid tricks like the xor trick. They're novelties and amusing for all that, but they rarely make a difference in the real world. About the only place where there's even a tiny chance that the xor trick is a good way to swap two integers is on some embedded system with no free registers.
+You tried to swap two integers without using a temporary variable. In some languages there is an obvious method to do this, for example in Swift you would write
+And what for? To avoid a temporary variable? Using a temporary variable, the code is trivial, obvious, easily readable, and will work for any type of variable, like floating point numbers, pointers, structs. Or you could use the standard library. 
+Notice how the two different functions generate identical assembly output? Notice which swap is easier for a human being to understand?
+And, your formulation of the xor trick is undefined behavior anyway. The fact that it worked is a pure accident, and while perhaps the fact that it didn't cause your computer to explode is less of an accident, that would also be a permitted result of running it.
+In C++ your code may or may not have undefined or unspecified behaviour. Once we state "it may have undefined behaviour", that makes the code unacceptable. Even if you arm yourself with a copy of the C++ Standard and prove that your code is correct, it is still unacceptable. 

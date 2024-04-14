@@ -1,0 +1,7 @@
+.The two previous answers are for removing all of Exchange from your domain. Since you just want to remove one server, but keep the rest of the organization intact, you should look at
+Also, be sure no URI's are referencing the old server, but you probably would have seen an issue with that by now.
+That gets you a server that AD and Exchange think is Valkerie reborn: then you can do a clean uninstall of Exchange on her and AD will clean itself up properly this time.
+Summarising this: you reset Valkerie's Active Directory machine account, build a new clean server called Valkerie and join it to the domain, and then run Exchange setup on Valkerie in a special mode that conigures it in exactly the same way Valkerie was configured.
+I've not done this with 2007 but with 2003 and ended up having to use ADSIEdit to manually remove it from the Active Directory - the process is described here:
+I have an exchange server "VALKYRIE" that is configured to run the unified communications role, but for reasons I will never understand, that server no longer exists. Exchange however thinks it does, so I would like to remove it. This server is ONLY configured to be the unified communications, and we don't use that role anywhere right now.
+Lastly, you don't need to worry about this since Valkerie was only a UM server, but in case anyone else is reading this: if the server you are recreating was part of a cluster, then the procedure is slightly different - investigate the RecoverCMS option instead.

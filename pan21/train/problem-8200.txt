@@ -1,0 +1,5 @@
+Not saying this is the best solution, it's really not if you're only using 1Gbps NICs and especially not if you're also using 1 1Gbps NIC for your storage too but that does work - there's no routing going on, just layer-2 but it might be what you're after.
+Certainly your management network can be in the same VLAN and thus IP-space as your VMs and they can share the same uplink port too. You do this by having a single vSwitch0 but with both a management port group and a VM-facing port group, both can either be on the same or different VLANs or even could go untagged altogether.
+I am initiating the remote connection via RDP/vSphere Thick Client/vSphere Web Client from my computer called "MyComp".
+So unless you somehow can convey the network's traffic to the vSphere host by other means (VLANs, bridges or some kind of bridging VPN or a suitable NAT configuration), the answer is "No".
+Is it possible to make the ESXi VM to use the network that from where the remote console to the VM (in question) is initiated?

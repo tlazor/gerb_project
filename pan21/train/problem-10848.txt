@@ -1,0 +1,7 @@
+Rebooted the test machine.  Firewall control panel remains user managed.  Ran gpupdate repeatedly.  Rebooted repeatedly.  No change.
+If you need to disable it completely, an easy way to do it is disable the Windows Firewall Service from Windows Services via GPO. You can set it in:
+Set it to enabled and the firewall won't run when connected to your network. According to the explanation this was superceded in SP2 by Windows Firewall, but all I can say is that it works for me!
+I assume that this should then apply the group policy of "protect all network connections = Disable" to any computer object inside that OU.  I've done this before for audit policies with success.
+Have you run Resultant Set of Policy tool?  At a command prompt or in Run, enter RSOP.msc You will see if there is another polity that turns this back on and overrides the policy you are trying to apply.  Tjis can be a bit tricky but the tool really helps.  Thre is a command line tool as well that is discussed here GPresults
+I want to force the in-house machines here to have their firewall disabled so I can manipulate them with scripts.  Trying to do it with GPO, but it doesn't result in a disabled and greyed out firewall setting panel like I'd expect.  Apparently I'm doing something wrong.
+Computer Configuration, Administrative Templates, Network, Network Connections, Prohibit use of Internet Connection Firewall on your DNS domain

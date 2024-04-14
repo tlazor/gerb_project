@@ -1,0 +1,5 @@
+The show interfaces filters command is used to show what firewall filters are applied to each interface, and in which direction.  Firewall filters are supported on just about every Juniper hardware platform.
+In a general sense, firewall filters are far less robust than the application firewall feature.  They cannot do deep packet inspection (they operate on Layers 3 and 4), they can see things like source/destination IP or source/destination port.  The most common use for firewall filters is to protect your control/management plane on a Juniper device, here's a very basic example on how to only allow SSH.  
+The reference to "standard network firewall policies" is pretty much a direct comparison to the above mentioned "firewall filters".  Let me know if this isn't clear, and I'll happily edit my answer.
+The other command you referenced, show security application-firewall rule-sets all relates to SRX's application firewall feature.
+The full feature set of application firewalls can get pretty unwieldy, but in short they do a much more thorough analysis of the traffic.  If you check out the Application Firewall Overview you'll see the following text:

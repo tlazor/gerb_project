@@ -1,0 +1,5 @@
+SQL Replication isn't going to handle that for you.  You'll have to setup a very custom replication type system, possibly using SQL Service Broker to handle the merging of data into a single system for reporting.
+Foreign key constraints would be handled by replication.  You need to specify the schema option to replicate foreign key constraints when adding articles to your publication.
+I am currently rearchitecting an application so that each of seven businesses will have there own "live" SQL Server 2008 database and at scheduled times during the data the data from all seven databases will be replicated to a master reporting database.
+The question I have is do I need to do anything within the replication to maintain the Foriegn Key relationships from the source database tables or will replication take care of it for me?
+I would recommend you keep staging databases for the data that's coming over, and then use an ETL process (SSIS or just stored procedures) to migrate that data into the reporting database.  That way you'd be able to preserve all existing relationships without worrying about bits of data stepping all over each other.

@@ -1,0 +1,6 @@
+or you could build a socket connection between your app and that raspi but .. if its just sending commands there wouldnt be needed as you just would execute a script with some parameters on the central raspi via ssh -c :p
+I want to Remote access my Raspberry Pi 3 Model B from my Mobile Application(that i have created). Actually I have many Devices at home that based on Raspberry PI (many Raspberry PI) and want to control from one Mobile application without Port forwarding. 
+raspis (lots of them) <-> register to a "central raspi" with (little programm/server selfwritten or so) tasks which handle all that fancy sending and receiving stuff <-> mobile application which gets current possible tasks/options from the central raspi and displays only available stuff 
+I also referred Dataplicity Documenation, but it's give different command for different Raspberry PI, so i can't bind those in one mobile application. 
+and i would just go for a basic rsa authentification // ssh connection unless you want to share that app and give more users access to it ..
+Thanks in Advance for your Suggestions and Helps. Actually, I am software Engineer and beginner in Communication Part, So if you can't understand Actual Task/Situation(it's my bad), then please let me know. I explain a Task in more detail so hopefully you understand well. 

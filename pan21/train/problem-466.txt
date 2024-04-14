@@ -1,0 +1,7 @@
+The problem I have is I cannot edit his source code and when attempting to change the DB server in the app.cfg to [server2\someinstance] it won't connect to the instance at all.
+The only way I see around this is to reinstall SQL server on the new server, without having any slash at all, e.g server2.
+The program connects to SQL server but we want it to point to a newer SQL server we have recently configured.
+I thought I'd ask the question here in case anyone can offer any other suggestions. I've looked into SQL aliases but am not sure this is what I want (plus when trying it would never connect using the alias name anyway, but that's probably a separate issue).
+If we run the same query in SSMS, we get the same error but to get around this we can put square brackets around the name and then the query completes successfully, e.g [server2\someinstance].
+Changing the programs app.cfg file to point to server server2\someinstance isn't a problem until a certain stage where it joins to another database on the same server. The program then throws the below error:
+In our company we have an old piece of software which was written by our previous I.T manager but was never finished.

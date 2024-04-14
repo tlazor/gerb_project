@@ -1,0 +1,6 @@
+I understand that something like sed, awk or grep with some redirection operators might be better suited to this task, but I'd like to know if I can use vim to do this.
+Something like copy matched regex lines into register "m. Then I'd be able to do a "mp where ever else I need this.
+I have some lines of text that follow a pattern and some that don't. I'd like to copy the lines that follow this pattern and then copy/yank them into a register so that I can paste them as is someplace else.
+However this has one problem. What happens if the m register is not empty when you start. Well you will end up with what ever you put into the register last time plus all the stuff you appended.
+You can use "Myy (capital letter M) to append into register m. This allows you write a global command to yank all lines matching def.*$ and yank all the lines into the m register. Then all you have to do is paste the m register to get the contents "mp
+The above global command tell you to find all lines that match the pattern def.*$ and execute the command "Myy in normal mode. 

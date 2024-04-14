@@ -1,0 +1,7 @@
+Ignore this talk about theoretical transfer rates and "60 MB/sec", etc.  Although I give credit to the guys who correctly converted bits into bytes and calculated a 35 MB/sec maximum, which falls in line with my REAL WORLD PERFORMANCE EXPERIENCE.
+There is a lot of false information in these answers about "theoretical" performance from people who have evidently never benchmarked USB2 HD transfer rates.
+582,54 minutes / 60 minutes per hour = 9.70 hour which gives 9 hours and 43 minutes to copy 1TB on USB 2.0 in one direction.
+...and I have NEVER seen transfer rates exceed 35 MB/sec!  In fact, any properly configured modern drive will transfer at 20-30 MB/sec, it's very rare to see the 30 MB/sec rate be surpassed. (I'm referring SPECIFICALLY to HDs transferring over USB2 here, to be clear.)
+I have benchmarked many different USB2 transfers between 2.5" laptop HDs both PATA and SATA, 3.5" HDs both PATA and SATA, and USB Flash drives...
+In both directions transfer is 480Mb/s. In one direction is 240Mb/s. Divide it by 8 to get bytes. So it is 30MB/s in one direction.
+For average transfers (mixed file size), on average harddrives (7200rpm consumer models), USB2 is not significantly slower then IDE or SATA - the speed difference you will encounter will be based almost entirely on overhead - more small files will result in slower transfer speeds. To get a speed measurement you will need to test using a real sample of the data you will be moving. 

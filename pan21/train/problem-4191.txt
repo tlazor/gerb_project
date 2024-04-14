@@ -1,0 +1,8 @@
+It seems a bit faster after moving my /tmp directory to an external hard drive. It would be nice to know for sure where chromium is caching content. It does seem to create a bunch of stuff under /tmp so this should help. The default /tmp location is on the root file system which is on the SD card. Not a great place for performance. I've also moved my swap space onto an external hard drive since chromium seems to grab a fair chunk of the available ram.
+Upgrading to Debian Wheezy (http://www.raspberrypi.org/archives/1435) also gives a significant speed boost.
+By default, Midori shows the last open tabs when it starts up.  This can mean that you have to wait for the pages from your last session to load before you can begin browsing.  
+I would suggest playing around with the settings and seeing what works for you.  I made a note of the default values, so that it is easy to revert any changes.  
+Disabling content (images, scripts and plugins) will speed up browsing, but you won't get the content either.  
+Whatever you do, don't try Firefox (called Iceweasel on Debian) which is too heavyweight for the Pi.
+First choice for speed is to use Raspbian, a Debian Wheezy distribution built with hardware floating point:
+Enabling Midori to store and use local data should speed up browsing, as the data will not need to be retrieved from the Internet every time it is used.  

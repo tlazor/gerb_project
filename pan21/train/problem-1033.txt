@@ -1,0 +1,11 @@
+and you'd not have any chance to detect a misuse. (In fact I even don't like that every program in my login session has access to my possibly unlocked key without a way to check if it's unlocked or not. I found your question on the search for an option to gpg-agent to pop up a confirmation dialog for each usage exactly for this reason.)
+I don't know for sure, but I wonder if it is sensible to have such an option because it could easily misused like:
+I have gpg-agent running with a cached passphrase for an hour or so.  I encrypt my email account passwords for offlineimap IMAP sync utility and have the script pass in the passwords by decrypting them from a GPG-encrypted file.
+I just have the similar plan to periodically fetch/sync may emails using mbsync and cron.  The passwords are managed by pass which uses GnuPG to encrypt the sensitive data.
+And gpg-agent will be automatically started when e.g., I invoke pass to get the password for my email account, and will pop up the pinentry dialog asking the passphrase.
+I don't want to configure gpg-agent to cache my passphrase for too long (e.g., 1 day or even 1 year), and I don't want the annoying pinentry dialog from gpg-agent triggered by the cron jobs, which should be just quiet.
+I think the mbsync cron job will sync my emails when gpg can just decrypt the password for pass without triggering gpg-agent to ask the user for the passphrase, otherwise, the cron job will just exit.
+Therefore, I can explicitly disable pinentry usage by passing --pinentry-mode cancel or --pinentry-mode error, and let gpg try to sign/decrypt a message.  If it succeeded, then gpg-agent already has the cached passphrase and will not pop up the pinentry dialog; otherwise, the sign/decrypt test just failed.
+When gpg-agent has already cached the passphrase, the same command will succeed and return status code 0.
+Since I run offlineimap with systemd as it is a cron job, it will naturally pop-up a pinentry program and ask for the password.  I was wondering is there a way to programtically confirm if gpg-agent will need a passphrase so I can query for the information, and gracefully exit the systemd/cron job if interactive passphrase input is required.
+The newer GnuPG (I'm using v2.1.18) must use gpg-agent to ask for the necessary passphrase to decrypt the private keys.

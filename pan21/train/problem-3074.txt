@@ -1,0 +1,6 @@
+But don't forget that procmail only works with locally delivered mail. It won't affect mailboxes accessed over IMAP or webmail.
+I understand that as my kids grow up, they'll figure out work arounds to any technical parental restrictions imposed upon them, but I want to at least understand the options that I have until then.
+If you have a short whitelist, you could try to get an even shorter reciept by combining the patterns:
+This would send all emails that are not from somebody@white.domain.tld and not from somebody@light.domain.tld to /dev/null. The remaining emails are send to the default destination. Be aware to use \. in your pattern if you like to match a single dot. The pattern . matches a single character.
+I think we have not any solution yet, that exactly solves the initial problem. Therefore, I would like to provide a more explicit approach. Lets suppose, that our whitelist looks like this:
+I'm not at all sure where I got this from (I know I didn't write it myself), but I've been using it in a .procmailrc for a while now to forward only messages from an address listed in a separate whitelist file to a given target email address:

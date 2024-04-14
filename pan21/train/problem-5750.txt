@@ -1,0 +1,6 @@
+We have a production server running Apache that sometimes crashes because of too much load, I'm trying to replicate the situation on a test server in order to test Monit.
+So my goal here is to overload Apache to make the service crash, or at least the render a website unavailable.
+Try using siege from another server or servers that have a reasonable CPU and network connection. Interestingly I found that testing from another server was able to put more load on than testing from the server with Apache, even though there was plenty of CPU spare. This is with my main server a t2.micro instance in AWS, with plenty of CPU credits.
+If you need to reproduce your production outage exactly I would recommend going for Apache JMeter, see Stop Making Assumptions! Learn How to Replay Your Production Traffic With JMeter article for details. 
+ab -n 100000 -c 1000 http://webtest/ but it doesn't seem to be enough, despite /server-status/ showing all workers active... Is there a more powerfull alternative or a more efficient way to use ab to bring Apache to his knees?
+Make sure you set benchmark = false in the siege configuration file (read the documentation). Latency between the servers is key, so in the same data center is best. I used an AWS m3.medium spot instance for around 1c/hr.

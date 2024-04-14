@@ -1,0 +1,7 @@
+examples of what to monitor: running out of space, service shut down, errors in event log, unsuccessful (and successful) log-in attempts, etc.
+It has a monitoring agent for windows, but because you host on vps, you will probably need some sort of VPN tunnel to access it.
+If you're using Win2k8 you can use perfmon to monitor and launch a batch file or powershell script to send you an email using alerts.
+any suggestions? preferably free or cheap solution. I host on vps, it wouldn't make sense for monitoring to cost as much as 1-2 years of hosting.
+If you're planning on monitoring more than one server, or want graphing you'll probably want to look at implementing Nagios. If you go the Nagios route I recommend implementing a frontend such as Centreon.
+I definitely recommend Zabbix too. It's user friendlier then other similar solutions(cacti, nagios) And the built in capabilities are great - graphs, notifications, dashboards.
+You could setup SNMP and then run Nagios to do the actual monitoring on the server itself. You won't get graph data out of Nagios without a little bit of hacking though, and it's not the greatest. For graphing you could look into Cacti or MRTG. I personally use Cacti and Nagios for monitoring.

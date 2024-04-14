@@ -1,0 +1,6 @@
+And comment out the line with root on it by placing a # at the start.  Save the file, and reloading the server is not even necessary.
+BTW, if you don't know the answer, please don't bother lecturing me about how I shouldn't allow root logins.  I know what I'm doing, and I accept full responsibility for any ruptures in the space-time continuum that may result.
+For those (like me) using VSFTPD on Ubuntu server in mid-2013, it appears that root is allowed to login via SFTP by default, no special changes necessary.
+Vsftpd can use pam for authentication, so I suggest you check /etc/pam.d/vsftpd. You will probably find it is pam that has been configured to prevent root from logging in. 
+In newer versions, you may need to change pam_service_name=vsftpd to pam_service_name=ftp near the end of your /etc/vsftpd.conf file.  Otherwise, you may get a login authentication error for root (or any user) even though permissions are otherwise correct.
+I'm on SLES 10.1, and trying to configure vsftpd to allow root logins.  Does anyone know how to do this?

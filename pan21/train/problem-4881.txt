@@ -1,0 +1,6 @@
+It will optionally let you deselect some files for removal in case there is some data from the app you want to keep around. You can even use it as a way to discover all of the paths the various files live in (the list TheWellington provided looks pretty complete to my eyes, but you never know).
+First, back up your PGP keychains, and any virtual disks you may have.  Then I would delete the following files.
+If your PGP keys are backedup, you can use AppZapper to uninstall PGP, then reinstall it fresh and import your company-provided license. The AppZapper trial lets you uninstall 5 apps before registration and it does a great job of removing EVERYTHING an app has added to your system. 
+I am not sure where the license file is stored, but to answer your second question, PGP has installed files in several locations around my system. (OS X 10.5.8, PGP 9.x)
+Once you have deleted those files, you should be able to run the installer for your new version of PGP, enter your license info, and you should be good to go.
+I suggest you contact the PGP vendor and ask them for help ... or read their FAQ (provided it exists).

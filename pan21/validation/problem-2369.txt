@@ -1,0 +1,5 @@
+I have an application which needs to scale horizontally to cover web and service nodes (at the moment they're all on one) but interact with the same set of databases and source files (both application code and custom assets). Database is no problem, it's handled already with replication in MongoDB.
+Also, the configuration of the servers are the same (100% linux). This question is literally about sharing a filesystem between machines so that its content is always correct, regardless of the node accessing it.
+My two thoughts have so far been NFS and SAN - SAN being prohibitively expensive and NFS seeing some performance issues on the second node with regards to glob()ing in PHP.
+To give you an idea of the scale, the main node initialises it's application modules in ~ 0.01 seconds. The secondary is taking ~2.2 seconds. They're VM's inside a local virtual network in ESXi and ping time between them is ~0.3ms
+Does anyone have recommended strategies or other techniques that don't involved sharding data across nodes or any potential gotchas in NFS that may cause slow disk seek times?

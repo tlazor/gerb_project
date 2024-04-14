@@ -1,0 +1,5 @@
+What you CAN do is isolate critcial systems and secondary systesm. Web, SQL are secondary - DC are critical (no dv up = everything stands).
+For a small network this is really the only choice you have.  We used to have our admin take a night each week dedicated to installing updates and rebooting servers.  Your biggest SPOF (single point of failure) will always be a single domain controller.  Without your DC nothing works so when you can upgrade... get another DC.
+As for SQL and your Web server, again it is what it is until you can move to a SQL cluster (very $$$) and a small web farm.  You can setup a web farm with two servers pretty easily using the built in Network Load Balancer (NLB) and the IIS Web Farm Framework.
+Yes, it is very hard to understand. Because you run 5 servers. My company network has 2 servers and EVERYTHING CRITICAL IS REDUNDANT. How comes you can not do tat wit h2?
+Have critical systems manually rebooted, secondary ones to a specific convenient time. Make sure someone is there to watch at that time. We plan in a mainteannce window every month, mostly because for most of our systems "a second off" is a desaster during normal operations.

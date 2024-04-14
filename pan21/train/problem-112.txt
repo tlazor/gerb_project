@@ -1,0 +1,7 @@
+I have a lot of files and settings saved on this SSD, I wanted to make a backup of this on another SSD, such that if something happens to it, I can immediately plug in the backup SSD and keep on working.
+2 use the SD Card Copier utility on the Pi (the ssd needs to be mounted on the Pi and can be slow as it does a file copy)
+Depending on the size of the SSD it will take a very long time because the bottleneck is the USB bus. It has to take the data two times: one time to read the data from one SSD and the other time to write them to the other.
+Just attach both SSD to the RasPi. I don't know how your RasPi will see the devices of them. You have to know it. For this example I will use /dev/sda and copy it to /dev/sdb. Now use dd to copy the image:
+Is this possible? I'm new to backups or cloning drives, I've tried looking up on the internet and didn't find a simple explanation, especially one which was centered around PI. 
+This means Pi should be able to boot from the other SSD and all my files should also behave the same.
+You can try to just copy the image of the source SSD to the destination SSD. The destination SSD must have at least exactly the same size than the source SSD, better a bit more to be on the save side so the image from the source will fit onto the destination. If it doesn't fit you will see it only at the end of copying after hours.

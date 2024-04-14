@@ -1,0 +1,8 @@
+The Default Tool Bar menu is; "Organize, System Properties, Uninstall or change a program, Map network drive, Open Control Panel".  
+I was mistakenly led to believe that Windows 7 could handle it like it handles its own "Compressed (zipped) folders".
+Apart from the specifics of the mess I created for myself, the general question is, if the "Always use the selected program to open this kind of file" checkbox is disabled, how does one enable it?
+Then when I double-clicked on the file I just got the wait/hourglass cursor flashing like crazy.  But that's not the problem... the problem is that I now want to un-associate .7z with explorer.exe, or at least associate it with something else, but the "Always use the selected program to open this kind of file" checkbox is disabled.
+Without wishing to denigrate Jeff Roe's answer, there is a simpler solution, which does not require the use of regedit:-
+Note: When choosing the program, notice that the option (Always use the selected program...) is still greyed out but, in this sequence of steps, the option is checked.
+If the file is on your desktop, you can still have it there, but you need to access it through the Explorer. (Windows +E opens Explorer.)
+Sometimes UserChoice isn't available using regedit.exe. According to an answer elsewhere, the following instructions will work for a given file extension:

@@ -1,0 +1,5 @@
+According to the docs, removing the ~ will cause the keys not to be passed on to the rest of the system. When I do that, however, XButton1 is never passed to the system, whether I finish the combo or not.
+I have a key combination written as ~XButton1 & XButton2::. When I press the combination, the XButton1 event isn't filtered out. This can cause, for example, my browser to go back a page when I don't want it to.
+AHk should buffer the first XButton1 event when it's recieved. If I do press XButton2, pass on nothing to the system. But, if I don't press XButton2, send a quick XButton1 down-and-up.
+You should try playing with the KeyWait function and the A_PriorHotKey and  A_TimeSincePriorHotkey variables, as explained in the example #4 of the KeyWait documentation.
+As explained in the AutoHotkey documentation about the &, using the a & b pattern causes the a key to lose its original function. To make the a key work on release when it's used alone, you can make a hotkey that maps back to itself like a::Send {a}.

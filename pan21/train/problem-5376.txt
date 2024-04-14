@@ -1,0 +1,9 @@
+ I cannot keep him away from the system since I am away for work most of the times, and also cannot remove his account, for it's for his use too. I just don't want any such 'theft access' to my system.
+This is the safest method involving a command line interface to reset password. OR you may try interrogating your brother. 
+Now at this point I am very angry; my brother has been using some kind of 'command prompt' based software (I noticed one day) to reset or remove the administrative password.
+But from sometime, I am noticing that every time I log in to my account, Windows doesn't prompt password for log in! Besides, new games and software are installed in it, which would, for sure require 'Administrative Rights' for installation. 
+My main account (i.e., administrator) is protected by a password, thus if my brother wants to install any piece of software such as games, etc., it would require my permission.
+I guess I know what he is doing if a command prompt window is involved. I also did it once to break into my school Server when the school lost its password. It is done through the recovery console command prompt and Windows cmd. 
+Then I head to the User Account section and notice that I am still the administrator, although the password has been removed! Furthermore, I set the password, and after few days back when I again log in to my system, the password is removed, and a new game is installed.
+But remember to go back to the recovery console command prompt and revert the filenames back to original i.e. utilman.exe--> cmd.exe, utilman.bak--> utilman.exe.
+I've an old system at home in which I've installed Windows 7 Professional. I use it seldom, although it contains important data and software for my use. I've created two accounts in it- one is mine, that's default, and has administrative rights, and other for my younger brother (a guest account).

@@ -1,0 +1,5 @@
+I have a large library of different IMG files (mostly from archived floppy disks). Whenever I open one with Windows Explorer, I get an error message that reads Could not mount file. The image file is corrupt.
+Not sure if it helps but I just now used "RawWrite for Windows" on my Windows 10 desktop to write an IMG file of a Macintosh floppy to a USB floppy drive and read it on my Macintosh IIci.
+I can confirm that the IMG files are not corrupted. They open just fine in a Windows XP virtual machine (which also means I can extract them to my host via a shared folder). 
+If you are not using a 3rd party software to open those IMG files then it is very likely the particular file system used in that IMG file is not longer supported by windows 10 but is supported by windows XP. Try utilizing a 3rd party tool like 7zip (if you want to just export the contents) or daemon tools lite if you need to mount it.
+The virtual floppy disks I was trying to open were MS-DOS 6.22 Supplementary Disk and the Windows 95 (and ME) Boot Disks.

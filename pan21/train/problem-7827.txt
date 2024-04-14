@@ -1,0 +1,5 @@
+If you are under licensing, you can post a question to their support. They are quite helpful. I've done it a couple times for config issues. :)
+I've used FortiGate in the past and you can do that with UTM like M4niac said. One thing to be careful with, maybe you've already experienced this, is Forti units are slow to process changes. In my experience, you do something in the configuration and it takes a couple of minutes before actually applying. Especially when speaking of UTM features. It looks like sessions needs to be dropped then initiated again on the new feature you just applied.
+FortiOs 5.0 and 5.2 (i think) have what are you looking for which includes an UTM options of client reputation (in other words, users rating) not just by traffic,  by malware, network applications or IPS.
+i think there is no built-in feature for this,but i guess by means of an external AAA server it may be possible.
+I'm trying to limit internet users by traffic quota in fortigate firewall.Is there a way to limit users traffic usage and set quota for them in fortigate?

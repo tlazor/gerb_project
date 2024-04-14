@@ -1,0 +1,6 @@
+I have a requirement as follows , need to setup a Multi-Master replication with automatic application failover ,if one master goes down, Can anyone share me some information regarding this.
+This is my favorite option, This will work as a Load balancer and so many features. Put both masters in the same host group. So proxysql will balance the traffic to both the servers.  
+In your case, you need a load balancer on top of mysql nodes to server the traffic without downtime.
+Generally Im not a fan of Multi-Master. Since native MySQL multi-master setup will not handle the conflict detection. Im not sure about your workload, but from my personal experience, a single MySQL master can handle 30k-50k QPS. If you stick with Multi-Master think about Percona XtraDB Cluster or MySQL Group Replication.
+I didn't use this before, but this will act as a normal load balancer. It won't any magic like ProxySQL.
+There are so many articles on the internet to setup Multi-Master. I request you to use enable primary key on all tables(Innodb works better with PK). Use auto increment is ODD for Master 1, and Even identity Numbers for Master2. 

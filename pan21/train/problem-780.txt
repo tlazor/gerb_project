@@ -1,0 +1,6 @@
+On a side note, what other things should I double check for security? I have Apache, MySQL and ProFTPD running.
+I have an SSH installed on my Ubuntu server. I can log into it from my Ubuntu desktop, using a user and a password. I can only access SSH from my LAN, since the SSH port is not forwarded on my router. Do I need to set up an RSA key for a setup like this? From what I understand the SSH is secure since it cannot be accessed from the Internet.
+If your server is only accesible via your LAN, and your not worried about people gaining access to it, by WiFi hacks, or physical network access, then username/password authentication is probabley good enough.
+Setup keys with passwords. Then use keychain, the only time you will ever have to enter passwords will be after a reboot. All the security of passwords, all the convenience of keys.
+If your sure that only authorised users can get access to your LAN, then a username and password should suffice. Nothing is ever going to be completely secure, you need to ask yourself, is it good enough? 
+Do you need to use keys?  No.  But it sure becomes a lot more convenient to use them once you have more then one server, or if you ever have to script some kind task that will require ssh access.

@@ -1,0 +1,5 @@
+Does DB Events show any issues with the RDS instance (such as a compute unit failure)?  (http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ListEvents.html)
+After awhile, I tried to remove the IP range from the RDS's security group and the sever could still connect. We haven't changed anything in the EC2 groups, so the old security group are set correctly.
+All the sudden, without any changes from our end, our RDS instance's security group stopped working. No server was able to connect to the RDS for 30min.
+Perhaps the rules failed to propagate a needed to be forced via a rule modification.  If an RDS instance an EC2 instance are in the same availability zone, the RDS endpoint will resolve to a Private IP address, and a CIDR authorization for an Elastic IP won't be valid for the network traffic.  Instead, and EC2 authorization is best, unless you're crossing an account or region boundary, in which case CIDR is the only option and should use the EIP of the EC2 instance.
+To workaround the issue, I had to enter the server's specific IP as an IP range in the security group.

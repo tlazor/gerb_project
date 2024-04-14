@@ -1,0 +1,12 @@
+VMWare Server - This is VMWare software that sits ontop of an existing operating system. To use this you still need to have Windows or Linux installed on the machine, and then install VMWare Server onto it.
+I'm considering server consolidation - where by I will configure a server (with a hearty amount of RAM) to host images (which i will create) of all the other servers....
+We're migrating our standalone windows boxen to two Sun x86 servers and iSCSI shared storage, using Citrix Xenserver. 
+VMWare Workstation - this is like VMWare Server, but designed for daily-use desktops, usually for development or testing purposes.
+There are also free versions of the same software above, but from Microsoft. Look into Hyper-V (there's heaps of questions about it on here).
+VMWare ESXi - This is the latest version of the VMWare HyperVisor. It is a dedicated operating system that installs on 'bare metal' - that is, it sits on its own on the box, and you create your VM's inside it. ESXi does come in a free version, which is really quite good, but if you want access to any of the advanced features you will need to purchase a license.
+vSphere - this is the management tool used for managing multiple VMWare hosts. The free version of ESXi does come with a free version of vSphere, which is suitable for just the one installation, but as soon as you start to add multiple physical machines you really need a dedicated vSphere installation and management station. This is pretty expensive, but for a single server not required.
+Simply install ESXi on the server, and you can use the VSphere client to manage it easily, and you can use VMware converter (http://www.vmware.com/products/converter/) or Vizioncore vConverter to migrate you physical hosts over to it.
+VMWare ESX - This is the previous generation of the VMWare Hypervisor. Seeing as this is a new installation, avoid it.
+Ideally, I want to be able to host both my Windows servers, and Linux servers within the one environment....
+So far it's working great. We've been running Sharepoint in a Xenserver Vm on standalone hardware (about 100 concurrent users) for about a year now with no problems. While I like VMware's technical solution, I'm not so happy with their pushy sales tactics (here in Australia, anyway.)
+VMWare has some really nice on-demand webcasts on their website with detailed walk-throughs of this process, and some of their higher end products (should your needs increase).

@@ -1,0 +1,5 @@
+Windows Server Backup works wonderfully with the Exchange database if you want to do full backups, just make sure you have it set to "VSS Full Backup"
+If you're using WSB to backup to a local disk on the Exchange server then you can do it all through the WSB GUI, but the backup target volume can't be the same as the volume(s) you are backing up.
+The only way I can see to do this is to use Windows Server Backup to backup the Exchange volumes to a disk, and then use Backup Exec to backup those WSB backup files.  Going to be cumbersome though and prone to error if you get the timing wrong.
+Note, if you want to schedule a WSB backup to a remote file share you can't do it through the WSB GUI, instead you need to get familiar with wbadmin.exe and manually set it up as a Task Scheduler task.
+You can disable granular Exchange backup and backup the database through VSS. It won't give you the ability to restore mailboxes or messages individually but it will give you the ability to do a full database restore.

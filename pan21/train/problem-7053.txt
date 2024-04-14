@@ -1,0 +1,5 @@
+Basically users who have just been upgraded to Outlook 2007, are not receiving SOME emails (from outside our domain, ie hotmail, yahoo). It seems that maybe these emails are HTML based, and not sent in plain text. These emails come in, along with their attachments, subjects, to/from line, etc. But the body is blank except the words <="" style="">. If the same user goes into their webmail, iphone, blackberry instead, they can read the message fine.
+I've seen this post http://support.microsoft.com/kb/2001972 regarding websense emails causing this issue. I don't believe this to be the problem. The emails come from outside our domain, they range from Hotmail, Yahoo, etc.
+It's clear to me that something in Outlook 2007 is not generating the body correctly, so it just strips it. I just don't know WHY.
+Our mail server was recently upgraded to Exchange 2010, users outlook 2003 are working fine, it's just the random emails for users using 2007.
+I've seen AV interfere with Outlook's message parsing, while the messages load fine over OWA. Try disabling their client AV and re-opening Outlook. If they display correctly, you've found your problem.

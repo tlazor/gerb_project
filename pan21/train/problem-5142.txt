@@ -1,0 +1,9 @@
+This is jarring coming from Windows 7, where you could just enter a password at the terminal and log in. Now you need to press a key, wait, enter password.
+Since Windows 8, but specifically for Windows 10, there is a new logon screen that requires a key press to trigger an animation to bring up the input screen for the password. The animation itself takes a few seconds to enable as well.
+Group Policy is a great way of getting 'under the bonnet' of Windows, and allows for a more refined Windows experience.
+To disable the lock screen (i.e. show the login prompt directly when recovering from sleep/on reboot) I used the directions given at:
+2 – Type regedit into the Run box, then press the Enter key to open the Registry Editor utility. Note: Click Yes if the “User Account Control” box pops up.)
+5 – Now, check to see if there is a Registry key called Personalization under the Windows key. If not, create one by right-clicking in the right-hand pane, clicking New>Key, and then renaming the new key to the name Personalization.
+3 – Create a backup of the Registry by clicking File>Export, then giving the backup file a name and saving it to the Desktop. Note: Be sure to select All for the “Export range”.
+7 – Right-click in the right-hand pane and select New>DWORD (32-bit) Value. Note: Select DWORD (32-bit) Value even if your PC is running the 64bit version of Windows 10.
+For Windows 10 Home edition users the group policy editor (detailed in the answers given already) isn't available. Enabling the group policy editor manually and then following the given instructions also doesn't work. 

@@ -1,0 +1,6 @@
+The output of ls is piped to awk. awk starts processing the data. Standard delimiter is space. The sum variable tot is initialised to zero; the following statement is executed for each row/line outputted by ls. It merely increments tot with the size. $5 stands for fifth column (outputted by ls). At the end we divide by (1024*1024) to sum in megabytes.
+If you would convert this into a script or function (.bashrc) you can also use it to get the size of certain subsets of directories, according to filetypes.
+This isn't easy. The du command either shows files and folders (default) or just the sizes of all items which you specify on the command line (option -s).
+Be aware, that you can't compare directories with du on different systems/machines without getting sure, both share the same blocksize of the filesystem. This might count if you rsync some files from a linux machine to a nas and you want to compare the synced directory on your own. You might get different results with du because of different blocksizes....
+If you really just want the folders, you need to use find but this can be very, very slow since du will have to scan many folders several times:
+This will bury you in a ton of small files. You can get rid of them with --threshold (1 MB in my example):

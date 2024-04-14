@@ -1,0 +1,6 @@
+Unity changes the Sprites/Default shader with almost every release, but provides the source code available https://unity3d.com/get-unity/download/archive.
+I ended up doing something different. I used a shader to clip the sprites I was scrolling to a certain area of screen space. And here's the code for that shader since I know I was looking for it and could never find it.
+One improvement I would suggest... Conditionals in Shaders can be slow because of GPU reasons, so I rewrote the clip test as:
+I'm trying to figure out how to do this but am coming up short. I'm making a slot machine in unity 2d and would like to clip the tile prefabs when they leave a given rectangular area.
+What your are looking for, is called scissor test in OpenGL/Direct3D vocabulary. But unfortunately you don't have direct access to that feature in unity. I've been looking for a solution to same problem a few weeks ago, and I came across people suggesting to use multiple cameras with different render area to simulate this behavior.
+I can't seem to figure out how to do this. All of the references I've found say to use a clipping shader with a mask texture, but it seems like massive overkill to use a masking texture when I just need an easy pre-defined rectangular area.

@@ -1,0 +1,18 @@
+For the IPn entry which corresponds to the IP address of the specific instance, the settings are as follows:
+With the above settings and configuration, each SQL Server instance will run on/with a dedicated IP address on the standard SQL Server port 1433. Each instance has its own CNAME, which allows the users to connect to the SQL Servers:
+The software vendor would now like to increase the user's experience and provide the ability to run some analytical queries against the existing data. The software vendor requires us to install SQL Server Analysis Services. This is an instance-specific feature and during the installation process you have to select the instance you will be adding the feature to.
+To allow connections to the Analysis Services you have to configure the following rule in the firewall:
+If I stop the SQL Server Browser service, then I can no longer connect to the SQL Server Analysis Services via servername\Instance01.
+If you can live with IIS and HTTP access you can configure multiple IIS websites running instances of the Analysis Services Data Pump.
+Any other IPn entry not related to the specific IP address of the instance will configured as follows:
+...without having to specify the port or the instance-name. Another plus is that the SQL Server Browser Service doesn't have to be running to distribute calls to SQL Server instances, because each call is directly routed to the instance specific SQL Server (service).
+After the installation has been finalised you connect to the instance-specific Analysis Services with the following syntax:
+SQL Server 2005 Analysis Services (SSAS) Server Properties (SQL Server 2005, but apparently still valid for current versions)
+I have the following prerequisites regarding a single Windows Server running multiple SQL Server 2014 instances:  
+If I would have used the default instance (MSSQLSERVER) then I could have configured the following rule in the firewall:
+I would like to add SQL Server 2014 Analysis Services to a specific instance of SQL Server and to configure it in such a way, that the Analysis Services (SSAS) and future Reporting Services (SSRS) will only pick up requests on the instance-specific IP, in order to allow the SQL Server Browser Service to remain in the state stopped.
+Analysis Services always listens on all IPs unless it's a clustered instance or running in a VM.  So you can't disable the browser service in this configuration.
+Installing the SQL Server Analysis Services has started the SQL Server Browser service, creating a security consideration.
+After configuring the SQL Server instance-specific Analysis Service, I noticed that the SQL Server Browser service was now in the running state. 
+With the above settings each 'Instance nm'  will have to be configured individually to respond to IP-specific calls on the configured port. (Note: As an added benefit, each instance will be able to listen on the default SQL Server port 1433, which in turn will greatly simplify firewall configuration, because the you will be able to use the port rule sql-server. Just saying.)
+Oops, this means that requests to the Analysis Services are being routed through the Window Server's IP address (10.2.0.2) to the SQL Server specific Analysis Service instance.

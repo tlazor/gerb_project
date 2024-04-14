@@ -1,0 +1,6 @@
+Use the ps command.  ps -ef will show you the parent process ID of the processes, which might help identify what's causing the processes.  It will also show you the STIME, which is when the process was started, which might help identify what is the cause.  ps -ef f will show the process hierarchy, which may also help identify what is the source of the command.
+Look at the cron logs.  /var/log/cron on RHEL based systems may show you jobs that are being run at times coincident with the commands.  
+You need to determine what is generating them, and what they are, and then you might be able to tell whether you can kill them, or preferably disable them from happening in the first place if it isn't required.
+ps auxwwe may give you insight into the environment that the commands are coming from, which might point you towards the source.
+strace -fp <PID> might also help, if you need to see what the command is doing at a system call level.  Perhaps it's stalling on some breakage that needs fixing.  
+my server free memoney is less and less, And many process COMMAND are"sudo" when use top and enter M.

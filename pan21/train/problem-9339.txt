@@ -1,0 +1,5 @@
+I'm not sure of your other criteria or what you want. You did a great job showing data, perhaps you should continue the trend and show what you want to exclude on your data. Also, please, in the future, draw out a desired result form that data if you can.
+And, now we GROUP BY grp, and make sure there are at least two messages (with HAVING) which I assume takes care of your, "compare the time from the first message of a group of messages of client to next message of the provider".
+Getting the table I was looking for in the question (the lead function works like the opposite of lag, looks ahead). Then, with this information, we can have a final query to make sure we are getting all the rules right:
+Now that we understand that it refers to the last row (it lags behind), we will use it to determine if a message starts a thread (a group of messages by the same sender):
+Breaking that down we first create an is_reset using PostgreSQL's row-comparison feature. We could have just written this other ways.

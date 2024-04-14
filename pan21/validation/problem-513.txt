@@ -1,0 +1,6 @@
+I installed Truecrypt 6 on my notebook. I got Truecrypt to create an encrypted "volume" as an ordinary file on the LaCie. I use Truecrypt to mount the file so that it shows up as a hard drive in "My Computer" - Truecrypt asks me for a password (which I set earlier) before I can see the contents of the drive.
+There is is also so much more you need to consider (Kerberos, AD/LDAP, auditing...), but is beyond the scope of the question. 
+When I transfer contents between the LaCie and my notebook, this data travels via the fairly commonplace standard encrypted WPA2 WiFi wireless connection.
+I have a LaCie 2Big 2Tb RAID1 mode ( 2 x 1gb mirrored hotswap hard drive ) Network Attached Storage. This specification is not relevant or required for your solution, just any shared or network attached drive will do. But I thought I would include it for interest anyway. This is attached to my wireless router.
+This is a setup aimed for the home and not high availability production use. AS other poster said, some more background on your circumstances would help. But I hope this real example has given you some ideas :)
+To answer the question, I would suggest Windows Active Directory & IPSEC - see Technet for more - for the transport and possibly EFS or Bitlocker for encrypting the filesystem.

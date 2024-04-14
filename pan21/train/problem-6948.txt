@@ -1,0 +1,6 @@
+This will cache the user credentials on the laptop allowing logon without access to a domain controller.
+you could manually use the "run as another use" feature while the laptop is connected to the domain.
+I have a few laptops here that need to have some users profiles preloaded onto them before sending them out in the field so that they can log into them without needing to be connected to the domain controller. I have done some research on Spiceworks and some Google'ing with no luck. 
+Is there a way to initialize these accounts on the laptops so that when they go out in the field they are able to login? I do not want to ask all the users to log into each laptop once as that is an inconvenience. 
+Typically, you'd configure a VPN on the notebook that runs as a service, so that the remote laptop establishes a VPN connection before the user logs in, so that when they type their credentials in, they are able to authenticate.
+The laptops are all running Windows 7 Professional x64 and the domain controller is on a Windows Server 2008 x64 SP2 server.

@@ -1,0 +1,7 @@
+Your processor supports Extended Page Tables (EPT) that is also known as Second Level Address Translation (SLAT).
+I'm a bit new to the SLAT stuff, but from what I have read, you have to run coreinfo BEFORE you install a Hypervisor.  It is possible you do have SLAT but coreinfo is reading it incorrectly because you have Hyper-V installed already.
+Your processor supports SLAT. Although it is not enabled in the BIOS, it recognizes that it is present. Otherwise, I would not even let you install Hyper-V.
+Observe, please, the CoreInfo output which clearly displays this system as not possessing the SLAT or VMX technology. And yet, I have Hyper-V installed and 3 VMs up and running quite merrily.
+https://ark.intel.com/products/52580/Intel-Xeon-Processor-X5647-12M-Cache-2_93-GHz-5_86-GTs-Intel-QPI
+Correct me if I am wrong, but one of the more defining features of Hyper-V on Windows 2016 is that, like Windows 8, the INTEL features known as SLAT and VMX have become a required feature in order to even install the Hyper-V service in the first place.
+Just genuinely curious and confused, as everything out there says that CoreInfo will definitively tell you if you don’t have SLAT and VMX (an asterisk means yes, a dash, no), and that Server 2016 will not allow you to install the Hyper-V service (much less run VMs) without SLAT and VMX.

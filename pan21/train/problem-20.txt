@@ -1,0 +1,7 @@
+I have previously set up freenas as vm inside esxi using raw disk access. I was wondering if would be possible/sensible to get freenas to serve iscsi targets to be used for other vm's on the same host. This would require booting up with freenas first and once running other vms could be started. Does this make any sense?
+Is it possible? Yes. Is it sensible? Only in the scenario I have described above! If you can run to the cost of an extra machine, I would build a separate freeNAS box though.
+I'm imagining that this is a small/project/lab set up and you want to keep power and hardware costs down by using a single machine as your NAS and as your ESX, and that machine does not have hardware raid capability, hence the desire for softraid / raidz.
+If you instead want to use a physical FreeNAS server to share iSCSI targets to different ESXi hosts, yes, this makes sense, and yes, it works fine.
+I have opted to build a seperate NAS (using freenas). I will expose the some of the storage as iscsi to my esxi box.
+I would recommend just using the internal storage on your ESXi server, provided it's server-class equipment. If you're only talking about a single server/host, direct-attached storage may make more sense. 
+You want to use a FreeNAS VM to share the host's storage to the same host using iSCSI?!? If this is what you want, no, I really can't think of any way in which it could make sense.

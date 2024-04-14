@@ -1,0 +1,6 @@
+I also modified my code and added a queue for changing the vflip values, so that only the thread changes this setting which also created the PiCamera instance. But this doesn't seem to have any effect either.
+According to http://picamera.readthedocs.io/en/release-1.10/api_camera.html#picamera.camera.PiCamera.hflip I should be able to call this method while the image capture is running. But I cannot disable it from True to False. This problem is on hflip and vflip property of the PiCamera object.
+The code seems to work from the initial switch from False to True. I get the updated image stream with the flipped orientation. But when I try to update the settings more than once, if doesn't seem to work.
+Is this option not working properly with multithreaded environments? Or what could possibly cause this behaviour? 
+I'm trying to write a program which should control the PiCamera settings through a webpage with Flask. I'm trying to update the vflip and hflip settings (toggling from False to True and back again).
+but running the same code inside a thread with some helper functions doesn't seem to have the same effect. I call set_vflip function from above first with True, and after some time with False, but it doesn't flip back.

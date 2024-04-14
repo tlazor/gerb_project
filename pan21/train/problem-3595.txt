@@ -1,0 +1,5 @@
+Configuring bridge in your situation is not trivial, because there is no dhcp and because the IP address you wish to have for your VM is a public address, not a private one. I strongly suggest you use NAT instead, because in this case I am sure there are no legal implications.
+If you insist in using a public IP address for your guest (and, I, repeat, you are doing this against my advice), you may use the same technique one uses when it is legal to do so, i.e. for instance when you are trying to occupy a private address. 
+You will have to find an IP which is not already occupied. Let us suppose that you have determined that X is a free IP address within your range. Then all you have to do is to set up the guest for a static IP. 
+How do you find out the address X? First of all you will have to sniff traffic on your regular (enp3s0) interface. Use wireshark for this, you may google to find out how to use it. Then you have two options.
+The above assumes that eth0 is the name of the ethernet card of the guest, if it is not use the appropriate one (enp3s0?). Now reboot your VM guest, and you should be good to go.

@@ -1,0 +1,6 @@
+What type of nslookup didn't work, for local zones, are you using the server for caching also, do you use some forwarder for the rest of the zones or you are using the roots?
+I setup 2 Bind servers on Ubuntu Server 14.04. The first one is Master DNS and the second is Slave. I have a DHCP server running isc-dhcp-server and assign 2 DNS Server IP for clients
+The file /etc/resolv.conf should contain a nameserver record for each name server you want to use.  Normally, they will be used in order but there is rotate option that can be set.  If having the master down causes resolution to fail, either the slave is not listed or is not reachable.  Check man resolv.conf for more details.  
+You may have the resolvconf utility installed which will rebuild the /etc/resolv.conf as interfaces change.  It has its own man page.
+Everything seem working good but just one thing that is not what i want is when i try to shutdown the Master DNS server then i try to nslookup on client and what i get is:
+What i think is when the Master DNS down then the Slave DNS server must be replace and response to the client nslookup but it's not.

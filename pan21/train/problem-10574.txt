@@ -1,0 +1,6 @@
+If yes this might be the answer: http://www.windley.com/archives/2007/08/p2v_how_to_make_a_physical_linux_box_into_a_virtual_machine.shtml
+In Windows 7 make sure you change the Folder view settings to "Show all files" and make sure OS files are un-hidden. Once you have done this browse the C: drive. You will see two important files: wubildr and wubildr.mbr
+From Windows 7, install the Ubuntu Wubi installer, but make sure you install files on the Physical HD's primary partition (not VHD's C: windows partition)
+Copy these two files to the root of the Physical Partition (ie, the partition where the Windows7.vhd file is located and the Ubuntu folder that was created when you installed wubi above). Just to be sure you are copying the files to the right partition, make sure you can see that there is a pagefile.sys bootmgr and bootsect.bak file.
+http://blogs.technet.com/b/keithcombs/archive/2009/05/22/dual-boot-from-vhd-using-windows-7-and-windows-server-2008-r2.aspx
+Reboot when asked to do so, but don't select Ubuntu yet from the boot menu (it won't work), you need to launch Windows 7 one last time.

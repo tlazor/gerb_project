@@ -1,0 +1,6 @@
+If you can configure Postfix to do immediate delivery, then each message should use its own thread.  I don't know if Postfix supports multiple delivery threads.   Multiple threads can create synchronization issues which may slow down your server.   
+All of these are likely to add up to about a second.  Verifying your DNS configuration is complete will help.  Configuring both SPF and TXT records for SPF may speed up DNS checks in some cases.  
+Check whether amavis is actually being run.  I suspect your issue is on the remote end, and you can't turn off filtering at that end.
+How can I turn off the outgoing mails filtering only? My postfix server is very slow. Sending 1 mail/sec, and I think the problem is with the outgoing mail filter (amavis). Or is it possible the problem is something else? The DNS is good.
+High volume delivery may require special tuning of the server software.  Exim allows the spool database to be split to allow multiple threads to run with less contention.  If the email is not personalized, then putting the addresses in a BCC field and grouping recipients by domain may help.  
+Draining a queue at 1 mail/sec per thread is probably reasonable.  Some of the things which may happen on the other end which will slow down your transfer rate include:

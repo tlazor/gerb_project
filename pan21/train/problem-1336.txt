@@ -1,0 +1,16 @@
+Depending on how your app works and ignoring protocol overhead you may (worst case) then need 4 100mbit networks to transport 100mbit per second to your clients. 
+In which case you'll again want separate networks for your data and you'll want dedicated NICs, ideally with tcp/iSCSI offload hardware. That will give you most of the advatnges of a SAN with lower cost.
+I would go for a DAS based architecture. The problem is at one point the file system is irrelevant - the question is, given a specific IO requirement, how many GB you can put into a certain infrastructure cost (size, power) for the best price.
+Clearly if you want to use a NAS then you going to want multiple NICs in your servers and multipel networks/VLANs in your architecure.
+I can give an answer (clustered filesystem over fibre channel SAN) - but it may well turn out to be more expensive and complex than it needs to be.
+I have not really used iSCSI exxcept for the most basic single LUN to a single host, with simple linux LVM and ext3, so I am not 100% sure if it si really as good as FC SAN, but I gather it can be if well implemented.
+SAN arrays are probably the better choice if you are going to use a clustered filesystem. The question is do you really need a clustered file system?
+NAS devices export file systems (e.g. CIFS, NFS), so you don't really connect them to your servers - your servers mount file systems from them.
+Now if your app can guarantee that only node node will write to a given file at a given time, then you can probably go to a NAS. But you may have problems if you modify a file with one host while it is being read with another host, so your app would need to detect and deal with that scenario. If that is a scenario that you dont want to bother with then a clustered file system is probably better choice - they are designed to work with that sort of scenario.
+Perhaps after reading this brain dump, you'll be able to restate your app's intended behaviour and maybe then we can give you a better answer.
+Given the limited info we have I'd say the safest architecture is the most expensive and complex architecture as that will deal with most of the worst case problems and be very scalable.
+THat being said, Cluster is probably as good as it gets - as long as you dont require super fast disc access that is typical for large databases. It should do most of what you ask for. But once you get going, keeping the price per gigabyte small may be the most important thing - without blowing your administrative overhead through the roof.
+Depending on OS and the filesystem you end up using, a SAN will allow you to grow your LUNs dynamically and grow your filessyems live as well as share the LUNs wth more hosts, again potentially as a live operation.
+So, at the end i would go with a pretty decent dual processor AMD server on a special casing setup that can handle a LOT of discs in a specialized cage.
+In all cases whatever your storage, DAS, SAN, NAS, all other things being equal more spindles are better.
+So if you have a 100mbit network connection between your NAS and your server and your read/writes occur at a 1:1 ratio, then the best you'll get is 50mbit reads, because for every byte you read, you also write a byte. If your client and download traffic are on that same network then you can halve it again.

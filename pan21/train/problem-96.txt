@@ -1,0 +1,7 @@
+The answer to this question may vary by version of Internet Explorer. My answer is based off version 10 from Windows 8.
+Not home page, but start page. For those who are still confused, it's the page that will come up when you open the browser. However, if you press the 'Home' button or press Alt+Home, it will show another page which is the 'Home Page'. It is just like the first time you open up Chrome, it shows you the page 'Welcome to Chrome', but that page is indeed not your home page.  Is that possible in IE11? If so, how could I enable it?
+Navigate to "Tools/Internet Options/General tab", and you can adjust the settings there. The only options for the startup page are to use the tabs from last session, or to use your homepage.
+• In the Tabbed Browsing Settings dialog box, in the When a new tab is opened, open list, click Your first home page, click OK, and then click OK again.
+• Open Internet Explorer by clicking the Start button Picture of the Start button. In the search box, type Internet Explorer, and then, in the list of results, click Internet Explorer.
+Finally, I found a way to do what I actually wanted. Get to the properties of IE, in the 'Target' field, enter the start page URL beside "C:\Program Files\Internet Explorer\iexplore.exe" so that it becomes "C:\Program Files\Internet Explorer\iexplore.exe" www.YourStartPage.com
+I think this is what you're looking for: http://windows.microsoft.com/en-ca/windows/open-new-tab-homepage-internet-explorer#1TC=windows-7

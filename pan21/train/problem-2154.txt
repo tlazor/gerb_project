@@ -1,0 +1,5 @@
+It is usually advisable to run a number of on -demand malware scanners as they seem to pick up different items from each other. MalwareBytes and Spybot Search And Destroy are the ones I usually run. Run full scans with them both to see if they can collectively delete whateveris on the PC.
+When you run it, it will temporarily disable your antivirus (if one is running) and a 50 step process to clean up the computer. Simple, fast and works almost all the time.
+Can you try on a different computer connected to your internet connection, OR your computer connected to a different internet connection
+Additionally, do you have access to another PC that you can attach your hardrive to? It might be useful to be able to scan this drive from another machine that is treating it as just a USB drive rather than actually running the software on that disk. It should stop any potential root-kits from being active and able to hide their files.
+Since you seem to have done basic malware checks which have come out clean, are you sure its not javascript injection by your ISP?

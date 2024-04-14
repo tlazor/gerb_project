@@ -1,0 +1,6 @@
+Over the years, new versions of the SCSI standards are released. Sometimes there is limited interoperability with devices conforming to a prior SCSI standard.
+SCSI is a way to connect disks, tape-drives, scanners and other devices to computers. There are several main parts
+Wikipedia has a page for it, but even then the technical definition seemed a bit over my head. Can anyone describe in easier terms for what this is?
+There are a set of standards that define the cables, the electrical interfacing and the commands that travel over the cables.
+In plain English, SCSI is a technical spec for storage, usually hard drives and optical drives. As you've noted, there's a description in Wikipedia. SCSI was used in higher end computing equipment, particularly workstations and servers, but was usually more expensive than competing standards, such as IDE, and thus failed to capture significant marketshare.
+SCSI has always been more sophisticated than it's main rival and has therefore been more expensive. SCSI devices generally provide significantly higher performance, longer cables and more devices per controller. Because of the cost, use of SCSI has been mainly restricted to servers and high-performance systems.

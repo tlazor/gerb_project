@@ -1,0 +1,7 @@
+The other IPs, as others have said, are good for hosting sites on a dedicated IP with SSL certificates. 
+In addition to the comments above, if you are running your own DNS servers you need 2 IPs for 2 nameservers, you can not share an IP with them.
+There is a little bit of a write up on the gentoo wiki. Unfortunately due to lack of support with IE on XP and lack of support in IIS, it isn't going to get anywhere fast.
+SSL requires one IP per vhost with older browsers, so having multiple IP addresses allows you to host multiple HTTPs sites.
+You can run a hypervisor and resell virtual machines with dedicated IPs, in addition to several other suggestions in this thread. 
+SSL/TLA and virtual hosts always used to be a problem. Chicken and egg problem, resulting in a one to one relationship between IP address and virtual host. This has now 'gone away' thanks to SNI, although it's still generally unknown. SNI is in a TLA extensions rfc from 6 years ago, but still isn't in widespread use.
+Multiple IPs could also make traffic control easier depending on how you segregate DNS names/services between them. You could make it easier to move a service to another machine, or apply a ratelimit/firewall to just one IP.

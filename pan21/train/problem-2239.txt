@@ -1,0 +1,5 @@
+Whenever one of the associated servers goes down, a cloned server is immediately spun up, which is working as desired.
+I am trying to pull the images down locally so I can modify them, but getting an authentication required error - I have about a dozen private keys, so I assume the credentials are in one of them - is there a way to see how the ReplicaSet is pulling the images down?
+Sorry for any confusions - I am very new to Kubernetes and this level of DevOps - I am used to much simpler and less scalable (so like a couple servers and a load balancer) type setups, not this type of DevOps.
+I inherited an app without a ton of handoff information, and there's a Kubernetes setup with ReplicaSets and KOPS (and based on Docker containers). I am pretty new to Kubernetes
+However I am looking to make some persistent changes (uploading a some new files to the API, changing some environmental variables) to the setup, and my understanding is that I'll probably need to modify the images pulled to do this. Persistence is setup via PersistentVolumeLabel and openlayer

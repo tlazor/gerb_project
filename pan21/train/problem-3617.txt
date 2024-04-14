@@ -1,0 +1,7 @@
+Basically each node put's itself at the root of the tree and determines the lowest cost and loop free path for each destination.
+"An OSPF router always forms an adjacency over a point-to-point link using an unnumbered interface. This causes the Link ID field to contain the router ID of the adjacent peer. the Link Data filed contains the IP address of the local router's interface or the local interface index value for unnumbered interfaces." JNCIS study guide by Joseph M. Soricelli
+3)How the other router knows how to reach 12.12.12.1 because that router isn't connected with 12.12.12.1 interface?
+However, I want to know what routers are advertising. Like in order to reach them what next hop they should use. Assume, we have 3 routers in a straight line with a point-to-point link. 
+What I am trying to achieve here is to understand how a particular node in the simple topology knows how to install routes in the routing table. 
+Like, how does it know what next hop it should take for a particular destination. I understand that it will run Shortest path first alogrithm to determine that. 
+The Link type is one of the fields used in the Router LSA, all 4 were mentioned previously. The information in the router LSA's link ID and link data fields is associated with the type of link OSPF is operating.

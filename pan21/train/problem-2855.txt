@@ -1,0 +1,6 @@
+The source should contain the python static library which, as I understand it, is what the python-dev package is. Make sure that the "include" directory is set up in your compiler options.
+The packages have been designed to play nice with the other packages and with the general behavior of the distro. Any compatibility issues with self-compiled software is your problem.
+Pre-Configurated Package: This package is intended for most users. It is designed to work well with most packages, and does not require any extra libraries for compiling.
+Compiled from Source: This package is meant for systems with very customized options. Most importantly, either a custom kernel or custom x-servers/system commands. It is for the more experienced user, but is much more likely to fit any setup, as it is compiled to your system's specs.
+In my experience it's best to use apt-get first. If problems arise (relatively unlikely, depends on how much you like tinkering with your system) start looking at compiling from  source.
+If the compiled software does not work, you will need to ask for help from the developers. However, they will not normally fix non-standard compilations.

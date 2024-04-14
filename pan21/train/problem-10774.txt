@@ -1,0 +1,6 @@
+A perhaps easier solution would be to use some third party monitoring service such as was it up? or pingdom.
+The best way, however, may be just to script a wget call to the site and automatically dump relevant log data if it fails two checks in a short (5-10sec) period.
+One approach might be to run your own Nagios server. There is definitely some effort in setting it up, but on the other hand it will also allow you to do all kinds of monitoring.
+Apachetop should also be able to tell you the current number of connections. It's available in most repositories.
+In addition to making sure your server response to http it's a good thing to also verify that the response page contain some expected phrase or so. That way you get some verification on that also the underlaying application layer is somewhat working.
+I believe that mod_status will be able to give you the info you need, though it won't be as useful if Apache is refusing connections: http://httpd.apache.org/docs/2.2/mod/mod_status.html

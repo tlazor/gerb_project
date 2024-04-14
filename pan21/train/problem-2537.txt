@@ -1,0 +1,14 @@
+Currently the ReadyNAS is divided into a bunch of volumes, and mounted via NFS on a seperate server.  The server runs rsync scripts nightly and pull data from our webserver cluster onto the NAS device.
+If you are doing this for home.  It has been reccomended that you look for used enterprise hard drive controllers online (ebay, craigslist, whatever).  You can snag up an SAS controller that supports many many drives.
+If you're interested in a DIY solution, you might consider using the Backblaze approach: http://blog.backblaze.com/2009/09/01/petabytes-on-a-budget-how-to-build-cheap-cloud-storage/
+The ReadyNAS is a linux box, running embedded debian, but doesn't expose a lot of detail, and we're forced to use the dodgy web interface.
+For these reasons, I'd quite like to stay away from an appliance box, unless I could be sure that it was sufficiently "enterprise" and not just a high end consumer grade box (bad experience in the past).
+You might also want to look at using a FreeNAS-mini appliance if your partner feels it's better than rolling your own. 
+ZFS works almost anywhere.  These already ready to go distros are nice but when you have to customize them.  They are not.
+For the moment, I'm going to say that money is not the deciding factor, as long as the cost can be justified.
+With ZFS you have so many features and options.  With sha checksums its almost virtually impossible for data corruption to occur.  This does not mean do not backup though.
+It takes a ton of effort to research hardware depending on the solution you chose.  You want the NIC, SATA Controller, Etc, etc, everything to work.  I have thrown together BSD servers quickly but my OpenIndiana box took a bit longer.
+Alot of the NAS distros are bringing ZFS support and even Linux has hardcore support for it.  I do not know how reliable it is but...http://zfsonlinux.org/
+I'd quite like to be able to combine the backup server and the disk array into one, so that we save rack space on not having 2 units.  I'd also like a linux box that has a known interface, such as snmpd, and will allow me to run zabbix agents on it.
+At the moment, we have an ailing Netgear ReadyNAS, which is pretty good for some things, but has some big limitations, such as unable to bridge the NICs, and a dodgy unfriendly web interface that doesn't always like firefox, and Chrome.
+From what I have read though ZFS and tape drives may have problems.  Especially with tape libraries.  I have seen some scripted solutions but who knows.

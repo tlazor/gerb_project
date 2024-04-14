@@ -1,0 +1,6 @@
+Furthermore, what is name resolution like on the clients? I would try rebooting to flush the DNS cache (ipconfig /flushdns does not work in Windows 98) and then ping domain.local. See what you get back, and how long it takes. 
+I had an issue where DNS caused a 30 second delay because there were multiple A entries for the domain controller (it was multihomed, public and private networks).
+What ended up happening was the client would first try to connect to the public IP address assigned to the DC. This would fail after 30 seconds and then it would attempt to connect using the private IP addressed assigned to the DC. This would work.
+If you want to quickly skip that testing, you could always try \\[server ip]\share\executable.exe and see if it launches quickly.
+I agree it is most likely SMB signing/authentication and/or Netbios name resolution.  Netbios name resolution can be tested w/ NbtStat.  
+If that proves not to be the case then I would disable OpLocks on the server.  Besides corrupting Access files it also seems to cause access issues.  I haven't seen disabling it cause a problem but the change can be reversed if it somehow makes things worse.

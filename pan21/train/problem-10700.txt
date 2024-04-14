@@ -1,0 +1,5 @@
+Question:Write an algorithm in C to do integer multiplication without using multiplication nor division operators.
+One thing yours (and mine) doesn't support is negative numbers. If you need to support negative numbers, here's one solution:
+Granted, this uses the negation operator (-), which is itself a form of multiplication, but it is the simplest way to negate a number.
+Could I get a critique of the doMultiplication function? I know the rest of the code has some dumb stuff in it (like using scanf), but I'm looking for feedback on my multiplication implementation. Are there any cases it won't handle? Is there anything I could possibly have done to optimize it? And lastly, is there anything that would make it more readable?
+While others have mentioned that your code is technically correct, it could be made much simpler to understand and read. Don't try to be too clever, let the complier optimize. As someone else mentioned, using bitshifting could be construed as multiplication because, well, it kind of is.

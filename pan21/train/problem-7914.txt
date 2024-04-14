@@ -1,0 +1,7 @@
+P.S. Yes I have looked at a lot of the other Q's regarding slow USB transfers - they all (as far as I could make out) concern minor increases in the MB/s range.
+Neither disk manager nor device manager (or event logs) show any issue with the drive r anything else.
+Even when it is transferring, looking at the windows transfer visualisation, it shows continues peaks (the peaks still only being a few kB/s) and drop offs instead of a rise and then a continuous(-ish) level till a final fall-off that one would expect.
+However When plugging my USB 2.0 flash drive into the USB 3.0 port of one of my laptops running W8 Im only getting around 2.5 kB/s! sometimes if its a larger transfer it will trail of to nothing at all!!
+The strange thing is when I plug it into a W7 laptop's USB 2.0 port transfers run at expected speeds (i.e. I dont notice it being overly slow but I didnt look at the numbers).
+Neither of the laptops have the USB performance set for speed rather than safe removal, nor do I want them to be as I have found the gain in speed to be minimal yet the payoff in damaged drives does indeed rise quite a lot.
+Sometimes the speed increases if I push down on the end of the protruding USB drive, but other times that seems to slow it... A current transfer of mainly .c files is running at only 637 bytes/s!

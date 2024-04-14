@@ -1,0 +1,8 @@
+One feature that is currently missing that I really want to re-implement is a X-Accel-Redirect based feature.
+Although there's more overhead than the web server serving it directly the response time is still pretty good — I don't notice any slowdown or any apparent additional load. It's possible that this might happen for very large files, in which case I might come up with an alternate solution just for those cases.
+The problem, as far as I can tell, is there isn't a similar functionality in apache httpd — one that basically says, "Stop serving all of the content I just created and instead serve the URL located in this header".
+Unlike X-Sendfile, the value for X-Accel-Redirect is treated as an URL, so I can perform all of the same functions on it that I can any other location. In this case, I'm using it to get the actual file from an external server rather than directly from the local server.
+If this isn't possible I'll probably just rewrite the web app so it downloads the content of the file from the external URL and then serves it, even though that's really a non-ideal situation. 
+What one could do is use httpfs, a fuse filesystem module, to "mount" remote http servers into the local filesystem, and then x-sendfile from those mount points. 
+Another that was not discussed is to use some webserver supported authorization- check for the presence of a cookie or similar- in front of an ordinary remote proxy configuration. This is more sympathetic to the usage of webservers, though may not work for reasons as yet not discussed.
+I just ended up adding code on the application end that downloads the desired file from the proxy and serves it.

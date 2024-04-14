@@ -1,0 +1,7 @@
+In D2 put the following formula and then press CTRL + SHIFT + ENTER from within the formula bar to create an Array Formula. You also need to leave a row (preferably first row) as header for this to work correctly.
+Now as your data changes in Sheet1!A2:A10 the list of Unique Values get reflected automatically in MyList and also then the name Trimmed will fetch only the intended Description from the Sheet1 Description column.
+In B2 put the following formula and press CTRL + SHIFT + ENTER from within the formula bar to create and Array Formula.
+In this example I have taken data in Sheet3!B2:H10. Decide the number of columns based on the max number of duplicates in your IDs from master list. Also leave first Column A for this to work correctly.
+Now the next task is to populate a second validation list based on data extracted from Description Column.
+Drag it down till intended rows based on the expected count of unique values in your master column. Eventually it will start returning blanks at the bottom, then you may stop. This creates a Unique Master List of IDs.
+You have not mentioned the version of Excel you are using. I suggest a possible solution based on my understanding of your question.  It however also uses a functions named IFERROR & COUNTBLANK that I suppose are not available before Excel 2007. So in case you have Excel 2003 a different approach may be required.

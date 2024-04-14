@@ -1,0 +1,6 @@
+The full disk encryption feels faster than FileVault, and unlike FV, if you have a huge home directory, you don't need to have that much extra free space during the initial encryption, PGP encrypts the disk in place. You can even do work while the initial encryption is going on, unlike FileVault.
+There is one other alternative called Checkpoint FDE that I've heard of success with but have not used myself.
+I was initially going to say, No, OS X does not support encryption of the boot drive, only you home partition via loopback mount. However some googling turned up PGP Whole Disk Encryption. I can't vouch for it as a solution as I have not tried it.
+Have you tried TrueCrypt? Free open-source disk encryption software for Windows Vista/XP, Mac OS X, and Linux. I also like PGP Whole Disk Encryption like Dave. 
+Briefly, it feels like PGP's solution doesn't treat MacOS as a second class citizen. The administration server has a web-based UI that works well with Firefox, Camino and Safari, so you can admin from your Mac and the preboot isn't a visibly obvious port of the Windows one.
+At work, we tested PGP's full disk encryption in addition to Checkpoint's FDE and FileVault, and found PGP to be the best of the available options. 

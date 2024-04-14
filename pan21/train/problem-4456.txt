@@ -1,0 +1,7 @@
+You could try making sure NetBIOS over TCP/IP is still enabled on the relevant network adapters. There are also some services involved, "Browser", "Server" and "Client", I think. Make sure those are running, too.
+The nbtstat tool could also be useful when troubleshooting this problem: http://technet.microsoft.com/en-us/library/cc940106.aspx
+Hard to say without looking at network traces and event logs. Also have had weird issues with vmware shared folders for the guest VM. I'd disable that as a troubleshooting step. http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1012140 shows how VMware shared folders can affect guest VMs sometimes.
+Not sure why net view machinename is used (I've never used it personally).  Found a good article in KB.  
+I have a machine in my Active Directory Domain that I can no longer "net view" from other machines in the domain.
+As I mentioned, it has worked in the past, and then stopped for no reason that I can see.  I (intentionally) didn't change the software.
+I CAN get to the VMs hosted on this machine, can connect to their shares, net view them, etc.  All other machines can see each other.  In fact, the problem machine can see other machines and access their shares just fine.

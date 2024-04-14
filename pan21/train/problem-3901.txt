@@ -1,0 +1,6 @@
+Maybe your best bet would be Macam. It didn't work for me, but they have active support and probably will add iSight to their list soon enough.
+It may not help exactly, but Macam allows you to disable auto adjustment of gain and shutter (which is probably what you want) for many cameras. Using the svn version this work with the ps3eye (while the stock macam doesn't allow you to disable auto adjustment). Unfortunately, Macam doesn't support the iSight as far as I can tell.
+The iGlasses solution doesn't address the problem as the brightness/contrast adjustments are performed by the hardware (i think) so it will affect the iGlasses input source and thus output. I imagine you can fiddle with settings to try and alleviate this effect as much as possible although will not combat it completely.
+Doing some work with openCV too and went for the non technical implementation: some tape and black card, and simply covered the light sensor to the left of the camera.
+(I'm adding this in case other people are also looking for a solution, who  might not be bound to the iSight, and it's not obvious that using the SVN version helps)
+This currently appears to be impossible, unfortunately. iGlasses can lock the exposure, but this only works in programs it knows about, which rules out most computer vision applications (e.g. Max/MSP).

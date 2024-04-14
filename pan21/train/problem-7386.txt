@@ -1,0 +1,8 @@
+I was able to make it disappear by black-holing BRW30F7727FAC8E in my hosts file which now gives me some interesting traffic where I'm seeing an incrementing range of ports on my machine trying to connect to BRW30F7727FAC8E on tcp 515 and 80. According to online resources, tcp port 515 has been associated with malware and printer spoolers.
+So my question is, does anyone know how I could keep tracking down the root cause of this traffic and attempt to stop it at the source?
+Wireshark home page showing traffic graphs. The traffic is very similar (if not the same) on all interfaces except WiFi
+Digging into it, I saw that it was all MDNS, NBNS and LLMNR traffic originating from UDP ports 5353, 137 and variable, respectively, and all querying for BRW30F7727FAC8E - a host unknown to me.
+This seemed weird since I was not using VMWare and didn't think I should have anything on loopback either. 
+So now I'm wondering why I have the system itself querying continuously for this unknown host and if the DNS Client is making these requests by itself or on behalf of another process (perhaps System?).
+Using netstat, I was able to see that I've got PIDs 2424 (DNS Client) and 4 (System) bound to all interfaces on UDP 5353 and 137.
+I noticed today that there was significant traffic on all my connected network interfaces (loopback, 2 VMWare network adapters, ethernet and wifi). 

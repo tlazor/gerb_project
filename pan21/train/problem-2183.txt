@@ -1,0 +1,5 @@
+So, assuming that your params[:query].downcase has not already gone through a layer of quoting, a DROP TABLE could be injected into it.
+The poster looked into ActiveRecord internals and reports that it uses libpq's PQsendQuery, which does accept several queries separated by semi-colons. This is from 2014, so presumably current.
+Even if ActiveRecord used PQexecParams or a similar call that doesn't accept semi-colon seperated queries, there would still be the possibility of injecting a function call, as in ...LIKE '%whatever' AND do_something_bad(...) AND 'whatever'='%'. This possibility is opened by lack of proper literal strings quoting, or lack of handling the parameters as recommended by the API.
+And even when using prepared statements or injection with proper escaping, LIKE with user-supplied contents require an additional special quoting anyway, since it has its own syntax with % and _ being wildcards and its own escape mechanism with \ configurable with the ESCAPE clause. Otherwise the users can't search a literal % or _
+It's probably open to a generic SQL injection, according to this discussion in the pgsql-general  mailing-list:

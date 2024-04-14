@@ -1,0 +1,5 @@
+The dark theme is based on the "laCour" user's dark theme from a while back, that I've been maintaining a version of locally, but there's no reason you can't just point at their theme instead.
+It has instructions for how to install (there's a script to do the patching described above in the instructions above), as well as some other modifications I've made that you can selectively turn on if you want, with descriptions (and a few screenshots).  My favorite extra plugin is the "random emoji" one :-)
+Final note, I don't have it working in Windows yet, but (patch script aside) that should just be a matter of changing some file separator characters.
+An important note about the ssb-interop.js file patching described in the other answer (and that I've automated with the ./patch-slack.sh script in my repo).  Every time Slack updates to a new version, this file gets overwritten, so you have to re-patch it.
+I've actually created a sort of "plugins" infrastructure for slack based in my github repo https://github.com/glajchs/slack-customizations.

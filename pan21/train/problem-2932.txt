@@ -1,0 +1,7 @@
+So basically, how do I setup an IPTABLE rule that will apply to the xen client instead of the xen host?
+Notice that netfilter reads rules top-to-bottom and if you have a rule permitting all traffic to this client above (iptables -A adds rule to the end of the table), this new rule won't be reached and won't have effect.
+But remember that xen inserts (i.e. places it at the beginning of firewall rules list) full-access rules on guest start. So, you should tune xen logic.
+Next, I'm not sure, what is the goal of blocking traffic, going from port 25. If you client sends ab e-mail, he connects to remote server's port 25 but uses one of local ports (32k..64k by default) on his side. Couldn't you explain, what do you want to get as a result?
+I didn't understand why you use "state" module if you a listing all valid states? It just uses CPU time and has no effect IMHO.
+I rarely try to block DomU VM's so I can't tell you exactly what to do. But please refer to this page:
+I'm trying to setup IPTABLES on my xen host server that will block incoming and/or outgoing access to a xen client on the same machine.  Specifically, I need to block outgoing port 25 traffic and incoming port 53 traffic to a specific container.

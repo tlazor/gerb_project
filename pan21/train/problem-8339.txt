@@ -1,0 +1,6 @@
+The users can't have Exchange or Domain Admin privileges, for obvious reasons. They already have limited Admin rights in Exchange, I just want them to be able to do the same commands but using Powershell.
+The type initializer for 'Microsoft.Exchange.Management.PowerShell.CmdletConfigurationEntries' threw an exception.
+I've been building a Powershell Module for our helpdesk team, and ran into an issue at some point: They don't seem to have the proper access rights to add the Exchange 2013 Powershell SnapIn, and I don't know where to look for this specific thing.
+    + FullyQualifiedErrorId : System.TypeInitializationException,Microsoft.PowerShell.Commands.AddPSSnapinCommand
+The command used is as follows: invoke-command -ScriptBlock {Add-PSSnapin Microsoft.Exchange.Management.Powershell.SnapIn} -ComputerName ExchangeServerFQDN, and they get thrown the following error: 
+I've given the users Read and Execute rights using Set-PSSessionConfiguration to the Microsoft.Powershell configuration, but it doesn't work. 

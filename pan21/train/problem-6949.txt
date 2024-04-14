@@ -1,0 +1,5 @@
+Can use the class_weight argument for one-hot-encoded/categorical labels and if so how? Or do I have to resort to a custom weighted loss function?
+I'm working on with an imbalanced dataset in Keras, and would like to give a higher weight to the samples from my minority class. The fit() function has a nice sample_weight argument, however because of the size of my data I have to use fit_generator().
+fit_generator() has a class_weight argument, which seems useful for this purpose and is already discussed in Another question. However, in this case the labels are not one-hot-encoded/categorical and I could not find whether using class_weight also allows for categorical data. 
+For categorical data, it is best to use sample_weight instead of class_weight argument. This can be done by simply giving all samples of a particular class the same weight. sample_weight works for categorical data because it takes a numpy array as its value as opposed to a dictionary (which won't work for categorical class labels) in case of class_weight.
+The other way, as you mentioned is using custom weighted loss function. A detailed discussion on it can be found here.

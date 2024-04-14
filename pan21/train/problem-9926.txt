@@ -1,0 +1,12 @@
+So someone/bot is trying hard (repeatedly every couple of hours, for approx 20 attempts during each instance) to log on... so obviously I have to lock down access to Sql Sever remotely.
+The first thing to do is to enable the Windows firewall.  Nothing should be accessing the SQL Server from outside the data center network without going through a VPN of some sort.
+I have both a dedicated and a VPS (from Fasthosts) virtual server - the web sites/applications I run on these, access Sql Server stored on the same web server.
+Can anyone confirm if this is the correct way of stopping anyone maliciously logging on to Sql Server? (I'm not a DBA or security expert - and there are hundreds of articles advising all different ways - but I was hoping for the experts here to confirm, or otherwise, if what I've done is correct) 
+What I have done is gone into Configuration Manager, and in Sql Server Network Configuration -> Protocols for Sql2008 and also in Sql Native Client 10.0 Configuration -> Client Protocols - I have diabled Named Pipes, TCP/IP (and VIA by default).  I have left Shared Memory enabled.  I also disabled in Sql Server Services, the Sql Server Browser.
+You should set up a firewall, and connect using remote desktop or a VPN. This way you avoid the security problems.
+Now the only way I can manage the databases on these servers, is by logging on to them via Remote Desktop.
+Next rename the sa account to something else.  That way no one can use it to connect to the SQL Server unless they know the username and the password.
+If you alway connect from the same computer, or a reduced set of computers, you could also allow connections only for your PCs.
+Until now, I have logged onto Sql Server on both the deidicated and VPS server, from Sql Server Management Studio - until I noticed in my server application logs, multiple attempts to logon to Sql Server using the 'sa' username, but failed password.
+I'd recommend reading through my security book as it's got tons of info about how to properly secure the SQL Server from a variety of different kinds of attacks.
+You could always create a new login, make this ia member of the sysadmin role, then deny access to sa.

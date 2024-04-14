@@ -1,0 +1,11 @@
+While a lot depends on what the PHP is actually doing, IMHO the load average seems to be rather high even on the old machine - but obviously the pressing issue is the difference in behaviour between old and new.
+If you are using thread invokations, then a number of requests will be handled by threads within a far fewer number of processes.
+If everything else fails, you can always use PHP's XDebug module. That means you perform page loads at your server, and let XDebug generate a Valgrind compatible report for you. Then you can analyze that file with KCacheGrind or some other analyzer and see where the precious CPU time gets consumed. That can give you a clue about what's wrong.
+Are you sure that the configs are same? Have you checked the apache error logs to see if its having any problems with any of the processing directives? Have you checked the permissions on the eaccelerator dir?
+Your 2500 - 4000 requests per minute translates to 40-60 requests per second. That kind of load hardly needs kernel level tuning, but more likely there is something wrong with your Apache or PHP setup. Some typical reasons include
+Does the box use external resources (such as DNS, database)? If so, is it on the same network as the old one? Are the RTT times to the other servers similar?
+Perhaps you can compare the output of sysctl -A on both systems? You may have tuned your RHEL5 kernel. I've also found oprofile to be useful to determine where the kernel and processes are spending time.
+The difference isn't really all that great - since the bulk of the memory is in TXT segments marked as COW. Indeed, some benchmarks show pre-fork to be more scalable than worker threads on Linux.
+You need to figure out what's different compared to your old server. Did you copy the configuration values from the old server to new one? Was the old server fine-tuned years ago and you have forgotten something vital? 
+Question:  Is the both apache configurations the same i.e. are you using thread invokations or process invokations for each request?
+If you are using process invokations, then a process is created for each request (with a few remaining behind) and thus a higher load factor.

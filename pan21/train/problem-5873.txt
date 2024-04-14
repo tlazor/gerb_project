@@ -1,0 +1,9 @@
+1) The FIDO2 capability requires using the Windows 10 October 2018 Update (version 1809) and Microsoft Edge browser. 
+The details about the Microsoft's implementation is described at All about FIDO2, CTAP2 and WebAuthn .
+What makes a key compatible with Microsoft solution?  You should read it at: What is a Microsoft-compatible security key?
+(Note: that the update maybe still blocked due to some driver issues like Intel drivers - I don't know all the issues have been addressed - you have to check yourself here.)
+1) You are already using Windows 10 1809 (October update) as said above you can setup Windows Hello to use FIDO2
+2) Microsoft is using the WebAuthn and FIDO2 CTAP2 specifications, which require that both a private and public key get added to a device. Organizations will need to have a Trusted Platform Module (TPM) on the device to store these keys. The TPMe can be implemented via hardware or software (usually present in business notebooks like HP, DELL).
+2) To enable it go to your Microsoft Account page and enter the Security\More Security from Windows Edge (it won't work at IE, Chrome, Firefox, etc.)
+The support for enterprise version will be available as the enterprises raise their version up to the above named update and MS enables it for them (full support in AD and Azure AD).
+I'd like to user a FIDO2 key to log into Windows 10. There are various guides explaining how to add a key to a Microsoft web account, or to Windows 10 sign in options, but neither result in showing up as an option when I try logging into Windows.

@@ -1,0 +1,6 @@
+disable bit-locker from the drive which has .mdf,.ldf,.ndf files. Give permission to those files ie right click-> security -> add -> full permission(read,write,exec,etc.) for that system . I hope you will be get rid of your problem.
+The security context will need at least LIST to traverse all folders and subfolders to the level of the folder where the DB files will be created, and where those files are created, it'll need MODIFY or FULL permissions there but MODIFY access should suffice. 
+I'm not sure why BitLocker being enabled or disabled on this disk would have an effect on this but perhaps BitLocker enabling in your configuration changes the NTFS permissions of the folders where the DB is being created. 
+It sure sounds like an NTFS permission issue with whatever security context is being used to created the LDF and MDF files does NOT have permission on the disk partition to create the DB files when initiated. 
+I agree with Jithin R and ensuring the SQL Server "service" account (what you have set in the services.msc for the login as, and ensuring it has at least MODIFY or FULL permissions at the NTFS folder level where the MDF and LDF files are created when they code dynamically creates the DB). 
+I had a similar situation and it turned out to be that the "Turn on Auto Unlock" option was disabled.

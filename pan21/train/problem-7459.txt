@@ -1,0 +1,8 @@
+If you never explicitly create a MEMORY table, the having those two settings the same avoids confusion and discussions like this.
+Intra-select tmp tables can happen often -- in every connection, and even multiple times in a single select.  So, keeping tmp_table_size "low" is important to avoid blowing out RAM.  I recommend no more than 1% of RAM, but this is rather arbitrary.
+Future:  The above discussion applies to at least MySQL versions 4.0 to 5.7, plus all versions (so far) of MariaDB.  MySQL 8.0 uses a "temp table engine", which may lead to some of the above discussion being moot.
+There are (if I am not mistaken) exactly 2 uses for those two settings.  They are, as alluded to in some of what you quoted:
+I run pt-variable-advisor and got a note about different settings for max_heap_table_size and tmp_table_size.
+Is something wrong with our (default) configuration? We don't know our workload. We run about 500 small databases for small web apps with different usage pattern.
+We didn't modify the defaults from cf-mysql-release. I saw that MariaDB KB recommends other default values.
+So, the admonition to make them equal is weaker than the wording you quote.  It is "sorta, kinda, oughta", and not "you MUST!".

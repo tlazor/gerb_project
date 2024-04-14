@@ -1,0 +1,8 @@
+No configuration have to be change openssh server is configured to accept key authentication for default.
+ssh -t user@$APP_HOST 'sh /home/agents/startAgent.sh --auto-shutdown > agent.log 2>&1 </dev/null & '
+You have to install private key of user launch remotely the command to the user in the remote server. If you have the password of remote user you have the right to install your private key, just run
+ssh -t  user@$DB_HOST 'sh /home/agents/startAgent.sh --auto-shutdown > agent.log 2>&1 </dev/null & '
+A good explanation is the first answer in this post: Tell SSH to use a graphical prompt for key passphrase
+You can install and use one of various ssh-askpass packages (ssh-askpass, ssh-askpass-gnome, ksshaskpass (KDE), ssh-askpass-fullscreen (Gnome2),...) and force a password-prompt (in your X-session) to open each time a password is requested.
+But my DB_HOST asks for password when I try to run the same command. For now I don't have configured access without password (no rights to do). 
+You will prompt for the user password and from that moment on you can login to remote server without password prompt. 

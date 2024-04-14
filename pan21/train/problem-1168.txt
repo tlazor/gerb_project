@@ -1,0 +1,8 @@
+so in the filezilla server console search for the "passive Option", enable and set the same ports : 50100-50120 and remember to open the same range in the windows firewall. that will be working when you're done.
+I also have Windows Firewall set to accept in/out bound 5000-5005 (wasn't sure if it was needed), and to allow 989/990 in.
+I'm also attempting to use my MacBook Pro from outside my LAN. Using Finder, it prompts me for credentials (which wouldn't happen if it was completely rejected.)
+Or maybe just enable passive mode into the ports that you have already configured 5000-5005 (TCP only)
+When I try to connect using FileZilla from outside the LAN, I receive a "Failed to retrieve directory listing"
+Enable the Passive mode in for ports in any range (I usually do 50100-50120) (the range will depend on the numbers of user that youll ftps will manage.
+I'm trying to get Microsoft Server 2016's IIS 10 to run FTPS. I have it working internally (need to change the External IP Address of Firewall to match internal IP (for LAN) and external IP (for WAN), but it works.)
+5000-5005Yes this is because along with the configuration of the port you would need also a series of ports called "Passive Mode" in ftps. So what you need to do is just to open the port 21 (for regular ftp) and 22 for ftps.

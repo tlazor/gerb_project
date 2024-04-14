@@ -1,0 +1,10 @@
+I had them on a shelf, to be used as emergency "backup workstation", but the reliability of the "backup" is also a very important matter.
+As US Marines usually say: " You have been WARNED!", and it's last time they say somethingh before they shoot you.
+Within months from startup, all three workstations behaved in the same way: the status turned to " a failure is higly probable in the next 24 hours.
+EDIT: The HD is doomed! You MAY be so lucky to have the time to "image" it and then replace with no data loss. Please , understand that HD are non mass commodities, with a MRSP less than 100 USD.
+In my experience with heavy use design workstation, I have learned the "burning way" to definitely save a lot of money spending  few of it.
+As a matter of experiment, I tested using UBUNTU Distro three HP-540D Workstations, whose hard disk have been almost continuosly spinning for more than six years.
+I want to elaborate on your question of whether or not you can extend the life of your hard disk. I too have a 320GB Seagate drive that has been giving out on me, but I'm still using it a year later. I understand that the proper way to deal with such errors is to replace the drive, but not everyone has the resources to do so.
+On my drive these tactics have worked out fine. I merely store absolutely replaceable data on it until it either crashes beyond any point of recovery or I can afford a replacement drive. In any case, SMART is not reliable. I had plenty of hard drives die without it ever having been triggered. On the other hand, a SMART message doesn't necessarily mean your hard drive will die tomorrow, but the chances are certainly higher than for drives that check out okay.
+My advice is , as a strong and urgent suggestion, to replace at the EARLIEST convenience the failing device.
+So i decided to transform the " Backup " in "Hot Standby" using a Pen Booting Distro, and keeping an eye on the S.M.A.R.T. Status.

@@ -1,0 +1,8 @@
+My end goal is to put 2x4TB with RAID1 setup for the data drive, but first I would like to replace the 1TB system drive with a new 500GB drive I have.
+bcdedit shows the new drive (500GB) holding the bootmgr and the drive I cloned from holding the boot loader.  
+I think it may have something to do with bcd, or the BDEDrive partition's placement on the smaller drive?  
+Well, I finally got it to work.  The steps I took were probably the wrong way to do it.I also had to procure a Windows Server 2008 R2 disk, although Dell eventually told me I could have used the trial version.
+I am trying to upgrade a Dell PowerEdge T110 II server.  It currently has 2x1TB drives.  They are not configured for RAID.  One is the system drive, the other is a data storage network drive.
+Also, this machine is in use at a small 7 person office, I can't currently take it down or risk hurting the existing disk.  I have a backup, but since I can only boot from my 4TB clone, not my 500gb clone, I have been unable to finish the configuration.
+I have been able to use Macrium Reflect to clone from the 1TB system drive to one of the 4TB drives and boot from the 4TB drive.  However, when I clone to the 500GB drive, it doesn't boot, with error
+I would greatly appreciate some information on how to proceed.  I also do not have any sort of rescue disk.  I was not around when it was originally installed.

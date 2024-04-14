@@ -1,0 +1,7 @@
+i have a mysql database of only 150 mb and is for eccomerce site, i receive 1000 daily visitors and i need a server of 1 gb . The database is pretty whell structure in queries but that will work for me , i reccommend for you at least 2gb of ram.
+I would think you should be fine.  If the index can fit (and stay) in memory, that should be enough to get pretty decent performance, provided you aren't dealing with a huge request load or anything.
+I'm having a really hard time figuring out how much ram I need for this database. Right now it's one table that is mostly filled with text content and has +40k entries.
+Is there any formula for this? It seems like my index is only 1/2 meg or so -- that's all that needs to stay in memory right?
+I have a server that I want to put it on that has 512meg of ram -- is this going to be enough or do I need to upgrade?
+Most queries are going to be selecting a single row on a unique key. Think of it as a blog with +40k articles.
+I would say no.. MySQL will be at its best with a large query cache.. 512 is nothing these days.. more so for a DB of that size even if you aren't doing a lot of complex joins

@@ -1,0 +1,7 @@
+090922 17:49:59 [ERROR] Failed to open the relay log '/var/run/mysqld/mysqld-relay-bin.000009' (relay_log_pos 67391580)
+How can I avoid this from happening so if the master does get restarted it's not a mission to re-do all the databases.
+This works well unless the master is restarted for any reason. When it comes back up the slave doesn't connect. On the slave I do a start slave; then it fails with
+I have seen this before. Don't put your logs in the /var/run. If I recall correctly, the system erases the files in this directory automatically. Try putting your binlogs to another directory and see if your error shows up again.
+And I am forced to grab all the data from the master and load it back into the slave and start that again.
+I've seen this once before when the config on the slave was using a DNS name to connect to the master. In my case the solution was to use the IP address instead.
+It sounds like restarting the master wipes out the binary logs, for some reason. MySQL won't do that by itself; it is either receiving the command RESET MASTER at some point, or something in the server's startup is clearing out /var/run.

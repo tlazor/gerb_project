@@ -1,0 +1,9 @@
+I found a small open source utility called "Power Triggers" or "Windows 7 Suspend/Resume Control". Despite not being well-polished or currently maintained, I found this tool to work on Windows 10 without issues. However, to run a script easily on suspend or resume, you have to use version 1.01, and not the latest version.
+Having tried some of the prescribed methods in here, I was never able to get a script to run on sleep. The built-in Windows Task Scheduler facilities just didn't fix it.
+Mind you you should run the apps with "Start / wait xxx.exe" so the batch file will wait for the command to complete and exit and not reach the shutdown part before other tasks are complete. 
+What you can do is create a batch file to do everything you need to before shutting down or hibernating the machine.
+I keep alot of my classwork documents hosted on dropbox as well as my personal site for remote storage.  This helps alot since I switch between an iPad, laptop and desktop, so there are no worries about my documents being out of touch.
+Problem is, this solution relies on me remembering to execute the sync program (synctoy) for win7, so I'd like a solution to do this automatically.  I've found some scripting help that should work on bootup, but how can I get the script to execute on entering sleep and hibernate, resuming from both, as well as executing before shutdown.
+You can create a task that uses any of the following options as triggers for the Task Scheduler in Windows 7:
+The last command in that file should be "shutdown xxx yyy " where xxx and yyy are the parameters for the shutdown command. Then you can just run this batch file instead of using any other shutting down command / application.
+There's lots to work with there, I'd be looking at the on Idle, on Workstation lock and On Workstation Unlock triggers. That's probably your best bet.

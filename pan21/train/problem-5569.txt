@@ -1,0 +1,6 @@
+Richard W.M. Jones of Red Hat (of libguestfs / guestfish fame) has done (and is doing) substantial work in this area. His virt-p2v tool is presently withdrawn to undergo rewrite; however, he has documented a less-automated process to be used in the interim.
+Patches providing substantial virt-v2v automation between qemu, VMware ESX and RHEV (Red Hat Enterprise Virtualization) have committed to libguestfs recently, so there's quite a lot going on.
+v2v is easy, if you're using LVM, just snapshot the disk, then clone the VM, edit the domain xml file (easy with libvirtd/virsh), then restart the new clone with the snapshot of the disk.
+we have centos, fedora, ubuntu server and desktop we are looking for good open source tool for p2v v2v v2p and we are not using vmware here only we use xen or kvm. Same of the server shifted to new hardware and same of the server on xen or kvm. Can same help me !!
+For dd commands, you may find that you want to set bs=10240 to make copying faster. YMMV and all that.
+p2v, we tend to just copy the hard disk (with dd) from a physical entity to an LVM disk, or iSCSI LUN, then set KVM to boot from that.

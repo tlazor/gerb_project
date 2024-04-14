@@ -1,0 +1,10 @@
+I have noticed that sometime the DateTime.SpecifyKind is not working as expected on a given Service pack where creat a new date time always does. The method Specify Kind is just a wrapper around the create  this method anyway (when it works)
+I've got a system and every object in my system has a base class with property: DateTime DateCreated
+The DateCreated in each object has Kind set to Utc because I'm setting it using DateTime.UtcNow. However, as I load the data from the database the Kind remains as Unspecified (I assumed that the UTC part would be saved to the database but it appears not). When I return the dates via the web service function I get it without the Z suffix so the calling application doesn't know it is UTC:
+While you currently feel every DateTime coming to you will be in UTC, even if its DateTimeKind is not Utc, your code would be less prone to breakage from future changes, such as maybe a DateTime could be passed as Local.
+I use this Extension method to ""fallback" to UTC so I can properly convert between exchange time, server time and clients local time. 
+As the it's a value type one doesn't update the instance, you'd have to write it in a new variable. 
+After Googling someone suggests that using DateTimeOffset would be more appropriate. I'm not convinced? This would have me questioning the use of DateTime in any scenario - and always using DateTimeOffset!?!
+We throw the error incase the framework updated and there is a not implemented method than to just leave ambiguity in a default implementation.
+This has been fine but now I'm exposing my data as json via a web service call. As the date are UTC I want the format to have the Z suffix as below:
+It seems weird to me that the UTC Kind of the DateTime object isn't saved to the database - I thought it would be. The datatype is datetime2(7).

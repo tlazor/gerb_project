@@ -1,0 +1,8 @@
+to have something usefull i would recommend installing mercurial on the server in your home, maybe that local installation is less "complex" than the git installation (which you could also install in your home btw).
+use rsync (oh, wait you would need rsync on the server as well :)) to just store the mercurial / git / bzr repos from your local machine onto the servers. you then have to download the whole repository next to your working copy and then you can do a merge.
+I have ssh access to many servers where I have no root privileges. Do you know of any version control utility that can work with remote ssh repositories whichout installing anything on the remote server? 
+In addition, you can also do "commit"s when your machine is not connected to the server by passing the "--local" option to the "commit" command, or by unbinding and binding the branch (bzr unbind/bzr bind)
+Actually, the way this works is this: You create a repository/branch on your local machine and user Bazaar to track all changes. Bazaar stores all its information in a directory named ".bzr" in the root directory for that branch. You must upload the repository/branch to your server using your SSH access. Then, any latter changes commited to the branch are automatically uploaded to the server.
+I have tried a bare git repository folder, but it seems to demand some script/binary/installation on the server.  I also dont like git because it is not very portable. The portable versions are made of too many files
+It looks like Bazaar can use an SFTP-based “dumb server” (Bazaar not required on the server side) for read and write access.
+As Chris Johnsen points out, Bazaar can upload the repository data to a server using different protocols, SFTP among them.

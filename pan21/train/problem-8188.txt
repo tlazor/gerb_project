@@ -1,0 +1,5 @@
+For safe multi-user edit access to your data, you may want to explore a database solution like Access or SQL instead. Excel can still be the front end for data entry and reporting, but it was never designed to be a multi-user interface for Excel data.
+You say the files are "shared files". Does that mean that you have the "Share Workbook" feature enabled? If so, don't worry any more. Sharing workbooks so that multiple users can edit a file is a recipe for disaster. Shared files will eventually become corrupt, impossible to troubleshoot or repair. It's not a question of if it will happen, but rather when it will happen.
+If you need simultaneous multi-user read/write access to your data, then Excel shared files is NOT the way to go. This Excel feature is riddled with bugs and results in unexpected behaviour.
+how to find out the probable cause of corruption of excel files...here i m not saying of a single file...files are getting corrupted one after the other...can
+If you use shared files, be certain to have a strict backup regime, because the files can become corrupt at any time.

@@ -1,0 +1,6 @@
+You can use the taskset command in linux to launch a program on a specific core. You can also use it on already running programs to tie them to a specific core.
+I don't know how you would tie a specific program to a specific graphics core but is that really necessary?
+You may be able to hack it by running things out of OpenVZ containers that are assigned to certain execution threads. I've never really tried though. As a user, you shouldn't ever need to really manage your resources that way. But yes, when I got my 8 core machine, I too wanted to toy with that a bit.
+You can run separate X instances on each card or even each monitor. Xinerama needs to be off for that. If you run separate X instances, I think that they'll then be confined to the GPU they're on.
+As for task delegation, that's getting pretty low level. You may need to read around docs for the kernel. "nice" possibly could help point you in the right direction. It'd be cool if 'nice' allowed you to dictate where things run, but that doesn't seem very likely.
+XBMC has built in support to tie it to a specific screen. You can configure this by opening XBMC->Settings->Video Output->Display Mode and then set that to the screen you want.

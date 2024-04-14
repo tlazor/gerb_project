@@ -1,0 +1,5 @@
+Another alternative is to use Process Monitor from Microsoft and watch the folder to see what access is happening. This will show you the files that are read/written and any processes that access it.
+This is now built-in to the Application Pool gui in IIS 7.  To enable this in IIS 6, you can add the relevant information to the web.config.  You specifically want to log the "Application Lifetime Events".  
+You need to enable IIS Health Monitoring logging.  It records the reason for the restart in the Application Event Log.  You should not disable file change notification because there should not be anything changing in the web site at all.  Any files/data that are created/modified/deleted should reside outside the web site folder structure.  
+Worst case scenario if nothing errors then at least your app pool won't get recycled because the bin folder won't be changing.
+Do you have the necessary permissions to deny write access to the bin folder for a while? If you do this then if something is writing to the folder the error may surface and you can trace it down from there.

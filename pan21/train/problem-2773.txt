@@ -1,0 +1,8 @@
+After selecting the text, press Ctrl-Shift-C to copy it to the clipboard. The extra Shift is required as Ctrl-Cis already used in shells. Similarly, to paste, press Ctrl-Shift-V.
+You can also just mark the terminal output you want to copy and it is copied to your clipboard automatically.
+X has got 3 different selections or clipboards. The "primary" one is the one that activates with the middle mouse button. That's what you get if you call xsel or xclip without any arguments. To get access to the "clipboard" that is used for copy/paste, CTRL-C/CTRL-V etc, the -b is required.
+Both xsel and xclip interact with X, not with Gnome directly, but so long as your display manager is running XWayland (which it should do for years to come), then xsel -b will continue to work and be safe to use in scripts. Nothing is 100% future proof but xsel -b is fine for now.
+What if you are doing the opposite, and copy some text in your browser and want to paste it into your terminal? (Well, of course you can just paste.) Or type:
+I recommend you do use the -b option and interoperate with the clipboard rather than the X11 middle-click "primary" selection -- because in the transition from X to Wayland, access to the X11 "primary" selection may not survive in Gnome or Wayland. Here's a relevant Gnome bugzilla thread.
+You can also just select it then middle-click in Firefox to paste it. This uses the cut buffer, which is slightly different to the clibpoard.
+It's an old question but I thought it deserves a working answer. Either xsel or xclip can do this job. Personally I prefer to use xsel, which has a cleaner syntax.

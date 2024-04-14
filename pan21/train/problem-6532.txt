@@ -1,0 +1,9 @@
+Another open-source program that seems to be able to solve the problem, using a similar approach, is ucanvcam. However, when I start it up, it immediately crashes on my computer and I haven't investigated why. But maybe the bugs would be fixed by the time you read this.
+(Actually, for me this didn't work the first time. I had to restart Webcamoid and Skype a couple of times, tear down the virtual webcam and set it up again. But after this minimal settling in, it works well. Also, after certain combination of actions with its interface, Webcamoid crashes, but I just avoid taking those actions. When it runs steadily in the background, it seems to be quite stable and reliable.)
+(For some reason, to get the scaling right, I had to use "-0.75", but on some systems it would probably be just "-1".)
+The downside is that this isn't a set-and-forget solution: one has to launch Webcamoid and set up the filter before every Skype session.
+And it works: after enabling the virtual webcam in Webcamoid and restarting Skype, we see the virtual webcam in the list of webcams under Skype's Options > Video.
+For a flip around the other axis, i.e. to fix it if the video is upside-down, change the "1" in the second row to "-1".
+A virtual webcam is something that exists purely in software, but programs (which query the DirectShow API on Windows) see it in the list of installed webcams and can interact with it just as they would with a physical webcam.
+The idea is to use software that takes input from the webcam, applies some transformations and then offers the output as a virtual webcam.
+How to use it is self-explanatory, except that to get the mirroring transformation, choose the filter called "Matrix Transformation" and specify a matrix like:

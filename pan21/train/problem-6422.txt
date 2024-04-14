@@ -1,0 +1,6 @@
+Yes you can in theory, but multibooting Windows is heaps trickier than Linux.  Load Windows first, then load your Linux distros.  It just comes down to setting up GRUB2 properly I should think.
+I was thinking dedicated a gig to Ubuntu's ISO, 4 gigs to Windows 7, and another 4 gigs to Windows 8.1. Is this feasible?
+The information I found so far is not really conclusive about multiple ISO images, and so far I haven't found much promising. The reason I'm asking instead of just trying is because I'd be backing up my entire 1TB drive before touching any of the partitions, and before I embark on that, I'd like to know if it's even possible and/or realistic.
+Ideally, I think it would be pretty damn cool to have 3 partitions dedicated to ISOs that I might need, so that I only need one drive to boot from Linux, Windows 7, or 8.1. It would also make backup/installing a cinch. It might even be interesting to see if I can add UBCD or Hiren's Boot Disk to the mix.
+http://www.techspot.com/community/topics/how-to-install-and-boot-windows-on-an-external-usb-hard-drive.116114/
+However, I have a USB3 1TB drive that's nice and self-powered, and I was wondering if I partitioned it properly, could I, in theory, turn those partitions into bootable devices for troubleshooting? Using tools like Unetbootin/Rufus.

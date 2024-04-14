@@ -1,0 +1,12 @@
+I'm trying to find some use for a laptop with a dead motherboard here and reusing the LCD panel seems quite doable.
+But it is really difficult to know that they are the exact ones, especially without accurate dimensions.
+Technically this is known as a board-to-board or mezzanine connector. That particular one is keyed, which isn't uncommon, but may make it more difficult to locate. Maybe you can find something similar at Digikey (200,000), Mouser (16,000) or similar but there are many, many to search through.
+I'm not sure if they still offer free samples (they used to) but it's worth checking out.  The product page at the website has full details on how to use this product.
+As @rdtsc points out, these are mezzanine type connectors, and there are a great many different ones. A quick browse on DigiKey (parameterised search for 0.8mm pitch, 50pin mezzanine connectors), the following look like likely candidates: 
+However, I would like to use the original ribbon cable because there are some extra functions on it and that's where I'm a bit stuck.
+The background is a paper sheet with a 5mmx5mm grid and what I'd like to be able to find is the male connector, the one on the motherboard.
+Note that you don't need a hot-air rework station to use this product - a standard soldering iron is all that you need.  The contaminated solder remains molten for a very long time and you simply float the connector off the board.  
+Indeed, the connector used on the "motherboard" part is quite thin and I'm having a hard time finding the name for such a connector.
+The problem with interconnects is that there are literally thousands of them - thousands of modern ones, and thousands of "old" ones which are no longer used and are unavailable. Jake is onto the answer here... try to get a schematic or parts list for the motherboard and/or display. If you can get that, it will likely have the part number on it.
+After you have removed the connector that you are salvaging, simply flood the connector pins with regular solder so as to wash off the low-temp alloy.  The connector should be completely usable.
+If the motherboard is indeed dead, you can easily remove the connector that you want to salvage by using a product known as "Chip Quik".  This is a low-temperature solder alloy that is specifically designed to contaminate the existing solder on the board so as to reduce the melt temperature to a very low value.

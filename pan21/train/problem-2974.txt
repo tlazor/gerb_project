@@ -1,0 +1,14 @@
+We store daily database backups on the DB server, is there any performance hit or reason why we should keep the hard disk relatively empty?  If the disk is filled up to 86%+ with the database and all of the backups, does it hurt performance at all?
+Running an Ubuntu server with MySQL for a high traffic production database server.  Nothing else is running on the machine except the MySQL instance.
+Also, come up with a sensible rotation/retention scheme for your (assumed) compressed database dump backups.  There's (usually) no reason to keep that many copies of the backups on the local disk.  Does nothing for disaster recovery and when moved off-site, should be removed off the disk.  
+If it is allocating though, it could ask for a very large chunk that doesn't fit into any free list you have immediately fragmenting your database and causing seeking when it needs data to ready into memory.
+This reminded me of a bug on NetApp where file systems that are near full had their performance drop significantly (like half).  (admittedly that was a few years ago).
+I'd recommend moving the database and temporary (see below) backups to a different partition than root (/).
+So would the DB server running with 86-90%+ full capacity perform less well in any way than the server running with only a 10% full disk?
+In short I'd say you'll survive providing your DB is not write heavy.  If it is, then low disk space is a problem. But if I was you I'd work on the following sooner rather than later.
+I had a similar problem recently when I used up all the disk space on one of my replication servers. The immediate effect was for replication to crash and then I could not log into MySQL because the mysqld.sock file could not be opened.
+(2) a naive impelementation of logs where it uses the OS to manage allocating space and deleting it will suffer.  Assuming your database is not read only, there will be a constant stream of logs, they will frequently be fragmented on a low hard disk space.  Ultimately this will hurt your write performance.
+(1) only needs free space when allocating more space for your file set.  If your database is not growing it should be unaffected by a low disk space file system.
+(3) tempDB, if the DB needs it for shoddy written queries, or not enough RAM, then you've got bigger problems than low disk space causing performance problems as even your read performance could become disk bound then.  You also run the risk of an outage if MySql needed to allocate disk space for tempDB and the hard disk ran out.
+The total disk size on the server is over 1 TB so even 10% of the disk should be enough for basic O/S swapping and such.
+The main downside of full file systems is the list of free inodes are likely to be fragmented and all over the place.

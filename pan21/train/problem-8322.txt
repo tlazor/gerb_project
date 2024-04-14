@@ -1,0 +1,11 @@
+You could run a query against Active Directory to find the users for whom pwdLastSet was more than a couple of days ago, and then force only those users to reset their passwords.
+I have many users, and to go one by one setting the change can take half a day. but to wait for the max time, can take 91 days (as set).
+Set up your policy. Communicate the change to your users and let them know that on a particular day the new policy will come into force. The day before - remind them. Then use a script like this visual basic to force users to change the password at next logon.
+If you know for sure that everybody knows there will be a new policy and that they're going to have to change their passwords, then there should be no problems with enforcing a change at next logon.
+As for knowing whether a user has changed his/her password, Active Directory stores a pwdLastSet attribute for each user:
+It's a combination of the organization, why the change is needed and how quickly can the change be communicated as well as implemented. It will vary greatly across each different organization as well as their specific situations.
+Finally, to set the "Must change password at next logon" flag for multiple users at once, you can use dsmod:
+I thought to set the max time to 5 days (e.g.) and on the 4th day to change that again to the 91 I want, but I am not sure how to know if all the users changed the password in that time.
+Make up a batch file with a dsmod command for every user whose pwdLastSet is too long ago, and voila! You have your password policy enforcement mechanism.
+The main issue I have is should I wait for the max time to pass for the user to change his current password, or to enforce the: change at next logon?
+However, if you haven't given your users enough notice, then many of them will be caught unawares when they're forced to change their password at next logon, and you'll be dealing with the following scenario a lot:

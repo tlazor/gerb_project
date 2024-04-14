@@ -1,0 +1,8 @@
+Is there any way of achieving this without having to hardcode IP addresses? Obviously I cannot hardcode the internal ALB IP as it is changing all the time, and I cannot hardcode the final instance traffic as it is auto-scaled and also changing all the time.
+I have tried to change VPN (openVPN access server) configuration but with no success. Even when I configured the VPN to route all internet traffic, it still didn't work. 
+For instances with static IP address it is possible to configure security group access to ports from the security group of the VPN instance. But our VPN is set to route only internal traffic and not internet traffic and so it does not route the necessary url. 
+www.example.com --> Public ALB(Open to internet) --> Target Group (other then /admin) -> auto-scaled instances
+One idea we have is to use custom port: "https://www.something:8099/admin", then in ALB security group configure that port to be accessible only from security group of the VPN instance. That still does not work though as VPN will not route internet traffic. 
+This can be done by implementing your own DNS server and telling your VPN clients to use that DNS server when connected via the VPN. In the DNS server, you will set up the zone for something.com, where you add A records for the domains / subdomains that point to the internal IP addresses you want to use.
+Domain names are resolved to IP addresses by sending queries DNS servers. If I understood correctly, you want domain name resolve to the internal IP address when people are using VPN.
+Every piece of material I found online about this topic suggests to alter VPN config to route domain to specific IP. 

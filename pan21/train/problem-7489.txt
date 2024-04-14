@@ -1,0 +1,12 @@
+Everything works as expected, except that we don't have connectivity from clients on the DHCP devices to servers on our static-IP machines.
+It doesn't make any difference if the machines are connecting over wifi or a hard-wired Ethernet connection; the results are the same.
+If I ping Machine 2 from Machine 1, sometimes all packets fail to get through, but sometimes some of the packets show results like:
+The devices using DHCP are assigned addresses of the form 10.1.10.x.  The Cisco gateway's IP address on the DHCP LAN is 10.1.10.1.
+So, for example, consider Machine 1 that uses DHCP and has IP address 10.1.10.19, and Machine 2 (running a server) that has static IP address A.B.C.212.  Machine 1 cannot connect to a web server or ssh server on Machine 2.
+Occasionally the connection appears to start to work, but very slowly (too slow to be usable at all) and only for a short while.
+Comcast tech support thought that maybe I needed to set up a static routing table on the Cisco gateway, but that hasn't worked either (but maybe I just don't know how to set it up correctly).
+(In contrast, connectivity to and from remote sites works just as I expected: both Machine 1 and Machine 2 can connect to remote servers on the Internet, and remote machines on the Internet can connect to Machine 2.  Connectivity from one static-IP machine to another static-IP machine also works.)
+I have Comcast service with 5 static IP addresses, using a Cisco DPC3939B as the cable modem.  In addition to the 5 machines with static IP addresses, there are additional devices that get their IP addresses dynamically from the DPC3939B using DHCP.
+The static IP addresses assigned are A.B.C.209, A.B.C.210, A.B.C.211, A.B.C.212, and A.B.C.213.  The Cisco gateway's IP address is A.B.C.214.
+I tried temporarily turning off all firewalls, but that didn't correct things, so it doesn't appear to be a firewall issue.
+Can anybody suggest what I could try so that our DHCP-based machines can talk to our machines with static IP addresses?

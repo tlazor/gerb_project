@@ -1,0 +1,6 @@
+If you need to allow AUTH for the client but based on the address replied you want to prevent the actual password lookup then indeed the most logical place seems to be the authenticator:
+In the case of SQL it's quite pointless since one would end up using two lookups instead of one and would reach the same conclusion by using
+The two ACLs I attempted to work with were acl_smtp_auth and acl_smtp_connect, with the following code:
+Is it possible to set up Exim so that, based on the username passed along to it, it can reject an authentication attempt before it will try to do a password lookup for that username? I've done similar with Dovecot for incoming mail check attempts through a deny passdb and want to do the same for outgoing mail attempts as well. The main reason why we can't just let them keep trying and failing stems from IP blocks that occur will sometimes affect other people.
+Would this instead require modifying the authenticators, which would mean whatever I do must be secure, or am I just using the wrong ACL/wrong code?
+I've gone over the Exim documentation for what seems relevant (ACLs, authenticators, the variable index, etc) but I'm not too confident that my interpretation of it is accurate. There are a few ACLs that seem relevant but my initial attempts at using them haven't panned out. 

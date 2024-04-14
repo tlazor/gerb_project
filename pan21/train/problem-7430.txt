@@ -1,0 +1,5 @@
+I do not know if your admin controllers are in the separate folder, but I see that they have the same prefix - admin. Laravel has such route groups.
+Changing the routes is a case of changing the controller methods. This means one place to change your routes rather than two.
+There is nothing wrong with this approach at all. Rather than say you should or shouldn't do it any other way I'm going to give you an alternative approach that allows you to write less code in your routes.php file.
+I've noticed that your HomeController deals with a lot of different types of requests. This can get very hard to manage when your application grows. It's a good idea to separate out your controllers into manageable classes that deal with one area or feature of your application. The example below would ideally be in a PasswordController class for example.
+Your GET route /password/reset would map to the method getReset in the controller. While the POST route /password/email would map to postEmail in the controller.

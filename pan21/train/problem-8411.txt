@@ -1,0 +1,7 @@
+IE-Tab allows you to display IE windows inside the tabs so that TMP can do the auto rotate and update.
+We use Mercury (now HP)'s BAC tools for our dashboards. I can take counters, alerts, etc from SO many sources, crunch their stats and dashboard those stats in a variety of ways. I'll warn you know though, this is a high-end solution - very spendy.
+My visualisations are use on OS X and Linux, oddly the only OS X browser with a working fullscreen mode is Opera, neither Safari (and that includes webkit) nor FireFox do.
+I wrote my own Nagios visualisation after finding out that none of the easily found versions can handle hundreds of hosts with tens of thousands of checks. (To release the code I need a few people who want to try it outside of my environment so I can convince the bosses)
+Then you can display all of the MRTG, CATI, NAGIOS, What'sUp Gold, wireless monitors you want and it auto-rotates, auto-updates and is shiny...:)
+Even the few that might not break required manual configuration that our nagios config generator couldn't be perverted to do.
+What I have done is I get as much of it into a web browser as I can.  Then I use Firefox, IE-TAB, and Tab mix plus to display the data.

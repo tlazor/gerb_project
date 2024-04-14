@@ -1,0 +1,5 @@
+The machine in vlan.1 can ping device in vlan.11 vice-a-versa. But the route wont works either ways without a nat.
+Yes they can. As long as routes are available for the packets to flow in both directions the endpoints won't need to know or care that one address is public and the other is private.
+If you're asking if a server can have both a private and a public IP, the answer is yes. From what it sounds like, you have 2 devices on your server, both VLAN tagged. In this case, the server should be able to respond to either IP it has. Perhaps your other hosts are not sitting on the proper VLANs? Have you verified your switch config?
+I distribute network using vlan, at vlan.1 we already use a public ip, and to extend the services at vlan.11 we using private ip address.
+Private addresses are non-routable, which means those addresses will not be routed across Internet routers. The addressing may route within your network of routers that you control, but that will more than likely be the limits of the routing functionality for your private IP ranges.

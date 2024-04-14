@@ -1,0 +1,8 @@
+If you see this article about adaptive retransmition you will see TCP uses RTT as a factor in calculating appropriate delays.
+After a certain amount of time the TCP server sends a keepalive, and determines that the client is alive. What does the TCP server then do with this first datagram? Does is wait for the second datagram to arrive, or does it discard the first datagram?
+After the fragment reassembly timeout expires, the fragment is dropped; the other end would need to retransmit.
+It would be best to connect two machines of the same configuration with a cross over and start testing from there if you wanted to test the effects of fragmentation delay.
+This timeout is generally configurable. On Linux, it's 30 seconds by default and controlled via /proc/sys/net/ipv4/ipfrag_time.
+This Cisco article though indicates that an IOS XR virtual firewall has a default timeout of 10 seconds for fragments, with its own configurable timer. I'm linking this in to say OSs and devices are going to behave differently and if you are passing a connection though a device like this for example, it could negatively interfere with you connection.
+This is a more detailed article. Essentially, there isn't a special timeout value just for fragmentation.
+Suppose that a given TCP fragment is fragmented into two IP datagrams, and that the first datagram arrives to the TCP server, but the second datagram never arrives.

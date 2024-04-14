@@ -1,0 +1,6 @@
+I'm in the process of redesigning some of my state management code (there are several features I've grown to dislike in practice..) which was based on this tutorial and others. The issue I'm having right now has to do with state transitions.
+Where and when should state transitions occur? Should they be executed immediately, or should they be delayed to the end of the current frame, after the current state has finished its work for that frame?
+The second options is more appealing to me, because as a player I would probably notice that extra bit of movement after pressing to pause the game. What if the player died during that frame? The delayed state change would be unwarranted. But then, the game state itself should probably disable updates if a game pause was requested.
+On the other hand it might make more sense to delay state transitions to after the current state has fully executed its functions for the current frame. Maybe the Pause state should be a sub-state of the Game state and not a state of its own.
+Is it simply a matter of preference or is one of the approaches clearly superior for a different reason?
+Let's say my states can implement handleEvents, update, render, pause and resume methods, among others that are not relevant for this question.

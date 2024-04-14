@@ -1,0 +1,9 @@
+Other options include using git or another revision control system (svn, cvs, etc.) to handle the updates which allows you more control.
+And as others have mentioned, depending on your development environment if might have some kind of sync built in.
+Avoid FTP which is insecure and use rsync over ssh if you want to keep it at a purely file based level.
+I am looking for a free solution to automatically sync files and directories remotely between my local machines and an ftp server.  I have found two free ones but need you to help me assess their trustworthiness and dependability.  
+There are utilities to mount ftp servers as drives under windows and I think you can do the same in linux once you've done that you can synchronise using synctoy on windows or rsync on linux.
+You may want to try FTP Voyager from SolarWinds.  It includes some pretty robust sync tools, including a visual comparison and a scheduler.  (FTP Voyager used to be paid, but went free when SolarWinds acquired it from RhinoSoft.)  
+How can website developers be bothered manually uploading files everytime they makes changes?  Surely there is a very big demand for this kind of software, one would think?
+Personally, if you're going to be serious about developing something, I think you need to consider using a revision control system anyway, and once you've got that setup, you can use it to deploy / update the site whenever you want.
+To be honest these look like pretty amateur jobs compared to the more polished proprietary equivalents.  Haven't the Mozilla folks, responsible for the popular FTP Filezilla, built in automatic synchronization management features?  Or do they have a separate program for that?  

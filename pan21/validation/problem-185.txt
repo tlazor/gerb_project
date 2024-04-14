@@ -1,0 +1,8 @@
+The method AddID(tblModel, int) is to get the point across that I'm adding the ID from tblModel1 after it's inserted into tblModel2 and tblModel3. In actuality, I do this but I map the DomainModel to completely new tblModels and during that process I add the IDs to tblModel2 and tblModel3. I believe the code above is representative of what I'm doing.
+An explanation of the models involved: I have one DomainModel and three tblModels (tblModel1, tblModel2, tblModel3). tblModel2 and tblModel3 hold an ID from tblModel1. The DomainModel is made up of all three of the tblModels. I'm simplifying the domain to database mapping here because I'm focusing on feedback about the asynchronous calls.
+As a more general point - why aren't you saving the whole DomainModel at once? I'd expect to just be able to do:
+This is practically my first time using async in my code. I read about dos-and-donts but I wanted to get some feedback on what I've written.
+I'm not going to comment on the bad naming because I'm guessing that this is actually just an example of your working code.
+Please let me know if there is a better way for me to optimize these asynchronous inserts into the database. Thank you!
+I've hinted at it but I'll say it outright - you get very little to no benefit in writing Repositorys wrapping the db context. It's just not worth it.
+The best thing you could do is let EF do what it's good at... You don't need to save every single time you add an entity - let EF track the changes in its DbSets repositories and then save the changes in the 

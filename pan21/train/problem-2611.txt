@@ -1,0 +1,7 @@
+You can find out which application is keeping a lock on the clipboard by running David Candy's app: http://windowsxp.mvps.org/temp/GetOpenClipboardWindow.zip
+Neither Ctrl-C/Ctrl-V nor context menu right-click Copy-Paste (actually, nothing happens on Copy, so there is nothing in a clipboard to Paste) are working. Drag-and-Drop (where supported) continues working though.
+I had this problem on a remote desktop connection. Even after trying @Ludovic's solution (Copy-paste stops working on Windows 7) it did not go away.
+Piggie-backing on what SSilk said in his answer, try to turn off Notepad++ if it's open.  In my case too, it was interfering with the clipboard on a Windows Server 2012 R2 machine.
+Copy-paste functionality stops working after about an hour after each reboot on a Windows 7 64-bit system.
+I have this exact same problem as well, on Windows 7 64-bit too. For me, I just found out it was caused by Outlook 2007.
+Running Google Chrome (with gmail and few other tabs open like Calendar, Reader), MS Outlook (which I don't think has anything to do with the problem — I saw it when outlook was off as well), iTunes (9.1.1.12 if it matters).

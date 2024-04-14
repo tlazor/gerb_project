@@ -1,0 +1,11 @@
+This tells me that a log backup is required before the transaction log can be truncated (https://docs.microsoft.com/en-us/sql/relational-databases/logs/the-transaction-log-sql-server?view=sql-server-2017#Truncation).
+If that's what you want you need to shrink the log file yourself. Unfortunately the command includes the word truncate, so one would expect that log file truncation and dbcc shrinkfile (truncateonly) were related, they are not.
+The volume that holds my transaction log seems to be constantly at 97% full, so I am trying to identify the cause.
+I think that the problem here is that Log truncation (the kind that happens when you backup up a log file) frees space in the log file for reuse by the transaction log, it does not actually shrink the log file on disk.
+I really don't understand what your problem is, everything regarding yor log files seems to be regular.
+The result says that "model" (database_id=3) has log_reuse_wait_desc=LOG_BACKUP and recovery_model_desc=FULL.
+There seems to be a database with a log file of almost 70GB in your list ,the fifth one. That seems like a good candidate to shrink. Let's assume that it's called WideWorldImporters:
+I am confused because "model" is a System database, and it doesn't seem like I should have get involved with its log backups or truncation.
+Next, I run this query to determine when the last log backup was taken (see https://stackoverflow.com/questions/40050221/sql-server-what-exactly-is-the-backup-finish-date-in-master-sys-databases):
+Your server is able to truncate the log, it's able to take log backups, and it effectively did both the things, it's clear from your last picture where the log backups show recent data.
+the max among system databases is 61% for tempdb that is in simple mode and you cannot perform log backups of tempdb anyway.

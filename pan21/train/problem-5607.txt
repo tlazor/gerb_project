@@ -1,0 +1,9 @@
+You could also use asymmetric cryptography, and use your own public key as the recipient. This causes GnuPG to generate a random key for AES256, which may be more secure than a "rememberable" passphrase. This random key is then encrypted with your public key and can be decrypted with your private key.
+You can now pick any of these ciphers, although AES256 is a safe choice. If you are worried about modes, GnuPG uses their own variant of the CFB-mode, though this doesn't matter too much for this use case.
+The advantage of this approach is that you don't need to remember the key you used to encrypt the files. This may come in handy if you plan on storing those files for a long time and have a hard time remembering passwords.
+GnuPG will now ask you to enter and repeat a passphrase. Don't forget the passphrase, as you will not have any option to recover your data without it. Also, .gpg is not a standardized file extension or necessary. It just helps you remember that the file is encrypted.
+GnuPG is designed primarily to work with asymmetric cryptography, which is why many of the options mention "recipients". Of course, you can also use GnuPG to encrypt files symmetrically as well.
+The downside is that, if you lose your private key, your files are irrecoverably gone. You can of course mitigate this risk somewhat by copying your private key to multiple devices, making regular backups of it, etc.
+then you will see the version number of your GnuPG installation, as well as the symmetric ciphers supported by your installation. It'll look somewhat like this:
+By searching for "gnupg symmetric encryption", I found this guide, which lists the steps and required options step-by-step.
+The very quick summary is that symmetric cryptography uses the same key for encryption and decryption, where asymmetric cryptography has a public key and a private key. The recipients public key is used to encrypt data, and the recipient uses their private key to decrypt.

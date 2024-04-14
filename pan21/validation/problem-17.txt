@@ -1,0 +1,11 @@
+http://blogs.technet.com/b/elevationpowertoys/archive/2010/05/25/uac-logon-scripts-and-the-launchapp-wsf-workaround.aspx
+I am not able to update our servers to Server 2008 at this time, this is strictly a Windows 7 upgrade for the workstations.
+I use Group Policy to assign that script to each workstation, but since it is the same set of directories regardless of server I can just dump a file across the board to get the same changes across multiple domains.
+Explanation of the issue (Scroll down to "Group Policy Scripts can fail due to User Account Control"):
+You can test this manually by running psexec -s cmd which will launch an interactive command prompt as the SYSTEM user. 
+This may be due to a "feature" of User Account Control.  Basically administrative user logon scripts run with full privileges, but explorer runs with limited privileges so it can't see the drives mapped with full privs.  To work around it you need to use a wrapper script to create a scheduled task that will run the login script after the user logs on.
+Under Windows XP, this works fine, scripts run with no problems from directories other then the NETLOGON share.
+If you are using a startup script, you need to give the Domain Computers group permission in the share and NTFS permissions. Startup scripts run in the context of the SYSTEM account. Your tests that you've run manually will run in the context of whatever the logged on user is. 
+Now we are migrating to Windows 7, and I find that scripts no longer execute from any other share than the NETLOGON share. 
+Is there something I am missing, or is there a setting I can configure in Group Policy that will allow these Windows 7 workstations to execute their scripts outside the NETLOGON Share?
+I have several Windows Server 2003 Environments I administer. These are separate disparate domains with their own structures and policies. I generalize as much as possible when I administer these environments, so I have a suite of general scripts I dump into a network share on each server that is in the same location, regardless of domain. 

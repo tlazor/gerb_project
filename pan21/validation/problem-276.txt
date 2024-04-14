@@ -1,0 +1,15 @@
+But this still remains rather brutal and rigid. There should be a much more flexible way to implement the entire thing using more OOP features.
+I'm currently developing a program in nuclear physics and i would like to have a simple access to all nuclides. 
+Since this answer becomes much longer than the question, I suggest doing the job in two steps. If you find useful the remarks I wrote here, please apply them and publish a follow-up question where we will discuss further improvements.
+2) Make each enum implement this interface by adding implements NuclideAware to the headers. The method is already implemented in each one.
+This prevents from having invalid data, since all the expected symbols are normally declared in SYMBOLS.
+Before remarks on the design choices, here are some observations about the improvement of the current code.
+If you have to keep the enums, there might be a simplification, avoiding the brutal method invocation by name. It consists of the following:
+I found another post which is just for element table. I didn't get the point of the private static Holder class !? 
+There is a much simpler way to implement it: regular expressions! It looks like the name arg is expected to be something like "He7m2". A corresponding regular expression would be ^([A-Za-z]+)(\d+)m(\d+)$. The values in the matched groups will correspond respectively to symbol, a and i. If name does not match the expression, this is a good reason to throw another IAE.
+This approach with a sort of ad-hoc parser is particularly difficult to test, because of the high complexity of if conditions.
+Is there a better way to define the Nuclide class (without reflexion) or I should stick to this definition ? Thank you
+Since the information wrapped in Nuclide mostly prepresents constants, all the fields should be final.
+I tried this but it uses reflexion for the get method (example Nuclide.get("Li10"))and it seems to be an overkill :
+It's a pity that there is a restriction to avoid the usage of an external resource file. This would be more flexible to read the data from elsewhere, thus separating the concrete stuff from its abstract representation in the code. And in case of a fix/update no rebuild of the application would be necessary.
+Well, the contents of this method is really too complex and firstly should be split in two parts (dedicated methods): 1) parse name arg in order to extract symbol, a and i; 2) invoke getNuclide method on the target object.

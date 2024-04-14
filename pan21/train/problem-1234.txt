@@ -1,0 +1,8 @@
+OpenSSL 1.0.2k has removed 3DES ciphers in default which means some legacy browsers (e.g. IE8 on Windows XP) can no longer be supported.
+Don't forgot the shared flag or libssl.so and libcrypto.so won't be built, and use -Wl,-rpath= to tell the linker(ld) to link shared libraries in which directory.
+Plus, Can I cover the Openssl installed by DPKG(Debian Package manage tool) with the self-compiled, 3DES-enabled version? If it's practicable, How to?
+After that, your custom version of OpenSSL will be installed into /opt/openssl-1.0.2 (rather than cover the version shipped with your OS).
+Then get the latest release of OpenSSL, verify the signature and compile it with the option enable-weak-ssl-ciphers, if you want to regain the support of obsolete SSLv3 for the GOD D**N Microsoft IE6, enable-ssl3andenable-ssl3-methodshould also be append to the compile option.
+First you should get the tools for building software and the dependencies for OpenSSL.(e.g. On Debian-like distros)
+Your applications may also have to be re-compiled, with these options to force the linker to link your custom version of OpenSSL libraries (Override the config from /etc/ld.so.conf or PKGCONFIG variable)
+According to OpenSSL official blog, to re-enable 3DES ciphers, we should add enable-weak-ssl-ciphers flag when compiling.

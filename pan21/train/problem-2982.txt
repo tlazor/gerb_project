@@ -1,0 +1,8 @@
+A Apache HTTP server is serving the users' requests. It forwards all (or a part of) requests to a Tomcat server using mod_jk.
+Else as said before you can have a upstream server which handles all the requests returning maintenance page and you can do a dns based switch.
+BTW you can gracefully restart the Apache HTTP server which recycles each thread serving requests once each thread has finished it's current request, so no requests are dropped.
+Is there a way to put this maintenance page online without restarting the Apache HTTP server? (The server can not be restarting because it is serving other applications)
+Just configure your Apache to return appropriate "Sorry, we are performing some maintenance wizardry with a splash of voodoo. We will return shortly." page with Apache's ErrorDocument directive. No restart needed whatsoever - if the backend process does not return some OK http code such as 200, Apache will return the error document page instead.
+Setup another Tomcat instance that just displays the maintenance page. Run it instead of your application Tomcat.
+Without Apache restart because of front server downtime? Then you can do a graceful restart with apachectl -k graceful with a change in the config to serve the requests with a static maintenance page.
+Let's say we want to shutdown our application on Tomcat for two hours for maintenance. And we want that all users that access the application get a message about the maintence (Like: sorry, we are maintaining our servers. The app will be online again at 6 a.m.).

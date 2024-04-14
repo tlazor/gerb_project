@@ -1,0 +1,9 @@
+Looking at my laptops video card options - it will not support SD resolutions and it will not support 25 or 29.97 frames per second.
+The composite signal combines the red, green and blue signals onto one wire using either PAL or NTSC coding. Unless your computer explicitly can generate that, or you have a somesort of convertor, the signal out of your computer can not be connected to the composite connector by simple passive cables.
+You can by boxes that will process the video from one format to another - e.g.DVI in SDI out. Not sure abut DVI to PAL/NTSC.
+A standard video signal has  a frame rate of 25 or 29.97 frames per second [or 50 or 59.94 if progressive HD]. The other thing is the image size - SD versions depend on where you are in the world. HD may be 720 lines or 1080.
+So, unless your cables have active electronic porcessing to convert the signal from one format to another then you can not go from computer to TV. Sorry to bring bad news.
+(In this scenario, sound will be handled by a headphone-to-RCA splitter, which will be joined with the video to make composite)
+I'm working on hooking up output from an old laptop to our TV.  I'd like to use Composite input (L/R/Video), but I'm having a hard time finding a DVI-to-Composite video cable.  
+I suspect most if not all TVs will expect a standard video signal if you are sending it composite. It is unlikely that a computer will generate this. Simply using a number of connector adaptors will not do the job. You need something that has processing circuitry.
+Can I use a DVI-to-VGA adapter before running it through a VGA-to-Composite like the one in the image?  Most of them say something like "Your VGA card must support TV out directly through VGA port", and I don't know if a DVI-to-VGA adapter will do so.

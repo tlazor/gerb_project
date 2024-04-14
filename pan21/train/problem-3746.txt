@@ -1,0 +1,7 @@
+manually on boot and everything should be all right. Thanks to Florian Brucker for pointing this out above.
+The postgres service file you are seeing is nothing more than a placeholder. There is a directory on the system (its normally somewhere in /run) called postgresql.wants.d which the systemd will look for when postgresql.service is started.
+This means the generator skips over it and the postgresql.wants.d never gets added with that instance name.
+If I had to hazard a guess whats going on there via the logic of the shell script, you probably have got the file /etc/postgresql/9.5/main/start.conf set to manual. 
+That directory is filled through a shell script generator file as everything in /run is a tmpfs. Thats the shell script you quoted above.
+As of 26 May 2017, the issue still exists on Debian 8 (as far as I can see): PostgreSQL fails to start on boot.
+Theres a couple of things going on here. If you call a systemd service with an @ in it, its a signal to start an instance rather than main service. Putting @9.5-main is telling it the instance parameters to use.

@@ -1,0 +1,7 @@
+Could you not write your application to send errors to a log file and then send that file to you via email periodically if it is not empty?
+Mailing list software like maiilman is capable of sending out message digests, but I guess those are intended for daily sending, not once a minute. 
+It may be preferable to handle these errors at this level as you will have more control over the processing.
+Usually I prefer mailing list software such as Mailman or Majordomo, or Policyd for implementing sender quotas etc in Postfix, but just to be different this time: 
+qpsmtpd is bundled with many plugins already, so just learn the basics from those and write your own. This might lead to reinventing the wheel.
+This might sound like a lot of work, but should actually be surprisingly easy. Couple of years ago I wrote a plugin which throttled mail sent via PHP and started to quarantine them after a certain threshold to prevent script-kiddies spamming. The threshold bookkeeping was done in MySQL. The whole script, including comments and a short help section, was only 132 lines of code.
+If you're willing to write some Perl, qpsmtpd can be hooked to Postfix by using the content_filter parameter in Postfix. Just write your own qpsmtpd-plugin which keeps track of throttling and/or queues the messages and combines them as a single message before finally sending them out. 

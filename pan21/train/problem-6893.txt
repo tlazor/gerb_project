@@ -1,0 +1,8 @@
+Been having a bit of trouble getting my Ubuntu server to relay my mail to external addresses. Here's whats currently happening:
+For delivery to this same server, you don't need relaying. Relaying is when connecting clients use your server to send mail to other servers.
+So, my question is - why is this happening? How can I fix it? I'd ideally like to make it so any mail client anywhere can connect to a mailbox on my server (clients, etc.)
+When I telnet locally to port 25 I can send email to any host just fine. However, when I try to connect from my Mac here to the server, I get a Relay Access Denied error after I enter the rcpt to: section of the message body.
+Your Mac is on a separate network.  Change mynetworks to allow the networks you want to allow.  It might look like this for you:
+The mynetworks directive in main.cf specifies which networks the postfix server will relay for.  Your current setting only allows the local host (the postfix server) to relay mail through itself.
+Look at virtual_mailbox_domains, virtual_mailbox_base, virtual_alias_maps and virtual_mailbox_maps. You can configure what domains it will accept mail for, and what users you have.
+I've searched the site and tried various suggestions but none seem to be working for me! Any help would be greatly appreciated.

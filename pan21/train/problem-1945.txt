@@ -1,0 +1,7 @@
+This is the cipher used in this puzzling post, if you would like to crack it before looking at the programs use to make it.
+It is a constant, so by PEP 8 -- Style Guide for Python Code its name should be in uppercase letters:
+Moreover, they are the same in your both modules (encoder.py and decoder.py) - why don't use the 3rd module for all common functions and import from it?
+Several weeks ago, I created a custom cipher for a friend of mine to crack, and I also posted it on Puzzling. Here are the programs I used to create it - I threw them together one morning, and I didn't comment them. I decided to leave them as is - they are self-explanatory to some degree, and I would also like to have my rush-job instinct in variable naming and what not critiqued. I know it's not good per say, but since it was a personal project I didn't care. How the cipher works is explained the in answer to the puzzling question, if my code doesn't show you well enough.
+I have an encoder and a decoder. They currently assume that plaintext.txt, code.txt, and decoded.txt are in the current directory. The decoder assumes that the code is formatted as the encoder would format it.
+have very similar structure - by the DRY principle (Don't Repeat Yourself) why not to substitute them with one common function, e. g. with
+which has the advantage of automatically closing the open file, even if an exception is raised on the way.

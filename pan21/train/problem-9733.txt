@@ -1,0 +1,8 @@
+Have you try to exclude the bin-log files and index, or all mysql related logs from the tar ? same issue?
+It's primary intent is to take an internally consistent copy of a file and put it somewhere else. If MySQL freaks out only when tar is running, then it's likely tar is pissing off MySQL, and you should shut down MySQL when running backups on /var/log, or use a different backup utility like, say, mysqldump or mysqlhotcopy. Although if all you're doing is copying the binlogs, then perhaps a simple cp will work better than tar. 
+Another problem might be that you are poisoning os disk cache with reading large file and mysql data being displaced with this file. In this case you may try to use some compress/backup tool that supports directio (and bypasses os cache).
+Another option is to increase mysql's internal page cache (I believe this is possible only for innodb).
+tar is an archival command; It stands for 'Tape Archiver'. It is not a compression utility, and as such it's going to have wildly different CPU/Mem/disk usage than any compression utility will. You can see and confirm this when you read the man page. 
+I should consider using pmp (poor man's profiler) to trace all system calls done by MySQL process during one of those slowdown periods.
+There is nothing arbitrary about /var/log and much more so when talking about MySQL with binlog enabled. 
+Are you absolutely certain that this happens on arbitrary paths ?? As in, any/all paths that have absolutely nothing to do with /var/log or /var/lib ?? Does this problem occur when you're backing up your home directory or /etc for example ?? I suspect your issue is merely a conflict between MySQL and tar. 

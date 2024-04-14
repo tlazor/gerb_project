@@ -1,0 +1,7 @@
+I wanted to make this comment as I think this toolbox pattern leads people astray, it's only required if you need your units to set up automatically, it's much safer to manually ensure you just have one script!
+Add [DisallowMultipleComponent]before your class to make sure you can't add more than one instance of it.
+I aim to make it a fully functional singleton MonoBehaviour. It is still a work in progress, but it is getting close. (I need to look into DisallowMultipleComponent posted in other answer...I didn't know that was a thing.)
+Make a static class that searches for the script and saves a reference, the worst that can happen now is multiple searches might occur for the manager script, but they will just overwrite each other (but not duplicate the manager script).
+People have suggested Static Classes, why does no-one just create their manager script in the scene beforehand? Then there is only one! Are some people really that bothered about automatic manager script creation when it's a bad design pattern?
+All the source I read here still seems a bit unsafe to me, you are not using the lock, even with a lock in a paranoid area of my mind I feel that it is sill possible (though improbable) to create more than one singleton instance (bad).
+Also, I recommend reading DMGregory's comment before implementing this, it might be better to just create a static class instead.

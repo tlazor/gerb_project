@@ -1,0 +1,5 @@
+You can. User Online Tools like URL Fuzzer. There are also a few download managers that will browse web directories for you.
+(In some configurations (for example, DirectorySlash off in Apache2), http://example.com/path/ displays the index page while http://example.com/path returns the index, but this is very rare.)
+In the standard configuration of all popular web servers, the term "allows browsing" only applies when the directory in question does not have a default page, to avoid introducing a large security hole.
+The browser used does not matter; all they do is send a HTTP request and display returned data. It's entirely up to the server whether to display the index or the default page.
+Sometimes you can browse a directory that has a default or index file. The only way I have found to do so is to find a sub directory on the site that lacks a default or index file and then traverse from there. For instance say you're on an image site you might get a listing by clicking on an image and then removing the image file name from the url and pressing enter. Of course this won't work if listing is disabled.

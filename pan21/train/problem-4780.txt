@@ -1,0 +1,10 @@
+For rescue (command line only, boot to six root terminals) PLD Rescue CD is very likable (lots of stuff like dd, sshfs, ntfs-progs, chntpw, fdisk etc.)
+You have a million option. Distros specialized in live CDs may be nice (Knoppix, Puppy). Historically they ran from CD and allowed to saved data on floppy, HDD or USB (still can do), working purely from USB is a natural evolution for them.
+For low-level tools, also check out http://www.ultimatebootcd.com, which can also go on a USB stick, though its tools are more CLI and less GUI.
+Not sure if this is possible for Windows, but with Ubuntu (or any Linux distro) it is very easy. Create a VM without a virtual HD, and when installing set the location to the USB stick.
+Yes it is possible. You can download Linux Live USB Creator. with this, I was able to put a ubuntu iso image on my LaCie iamakey USB. It only used about 1GB on my USB which had a total capacity of 4GB. Yes, I have Windows7 and was able to use VirtualBox in Windows7 to boot up Ubuntu. Also, set your boot order to boot from USB and stick the USB in before you boot up and it'll boot directly into Ubuntu. I've only "tried" Ubuntu and not installed it but it worked just fine. Hope this helps some.
+Windows is a much more difficult beast, and I doubt it's possible to do in a manner which would be practical for your end goal. 
+To bring a vocabulary point : what you seek is a "persistent" Live USB, or persistent USB installation.
+Ubuntu is nice as I presume you know it well. Linux Mint is the same, but has flash, java, codecs out of the box even on a DVD. Choose a distro variant with a lightweight desktop if needed.
+For Windows I may mention there's Windows 8 "ready to go" but you need the Enterprise edition and this costs money.
+Yes, check out http://www.pendrivelinux.com. There's a tool there which can install various linux distros onto a USB drive, using syslinux to boot them.

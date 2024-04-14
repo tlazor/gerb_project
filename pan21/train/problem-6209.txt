@@ -1,0 +1,6 @@
+In Windows/Windows Server, if I have a physical NIC that has two or four ports on it, is there a scriptable/programmatic way to determine which "Network Connection" (such as "Local Area Connection 3", for example,) is associated with which physical NIC port?
+As far as I know, there's no hard and fast way to programmatically correlate these MAC addresses with physical ports. Typically physical interface in cards like these have sequential MAC addresses. In the case of an add-on PCI card, the MAC addresses typically increase numerically starting with the interface closest to the PCI bus.
+I took a quick glance through the win32_networkadapter and win32_networkadapterconfiguration classes, but didn't see anything immediately helpful.
+Most high end cards come with a utility that allows you to do advanced configuration tasks. One of the option is commonly to make the lights on the port blink in a set pattern so you can identify the ports.
+In the case of built-in ports, I'd just look at the CAM table on the switch it's connected to and then trace cables.
+Definitely go to device manager and disable/enable one nic at a time while monitoring what gets disabled/enabled in Network Connections, then you can determine the ports.

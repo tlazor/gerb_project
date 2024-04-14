@@ -1,0 +1,5 @@
+From a command line shell you could also test things.  Just run a command like echo 'test' | sendmail youraddress@example.org.
+The mail() function does many different things depending on how you configure it.  You could be pointing it at an external SMTP server for example, if that is the case then there is nothing on your local system to touch.
+If you haven't changed it from the default then you are running some mail transfer agent on your system, but there are a large number of possibilities.  Are you actually running sendmail, or are you just running some tool which has a sendmail compatible binary?  i believe Postfix is the default MTA on Centos.  Unfortunately I am not sure what the spool folders are named and what the default permissions should be.
+Check the sendmail_path variable set in your php.ini (by default: /usr/sbin/sendmail ) , which will be used by the php mail() function.
+If nobody else answers with the specifics, then I suggest you quickly setup a virtual machine similar to your main system and simply compare and then repair the permissions.

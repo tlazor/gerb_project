@@ -1,0 +1,5 @@
+The server is 2008R2 Enterprise, 2x 4 core Xeon, 56GB ram. System appears to be functioning as expected with no I/O errors.
+What could be some causes or solutions to this mystery? Is there anything specifically that I should look at to further troubleshoot this?
+Several offices are connecting to a corporate site via Cisco VPNs. There is an ASA5055 at corporate and most sites use a PIX. I've determined that speed isn't an issue as I can send/receive files over a netshare through the VPN at around 500KB/s symmetrically.
+During this time, I can watch the network interface through Task Manager and it appears that the report is being "streamed" to the client at 5-10KB/s.
+I run a report in the software on a test account that shows a simple 1 page report, if it were a PDF file it would run be about 50KB total. If the report is ran on the LAN, it appears immediately. When ran remotely, even at a time when all other offices are closed and nothing else is going through the tunnel, it takes 40-50 seconds. Using that information, I gather that the report is no more than about 200KB in size. Pings are under 100ms.

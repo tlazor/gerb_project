@@ -1,0 +1,5 @@
+You do not need a physical host in your DMZ. You can accomplish this with VLAN definition, or preferably, dedicated physical network interfaces (pNICS) from your virtual environment to your DMZ network. 
+Single points of failure would be eliminated in the usual way (link aggregation, virtual machine failover appropriate to your hypervisor, etc.), and your overall maintenance burden shouldn't increase at all -- setting up the vLANs is a one-time thing.
+If you're implementing a new DMZ the usual way to go about it would be to carve out a separate vLAN and put the DMZ subnet in it, creating effectively a virtual switch for your DMZ.
+If you trust your virtualization software to not screw up vLANs you can create a virtual switch on your VM Hypervisor, drop it into the DMZ vLAN, and connect the hosts you want to isolate to that virtual switch.
+You can assign the virtual switches to individual physical NICs (sending untagged traffic with the switch ports dropped into the appropriate vLAN), or with most VM systems you can connect the hypervisor to a "trunk port" on your switch and send all the vLAN traffic to your switch tagged and let the switch sort it out.

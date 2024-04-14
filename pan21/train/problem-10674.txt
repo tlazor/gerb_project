@@ -1,0 +1,9 @@
+Once, I installed and connected a screen to my B+, a 4DPi-32 3.2” Primary Display Cape to be exact (datasheet here from 4DSystems).
+Sorry, but since I don't have enough reputation points to comment, had to add as an answer. I guess sanyi wanted to say that you should add the sleep in the while loop. I guess from your comment you removed the while loop completely and replaced it with time.sleep. Try adding that sleep in the while loop. 
+If I read correctly page 5 of the above datasheet, pin 12 named PENIRQ of the expansion header (that corresponds to GPIO 17 of the P2 pinout, oh boy) is an interrupt for the touchscreen controller.
+The code refers to 17.  This is a gpio as you are using BCM mode.  gpio17 is brought out to pin P1-11.   Pin P1-17 is the 3V3 rail (NOT a gpio).
+So my guess is that even when the screen is not connected, the driver consumes all the epoll events broadcasted by the pin, these events are thus removed from the event queue and never reach anything else. This is a bit confusing since the driver must know that the screen is not here (it definitely can't communicate with it since I removed spi from the system), but eventhough, it still hogs the events from GPIO 17.
+Before doing my tests, I had uninstalled everything related to x11, spi, i2c, etc .. but the driver of the screen had remained somewhere.
+The code uses the internal pull-down to 0V so shorting it to ground will never make a difference.  Connecting it to 3V3 and then disconnecting it from 3V3 should trigger the callback,
+PS : I had the same linux image on different B+, with the same driver installed, hence the fact that I had the same behaviour on different stock Pi ...
+I removed it with a simple dpkg -r kernel4dpi and rebooted, and now the callback seems to get triggered correctly along with the "direct" trigger.

@@ -1,0 +1,6 @@
+If DIFF backup actually took longer than 5 minutes and contained the disaster (or accidental DELETE), then you restore LOG backup instead up to 10:45am first
+I'm not sure what you mean about the 10:00 AM log backup having "the same issue" as the 11:00 AM log backup. There isn't an issue at all.
+If, however, none of those (not complete, just examples) are the case then... yes, you'll need some way of figuring out which files go in which order. Since the easiest way to figure it out is to ask the backup what metadata it holds, that's what you'll find most people doing.
+I wouldn't worry about restoring overlapping DIFF/LOG as SQL will know which LSN to resume from, so either 
+Then you'd want to restore the 1:00 AM full backup, then the 11:00 AM differential, and there will most likely be some additional information in the 11:00 AM log backup depending on the length of time the differential and log backups took.
+The whole point of a differential backup is to apply the changed extents and then keep just enough transactional information to make everything consistent. This greatly differs from a log backup which is the actual log records. They serve two different functions and you don't need differential backups in a restore to the latest point in time if you're in the full recovery model but you do need log backups to do so.

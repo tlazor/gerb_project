@@ -1,0 +1,6 @@
+Subnetting is a method of splitting a larger network into smaller ones (with longer prefix), so that you can use them for different networks.
+Note that in your question you actually subnet 223.1.0.0/20, not 223.1.0.0/24. Also, each IP address assignment should be accompanied with its prefix length (e.g. 223.1.9.1 /30).
+The network (address block) you start with has either been assigned to you by your ISP or a local RIR (public IP), or it's been selected from the reserved private IP blocks. This network is split up into all the subnets you require, including link segments.
+Your "base IP" is the network prefix. At least with IPv4, that exact IP address isn't directly used on any interface (due to all host bits being zero), but it is the common aggregated routing prefix for all your subnets.
+If your design is clever enough it'll last many years in spite of network growth and integration of new applications. If you discover limitations in your subnetting scheme over the years you'll need to renumber the network at some point or other.
+For subnetting you should check out this excellent Q&A. It should be able to answer all questions: How do you calculate the prefix, network, subnet, and host numbers?

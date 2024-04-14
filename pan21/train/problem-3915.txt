@@ -1,0 +1,11 @@
+As long as the log file doesn't hit that size during the file copy of the live db file, the file will be consistent.  Whatever is in the log file has not yet been written to the db.  If you can do this during off-hours, you can get a reasonably good dump file.
+Dump the contents of that database and do an import on super sql server machine three, which is shiny and new
+This is kind of a lame way to do it, but if you're having problems finding the file when it's offline (which I can't explain):  
+Manually run the database-alterations on the external sql-server to get to the desired version (easy, since the existing version is in the table version). I went from 3.5.2 to 3.6.4...
+How does one get a hold of an offline, not being updated copy of the database such that hsqldb-transfer can use it?
+In the guide the url jdbc:hsqldb:Path-To/embedded-db/openfire is used. Problem is: sometimes that file is there, other times it isn't. In my case: it was there on Monday when I did a dry-run without turning off openfire on machine one, it was missing today, when I did turn off openfire.
+So.. you could kill any active sessions, do the file copy, shutdown the server, and then proceed from there.
+You can take a backup of a live hsqldb as long as a checkpoint has not occurred during the backup.  A checkpoint will occur every time the log file fills up.  There is a setting in the embedded-db's properties file: 
+Set up openfire on machine four, which is not so old that it's falling to pieces, to use the external database on three
+The embedded database openfire uses is Hsqldb, written in Java. Openfire has a sort of migration-guide, but it is not exactly complete. First of all the program mentioned there, hsqldb-transfer, is:
+While transferring, change datatypes not supported in the new server on the fly, as hsqldb-transfer itself is incapable of mapping between sql dialects

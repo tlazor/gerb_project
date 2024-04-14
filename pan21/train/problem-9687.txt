@@ -1,0 +1,5 @@
+courier is not actually the issue here, it sounds like your apache and php is setup in DSO (mod_php) mode which means apache and php run as the nobody user this means that by default if not set emails sent via php/the webserver will appear to come from nobody@server as thats the user that created the original email, there are really only 2 solutions here
+I am helping out with some Linux admin work. The server hosts several sites. The admin interface used is WHM.
+make sure each site that sends emails is correctly configured to also send the reply-to header and set the from header during mail send, this way bounce messages will go to the correct place
+When an email from one of the hosted sites bounces, the site is not notified - it just goes to nobody@server.
+use a different php mode like suphp or fcgid which will run the processes as each user and will then bounce back into there cpanel account - this will still need them to forward it from there cpanel default account to there own account but at least its going to the user.

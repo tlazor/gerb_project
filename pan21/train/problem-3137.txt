@@ -1,0 +1,5 @@
+Is it possible to add new clients to my OpenVpn pool without the original rsa folder, by just using the existing server keys? 
+If you do not have this private key (typically a .key or .pem file) then you cannot issue any more client certificates, nor can you issue revocation lists.  You'll need to create a new CA and new server and client certificates signed by it in that case.
+You need the private key (possibly cacert.key if you've been following tutorials) of the CA certificate (cacert.crt) that's in the OpenVPN file, so you can issue new certificates signed by that CA certificate.
+I have a working openvpn server, however I need to add a new client to my pool. The problem is that I do not seem to have the original rsa folder that was created when I was setting it up the first time. Based on what I read it looks like one needs that folder at leasts it sounds that way to me.
+Your only other option is to modify the server configuration to accept passwords in addition to certificates, which is less secure than just accepting certificates.

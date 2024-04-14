@@ -1,0 +1,6 @@
+I'm planning to use AWS EC2 for my web application and I need control over the bandwidth usage (don't want the instances to be compromised and ramping up bandwidth cost crazily). There are many threads in AWS forums on this matter and no immediate solution.
+Haven't done it myself, nor know of anyone who has.  tc is practical, in the sense that it works - but it is very complicated to understand and implement.  There are resources available that make it simpler, or give instructions... but unless you really have need of it, I wouldn't recommend it.
+Anyone using them for traffic control on AWS? Are they practical? Any guide for novices (the ones I've found are pretty complex)?
+I'd suggest, given your primary concern is compromise of your web application leading to bandwidth cost, you consider iptables as a recourse - set up local roles that inhibit outbound connections, as these should be fairly rare given the standard nature of web apps?
+There are other cloud hosts like GAE and Rackspace but I really want to use AWS. I'm reading that in linux, there is tc command and traffic shaper programs that can cap bandwidth usage.
+Amazon says they will soon open an API call that will allow you to use a script to check your $$$ usage.   But, they will not implement such a feature within the browser AWS interface.

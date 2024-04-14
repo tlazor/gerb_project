@@ -1,0 +1,6 @@
+The recipients -> mailboxes section has an + button, from which the Exchange admin can choose User mailbox and choose an existing user (they rightly cannot choose New user), and a user mailbox is created, but there seems to be no way to change it to be a shared mailbox.
+The AD admin has created the User object representing the shared mailbox, but the EAC shows no + button under the recipients -> shared section, and the New-Mailbox PS cmdlet has no -Type or -Shared parameter.
+In a new, on-premises Exchange 2016 environment — deliberately chosen to be installed with AD Split Permissions so that Exchange administrators could not accidentally delete AD objects — how is one supposed to create Shared Mailboxes?
+If the AD admin has to do the legwork here, that's fine (within reason), but what do they actually have to do?
+Running Enable-Mailbox foo -Shared in PS (against the AD user created by the AD admin) succeeds, but warns The ntSecurityDescriptor of the Active Directory object wasn't updated successfully with further Access is denied/INSUFF_ACCESS_RIGHTS wording.
+Running Set-Mailbox foo -Type Shared in PS (against the user mailbox created in EAC) fails with Insufficient access rights to perform the operation.

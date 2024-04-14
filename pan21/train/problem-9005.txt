@@ -1,0 +1,11 @@
+the class is not artificial at all. It can rather be seen as an example for the fact that LFP+C cannot
+Jean-Yves Girard, Andre Scedrov, and Philip Scott. Bounded linear logic: A modular approach to polynomial-time computability. Theoretical Computer Science, 97(1):1–66, 1992.
+PTIME was based on a seemingly artificial class of graphs, though. Of course, it was constructed for the particular
+The resulting logic LFP+rank can express strictly more than LFP+C, in fact, there is no known PTIME property that LFP+rank cannot express. 
+You want to have a look at what some people call Grädel's Theorem. You can find it in Papadimitriou's book "Computational Complexity" (it's Theorem 8.4 in page 176) or in Grädel's original paper.
+Hence Dawar, Grohe, Holm and Laubner extended logics by operators from linear algebra, for example by an operator to define the rank of a definable matrix.
+Even FO+rk is surprisingly powerful, it can express deterministic and symmetric transitive closure. It is still open 
+In a nutshell, Grädel's Theorem is to P what Fagin's Theorem is to NP. It states that on the class of finite structures with a successor relation, the collection of polynomial-time decidable properties coincides with those expressible in the Horn-fragment of existential second-order logic. These are the sentences of second-order logic of the form
+Depending on what you mean by "capture," Soft Linear Logic and Polynomial Time by Yves Lafont may be of interest.  There is a 1-1 correspondence to proofs in this logic and PTIME algorithms that take a string as input and output 0 or 1.
+where $R$ is a sequence of second-order relation variables, $x$ is a sequence of first-order variables, and $\phi$ is a quantifier-free formula that, when written in CNF form, is a conjunction of $R$-Horn clauses (i.e. clauses that have at most one non-negated atom involving the variables in $R$).
+The Wikipedia article on Linear Logic is here.  It's not a fixpoint logic.  The intuition of "classical logic over $C^*$ algebras instead of boolean algebras" is the easiest for me to grasp.

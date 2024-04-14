@@ -1,0 +1,6 @@
+Since few days I have tried to apply this ActiveX to my Excel 2013. I made small app for running reports in Excel and I need some way to pick start and end date.
+It did not help - it was keep saying "cannot insert object". Tried another versions of Common Controls (currently SP6), but problem is still there - I can`t put any control to my Excel worksheet.
+Easiest way to do it was Date And Time Picker Control which is in %windir%\syswow64\mscomct2.ocx. It worked perfectly at Windows 7 64-bit + Excel 2010 32-bit.
+I`m running out of ideas and tutorials, so maybe some of You had ran into this type of problem and have solution?
+I was getting this same error in Access 2010, but the issue was resolved when I made the folder where the file was located a trusted location. I do not fully understand the fix, but I had to put it out there because there is precious little on this strange error.
+When I moved my project to other PC with Windows 7 64-bit and Office 2013 32-bit it stopped working. Firstly there was class missing, so I registered Microsoft Windows Common Controls 2 6.0 (SP3) in syswow64 using regsvr32.exe command.

@@ -1,0 +1,7 @@
+I found the package manager can place in a variety of locations, so using which (you will need to explicitly install this if using a container) the following is a little less brittle
+it's /usr/lib/jvm/jre-1.6.0-openjdk.x86_64/. I found out what it was by doing update-alternatives --display java and it showed me the directory /usr/lib/jvm/jre-1.6.0-openjdk.x86_64/bin/java
+Thats weird, the whole point of having a JAVE_HOME environmental variable is so you don't have to specify the path to each program, it can get this path by looking for this variable. 
+I have install java through yum on CentOS, however another java programme needs to know what the JAVA_HOME environmental variable is. I know all about setting environmental variables, but what do I set it to? java is installed in /usr/bin/java, it can't be there!
+To set this for the system you want to edit your /etc/profile or add a .sh file in /etc/profile.d folder.  For a particular user you can put it in the users ~/.profile or ~/.bash_profile files.
+If the JDK (Development kit) is installed, ypu probably want it to point to that, else use the JRE path (Java Runtime Environment).  Then, you might want to set your $PATH environment variable to include the bin directory as well:
+Running this command will display the path no matter what version you are running, from command line.

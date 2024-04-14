@@ -1,0 +1,5 @@
+I'm looking for Proxy software, or a component or class that I can use to do basic web proxying to SSL sites as well as normal sites. The Proxy should allow me to bind and outgoing IP to each web request based on a certian criteria, such as username. Any suggestions?
+I don't know of any proxy software that can do such a thing, and I seriously doubt it exists at all.
+Or do you mean you want specific proxy users (locally defined username) to be routed differently? If so then why not just use a combination of ident and proxy auto-configure scripts?
+So an HTTP proxy. But in order to extract a username from a SSL session, the ssl would need to be terminated beyond the proxy - and you'd need to rewrite any URLs in the proxied content to translate them back to http. And how do you know what username (based on the relationship between the user and the third party site) relates to which route? This is horrendous can of worms and will never work in practice regardless of the software. 
+Choosing the source external IP address based on some policy is a thing much more related to a firewall/NAT (and a good one, too) than to a proxy.

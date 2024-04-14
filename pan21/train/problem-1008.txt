@@ -1,0 +1,7 @@
+Your server may already have a DNS server installed so it's probably just a matter of configuring it to work correctly
+When a HTTP request comes through, IIS will look at the host header and decided which website to return.
+My problem now is that I want to setup virtual machines on the web server to host linux based web servers. Are there a software layers that I can put between the router and the host virtual machine which will analyze HTTP request's and forward the request to another IP address based on the hostname? The final setup should look like:
+An example open source solutuion is Bind. you could easily create a vm to install this for your local network, your router may even already be able to do this depending on what it is.
+my specific answer would be to setup a dns server which will do exactly that, it will return A records based on the host you enter which point your connection to the right Webserver IP address
+It sounds like you want to setup a reverse proxy on the VM (or wherever). Then you will point all your domains to the reverse proxy which will then send the requests to their final destination. I linked to the Apache way of doing this, but nginx is also popular as a reverse proxy. Another option is any of the dedicated proxy software that will do this. 
+Please could you provide specific answers to this questions. Non answers include: Buying a new router, running apache on windows, changing my hosts file, buying more public IP addresses.

@@ -1,0 +1,7 @@
+Is there a way that I can have a single file in which I add all my queries and while executing it , I won't have errors from old queries like duplicates or others, something like errors handling. It is because I have to keep an history of all queries.
+Of course the first step in your example fails on the second run, since the imageFormat column has already been dropped.  There is nothing to restore imageFormatand there is no error handling to cope with the missing column.
+but I have logically this error : Can't DROP 'imageFormat'; check that column/key exists. I am searching a way to avoid this error.
+But do not expect to run all the commands without errors unless you have scripted the code to also deal with each exception that may arise.
+for the first query  It works . but When I tried to add a second query in the same file and execute it  , there are  errors because the first query has already been executed. If the first query is delete for example, it displays an error "no such column" , which is logic beacuse I already delete the column.
+If your goal is to record every query that you run, then insert the code into a table that records the time and the code that you run. 
+I have a file with .sql extension in which I write a query like insertions, deletions or updates, and execute it in toadformysql . I repeat the same action many times because I have lot of queries, so it turned out that I have a lot .sql files. 

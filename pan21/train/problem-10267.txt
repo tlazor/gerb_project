@@ -1,0 +1,5 @@
+You are checking the wrong file. The error message is about the redis.service. Check whether it is a symlink or not.
+In any case, when systemd refuses to perform 'enable' on a symlink, enabling the unit file by path might work:
+I have recently ran into the issue from the subject. I have installed Debian 9 as a webserver (with nginx, php7.0-fpm and some other stuff) and I want to use redis with my PHP installation. When installing it from the official repos, the package installs fine, but the systemd unit fails to start or enable. When I try to run the command from "ExecStart" from the unit file by hand, redis starts fine and is operational.
+No points in /etc/, /var/run are symlinks or mountpoins. Only one mount in /mnt/backup exist on this server. I should also mention that this server is a VPS on a OpenVZ host. Systemd version is 232, Debian is fully upgraded to the newest version of packages with kernel 3.16.6-042stab123.8.
+By the way, the package file list does not mention the redis.service file. Is it there actually? Or maybe you have created it by yourself?

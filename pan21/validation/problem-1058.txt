@@ -1,0 +1,6 @@
+Your variable names should tell you something about the contents of the variable, not of the type of the variable. So don't write std::vector<std::string> vector_of_strings, but give it a more descriptive name such as input if it's the input to your program, and possibilities instead of vector_of_vector_of_strings.
+Since you are already using some of the C++ standard library algorithms, why not use more? For example, instead of writing a for-loop to create the vector of vector of strings, write:
+The main() function could be cleaned up and made more readable if you moved some of its parts to properly named functions. For example, instead of creating the vector of vector of strings inline, it would be nice it you could just write:
+user673679 already mentioned that a lot of string copying is going on. Indeed, std::string_view could be used here to just keep references to the original input strings, saving both time and space.
+Also avoid variable names that are too alike, such as separator and sep in your main() function. In this case, you can avoid it by writing the code like so:
+Don't abbreviate too much, just write carthesian_product instead of cart_product. The latter abbreviation is not common and might confuse others that do not know that you mean Carthesian product here.

@@ -1,0 +1,7 @@
+If the copper pads or traces on the PCB got pealed off when it broke or if the usb pins are snapped then re-soldering will be very difficult.
+If it's just the solder joint that snapped (a so-called 'dry joint'), someone who's good at soldering might be able to repair it.
+A possibly easier way is to take a USB cable (eg. extension cable, phone charger cable) that has a USB A connector on one side (the normal big PC kind, like the one on the drive), cut the other end off, strip the wires and solder them to the board.
+All the answers so far that said it was fixable have been focused on resoldering the USB connector. While this could work, the connector is likely broken, finding a replacement is hard and soldering a connector like that isn't too easy for beginners.
+There's a faint chance it may still work if plugged into a computer... very carefully. If it does, get all the data off it then trash it. If it doesn't, I'd say game over - I wouldn't put a soldering iron anywhere near something that delicate.
+It's hard to see from those blurry photos, but it looks like the pins that are inside the usb plug have snapped off from the circuit board.
+For best results, try to keep all the wires a similar length (due to the relatively fast data rate of USB), watch a simple soldering guide first and also twist your wire ends and pre-coat them with solder. 

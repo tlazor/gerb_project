@@ -1,0 +1,9 @@
+The highly compressed file was 1.8 megs, the lightly compressed png was 4.7 megs.  The image was something I grabbed off Google and was a picture of a star cluster.
+Conclusion for large files - if you are on a lightly used LAN it is probably quicker to use the less compressed image, but once you hit the wider Internet using the more highly compressed file is better.
+I found a large PNG file online, opened it in GIMP and saved 2 versions of it - 1 with compression level 9 (very small) and 1 with compression level 0 (large).  
+In each case I ran the script quickly and aborted it after a few seconds so any system caching could come into effect before running the full test, thus reducing the impact of disk io (and my computer happens to use SSD which also minimizes that impact.  The results were as follows:
+But, this does not take into account the time taken to download the file.  This will, of-course, depend on the speed of your connection, the distance to the server and the size of the file.  If it takes more then about 0.5 seconds more to transmit the large file then the small file, then (on my system - which is an older ultrabook, so quite slow thus giving a conservative scenatio), it is better to send the more highly compressed file.  In this case - this means sending 5.8 megabytes a second, which equates to - very roughly, 60 megabits per second - excluding latency issues.  
+So a highly compressed file appears to be about 10 slower to decompress then a lightly compressed file.
+BTW, I'm rerunning the tests with 1000 iterations, I'll update my post once I have these numbers - I expect them to be pretty similar.
+I then wrote a script to convert the image from png to tif (on the assumption that TIF is a relatively uncompressed file format so quite fast) 200 times and timed the output.
+I ran a little experiment for you - Its not perfect, but it should give some insites into the scope of the problem.

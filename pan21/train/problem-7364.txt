@@ -1,0 +1,6 @@
+My gut tells me that there is no way to accurately assign numeric data as categorical or numerical, but was hoping for a suggestion. Any insight you have is greatly appreciated.
+I know someone who is working on a project that involves ingesting files of data without regard to the columns or data types. The task is to take a file with any number of columns and various data types and output summary statistics on the numerical data.
+If you have, for example, number of children of a family (which could range, for example, between 0 and 5), is it a categorical or numerical variable? Actually it depends on your problem and how you intend to solve it. In this sense, you can do the following:
+In case of discrete values, one additional test could be: use a regression model to estimate some of the parameters and check if the estimated values are contained in the original set of values. If this is not true, you are probably dealing with categorical data (as it is the case of ZIP).
+However, he is unsure of how to go about dynamically assigning data types for certain number-based data. For example:
+are not clearly marked as categorical. His software would assign the ZIP code as numerical and output summary statistics for it, which does not make sense for that sort of data.

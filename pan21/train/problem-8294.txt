@@ -1,0 +1,8 @@
+Also, I'm using rackspace's cloud servers. They include something called an "internal ip address". I'm assuming that's what I should use because it's probably faster than and "external ip address".
+You need to figure out your architecture and how you're going to scale.  Eventually, you might split pieces of this off as you start to grow, but, that shouldn't be traumatic if you've planned your software project well.
+You could run them independently and firewall the ports so that only your machines would hit the specific ports.
+At any rate, is there a way on the server that is not the web server (e.g. the mysql / memcached servers) to basically not accept any traffic or anything from anywhere but the webserver? What's the best way to do this? And is this recommended?
+I don't know much about securing a server. I've heard of iptables, but I've never used it (maybe that's not what I need?).
+So right now my goal is to have a main webserver, and a separate database and memcached server (unless you think I should just have one webserver and one server with mysql and memcached?). 
+Your Internal IP address is an IP that is not routed to the internet, and, is the address you would use to connect your various instances together.  It is possible that Internal IP address can see other cloud machines, but just doesn't have access to the internet, or, it might be segregated with a VLAN between your machines.  I haven't used their service, so, I cannot comment on that.
+You could run webserver/memcached on one server, mysql on the other, open up only port 3306 for your webserver/memcached machine's IP.

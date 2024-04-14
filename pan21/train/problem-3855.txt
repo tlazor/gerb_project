@@ -1,0 +1,14 @@
+What likely happened in your example is that you have swap space turned on, so Apache will start using disk as memory and be largely busy swapping memory to disk and back
+Your question is too broad. You will need to work on your PHP script to make it scale… and it all depends on what it is doing.
+Other than that you can restrict the number of simultaneous operations if you are using Apache in a prefork manner, for example with the MaxClients setting.
+My site is run by a php script. Which probably , because a very long loop had overloaded the server's resources.
+For example 2048MB server memory, 96MB PHP: Reserve a reasonable amount for MySQL that you may have running, and other things, say 512MB. Leaves you with 1500MB/ 96MB -> 15 parallel requests.
+Only restarting the service about 50 minutes later, resurrected the service (and since then all is fine).
+Ensure that your PHP memory_limit is reasonable, ie. try to get it to 64MB or 96MB. Search all your code for ini_set('memory_limit')
+As a result of these changes, your website will still be slow once overloaded and people will get errors. However, after the surge subsides, Apache will immediately be able to serve pages again.
+The limitation of Apache is setup differently depending if you run Apache mpm worker or prefork or maybe you are running PHP-FPM.
+A loop with lots of iterations in isolation is unlikely to have killed your server. OTOH if this script is slow and uses a lot of memory and is being accessed frequently then it may be a major contributor to the problem, but it's impossible to say from the information you have provided
+Next ensure that Apache doesn't accept more requests than you can handle with your server memory., for example 2048MB server memory, 96MB PHP:
+You are likely best to optimize the memory usage of PHP as well as ensure that Apache is not "thrashing".
+Recently, my server became overloaded, resulting that the service was no longer answering any http requests(the last answer was 503).
+The most important thing is to start measuring stuff - memory usage, cpu, load, concurrent connections - so you know which resource is running out.

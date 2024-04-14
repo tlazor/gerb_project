@@ -1,0 +1,7 @@
+However, what this seems to do is trigger a poll of the repo, where is then tries to build any branch that is different from the main branch.
+Bitbucket do supply quite good features in terms of Webhooks, which when used with the Jenkins Git Plugin, do allow for triggering of builds based on various Bitbucket events (eg a Pull Request update).
+Up to now, we have used the Bitbucket Pull Request Builder, but it is very flaky and unreliable, and not supported well.
+There are various ways to trigger a Jenkins job from an SCM like Bitbucket, but what I want to do specifically is trigger a build using the branch that is the source of the Pull Request.
+Our use case is that we allow developers create their own branches, for which they then create Pull Requests to the development branch.
+There doesn't seem to be any way to trigger a build that uses the developer created branch as the build branch (other than the aforementioned Bitbucket Pull Request Builder).
+There is also the Bitbucket Webhook plugin, but again that doesn't offer much in terms of dynamically choosing the branch you want to build.

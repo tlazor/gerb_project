@@ -1,0 +1,8 @@
+My computer, using Windows 10 on an old Dell, got a lot slower so I thought I had a virus. I also trusted someone when they told me that "anything you don't put in the C drive shouldn't be there" so I deleted a few small obsolete looking files from the drive and tried rebooting into safe mode to do a virus scan. I got a pop-up when it was turning off, and it looked pretty serious. I didn't get to read it at all because it came up right before the Dell turned off. So it booted onto the Dell logo screen and it got halfway done loading when I pressed F12 for the boot menu.
+You are going to have to start the computer with a genuine Windows Install disk or you could use a Repair Disk if you have one...
+I thought it was either the possible existing virus or the deleting of the files, so I switched out the hard drive with another one.
+I disconnected the hard drive, CD drive, and USB plug-ins, then I took out the CMOS battery, and tried booting it on.
+It turned back on and now it's stuck half way loaded on the boot screen and pressing F12 or F2 doesn't register.
+Now, the SFC is a "System File Checker" It should have found any problems and repaired them. When it is finished, remove the disk from the CD/DVD and reboot your system. 
+So now I'm at the end of the line here and I have no idea what the heck is up with this computer, anyone have any ideas?
+If it doesn't reboot, then you may have done more damage than can be fixed with SFC. In that case, insert your Windows 8 or 10 installation disk and reinstall. When you reinstall, you can choose to install it in the same directory as the original. This will overwrite your install and replace the files that are missing without deleting any of your personal files.

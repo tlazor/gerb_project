@@ -1,0 +1,5 @@
+Also, is it 32 or 64bit? The 64bit version will need a bit more memory to run pleasantly. A 32bit Server 2008 or Server 2008 Core could get away as a small-scale domain controller and file server with 512 MB memory, I know mine do... 
+It would depend a bit on the type of file server load, how much it's gaining from caching files especially writes or if that doesn't matter for the usage pattern.
+So I run this server at our company. It has a Core 2 Quad CPU, 8 GB of RAM, as many hard disks as possible etc.
+I run Windows Server 2008 on it that runs several virtual machines, one of it is another instance of Windows 2008 that acts as fileserver and domain controller: the domain has about 30 computers and the fileserver is used by about 15 people normally. I gave it 2 GB of RAM but I'm starting to wonder, can it run with just 1.5, or even better, just 1 GB, without a noticable performance drop? 
+(I'd personally make two separate 32bit Server 2008 (Core) servers, one as DC and the other as a file server and if you don't already run two DCs - set up a second one. Perhaps the two DCs then could get away with even less memory like 384 MB each in that environment)

@@ -1,0 +1,8 @@
+I want to know how a web server can distinguish between requests of different DNS names on the same server (same IP)?
+Basically the PAYLOAD (not tcp, the http request structure) tells the web serve rwhat the domiain is for.
+and when I use nslookup on Windows, I got the same IP address for both domain names. Can you explain please?
+(note the empty line at the end if you want to re-create this yourself by using, say, telnet. You can see a lot of this stuff also over in wikipedia)
+Without this feature, a different IP address would be needed for each different site; we would have run out of IPv4 space even sooner if we didn't have this in place.
+Fire up your favourite packet tracer (something like wireshark) and watch what actually happens when you connect.
+HTTP 1.1 requires that all client systems send a header, Host, which indicates to the server which hostname they are sending the request for.
+There's a lot of stuff shown in these headers, so you might want to get to know them with a browser plugin like Firebug

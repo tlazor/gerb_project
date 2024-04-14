@@ -1,0 +1,7 @@
+As to referencing db in the web service, you need to create a custom network (https://docs.docker.com/compose/compose-file/#/network-configuration-reference) and set the internal domain alias or reference the first container to the second using service links (https://docs.docker.com/compose/compose-file/#/links). The second seems more appropriate in your case, since the db service will not need to reference the web service.
+You are not able to modify the build of an image with env variables, that is not the way docker works.
+As you can see neither environment variables specified in docker-composer.yml or in the .env file are set. 
+But what you are really missing is, that ENV files of docker compose are not available within your DOCKERFILE. Your Dockerfile creates an image, running this image in an container is with your .env files or those things.
+It's because you're setting the environment variables at the docker-compose.yml but trying to reference them in build time (aka RUN env). Those variables will only be available after the image is built, in the ENTRYPOINT/CMD command.
+You either need to set variables in build time using the ENV command in the Dockerfile or use the variables after the container has started (either way is fine in your case).
+Just start docker-compose. You will now be able to see and use your envfiles within the given ENTRYPOINT / CMD.

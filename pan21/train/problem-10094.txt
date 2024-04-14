@@ -1,0 +1,7 @@
+(5) Get a web application scanner and review your code.  If you are using compiled languages, you can do some static analysis too.
+(3) Consider posting a diagram of your network here, with IP addresses removed, but describing ports, protocols, management interfaces and trust relationships so we may review it.
+(1) Secure the base operating system, relational database, application server and HTTP server http://iase.disa.mil/stigs/stig/index.html
+(6) When moving code from (A) development, to (B) staging, to (C) production, I previously used different servers for each.  This also enabled reviews of each site, prior to moving it to another stag.
+Is there any Security software recommendation for Windows Server 2003 as a Web Application/Website server?
+You should look at the security baselines in the server 2003 security compliance management toolkit.  Chapters 8 and 9 talk about IIS/web server security.  Also readn and implement the IIS6 security best practices. I'm not to sure about anything from CIS.  Lastly develop an upgrade plan to get to server 2008.  Many of the improvements were around security.
+(4) Check out the OWASP site and learn more about how to build a secure web application, scan it for vulnerabilities, and standard errors programmers make

@@ -1,0 +1,5 @@
+Imagine a post boy who has to deliver all tasks to do - this boy will be your, let's put it this way, net capabilities. This boy has to know two things to find the right person: the address of the office, and the number of the desk.
+If you put someone at desk 80 to behave like a web server, no use sending there ssh work, they should send it to desk 22 if you have chose that. Otherwise, the work will be just dropped.
+How do ports exist in an operating system? Is there some file for every port that exists? And how are the ports then used? Is data in some form directed to be sent to a specific port? I do not understand how ports work at all, so I would appreciate some explanation.
+At every desk, someone works, does a job specifically he or she is dedicated to deal with. The desks are numbered. Nothing special, they just have numbers 1, 2, 3,...
+More or less, people can change seats at your will, what is important that the sender has to know at what desk you deal with this kind of cases and that kind of cases because one employee can't (usually can't) do the job of others.

@@ -1,0 +1,5 @@
+It's totally an opinion and observation based in my current project where we handle databases over 20 TBs . We do not do any rebuild or re-organize of indexes as that is very expensive operation. So please check if that is actually helping you out in performance. Rather we focus more on update stats daily with change or modified stats. 
+Usually, a good rule of thumb starting point is that indexes should be rebuilt when they are fragmented by more than 30% and should be reorganized when they are between 10-30% fragmented.
+Also take a look at http://www.minionware.net/products/reindex/ its configurable thru table defined params.
+If needed, you can use ola hallegren which has excellent parameters to set that up else use the one available from Microsoft.  The SQL tiger team has been doing an excellent job for such activities in their git hub page for adaptive index defrag proc  here
+You could write a script which queries sys.dm_db_index_physical_stats (avg_fragmentation_in_precent column) to work out the percentage fragmentation and then take the appropriate action (rebuild or reorganize)

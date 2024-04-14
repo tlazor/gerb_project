@@ -1,0 +1,6 @@
+Have listed a few items below to remove old mail from q and delete the old logs. Please note that these files are almost certainly recoverable so if you are attempting to hide your tracks from anyone with any skill this isn't the way to do that.
+If it isn't empty then delete the contents of the mailq(this will delete all messages so use with caution)
+Postfix will also log to /var/log/syslog on a debian box by default - I presume it will do the same to a similar file on OSX. Check also that there are no mail.log.1.gz or syslog.0 type files. These are the log files from yesterday compressed to save space.
+To be honest, I think a good computer user should leave evidence behind of what they've done. Deleting log files isn't to be encouraged but that's not the question here. 
+I was playing around with php and mail() on an OSX system and I ended up in a loop that generated a bunch of "junk" in my postfix system.
+I want to be a good, clean, neat computer user, so I am trying to clean up the junk and get the system back to the way it was before I did anything.

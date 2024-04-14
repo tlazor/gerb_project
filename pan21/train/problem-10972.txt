@@ -1,0 +1,7 @@
+Actually you can place pid files anywhere your app have write access to. It is a convention to place pid files in certain places, to easily locate them and to not pollute everything around.
+RHEL7/CentOS7 has a dedicated folder: $XDG_RUNTIME_DIR (e.g. /run/user/1000) for pid files, that folder is a tmpfs. However RHEL6/CentOS6 does not have $XDG_RUNTIME_DIR.
+Additionally, placing files in tmpfs you could be sure there will be no old pid-files after system reboot.
+(Example of not using other folder like /tmp: there is a crontab job removes pid files every certain days causing service unstable)
+RHEL6(also RHEL7) has a folder using similar type: /dev/shm. After some testing and searching on Internet, I realize it's convenient place for IPC purpose, and also seems OK to put small pid files in it.
+You aren't really meant to abuse /dev/shm for this though. This directory exists for processes which communicate via shared memory to provide a backing store.
+On RHEL 6, PID files are almost always in /var/run or a subdirectory thereof. This directory is only cleared at boot time. On RHEL 7, this directory is now /run and /var/run is symlinked to it for backward compatibility.

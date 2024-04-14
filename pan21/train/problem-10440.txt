@@ -1,0 +1,12 @@
+We are looking to add some logical structure to our (Win 2003) AD hierarchy.  We have a single domain and around 500 users.  All users and computers are currently organized into one OU.  All security and distribution groups are in a second OU.  Group membership is essentially on an individual user basis with no nesting of groups.
+Users - Split theses into departments, but also with an area/s for temp or agency staff.  Location for these won't be as important as no doubt people will move about.
+I've also found it useful not to use the built in users or computers groups, not any technical issues, but just so that you can easily see where things shouldn't be.
+I don't really see any need for further divisions here, e.g. by Department, as it would generate extra admin overhead without really giving much in return.  Splitting by location however would enable you to implement delegation at each site.
+I think, if I had to redesign my AD again there are a few things that I would do differently, but I have found that :
+I'd just split them by location in this case.  The resulting OU structure would look something like this:
+If you have no compelling reason for a specific AD structure, then design your AD from an administrative point of view. Think about where you are going to be applying policies.
+Finally, split your servers up as well, I've gone for location/role which seems to have worked quite well.
+I'd always split users, computers and groups into separate OUs, for the simple reason that it makes it easier to manage.
+I tend to design AD structures with 'making it easy to manage' in mind, rather than reflect physical company structure, however both are often the same.
+Computers - Split these into location and sub locations.  Ie OfficeComputers/LondonOffice/Room103 (Finance).  This means that you can apply settings to one location or office - for example a different proxy server, or different anti virus settings (of course only if the AV management program uses AD)- without reorganising, and hopefully won't have to open the can of worms that is loopback processing.
+If you did it the other way, it would mean you would have to link your policies at multiple OUs, which involves unnecessary work.

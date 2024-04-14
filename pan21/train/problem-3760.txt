@@ -1,0 +1,7 @@
+This might be something I fundamentally don't understand about AWS application elastic load balancer set up.
+I've read all of Amazon ELB documentation and FAQs, and searched extensively here, but did not find any solution other than disabling keep-alives.
+It's very simple. The load balancer is a public front end, forwarding all traffic to a single target group.
+But that essentially means that there is absolutely no point in creating more than N*X connections from ELB to targets, because requests coming on extra connections would just wait in the queue on the target, potentially forever.
+From my experiments that is exactly what is happening. ELB opens as many connections to targets as it receives, and during spikes in traffic these extra requests fail.
+Ideally there would be an option that would limit how many connections to open per target and ELB would keep extras in a wait queue on its side, before forwarding to targets on their open connections (or by new targets launched by auto-scaling).
+There are N containers in a target group. Each container running some number of workers, say X. Per Amazon documentation it is suggested to have containers with keep-alive enabled and set to a higher value than ELB inbound timeout.

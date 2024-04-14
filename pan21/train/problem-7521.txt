@@ -1,0 +1,9 @@
+But that variable is never used. I suppose that was meant for error checking initially? Well, you do no error checking, which is very optimistic. fwrite might fail.
+You also perform those checks, which might terminate the function, after several variable assignments, which are lost work if the parameters are null or the file can't be opened. Not a big deal, but nevertheless, suboptimal. C99 allows you to declare variables anywhere, so can move those checks to the top of the function.
+Make the order of the fwrite parameters consistent first the sizeof and then the number of elements:
+Speaking of sizes the size of the standard primitives are not guaranteed to be exactly the same on all platforms (long being a particular pain). Instead use the integer types from stdint.h.
+fopen should have a b in the second parameter. This primarily prevents windows from replacing any \n byte with \r\n which would corrupt the file.
+I like to keep the global scope as clear as possible, so I'd move all constants that are only being used inside the write wav function to the function scope. You can make them static constants to ensure they are not reallocated on the stack every time. 
+Your program works on little endian machines only.  If you care for it to work on any machine, you would need to fix up all of the fwrite() calls to output specifically in little endian format.
+I would suggest creating a struct for the file header.  That way, you could fill in all the fields (in an endian correct manner) and then do one single fwrite().  From the code it looks like you can combine all the fields into a single header, but if it makes more sense you could have multiple headers (RIFF header, format header, data header, etc).
+Personal preference, but like to avoid assignments inside conditional, they should have very good visibility. I also prefer to compare against NULL instead of the nearly invisible ! when it comes to pointers, again to maximize visibility.

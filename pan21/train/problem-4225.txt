@@ -1,0 +1,7 @@
+I have configured Thunderbird to download messages through pop3 and I must leave a copy of the messages on the server inbox, so I cannot delete them from the provider.
+How does Thunderbird keep track of already downloaded messages? Is there any way to avoid this messy situation?
+Someone suggests to move the messages from the Inbox to an another folder but unfortunately the tools provided make this operation very time wasting.
+Possible reasons: popstate.dat file corrupted, popstate.dat file deleted, uid roll (where the server changes the unique email identifier) 
+Sometimes (1 - 2 times per year) it happens that Thunderbird starts to download all the messages as if they hadn't been never downloaded.
+I suspect something like CCleaner is deleting your popstate.dat file https://stackoverflow.com/questions/318673/where-does-thunderbird-store-the-uid-of-the-last-message-downloaded-via-pop file
+Hitting an A key to archive an email takes almost no time :)  https://support.mozilla.org/en-US/kb/archived-messages

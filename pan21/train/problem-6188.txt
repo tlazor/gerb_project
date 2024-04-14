@@ -1,0 +1,5 @@
+The tree that will be generated looks like this, with all settings outside the section sitting under the ".anon" node:
+This node is necessary to avoid ambiguities in the put direction.  Taking an example, if you were tasked with writing this tree back into a file:
+It could be written as either just [foo] (a section name) or foo= (a setting outside a section).  The ".anon" subtree ensures this transformation back is free of ambiguity.  To remove it and have a flat structure, you would need to create a second module/lens for each type of file, which I think would be a more natural solution.  The ".anon" node makes more sense in the PHP case where there's a mix in the same file.
+The PHP lens provides similar functionality, supporting settings in an INI file before the defined sections.  I've adapted this into your lens and fixed the "setting" lens which should have used IniFile.entry_re to avoid ambiguities.
+Please do submit your lens(es) to the Augeas project when you're done and have added tests, we'd be keen to include it.  Submit either via trac or send to the list.

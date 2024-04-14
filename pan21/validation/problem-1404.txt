@@ -1,0 +1,6 @@
+I've setup a Central Certificate Store. I've tried wildcard and specific certs for domains. I've tried adding explicit bindings for certs. I've tried editing the bindings in the applicathost.config to not have a specific domain (from google searches).
+I have two instances of IIS setup using shared configuration and NLB, these will be acting as frontend reverse proxies (this works). I want to add SSL termination to them though, this is where I'm having issues.
+Is there anyway to debug IIS as to what decisions it is making?. I see the certificates loaded in the central certificate store, but they are never being used.
+What's baffling is the first binding has a hostname, but other hosts get signed with that cert, that's never going to work because the CN/FQDN will always be wrong, so I have no idea why IIS is doing this.
+With a default SSL site, IIS resigns everything using whatever that certificate is, it doesn't bother with the SNI part, or look at the central certificate store.
+I'm trying to get IIS 8.5 on windows Server 2012 R2 to actually use the central  certificate store, but i can't figure it out.

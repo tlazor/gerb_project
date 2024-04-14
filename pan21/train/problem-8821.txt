@@ -1,0 +1,5 @@
+What I'm looking for is a way to mount it automatically when I'm on my network and disconnect when it goes away.
+Note that there's not any convenient way to keep your system from trying to contact the server when you access the file path, so there will always be a slight delay during the initial connection attempt before it realizes the server is not there.
+If you really want to get in to the gritty details, you could create an executable map. Read man 5 auto_master on your Mac to learn about those. The executable map could check which network you are connected to and present the appropriate set of mountpoints to the automounter, preventing it from ever thinking about your NFS mount when you are away from the home network.
+I can mount an nfs share on my linux machine just fine, but this is a macbook pro that is doing the mounting, and when the laptop goes away from my home network nfs hangs trying to communicate with the mount when I try and access it.
+You might want to try using the automounter. There's a good article about it written by Rajeev Karamchedu. It should, for the most part, prevent your mount from hanging. 

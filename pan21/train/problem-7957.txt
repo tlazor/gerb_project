@@ -1,0 +1,5 @@
+VirtualDub can do pretty amazing things with broken AVI files.  Just open the file in VirtualDub, let it cook, and then if it's opened it successfully, re-save it as a new AVI file.  Usually, you don't even need to change the compression settings.
+Is there any other software out there that can possibly get whatever video it can out of it? Maybe one that specializes on that sort of thing? I'm not very hopeful because I figured if anything could be played out of it VLC would have managed to do it, but I figured I'd give it a shot anyways...
+I've had good experience so far with Media Player Classic and The KMPlayer. They can play files which have been partially downloaded, or broken into parts (by hjsplit for example).
+I have an .avi file that is about 110mb. When I try to play it with VLC Media Player it says something like "This file is broken. Attempt to repair?" and after it does its thing it is still unable to play it.
+There's an extensive tutorial on repairing broken AVI files here: Repair broken or corrupt AVI files - AfterDawn: Guides

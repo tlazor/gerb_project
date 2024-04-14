@@ -1,0 +1,5 @@
+Second, this will prompt for the server password in Terminal. It would possible to include the password in the form "//$username:$password@$serverpath", but then the password is visible to anyone who does a ps listing. Unfortunately, it does not seem to use passwords stored in the keychain.
+I haven't been able to Google up any solutions for doing this, but I suspect that it should be possible. I currently connect using an Automator script, but I'm not afraid to shell script it either. 
+There are some caveats with this method: first, while this mounts the server volume under the path /Volumes/server1, it'll still show up in the Finder as C$. Programs that access files by path will not be confused, but you will be.
+Finally, the /Volumes directory is normally used by OS X's various built-in volume mounting systems; I don't think adding manually mounted volumes will cause trouble, but there's a small risk of a conflict.
+I have a number of (windows) networked drives that I need to connect to using my Mac - the trick is that on many of these servers I'd like to be able to connect directly to the c$ share. So I end up with a list of mounted volumes that look like:

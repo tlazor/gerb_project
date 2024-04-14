@@ -1,0 +1,6 @@
+The passwords are encrypted in browser before sending them to the sync server. Should you lose the encryption key ( nowadays 26 digits ) it is not possible to get the passwords.
+Is it safe to sync using the Firefox built-in password manager and sync functionality? Where do they save my passwords and how do they save? What will be the risk?
+Personally, I would use LastPass instead.  They offer two factor authentication like smartcards, their grid system, mobile text or USBkey.  They also offer one time use passwords (for public logins).   
+They also offer an offline mode.  It's also far easier to use and supports even the funkiest login screens. 
+Your concern should go to whether Lastpass is in business in 10 years, if you get malicious software on your computer reading keyboard or harddrive and whether you sync your passwords to unsecure computer on later time.
+Sync is more reliable in terms you don't have to worry about LastPass going out of business. Also my experience with the LastPass software is not so good - I like the Firefox sync more.

@@ -1,0 +1,6 @@
+I'm re-running these tests and the early numbers indicate that the 3rd run is slower than the 1st and 4th is slower than the 3rd. 
+Basically, when running on an empty dataset, you can write without incurring in read/modify/write because, well, you have not written much yet. When really rewriting data (as in following benchmarks), you are going to progressively hit more and more read/modify/write, leading to both read and write amplification (and slower performance).
+I'm seeing this weird behaviour while benchmarking Postgres on ZFS-on-Linux (via pgbench), where the second and third runs of a benchmark are progressively slower than the first run. 
+To check if it is the case, simply use zpool iostat to record total reads/writes on the first three runs: if you see the second and third to command an increased amount of transferred bytes, you have the confirmation of what written above.
+Rather than the missing TRIM support (whose performance deficit you can often avoid by simply leaving ~10% unpartitioned space at the end of the disk), what is hitting you probably is ZFS CoW behavior.
+Could the lack of TRIM support on ZFS-on-Linux causing this - https://github.com/zfsonlinux/zfs/pull/8255 ?

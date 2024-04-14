@@ -1,0 +1,8 @@
+You also need to manage the political situation. If you have multiple people in IT, designate one the "Executive Support" person, and make executive work the priority 1 and track the work. When other projects drag, the reason becomes the amount of cycles that VP Fred and EVP Bob are using up. (Don't mention the porn) You can't just whine about it -- you must explicitly document it.
+Give them a bill for your time fixing the PC and suggest they simply subscribe to a site.  I'm sure it would be less expensive and give them a "clean" path to what they seek.
+Might want to try a sandboxing app like Microsoft's Steady State: http://www.microsoft.com/windows/products/winfamily/sharedaccess/default.mspx
+Use that pretense to wave your hands and get a few executive-types excited, then use the chaos to implement a few improvements, like:
+Keep in mind that you cannot solve the world's problems. If it is acceptable for people to use company assets to futz around with porn, your options are limited. Just make an honest effort to mitigate the risk to the enterprise as a whole, and cover your ass in the process.
+I'd also recommend a real time malware scanner, such as Windows Defender, on top of whatever anti-virus you're running. Perhaps add in a cloud based malware scanner like Threatfire or Prevx as well. 
+My recommendation would be to find whitepapers from companies like Finjan, McAfee, etc that talk about "drive-by Malware". I recall that Finjan in particular has case studies about major retailers whose sites were hacked used to distribute malware.
+Sandboxie can be useful for this purpose.  Generally it tries to intercept all disk and is stores them in a sandbox folder.  I find it works particularly well when combined with instance of Portable Firefox.

@@ -1,0 +1,12 @@
+error CS0200: Property or indexer 'Microsoft.TeamFoundation.WorkItemTracking.Server.WorkItemLinkChange.RowVersion' cannot be assigned to -- it is read only
+error CS0200: Property or indexer 'Microsoft.TeamFoundation.WorkItemTracking.Server.WorkItemLinkChange.LinkType' cannot be assigned to -- it is read only
+error CS0200: Property or indexer 'Microsoft.TeamFoundation.WorkItemTracking.Server.WorkItemLinkChange.TargetID' cannot be assigned to -- it is read only
+error CS0200: Property or indexer 'Microsoft.TeamFoundation.WorkItemTracking.Server.WorkItemLinkChange.ChangedDate' cannot be assigned to -- it is read only
+error CS0200: Property or indexer 'Microsoft.TeamFoundation.WorkItemTracking.Server.WorkItemLinkChange.SourceID' cannot be assigned to -- it is read only
+To change the server id log onto the server where the applictaion tier is installed, in a command window browse to %ProgramFiles%\Microsoft Team Foundation Server 2010\Tools\ and run the following command:
+error CS0200: Property or indexer 'Microsoft.TeamFoundation.WorkItemTracking.Server.WorkItemLinkChange.IsActive' cannot be assigned to -- it is read only
+I recently restored the DB portion of my TFS 2010 deployment, currently when clients open old work items they get the error:
+Apparently this is a caching issue and I have tried the following. Browsing to https://hostname/workitemtracking/v3.0/clientservice.asmx and clicking on StampWorkItemCache followed by Invoke.
+I've added projectCollectionsOnly switch as I am asuming you have restored a TFS collection database.
+TfsConfig changeServerId /sqlInstance:[sqlInstance] /databaseName:[databaseName] /projectCollectionsOnly
+To rebuild the warehouse run the following command (this will need to be done otherwise you will end up with duplicate workitems within TFS_Warehouse:

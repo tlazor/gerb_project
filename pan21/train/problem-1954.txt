@@ -1,0 +1,6 @@
+Afterwards I took a snapshot of [DBS]. As a result, sparse file Snapshot_DBS.ss was created in my drive and in its properties, the size of file was 8 MB whereas the size on disk was 128KB (see attachment). 
+In the internet I found such an explanation: A snapshot contains the original version of pages created and changes in the source since the snapshot was created.
+Whenever I made either INSERT or UPDATE operations on that table the size of Snapshot_DBS.ss on disk kept growing. 
+The 2nd question is, the part where it states "...and changes in the source since the snapshot was created" reminds me the working principle of Differential backup where latter takes all t-logs since the full backup was taken. Is their working principle similar somehow?
+My 1st question is, what kind of changes does snapshot file store? Is it acting like t-log (storing every single changes made to [DBS])? 
+Assume that I created a database called [DBS] and inside that database I created a table called [products]. 

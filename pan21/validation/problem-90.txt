@@ -1,0 +1,8 @@
+I suppose you would already know that, but for the benefit of others, you can use head (or tail) to show the first few rows of the file. That will be more doable than printing the whole thing. 
+so essentially your program would show you the contents of each file, and if you wanted it moved, press Y, else press N. That way each file can be handled in 1 or 2 keystrokes, depending on how you write it.
+I was wondering if naive Bayesian classifiers could apply to code and found DivMod's Reverend. What struck me was the line:
+with programming background i think this howto would be quite adequate for programming such a script http://tldp.org/LDP/abs/html/internal.html 
+As Mark said you'll need to be more specific about the files. Instead of gedit you can use the less pager or head/tail to view parts of the file, then the mv utility to move it. This should make the process a little faster.
+It looks a little aged, but then again Reverend Bayes isn't getting any younger, either. It is available as the Ubuntu package python-reverend, but I'm too sleepy to subclass a recognizer right now.
+Could you be more specific about why grep won't meet your needs? If there's no discernible "method to the madness" then by hand is the only way. You can't automatically/programatically sort things if there are no conditions you can give for the sorting.
+For a programmatic approach, depending on the size of the file and if it would fit on one screen, you could do something with this logic:

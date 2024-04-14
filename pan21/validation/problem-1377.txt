@@ -1,0 +1,6 @@
+I'm especially interested in something that can automatically query the schema data of the databases to be able to track changes in the metadata related to tables. i.e. changes to column data sizes, tables and columns added etc. 
+PostgreSQL has a "comment" feature which lets you add comments to database objects, which you could use to help analysts understand things. For example, we put Javadoc style comments in PG comments, and generate docs based on that. 
+I'm not aware of any open-source tool that would scale to 'hundreds of enterprise databases.'  The closest things that come to mind are:
+Beyond that, you're probably up for a commercial repository tool like Powerdesigner, Erwin or Embarcadero.  If you're actually working for an outfit that has 'hundreds of enterprise databases' on the books there's a chance they might have something like this on the books already.
+Is there an Open Source Metadata Management Solution? I'd like to create a Metadata Repository that will hold the details of the metadata of database schemas, tables and data items of hundreds of Enterprise databases.
+Another option would be to use a tool like liquibase to manage all database schema changes and keep those changes in git source control. 

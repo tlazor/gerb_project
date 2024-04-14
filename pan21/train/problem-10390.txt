@@ -1,0 +1,12 @@
+More RAM allows more applications to run at the same time.  Windows Vista and 7 also use RAM as a cache.  RAM is the single cheapest way to improve system performance.
+That's when benchmarks and measurements come into play, and things get complicated.  Without knowing what application you're optimizing a PC build for, you can't optimize properly.
+The hard drive is by far the slowest system component.  If you put in a 10,000 RPM hard drive or high-quality SSD drive, you'll significantly reduce the latency to fetch data from the drive, resulting in programs opening faster.
+The fact is that there will never be an "idiot light" that tells you what your bottleneck is because it's completely dependent on exactly what you're doing at the time, and can even vary a lot during different parts of the same general task.
+I found one article on this explaining how to use the Windows Performance Monitor but then you have to wade through the measurements and make some educated decision.
+If you could be more specific with exactly what your typical usage consists of, people may be able to give general recommendations.
+In general, the CPU is never the limiting factor (except for gaming or video encoding).  You can get by just fine with a decent dual core for most everyday usage (like the Athlon II).
+Now, any of them can be "the" bottleneck for a certain application or system configuration.  If your application is slower than you think it should be, you have to consider everything about the PC to find the problem.  
+If all you want is to max out your hard drive speed, buy an SSD drive to go with whatever CPU/RAM/motherboard combination you decide on.  
+I'm getting a new PC soon and I've been looking at CPU and RAM options then realized that maybe my HD is my bottleneck.
+You're most likely asking about system responsiveness, which would be how quickly it reacts to your user input, such as double-clicking to open a program or switching between programs.
+Here's the Idiot's Guide to PC Bottlenecks, Short Version.  You can safely assume that due to the laws of physics and the engineering of the modern PC, this is it for application-agnostic bottlenecks.  

@@ -1,0 +1,6 @@
+Hi we have used a bonded service from BE broadband and VOIP which has been very sucessful and cost effective compared to leased line see link below 
+It needs an endpoint on which you will terminate the ppp sessions, and this endpoint can be either in the ISP network or on the internet (such as a server/router in your datacenter).
+Compressed audio like g729 is still noticeable and requires all kinds of changes on PBX and/or phones.
+Have you considered keeping this whole problem simply by using some kind of load balancing instead of bonding? Your packets will be much happier if each session is on one line or another. Using a lighter weight (compressed) audio codec on a single shared line should give you better quality calls than a heavy weight one like G711 where the packets are split and moved over a bonded line.
+Multilink PPP is great except it doesn't handle failing legs (eg: packet loss) very well, or connections with different speeds. And it won't work with legs from different carriers.
+If you know your way around with Linux, you can use Netfilter, connection tracking, mod_statistic, and connmark to set a fwmark for each new UDP session, and then send it to random WAN leg. So each VoIP call would be pinned to one of the connections to avoid packet reordering.

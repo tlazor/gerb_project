@@ -1,0 +1,9 @@
+You'll also have to repair the boot record after installing since Windows will not "play nice" with any other operating system.
+Another option is to install a virtual machine such as Oracle VBox in Windows and install Unbuntu on it. 
+I recently wiped Windows off of my computer to start using Ubuntu, and although I love Ubuntu to pieces, I need some applications and games that are only available in Windows. I am aware that you can install Ubuntu with Windows quite easily, but what is the best way to reverse the process?
+If you install Windows on another partition besides Ubuntu grub will give you a start up choice to which OS you want to boot. Please search for grub configuration in the internet.
+I would like to have the option to select what OS I would like to use on boot, and not have to change the boot drive manually (through the BIOS options). What is the best way?
+After these steps you should be able to boot either operating system without any changes to your BIOS.
+If you want to install on a disk and keep the data which is already there, you'll have to create some space at the start of the disk for the Windows partition. For this you can use GParted or similar tools.
+Windows will only install on the first disk, so you might have to change their sequence in your BIOS before installing.
+There are virtual machines availbile in Linux distros as well - and you can install Windows on the virtual machine.

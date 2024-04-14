@@ -1,0 +1,7 @@
+In your case there is and additional constraint of the diameter. Hence, you should verify that the maximal distance between the items in the cluster is bellow your bound. 
+One of the benefits of such clustering is that you can decide afterwards what is the number of clusters (k) that you want and then get the actual clusters.
+In my application, I want to have clusters whose diameters are bounded by some fixed number. Also, the number of clusters in the data is unknown and therefore the clusters must be discovered without a 'k' parameter.
+Since that in hierarchical clustering we match the closest items first, when you divide into clusters you should check that the distance between the current item and the rest of the items in the clusters is bellow your bound.
+Hierarchical clustering, with complete linkage will find clusters with a maximum pairwise distance i.e. diameter.
+However, you can also do it after the hierarchy was constructed and this way use libraries that already implemented these algorithms and you will only need to add the diameter bound on your own. 
+That will give you an hierarchical grouping of the datapoint, matching each one to the closest to it.

@@ -1,0 +1,7 @@
+After installing version 0.7, edit the file /Library/Application Support/Ljosa/Consistent Keyboards/config.plist.  Change the value of x-caps-lock-is-esc from false to true.  Finally, do sudo launchctl stop com.ljosa.consistent-keyboards to restart the program with the new settings.
+How do I do the mapping on the Mac?  The keyboard & mouse prefpane has some basic options for the capslock key, but that only lets me reassign it to ctrl, command, or option.
+Since macOS 10.12.1 it is possible to remap Caps Lock to Esc natively (System Preferences -> Keyboard -> Modifier Keys).
+In response to your question, I just put out a new version of Consistent Keyboards that can do this.  It's a undocumented feature, however, and requires a manual step to turn on, as follows.
+My friend pointed me to something that worked.  He said to install both PCKeyboardHack and KeyRemap4MacBook.  PCKeyboardHack allows for remapping capslock, while the other one seems to allow for a lot more remapping.  I'm not sure if both are actually required (you might be able to use just PCKeyboardHack), but I installed both just to play with them.  Seems to be working well for me.
+At work on my windows machine I've used Autohotkey to remap the CapsLock key to ESC.  I've gotten used to it and on my personal machines (mac) I keep hitting CapsLock out of habit when I want ESC.
+You can try DoubleCommand. I haven't personally used it but based on a screenshot there's an option to remap the Caps Lock key to ctrl. You may be able to change that to Esc. 

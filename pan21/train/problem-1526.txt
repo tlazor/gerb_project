@@ -1,0 +1,9 @@
+I also had this issue.  After removing the virtual switch, I still could not add a new external virtual switch.  I had to uninstall the Hyper-V component from add/remove components, reboot, install the Hyper-V component from add/remove components, reboot, and then I could add an external virtual switch.
+note: I used 10586.14 to upgrade but a colleague could solve this way with 10586.3 (original RTM of v1511).
+In this list you will find the Hyper-V Switch, but it will most likely NOT have the name you gave it. Determine which network switch is the Hyper-V Switch, right click and uninstall it. This is where network connectivity will be lost.
+DISCLAIMER: YOU WILL MOST LIKELY LOSE NETWORK CONNECTIVITY ON THE HOST PC/SERVER UNTIL THE FINAL STEP
+Now, when configuring a Hyper-V Switch, the actual physical adapter is set as a Hyper-V Extensible Switch. Since we manually removed the adapter, the Virtual Switch Manager did NOT restore the switch to its original settings. Go back to 
+...and on my PC, I couldn't even remove Hyper-V, after reboot: failed to ocnfigure.. undoing changes.
+After uninstalling the switch from the device manager, the record will still be left in your Hyper-V Manager's Virtual Switch Manager. However, rejoice, as now that the device has been manually removed you can now remove the virtual switch from the Virtual Switch Manager without error.
+Hit OK, confirm the notice that will say you may experience network interruption, and you are back to having internet on your PC/Server and are now able to Re-create your Virtual Switch for your Hyper-V Virtual Machines.
+and right click on your primary network adapter, hit properties, and uncheck the "Hyper-V Extensible Virtual Switch". After doing so, you should see the other checkboxes populate automatically, if it doesn't for some reason, go through them and check what you need.

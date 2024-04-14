@@ -1,0 +1,8 @@
+http://www.commandlinefu.com/commands/view/188/copy-your-ssh-public-key-to-a-server-from-a-machine-that-doesnt-have-ssh-copy-id
+I'm working on setting up a shortcut to be able to SSH into my web development server. Here is what my config file looks like (different port and path to key in the real thing):
+You could then setup pass wordless ssh by taking your Mac's public key and appending it to the authorized hosts file on the linux web server. 
+That means that the server's public key does not match it's ip address. To resolve that, edit your ~/.ssh/known_hosts file and remove the entry for 192.168.1.40
+You didn't specify, but I am assuming that you wish to log into a linux web server from a Windows and a Mac computer simultaneously? 
+A better way to setup keys would be to take the public key of your ssh server, and place it into the known_hosts file of your Mac. 
+Here is how to copy your Mac's public key to the authorized hosts on the linux server in one command
+I didn't use a password when I used puttygen to create the private key, so I just press OK. And then I get this error:

@@ -1,0 +1,7 @@
+P.P.S. this may also make more sense if you consider it in the context of a database with multiple schemas not all owned by the same owner.
+Thus, Bob can execute spSummon_Cthulu, and that SP is allowed to SUMMON('Cthulu') because the user mapped to the certificate that signed the SP has that right.
+WARNING: Every time spSummon_Cthulu is changed, you'll need to resign in.  This is deliberate - that way even if Bob is allowed to alter the procedure, and Bob changes it to SUMMON('gremlin'), the changed SP no longer has a valid signature... and is thus no longer allowed to use the SUMMON command.
+For instance, you could have a stored procedure that does something unutterably horrible (SUMMON Cthulu), and you have to allow that for X bad business decision, but you don't want to give Bob permissions to just SUMMON any monster - what if they summoned a gremlin in your system!
+The benefit of users mapped to a certificate is to use certificate signatures to allow a signed object (like a stored procedure) to have permissions the user executing it doesn't have at all.
+P.S. SUMMON is used as a fictional example for simplicity - xp_cmdshell 'bcp xxx' vs xp_cmdshell 'format D:' is a better horrific example, but involves cross-database permissions that are more complex than is necessary.
+In this case, you could create a user mapped to a certificate, and then sign the stored procedure with that certificate.  The certificate mapped user is given the GRANT SUMMON right, while Bob gets only GRANT EXECUTE spSummon_Cthulu.

@@ -1,0 +1,6 @@
+So, if someone has code in your JVM, then they have access to the internals of your program (assuming Java has a permissive setting for it's security - which is the 'default'). On the other hand, other languages (C, cough *cough*) have even more of a problem if someone has been able to 'inject' malicious code in to their program.
+It is all about relative-ness. Relative to many languages, Java is quite safe, and it has ways of being even safer.
+And you are not really interested in a review of your code... right? (By the way, your code looks neat, and covers the bases of your 'academic exercise' quite well).
+Java reflection is a dangerous process. On the up-side, reflection is regulated by the Java security system, and it can be enabled or disabled depending on the site, situation, and whatever else people are worried about.
+For what it's worth, there are easier ways to produce problematic code, like deserializing 'malicious' instances of values, or simply manipulating the JVM classpath before the program launches.
+On the other hand, if you let someone untrusted run code on your JVM then you have bigger problems to worry about.... ;-)

@@ -1,0 +1,8 @@
+c1841-ipbasek9-mz.151-4.M5 and c1841-ipbasek9-mz.124-24.T5 on its flash and with ROM ver "Version 12.4(13r)T5, RELEASE SOFTWARE (fc1)" and those routers can recgonize the card succesfully so i just take the flash off from one of those routers and replace it with the flash of the router with the problem. i did some efforts as follows:
+I have this problem where c1841 router unable to verify HWIC-1T card (with smart serial connector), you have to know that i have other routers with IOS
+All 1's in the EEPROM looks unrecoverably bad, and from Cisco's website you're using code that should recognize that card.
+If this is the exact same model card in the exact same model router with the exact same IOS as you have working other places, you could have a hardware issue.  
+If other HWICs don't work either, do you have any other models that you could try in the new router to see if the slot is possibly bad?
+6.I have entered boot system flash:c1841-ipbasek9-mz.151-4.M5.bin command for testing IOS c1841-ipbasek9-mz.151-4.M5.bin but you will not find it on configration file attached. 
+2.I have upgraded IOS to c1841-ipbasek9-mz.151-4.M5.bin and c1841-ipbasek9-mz.124-24.T5.bin and still have the same problem.
+Steal a module from another router that is known working.  Does it work okay in the new router?  If it does, probably an HWIC issue.  

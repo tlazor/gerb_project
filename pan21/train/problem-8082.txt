@@ -1,0 +1,7 @@
+It sounds like you have a rogue DHCP server on your network. Check the configuration of any network devices (other than ones that you've configured) that might be providing DHCP and disable them.
+Any other ideas on where to look and/or how to move forward and keep this from happening anymore would be appreciated!
+It's very random that it occurs - sometimes it's just 1 user who is affected.  This morning it was 5 users.  Just curious what could be causing these machines to not pick up their lease (which hasn't expired) from the network as they normally do and why/where they're picking up this outside IP scheme.  We did use a secondary DSL line from AT&T for certain bank related activities for a while but I do not believe we utilize that anymore (although, we may - I'm looking into it).
+Lately, we have had users who pickup a different IP address entirely (from AT&T dsl) and it keeps them from being able to access the network shares they need to and keeps them from being able to use email and some other network driven software.
+When you have a misbehaving client ipconfig /all will show you the DHCP server that assigned the address. That might help in you tracking it down.
+On our network we have approx. 75 machines - all running XP SP3.  They cover 3 different business operations and each business' machines are subnetted differently but come into the same switches/panels.
+Odd issue and I'm not having much luck with ole google (perhaps I'm not looking in the right direction).

@@ -1,0 +1,5 @@
+It should be fairly easy to look into their source-code to figure out how to only use their collision detection.
+Bullet has a very well-working collision pipeline. They support various broadphases (sweep n prune, hashed broadphase, 3-axis sweep, etc) and have narrowphase with optimized bv-tree's. I've worked professionally with bullet for over a year and although their performance is not as good as havok(which I've worked with for over two years), it's free and the source code is maintained and enhanced often. 
+If you just want collision detection, and not a full physics engine, it might be worth taking a look at OPCODE - http://www.codercorner.com/Opcode.htm (although it is a bit old now, there may be newer/better things out there?)
+PhysX also has a collision-detection network but I haven't relly looked into it. Havok is a solution that costs a lot of money and I don't think anyone can afford retrieving their source-code unless you're a professional developer. They do have free-to-use libraries but then you can't modify it.
+Open Dynamics Engine is another semi-popular open source middleware solution for physics and collision.

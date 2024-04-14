@@ -1,0 +1,5 @@
+Each client has their own OU within our AD and using denies (ADSIedit) they can't see each other in Exchange and neither as normal objects (like for folder permissions).
+Now, I have googled on this, but it doesn't seem this is possible (atleast, natively). We still need to use adsiedit and do tricks to get a multi tenant environment. Regarding Exchange, we thought about using Office 365 for the clients.
+While you can't use your ADSIEdit method in Exchange Server 2010 or 2013 you can use the multitenant capability of Exchange Server 2010 or 2013. A far easier solution (and one that I've used with a client with similar needs) is to use Address Book Policies in Exchange Server 2010 or 2013 to provide the separation and isolation that you need.
+We currently have the following  environment (hosted on server 2003 and terminals servers on 2008 R2) and we need to upgrade this to their 2012 versions. We will create a new environment from scratch.
+I'd like to know if I misunderstood something or if there's anything I'm missing to create a multi tenant 2012 R2 environment.

@@ -1,0 +1,9 @@
+If Packets  Size Above Port(Router)  MTU(Default 1500 for FastEthernet, 9000 for Gigabit Interface)  then Packets  Count as GIANT Packets and Reject that Packets .
+Every protocol layered on top of Ethernet must deal with this. ARP deals with it by ignoring "junk" after the data.
+Who is adding those 18 bytes, and why? Is it the sender, the switch, or the receiver? And what do they mean? 
+Because in Packets  header size is 64 header it self, so seems Packets  not include with Data some reason of Packets  Corruption.
+Just Want to add Extra Information (Networking Perspective) , Why Router not Accept Packets in Which Condition 
+The arp packet received is 18 bytes larger than the arp packet sent. I'm trying to figure out whether or not this is normal, or a problem. (This packet is ultimately bound for a virtual machine instance which isn't receiving it correctly). 
+There's an 8 byte preamble, a 6 byte destination MAC, a 6 byte source MAC, a 2 byte type/length, user data, and a 4 byte frame check sequence. Since the minimum packet is 64 bytes, that means the user data cannot be fewer than 46 bytes.
+If Packets  Size 1519-1564 , this Packets  called Jambo baby Packets  and accept only where Port MTU is 9000 
+I'm trying to debug a networking issue. During this process, I've noticed that when I try to do an arping, the received arp packets are larger than sent arp packets, as outputted by tcpdump.

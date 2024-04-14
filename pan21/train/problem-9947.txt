@@ -1,0 +1,10 @@
+You can makes t hings more efficient by building a set to perform the in test in constant time and have an overall O(n) behavior.
+The None value seems a bit unexpected to me. We'd probably want False to be returned in that particular case.
+There's a failing case you might have missed.  If the target number is exactly twice the value of one of the entries, then you'll wrongly return true.
+Besides that, try to think of a better name for the function.  Perhaps contains_pair_totalling() as a start?
+If you wish to consider that an item can be added to itself, use combinations_with_replacement instead.
+Also, even if you expect None to be returned in that case, the Python Style Guide recommends being explicit for that (emphasis is mine):
+At the moment, you can iterate on the list (via the in check) for each element of the list. This leads to an O(n²) behavior.
+The solution you are using could be written in a more concise and efficient way using the all or any builtin.
+Note: depending on the version of Python you are using, you may need to add extra parentheses (()) around the expression inside the any call.
+itertools.combinations iterates over the given object returning tuples with the given number of items in them with no repetitions. eg.

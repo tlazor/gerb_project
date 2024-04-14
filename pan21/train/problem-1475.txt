@@ -1,0 +1,8 @@
+You can POST to every page to get things to update, but thats annoying for the user (effectivly a page refresh everytime) and doesn't seperate concerns! 
+So you have attempted autoloading, thats great! But by modern standards you should be using composer to; 
+There are many design paterns you can use to implement applications, and you've gone for dependency injection, which is great! 
+There is far to much out of date code for me to sit here and try and improve when the concepts are flawerd. I would recomend you read up on modern PHP techniques and try applying some of them.
+Your controller router is going to be one of the more diffuclt classes to write, but it should be a lot of fun. 
+Modern PHP should conform to standrads such as the PSR's your namespace is simply model this isn't good enough, take a look at PSR4, your namespaces should be something like Script47\MVC_FRAMEWORK_NAME\Models
+You should make ajax requests (a HTTP request) to your "api" which your index & your new ControllerRouter should be handling and returning prefferably JSON to the client. 
+Symfony has series on creating your own framework, I have never used it and its ideas and opions may conflict with my own, but you should follow their guide more than my advice  

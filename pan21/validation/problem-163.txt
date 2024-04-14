@@ -1,0 +1,6 @@
+you can now use sc.exe sdset... to change permissions, but you need to understand / learn this security descriptor language.
+If an admin without permissions wants to stop the service, he/she can still start a process under local system and then stop the service, I don't think you can prevent that.
+When I quickly need to change permissions on services, I rather use Process Hacker, it gives you a GUI option to set permissions on services, select the Services tab, find your service and on the property tab Security you can remove permissions for administrators. 
+The best option is to have as few administrators as possible and restrict what people can do, using something like Just-Enough-Administration.
+Also this is all about starting and stopping services, an administrator may still be able to kill the process for the service even if he/she doesn't have permissions to the service itself.
+I would make sure that at least one user/group still has full access to the service. Also Local System usually should retain its permissions, otherwise the system/service control manager can't manage the service anymore.

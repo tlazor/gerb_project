@@ -1,0 +1,6 @@
+Just make sure you don't fall in the trap of using a single key for all your users. That hurts when somebody forgets a laptop in china. 
+Letting a user use the same key from all his systems is a common setup, and what I would recommend. If the users have root access it's pretty hard to prevent them from moving the keys anyway.
+You do not need to have multiple keys, however, by default will allow only one connection with a specific key, i.e. you may have problems if users do not disconnect their VPN connection. There is a setting (duplicate-cn) in the configuration file to allow multiple connections with a specific certificate/key.
+When we generate keys for one of our users for them to use at home, can their use the same keys on their home laptop as well as their home desktop? Or do we need to generate separate keys for each user's client machine?
+We are experimenting with running an OpenVPN server for our business. One question I can't seem to find the answer to is this:
+It's a simple key management issue. There is nothing technically that stops you from using the same key from several locations. You can even use them at the same time. However, using the same key for multiple systems makes a revocation more painful. It also limits what user tracking you can do. 

@@ -1,0 +1,5 @@
+Given some clusters created from similarity measures between items, is there a recommended way to assign a new item to an existing cluster based on similarity alone? (i.e. avoiding re-clustering)
+(This doesn't prevent you from deciding to enlarge your training set and data set later, just try to not do that selectively to avoiding overfitting.)
+Measuring the similarity of a new item to all other items is fairly cheap, so I'm looking for a way of using this to assign it to the cluster it's most likely to belong to. It's also important for it to take cluster size into account (i.e. doesn't unfairly weight towards or against larger clusters).
+I suggest you think about this in terms of "data set" and "training set" (technically, it is also recommended to have a separate test set). Once you have your clusters defined on the training set, your can start using them to classify any amount of new data without recalculating, by simply measuring similarity to cluster centroids, for example.
+Basically, I'm trying to sacrifice some clustering accuracy in exchange for avoiding a complete re-clustering when the occasional new item is added.

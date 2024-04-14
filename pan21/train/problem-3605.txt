@@ -1,0 +1,7 @@
+The next good habit to get into is commenting, which s just as important as formatting and entirely lacking in this project. You should always put a short comment above every method explaining what it does, what parameters it takes and what it returns so you (and people maintaining the code in 
+I would have also commented on the formatting but you've also significantly improved that since posting the question. Cheers!
+Now you just need to write a short description on the first blankk line and fill in the types (if NB wasn't able to guess them already). eg..
+I see you're using NetBeans. I Like NB too. NB makes documenting your PHP and JS classes and functions very easy. I looked and I could not find any good documentation because I cannot remember what it's called, so I'll just explain the features as best I can.
+Netbeans will actually do most of the work for you - place the cursor on the empty line just above the start of the function and type /** and hit the enter key. Netbeans will create the rest of the comment including the parameters and the return type (if there is one).
+Now, not only will this be easy to read and maintain, but NetBeans will actually parse these comments and show you what parameters are required when you start to type the method name:
+I cloned your repo and it looks like you've already taken my advice about passing in the superglobals instead of using them directly from your methods.

@@ -1,0 +1,5 @@
+It's only a mistake if you don't have the time to learn.  If you've got the time, go for it.  If you don't, then don't do it.
+Case in point: Eskil Steenberg, creator of World of Love (excellent video where he talks about his game, his engine and awesome tools, and his philosophy: http://vimeo.com/18423305 )
+If it is your first time, even it is just for learning, it is still better to use some kind of engine because you will learn what the engine can provide for you. 
+That's probably the most important thing. If your goal is to learn, writing your own rendering and game loop engines from scratch is fine, and a perfectly good learning experience. If your goal is to make a finished game quickly and easily, then use an existing framework.
+"The wheel" using in the metaphor is the concept, not the implementation. Even you will not re-invent the wheel, you still need to choose whether you will buy one or you will make one by your own. Hence, creating your own engine is not even re-inventing the wheel, it's just you want to create your own wheel for some purpose, which might be for learning, for low cost, for small size or any specific usage or requirements. 

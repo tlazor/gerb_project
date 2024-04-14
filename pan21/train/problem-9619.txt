@@ -1,0 +1,7 @@
+The animation is responsible only for the visual, and the state handles the game specific logic for that action.
+For this requirement I generally see a layer to control the State of the character. This way the character will have a current Animation and a current State. Each one with its own responsibility.
+In my fighting game, the state is a object that inherits from BaseState class and has an Update() method. Each character has a collection of states, but only one can be assigned at a time. And the Update() method of the current state is called once per frame.
+For synchronisation, you need to decide who (your code, animations, or neither) is the timing authority—the "beat" that everyone else "dances" to.
+I've read somewhere that almost all computation problems can be solved with an additional abstraction layer, and I don't see your case being different.
+You might of course want to use different approaches for different systems in your game. (For example, rhythm games frequently use the beat of the song as an external authority, but animations still listen to player interaction events to cancel or change the look of held notes.) 
+It's inside the Update() of the state where I do all that logic: set the velocity of character at a specific frame, increment/decrement health etc.

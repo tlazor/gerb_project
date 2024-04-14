@@ -1,0 +1,7 @@
+I'm trying to find out why I get mysql server has gone error. One my windows machines apache it stops because of this issue. I have been trying to fine tune my mysql my.cnf with the following parameters but did not bring the desired result.
+in short, try upping all limits/timeouts, both and mysql side and application side, one at a time, and repeat until fixed.  
+also, the mysql variable, max_packet [sic], will cause this error, and commonly occurs on importing mysqldumps.
+you can try to up your timeouts on the mysql server side (not only wait-timeout, but connect-timeout as well).... how long are your queries running when you run them manually on mysql shell? longer than your timeouts? thats a problem.
+lastly, if you have iptables rate limiting for tcp/3306 (or whatever mysql is listening on), you may see this as a result of dropped packets.
+it could be on the application side, such as, if you are using php, if the code hits max_execution_time [sic], then you may see this error.   
+I have a virtual machine(Ubuntu 12.04, MySQL 5.5) running under VMware and is dedicated to host a mysql server. I connect to this server on internal IP.

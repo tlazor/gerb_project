@@ -1,0 +1,8 @@
+During processing of the Task multiple rows will be written to "task_status" with different statuses and a user friendly text describing what happened in the step.
+When a Task is created, a row will be written to "task" and depending on which task is it, also to "user_tasks" or "account_tasks".
+Since there will be processed a lot of these Tasks very fast, the goal was to only do writes. As you can see from the comments, the other goal of saving these statuses is to be able to show the Task status in a user interface.
+I would write to this at the same time as "task_status", however when filtering on this table, I am not sure that was actually the last status the Task had. It just shows that the task had this status at some point. I only want the row returned, if for all rows with a specific task_id this is the one with the highest time_id.
+Said in other words, I need to be able to do a query where I filter on status_enum and type, that only returns the Tasks that currently have that status_enum.
+I have some code that is processing a lot of tasks. These tasks are either connected to a user or an account. Each Task go through many statuses -> Queued, Started, Error, Postponed, Queued, Started, Finished ...
+I have spend a lot of time thinking of other data structures that could support this only doing writes, but I have not been successful :-(
+I also need to be able to find all the Tasks that currently have a specific status, but also using a filter on type.

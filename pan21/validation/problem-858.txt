@@ -1,0 +1,7 @@
+It's the certificate that is the actual authorization, since there are no login-credentials with OpenVPN.
+Can I have multiple openvpn clients connecting to a single openvpn server? The following setting works well for a single user
+Yes, you can.  By default, OpenVPN server doesn't allow multiple clients to connect with the same pair of cert/key;  each client must have its own cert/key with an unique common name.
+I believe it's fine if every client uses their own certificate, meaning that you need to issue a certificate based on the same common private-key to each client. 
+Things work well until a second user tries to connect using the same VPN Key, etc. How do I allow multiple users?
+However, multiple clients are allowed to connect to the OpenVPN server using the same pair of cert/key if duplicate-cn (allowing duplicate common name) is present in OpenVPN server's configuration file. 
+Yes you can use openvpn for multiple clients, but you'll have to setup a CA Authority and issue a unique key/cert to each client.  Or setup password-based authentication and use the --duplicate-cn option.

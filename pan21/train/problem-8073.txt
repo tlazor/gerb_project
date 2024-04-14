@@ -1,0 +1,6 @@
+This isnt the full lowmemblock, but just a snippet. It highlights the point of efficiently using the high and low nibbles, to further reduce the size of the block in memory.
+The block then, is quite compact, but not defined for extremely low memory here. To do that, I needed to look even further, for example:
+The sparse matrix is ideal: It allows you to specify a position, and store the data at that position. The positions in the sparse matrix that have no data, are not initially allocated. So, in reality, the matrix is a defined array, but only that doesnt use memory for any cell that has no data. It is much more memory efficient that a usual array. But, I found that it can be slow to traverse when dynamically reallocating, as I was doing with procedural voxel terrain. It might work perfect for you in your game though.
+So, we are able to make reuse of the memory allocated on that object, and still allow the gc later on to delete it. In a way, we are informing the gc that it is safe to clean up the memory footprint of that object. 
+The way I had 100,000+ blocks per frame, single threaded was to limit the data that defined those blocks, ie: 
+One other interesting point to consider, is Garbage Collection. If you are able to sacrifice a potential stutter at specific frames, make use of the gc in .NET to clear up deallocated memory.

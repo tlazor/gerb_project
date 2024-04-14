@@ -1,0 +1,5 @@
+What's bothering me now is the System Services. I found that the permission of certain groups (mainly default system user groups) in each services has been removed. I would like to restore them back.
+My staff accidentally applied a security database to one of my server. Instead of Analyze the Computer, he had accidentally clicked on Configure this Computer using the Security Configuration and Analysis snap-in in MMC. 
+I have tried changing it manually in MMC, but the Add option is grayed out. I've also tried using the secedit command to export out the SERVICES on Server A but I can't. When I try to manually copy the secedit.sdb on Server A, i get an error saying that it is used by services.exe. I'm worry that if I stop that services.exe process, Server A may go haywire.
+It sounds like he used the security configuration wizard, which has rollback option. Did he use a different tool, or did you perhaps just not notice that?
+For now, I'd like to revert back his changes. I have manually reverted back the Account Policies, Local Policies and Event Log settings based on another similar server; let's call it Server A.

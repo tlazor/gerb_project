@@ -1,0 +1,5 @@
+If your traffic uses TCP for communication, any Layer 2 traffic duplication won't work. This is because TCP handshake is a bi-directional process, where client needs to send back response packets to the client.
+You should be able to set traffic processing rules in HAProxy, which divides traffic between servers. This way you can get real traffic to the test server.
+The only thing similar to what you are asking is port mirroring on a switch. This would split the traffic, but you cannot have both servers responding to the same packets. Port mirroring is usually used with a listen-only device for reporting or tracking. It would not be able to give you a load test.
+If such traffic duplication is done on a higher level, the issue is responses to clients. If two server's receive the same traffic, and both send responses back, which response should be sent?
+The only good solution is to set up proper load-testing using tools designed for it. With the tools, you can set up test scenarios for load testing, and the perform requests like real clients.

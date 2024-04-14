@@ -1,0 +1,6 @@
+Chkdsk is automatically run on a few conditions, the most common being an improper startup/shutdown sequence. 
+Have you your event viewer for error corresponding to your hard drive? Bad drive sectors, inactivity, port failure and a variety of other errors in the System event viewer will tell you if a drive is failing aside from chkdsk reporting anything.
+This morning CHKDSK ran on its own during boot. It scanned 1 out of 3 HDDs in my PC. Is it a warning sign that that particular HDD is about die?
+In case you did this and forgot - Chkdsk can also be run on startup if you tried to run it when Windows was running, but Windows could not lock the disk. In this case, it will ask you if you want to run Chkdsk at startup, and if you click 'yes', then it will run before Windows starts.
+I you have no errors in your logfile I wouldn't worry to much. You can always try the command chkdsk c: /f /r (If C: is your drive letter) and check for error's
+Most likely it's the first case - an improper shutdown/startup.  But to answer your question, no, Windows/chkdsk does not know about the condition of your HDD before it runs.  It is running because it made some assumptions that a sequence of previous events may have left the data on your drive in an inconsistent state.

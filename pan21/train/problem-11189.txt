@@ -1,0 +1,7 @@
+I ended up using shortcuts. On the command line I have to type program.lnk for it to work, and this is on Windows 7, it doesn't work in XP.
+This works best for CLI programms (yes, inkscape has an CLI) because a cmd.exe process starts to start the wantet programm and doesnt exit until the termination of the started program. For GUI programms it is better to use:
+I use this for an flashdrive installation of LaTeX and for some simple unix-commands in windows (7/64; xp/32). And it works well.
+Is there a utility that scans all entries in the Start Menu, and creates a symlink to each of the executables in a certain directory, so that I only have to add this one directory to PATH?
+It's really annoying in Windows that if you want to run about any third-party program from the command line, you either have to use its full path or manually add its containing directory to PATH.
+Likewise your own answer you only have to create links in one special directory and include this to the PATH. But to really get it working in commandline, run-dialog and with doubleclicking you need to use Batch-Scripts:
+Save that in a file named inkscape.cmd in this special directory. Then inkscpae is accessable from within the commandline or the run-dialog. All arguments ar piped to the original file.

@@ -1,0 +1,7 @@
+so in order to do this, I need to query if the given combination exists, and then if the given user_id has 25 rows, the user's oldest row would need to be deleted.  
+I'm looking to add a new feature in our production site that will show users 25 items they most recently viewed.  I already record every view into various tables based on the item type, but querying on the union of these tables can't be efficient, because those tables have (in some cases) millions of rows, and for the new table, I'm only concerned with the user's 25 most recent views.
+My initial thought was to make a new table and write additional code to add records to (and delete from) this table with the following conditions:  
+Is there a better way to do this (maybe triggers?  or some way within the mysql schema?) or is my best bet "brute force"; to create additional code to manage the new table, on top of the code I already have to record every view?
+2) to keep the table small / fast, no more than 25 items should be stored for a given user.  Once a user_id has 25 items the oldest view would be removed whenever a new view is added for that user_id.  
+I thought there may be a better way to do this and I investigated MySQL 'views' but from what I read it sounds like creating a view based on the existing tables would not be efficient since it would use all the rows but no indexing.
+1) each combination of user_id and item_id should be unique; ie for a given user_id, any item should appear no more than once

@@ -1,0 +1,9 @@
+The problem occurs in Outlook 2013 & 2016, when you have a table in your signature and you have not set the 'width' property for the table's individual cells.  The previewer in the newer versions of Outlook defaults to a small width (about 10 or 20 pixels) for table cells that do not have the 'width' attribute set.
+If you have copied & pasted your signature from a Word document then this is the easiest way to fix it.
+If you have created your table using HTML tags, all the <td> tags require a width attribute, using either the percentage or pixel width, as in the HTML5 compliant example below:
+In your case all you need to do is set the <td style="width: ##"> value for each data cell in the table.  You don't need to bother setting the width for the table or the table-rows.
+In the e-mail signature preview window for Outlook 2013 and Outlook 2016, HTML and Rich-Text Format (.rtf) signatures containing tables can appear squashed into a stretched, narrow column in the left of the window, leaving the rest of the preview window empty.
+Note that the signature table will always appear correctly as soon as you paste it in, even with no 'width' attributes set.  You must close the signature window then re-open it to confirm you have resolved the issue successfully.
+Once this is saved make sure you re-open the signature window to check your code changes have worked.
+https://answers.microsoft.com/en-us/msoffice/forum/msoffice_outlook-mso_win10/adding-a-signature-to-outlook-2016-formatting/474cf3fc-8e78-4516-b348-4ff369926f58
+As the older versions of Outlook did not exhibit this problem, it is likely they defaulted table cells to 100% width in the preview window, when no 'width' property was set.  Signature files created in the older versions of Outlook, with no 'width' attribute still exhibit the preview problem in the newer versions.  This confirms the problem lies with the preview component.

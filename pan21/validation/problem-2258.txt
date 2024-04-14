@@ -1,0 +1,6 @@
+On the other hand, if the true culprit is the time needed to completely run st_contains(off.area, :location), rather than stopping after the first 10, then that is much harder optimize.  To do that efficiently you usually have to resort to embedding some heuristics into your application code, rather than relying entirely on the database to come up with the optimum.
+If you don't have an ORDER BY clause the database takes any 10 records that meet your criteria and returns them. With ORDER BY it first finds all rows that meet criteria and then orders them.
+Also, I wonder what you are hiding from us behind the :offset.  If the :offset is 0, that is hugely different from an optimization perspective than if :offset is 180000.
+If your theory is correct that computing the area size is the slow step, then storing the area size in a column in the offices table would help a lot.  (You could use a trigger to automatically populate area size column from the area column).  
+But otherwise then that it's a normal question regarding performance and depends heavily on your data and server settings.
+The functional index you tried doesn't work, because that enables you to look up the row based on its area size, but you need to look up the area size based on the row.

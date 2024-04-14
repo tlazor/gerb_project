@@ -1,0 +1,14 @@
+I have 5-6 users half use PC and another half uses Mac OS. They want to setup local file server, right now they use Drop Box for reason that in the past in their experience mac's corrupt file and make it inaccessible for PC users or just getting corrupted. 
+That's a tiny setup. Grab a synology 212j or something slightly newer, stick 2 3tb disks in it (raid one for redundancy) and you have a working nas that can be accessed from windows/mac/linux as remote filesystem and even has a cloud thingy with synology cloud, so you can share things dropbox-style.
+As far as access goes you will use the SMB protocol and on any Mac you should be able to go to the Go menu in Finder and Connect to Server with address smb://YourServerNameHere.
+This keep your filesystem as NTFS and allow read/write access to both platforms. The only disadvantage for the Mac users is that Spotlight will not index the drive for searching so make sure you fins out what your Mac Users workflow looks like before making any decisions.
+They will run SMB for Window  clients and AFP for Mac users. Macs's can do SMB but are much happier with AFP.
+Even buying 2 NAS boxes is cheaper than buying 1 Windows server with the Windows license. (And you won't get AFP with Windows. )
+PS: Buy 2 or 3 TB disks. It may seem overkill now but diskspace usage tends to grow exponentially and disks are cheap. 4 TB disks are still a bit pricey.   
+I prefer NTFS file system, i would not want to have file server in FAT32 just for mac users, i'd rather install NTFS driver for Mac. 
+I currently run a Windows 2008R2 fileserver that handles Windows and Mac users easily. If I remember correctly even in the setup for the server there was an option to enable SMB file sharing for the Mac.
+There are also all sorts of more complicated backup-solutions that you can find on the internet. Many of these are also available for your NAS of choice. After all they are just Linux boxes with an easy to use interface as front-end, so just about anything Linux based can run on the NAS.   
+This one just needs 1 disk (if it fails you always have the original copy on the other NAS) but is preferably located in another fire-zone in the building.
+In fact I even do this at home for the 4 Windows machines and 3 Mac's me and my girlfriend have lying around.  
+PS.PS: If you want versioning of your backups the quick and diryt approach is to don't use the default rsync backup provided by the NAS (which makes 1 on 1 copies), but run rsync from crontab on the 1st NAS with a different target folder for each day of the week (or whatever other versioning scheme you want).
+I am sure there is a NAS system out there for the job but if possible a full server solution works really well. The operating system isn't too hard to get setup for this kind of basic setup.

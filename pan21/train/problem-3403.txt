@@ -1,0 +1,7 @@
+To reduce the chance of a damage, you can disable disk cache completely. This will force windows to write changes immediately, which will not prevent your problems, but it will minimize the data loss.
+You might also want to disable NtfsDisableLastAccessUpdate. This will prevent the system to make changes to the file system even if it only reads a file.
+Also you should disable all automatic updates, because a power failure while running windows updates will cause problems.
+Because of the above reasons, the Windows very often is damaged after the power outages and need to be restored from the backup images.
+As a alternative variant if Windows can safely shut down for this 1 second provided by the capacitor backup, how to configure it to do so?
+If changing OS is an option you could switch your PCs to Windows 10 iot. This variant of Windows is designed for use on industrial equipment that suffers frequent power outages. It uses a write filter to protect the system partition from corruption by caching any changes in a ram disk. https://docs.microsoft.com/en-us/windows/iot-core/secure-your-device/unifiedwritefilter
+Using bigger UPS is impossible, because of some technical conditions. The computers must shut down very short after the power is switched off.

@@ -1,0 +1,18 @@
+On Linux, /lib, /usr/lib and /usr/local/lib are generally searched my gcc, and included in ldconfig's default configuration. Unless you have a good reason, this is where you want your libraries. /etc/ld.so.conf may list extra entries, however.
+Most software assumes dynamic libs, especially if it uses libtool, so you may find non-trivial apps don't build correctly statically.
+Generally people manage the libraries and programs they install by either rolling their own debian packages or using some other technique. I manage the installed software using stow (http://www.gnu.org/software/stow/) which is very simple and installs the library using symbolic links. I find it easier since I don't have to build/install/test a deb/rpm package.
+Another tool you might find handy is CheckInstall, it adds applications installed with make install to your list of installed packages: https://help.ubuntu.com/community/CheckInstall
+./configure --help provides a good amount of information. I suggest checking it out. It generally has options for compiling static/dynamically linked libraries when appropriate.
+8.) Probably a lot of frustration will be solved by using ldd and finding out what version something is linked against or what library that is linked against an executable can't be found. pkg-config will help you out a lot but only for software that use it. It's not part of the default autotools build system though it's popular these days.
+Libaries live in the dynamic linker path. This is usually set in /etc/ld.so.conf. The linker searches for the appropriate libraries much like the PATH environment variable matching the first one found.
+When I get stuck on on Debian or Ubuntu I will use auto-apt which will automagically install the packages that contain the files that configure can't find.  
+6.) Like I mentioned earlier, rolling your own debian packages or using stow is probably the cleanest solution.
+7.) I can't really speak for Mac OSX but for Linux the distribution's packaging system is the best way.
+Other important ones are --prefix (which defaults to /usr/local/ most of the time) to say where to install to (if you're building packages you usually want this as --prefix=/usr or maybe --prefix=/opt/YourPackage).
+This is a bit difficult. You need to check your library path to make absolutely sure.Libraries generally have a symbolic link to the version that is installed.
+configure and make find them by just attempting to run "gcc -l" and seeing if it errors. You can add "-L" to your CFLAGS parameter to add extra paths to search.
+You can have multiple versions installed, and software linked against an older version will stay linked against it (run ldd  to find out the binding on Linux), but new compiles generally target the latest version of a dynamic library on your system.
+Well, ./configure --help will give you a lot of information, for GNU autotools generated configure files. Most of it comes down to --with/--without to enable features (these may take an extra parameter, like "shared" to say where to find the library). 
+5.) Multiple versions of libraries can be installed normally in library directories. Libraries linked to executables will stay linked to the versions they were linked against. running ldd on an executable will tell you which libraries the executable is linked to.
+And that's where I'm out of information; how to play well with packages: don't know. When possible, I try and wrap things up into a package to avoid the problem.
+That generally leads to problems as you have to recompile everything when a library version changes. If you do some searching you'll probably find oodles of reasons why statically linking is a bad idea. I haven't done it in so long I can't really elaborate here.

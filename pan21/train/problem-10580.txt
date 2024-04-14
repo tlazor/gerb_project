@@ -1,0 +1,6 @@
+The benefit of sharding is to scale (size or writes) beyond what one server can handle.  A few GB is not a problem.  You did not imply that your queries will melt down a single server.
+If you want a more specific answer, please provide more information about your data and your application.  Give us more clues of the type of data, schema, queries to be performed, data flow, etc.
+Shard?  Only if you have a logical way to split the data across machines.  For example, are there "users" that are "independent" of each other?  That is, can all the info about two users be sitting two separate servers, with no need to JOIN or otherwise combine data between the users?  If so, Sharding may be in your future.
+The sooner you decide to partition or shard, the easier it will be.  But if you do it without careful thought, it could be a fiasco.  Or, let's say, "a costly learning experience".
+Partitioning?  This does a similar thing, but on a single machine.  However, partitioning does not provide any intrinsic benefit.  Will you eventually be purging "old" data?  If so, the partitioning on 'time' and using DROP PARTITION is a good reason to partition.  That and 3 other cases are in my partitioning blog.
+If it is a Data Warehouse app, then Normalization (is that what you meant by 'extensions'?) and Summary Tables are a must.

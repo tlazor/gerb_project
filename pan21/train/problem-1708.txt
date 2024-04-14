@@ -1,0 +1,5 @@
+3.In the Properties dialog box for the connection, on the Network Adapter tab, click Maximum connections, enter the number of simultaneous remote connections that you want to allow for the connection, and then click OK.
+On windows 2008 R2, If the RD Session Host role service is not installed on the computer, a connection can only allow a maximum of two simultaneous remote connections to the computer however you can use the following procedure to configure the number of simultaneous remote connections allowed for a connection.
+1.On the RD Session Host server, open Remote Desktop Session Host Configuration. To open Remote Desktop Session Host Configuration, click Start, point to Administrative Tools, point to Remote Desktop Services, and then click Remote Desktop Session Host Configuration.
+Remote Desktop on windows 2003 supports two concurrent connections to remotely administer a computer. If you need more than 2 connections you need to install Terminal server. 
+If the Maximum connections option is selected and dimmed, the Limit number of connections Group Policy setting has been enabled and has been applied to the RD Session Host server.

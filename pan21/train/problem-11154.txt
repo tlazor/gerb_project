@@ -1,0 +1,5 @@
+There is also the running issue where it is possible that an email once made it from that server and all replies and the contact was created from that errant email.
+2) They have a manual send connector set up to your organization, either on the exchange server or on their mail relay, which routes all mails sent to *.parentdomain.com to their Exchange server (the wild card causing it to include your sub domain as well). If its on Exchange it can be checked under Organization Configuration -> Hub Server -> Send Connectors (assuming its Exchange 2007 / 2010).
+you can try sending a new fresh email information them to update the contact or to reply back to your email to verify that it works.
+1) This is a DNS issue on their end. Run CMD on their exchange server and try the following - nslookup -> set type=mx -> "your sub domain name". See if the result matches the actual server.
+I've seen this a couple of times when i've had a backup server setup when the primary failed... all mail ended up coming from that 1 person through the backup server only.

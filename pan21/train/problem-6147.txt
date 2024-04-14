@@ -1,0 +1,7 @@
+It's good - but it's not object-oriented! All your methods are static and I guess that's fine but it's a procedural way of thinking. We can't instantiate a PowerSet (in fact, we can but it's useless). In your example, once you recieve your set of sets, the entire semantic that it's a powerset has been lost.
+What would be better is if a PowerSet object was useful for something. Perhaps we could implement Set or Collection. I suggest we implement Iterable. Because it's easy and I'm lazy.
+Like Peter already answered, you are adding the same subsets a lot (which are automatically removed since a Set cannot contain duplicates).
+markspace solves this problem by using bit manipulations which is awesome, but might not be what you prefer. So I'll propose a different approach that uses the same general idea that you use, but optimised to not add doubles.
+I would also go one step further and use Collections.unmodifiableSet to enforce that a user cannot modify the powerset, thereby invalidating it.
+But can we do better? Like @markspace mentioned java doesn't really like recursive calls that much. Instead we can also build the result set from the ground up. The algorithm then becomes
+I added a helper method that literally takes out an element from the input set. That's why the original method copies the input set and starts off the destructive method with this safe copy. This way, we don't need to worry about the original input set being modified.

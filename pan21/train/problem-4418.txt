@@ -1,0 +1,7 @@
+BART is a nice option because it can actually remove rootkits, spyware, viruses, etc as the computer's Windows installation isn't running. Ultimate Boot CD for Windows (UBCD) also has a number of tools including a defragger that works quite well.
+(2) I run Diskeeper 2009 Pro in automatic defrag mode. Easy and highly effective solution since it defrags files, free space, metadata -the MFT etc automatically as required; the pagefile can be set to be defragged during boot (but I use a static PF). Some folders are in the defrag exclusion list (browser cache etc).
+If you configure the paging file to be of a fixed size you don't need to run pagedefrag at all, since the pagefile won't fragment. 
+Anti-malware/virus scans with Antivir, MBAM and Super Antispyware once every weekend..but that doesn't really fall under drive maintenance....
+(3) My page file has it's own small partition on a secondary physical disk. Drives are unpartitioned otherwise.
+If you are technically inclined, you could create a BART (Windows PE) CD that they could just put in and boot off of. Then create a batch file that downloaded updated virus/spyware definitions to a USB drive. So the idea was that they would run the batch file to update the key, then reboot with the CD in the drive.
+But can I just say, that I think windows XP has become FAR more stable and bug free ever since Microsoft stopped updating it. I mean, they still do security patches.. but ever since they stopped updating features on it, it works pretty well.

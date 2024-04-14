@@ -1,0 +1,10 @@
+The solution was to install libapache2-mod-evasive and then disable it. Maybe it's being merged into Apache core?
+I also tested this with long blocking period and small page count values, mainly setting 1000 and 1 respectively. and After a 2-3 ajax requests it started showing 403 and did not go away after a few seconds.
+so, as we can see, after DOSBlockingPeriod time has passed the ip will be deleted from blacklist; as I am guessing this is the reason, that there are no banned IPs in logs, also that, when clicking F5 after a few seconds it works fine, as the blocked period has passed.
+I was making a feature when the user should change the messages' status as read/unread, while clicking on a "link", when ajax was being sent to server, so, while testing - quickly clicking on that link to see if it works fine(so it wont be 2 concurrent ajax requests) I got this error
+I was having this exact problem, I am not sure if the below reason is what always causes this error(specifically in the described in the question way) but this was the case for me, so I just wanted to share my thoughts.
+So, according to default options if I would do 2 requests for the same url during 1 second it would show 403 error, and it was smth that happened to me: ASA I increased the number to 20, I was unable already replicate the error message.
+The strange part was that before that there were a few successful ajax requests with normal path including the domain name like http://example.com/messages/changeStatus/11. Which means the code was ok. But, on the other hand if I could just wait a few seconds and try again, it would work fine. 
+Just had this same problem - except mod_evasive was not install. I am 100% sure it was not installed, or enabled. 
+I had mod-security and mod-evasive installed, so after this error I found these last lines from /var/log/apache2/modsec_audit.log file.
+so, mod evasive is the reason, because the default params of it are too sensitive, mainly in /etc/apache2/mods-available/mod-evasive.conf file by default I had these options

@@ -1,0 +1,5 @@
+This is an old question, but I did find it here from googling this exact problem, so let me share what I found:
+When I typed chrome://sync, the browser suggested chrome://sync-internals. And sure enough, the Trigger GetUpdates button seems to trigger sync.
+In case if it is not syncing with mobile device, uninstall the app (or app updates) and sign into Chrome again.
+In settings click Manage your synced data with GOOGLE DASHBOARD. Check number of synced bookmarks. Than add new one. Check again in the same way. If number is changed than your sync is up to date, and you can safely reinstall windows/chrome or whatever are  you doing.
+Just had the same problem.  I opened my chrome browser on my mobile device, went into settings and clicked on my email address.  It opens the Services window and I clicked on Sync then turned it off, backed out then went back in and turned it back on.  I had to sign back into chrome at that time and after that everything was updated from bookmarks I had just deleted and added all in the last 20min.  Hope this works for you too.

@@ -1,0 +1,7 @@
+First of all .htaccess files are intended to have effect in the directory they're placed, so rather than having one in /var/www/ typically you would have two: one in each of /var/www/impdata/ and /var/www/data/
+You can disable certain files or directories within that password secured area from requiring authentication with the Satisfy Any directive:
+In this case /var/www/impdata/auth contains a .htaccess and .htpasswd requiring and /var/www/impdata/ contains a file handling the redirects.
+If I read your question right, when using using www.example.com/data/ you don't want to see the index.html or similar if it exists and you don't want to see a file listing either, but when requesting a specific file from that directory, you want to allow users to access that file. 
+In the code below you will see that every rule gets rewritten tot a 404 status with the exception of welcome.php.
+As far as I know .htaccess files are per directory and therefor so is authentication. What you could however do is redirect all requests which do not equal welcome.php to a php script which then sends an authentication request. Or make a seperate directory, one with protected files and one without and redirect to these specific directories.
+Or rather have no .htaccess files at all: my pet peeve, quoted from from the manual on .htaccess files:

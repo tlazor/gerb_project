@@ -1,0 +1,6 @@
+A lot of this depends if you need interpolated normals over the polygon or can live with a the 'faceted look' of per-triangle normals.
+If your mesh can have an arbitrary number of triangles meeting in a corner this can be rather difficult implement on a GPU.
+So I coded simple C++ test program that calculates normal for pair of vectors using cross product 500000 times. Source highlights are: 
+The per-triangle normals are a lot easier to compute: a simple cross prod of the three vertices with one of them being made a local-origin by subtracting it from the other two first.
+I've executed 1000 passes on random data. And average time of CalculateNormals() function to finish is 3.11 ticks. So I think the idea to calculate this stuff on CPU is straithforward and efficient. By the way my CPU is Intel Core i5-2400 @ 3.10 GHz.
+Smooth per-vertex require finding all the triangles that share a vertex, and averaging their per-triangle normals, by weighting their angle by some factor, typically the angle of the corner made at the vertex for that triangle.

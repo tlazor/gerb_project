@@ -1,0 +1,6 @@
+However, just installing VNC as a service on XP should bring it up at start-up as long as it is set to automatic.
+You can remotely enable RDP session on a windows box These guys have a really good writeup.  The one thing i would note about their instructions is that I've never had to actually reboot the host to have RDP enable. Then you can either just use RDP to connect to the host or if your heart is really set on VNC you can install vnc via the RDP session and then turn off RDP.
+I agree with just using RDP, unless your need VNC. I've had RDP and VNC running to servers without a monitor, or using a KVM to multiple servers without an issue with them being headless.
+The one caveat I have seen in the past with XP desktop is that mixing RDP and VNC sessions could upset the server. It would not sleep or lockscreen properly afterwards.
+I have desktop station with Windows XP but without monitor. I would like to install vnc server there. The purpose is to retrieve access to whole system.
+I was also thinking about booting Linux livecd, ssh to host and manually put vnc files. I find problematic to make vncserver start with system boot.

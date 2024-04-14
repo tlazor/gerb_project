@@ -1,0 +1,7 @@
+Where you may want to use classes and objects instead of this is if you wanted to implement RPSLS (Rock Paper Scissors Lizard Spock), as this implementation relies on the game rules being only each entry is beaten by the next entry. But if we wanted to change any of the strings, we don't affect the code at all.
+So we can just use this directly to figure out who won with the help of a winner_lookup list that makes this 
+To diverge entirely from using strings for business, let's make our choices as just the index of the choice we want:
+This difference means we now have a very simple way of determining the winner. If it's zero, it's a tie, otherwise the difference tells us who won, and we'll be using the ability to use negative list indexes:
+To take player input, we'd just use rps.index(player_input) to get the index of their choice. This also means all the prints need to use rps[shape] to get the string instead of the index.
+What do we notice with the ordering? Each one always beats the previous one: Paper beats Rock, Scissors beats Paper & Rock beats Scissors (when we wrap around).
+For a length 3 list: lst[-1] == lst[2] and lst[-2] == lst[1].  So a difference of 1 means the first player won, and a difference of 2 means the second player won, and python is gonna handle the negative cases for us automatically. Nice!

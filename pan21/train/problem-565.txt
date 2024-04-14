@@ -1,0 +1,5 @@
+Nagios installation is stored outside of /var deeply in /usr, so you don't have to worry about mixing Nagios files with your own.
+Apache has default document root in /var/www, and if you don't have any special urges, you can let it there. Then you can make subdirectories for every virtual host, like this:
+There are different considerations which may affect the location of the web content (running on a seperate filesystem with noatime, a shared filesystem, a high speed SAN...) but within your virtual machine, I'd recommend sticking with /var/www
+Cpanel is designed to mantain different users(customers) with their own virtual hosts, databases and FTP accounts. Therefor it creates system users and document root is in /home/, which is natural.
+The /var/www location reflects a filesystem layout where webserving is just one of many services provided by a system (on most Unix systems you'll also find /var/mail, /var/ftp etc). Most webservers are single-purpose devices, so using this directory is perhaps not very appropriate - OTOH it is where most people would expect to find the website.

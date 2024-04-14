@@ -1,0 +1,5 @@
+When a node has more than 4 objects, it will be splitted into 4 sub-nodes and its objects will be put into them, but if an object is on the edges of any sub-node, it will be placed in the parent node. Why should I do this?
+I think it's better put it on every sub-node where it's colliding. Am I wrong?. I've designed a pattern to achieve this ;).
+One chief concern of putting the object in every leaf node it occupies instead of the inner node that actually contains it is that, when traversing the tree, you have to track whether you have visited that object before or not. Consider the following case:
+If you have an efficient way of managing this (and there are some) then it is not as important to worry about whether you chose an object in leaf nodes, or object in inner node approach.
+A large box spans four leaf nodes, and you are testing if a smaller sphere that straddles two leaf nodes intersects it. Unless you keep track of all the objects you have already collided with you will end up colliding the sphere against the box twice. If, instead, the large box is in the parent node that fully encloses it, you only collide with it once on the way done the tree. 

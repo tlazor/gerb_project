@@ -1,0 +1,7 @@
+Yes, you can. You can even buy this on any online shop, simply search for father-father usb cable or similar.
+Once in my life I've meet such a cable. It was used as a peer-to-peer usb network cable: plugging the both ends into the usb slots of 2 machines, it created a peer-to-peer ethernet over usb link. But in this cable, there were "something" (i.e. some active electronics) on the half of the cable.
+You can also build your own devices around it, or it could be usable to solve some complex usb configurations (which are unlikely).
+You can (fairly easily) splice your own because there are only four wires (plus a ground), however you should beware of signal issues such as ingress and egress. It probably won’t be an issue for your application, but if you are going to transfer data at high speeds or have sources of electro-magnetic noise near the cable, it could cause some problems (at best, lower speeds, at worst, data corruption).
+But: the devices are communicating on usb on a master-slave protocol, and in most cases, master is a mother connector and the slaves are fathers. (Although it is quite possible to construct devices working on other ways).
+Sure. there's no reason you can't connect the two cable ends. It's probably not worth the effort, though, because you can order this kind of cable online for very little.
+As others have pointed out, you can get a ready-made (and presumably/questionably more reliable) gender-changer online for next to nothing. Your best bet is eBay, where you can find a cable for 

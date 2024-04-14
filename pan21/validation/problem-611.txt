@@ -1,0 +1,7 @@
+You need to have SSSD installed. I don't know which distribution you are using, but usually the package has the same name sssd.
+Since filter passwd references the LDAP filter, it can be as complicated as you wish, including multiple group constraints inside a logical expression.
+If this is the case, you could simply delegate this to pam_ldap, and configure it to filter the authentication at that stage instead.
+You might pull this off with PAM_LDAP's configuration option pam_groupdn if you have the possibility of creating a new group, a merger between GROUP1 and GROUP2, and adding every user of GROUP1 and GROUP2 to that group, for ex. let's call it GROUP3.
+As far as I know, pam_groupdn doesn't allow for more than one group. If you can't merge GROUP1 and GROUP2 into a third GROUP3 one, your other option would be to use SSSD.
+In any case, if you are running LDAP, you have dynamic groups already. What you need is to feed those groups to the clients. I might be missing something, but here is a couple of options I can think of:
+If I'm understanding you correctly, you are using a file to check the authentication, before you reach the LDAP plugin. And this file is connecting to an LDAP, that checks (at least) 2 groups, and allows the users belonging to (either of) those two groups to authenticate.

@@ -1,0 +1,6 @@
+And see what happens. It might not work any better, but then again you might get some different errors that give you more clues. If that fails at the DIR (but you do get the name and password prompts), try a PASV before the DIR and see if that gives you any more info.
+The details are correct and filezilla actually logs in ok, but I can never see the server's directory listing etc and then I get this error message:
+If you can't log in to mozilla's FTP, then you may have an issue with your router blocking the port or some other issue. My money is on the password, as I do this all the time by accident. 
+Try logging in anonymously to a known FTP website such as ftp.mozilla.org. This will at least let you find out if the problem lies on your end. 
+I am on a pc that uses filezilla. This pc is on a small network that has windows firewall installed. I de-activated windows firewall and I still cannot connect to my server.
+If you can log in to mozilla's FTP, then your password is likely incorrect for your account. Filezilla says you're logged in ok, but the "Could not connect to server" error means it actually bounced back after checking the password.

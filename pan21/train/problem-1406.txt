@@ -1,0 +1,7 @@
+Hrm... I can't reply via another comment because my reply was too long.  This seems to me a bad design, as it disrupts the "reply" threads.  Oh, well...
+Anyways, Ctrl-alt-F1/F2/F3/F4 etc. are captured at a VERY low level; outside X-Windows and Gnome altogether.  While there are many explanations of these keys and how they work, this one seems quite readable:
+Is there any way to disable all of these shortcuts, preferably only while the application has focus/is running? 
+Some of it I know I can disable in gnome control panel, but I'm also troubled by the stuff like Ctrl-Alt-F keys (which I do not thinks is gnome)
+Dunno how that might work at the moment; I'll keep my eyes open for solutions and let you know if I find one.
+While I can see the value in begin able to pass these keystrokes through, I also see the importance of ensuring they always work locally.  If there IS a way to do this, it would have to be implemented on your client RDP program - i.e. when app has "focus", disabling all the Ctrl-Alt-F{n} keys and forwarding those to the remote machine, and when the app loses "focus" restoring all the Ctrl-Alt-F{n} mappings so they work properly for all other applications and from the Xwindow system itself.
+I am constantly troubled by various gnome and linux shortcuts propagating through while I'm in remote desktop on ubuntu. 

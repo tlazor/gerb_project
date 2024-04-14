@@ -1,0 +1,7 @@
+https://downloadcenter.intel.com/SearchResult.aspx?lang=eng&ProductFamily=Graphics&ProductLine=Laptop+graphics+drivers&ProductProduct=4th+Generation+Intel%C2%AE+Core%E2%84%A2+Processors+with+Intel%C2%AE+HD+Graphics+4400&ProdId=3719&LineId=1101&FamilyId=39
+As Ramhound suggests, try/use the Acer-supplied video adapter drivers, as they may have tweaked the video adapter to a point where the generic Intel drivers don't work anymore. 
+Having said that, you're current driver is SO close in versions that there won't be any difference in feature support even if you did get that newer one installed. 
+When I download it and start the installation process, I get the following error message: "This operating system is not supported.". I am running on Win8.1 x64. So that shouldn't be the case.
+I was trying to upgrade the driver using the Intel® Driver Update Utility. http://www.intel.com/p/en_US/support/detect
+So I think your Acer's external VGA port just doesn't support the resolution you want, which is not uncommon.
+The native resolution of the Dell U2913WM is 2560 x 1080 but the highest resolution option for Dell U2913WM that I can select in Windows is 1920 x 1080. Therefore the screen looks stratched and a bit fuzzy. 

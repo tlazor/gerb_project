@@ -1,0 +1,8 @@
+I'm guessing the UPDATE query will only be in the transaction log when @rows=0, so that won't be a problem.
+Obviously I could wrap the first part up in another check if exists(select 1 from [user] where [username] = :user) to make sure it only runs when there is no user, but I'm wondering if that is necessary. 
+I was thinking about replicating parts of the processed data to a second server and running the website on that database. But I'm wondering how that would actually work with a query like above. 
+Also: Would replicating be the way to go or does MS SQL offer other/better solutions for something like this?
+I have an application that almost continuously works with inserting or updating data. Since multiple requests are handled asynchronous I wrote my queries like below. I used an example based on SO, but that's not what I'm actually doing.
+But would the first part only send INSERT INTO [user] ([username],[reputation]) VALUES ('Hugo Delsing', '10k') or the entire query with the WHERE NOT IN () query? 
+Most of the time a user would exists, so if it only runs the new inserts that won't be a problem. But if it would run the entire query each time the benefits would be small.
+This is passed in total to the database with PHP PDO. Because of the amount of data and other processing factors it's heavy on the (cheap) VPS it's running on. It's not really a problem if these processes run slow or get delayed, but on the other hand this data should be available via a website and then the queries on the data should be quick.

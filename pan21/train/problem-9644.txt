@@ -1,0 +1,8 @@
+For me your .net domain is resolving correctly to the IP address stated however you have a 301 redirect configured 
+Yet when I visit totomerch.net (or any sub-page) in a browser, it immediately redirects to totomerch.com
+In your Apache 2.2.14 webserver you configured a 301 redirect to http://www.totomech.com. So everything works as configured.
+In my 1&1 control panel, 87.106.250.29 is mapped to totomerch.net, and when I do a reverse lookup (http://remote.12dt.com/lookup.php) it resolves correctly to totomerch.net
+I'm trying to make changes to my 1&1 server so the site is hosted at totomerch.net, rather than totomerch.com where it's been until now. The server IP is 87.106.250.29
+Sounds like you created a redirect on Godaddy, or there is no vhost configured on your server for the .net domain.
+Warning: I have no expertise in these matters, so I'm really sorry if this is a stupid question or I've missed some info you need to be able to diagnose the problem.
+Totomerch.net is registered with Godaddy, and has a single @ record pointing at 87.106.250.29. It's been over 72 hours since I made this change.

@@ -1,0 +1,11 @@
+Javascript is a coding language used to make ordinary webpages do interesting things.  It'll make parts light up, or move, or some "behind the scenes" stuff to (hopefully) make the webpage easier to use.
+Also, I might mention, the guy probably can't fix the problem, since it's probably specific to Qualtrics.  They just need to fix the bug in their code.
+So, if you have a halfway decent computer, and your Windows is running OK, then the browser shouldn't be a problem, and definitely not the Javascript IN the browser.  
+Could it be that your javascript isn't setting up one or more variables (e.g. TotalNumberOfQuestions) before the portion of the page that calculates the score is executed.
+It sounds like he's trying to say you may have a "race condition" that shows up on slower machines but not faster ones.
+This is browser dependent more than operating system dependent. Try another browser, such as Firefox or Chrome.
+It also sounds like there's a "bug" somewhere, some bad math, probably in the code that Qualtrics uses to write their webpage.  This may or may not be Javascript.
+If you're talking about the online survey software, it's probably built with a lot of Javascript code.
+Other than that, this excuse is really poor - Javascript does not have a window of time in which it can execute.
+You poke around webpages using software called a browser (like Internet Explorer or Firefox).  All modern browsers know Javascript, and it's very very easy for the browser to use.
+Your operating system is way different.  It's what works between the programs on your computer, and the "brain" (computer chip). Windows will run various programs as you wish - like a browser.

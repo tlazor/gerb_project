@@ -1,0 +1,9 @@
+The problem will be finding the first copy of the old key.  The user's home directory on commonly accessed systems will be a good place to start.  Once you have the key you can grep for it on other systems and userids.  Searching for the key value rather than the comment will be more likely to find all the keys.
+You could notably use the authorized_key module (https://docs.ansible.com/ansible/authorized_key_module.html) to remove one (or more) specific public key fingerprint from a given user's authorized_key file. 
+For a 100% functioning example implementation, checkout this bastion implemented as a Docker container: https://github.com/cloudposse/bastion
+While revoking SSH keys is certainly not a bad idea, the better (or more scaleable) solution is to implement MFA (multi-factor authenticator, aka Two Factor Authentication). This has the effect of devaluing the key, because the user cannot login unless they satisfy (1) additional factor. 
+If this is a user key (as it appears it is), then it will be located in the authorized_keys file for userids that the user had access to.  You will need to search the .ssh subdirectory of the home directories.  (If you have automounted home directories, you only need to search the directory on one server; otherwise you need to search all servers they might have had access to.)
+One possible short-term fix to this situation is to use some config management tool (ansible may be a good bet here).
+You could also just create a fresh whitelist of keys and remove everything else, but that may not be practical in your situation.
+A couple open source solutions exist like Google Authenticator and Oath. Then a hybrid open source / commercial solution like Duo. With Duo, you can even geo fence logins and push notifications.
+You can also (in ansible at least) run a command to create a list of all users on a system, by querying /etc/passwd. 

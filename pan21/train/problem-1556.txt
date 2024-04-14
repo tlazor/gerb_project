@@ -1,0 +1,6 @@
+Thus it is possible to have a single IP (either shared or dynamic) with several host/domain names pointing to that same IP, and use it to serve different webpages depending on the URL you enter in the browser.
+The answer depend in precisely what you mean with "hared hosting on the web hotel with the IP adress?"
+So when you type the url in your browser, you'll get access to it, since your system will know the IP address (so it won't ask DNS for it), and their Apache will know which site you want to access
+For most programs it is only possible to use a single IP:port_nummer combination. HTTP is an exeption to this since the desired host is mentioned in the HTTP requests.
+However there still still only be a single web-server running at IP:port_nummer, which means that you will have to coordinate the person running that web-server. YOu can find more information on this if you search on the keyword virtual hosting.
+If you need just to surf it as a user, and there is Apache running, you can simply change your hosts file (depends on OS you use) and set it like ip_address site.domain

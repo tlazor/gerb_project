@@ -1,0 +1,12 @@
+NVMe is PCIe based, and using different drivers designed for that. You can essentially take an M2 formfactor NVM, pop it into the appropriate adaptor, and run it on any linux, windows or BSD system with appropriate drivers. 
+Your older systems probably are compatible, assuming you can get a new enough OS with a modern enough kernel on them. 
+Essentially all NVMe does is standardises PCIe based SSDs to a single set of drivers, designed to take full advantage of them.
+I wrote an article at Thinkmate that tries to give a nice overview of NVMe and works as a nice little guide on choosing the right drive and system, something that I've found to be missing online. We mostly sell Supermicro servers, and I agree - Things can get a bit confusing... That is why I wrote the article!
+NVMe is an interface specification. Under Linux, the devices are enumerated as /dev/nvmeXnY, e.g. /dev/nvme0n1 and /dev/nvme1n1.
+So for my use case, NVMe is somewhat OS-driven, but is definitely compatible with my slightly older server hardware.
+I see a lot of talk about price, but I think the most important thing to consider is value, not price. Your choice of flash memory should depend heavily on the value that each solution will bring to your application over the life of the drive and system.
+The form-factor of the devices I used was PCIe 3.0 x4. The Gen8 ProLiant servers have two PCIe 3.0 slots on the default riser cage. These NVMe PCIe cards will work in slower PCIe slots (or PCIe 2.0), but will be limited by the bus at that point.
+As for adoption, I can't speak for the industry as a whole but at Thinkmate interest in NVMe has been significant, and the feedback we get from our customers is that they're very pleased with their purchase, mostly due to the performance benefits. 
+NVMe got the various SSD mfg to focus on and adopt a base standard... Basically you can get Nand Flash performance from an SSD connected to NVMe servers for NET less. Also their is more NVMe over fabric features (that I am not that familiar with yet) 
+I purchased four Intel 750 PCIe NVMe SSDs to install in HP ProLiant DL380p Gen8 servers. The servers are not the current generation Intel 2600v3 series CPUs, but rather the 2600v2 CPUs.
+Chances are if you could boot from a non standard pci ssd, you can boot from this, with appropriate drivers in the OS. If you're using this for caching and other purposes, there's no reason NVMe shouldn't work. 

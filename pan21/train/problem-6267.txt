@@ -1,0 +1,7 @@
+Root servers don't answer queries for second-level domains. gTLD servers don't answer queries for second-level domains (other than returning the name servers for second-level domains). The authoratative name servers for the second-level domain answer queries for that second-level domain. You can query a gTLD to find the name servers for a specific domain and then query those name servers for resource records in that domain.
+What I'd like to know is how to force the dig tool to return the info from the root servers itself. Is it possible, at all?
+To get authoritative information using dig you usually use a combination of +trace and @server. For example, if I want authorative information about www.google.com I would do it like this: 
+Now I have the nameservers that are listed for google.com, as well as the IP address of one of them. I can ask this nameserver directly for the records:
+When doing a dig over some site (i.e. www.nasa.gov) from different online dig tool sites(in this case, http://networking.ringofsaturn.com/Tools/dig.php and http://www.kloth.net/services/dig.php), I've noticed their answers are different. I guess this must mean that the answers each one of them is getting is not from root dns servers but from local ones, instead (for example, their ISPs).
+However I think, that what you mean you want an answer from an authoritative server. In order to do that do:
+Root servers should never be asked a recursive query (i.e.) for a server.example.tld, only about the servers handling the top level domains (.tld in the example). 

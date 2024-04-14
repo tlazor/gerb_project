@@ -1,0 +1,6 @@
+Though I have to ask, since dump works with the inodes and filesystem, will there be a trace of the deleted files in the dump of the drive, possible any metadata or links left over?  This seemed pretty important to management, so I don't want to let them down because of my archaic backup habits.  
+If you can, talk to a lawyer about the situation.  I'm not a lawyer but "I did what my boss asked me to do" may not be any kind of protection from whatever they're involved in.
+Your method is ok, but more convoluted than I would do (fill the drive, eek, that's gonna potentially take a while) Are you aware of shred(1) ?
+Our Management told us we needed to wipe down some our drives, who knows why.  We were told to delete certain documents and then backup the remaining files to a external medium, wipe then restore the remaining files.
+I usually just use Dump/Restore to do backups as it works great and is very simple.  I simply used rm() to delete the files, created a zeroed file to fill the drive, deleted that file, then did a level 0 dump to a external medium, did a secure-erase via the drives firmware and now am restoring.  
+Be very careful.  Ask for explicit documentation of what they've asked you to do.  "I'm sorry -- that sounds a little complex -- could you send me some email describing exactly what you want me to do?"  Do only and exactly what they ask.

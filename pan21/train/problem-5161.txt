@@ -1,0 +1,13 @@
+We are engaging a consultant in India as our Linux Administrator. We don't know him well and he requires Root access to all our servers to do his job (including a security audit).
+You need to thoroughly trust whomever is in control of your hypervisor and the backup infrastructure.
+DO keep at least one snapshot per day of each Linux VM, going back as far in time as you feel is necessary.
+If you do these things, you will have backup snapshots of each Linux instance over which the remote admin has no control. If the remote admin does something hinky, whether intentionally or accidentally, you can always mount a backup from before the hinkeness occurred to evaluate what happened and possibly recover to a clean state.
+This won't be proof against a hypervisor side-channel attack, which could potentially be mounted from within a VM that the attacker has root access to.
+DO NOT give the remote admin administrative access to the hypervisor. The remote admin would only get root access to the VM's themselves.
+Host your Linux instances as VM's on a virtualization hypervisor (VMware, Xenserver, Hyper-V, etc.).
+If you're doing this in the cloud (AWS, Azure, etc.), the implementation details will differ, but the general concept would be the same.
+Give him his own user account. Then find out exactly what he needs access to and grant just that access but nothing else. For example if he needs to reconfigure an Apache web server, use an ACL to give him write access to the Apache configuration files and configure sudo to let him restart the Apache service but not execute any other commands as root. As always, keep backups of anything that you're giving him access to (in this case, your Apache configuration files).
+As should be clear, this is a very clumsy and inefficient process, but if you insist on accepting work from a non-trusted individual, this is one way to handle things. 
+What is the best practice for enabling a remote consultant for such work such that we are protected against any malignant activities?
+In essence, divide responsibilities among parties who are not business partners with each other, in addition to only hiring people you trust.
+There is one systemic method of protecting yourself that comes to mind, which I have not seen mentioned.

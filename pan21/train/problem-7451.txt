@@ -1,0 +1,5 @@
+I was playing around with something like the following, but it's just a zero-width assertion so it obviously doesn't work. Any ideas?
+I'm looking for a regex that will select all text on a line from the 51st character to the end for lines exceeding 50 characters in  length.
+I'm aware I could probably do something like setting ctermbg=red for the whole first line, and then let gitcommitSummary syntax group set the background back for the first 50 characters, but this problem caught my interest and I'd like to find out if there is a way for a regex to skip looking at the first X characters of the line.
+EDIT: Just realized that the gitcommit.vim file actually had syntax highlighting for this using "nextgroup", and just had it commented out by default. So I reached my original goal but I'd still like to know if it's possible to do this with a regex.
+The reason for it is to add something to the gitcommit.vim syntax file to make it more obvious when I'm exceeding the 50 characters for the summary. Setting ctermbg=red or something along those lines.

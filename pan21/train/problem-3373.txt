@@ -1,0 +1,13 @@
+Since all shards have different starting values, the sequence values cannot collide, and you have room for adding more shards.
+Table is constanlty growing and we expect our userbase increace significantly so I need a way to scale up.
+It is already partitioned. I am working on optimising it here and there, but that is not trivial and only provides small improvements.
+As first step I will have to create 128 databases, ensuring all of them have all tables, indexes, etc. I also want each of dbs have its own sequences to have ids unique accross all shards. Not trivial to me.
+Most of tenants have relateively small datasets, but few are huge and I want to be able to place them to separate shards . To do that I need lookup tables.
+I have performance issues with one particulary large table, 500+ Million rows, 300Gb data, Postgres 10.5.
+Each logical shard is separate database. In most tutorials/talks people seem to use schemas instead of databases. Why? Databases are more isolated, and when moving single tenant or virtual shard to other location it does not seem to have any difference. So db looks like a better candidate to me.
+To consistently change schemas across all shards, use a distributed transaction. Run the following on each shard:
+But further changes are problem aswell. Do I just iterate all connections and aplly changes? Is there a better (maybe async) way? What do I do if at some point shema in one shard is different from another.
+I will be using logical sharding, 4 phisical shards x32 logical (that is twice more shards than partitions currenly).
+Cross-shard queries are not concern at all, naturaly we have almost all of our queris per tenant, so all the data for the tenant will sit in same shard.
+This will only work well if your database transactions are all short, because otherwise processing will hang for a long time. It is also beneficial to run the changesbon all shards in parallel, so that processing is not blocked for longer than necessary.
+All this assumes that you are not running any other distributed transactions, because otherwise these distributed transactions can easily deadlock with your schema modification in a way that PostgreSQL cannot resolve automatically.

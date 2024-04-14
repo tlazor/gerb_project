@@ -1,0 +1,7 @@
+I then disconnected the original 256 GB SSD from my SATA port, connected the new 500 GB SSD instead, and booted from the CD.
+There I selected restore image. It directly located the backup image on the transfer-HDD. The new 500 GB SSD is also found, as it is listed when I open the dialog to exclude drives (of course I did not check the disk to be excluded).
+to use fully possibility of microsoft you would require third drive. Backup 256Gb to 3rd drive . Swap drives -> restore to 500GB. But I wouldn't go with that much hustle just use for example : [http://www.todo-backup.com/backup-resource/free-disk-cloning-software.htm] or any other copying software
+Windows cannot create a disk on this computer needed to restore from the backup. Make sure the disks are properly connected, or add or change disks, and try the restore again Error: 0x80042402
+So I used Control Panel -> System and Security -> Backup and Restore (Windows 7) -> Create a system image to backup my current system to another transfer-HDD which also has 500 GB of storage. It asked to also create a system restore boot CD which I did.
+What do I need to do so that the restore system can create the required partitions on the new SSD and 'create a disk' to restore the backup to?
+My current system (Windows 10 Pro) is on a 256 GB SSD and I want to replace that with a 500 GB one. So I read about that and found some articles suggesting using the systems build-in tools to move my complete system from one disk to the other.

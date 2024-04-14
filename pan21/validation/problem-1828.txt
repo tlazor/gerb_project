@@ -1,0 +1,6 @@
+If you compare the spec sheets for the i5-3750 and the i5-8250u, you'll see a huge difference in power consumption (TDP): 77W vs 15W! The difference in memory performance between DDR3 and DDR4 probably doesn't make that huge an impact on overall performance, as with the max bandwidth being 25.6 GB/s vs. 34.1 GB/s.
+In PassMark, the i5-3750 has almost the same benchmark result as the i5-8250u. 7176 vs 7676 respectively
+It should be perfectly fine to compare the CPUs like that, and the results aren't that surprising, either. Mobile CPUs are optimized towards power consumption (increasing battery life and reducing heat), for which some of the raw CPU power has to be sacrificed.
+Can we really compare both CPUs like this? Can I expect the same power from the old desktop CPU even though it's using DDR3 and is old.
+I'd like to host a small server at home to use it as a router, file server, Docker containers host, TV box and so on, I'm looking for the cheapest option.
+I have found some very cheap used desktop computers with 8GB DDR3, PCIe Gen3, USB3 ports and an Intel i5-3750.

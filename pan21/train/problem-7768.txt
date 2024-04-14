@@ -1,0 +1,6 @@
+It works when exactly the same information, bssid and psk, is provided via the configuration file to wpa_supplicant instead of /etc/network/interfaces:
+I suppose if your software has the smarts to look up the SSID associated with a given BSSID, and then use that SSID with he supplied passphrase to feed into PBKDF2 to create the PSK, then it could get on the network with just a BSSID and passphrase.
+If you're using WPA-PSK or WPA2-PSK with a passphrase, the passphrase is mixed with the SSID and run through a function called PBKDF2 to generate the actual PSK.
+But using this configuration the system stays offline. I think the ssid is mandatory for wpa_supplicant but I don't understand why. Is there any technical reason? How to bypass this?
+I do know the BSSID and passphrase of my wireless router and I want to connect my wireless interface to it without caring about the SSID. Thus, I do want it to work even after the SSID of the wireless router has been modified.
+So unless you're passing the raw PSK (64 hexadecimal digits) to your software, it can't derive the PSK unless it knows the SSID.

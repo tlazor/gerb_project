@@ -1,0 +1,8 @@
+You could, try powering the device from a computer power, and that ironically might work, or vise-versa with other devices. 
+There is the possibility, albeit remote, that there is a proprietary component in the way the USB plug is wired internally. 
+In short, a cable doesn't always have the proper connection, and depending on the device, it may or may not accept it. The actual length of the cable doesn't apply to this.
+I have a short micro USB cable that came with my bluetooth headset. It charges the headset just fine, but when I connect my phone to the same cable, using the same power source, it doesn't charge (no indicator, nothing). However, using the same power source with a different cable, the phone charges just fine. 
+https://electronics.stackexchange.com/questions/140225/how-can-i-tell-charge-only-usb-cables-from-usb-data-cables
+My first thought is that your issue is due to how the pins on the male USB side make physical contact on the two different female USB connectors.
+USB generally come in two flavor, power(charge-only) and data-cable. From the outside, they look exactly the same. Also quality of cable does matter for some applications. 90% you may not notice it. This is why you can generally take one cable from one device and have it work with another device. 
+There are various reasons to why it won't work. Most point to type of cable. Here is some information on that aspect

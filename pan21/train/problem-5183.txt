@@ -1,0 +1,6 @@
+The dumb-client approach is best from a pure design point of view- it heavily limits the amount of different code you need between host and clients, and allows the server to run asynchronously. The downside is that the host's machine requires extra resources- but I guess it always did.
+Between these two options the dumb-client approach is certainly best for the reasons DeadMG mentions.
+What are the advantages/disadvantages of each of these?  Which is used most often (or does it vary by game type/size)?
+There is another option which is make every client an authority, it has the advantage of the dumb-client that all peers share the same code. The other advantage is that it might be a lot more fair if you set the right rules because no one has the 0-lag-to-server advantage.
+This can ofcourse be rather tricky to implement depending on the game type. Your protocol will have to deal with solving conflicts between peers, probably using some kind of ownership scheme. Leaving only the conflicts where 2 peers claim ownership of the same game object.
+When designing a networked multiplayer-game where one player hosts and others connect, there are two strategies I'm aware of:

@@ -1,0 +1,8 @@
+This is as functions are first-class citizens in Python! This means that if we ask for login, it will tell us it's place in memory. But if we call it with () then it will execute.
+I personally love the str.format function. Whilst you can't exploit all of its features, it's still nice. It's mostly something to look into.
+As this is a user input program, you need lots of print statements, and that is a lot of your program. And so it would be hard to reduce this more. Unless you remove print statements...
+This would cut down a lot of your code. And, if you were to build on your program, then you would use the yes/no question more. And you would want to change it into a function.
+This is so that if someone accidentally imports this file at a later date, it doesn't start an unintended program.
+If you have any problems, just say. Hope this helps! Sorry for the light novel, I just wrote about the things that stuck out to me.
+Using a dictionary for lookup is a nice trick that you can do to make there be a lot of functions, and adding a new function is just adding another entry to the dictionary. But as this is a small program the if else statement is perfectly good.
+Whilst your comparison operators are good, they are not pythonic. Whilst it is correct, it is long-winded.

@@ -1,0 +1,6 @@
+For example, a low-ish level of detail might only use a single bone with the highest influence per-vertex (also known as "hard skinning").
+LODing skeletal characters is much the same as LODing anything else, except you'll probably want to LOD the bone influences and skeleton as well as the mesh.
+As for whether it works for an RTS, I don't have a reference for you, but I imagine you're going to need LOD if working with a large number of characters on-screen, and also if those characters are small.
+Limiting the number of bone influences is common, yes. You can either 0-weight unused influences, or have a loop/early-out mechanism to skip.
+Finally - consider whether you ever need to render the characters close-up. You probably only want to model, skin and animate the characters for the closest view distance... certainly you don't want to be storing all the runtime data at a resolution far higher than you'll ever render. You might find that you just don't need more than a very basic skeleton and a couple of influences per-vertex for your situation.
+I dont think skeletal animation is good for an RTS game, skeletal animation will require extra process for all characters, while keyframe animation consumes more memory but you will use the same for lots of characters, also a rts game requires little animations per character

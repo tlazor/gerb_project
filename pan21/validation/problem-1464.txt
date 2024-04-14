@@ -1,0 +1,6 @@
+The gateway ip for my network is 192.168.0.1 and the gateway for openVPN is 10.8.0.1. I have done trace route and it shows that the websites that don't work access 192.168.0.1 and not 10.8.0.1. Is this proof that it is not going though the VPN?
+Look at the routing table....netstat -r.  Yes you can change routing by modifications of the routing tables and/or using iptables.
+With both utilities you should hopefully get a trace of the route that packets take to reach the destination.  You'll be able to tell if it's passing through your VPN gateway.
+You can use a tool like Wireshark to "sniff" the traffic on your local network. Wireshark will allow you to see which traffic is going where based on the source and destination IP addresses.
+Set up Wireshark on an interface that is between the hosts you want to test. Wireshark is a passive listener, so it won't interfere with your traffic.
+I have a openVPN set up on the server and I am using openVPN connect for my client. I have some internal websites that I need to access and some of them don't work. I want to make sure that when the traffic is going through the VPN and not though the normal internet connection.

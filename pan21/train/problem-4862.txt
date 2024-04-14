@@ -1,0 +1,6 @@
+Assuming I have a simple client-server game, where the server picks random players on a very frequent base, I was wondering what is the best way to select a random player (According to the following constraints):
+Select players from the database who fit your criteria (active in the past X days,) and put them into an array. Then use a good random number generator to generate a number in the range [0, 1], multiply that number by the size of your list, round the result, and use it to index into your list of users.
+However, high performance and scalability is (at the moment we have over 60,000 unique daily active players, and we plan on growing even more).
+Since putting 60k player in an array just to select one of them sounds pretty dangerous to performance, you'd probably be best of with using your DB's inbuilt features.
+If you are using SQL, then this code snippet will help you. You can easily add your third requirement (be active) by adding a WHERE-clause to the query.
+The actual DB or data model used to store players isn't an issue here, as we'll select the technology in accordance to our needs.

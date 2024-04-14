@@ -1,0 +1,13 @@
+Think about what happens if the system crashes during each state. How will a sysadmin monitor and control state transitions?
+Write documentation separately for each of those roles, including the information relevant for each of them.
+(1)He was also insisting that his program (a tool for writing and managing software requirements) needed domain admin privileges to install and run. It was a major security risk.
+You may make more money than me (but don't assume it!). But it takes a team to build, operate, and maintain the systems that our users rely on. Ultimately we all serve them.
+The SA doesn't care how to use your software, but needs to know some critical details about how to install the software.
+(2)I have also worked with many awesome developers who could teach when necessary, and learn when necessary. 
+I'm not on a mad power-trip, as so many bad (or simply uncaring) devs have said and thought and posted in various forums. But my concerns are different than yours, and my questions and suggestions are not in service of my ego. Indeed my job is to make you look better, by keeping your apps in tip-top running condition, available and responsive to all the users. To do it, I have to keep the rest of the network and systems also running in tip-top shape. 
+A "user" needs to know how to use your software.  Users don't care about things like how to install your software.
+I get that your job and your skills are different than mine. I respect your abilities. I hope you'll answer my questions even when they seem elementary and stupid to you. I'll cheerfully return this courtesy!
+I'm fully aware that you have run into stupid, power-mad, and/or just plain lazy admins in the past. I'm trying not to be one and not to look like one. If you leave room for this possibility, and acknowledge it when you see it, I'm pretty sure you'll get what you need while those other assholes are still fuming about what an asshole their sysadmin is.
+A developer actually said those words to me once(1). In email. CC'd to a large distribution group. The implication was clear: as a developer, he was lord and master of the entire software universe; and I was simply a day-laborer hired to deal with tasks too trivial for him to waste his valuable time on. Of course this is a nearly worst-case example, but you know, I've heard strong and weak echoes of that comment from a number of developers both before and since(2). 
+"Don't waste my time, buddy. You're just a dogsbody sysadmin; I write the software and you merely service it. So just shut up with your petty concerns and do as I say, OK?"
+Remember that your application probably has more states than up or down. Draw a state diagram. Most applications have states like:

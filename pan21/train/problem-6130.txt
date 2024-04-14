@@ -1,0 +1,7 @@
+I want to monitor tomcat server, according to the doc I have add the remote monitoring Mbean Server connection string in /tomcat/bin/catalina.sh file
+I have restarted the tomcat service after that. But not able to see port 6969 listening on the server. After restarting the tomcat i have checked it via "netstat -an | grep 696" I think this is the problem. Port 6969 is not used on this machine. 
+localhost on the machine will work ??. I think you should use the IP of the remote machine instead of localhost.
+6) List the available Mbeans, copy paste the output and send to me.  We will review what is available and what is needed.
+$>bean name_of_object from_output_above (ex.net.lag.kestrel:name=queues.weather_updates,type=Config)
+(Note: port 20051 is the port your servers use for JMX.  I looked at the data from one of your servers and saw the following on the javacommand line: -Dcom.sun.management.jmxremote.port=20051.  If the test server is using a different java command line, you need to locate the same option and the port number if it's different)
+Finally I make it work. I added the setting in JAVA_OPTS variable in tomcat startup script as below:

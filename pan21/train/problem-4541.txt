@@ -1,0 +1,5 @@
+There's some information missing that would be useful but my first approach would be to concatenate the files into a smaller number of large input files to cut down the file handling overhead. Look at the load method and check if the data profile supports the use of SQL Loader direct loads. If SQL loader is not appropriate maybe use external tables and add the APPEND hint to the INSERT.
+This has worked for me with 10g in the past. I had a shell script loading each file based on its suitability for each loading method.
+The above assumes that you are inserting data but if you have updates in there as well then I would go for external tables with a merge statement.
+We loaded up to 80 million records in around 3 to 4 hours from, in our case, hundreds of files rather than millions. So taking a complete guess at 100 records per file you should be able to load them in less than a day.
+You may be able to think about how the table is partitioned and if the partitioning is reflected in the files, i.e. each file being relevant to one partition. This might give you scope for making the load parallel based on the partition criteria. 

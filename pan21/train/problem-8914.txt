@@ -1,0 +1,5 @@
+Your corporate firewall can't block 127.0.0.1. Only a local computer firewall can, and I've never seen one that does by default.
+Is this something you have tried and had problems with, or are you just assuming 127.0.0.1 will be blocked?
+localhost/127.0.0.1 is the loop back address on your machines network card. I don't think it is blocked by a firewall (at least not the corporate filewall) you need to give more information like what OS you are running, are there any other services running on the machine, etc....
+It is possible, since you are on a Windows machine, that policies have been set limiting what you can do over loopback. 
+This might be a policy setting that you can't change. If you're using Internet Explorer, click properties, then connections tab, then Local Area Network settings. You may have a proxy server setting, if so, make sure that the "bypass proxy for local addresses" is checked. You may have to fiddle with the settings in the LAN settings dialog box, and may have to re-fiddle with them when the network proxy server is adjusted.

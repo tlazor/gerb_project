@@ -1,0 +1,7 @@
+Currently we need to migrate a bucket of about 1 TB but it contains a lot of files split into many layers of subdirectories. If I understand the pricing correctly moving data between buckets in same region should be free according to this:
+However on the Simple Monthly calculator on the S3 section it does suggest there is a small cost for copy actions as well as Get and Put http://calculator.s3.amazonaws.com/index.html
+From looking at the AWS docs the way the recommend is to use the aws s3 cli to sync the files across.
+In this case I would run aws s3 sync s3://oldbucket s3://newbucket. On a ec2 instance running in the same region as the buckets. But wouldn't I still be charged for GET / PUT requests?
+The storage cost is not a problem in this case, what I'm just worried about is the huge amount of small files that would inflict a huge cost of requests.
+I find AWS pricing really complicated. As you say "Transfers between S3 buckets or from S3 to any service(s) within the same region are free." as stated here on the AWS Pricing page: https://aws.amazon.com/s3/pricing/
+Leverage an EC2 instance in the same region rather than local machine to avoid egress charges and likely reduce transfer speed

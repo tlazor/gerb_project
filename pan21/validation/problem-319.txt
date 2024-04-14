@@ -1,0 +1,6 @@
+At the moment there is only a macbook in the wifi, where no problems with the internet or wifi connection are encountered.
+I have a problem using 10.10 on my Samsung n130 whereby the wireless locks up and I have to reboot the computer to fix it.
+Now I tried the machine for the first time in our work group where we have a wifi (with internet access) for all laptops. The wifi is controlled by a computer running Suse 9.3 which provides a DHCP server and imposes a firewall.
+This may also solve your problem as well.  Install the Windows Drivers package and use that to install the NDIS drivers from Samsung (NDIS drivers are the Windows XP drivers) and see if that solves your problem.
+The link leads to a GERMAN forum entry, explaining how to collection important information about the network configuration with ubuntu. Even if you don't understand German you can use the commands to provide more details.
+Now coming to my actual problem: In addition to the macbook i connect the Samsung N220 to the Wifi. 

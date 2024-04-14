@@ -1,0 +1,8 @@
+If it is C's own address then this typically means it does not have B in its ARP table and is not getting a reply to an ARP request.
+I'm assuming that when you say they are on the same LAN, you mean that each machine is using a one and only one network card attached to the same switch, and that there are no routers between them.  I am also assuming they are on the same logical IP subnet.  If this is incorrect, please give more details in the question.  I have reason to believe that these assumptions are not 100% correct.
+What may also be of help is to run a packet capture using e.g. tcpdump or wireshark to see what is actually occurring on the network when you run the ping. It may be even more useful to get 2 captures on B and C at the same time.
+I have tried changing the network switch, changing the Ethernet, disabling firewalls and SELinux on all the machines and still the problem persists. I have also checked the IP address and the /etc/hosts file to ensure they are all consistent.
+To confirm, check the output of "arp -a" (while the ping is running, or immediately after stopping the ping), does it show a line with the IP address of B and its MAC address, a line with B's IP and "incomplete" or no line with B's IP at all?
+When you say "It says Destination Host Unreachable", what is the ip address of the device that reports this?
+I have a small cluster running centos 7 composed of machines A, B and C. They are all separate physical machines connected on the same LAN.
+It would help if you could provide your routing table for each machine, which is typically done with route -n on Linux.

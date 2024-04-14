@@ -1,0 +1,7 @@
+Personally, I think the best solution would be for you to setup a Virtual machine, using whatever you favorite VM tool is, that is as near to identical to your production environment as possible.  Same OS, same packages, same configuration and so on.
+Does anyone know a of a solution that will force OS X to obey case sensitivity while developing PHP?
+So I develop PHP on a Mac, and OS X (HFS+) is case insensitive when it comes to file and folder names. This can cause issues with auto-loading PHP classes, because it uses the class name to search for files.
+You are bound to run into other issues as well like slight differences in php, difference in available modules, and so on.  A VM that is the same as your production environment will help you be sure you have everything tested right.
+Anyway, if a VM isn't an option, you should be able to partition the drive, and create a separate partition using the case-sensitive version of HFS+
+You can format your development volume to be HFS case sensitive which will force the behavior you wish. Downside of this is some poorly written OS X applications won't work because developers have made the same mistake you have and mis-capitalized paths.
+It becomes an an obnoxious problem when case typos in my code can make it all the way through a development cycle, and only rear their ugly head when I start deploying to our (linux) production server.

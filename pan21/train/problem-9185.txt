@@ -1,0 +1,5 @@
+AWS ELB load balancers can be configure to decrypt HTTPS traffic and then pass it through application servers on the network.
+It's probably more precise to say an ELB can terminate HTTPS so long as it has the appropriate certificate / key, rather than decrypt it. Decrypt which implies something unauthorised. Terminating https on the load balancer is quite common.
+An AWS engineer or someone with wire-level access to the datacenter could sniff then network. AWS will say this list is very small and well regulated. If your content needs to be protected to that level then having your devices speak TLS all the way through is warranted. Otherwise it is probably fine to terminate SSL at the load-balancer and speak cleartext from there.
+Packet Sniffing (aka promiscuous mode) is not possible in AWS. Traffic is effectively point to point. Your traffic is safe on the AWS network whether it's http or https.
+If this were inside my company network, it would leave the traffic wide open to IP sniffing from within our network. Is the same true in AWS?

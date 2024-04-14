@@ -1,0 +1,10 @@
+Then there's a command like rpm -q --group "User Interface/X", which I believe should work using exec{}, but there must be a more elegant way to do it, as I'm sure it must be something done fairly regularly.
+Part of the issue with groups is that not all package managers have them, and they are a bit odd to model in the world of declarative system management.  
+You can also get into a situation where you uninstall a group and it inadvertently uninstalls other packages (that belong to other groups).  That's kind of known risk with all types of uninstall though. 
+For now, your exec is probably the most elegant way to that.  (Other than don't install packages you don't want to start with). 
+I'm trying to remove unnecessary services like XWindows and Gnome on production RHEL/CentOS machines using Puppet (I don't get to install the OS).
+In recent versions of yum there is a groupremove_leaf_only option you can use that should cover most cases where you want to remove package groups.  It will only uninstall packages that belong to the given group but not to any other group "installed" on the system.  it works like this: yum --setopt=groupremove_leaf_only=1 group remove <group name>.
+The groupremove_leaf_only option was added in yum 3.2.28, which means that RHEL 6 has it but RHEL 5 doesn't.
+I approached this issue by writing my own type for managing yum package groups.  It maintains its own list of installed groups so it's not confused by the fuzzy matching yum does to determine if a group is installed.  If it's asked to uninstall an installed group, it uses groupremove_leaf_only on RHEL 6 and Fedora 17; on RHEL 5 it does a straight yum group remove <group> and then does yum group install on all of the other groups that should be installed.  This is not ideal, but it's the best approach I've come up with.
+From what I can tell, "groupremove" isn't supported/recommended yet, because it's not quite the "opposite" of "groupinstall".
+Neither currently has much activity.  You could probably upvote them, and that may raise awareness to the developers.  

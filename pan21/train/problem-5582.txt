@@ -1,0 +1,5 @@
+I've been banging my head for so long on this with no result. I am a novice in networking. I know some theory but can't really set up Ubuntu boxes, where you have things managed by Network Manager, and then files, and then another tool, and they collide, etc.
+I brought in a skilled guy, he couldn't figure the problem either. Please do your best to help. I'm really stuck.
+For both nodes, enp0s25 is the interface to the Internet and enp7s4 is the one for the local connection.
+As of now, node 1 can access the internet but can't ping node 2 (ping returns Destination Host Unreachable). Node 2 can neither connect to the Internet nor node 1 (ping returns unknown host). The two nodes are completely identical; this is totally symmetric. We tried making the two routing tables identical, but it didnt work.
+I want to set up a 2-node network. Both nodes are connected to a patch box and get their Internet access from there. Through their second NIC, the two nodes are also directly connected to each other as well. Here are the local IPs we want them to have:

@@ -1,0 +1,9 @@
+If you're using compiz you may find its grid plugin an easier and more flexible solution. You can configure it to tile a window over the left/right half of the screen when dragging it against the edge.
+You might get more satisfaction out of a tiling window manager like xmonad, or even running compiz to control how windows open, close & tile.
+Xinerama causes a notable performance hit (since it replicates X actions across all the Xinerama screens) and doesn't work well with composite window managers.
+And if you are using the latest nvidia drivers, those drivers provide their own xinerama extension which seems to ignore the above setting so you must add the following in that device section:
+To persist the changes after reboot you would want to execute these commands when you login. You can do so by appending the commands at the end of your ~/.profile file.
+That is the Window Snapping feature described in the article David links to. Moreover you can configure shortcuts and make a window occupy the top/bottom half or a quarter of the screen.
+I have been using a solution to this exact questions for quite some years using a triplehead2go. That device will merge up to 3 monitors and report one huge monitor to X.
+I'm fairly sure you can do this by tweaking your X config file, but I wouldn't just because I'd probably break my display config.  If you try this, be very careful, backup you display config & make sure you have an alternative login you can use in case you have to fix your display.
+This can be done in XRandR 1.5 without additional software. While neither fakexinerama nor FakeXRandR have worked for me on Xubuntu, this solution has finally split the screen into two.

@@ -1,0 +1,7 @@
+Whatever the user is, I need to give permission on the service's root folder to him. So, I went into the security properties of the folder and tried browsing Active Directory, but DOMAIN02 isn't listed. Hence, not allowing me to set permissions.
+Given that the domain isn't listed, is it safe to assume that the domain is not accessible from that server?
+Ps.: I'm using "domain" terminology here but, to be honest, I'm not sure wheter those are actual domains os subdomains. Does it make any difference?
+The clients who will connect to this Web Service are on DOMAIN02 and they've requested that the user allowed on the service should be DOMAIN02\OTHER_USER.
+And is there a way to set permissions correctly without being able to browse through active directory?
+Sounds like there is no trust between Domain01 and Domain02.  To have Domain02 users available to assign rights in the file system of a server within Domain01, then you have to have Domain01 trust Domain02, one way, at minimum.  See TechNet.
+I have a Web Service installed on DOMAIN01\SERVER1. This WebService uses Windows Authentication as its authentication mechanism.

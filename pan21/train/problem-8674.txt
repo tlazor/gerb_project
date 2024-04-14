@@ -1,0 +1,7 @@
+As other answers have stated, its to do with the CSS on the body of the pages. Whilst you can edit this by hand every time, if you use this site a lot, I would suggest that if you use Chrome, you install the Stylish extension. 
+Once installed, click on the icon in the toolbar and select "Create New Style". It will automatically create the entry for the website you are currently visiting. You can then add any CSS you like to the page. But be warned: some styles may not be overriddable (especially if its written on the element itself, rather than a CSS class).
+Open the developer tools (F12), change to the Elements tab, and untick the following CSS rules under body:
+Several of the solutions proposed might be browser specific, so it's worth suggesting a few alternatives:
+Install the AddOn "Absolute Enable Right Click & Copy", that enables everything that the other No Script AddOns can not.
+In this case, you can use the import function, and add the below code, this should allow you to select the text on the website you linked to.
+Stylish lets you create additional CSS to apply to pages. It can be used all over the web. It has the benefit of automatically applying whenever you visit the website (so you don't need to add it via the dev tools on every page load).

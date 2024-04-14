@@ -1,0 +1,6 @@
+I'm new to storage, and I'm building out a new server for my client. I am more of a networking professional (CCNP, JNICP, Palo Alto), so this is brand new to me as I try to learn this. I've been scouring the web, but no luck getting the information I need.
+I'm in the middle of now figuring how to connect the 24 physical hard drives to the motherboard. I'm confused a little bit about RAID controllers, RAID cards, and SAS Expanders. What's the difference? And which one do I use?
+I am leaning towards Adaptec 2274900-R 72405 but I don't know if it will work. Any help and guidance would be appreciated.
+I am just only presenting the hard drives to the operating system (ESXi) vanilla, meaning as 4 TB drives for 24 QTY.
+If anyone else knows or can recommend any other piece of hardware for this setup to get the 24 Hard Drives connected at a much cheaper price, that'll be great!
+I'm on a limited budget, and I don't know if the Areca 1883IX-24 (which is very expensive), Adaptec 2274900-R 72405, which is much cheaper, or a SAS Expander will work?

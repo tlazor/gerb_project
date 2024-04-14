@@ -1,0 +1,8 @@
+These will give you the domain of the servers that mail is hosted from. The numbers in front (10,20,30,40,50) are the priority of the server. The commands basically report where the DNS records that handle mail (MX) are pointed to.
+Once you know some server IP addresses, then you can pick one and look it up in a whois client, or using one of the many web-based whois services (e.g. http://whois.domaintools.com/) to find out what netblocks the address is in and who they are registered to. 
+I need to find out what provider is providing emails for a domain (like emailacct@companyname.org).  I know I can find the provider for hosting a domain but how can I find out about emails for a domain?
+First, find an address for the mail server. nslookup isn't the greatest, but it comes with most Windows versions and many other OSes:
+If you know the dns source of authority for the domain (probably the hosting provider), you can use dig with the mx flag:
+Usually you'll get many matching netblocks, as big netblocks are subdivided into smaller netblocks, and those are subdivided into even smaller netblocks, etc.; Look for the smallest one (the one with the least number of addresses in the range) to get the most specific info on who the address belongs to.
+You have two options (tested with windows ports, will check other versions when I get into work tomorrow):
+... x.0.0.0 - x.255.255.255? That's a lot of addresses. And it's registered to the addressing authority itself. Doesn't tell us anything useful.

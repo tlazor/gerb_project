@@ -1,0 +1,5 @@
+In order to use the standard ssh-agent, just make sure it's running and then add your private key to the current session using ssh-add.
+You need an SSH agent for this to work. The SSH agent can store your private keys. You can then unlock a key once when you log in, and keep using that key without a password throughout the rest of your session.
+I want to use my vim config when editing files, but there are at least 5 different servers right now where I have to edit them. Of course I could use console (where I set up ssh-keys and and have a script so it wont asks for passhphrase), but then I have to maintain the vim config on every machine. so I decided to use gvim and browse/edit the remote machines via scp://, but on every action a popup appears asking for the passphrase. 
+You could use sshfs and map remote file trees this way. Then treat them as regular files which are part of your local root filesystem.
+this is a ubuntu 10.10  install, with xfce installed later on. i checked in the xfce settings so gnome services should start, but it still won't remember the passphrase. 

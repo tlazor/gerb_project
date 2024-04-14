@@ -1,0 +1,11 @@
+RAID1 is exactly what you want. Buy a well known controller card so if it craps out you can replace it. That way:
+What happens when your primary hard drive you are duplicating gets a bad sector, and when you are duplicating the duplicator can't read it and writes 0's to your other hard drives? With RAID you would be warned and while the data would be lost on one disk it is still intact on the others.
+Yes, it's still a single pool that could break, so to be really paranoid you could have three ZFS pools (ideally consisting of two drives each for redundancy and error-recovery) that you then have a script that automatically send snapshots from the master pool to the other two.
+I thought the same thing until i did research as no Dell controller, or lsi logic or adaptec controller supports that. 
+I don't see how this would be any more "failure prone" than a disk duplicator. With a disk duplicator:
+ZFS also works best without a RAID controller, so you can just move the disks to a new system if the old one breaks, and it has checksums of all your data so you know not a single bit has changed.
+I don't care about the speed performance but, if you have N disks there N-1 disks could fail and even then there would not be loosing data.
+My understanding is you can get RAID controllers that keep the configuration on the controller, so the disks are 1:1 duplicates without proprietary information on the disk. This means you can pull it out and put it into another PC.
+ZFS can do it either way - either triple (or quadruple, or more) mirroring, or setting the copies option to 3:
+Interesting question; if you're doing RAID 1 mirroring to two drives, it does seem logical to allow three drives.. or even (n) drives do the same thing. I found one reference:
+On linux you can do exactly that, a RAID 1 with more than 2 disks, (i have done this with four sata disks)  About drivers or card you don't need any you just install disk drives as JBOD (just bunch of drives) and linux takes care about the rest.

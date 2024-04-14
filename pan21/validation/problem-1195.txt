@@ -1,0 +1,8 @@
+How much data do you have (or will you have)? Once the data is bigger than can be caches (in any database), performance suffers in various ways. Some are predictable; some are avoidable.
+Countries have a perfectly good 2-letter standard abbreviations that take just as much space as a SMALLINT.  That is, there is no need to normalize them.  And I generally prefer to put the entire "location" in another table, not because of "normalization", but so it can be one lookup instead of three.
+"ASAP" -- Plan on a complete rewrite in a couple of months.  I do mean 'complete'.  Rushing into a design and implementation without sufficient background will lead to a mess.  But if you plan for a rewrite, you will be thinking in that direction, so it won't be so painful to throw away this prototype.
+You need to better understand indexing before embarking on any database activity.  It is probably the most important aspect.
+"All tables are planned by not written" -- Are you referring to MySQL?  Or Mongo?  Or both?  If you have no familiarity with either, then it will be a learning curve.  Also, Mongo (I think) is lower level -- that is, you have to write more code to get the same effect.
+A PRIMARY KEY (in MySQL) is a unique identifier of the rows.  It should contain no more than is necessary for such.  Adding extra columns is counter-productive.
+Looks like you have set up so that Mongo will win.  The MySQL schema that you have sketched out has a number of inefficiencies.  Please provide HOW CREATE TABLE profile.
+570b87a56931b8f21a8bf25c smells like some kind of hash?  Beware.  If the data becomes bigger than RAM, operations, even "simple" ones will become I/O-bound due to the randomness of hashes as IDs.

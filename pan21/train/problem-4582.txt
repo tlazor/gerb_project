@@ -1,0 +1,6 @@
+Fill factor does not impact “regular” inserts/updates. It tells the engine to leave some space while building/rebuilding the index.
+It doesn’t protect you against page splits, it simply postpones them a bit but it depends on the key and insert patterns. 
+https://www.sqlskills.com/blogs/kimberly/database-maintenance-best-practices-part-ii-setting-fillfactor/
+https://www.sqlskills.com/blogs/jonathan/an-xevent-a-day-27-of-31-the-future-tracking-page-splits-in-sql-server-denali-ctp1/
+The fill-factor setting applies only when the index is created, or rebuilt. The SQL Server Database Engine does not dynamically keep the specified percentage of empty space in the pages. Trying to maintain the extra space on the data pages would defeat the purpose of fill factor because the Database Engine would have to perform page splits to maintain the percentage of free space specified by the fill factor on each page as data is entered.
+For example, for an identity or other ever increasing types, page splits can’t occur due to inserts, and it does cause a waste of memory space so be careful.

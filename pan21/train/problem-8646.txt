@@ -1,0 +1,6 @@
+The link-local protocols that send frames without tags will still work. They really are not part of a VLAN, native or otherwise.
+https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus5000/sw/configuration/guide/cli/CLIConfigurationGuide/AccessTrunk.html#18749
+If you've seen configs online where it supposedly works differently, and it's definitely Cisco equipment, it's probably a mistake or a typo. I haven't worked on literally every Cisco operating system, but all the ones I've seen (which are many/most of them) work the same way.
+The NATIVE VLAN should NOT be included on the "switch allowed vlan" list. However, the NATIVE VLAN should also NOT be used for ANYTHING else. If you have a vlan defined for any device/access port, then that VLAN must be allowed on the trunk port, and should NOT be used for the NATIVE VLAN.
+The one big reason to not include the native VLAN is the list of allowed VLANs is that a native VLAN is a security risk. The current best practice is to not include the native VLAN in the allowed VLANs on a trunk, and to not use VLAN 1 for anything. There is a misconception that you must have a native VLAN on a trunk.
+In short, once you put a switch trunk allowed vlan command on an interface, you deny all VLANs on that interface except for the ones specifically allowed in the command.

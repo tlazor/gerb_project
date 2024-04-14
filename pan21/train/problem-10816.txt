@@ -1,0 +1,6 @@
+For treewidth bounded graphs the above transformation and an algorithm for regular languages and simple paths (presented in the mentioned paper) allows to solve your question in polynomial time.
+If you were interested in any shortest path (not just simple ones), this would solve your question: 
+You can model the situation as a "regular language constraint path problem" as investigated in Barret, Jacob, Marathe 2000.
+In particular the complexity for constant $K$ (and limited path-length) sounds like an interesting question to me. 
+First, transform your graph into a directed one that additionally has an edge per node (every node is split into two, one for the incoming edges and one for the outgoing edges, these are connected by a new edge, the node edge).  Now, you encode the markers and the functions as labels in an alphabet of size $2^K+2^{2K}$.  The constraining language now has to accept such a word if following your rules leads to the vector of all ones.  This is clearly a regular language because it can be accepted by an automaton with $2^K$ states.   
+For more general graphs, finding a simple paths according to some fairly easy fixed regular language is NP-complete, which does not really imply anything for your question.

@@ -1,0 +1,6 @@
+In this case there is simply no Host header. Instead of an attacker I rather suspect somebody trying HTTP without properly reading the specification or who tries if simply HTTP/1.0 requests (which don't require a Host header in all cases contrary to HTTP/1.1) still work. 
+While this could in theory be a hacker it could be totally innocent too. It is different to the problem in the question you've linked too where somebody deliberately uses a different name in ClientHello and Host header. 
+For example the following simple Perl code will produce such a log entry if www.example.com would be a multi-domain setup served by Apache:
+The website was not responding and was on 100% cpu for an hour, I had to stop it from the Console, when I look at the error log, I only saw the above error, which was at the exact time when the cpu became 100%
+I suspect it might be some form so hacker attack, since it is similar message to Conflict between SNI and HTTP provided domains
+[Mon Oct 28 16:11:33.074606 2019] [ssl:error] [pid 30553] AH02031: Hostname mywebsite.com provided via SNI, but no hostname provided in HTTP request

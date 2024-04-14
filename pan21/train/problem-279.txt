@@ -1,0 +1,9 @@
+To troubleshoot this I'd suggest using PING in a CMD window - first to your gateway, then to your DNS server, and finally, to the target address. 
+If it says "Waiting for" then that means that it has already resolved the host name into an IP address.
+The reason it seems to go on forever is that you are getting SOME packets through during this process. 
+Then the web page itself, being comprised of many more packets, could be having to have a lot of them resent.  This can cause long delays.  
+I'm running Firefox 3.0.6 on CentOS 5.3, I have an ethernet connection to a WRT54G v5 router that is connected with the radio modem (Wifi).
+I don't know if this is a very generic question, but I want to know if it happened to someone else out there.
+What you are describing could be a marginal connection, where the packets to DNS can get through because they are small and few, so a few retries will ultimately give the result.  
+There is a strange behaviour in my laptop, sometimes when I want to open a site, say stackoverflow.com, my browser stays "looking for" or "waiting for" that domain. Apparently doesn't find it right away.
+What I usually do is ping that domain and after a moment the browser responds (sometimes its necessary reload the page).

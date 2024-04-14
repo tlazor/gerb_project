@@ -1,0 +1,7 @@
+The best option, I believe would be a remote FIM, since the chances of it getting compromised are smaller than an internal integrity database and it also detects external violations (like someone altering DNS records to redirect your site somewhere else).
+2-For FIM remotely (or Network-based Integrity Monitoring), I would suggest NBIM, which is freely available at: http://sucuri.net (note that I am the developer of this tool, so take my opinion with a grain of salt).
+Website watcher can remotely monitor your site and can notify you via email of page changes. Website Watcher Personally I'd spend more time/effort on making sure you have proper off site backups so you can restore files if there is a problem.
+I want to have a tool to notify me by email when any of the code files on a web server changes in order to know when the site has been hacked or compromised with malicious code.
+1-For FIM locally on the box, I would suggest OSSEC. It runs natively on Windows and allows centralized configuration (if you need that). 
+Does any one know of a (preferably free) windows utility that recursively hashes all the files in a directory tree every x minutes and sends a notification if any files have changed.
+You are asking for a file integrity monitor (FIM), but since you are interested only on the files from your web site, you can probably do it remotely.

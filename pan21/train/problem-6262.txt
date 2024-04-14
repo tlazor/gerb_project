@@ -1,0 +1,5 @@
+Given that, you should probably look into CVSNT and get the latest version of that (if you don't already have it). 
+However, none of this really matters, because if you want to stick with with CVS (or something forked from it), you are not going to have anything nearly as "shiny" as your server, because CVS is a legacy version control system whose developers moved on to create Subversion a long time ago. You should probably move to Subversion too (why would that not be an option actually?) – migrating from CVS to SVN is a breeze in most cases.
+If you are asking for other options for Revision control you can look at Mecurial, Git, or subversion as those are the top 3 I see used all over.
+I would look at Git, Mercurial or if you don't want to use a distributed source control then I would still recommend Subversion. I would definitely switch to something new; just make sure you have a rollback strategy in case things don’t go as planned!
+Moving source control is something that should not be rushed and it should be planed way ahead of time to minimized downtime.

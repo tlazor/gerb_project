@@ -1,0 +1,6 @@
+This problem occurs when your corporate proxy does not have the correct or up to date certificate authorities installed. Without knowing more on your particular corporate network I can't advise on how to update these.
+If this is not malware or a misconfigured anti-virus product then it is almost certainly a hardware firewall or web filtering device that's acting as a proxy.
+This is probably some legal or illegal man in the middle attack against your computer. Legal SSL interceptions are typically done in company networks or by Antivirus products. But also adware like Superfish or other malware will do such attacks or it might be that your router is compromised.
+The device in question will have a self-signed/issued certificate that will need to be imported in to the trusted root certificate store of your local computer.
+I assume this is corporate device/network so I would speak to your IT department or whomever manages the network.
+After reading the link, I learnt that these errors are due to disabled 'Automatic certificate root update'. 

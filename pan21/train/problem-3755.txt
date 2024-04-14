@@ -1,0 +1,9 @@
+I've already tried removing/reinstalling the driver and telling the new driver to replace / overwrite the current one.
+http://h20566.www2.hp.com/hpsc/doc/public/display?sp4ts.oid=27718&docId=emr_na-c02005997&docLocale=en_US
+Try the information here.  This worked for us.  We were missing the Color Tab on HP Color LaserJet 4700, not an auto-duplexing machine.
+That is, when one issues the print command (Ctrl P -- the print dialog is displayed), then clicks Preferences to view the printer's own preferences dialog... the Color tab has disappeared on three user workstations.
+Other things that come to mind, it's a networked printer, so each computer SHOULD be printing directly to the copier, but it's possible someone has connected to a shared printer on someone's computer which had the B/W option set... this would cause the B/W to propagate to their system.   Just something to be aware of, gotta love those helpful users.
+I'll admit right off that it's been a bit since I've touched one or played with a Windows machine connected to one, so bear with me please.
+Quiet often, I found that the color tab went away if the application (or user) chose 'B/W output' vs 'Color Output' in the 'Printing Preferences' tab. (yeah, the OTHER one).  Selecting 'B/W only' causes the driver to drop the color options.  Since this is a per-application setting, it could happen and not be affected by driver reinstalls.
+Kinda one of those situations where if I could SEE the option panel it might strike a chord, compartmentalized memory and all that.  Too much stuff in my head! :)
+On a few of our printers, the color tab has disappeared from the Printer Preferences dialog of the print driver (and the printer won't print color from that workstation).

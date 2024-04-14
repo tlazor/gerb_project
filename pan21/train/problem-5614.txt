@@ -1,0 +1,5 @@
+Symptom: In Windows 7 with HDMi my screen regularly goes blank for about 5 seconds once every 5 minutes. The same problem is duplicated in a different system with the same hardware and it still exists after my graphics card was replaced under warranty. It does not happen in Linux which indicates its root cause lies in the Windows Nvidia Graphics Driver for the card.
+Troubleshooting so far: I asked on the Gigabyte online tech support and the only suggestion they had is that for appropriate HDMI "handshaking", the cables should be fully connected before the screen and computer are switched on (this practice however has not removed the symptom in my system).
+Also if you have a dedicated graphics card in addition to the onboard one, check which outputs you're using.
+HDMI is great for sending Video+Audio in the same cable but it's no different to DVI which is digital and pin compatible with it. So i gave up and went back to DVI. VGA is analog.
+I have similar problems while connecting the AOC external LCD with the dedicated Gigabyte Graphics card via HDMI. It has to be a driver issue because this is what I've found out while troubleshooting.

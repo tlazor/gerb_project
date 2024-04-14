@@ -1,0 +1,8 @@
+Why do you need to move it off the Exchange server? I ask only because storage is relatively cheap, and by keeping it on a properly backed-up Exchange server the data is in a much safer place...
+Not quite. Outlook only releases the lock when the user closes Outlook. So unless everyone wants to close and then re-open Outlook every time they are done, that's not really going to work either.
+This would provide access to more than one user, and would do away with .pst files which are generally more pain than they're worth
+If its just information that needs to be referenced, you may want to look at exporting the mail items to RTF or some other document format and then leave those on a file server. Or, like I mentioned before, keep it where it is. If its not already in a public folder, move it there and keep it on the Exchange server.
+Multiple users can access/use a single PST file if they have at least Office 2007 version. 2003 doesn't allow that.
+Fortunately or unfortunately the answer is no - Outlook does an exclusive lock on the PST - even if its marked as read-only.
+I would suggest creating a new mailbox that all required users have access to, then using Outlook to import the .pst into that mailbox. Then, you can add the new mailbox as a secondary within each users' Outlook
+You are correct, the answer is no.  Outlook locks the .pst file.  You could export (via Outlook) it to something sharable.  Access is an option, albeit not my favorite thing in the world.

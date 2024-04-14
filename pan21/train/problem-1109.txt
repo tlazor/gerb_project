@@ -1,0 +1,10 @@
+While this is okay for the time being, I'm not relishing the prospect of typing "Unununium" or "Ununnulium" when we've got that many servers. So... i've added some DNS entries for the chemical symbols (He->Helium, Li->Lithium, etc.)
+As I said, I'm new to this so am a little unclear as to what options are available to me and would appreciate it if someone would point me in the right direction for some useful documentation / guides.
+We've decided on a naming convention which uses Elements from the periodic table (with VM Hosts as molecules)
+Whilst this is only an annoyance for RDP I'm assuming it may have implications if i use the shortened names for other purposes.
+So, my question is - Is it possible to have the server I'm connecting to use a certificate which covers both? or have 2 certs side-by-side and auto-select the correct one?
+Basically, you'll generate a cert for each server that contains SAN entries for each dns name you're likely to access it with.
+I wonder if someone can help me - I'm a complete newbie when it comes to administering servers so apologies if I'm missing something obvious...
+When i attempt to RDP to the servers using the DNS alias, I get a certificate warning as (obviously) the name I'm connecting to doesn't match with the server in question.
+I should've mentioned, the servers in question are running Windows Server 2008 Enterprise and the clients will all be either the same or Windows 7
+You can generate certs that are good for multiple DNS names using the Subject Alternative Name property.  It's not as easy as a single wildcard cert for all of your machines, but it's a lot more secure.  Here's an article from DigiCert about Subject Alternative Names and how they're used.

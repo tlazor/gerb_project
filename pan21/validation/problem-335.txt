@@ -1,0 +1,16 @@
+These codes indicate shielding material to reduce electromagnetic interference. If present a screen is wrapped around each individual wire and/or the whole bundle of wires.
+CAT 5  Older cable, and the most commonly used. used for 100mbit connections, It is capable of 1000mbit connection.
+Indicates the thickness of the individual wires. (Thicker wire = Smaller number.) 24AWG and 26AWG seem to be standard. A thicker wire might indicate higher bandwidth / speed capabilities as well as greater durability. I'd look somewhat askance at 28AWG/30AWG.
+Considering all the other Stuff printed on the cables. The Wikipedia articles could probably help as well. It refers to the different standards organisations and there codes for referring to exactly the same thing. A category 5 or 6 cable. It also tells you what type of plastic insulation is used. How many twists are in the cable. 
+CAT 6  better quality then CAT5, designed for 1000mbit, some specification of CAT6 are also used for 10gbit connections. 
+Whether you get 100 mbit or 1000 mbit speeds is really dependent on the Ethernet adapter at each end. If you have a 100 mbps switch then you'll only get 100 mbps speeds even if the cable is Cat6. As long as you have 4 twisted pairs you should be able to get gigabit speeds from gigabit adapters unless there's a physical problem with the cable.
+Note, the bandwidth ratings per EIA/TIA are specified as up to the number listed. (As a range from 1 to x MHz.) However, they are in fact the minimum requirement for each class. I find this confusing, but there you go.
+Indicates the type of shielding, which can protect from interference. Unshielded (UTP) is fine unless the cable will be run through a particularly high interference environment like through the walls. 
+If the cable has 4 twisted pairs (Orange, Green, Blue, Brown) then it's capable of 1gbps link speeds, provided there's a gigabit adapter/switch at both ends.  Cable 3 is a Cat5E, which is definitely capable of gigabit speeds. The other cables are, most likely, also Cat5 or Cat5E.
+The different CAT or categories are used to differentiate the use of the cable. It is about the quality of the cable and how well it will handle different type of interference. How well it is suited to the environment it will be used in. 
+Below is a summary of the ethernet cable categories and the preformance standards and bodies that apply to each.
+As others have mentioned, the category listing is going to give you the most information. For modern data networking, you want at least CAT5e.
+Indicates manufacturer claims as to bandwidth performance. Should be taken with a grain of salt, as they're not always tested.
+Indicates the number of pairs of wires. Modern ethernet cables are 4 pair (8 wires) but I have come across a CAT5e 2PR that was slowing down a network.
+Most of the markings on ethernet cables refer to safety certifications, standards bodies ratings, and similar things that won't much help much. The few things you might want to look for include:
+I'm not an expert in this field, I just spent a bunch of time googling. Errors are entirely possible.

@@ -1,0 +1,7 @@
+Currently, you access each cell individually. A better approach is to load all on the same sheet in one go. You can do this by assigning the Value property, or better the Value2 property (Value causes problems with fields formatted as dates.), of the used range to a Variant variable. After that, the variable contains a two-dimensional array consisting of the values in the range. 
+Now, let me get to the performance part. The thing making your code slow is that accesses to worksheets are expensive. Accordingly, they should be reduced to a minimum. 
+The catch is that this same piece of code when used with macro works extremely fast (complete data under 40 seconds) but when used in VbScript or some tool like QTP/Test Complete takes before mentioned higher time
+By comparing the values in corresponding arrays, you only need to access each sheet once to load the data and then for each time you find an error, in order to change the color. 
+You only ask about performance, but I want to point out anyway that there is a small error in the definition of file2RC: you used column instead of row. 
+with lot of trials - I found a small workaround. However its not at all optimal as you would be looking for in an answer.
+This may seem a significant time saving but extrapolating this time to a database size with upwards of 7000 rows would still be too much.

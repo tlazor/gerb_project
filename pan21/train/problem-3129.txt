@@ -1,0 +1,6 @@
+OpenSSH (and I guess probably others) check that a user exists and has valid access credentials at the time a connection is formed.
+You'll need to actively terminate processes owned by a specific user with for instance pkill -9 -U UID after you revoke their account. 
+AFAIK, authentication is a gatekeeper, your credentials are only validated upon entry and your resulting environment is cached and remains valid as long as your session remains valid.
+Can OpenSSH (or any other production-quality FOSS ssh server) be configured to re-check the validity of a connection from time to time?  For example, check that the user still exists and is still allowed to connect via ssh?  Or maybe check that the key used to connect is still valid for this user?
+I would use pam_exec on the PAM session and have a task running in background that does the check and the killing.
+However, if you have something like centralized authentication, that, of course, might not work, as the user would not be local and the killing would need to go distributed.

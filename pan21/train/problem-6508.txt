@@ -1,0 +1,8 @@
+As a developer, I have just finished work on a web application that allows batch export of various 1D barcodes and QR codes. The end result is a HTML page filled with barcode images.
+Any information regarding printing HTML pages efficiently with a label printer is more than welcome.
+Does the automatic cutting system also work when using particular software? Is there a setting the specify the length at which each label should be cut?
+The label printer I have in mind also has an automatic cutting system. I have been searching around, but cannot seem to find out how exactly this works.
+There are a lot of settings that allow the user to modify the look of the barcodes, rotate the images, etc.
+I have read that most modern label printers are plug and play, and that you can use them like any other printer. I take it that as long as all output in my HTML page is not wider than 36mm (the maximum label width), these labels will be printed fine?
+The last step will be printing these HTML pages with a label printer. To test this, I am planning on getting a label printer like the Brother QL 570.
+I expect that the label printer will cut at page breaks (I only have seen label printers with fixed size labels, I'm assuming you're talking about continuous labels?).

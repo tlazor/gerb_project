@@ -1,0 +1,8 @@
+Check if the ForceFullCalculation property in the ThisWorkbook properties is set to True. I've noticed that the charts don't autoupdate anymore if the aforementioned property is set to True, I guess it's a side-effect. If you set it back to False, everything goes back to normal.
+When I change other cells in the sheet, the Data Series cells are recalculated, and show new values - but the Chart based on this Data Series refuses to update automatically
+I do notice that if I type over my Data Series, actual numbers instead of calculations, it will update the chart - it's as if Excel doesn't want to recognize changes in the calculations
+I found a temporary solution and made a macro (and a button for that) which first updates the data similarly to Ctrl+Alt+F9 and then switches the rows of my chart to columns and then again columns to rows. Strange, but works.
+I have an Excel document (2007) with a chart (Clustered Column) that gets its Data Series from cells containing calculated values
+The calculated values never change directly, but only as a result of other cells in the sheet changing
+I have the same issue as the original writer. And I also tried already all the things he did and none of them worked. Also I now checked the calculations options and that was automatic just as it's supposed to be. Everything else works and calculates fine but this one chart does not update when the data changes (and the data calculates with a special funcion that separates different colored numbers from another set of data).
+I can get the Chart to update by saving/closing, or toggling one of the settings (such as reversing x/y axis and then putting it back), or by re-selecting the Data Series

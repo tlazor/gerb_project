@@ -1,0 +1,6 @@
+I also got a error 53 trying to connect to a Windows 7 machine. (Even NET VIEW \\MACHINE_NAME gave the error 53.
+After that i got an error 1: An internal error occurred on the NET VIEW \\MACHINE_NAME but i could create a driveletter with NET USE P: \\MACHINE_NAME\SHARE and access all its files.
+So if you are using the same configuration (Network client and DOS-version) you should be able to get it working. Hope this helps.
+I can confirm that the "Microsoft Network Client v.3.0 for MS-DOS" on MS-DOS 6.22 can connect to a Windows 7 machine. I dusted off an old 486-machine with this client still on the harddrive.
+After that i created a new user with a password (you can probably change your user but you need to change it or else it does not work).
+Your problem might be because of security reasons in Windows 7. The network is unidentified and Windows could block access. You should try making it "work" or "home" and/or disable your firewall. Also make sure that the shared folder has full access for all users and (see security tab in properties). Oh yes, you should also go to the advanced sharing settings and disable password protected sharing, so everyone can connect without specific credentials.

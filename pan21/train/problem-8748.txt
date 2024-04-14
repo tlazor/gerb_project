@@ -1,0 +1,6 @@
+There is a large selection of results that hold assuming PH does not collapse. Let $A := \forall i , \Sigma^{P}_{i} \neq \Pi^{P}_{i}$, i.e. $\mathbb{PH}$ does not collapse. Then such results can then be summarized as $A \implies B$, where B is the result proven. 
+By a simple contrapositive, any such result is equivalent to $ \bar{B} \implies \bar{A}$, i.e. if the result does not hold unconditionally, then $\mathbb{PH}$ must also collapse. Historically, those results served two purposes:
+[2] Richard Chang and Jim Kadin, The Boolean hierarchy and the polynomial hierarchy: a closer connection, SIAM Journal on Computing 25 (1996), no. 2, pp. 340–354, doi: 10.1137/S0097539790178069.
+Note: It is also not unusual that papers assume that $\mathbb{PH}$ does not collapse in addition to some other hypothesis, e.g. the (generalized) Riemann hypothesis. Then, the contrapositive simply shows that at least one of the hypothesis is false.
+The collapse of PH is implied by the collapse of the Boolean hierarchy. The original result is due to Kadin [1]; it was refined by Chang and Kadin [2] to show that
+[1] Jim Kadin, The polynomial time hierarchy collapses if the Boolean hierarchy collapses, SIAM Journal on Computing 17 (1988), no. 6, pp. 1263–1282, doi: 10.1137/0217080.

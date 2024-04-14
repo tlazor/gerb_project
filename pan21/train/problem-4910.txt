@@ -1,0 +1,9 @@
+Policy Network: The Network which learns to give a definite output by giving a particular Input to the game is known as Policy Network.
+Per position or state, there will be N moves possible, and on each move there will be its own depth D in a full search tree. It is theoretically or mathematically possible to walk through all paths and find an optimal solution(s). However, we don't want to do a full search.
+Better understanding with Animations Go here: Policy Networks vs Value Networks in Reinforcement Learning
+First of all, the goal is to find an optimal solution (or very near-optimal) without using an exhaustive search, which is definitely challenging.
+Q2. How can we stop at an intermediate depth in a search tree rather than walking through until the end of game, without failing to find an optimal solution? (i.e., depth reduction)
+Value Networks: The value network assigns value/score to the state of the game by calculating an expected cumulative score for the current state s. Every state goes through the value network. The states which get more reward obviously get more value in the network.
+The policy network is mainly designed for filtering out useless moves out of N, yet without failing to find an optimal solution. Here this network initially relies on human expert moves, i.e., SL, and improved by RL later.
+From what I understand the difference is in the outputs. Where policy network outputs a probability distribution over the possible moves, the value network returns a real value that can be interpreted as the probability of winning given this board configuration. From there Monte-Carlo tree search is performed via taking top K moves from and then narrowing the search tree again by taking top K value network outputs.
+These two networks have a common goal of finding an optimal solution, However, in each strategic choice of move, each network plays a different role.

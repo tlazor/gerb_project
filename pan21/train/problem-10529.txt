@@ -1,0 +1,5 @@
+But another way would be to select the text, copy and paste into Word, and you should be able to determine the front in Word if it copies the formatting like it did for me.
+Meanwhile I found a different method to list fonts used in a PDF (and indicate wether they're embedded or not), which uses Ghostscript only (no need for additional third party utilities). Unfortunately this also does NOT satisfy your requirement to learn about a font used for highlighted text.
+Another solution is to open the PDF file with Adobe Illustrator, if the fonts are not streamlined you'll be able to know which fonts you are using.
+This method uses a little utility program, written in PostScript, shipping with the source code of Ghostscript. Look in the toolbin subdir for the pdf_info.ps file.
+In both Foxit Reader and Adobe Reader if you go to File > Properties and then click on the Fonts tab you will be able to see a full list of fonts available in that document, however, there isn't any features in these basic PDF readers that will let you select some text and view the properties for that text to see exactly which font it uses.

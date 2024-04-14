@@ -1,0 +1,8 @@
+I am setting up a local free WiFi network. On this local network, I am setting up a Play framework powered web server.
+I have read about captive networks but the problem is that captive networks need the users to access their web browsers and then you capture the traffic and send them to your web page. In my case I want to automate the web browser opening too.
+The exact answer to your question will depend on the OS used on the client machines. For most client OS, the answer will be that it is impossible to do without exploiting some security vulnerability on the client hosts.
+So for example, I want to give people the WiFi network name only, not the web server ip or hostname.
+I want to minimize the steps needed for the users to connect to my server. I want to automate users accessing my web server as much as possible.
+DHCP Options can be setup in your DHCP server.  You could, for example, hand clients registering with your Wi-Fi network to automatically get the IP address (or hostname) of any particular server.
+The closest I have ever seen to what you are asking for is Android auto detecting the presence of a captive portal. If a captive portal is detected Android will display a notification to the user, and the user can tap on that notification to open the captive portal in a browser.
+I think it would be extremely intrusive and insecure if this was possible. The only viable solution you got is to capture traffic after then have connected to your wifi and redirect them to the correct website.

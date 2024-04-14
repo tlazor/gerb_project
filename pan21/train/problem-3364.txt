@@ -1,0 +1,7 @@
+Disclaimer: I provide one of the NTP servers for the UK pool. I do this "because I can". I am not a Pool Administrator.
+It is also possible that the authoritative DNS servers will decide which subset of NTP servers is most suitable based on proximity to the DNS recursors, which means even after the cache has expired, you are likely to get the same IPs again after querying again.
+The DNS server for the NTP Pool brings hosts in and out of the available DNS over time. For example, my host gets brought into the available pool for a 15 minute slot every few hours.
+This also leads to an obvious approach to finding as many different NTP servers from the pool as possible, simply send queries to as many different DNS recursors as you have access to.
+You could ask on the NTP Pool mailing list. I'm not sure you'll be given the current definitive list, though, but it might be worth asking. I'm happy to offer my server as an NTP Host but I'm not sure I would want it in a published list.
+Since the DNS replies are cached by DNS resolvers, it is no surprise that you kept getting the same answers.
+Also notice that if any of the NTP servers in the pool are using anycast addresses, the number of IP addresses may in fact be smaller than the number of servers.

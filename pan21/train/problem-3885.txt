@@ -1,0 +1,6 @@
+I know it is possible to run scripts before shutdown. This can be configured in Local Group Policy Editor under Computer Configuration --> Windows Settings --> Scripts(Startup/Shutdown).  
+I have tried to put my executable in the shutdown property, but it does not work. How can I run an executable before the computer gets shut down? How can I hook up the shutdown event?
+A much better way is to install a service and register the service to receive shutdown notifications via RegisterServiceCtrlHandlerEx, see shutting down:
+A C# service would do this by setting CanShutdown to true and then handling the OnShutdown event. It is important to be service, not an application, as shutdown can occur when no session is logged on and/or multiple sessions could be running when the shutdown occurs.
+I want to run an executable that saves an XML file on a local drive before the computer (running on Windows 7) gets shut down.
+Launching a process when the shutdown was initiated is a bad idea. At this stage the most likely outcome is to get back the error 1115 ERROR_SHUTDOWN_IN_PROGRESS.

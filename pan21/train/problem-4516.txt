@@ -1,0 +1,6 @@
+However, SQL Server is a lot like some other Microsoft products, in that if you have a couple of tiny databases that are only lightly used, you can just shove it in the corner and generally be mean to it and it'll perk right along and not bite you (at least, not right away), but scaling out requires more thought and effort.  
+I'm not sure this server will be happy if they decide to run terrible queries against it.  It sounds to me like the data may not be normalized and/or may not contain a good join key.
+I'm particularly concerned about whether they're planning on doing proper maintenance on the server.  "Dumping ~730M records into their database" on a regular basis without transaction log backups will quickly consume their disk.  
+Last but not least, I've had really unpleasant experiences with "We decided to save money by [letting the user administer his/her own server]/[letting the nice kid in the mail room do it]/[telling them we won't support it but they can do whatever they want]."  It's always ended up being expensive and time-consuming to fix.  
+I don't think I can give you a magic "be worried here" number, where anything under that number is "okay" and anything over that number is "bad."  
+Okay, SQL Server can absolutely handle that amount of data.  I personally have over 20TB on four servers.  

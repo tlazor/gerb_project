@@ -1,0 +1,7 @@
+I really want to learn if there was a good way to do this in sql itself. Im assuming using a Stored Procedure would be a must. But I'd be glad to know if there was a better way using some kind of subquerying.
+Keep the raw data in MySQL.  But plan on coding the logic in PHP (or whatever).  You have only begun to touch on how complex the math can get.  What about the blood pressure readings, plus whether the patient is/was taking a BP lowering drug?
+I simply get the list of people with systolic >=140 AND systolic < 180, Filter them out based on name, order it by timestamps and enumerate through each set, if I find a systolic >= 140 AND systolic < 180, i break enumeration and check the next 2 readings of that name and take the average. 
+I just get all those values using SELECT and ORDER BY timestamp ASC, name. And parse everything in PHP
+I repeat that with diastolic. and Merge the results with all the three conditions, removing any duplicate entries.
+In this example, I simplified the table. And I want to get the name(s) of those that meet these hypertensive guidelines. 
+My goal here was to find the people that have Hypertension. And those conditions above the guidelines in categorising a person as Hypertensive.

@@ -1,0 +1,5 @@
+Its a very comprehensive monitor, where you can monitor processes as well as system resources such as memory and CPU. It gives individual output for each CPU core.
+In interactive top, switch to individual CPU % by typing 1, then write the current configuration to a file by typing W.  This will create ~/.toprc.  Now, top -n1b will output per-CPU % as well.  You may need to copy the .toprc file and change permissions if your script runs as a different user.
+For ubuntu systems, its available as a package in the repo, so you can directly install it via apt-get/synaptic.
+With the BSD top, top -l2 -s1 -o cpu will (tested) print out the top statistics twice, order by cpu%.  Just in case there is a BSD top lurking about on your system...
+I don't know the right way to do this with the procutils top; maybe echo k|top -n2 -d1.0 does the trick?  Note that the first output of top isn't going to give you useful info on cpu% usage: top only attempts to estimate cpu% since it started running. Hence the -n2.  You can restrict to the second statistics listing by throwing away everything up to the second blank line.

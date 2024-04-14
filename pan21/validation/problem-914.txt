@@ -1,0 +1,8 @@
+at the very least indent the 2nd and 3rd lines.  Additionally, it is generally preferred to use parentheses to have multi-line statements instead of the \ character.  Even better, however, would be a generator expression
+Instead of adding strings as "string" + input("some string"), use string.join or string.format.  They are more efficient, and much easier to read.
+Right now your providers and de are far from comprehensive - what if my email isn't in any of those, but is still valid?  You're better off validating that the provider and domain extension look reasonable.  If you're interested, this link shows an (incomplete) list of top-level domain extensions.
+My first comment would probably be that you shouldn't try to validate emails beyond checking that they have at least one character before an @ sign, one . after the @ sign, and at least one character after the ..  The reason for this is that validating emails is hard (those are each separate links, fwiw).  In general,
+You should include docstrings for all public classes, methods, functions, and modules.  This will help you use your code later, and help others as well.
+as instance variables, and you set them individually for each instance of your checker.  Instead, you could reduce repetition and make them class-level attributes:
+According to PEP8 the de-facto* code quality standard for Python, class names should be in PascalCasing, so you should rename the class EmailChecker.
+No matter how hard you try to validate that the email is valid in terms of format, it will never check for nonsense email addresses ("asdf@asd.com") or typoes ("my_anme@gmail.com").  So practically speaking, email validation is generally not worth a whole lot unless it is obviously wrong ("asdf").

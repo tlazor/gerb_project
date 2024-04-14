@@ -1,0 +1,5 @@
+The listed Active TargetSet was to the domain controller residing in the same site as my workstation while the Targetset was pointing to the domain controller residing in another site.
+I would estimate these items to be referring to computers within an environment capable of answering requests.  Since I am located in Site 1 when running the command, the active item in the targetset would be the DC closest to me.  The other item in the targetset, which would/could field requests if the current active member were offline, is in the other AD site.
+Just to test this theory, when I logged into a DC in the other AD site, the active targetset item was that DC and the Targetset item was a DC in the other site.
+When I ran the following in my environment, dfsutil /pktinfo the DFS information for the sysvol in AD was returned as I do not have any file shares or anything using DFS at the moment.
+Basically the target set is comprised of servers able to field a DFS request.  the Active member is the server that would most likely field the request from the computer where the command was issued.  

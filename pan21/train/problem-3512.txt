@@ -1,0 +1,5 @@
+Alternatively, take the hard drive out of the laptop and attempt to boot from it in another computer which is compatible with Windows 10. 
+Not sure what to do. The computer comes to live and shows the logotype "Lenovo". Then, nothing, black screen. The fan goes like crazy but nothing happens. Can't enter any recovery menus.
+Boot to a WinPE environment using a repair DVD or USB stick and run bootrec /fixboot as well as sfc /scannow on the C: drive. 
+Isolate the problem to the drive, or something else in the laptop. If it's the drive, you have to either fix it using one of the above methods (Acronis and software like it might also be able to help), or wipe and reinstall, or, if SMART data indicates the drive might be bad, replace the drive (and reinstall windows onto that new drive). If it's not the drive, then the problem is unlikely to be due to your recent Windows 10 install and we would need more information to properly assist, so my answer ends here.
+I've made all the possible checks on the hardware through BIOS and all are green. Can't start it up in safe mode for some reason (maybe because it's Win 10).

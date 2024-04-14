@@ -1,0 +1,5 @@
+Windows 7 has a bug where the power options for Hybrid sleep actually do the opposite of what they are supposed to do.  This is resolved with a hotfix.  If you want to create GPOs that can accommodate either client (fixed or not), you should have a WMI filter that checks for the version of the offending file (gpprefcl.dll) and the service pack version.  
+For example, you use Group Policy to configure the Allow hybrid sleep setting to OFF. However, you may notice that the Allow hybrid sleep setting is set to ON instead of to OFF on a client computer that is running Windows 7.  
+When you use Group Policy to configure the power plan in a domain, power options do not work correctly on a client computer that is running Windows 7 or Windows Server 2008 R2.  
+Power options do not work correctly in Windows 7 or in Windows Server 2008 R2 when you use Group Policy to configure the power plan in a domain 
+This issue occurs because the index value setting in Group Policy is the opposite of the index value setting in Windows Power Management.  

@@ -1,0 +1,8 @@
+Since your router is Linux, I assume it must also have an SSH server on it. So here's what I do when I need a quick-and-dirty (but secure) tunnel to browse the web with:
+Furthermore, you can carry around a USB stick containing your configuration, and use it on any PC...
+Looking for the easiest you would use an SSL/TLS solution, which has the added benefit of looking like only SSL traffic.  This is an application layer level solution though.
+Looking for the most secure, you'd go with IPsec style VPN. Network level solution, encrypts it all and that is that.
+Next, I fire up my FireFox web browser and configure it to use the SOCKS proxy server that my SSH connection has just created at localhost:1080. Also, in the FireFox about:config page, I double-check that network.proxy.socks_remote_dns is set to true, so that my DNS queries are sent over the tunnel as well. (Very important!)
+When I'm done browsing, I close the tunnel by terminating the SSH connection. It works pretty well for occasional use, and it should be as secure as SSH.
+Finally, as a sanity-check that my browser requests really are going out through my VPS, I browse to whatismyip.com, and verify that the IP address it reports matches the static IP address of my VPS.
+I'm going travelling and would like to be able to VPN from a internet cafe to home so I can do internet banking more securely.

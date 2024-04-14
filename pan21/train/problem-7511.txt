@@ -1,0 +1,8 @@
+I want to transfer my Windows Vista install from a 70GB partition to a new smaller but faster 40GB hard-drive.
+Alternatively, is there a safe way to reduce the size of the partition to <40GB if I take most of the data off? That would allow me to use dd.
+I have resized many Windows partitions (expanded and shrunk) using Gparted with great results. Once you do it though I think it is recommended to boot it in Windows to let Chkdsk scan it and mark it as clean before you do anything else.
+My question is: is there a safe way to transfer just the bootable information (maybe with user preferences, that's not essential) to the smaller drive? I don't have a windows disc anymore.
+If it were the other way around (small->big) I'd just plug them both into my Ubuntu machine and dd the disk image across, then add another partition to fill the rest of the larger drive. But that's beside the point.
+Typing "partition" in the program search box should give you "create and format hard disk partitions".
+I use Acronis, make a full disk image of the drive, then restore that image to the new drive, as long as the total amount of data (not including free space) is smaller than the new drive size, it will be no problem. Or use the "Clone" feature.
+You could use the Windows 7 disk management tool to shrink the partition so that it is smaller than the one you are moving to.

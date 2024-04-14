@@ -1,0 +1,7 @@
+The main control panel page will show you memory used, and the 'running processes' module will show you memory used by each process. 
+Firstly, webmin does not run under apache - it provides its own webserver so its entirely self-contained (and, if it was running under Apache, it'd be difficult to manage Apache itself)
+You can run "free -m" or "free -g" to see how much memory is available when you don't count buffers/cache. I don't know how to do this from Webmin, maybe there's an option to run console commands from it.
+I have my server on VE MediaTemple, adn as i can see from their admin panel, my memory usage is always about 91%..it is strange because the only wbesite resident on that server is on staging mode and no one can see it but me and another developer...so I'm wondering how can see which processes are sucking memory? via Webmin? any particular module you suggest can be the problem?
+But remember - Linux uses memory for caching, so that will appear to be 'in use' when really its 'temporarily used' until you need it for something else.
+I'm not sure which operating system you're using, but as you're using webmin i'm going to say Linux.
+Linux allocates memory in cache/buffers and releases it when needed, therefore you'll often see the majority of the memory being used.

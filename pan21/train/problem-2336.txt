@@ -1,0 +1,8 @@
+Since VimFX makes some drastic changes to your interface, it might be a bit of an overkill (unless you are using it anyway) or interfere with other add-ons. You can probably disable all its other features, but I haven’t tested this. If anybody is interested in turning this into a stand-alone plugin, here is the relevant patch that introduced this feature.
+You would have to do this on a per-site basis though, as some sites will do more than just refocus during the onload event and you probably want the other behaviour to run.
+It might be worth searching http://userscripts.org/ to see if there are any existing scripts there for the sites you want to change the behaviour of.
+I do not know of anything specific, but as greasemonkey scripts run as soon as the DOM is populated but before the onload event handlers are called (as stated in http://greasemonkey.mozdev.org/authoring.html) you could write a script that disabled, or changed, the onload event for the sites you want the behaviour removed from.
+If you wish to get rid of the main side-effect of using Vimium (the vim-like keybindings — though they're useful!), you can place unmapALL in the "Custom key mappings" section.
+The add-on VimFX (which allows you to control your browser with the keyboard) has an option that prevents text fields from autofocusing, which works for me on all sites I tested so far.
+This also won't work for sites that do the refocus directly while the page is rendering (by calling the focus method directly in a <SCRIPT> block instead of in code called by the onload event.
+Vimium-ff has an option to prevent stealing of focus. (Options > Show Advanced Options >  Don't let pages steal the focus on load).

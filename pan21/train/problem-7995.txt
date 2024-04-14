@@ -1,0 +1,7 @@
+Without return_sequence=True, Input shape from [batch_size,sequence_length,previous_hidden_dim] to [batch_size,hidden_dim]
+In case of any doubt on my explanation, please read the material I give you below. You can verify my description by calling model.summary().
+Input shape from [batch_size,sequence_length,previous_hidden_dim] to [batch_size,sequence_length,hidden_dim]
+Each cell/timestep will actually produce a hidden state representation. However, this is surpressed by default on keras. You can re. As LSTM without Bidirectional wrapper produce a one-way sweep through your sequence, your output from LSTM(5) is the hidden state of the final LSTM cell(cell output not cell state). 
+What you are referring as "folding" of LSTM is actually iautomatically based on sequence length of previous input.
+Now to enable outputting the sequence of hidden output similar to what you might have learned about LSTM, simply supply return_sequence=True.
+So basically what led to your confusion is due to keras LSTM default behaviour of only outputting the final cell output.

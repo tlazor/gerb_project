@@ -1,0 +1,6 @@
+Setting this up on the server side is seemingly easy, you simply select a certificate you have generated from the list, and hit apply, however when I try to use the certificate on the client side it fails.
+I have exported the certificate into a P12 file, and then transferred to the client, and imported into the login keychain, however when I try to choose the certificate (from Network preferences, clicking Authentication Settings, then selecting Certificate and pressing Select) I am shown the following error: 
+Certificate authentication cannot be used because your keychain does not contain any suitable certificates. Use Keychain Access to import the certificate into your keychain. If you do not have the certificates required for authentication, contact your network administrator.
+When I select Certificate Authentication for the User Auth, and click Select the certificate for the server shows up there, but obviously this isn't where I need it to be available.
+I'm trying to setup a L2TP VPN on an OS X Snow Leopard Server setup, and have had success using a pre-shared key, however I would rather not rely on a simple string, and use a certificate instead.
+Unfortunately even when I try to generate a certificate where I override the defaults, ensure the DNS name etc are set properly this doesn't change.

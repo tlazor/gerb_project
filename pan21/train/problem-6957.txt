@@ -1,0 +1,7 @@
+Rq1 : You certainly use (as i do) the classical split in your game between update and draw. And you use a timer (setInterval/setTimeout) and/or RequestAnimationFrame to call update, then draw, in a regular fashion. A pinball might be the type of game where you want to have one timer driving update, and another driving the draw, so you can adjust the rate of each independently, to work on a wide range of devices. Because you can't just drop (update+draw) if  the device is too slow : if the time between two updates (dt) becomes too long, the physic engine might miss a collision.
+If making a pinball game in nearly a lot of frames the ball will be in contact with a wall or another surface so is there another approach?
+So far in previous games I have used simple 2D collision with boxes then checking at pixel level for a collision.
+Take the area of collision map overlapping the ball, find the centre, form the vector from that point to the ball centre, then normalise.
+Given the complexity of the physic involved in a full fledged pinball, i would suggest to look on an existing 2D physic engine. Box2D has quite a reputation in javascript, there might be others but i didn't encounter any good (and free) one.
+First if you make a pinball game, you'll most likely need more bounding-CIRCLE-collision-detection than the bounding BOX one :-)
+I made a pinball game a while ago; it was pixel based as well. I had a collision map which just contained the collision data. An approximate collision normal was easy to find:

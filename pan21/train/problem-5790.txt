@@ -1,0 +1,7 @@
+Could it be that the virtualisation host has some power-saving features ("Green IT") enabled that could send unused cores into a low-power/sleep mode, causing interesting disruptions in the VMs using that core? I've heard this used to be a problem mainly in HyperV environments but it may be something to look into.
+I had Ubuntu 14.04.2 kernel version 3.16.0-30, and doing a "apt -y upgrade" ended me up at kernel 3.16.0-49, and that solved the problem.
+Thanks to all commenters. I think I found the answer. There seems to be a timekeeping bug in at least Ubuntu's kernel version 2.6.32-30-server. The bug sometimes (?) kills machines when they reach an uptime of about 200..210 days. Actually the halt does not happen immediately after the limit is reached, but is triggered by some operation (in my case: apt-get install ...).
+http://git.kernel.org/?p=linux/kernel/git/tip/tip.git;a=commit;h=4cecf6d401a01d054afc1e5f605bcbfe553cb9b9
+For now, I haven't found data on whether the problem has been fixed in more recent kernels. I do know that it doesn't seem to affect an older kernel (2.6.32-26-server). From all this information I presume that if it's not fixed yet, it can be avoided by:
+You can search LKML for the following title (cannot post more than 2 links) : [stable] 2.6.32.21 - uptime related crashes?
+In case someone else finds this, a kernel upgrade fixed a similar problem for me.  I had a JBOD that was attached to the system through a SAS3 controller throwing these CPU Softlock errors on boot.

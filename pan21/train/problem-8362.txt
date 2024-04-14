@@ -1,0 +1,5 @@
+Now I can also tap into the livestream of the camera: 192.168.23.100:800/video.cgi. I've created a basic webpage on PC3 containing nothing more then
+Whem I run this in a browser on PC3 it shows the live stream as it should. However when I open the page on PC1 or PC2, it does show the red border, but not the streaming video. 
+PC3 (Windows 7) has two network cards, one for the 2.xxx and one for the 23.xxx range. On PC3 I'm running a ftp-server that receives images from the IP cam, and an apache server. So far, so good. Everything is working. 
+a normal part (IP range 192.168.2.xxx) with a switch and some pc's. The second part (IP range 192.168.23.xxx) contains a pc (PC3), router and IP cam.
+Sadly most answers about routing here and on SO go about Linux, this is Windows 7, so I couldn't find an answerto my  question: what do I need to change in the apache config or the Windows configuration so the video stream is also shown outside the second part of the network. (I've turned off the firewall on PC3)

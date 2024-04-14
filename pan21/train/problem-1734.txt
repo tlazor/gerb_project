@@ -1,0 +1,8 @@
+For an example, a job is set to run on 3PM daily by DBA_1. Few days later, DBA_2 changes it to 2PM and reloads. Now we have same job running at 2PM and 3PM.
+Is there any way to merge the jobs? Liek no matter who loads the cron_job.txt file, only one set of jobs should be running? By the way (DBA_1 has admin access to UNIX, DBA_2 doesn't). We are using Sun Os 5.10. A solution will be appreciated.
+In our environment we have two DBAs to run some cron jobs defined in cron_jobs.txt file. Frequently we need to chan ge timing and commands in that cron_jobs.txt file and reload it. 
+One way to do this would be to have a semaphore file that both users can write to.  Have the cron job check on the existence of this file and the date of the file - if it's today's date than the job has already been run - so no need to run - the 2nd attempt to run the file would exit.  The problem with this approach though is that the earlier run would always win.
+The above mentioned locations are correct for RHEL/CentOS; they may be different in another distribution.
+You could create a hard or soft link from the first user's crontab file(/var/spool/cron/DBA_1) to the second user's crontab file(/var/spool/cron/DBA_2). The downside to this method is that both users share the same crontab, and neither gets an individual file.
+Use a role account rather than tie things to a regular user account. Then allow both users to run this command. 
+Problem is, if DBA_1 edits and reloads that file ($ crontab cron_jobs.txt) it is loaded under his useraccount. Now, DBA_2 edits the same cron_jobs.txt file and reloads. The new sets of jobs will run under DBA_2 useraccounts. So, basically same jobs are running twice.

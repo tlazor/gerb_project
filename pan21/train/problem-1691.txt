@@ -1,0 +1,9 @@
+You store the results in your for-loop in a matrix and thus everything is coerce to the same datatype. Using a data.frame for storing will let you use different data types and you don't have to use as.numeric later. 
+Another point is that you are growing the yield.year variable in each iteration of the for-loops. You can speed this up by initializing the variable with the final length before the looping.  
+You are calculating the year groups for each data.frame. As this is repetitive code you can wrap it in a function. Also you cann pull out the calculations from the for loop. 
+There are some missing values NA in your data. By using sum you will get NA as a result, if one summand is NA. To prevent this you should use na.rm = T.
+The main calculation is done in two nested for-loops. As you basically only group by plotnb and year this can be simplified by using the dplyr-package. Further I use tidyr for the functions complete (optain all combinations of plotnb and year) and replace_na. 
+To better compare different version I use the microbenchmark-package and wrapped the different versions in functions. I named your version old_version. (I changed Fecha.inoculacion to Fecha.Calificacion to match your data.)
+You are probably reading your data from a csv-file with read.table or your are using as.data.frame at some point. Setting stringsAsFactors = FALSE will make your life easier with less factors at the wrong places. 
+Putting these things together I change your code and already got speed things up remarkably (roughly half the time it takes.)
+Your date variables are stored as factors and everytime you need to work with them you have to transform them into dates. This needs time and can be avoided by transforming them once in the beginning.

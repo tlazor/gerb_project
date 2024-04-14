@@ -1,0 +1,6 @@
+The new system will scale to many branches of different sizes, from say 10 users to a few hundred, so purchasing an appliance for each branch isn't desirable. 
+What do you mean by content filtering? If its anything that inspects the traffic while its in transit you're going to run into SSL errors-since one of the things SSL is specifically for is to stop people from peering at your traffic while in transit.
+Dug Song's dsniff package has a mitm tool that should be able to do this. The code, while old, is in C and available from his site and the license is attribution-only.
+I've been assigned to research out and spec replacing our old and decrepit http content filtering system. There are several open source filtering packages available but I've not come across one that does SSL inspection.
+I've not used it, but take a look at http://www.delegate.org/delegate/mitm/ - this in conjunction with dansguardian may provide HTTPS filtering.
+When we're further along, we will do custom programming as we have a few unique needs in other aspects of filtering, so if the suggestion takes a bit of customization, it won't be a problem. 

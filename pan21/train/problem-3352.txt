@@ -1,0 +1,5 @@
+The reason for this is we have upgraded to a new Jira server and migrated everything across but then moved all issues to a new Project structure. I now need to do a quick audit to ensure all the issues are now in the correct place from the old system (and therefore by old keys)
+It stores the previous Key somehow because you can put the old Key in the Quick Search box and it will find the issue under the new Key.
+i.e. you can search for multiple keys using Key IN (abc-1,abc-2,abc-3) but this only works for the current Key.
+I'd expect further extensions regarding the operator scope in the future, but issue keys aren't on the List of suggested JQL improvements either - of course you might add a respective feature request there as well.
+One would nowadays expect this functionality via the JIRA Query Language (JQL) operator 'WAS' resp. WAS IN, which has been introduced in JIRA 4.3 and extended in JIRA 4.4 to cover assignees and reporters as well, but unfortunately issue keys are not covered as of today:

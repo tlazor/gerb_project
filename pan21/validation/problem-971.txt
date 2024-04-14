@@ -1,0 +1,8 @@
+However, for protocols with varying data lenghts, there is almost always a fixed-length field preceding the data that gives the length of that data.
+I used to teach formal notations for networking at one time, but these things have dropped out of the curriculum in favour of security ; which is interesting when a better understanding of the formalism might help enhance security.
+For network protocols and/or file formats with fixed length fields, the grammar is fairly simple, and can be explained with a regular expression.
+Where in the Chomsky hierarchy do such grammars lie? Also is it possible to automatically generate parsers for such grammars?
+I'm having trouble understanding how such a rule can capture the fact that the value of 'n' is somehow related to how many b's are present in the sentence.
+It is possible to generate code for handling protocols; and some is done that way. Using state machines for the protocol and notations like ASN.1 for the packet descriptions much can be automated, and has been in the past.
+where 'a' is some fixed-length symbol, 'n' is a non-negative integer, and b^n is b repeated n times.
+Without going into details of protocol/format specifications, we can talk about its equivalents in grammar notation. For example, consider the following production rule:

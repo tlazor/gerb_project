@@ -1,0 +1,5 @@
+After changing the adapter settings, you will likely need to restart the VM's network interface(s) in order to obtain the correct DHCP configuration, if applicable.
+Bridged will bridge the VM's network adapter, allowing it to obtain DHCP and such from the network the host is on. You will be able to reach it from the host, as well as other devices on your network. The VM will also have internet access, assuming that your local network does.
+By default, VirtualBox uses NAT networking. You will not be able to reach the VM from your host's networking. To do so, you need to modify the VM's network adapter settings to be bridged or host-only.
+I can not in my Mac Terminal to ping 10.0.2.15, so I can not use the Mac Terminal to connect the VM, is there a solution to access it? I just mean, like in Windows use Xshell to ssh connect the VM.
+Host-only, as the name suggests, creates a network that only exists between the VM(s) and your host. You will be able to connect to the VM, but the VM will not have internet access.

@@ -1,0 +1,6 @@
+Finally if you are going to change the servers name you will need to follow this steps in this article to ensure this is changed in SQL.
+I have a Windows 2008 Server Standard x64 machine that I need to install SQL Server 2008 R2 Standard on then ship it to a different site where it will be joined to a Active Directory domain.
+The server is now using the default "WORKGROUP" workgroup and i need to know if i can install SQL Server on it then ship it to the other site where it will be joined to the domain without issues.
+I'm not a replication expert, so there might be some things to consider there if you plan on using replication.
+The first thing that comes to mind is the service account. If you are running the SQL service  as a local user you may want to change this to being a domain user account.
+All you may have to do is add the domain user to the SysAdmin group of SQL Server after the machine is added to the domain for management using that user. Alos consider giving access to the the required domain users to the SQL Server.

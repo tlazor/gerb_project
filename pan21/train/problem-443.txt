@@ -1,0 +1,5 @@
+Nope, there are too many poorly-defined, inconsistent "standards" for the metadata to be properly interpreted by multiple players. Pick the player you are most likely to use and tag to its standards. You really can't do any better.
+Also, bear in mind that 30+ years ago, AC/DC had the good sense to include in their name an ASCII character commonly used to delineate directory structures in computer filesystems, thereby making it very difficult to properly tag them.
+One other thing to check for is v1 and v2 tags.  I was experiencing the same problem, and couldn't figure out why - it turns out that some software looks at the v1 tags, some the v2, some both, etc.
+I ended up removing the tags from all my music, and have a perl script to re-create the tags based on my directory structures (artist/album) and some meta info in each directory for things like genre, etc.  
+If you're looking for a free app that is solely dedicated to tagging, I suggest trying out MP3Tag (it tags many formats besides MP3).  It's tagging conventions are described here.

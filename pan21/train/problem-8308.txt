@@ -1,0 +1,7 @@
+To fix it, open your Eye.jpg file with a paint program, save it with the BMP (Bitmap) layout and extension to Eye.bmp, then use the new file in your script and it will work.
+The thing is, it is looking for %windir%\Desktop\wallpaper.bmp and not %userprofile%\Desktop\eye.jpg and therefor it doesn't work.
+Both methods will work, but in both cases, you made an error and its not working for that reason. I'll explain the error and how to fix it.
+The above will change the background at the location windows stores backgrounds when a new background is set. The thing is, Windows will always convert the background to a .bmp image before setting it. You basically try to replace an image in .jpeg layout one that needs .bmp layout and assume it works, but a jpg image just is not a bmp image, and therefor windows can't load the image and does a failback to a black solid color.
+The registry method doesn't work all the time especially if the picture isn't in bmp format so you can try my method. It simply open the picture you want using windows photo viewer and use a keyboard shortcut to set the picture as your desktop wallpaper.
+Either place a bmp version at %windir%\Desktop with the name wallpaper.bmp or change that path. Do note, if you change the path, it is possible that if you move the file elsewhere, your background will turn black on next reboot.
+The above will set an image and make windows do its magic to convert the image to bmp and store it at the correct place.

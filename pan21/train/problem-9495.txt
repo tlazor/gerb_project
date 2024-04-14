@@ -1,0 +1,7 @@
+2. What replication technology would be most suitable for this use case, considering that we don't need autofailovers and sensors must store only a part of data, not the whole table that the console has?
+5. sensors must store only those rows that belong to them (there is a field "source" in the table storing the sensor's id)
+2. there is a big server ("management console") that collects data updates from all those servers and stores them in the table with the same name and structure
+In order to prevent sensors from getting data related to other sensor you will need to create triggers on them that would block such updates and inserts. Make sure that you enabled the trigger via "ENABLE REPLICA" otherwise the console will still be able to push data related to other sensors to a sensor.
+4. console can update or delete rows that are relevant for particular sensors, these changes must be replicated to those servers
+So, you will need to use pglogical (didn't test other replication tools, they might work as well) and create subscriptions on both sides - one subscription on a sensor and one subscription for each sensor on the console. This will solve the problem of bidirectional data updates.
+3. sensors can create new rows and update existing ones, the changes must be replicated to the console

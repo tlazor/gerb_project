@@ -1,0 +1,5 @@
+We are running Access through VMWare hosted Citrix XenApp servers. I have been able to reproduce this behavior with my own login through XenApp, through Remote Desktop, and through vSphere console, on both XenApp servers where this app resides. 
+I'm not at the point, yet, where I want to reinstall Office on both servers. This problem does not appear to exhibit in other Office applications. When I run Office applications through RD or vSphere, they display the OneNote icon in the taskbar, although the correct icon is displayed in every other place the icon should show - and this does exhibit with other Office apps.
+We have some users running MS Access 2010 (don't ask me why, we have MSSQL licenses they could use) and have recently run into a problem.
+I'd blame it on a corrupt office/Access install, but it happens on both XenApp servers. I'd blame it on a bad database, but it happens when creating a new database. I'd blame it on XenApp, but it happens when I login via the console.
+It looks like, after I ran Excel to test if this problem also occurred with other Office apps, that Access is using the Excel icon in the taskbar.

@@ -1,0 +1,6 @@
+We are very tentatively taking our first steps into Corporate IM but because it links to our calendars I think it has a good chance of being successful.
+We happen to be using Lotus Notes for our email server and client and have just activated their SameTime product after seeing it during a demo. 
+Of course you need to have the Lotus products - a server and clients but if you have that anyway then the set-up was minimal!
+IRC might be an idea.  There's dozens of servers and hundreds of clients. The servers scale to thousands of users and offers a clustering approach. You can use chatrooms (channels) or private messages. There's also plenty of bots written for IRC to offer functions like factoids. You might even find one for helpdesk databases.
+I'd say go with some implementation of XMPP. There are clients for every OS under the sun (both free and commercial), and it can also hook up with public servers, Google Talk for one.
+There is increasing interest in my company for an internal IM implementation. What commercial or OSS products are currently available? 

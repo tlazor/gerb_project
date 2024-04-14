@@ -1,0 +1,6 @@
+It provides alerts and reports from a central xymon server. It can be customized for your unique requirements. It monitors and collects historical information related to connectivity, CPU utilization, memory, disk utilization, process statuses, and much more.
+Put a file called STATUS with content GOOD in your document root. So you can access that file using following URL:
+If you like to host the monitoring on an seperated machine (for example you NAS at home), you should have a look at: http://www.nagios.org/
+Monitoring a web server (http/https) is very easy to do. There can be many xymon clients (Linux/Unix as well as Windows).
+http://exchange.nagios.org/directory/Addons/Notifications/SMS/SMS-Notification-via-aspsms-2Ecom/details
+In addition, the notification feature can be disabled for defined holidays, and multiple notification contacts can be defined - each receiving notifications only when defined time periods have elapsed, which helps escalate an issue or find another tech if the primary contact is not responding. 

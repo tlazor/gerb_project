@@ -1,0 +1,5 @@
+Normally, the network manager should ignore interfaced taht are defined as static in interfaces. This seems to fail here.
+Most likely, what happens is that at some point your wifi connection drops and, upon reconnection, the DHCP server cannot allow the old IP address to be assigned (to the same machine) because its time to live has not expired yet, and the number is taken. 
+If you want a work-around, use address reservation in your router GUI: this instructs the router to re-assign always the same IP address to a given MAC address, drawn from the DHCP Ip address range. This means that, when the wifi connection drops, your VM will be assigned the same address, because it is the same MAC address asking for it. 
+If you don't need it for other interfaces but only have these two statically defined interfaces, you can disable NetworkManager completely.
+the guest boots fine, however within a few hours probably more than 3 but less than 7 it drops 192.168.1.6 and replaces it with an address from a DHCP server on the network.

@@ -1,0 +1,5 @@
+PS- I recently helped my brother with this same problem. Here are some sample configs should you decide to hand-write/edit your config: sample1 sample2
+Now there are a couple things you can do. One would be to familiarize yourself with the Xorg and write a new config by hand. It may not sound like much fun, but you'll be better able to handle such issues in the future.
+Now remember, in order to see any changes, you are going to have to restart Xorg. Depending on your distro and version, you can do this by pressing Ctrl-Alt-Backspace, but you'll have a guaranteed restart of Xorg by logging out. If you're level of FUD is high enough, just restart.
+If that doesn't work out the way you'd hoped and you have the nvidia proprietary drivers installed, you should be able to have them create a more better config that takes full advantage of your video card. The command for that is:
+You will find such info in the X.org config file : /etc/X11/xorg.conf. This file manages all graphics card info :-)

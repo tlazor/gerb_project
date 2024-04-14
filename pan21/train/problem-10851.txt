@@ -1,0 +1,5 @@
+I've used a combination of voronoi and perlin noise because it's easier to generate "regions" of different noise. I can more easily turn these areas into "veins" of rocks or something than I could be using a "heightmap" alone - heightmaps tend to be more swirly/cloud-like. 
+So either, I need a new way to choose a weighted random rock type for each vein, or I need a new way to place veins.
+The difficulty lies with choosing which "rock" (or "ore") will fill each vein. Primarily, this is thanks to the fact that my rocks are weighted. Veins of rare rocks should not be common.
+I currently map the original voronoi cell value to a specific rock, which  forces each vein to be a single type, but can't be weighted. As you can see in picture #1, there's a fairly even distribution of each shaded area.
+I'm evaluating methods for generating "clumps" or "veins" of rocks in a 2D top-down procedural game. Obviously the most common suggestion is to use various types of noise, but I feel like noise (alone) won't achieve what I'm after.

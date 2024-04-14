@@ -1,0 +1,10 @@
+OpenSSL defines a set of 'purposes' itself, and then has some logic that determines whether a given certificate is consistent with the chosen purpose based on the certificate extensions - including, but not limited to, the key usage and extended key usage extensions.
+'Any Purpose' is what you get if you pass -purpose any to openssl verify or if you write code which sets the purpose of an OpenSSL context to the 'any' value using e.g. SSL_CTX_set_purpose().
+Most of the purposes are documented in man x509 section CERTIFICATE EXTENSIONS - it explains what properties the certificate must have to be valid for the given purpose - but this doesn't document the any purpose. In the source, at the top of crypto/x509v3/v3_purp.c you can see that the check function run for X509_PURPOSE_ANY is no_check(), which simply returns 1: effectively it disables purpose checking.
+Specifically, OpenSSL's X509_PURPOSE_ANY / "Any Purpose" / -purpose any concept is not the same thing as the RFC 5280 anyExtendedKeyUsage KeyPurposeId.
+One of these purpose flags is "Any Purpose".  I can't seem to find ANY documentation on this flag and why or why not it is set.
+So, check the Certificate Policy, Subscriber Agreement, and Relying Party Agreement of the issuing CA, and if they say nothing about the flag then it means what it says on the box.
+OpenSSL's 'purpose' stuff isn't quite just a straight reflection of the Key-Usage extension of a v3 certificate.
+I'm not sure if you could possibly engineer a situation in which any certificate would not be valid for the any purpose. I'm also not sure what the difference is between setting the purpose to any and not setting a purpose at all, which should cause purpose checking to be entirely bypassed.
+In X.509 certificates, as in most other things, if a term is not explicitly defined then it inherits the meaning from its immediately-surrounding context. If that context is "life", then the phrase "Any Purpose" means literally that.
+I find a bunch of purpose flags (which I've discovered are set by the various extensions attached to a certificate).

@@ -1,0 +1,11 @@
+decode() would be better named rpn_calc().  Again, instring and size should be adjacent to each other.  (In fact, this is a pretty strong convention in C: pass a pointer, followed by its associated array size).
+The expected answer is 1.000.  I got it to print 0.000, but the output is actually arbitrary, since this triggers a stack underflow.
+As has been mentioned, your stack is laid out backwards in memory, and you are manipulating the wrong end of the array.
+Second, pop means just that, pop a value from the stack. Your function performs an arithmetic operation and should be renamed accordingly, apply_operation perhaps.
+Finally, I recommend to change a decode signature to float decode(char **, int).  Returning results via size effect makes the code harder to reason about, and there must be a serious reason for such decision. As much as possible try to utilize return values.
+… I would have expected stack and currStack to be placed together, since the two parameters together conceptually constitute a stack.  Better yet, you should just structure them together to form a simple data structure:
+First, you have a top of stack at 0. This is very unconventional, and results in a lot of unnecessary data moves. Having a top of stack at currStack would make code much simpler. For example, push becomes just
+You should nearly almost use double instead of float.  That advice applies here too.  For example, the C library math functions all work with doubles; that includes atof(), which returns a double that you degraded into a float.
+These kinds of warnings almost always indicate a logic bug.  Indeed, decode() never returns anything, even though it was supposed to return an int.
+This is why you should not use tricks like the size/2 array size and check each array access whether the index is valid, i.e. 0 <= index <= arraylength. Since a C program cannot ask for the length of an arbitrary array, you have to pass the array as a tuple (start, size) or something equivalent.
+pop(), as you have written it, isn't the stack operation it should be.  Rather, it performs an arithmetic operation (pop → pop → push), making it misnamed, and leaving you without a proper stack-popping function.

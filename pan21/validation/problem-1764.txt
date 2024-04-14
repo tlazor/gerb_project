@@ -1,0 +1,13 @@
+However, if you want to figure out if it is your code or the server's fault (heh), there are a few steps you can take. One of them is to add a timer to your php code to see how long it is taking to execute on the server. From here:
+It's probably nothing to do with the sizes of the files. If you're running wordpress your backlogs are going to be database and processor. Database for recovering all the information about what the page is supposed to look like, the content, etc. And processor for compiling all that stuff into an actual document and sending it out.
+The first thing to do is to make sure you have an available opcode cache (php-apc is the "standard" one), without one Wordpress will generate the homepage each time a new user requests it.
+If apc is installed on the server and if you have a way to configure it, you may try this configuration first:
+If the server is slow there are a number of steps to take but you need admin rights to go any further, especially since you are using wordpress which is on hundreds of thousands of servers worldwide and is fairly optimized.
+Since you are on shared hosting you are going to have VERY little control over your server setup, but you can speed things up in other ways by paying close attention to what you are asking that server to do.  
+Might want to look at tweaking Apache's cache settings. If certain pages are getting requested often, there is no point in building them over and over.
+One last thing, make sure you are using the most up-to-date version of wordpress that you can, and don't use too many plugins.  Every bit of overhead is going to slow your load down.
+Wordpress, as many CMS out there, is known to be quite heavy, I'm not surprised a shared server gives you delays like this to serve the first byte.
+The second thing I'll do is use a cache plugin for Wordpress like this one: http://wordpress.org/extend/plugins/w3-total-cache/
+Then have a look at the stats given by the apc.php script included in the package, it will help you set those values more adequately.
+Try using Firefox and install a plugin for it called Firebug (http://getfirebug.com/).  Once you have it set up enable the 'net' panel and reload your pages.  This will show you the amount of time it takes for each portion of the server response including initial connection speeds, time in download, server response lag, etc.  Also you can use this panel to see if you are cacheing items such as JavaScript, Images, and CSS.  
+One more thing to try is to disable plugins and enable them one by one to see if any are causing your slowness.

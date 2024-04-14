@@ -1,0 +1,6 @@
+if you make a gpio extender hat you can add more . its simple and pluges onto the i2s and you can get 18 extra gpio pins
+A shift register lets you take some serial data - 8 bits from the RPi - and translate it to parallel data - the 8 output pins on the shift register.  You can use each of those 8 output pins to control a relay, while you only need 3 pins on the RPi to control the shift register.
+The end result is multiplying the 3 control pins on the RPi to as many relays as you wish, depending only on how many shift registers you can connect together.
+Here's a pretty good guide from Adafruit; while it's geared at the Arduino, the ideas and methods of control are still the same:  
+The 74HC595 like many others is a 'cascading' shift register.  This means when you write a bit in, the oldest bit is 'shifted off' to a special output pin.  Connect this output pin to another shift register's input, and your data can 'cascade' down to the second chip.  You can chain them like this basically infinitely; for two chips you'd just write out 16 bits, for 3 chips 24, and so on ad infinitum.
+You want to research a "shift register", such as the 74HC595 which I've also recently used to control some relays.

@@ -1,0 +1,6 @@
+3) In order for my overseas colleagues to access the virtualize application, I will have to assign a public IP address to the DMZ application virtualization server, opening only 1 port for it.
+I was weighing pros and cons about the new mission critical system that through application virtualization, will allow my colleagues from 3 different countries to access it. 
+While opening only one port for this particular public IP address seems to be restrictive enough, I am wondering can if the streaming of the virtualize application is protected by some form of encryption, similar to how any VPN work? 
+2) While the local colleagues should be able to access the SQL database through an application program installed on their computer PC, the overseas colleague will be connection to the DMZ application virtualization server for connection to the system server. 
+Reason why I am asking this is because the application virtualization server is using an application that I have never heard of and no one can ever Google it. 
+1) The new mission critical system contain two servers. The system server which will host the SQL database will be place in the trusted zone. The application virtualization server will be place in the DMZ. 

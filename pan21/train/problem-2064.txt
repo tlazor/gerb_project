@@ -1,0 +1,7 @@
+Instead it sounds like you ask about the state memory: How many possible states the router can keep in memory. A state has to be kept for each TCP and UDP connection. Cheap routers typically manage 1000 states or so. 
+Let's say we are talking about TCP HTTP requests. How many requests can it handle before significant delays will occur? 
+If you want to keep lots of states I would strongly suggest a Linux or OpenBSD based firewall/NAT and a switch instead of a home router. Home routers tend to have very limited memory to keep them cheap. 
+Most home routers do not provide this information, sow how can I know? And where can I find routers for a reasonable price which can support many requests (800- 1000 per second)?
+Requests per seconds is typically not an interesting factor for a home router, and 60 RPS is a very very low number for any network equipment. 
+The problem that you run into is when you are trying to create a lot of states in the router before the previous connections can be cleaned up. The router then basicly have three options:
+My DDWRT with 32 MB of RAM is perfectly capable of maxing out the 4096 connections (which is the maximum value you can set from the GUI)

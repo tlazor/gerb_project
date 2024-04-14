@@ -1,0 +1,7 @@
+Near the bottom you'll see a key called FXScopeArrayOfPaths.  The value is an array, probably with just one <string></string> tag, that will be something along the lines of kMDQueryScopeComputer.  Change 'kMDQueryScopeComputer' to be the path to where ever you want the search rooted (/Users/<username>/Documents/PDF Files).
+In the Mac OS X Finder, set the view to the folder window to as List, and the Option click the small disclosure triangle next to the folder you want to view. This will open all the disclosure triangles of all sub-folders for you.
+I find (On Mac OS X 10.5) that I sometimes have to close the disclosure triangle and kbd>Option click it again to get really deeply nested folders to open,i.e. if I need to see more than 3 or 4 levels deep.
+If you just want a list of all the files, including hidden files you can do the following command in the shell from the highest directory in the tree you want to consider:
+In Midnight Commander (mc), Command > Find File > Filename *.pdf > check Find Recursively > OK > Panelize.
+In Nautilus in Ubuntu just do a search for pdf and add the Location column to View > Visible Columns. You can further restrict the search by clicking on the plus sign and adding the additional criterion that the File Type should be PDF/Postscript.
+On OS X, you could create a custom Smart Folder to do that for you.  Create it in finder to show you all PDFs.  Save it somewhere, then open that .savedSearch in a text editor (its just a simple XML file).

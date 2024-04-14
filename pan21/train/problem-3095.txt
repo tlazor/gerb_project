@@ -1,0 +1,9 @@
+Q: Is there any chance I can somehow create a Global Catalog, SYSVOL and NETLOGON and turn our Domain Controller into a viable PDC?
+2) He asked me to take a look because of a seeming annoyance: the Active Directory for Users and Computers (dsa.msc) fails with this error:
+Or alternately standup a new DC and make it the PDC, then remove AD from your current PDC, reinstall it, and take all roles from the temp PDC.
+2) Both dsa.msc (Active Directory for Users & Computers) and dssite.msc (Active Directory Sites and Services) snap-ins fail with Naming information cannot be located.
+4) Most things seem to work.  Active Directory exists, users can log in, the databases and 3rd-party enterprise software installed on the server all work.
+You could also make any other server your Temp PDC by installing AD to avoid standing up a new server. I would leave the temp AD server as your secondary DC after you get the roles all transferred though.
+1) Some time ago, a colleague did a clean install of Windows Server 2008 R2, promoted it to Domain Controller from an old Windows Server 2003, and life seemed to be good.  In the meantime, a bunch of software was installed the on server.
+Is it possible to standup another server, make it a DC, seize the roles from the current 'broken' PDC, and then re-take the roles back onto the PDC? Then simply remove your 'adhoc' DC from the domain? 
+1) When I try to seize the relevant FSMO roles, ntdsutil reports "FSMO transferred successfully - seizure not required."  So this is not the problem.

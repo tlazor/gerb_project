@@ -1,0 +1,10 @@
+As you play with them, you'll find yourself having to remember to properly escape some things from your shell, and excape other things from the regex itself... where you want to match a literal '.' (period), you'd need to grep 'moo\.' to match 'moo.' and not 'moof'
+In your example, grep 'c[abm].t' a.txt will output any lines from a.txt that contain at least four characters that you specify. a 'c', either an 'a', a 'b' or a 'm', 'any character', and then a 't'.
+I've found the best resource for learning regular expressions intimately is Mastering Regular Expressions from O'Reilly Media. It covers not only a large number of regexp dialects but also gives a lot of insight in to how the engines actually do the processing. An invaluable resource if you're going to be using regular expressions regularly (pun intended).
+Be aware that there are many different flavors and implementations, from grep (and egrep / grep -E) to perl to php to Javascript, etc.
+For your question, your expected behavior would come from c[abm]t not c[abm].t but that's already been pointed out.
+In your second example the result is just as expected. [abm] matches any of the characters a, b, or m. Following that, the period operator matches any character. So the expression is looking for four letter strings only.
+Also if there is any tutorial, wherein I can master the skills of Regular Expression, then please share.. Thanks a lot.. Please try and solve my query..
+The period operator matches any character, just as the description says. So 'c.t' will match 'cat', 'cbt', 'cct' ... 'czt', 'c1t' ... etc.
+Regular expressions can be incredibly complex. I can't recommend anything offhand other than what I'd find and be looking at for the first time right now.
+If you don't have time for a whole book on the subject, it might be handy to try out expresso (.net syntax) or the commercial tool RegexBuddy that does perl, ruby, java, .net and grep syntaxes (among others). Both tools let you test what will and what won't match, and will show you a tree of what the regular expression means.

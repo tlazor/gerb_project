@@ -1,0 +1,6 @@
+You can name your range to make your formulas easier to understand. It is explained in the previous link.
+You will need your list of categories and products to be unique for your dropdowns so you will either create a separate list in another sheet or generate the list from your initial list of category/product/price.
+You can check this for the formula: http://www.get-digital-help.com/2009/03/30/how-to-extract-a-unique-list-and-the-duplicates-in-excel-from-one-column/
+Your can use VLookup to find your price but you will need to create a calculated value to merge your category and product (put formula =B1 & C1 in cell A1 where column B contains your category and column C the product and copy the formula in all the cells in column A) since VLookup uses one column (left most column in range) only for lookup. You will also have to make sure that the link is in alphabetical order.
+Look here for info on VLookup: http://office.microsoft.com/en-ca/excel-help/vlookup-HP005209335.aspx
+Finally, you will link each dropdown to your list. You will output the selected value in a cell you will reuse for your price formula. Name the cells CategoryId and ProductId. Note that the drop down will output the index of your selected value. This will be used to VLookup in your category list and product list.

@@ -1,0 +1,9 @@
+c:\Users\NewDomain.Account) and use the Permited to Use Change button to link it to the domain account.
+Under Control panel, System Properties, Advanced Settings Tab click the Settings button in the User Profiles section.
+2. You can copy the users' LOCAL profile over to their DOMAIN profile, allowing them to sign into their new DOMAIN profile, and retain all the settings and customizations from their local profile.
+If you visit this URL, http://www.forensit.com/downloads.html you'll see a link for User Profile Wizard 3.0.
+Note: I am not using roaming profiles in my setup, I see no reason why this wouldn't work in that situation as well but I have not tested it.
+It depends how you store your users profiles once they are on the domain. Are they kept locally on their machines, or do you have roaming profiles setup stored on a server?
+You can probably substitute all of the reboots (except the one after joining the domain which is required) with Log Offs, that worked in Windows 2000 and XP. But being that this is Windows 7 I figured I would play it safe.
+Here is how I have been doing this since Windows 2000. Yes I just did just do exactly this on my new domain with Windows 7 workstations about 10 minutes ago so I can vouch that it works flawlessly.
+Either way your going to need to join them to the domain, logon to create their default profile and then work on copying their data from their old profile into their corresponding domain profile fol

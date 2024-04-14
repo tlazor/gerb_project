@@ -1,0 +1,6 @@
+You also did not mention which "normal OO language" you mean. Supposedly Java. And what javascript kind you use - browser or node.js?
+Anyway, I personally agree your code is sound enough, though it looks to me that all this piece (itself) do not require using prototype.
+Second point, that if you want to move on in java way, you need to have Person properties hidden, not exposed. (I.e. they should be without "this", simply vars inside Person) And by the way you obviously can generate getters for them on the fly, since it is scripting language.
+Usually data models do not require to be inherited (though some people have specific view on this issue), only aggregated. Then you need not prototypes for them.
+My humble opinion is that since JavaScript is not normal OO language, you need not pursue all patterns you have in Java for example.
+Also note that in most scripting languages DAO is not popular pattern, instead people prefer ActiveRecord here - so that Person will contain methods for save and static method for load (here you may really want address to prototype, perhaps). Though I personally really support DAO-based variant.

@@ -1,0 +1,6 @@
+So, I have CUPs installed, and it appears to be working, but Canon drivers are going to be a problem.
+I am a very senior Windows developer, but the Raspberry Pi is my Linux learning project.  I'm good with writing code, and working at the command line (in Windows cmd or powershell), but the Linux shell is totally new to me, so I might need a little extra explanation in areas that concern Linux standards or conventions, or common tasks like package installation.
+However, when I go to the Cups web config page, my Canon printer simply is not listed on the page. (I am trying to connect with it via the ethernet connection, not USB)
+I installed the ARMHF version of the package with the debian package installer.  I'm not sure what to do about the dependencies that are listed on the page.
+I'm trying to use my Raspberry Pi as an Air Print gateway to my Canon MX860 printer (I only care about printing functions, even though it's an all-in-one printer, it doesn't matter to me to get scanning and faxing working)
+I found the debian project cups-backend-bjnp that appears to be a community contribution to support Canon -- it is in test right now.  http://packages.debian.org/sid/cups-backend-bjnp

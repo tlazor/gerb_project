@@ -1,0 +1,6 @@
+It's probably because you are trying to EMBED style code, which gets deleted when you save the page. Instead, use a CEWP with an external .txt file, or you can use the Script Editor Web Part with style code.
+I have built a site in SharePoint and would now like to change the appearance of web parts (document libraries) using CSS.
+I would create ".txt" file store in site assets library,  and just call out this text file in content editor. 
+Unfortunately, when I apply the changes and view the page again, the web part has reverted to the default appearance.
+What is likely to be happening is that wherever you are loading that CSS, it is being overridden by the standard CSS.
+You can try adding the !important tag to the end of the entry. You should check out the code using web developer tools in the browser to make sure that the CSS is actually being loaded and not dropped by SharePoint and find out what might be taking preference to your code. Using Firefox with the Firebug addin should assist greatly.

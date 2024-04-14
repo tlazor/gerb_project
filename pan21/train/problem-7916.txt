@@ -1,0 +1,5 @@
+Check out this "wiper" style solution, give it a few seconds you'll see the line wipe across. http://tinyurl.com/lprt6tr
+I have a Windows application which is displayed on kiosk machines and often runs continuously for weeks. The application is full screen. For reference imagine a screen divided into 2 panels, the left one uses about 30% and the right fills the rest. The left panel is completely static and informational, the right panel has video, image and text slides rotate, animations, etc.
+No surprise, the left panel can cause some "image persistence" (screen burn) issues. I am looking for suggested remedies on how to prevent the image persistence issue. I'm only concerned about LCD not CRT.
+But, my question is how much pixel color change is actually required to avoid the image persistence? Do you need to make sure the pixel changes color at least once every minute, 10 minutes, hour? Does it need to rotate through a range of colors? Does it need to hold a state for a period of time?
+Any insight about how often and what kind of color change is needed to actually prevent the problem is what I'm looking for.

@@ -1,0 +1,7 @@
+In the email, place your cursor where you want the slide or image. Then in the menus along the top of the email, choose 'Insert' menu.
+Actually in my case it only appears blurry while composing the email. When I send the email to myself, the email received is not blurry at all. Even the one in Sent Items shows the image as non-blurry.
+The problem is that the default paste option has been changed from bitmap to Windows (Metafile).  Select Paste Special, and paste the image in as a bitmap and it acts as it did in previous versions with no blurryness.
+I've looked for the setting to change the default paste option but can't find it. So I can only assume they've removed it.
+Then right click on the screen shot, select the cropping tool, and crop everything out except the slide or image.
+I do this to email people a powerpoint slide in the body of an email.  But you could probably do it with an image also:
+Strictly speaking it's not standards compliant and not the best way to do it, but it never was.  All Microsoft have done is they've changed the default option in an attempt to reduce the size of emails being sent out.  

@@ -1,0 +1,10 @@
+1)  Figure the velocity change needed between the bodies.  This is both orbital velocity and the energy needed to move to the new orbit.
+Do you really want to limit players to such motions?  And if you're doing that you are obviously using some sort of jump drive to get to the other star systems--why can't you use that within a system?
+3)  Adjust this for the burn needed in part #1.  If you're going outward figure an extra burn at the start for the velocity change, if you're going in the extra burn is at the end.  Subtract this distance from the distance between the planets, add the time needed to the total time.
+Do you even need to solve this?  Hohmann transfer orbits are SLOW--1/2 the orbital period of the outer body and they also require a proper alignment of the planets to work.
+There is another issue which you may want to give some thought to as well besides the physics of simulating a stellar system.
+4)  Take the remaining distance, divide in half and figure how long it will take your rocket to do this.  Double the result.
+Floating point precision will likely be an issue depending on how much of a "simulation" it is. When you think about it, the actual distances between a planet relative to the distance of an object orbiting around one of those planets is huge. Trying to simulate both a distant planet and an orbiting object in the same "environment" would likely break under the limitations of floating point accuracy.
+5)  Add the times involved, figure where the target planet will be after that burn is over.  If it's moved too much use the new location of the planet as your target, redo the calculations.  This will rapidly converge.
+If you have any sort of continuous thrust system of non-trivial power you don't need to do such fancy orbital calculations.  Instead:
+I am not a math brain, but my S.F. reading and Google lead me to this page on orbital mechanics. It starts with explanations I can follow and follows it up with equations I can't. The type of motion I was looking for is called a Hohmann Transfer Orbit, which is one that uses the least fuel.

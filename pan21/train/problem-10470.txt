@@ -1,0 +1,11 @@
+Once you have this isolated VLAN, you then need to figure out how to route this to WAN without allowing access to your normal LAN.
+We tried using the Linksys alone, connected to the DSL modem, using the Linksys for DHCP and setup separate VLANs, etc but nothing has worked. We receive one of three results:
+When we try setting up VLANs on the Netopia, we completely lose access and have to do a complete reset.
+We have a "quarantine" bench where we would like machines to be able to access the Internet, but restrict their access to the rest of the network.
+To me it sounds like you want to create a VLAN isolated from the normal LAN, and your third result of no access whatsover is probably in the right direction. 
+We have a Netopia 3347 DSL Modem/Router. The rest of the network is connected to this through a switch and various hubs.
+If for example you use the Linksys in a double NAT setup with your existing Netopia in place, as the WAN side of the Linksys is actually on your general LAN subnet, this will mean you will still be able to access both internet and general LAN from your isolated VLAN. If you did this however, your general LAN would not be able to see the isolated VLAN. If you reversed this setup, it would achieve what you want, but your general LAN would be double NAT'ed which may not be desireable.
+Unfortunately it been a very long time since I'm played with DD-WRT but I'm wondering if in the setup I described, you could firewall access to everything on it's WAN side (i.e. your general LAN) except the router. 
+We've tried numerous configurations of VLANs and subnets. To be honest, this is a little over my head.
+I've browsed the other related questions, as well as countless Google searches, but nothing seems to fit our unique situation.
+We have a Linksys E2000 flashed with DD-WRT, and an 8-port Cisco ESW 540 switch to play with for the quarantine bench.

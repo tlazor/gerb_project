@@ -1,0 +1,5 @@
+I have a large vector space model, in which each point is a multi-variate observation. In other words, I have a large number of pretty large records, mostly of ints and floats. I started with in-memory matrices, but given a large number of points (1B+) and a large number of dimensions (1K+), I soon realized that that wasn't an option.
+1) make the whole thing persistent and dynamic (I want to add/update/remove points/dimensions easily)
+Based on some reading, it seems that there isn't an off-the-shelf package to do this. What would you use to implement this kind of scenario? Dumping each point as a row in a relational db didn't work because the large number of dimensions. Even after normalization, the relational db was clearly too slow to perform similarity queries.
+2) query the VSM efficiently, performing similarity queries (given a point, find top K similar points) and range queries (find all points within a subspace).
+What technology would you recommend in this case? For example, I have read about array databases, and OLAP cubes, but I would like to have some advice from real DBAs.

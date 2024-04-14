@@ -1,0 +1,7 @@
+I have access to Powershell, "DBATools.io" scripts, SQL Server Agent, and a remote SQL server if it can help. All under SQL2016.
+Alternatively, anyone has a super hot way to get Production data down to QA or DEV environments easily and automatically?
+I also just discovered today the SQL2016 feature called AUTOMATIC SEEDING. I tried it, and it allows me to bypass the complicated "Add database to AG" steps. 
+Refresh scripts to downstream environments are specific to company environment esp. the post restore process like desensitizing or masking data, etc. So, I would say, invest some engineering time and make the process repeatable that will save you a lot of time in future.
+Following Kin's advice, here is the (semi)final result. If some people would add to it to make it even more modular/parametrizable/robust, I am sure it can get useful.
+You can create linked server and use Execute At LinkedServer. This is what I am doing in my current scripts when I have to refresh AG env in Dev / QA from PROD.
+I want to create a script/job that will run weekly to backup my PROD database, and restore it to my QA server, then run a custom maintenance script against it to cleanup and prepare the data to be analysed.

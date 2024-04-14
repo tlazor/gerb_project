@@ -1,0 +1,11 @@
+Here is some good benchmark data with a single or RAID 0 of SSDs on SATA, just for some background to start.
+Therefore logic dictates (to me at least) that you should go for the PCI SATAe SSD if you want the fastest solution to your storage needs.
+"Once we jump up into very high queue depths, both RAID-based arrangements distinguish themselves. It's only a shame that this is very atypical of any desktop workload, so you won't see it unless you take the 840 Pros into a more enterprise application."
+One new, high performance SSD will saturate the 550Mb/s transfer rate of SATA3 6Gb. Two in RAID0 would see a max throughput of about 1Gb/s.
+Some PCI SSD's will even reach this bandwidth limit and saturate the connection, meaning they have to be connected to a x4 (PCI 3.0) or x8 (PCI 2.0) connection to utilise the greater number of lanes to provide the maximum throughput. 
+SATAe drives are, however more costly £/Gb than conventional SATA drives and you need to make sure you purchase a boot-able drive.
+"In fact, the two striped 256 GB drives provide about twice the performance of the single drives [in sequential read and write]."
+"At the low queue depths you normally encounter in a desktop environment, all of these configurations perform fairly similarly. In fact, the striped setups are even a bit slower than single drives. This is because we're taxing the NAND flash's throughput."
+I have a new motherboard and it has 1 sata express port that's up to 10gb transfer. So I'm wondering which would have better performance? 2 SSD on raid 0 in a sata 6 port or 1 SSD on a sata express port?
+So I personally wouldn't complicate the setup by using RAID 0 - since it has less clear of a benefit with SSDs particularly with everyday consumer usage, and it doubles your chance of failure. And if using a PCI Express SSD is an option, then that would definitely beat out the RAID 0 option for speed and other considerations. The PCI Express SSDs have been quite a bit faster every time I've come across them in articles.
+On the other hand, a SATAe PCIe 3.0 port, using two lanes (x2) can reach nearly 2Gb/s which will allow for around 3.5x more bandwidth for data throughput. This is the standard most consumer PCI SSD drives will operate with.

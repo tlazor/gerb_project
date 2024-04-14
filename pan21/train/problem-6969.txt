@@ -1,0 +1,10 @@
+Are there some good design patterns for deciding what to do with the commands the user enters into the console window?
+I'm working on a little text based console game for a bit of fun and am starting work on the user commands entered into the console.
+== the index of all the commands starting with the same letter... In C# however I would say just use a Dictionary. Their hashing routines for strings is nice and zippy so just
+I also figured given a generic interface for all commands IUserInputCommand I could create the class required using reflection and fire off a generic Invoke method from the interface. (Although I'm not sure how useful this will be given that some command invokations will require different data than others).
+If you'd like to see what one approach to this looks like far down the evolutionary path, take a look at the MudOS parser.  This is a complex, powerful mechanism for defining pattern-based parsing, meant to be able to intelligently route command handling for targets with multiple nouns and adjectives, and handle cases like put ITEM in CONTAINER vs. put on CLOTHING (i.e. very different actions that happen to start with the same verb).  It may help illuminate where you're going.
+Old MUDs and Talkers (mostly the talker code bases) would use an array of arrays of structs for keeping lookups only to possible alphabetic matches. This would be done with
+The most basic form could be a simple switch/if on the command name and invoke the relevant class/method required (seems a bit icky though).
+I now have two items available to me in the userCommand. Firstly I have the name of the command as a string userCommand.UserCommand and secondly I have a string array of arguments userCommand.UserCommandArgs.
+I've createed a basic query structure for obtaining the command and it's arguments. It works kinda as follows (the code is C#):
+What are some design patterns already available for solving this kind of problem? What would you do personally?

@@ -1,0 +1,6 @@
+Now change your previous php version folder .php5.6.35 to some another number php5.6.354.. Then check php -v your wamp server and cli php will same
+I realized that it's because the PATH variable in the /home/apache/.bashrc file was set to the first version of php I had installed on my server, and it was never updated again (I always compile / install php from source on Github)
+I was upgrading my Nextcloud version. When I run the upgrade procedure, I have to "sudo php" as the apache user, but it refused to run because the php CLI version run by default by the apache user was too old. However, phpinfo(); on my server displayed the latest php version installed.
+If you have this problem while upgrading from PHP5 to PHP7 on Ubuntu 14.04 with Apache, here's what helped me (credit goes here):
+When you update php on your web server and want to make sure the CLI php version used is the most current when you sudo as the apache user, don't forget to change it in the .bashrc file of this user, like this:
+Now you will need a PHP path, If you don't know then you can contact your hosting support for PHP path.

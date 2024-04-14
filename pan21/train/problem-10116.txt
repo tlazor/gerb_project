@@ -1,0 +1,11 @@
+If you have never configured a Cisco WAP though console before you will most likely finding it very confusing.
+Once connected, depending on the default config it might ask for a username and password. If it does it will be either "cisco" or "Cisco" for both username and password.
+I find many of the younger administrators that have no network configuration experience to expect that any kind of real configuration occurs in a GUI interface (cisco cna no where near useful as console).
+Generally speaking, Cisco WAP's are setup and configured in much of the same way all enterprise Cisco equipment is programmed, though console cable, telnet, ssh.
+I usually hook an Ethernet cable directly from my laptop to the device. Then i can statically configure my laptop, then make an ARP table entry for the device. 
+Once logged in type "en" It might ask for a password again, If it does its again either "cisco" or "Cisco" don't use quotation marks.
+So, you use the console cable to connect to the device.  This way you know you've got a connection that works and isn't dependent on network configurations on both sides.
+Lets start by getting you into the GUI by manually configuring the ip address (assuming you dont have dhcp)
+Once you boot it up with the console cable connected, you can configure it to whatever IP address you want it to have, as well as whatever else, without having to rely on "the internet" being right about the default settings either.
+I am attempting to configure a new CISCO Aironet 1200 Series Access Point to have a fixed IP. I have been searching online and I have come to the conclusion that the default IP address of this device is 10.0.0.1.
+You are confused most likely because it sounds like you have only ever dealt with home based WAP units. Such as Linksys, Netgear, etc.

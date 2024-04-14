@@ -1,0 +1,7 @@
+A Windows based service would probably best suit my needs, running silently in the background, able to be set to a low priority in terms of load on the workstation. Obviously the data-store should be encrypted, perhaps even P2P in nature so other clients work together to stream data to replicate?
+Obviously doing that anonymously on the Internet causes other potential issues but I am looking to do that kind of thing on a local network in a controlled environment, not for everyday user use but more archival, long-term storage.
+Almost like a Distributed File System, self-managing, encrypted, data replication for redundancy when workstations go offline.
+I administrate a large windows network and I would like to make use of the unused space on the workstations, is there a free way to do this?
+I have heard before of distributed storage on the Internet using P2P like networks, where users choose to delegate a certain percentage of their disk-space to the network in exchange for them to store data on other drives around the world, in a distrubuted fashion whereby data is duplicated to still provide access if some clients go offline.
+If anyone knows of software that can achieve this please do enlighten me, if it's free then all the better! Thanks for your time & help.
+I am looking for a way to make use of this idle disk space in a reliable manner, choosing data-integrity first over speed of access.

@@ -1,0 +1,5 @@
+As far as running several copies of cherokee in thier own chroots, I believe this will fail, as each copy will be trying to listen for traffic on port 80, and find that they can't since the first launched copy of cherokee is already listening in.
+Is it necessary to CHROOT the Cherokee Webserver (It runs as a user with no shell and restricted priveleges).
+However, chrooting is a complex process, and I would not recommend doing it if you are not comfortable compiling your own copy of cherokee.
+You are not strictly required to, it will function without being in a chroot. However, it is considered a best practice. This is because if someone hacks your website, and gets shell access, they only get access to the very few libraries and programs needed to make the webserver run. Without a chroot, they would have gained access to your whole system.
+How do I go about finding the requirements of Cherokee (for putting it in a chroot jail) and is it practical to run multiple websites all with their own version of Cherokee and (in some cases) PHP CGI?

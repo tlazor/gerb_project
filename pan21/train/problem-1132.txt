@@ -1,0 +1,8 @@
+I've also included the output of dmesg when I plug it in if that helps. I don't have access to any other OS, so I can't just try something on Windows.
+I'm trying to reformat a micro SD card that was previously in a raspberry pi (and had stopped working). However, when I plug it into my main computer (arch) and try to partition it, I can't because gparted says it has no partition table. When I try to fix that by adding a partition table (GPT), I get the errors below. How can I fix my uSD card?
+It essentially breaks down to disable optional feature querying, which effectively hangs the card reader hardware:
+Please note, that it still is a workaround and may fail in the future. You should disable the workaround on future kernel versions to see if the bug has been fixed.
+This SD card is defective or damaged or the electrical pins are bad.  Try again after cleaning them.  If it still fails, then it is time for a new SD card.
+The options will be loaded when booting up in the future. If it does not, you may try to hack the temporary fix into a startup script, as a very dirty, but possible, solution.
+There is a known bug in the Linux Kernel 4.4-rc4 and later (It still persists today). You can read about this bug and a possible workaround on kernel.org.
+Try again with your SD card. It may take some seconds to initialize though (because the queries still time out, but we ignore that now).

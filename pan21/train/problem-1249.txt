@@ -1,0 +1,7 @@
+The disk of the system is a simple SATA raid 1 , the mysql daemon can grab up to 2.5GB of memory (i have a proxy running too, eating the rest of the 16GB of the machine. )
+My not using PEAR cache, is because I think (please feel free to correct me on this) it adds overhead I do not need because the page rendering code is called about 2M times per day and I wouldn't want to go through the whole code each time (and yes, I have eaccelerator to cache the code too). 
+So, for those expired pages, I want to use a caching system which will be VERY simple (like just enter a record with the rendered HTML and (if I need) remove it). 
+My question is: Would it be faster to let mysql do the lookup of the file and the passing to php or is the file-based approach faster?
+I have a service that provides HTML code which at some point it is not updated anymore. The code is always generated dynamically from a database with 10 million entries so each HTML code page rendering searches there for say 60 or 70 of those entries and then renders the page. 
+I tried to do it file-based but the search for the existence of a file and then passing it through php to actually render it , seems like too much for what I want to do. 
+I was thinking of doing it on mysql with a table with MEDIUMBLOBs (each page is around 100k). It would hold about 150000 such records (for now, at least).

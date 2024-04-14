@@ -1,0 +1,6 @@
+Depending on the x,y values, you could consider using floats instead of doubles. This should help a bit.
+If you really need the distance, I have no idea, but if you just need it to compare distances, you can omit the sqrt-function, which is oftten pretty costly. Of course you should rename the function for that purpose. 
+As a result it will convert dx*dx to double, then convert dy*dy to double then add them and the pass it off to sqrt.
+A common trick used in algorithms which need to work with distances is to rework the algorithm so that you can use the square of the distance. That way you can avoid the expensive sqrt call. This works because x*x < y*y iff x < y. Be careful though, whether or not you can do this depends on what you are doing with that distance.
+In modern computers floating point numbers are really fast, in some cases even faster then integers. As a result, you well be much better off to use double throughout rather then converting from ints to doubles and back again. The conversion between int and double is expensive so avoiding it may actually be your best bet.
+This only converts to double once. it will do all the math integer style and and then convert it to a double just before calling sqrt.

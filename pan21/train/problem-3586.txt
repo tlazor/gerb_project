@@ -1,0 +1,6 @@
+We use a SaaS service that only responds to requests when they come from one of our own public IP addresses. Because of this, VPN users are unable to access it currently. Is there a way to specify that a specific website should be tunneled and all others should not?
+We have a Cisco ASA 5510. We use split tunneling for AnyConnect SSL VPN clients. All internal addresses are tunnelled. Everything else is routed through the client's own internet connection.
+You're going to have to add the IP or subnet of that specific website to your split tunnel list. If you're asking if you can add a URL to the split tunnel list, then the answer is unfortunately no.
+As an answer to: "That is what I thought. However, I tried adding the IP address of the website and it didn't work. Do I also need an access rule for it to work? "
+Make sure you have the 'permit intra-interface', then double check the routes on the client and retry.
+NOTE: Worst case we will use a web bookmark on the clientless portal to tranlate through our network, but I'd like to see if the above is possible first.

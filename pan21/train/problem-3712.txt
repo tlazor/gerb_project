@@ -1,0 +1,5 @@
+The PHP FAQ explicitely states this is a bad idea. Most libraries it depends on are indeed no thread safe.
+If you wish to use Apache worker (I sure do, personally), you might want to investigate running the worker-mpm and PHP5 with FastCGI (mod_fcgid) instead. 
+The "cgi" part might put you off, but rest assured, mod_fcgid results in great performance, it uses a process pool, where PHP gets its own memory space, completely independent of the web server. This has multiple advantages, including to but not limited to better security (you can run the pool as a different user), better stability (if PHP crashes, it won't take your webserver down with it) and significantly reduced memory for apache processes since they don't have to embed mod_php at all, they just communicate with the pool. It also allows for some unprecedented granularity because of this.
+Here's an example tutorial for Debian based systems. I use it in production for various systems, it allows me much more scalability.
+I'd like to try running Apache in a threaded MPM with mod_php. Does anyone have a list of PHP modules that are thread safe so I can tell if its going to be safe to do or not?

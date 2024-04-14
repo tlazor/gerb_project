@@ -1,0 +1,6 @@
+If your network is connected via HomeGroup, Windows has a page on how to make certain files from being available on the network: http://windows.microsoft.com/en-US/windows7/Keep-specific-files-and-folders-from-being-shared-with-a-homegroup
+It sounds like you probably have the root of your drive shared, which is always dangerous. You can follow Mike's instructions to see what is shared and disabled it.
+On the left panel of the network and sharing center, click on Change advanced sharing settings. Under Public folder sharing, choose:
+Or turn on your firewall. Start->control panel->windows firewall. Find "Turn Windows Firewall on or off"
+This will prevent anonymous users from accessing your file shares. Users in your same homegroup will still be able to access some files, so if you want extra security, also choose under HomeGroup connections to
+As a general rule, it's best to configure your computer to not allow anonymous users to access file shares, as this is a big security vulnerability. Click on the networking icon in the notification dock, then choose Open Network and Sharing Center.

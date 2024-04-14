@@ -1,0 +1,9 @@
+Disable DHCP on the router. It will work. Your problem (1) and (2) are the same. By the way if you want to access in to the router type 192.168.1.1 on any browsers and then admin is the username and the same is password or password is password, or whatever setup as password is password.
+Disabling DHCP server on the router will cause problem for internet connection to other laptops unless you manually enter the IP address, subnet, gateway and dns accurately. I do not recommend 'to disable DHCP server' in this situation. It would not help at all.
+The same thing apply to your problem 2. Configure your server so that it would be able to communicate with your laptop.
+It seems that you connect Linksys router to the switch because you want to have wireless accesspoint. IP 192.168.1.5 would be a laptop that has wireless connected to Linksys router. Is it correct? The printer is directly connected in wire to the Switch.
+{Internet} -> (Server) -->|(Router)--> (printer)|[16 ports Dlink Switch] --> (printer)(PC1, PC2)(laptop1, laptop2) 
+You will have to configure your printer in such a way that it can communicate with you laptop. It is possible. the problem lies at the printer not at the router or the server at all.
+This should keep everything. using DHCP under the same IP network / broadcast domain. You server getting the Wan IP address from you ISP and the rest of your devices IP's from your Router.
+Your problem is obvious. Your printer is connected to a network of 192.168.0.X and your laptop is on 192.168.1.X network. 
+It looks to me your caught between two different broadcast domains. first one being  (Server) --> [16 ports Dlink Switch]-->(printer)(PC1, PC2)

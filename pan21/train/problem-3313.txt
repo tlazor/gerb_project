@@ -1,0 +1,8 @@
+The perception of "clarity" of the failure message is going to be different for non-tech personnel. A typical message like
+For example if the user was supposed to receive an email from a third party but it hasn't arrived, they'd be able to check the web page and see a list of emails rejected by Postfix, along with a clear reason as to why.
+is rather going to confuse any non-tech-savvy user than give her the comfort that everything is running as it should.
+It would be easy technically - running something like egrep "postfix.*reject" /var/log/mail.info and posting the output to a web page (e.g. through a CGI script) is a no-brainer. As a more sophisticated alternative, you could use AWStats to process your mail logs and create aggregate reports which would expand upon request. 
+The product is called Mailtrace. With a little begging (and paying) they will provide a version in your language.
+A user would like to be able to view a web page showing any emails that a Postfix server has either been unable to send, or unable to receive.
+There already is a solution for that. It is not free and the company has only a German Website and a German Web GUI. But it is amazing as it continuously parses the log files, assembles them (as one mail produces multiple [related] log entries), put them into a database and provides a web based GUI. It is also possible to map meaningless reject messages to extended valuable messages.
+I've been unable to find an existing application that offers this functionality. Does anyone know of any, or is the best way forward to write a script that parses the log and display the results?

@@ -1,0 +1,5 @@
+Yes you can. For hiding S3 you use origin access identities and not expose s3 endpoint to any other service other than CloudFront.
+Please note that by doing this, CloudFront will overwrite Referer header (if present) of any incoming request before forwarding it to the origin, so if you rely on it, this solution won't work.
+As a result, bucket policy will allow object GETs if only the request contains Referer header with specified secret value, which will block direct request to you S3 website and allow requests sent via CloudFront. And, obviously, you might think of rotating this secret value every now and then.
+To restrict access to CloudFront you have 2 choices. You can either use CloudFront's private content feature and restrict access by time or to specific IPs. Or, you can use AWS WAF and block access to any source IPs other than specific ones you want to allow
+Well, as far as I'm aware, there is no official solution so far, however there is a workaround suggested by AWS. So here is an implementation that worked out for me:

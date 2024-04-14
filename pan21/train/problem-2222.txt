@@ -1,0 +1,6 @@
+We are having a site wide networking problem that seems to be related to running a large number of VMs under Hyper-V.
+I realize that we must have some other underlying issues with the network, but I wanted to start with the VMs since they precipitate the problem. 
+My idea was to create a Server 2008 VM with two network adapters, one "External" and one "Private". I would bridge the adapters and put all the test machines on the "Private" network. This seems to have worked and I have the traffic moving through my 2008 bridge server.
+I was thinking I should be able to better isolate the VMs from the main network. Currently they are configured to use a "External" connection and are bound to one of the adapters on the Hyper-V host. This puts them directly on our main network.
+When all the machines are online the main network becomes unusable. Wireshark captures indicate a huge number of netbios broadcasts.
+Now I would like to create a firewall to restrict certain ports/protocols from being forwarded from the "Private" network to the "External" network. I am not having any luck with this and would appreciate any help. Subnetting the "Private" network is problematic since some of the PCs that the test machines must communicate with are on the main network.

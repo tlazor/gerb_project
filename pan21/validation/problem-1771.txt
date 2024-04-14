@@ -1,0 +1,10 @@
+I have a PDF doc that is a 48 page users manual. I am wanting to print it, but 48 pages would be a waste. So I tried to combine 4 of the PDF pages onto one printed page. I am able to do this, except that the text is small, and there is a lot of unnecessary white space between the PDF pages on the final printed page.
+As you can see it views in AA Pro as a full size page - note the page views in the left hand column also.
+I can't find a way to increase the size of text per PDF page and also remove the white space between the PDF pages. I tried increasing the font size from the printers scaling setting (printer properties), but all it does is make the whole document larger and push the text onto the next page, cascading the problem down the entire 48 page document - so it unfortunately preserves the space between also. 
+Hopefully it's clear what I'm trying to accomplish, but I don't know how to get there. I have both Adobe Acrobat Pro, and Soda PDF pro, if that helps.
+So if I use the option to print 'Multiple' PDF pages, on a single printed page (4 pages per sheet), I can do that, and that is preferable, but it reverts to the default small size. Therefore I'll have four small text PDF pages on a single printed page. It looks like this: (the circled area again)
+To start, if I open the PDF in Adobe Acrobat Pro, this is an example of what one of the pages looks like:
+Do I need to be looking at the actual PDF document settings? PDF Printer settings? Windows 7 printer properties settings.
+So at this point I'm not even sure if i should be approaching this as a font size problem? A scaling problem? A margin problem? 
+I can use the custom scale option on that page to increase the size of the text until it fills the page, but then it's huge and a waste of paper. My goal is to reduce the # of printed pages.
+However, if I print that single page it will look like this - note the circled box. The printed text consumes a small portion of the page, in fairly small print,  with a lot of white space.

@@ -1,0 +1,6 @@
+My father has a old laptop made by Lenovo. He wants me to replace the original HDD with a SSD so the laptop can run faster. So I bought Samsung 860 EVO 250 GB (SATA) and did replacement.
+There really shouldn't be a "mismatch". Rather either a botched installation, or more likely leaving it disconnected from the internet was a bad idea, as Windows needs internet to install drivers. 
+But after the installation of Windows 10, at the first time entering operating system, the screen froze and Windows didn't respond to any keyboard and mouse input. I think the entire OS was dead because the screen kept on even the lid is closed.
+But I had a similar issue earlier this year replacing a coworker's HDD with a new SSD on a MacBook Pro. The original HDD worked fine (albeit slow), but when I installed the SSD the operating system would not even boot. The SSD worked fine in other computers... so I researched and came across many people saying swapping out the SATA cable fixed their problem. Like you, I was skeptical but tried it out anyways. It worked.
+If you have a SATA <-> USB cable, you can try to boot from the SSD via USB. Then if that works, you know it's probably the internal SATA cable.
+I don't know why a broken SATA cable can work with one hard drive, and not another... but it IS possible. 

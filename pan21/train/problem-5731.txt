@@ -1,0 +1,6 @@
+I let you check how to tune parameters with the socat manual. It is quite straightforward once you know you MULTICAST GROUP and your network interface's ip adresses. :-)
+The possibilities you have are tunneled solutions e.g. OpenVPN+TAP (with UDP transport), or GRE, or even things like L2TP. [I wonder if IPIP/IP6IP6 tunneling would work as well.]
+mrouted is a deamon which get any multicast packets and tells the kernel where to forward them. You will need to recompile your linux kernel with a specific patch and the right options. Then configure the mrouted daemon. Get more details in the Linux-Mrouted-MiniHOWTO.html .
+I am not sure to understand your graphic in your question, but as far as I understood, you need to forward multicast packet through TCP ? A tool oriented solution may involve socat:
+Some routers will allow for multicast traffic to be tunnelled across IP network links. Both ends of the tunnel will have to be configured accordingly. Cisco in particular supports tunneling multicast traffic over GRE links. Here's an in article about how to achieve that Cisco
+It is possible, but using a stream protocol like TCP is not a good idea for reasons that multiple congestion implementations (once from TCP and another time from programs attempting utilizing UDP in a smart fashion)[1].

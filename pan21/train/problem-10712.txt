@@ -1,0 +1,7 @@
+We have two users in the domain, both assigned to the same group - the default group "Domain Users".
+When we log in to a Session Host with one user, we have no problem calling "Get-S3Object".  But when we log in with the second user and call "Get-S3Object", we get “No credentials specified or obtained from persisted/shell defaults” - permissions should be given by the IAM policy attached to the EC2 which works for the first user.
+To fix the problem, we have found that if we delete the second users' Windows profile, then the next time the second user logs in, they are given a TEMP profile and they are able to call "Get-S3Object", so clearly there is a problem with the user profile.
+On AWS, we are running Microsoft Remote Desktop Services on Windows Server 2019.  All servers are joined to an AWS AD Directory Services domain.
+The Windows Servers are practically a vanilla instance and it's strange that deleting the User's profile fixes the issue...
+Is it possible that the failing user gets some AWS_... environment variables set and they then interfere with the instance credentials? I’m not a Windows person but surely there is a way to list all env vars. If something starting with AWS is set unset it and try again. 
+We have also created a new domain user which had the same problem on one Session Host but not on another. It's a very random issue. 

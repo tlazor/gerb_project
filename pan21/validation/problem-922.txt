@@ -1,0 +1,7 @@
+Is there any other way to open 3306 securely from remote machine? one solution can be tunneling port 3306 through ssh, so any other Secure access solution we have to access 3306?
+Then connect connect to localhost:3306 and you'll be all set. You'll likely need to add a grant for whatever user you will be connecting with. 
+I have mysql database hosted on Amazon EC2 server and i want to access it remotely to make changes to it. As i dont have static IP, i cannot allow specific IP in firewall for secure access to port 3306.
+SSH tunneling is likely the easiest option to get set up as it doesn't require changes to your MySQL configuration. It is just as secure as using MySQL's built in SSL support. 
+In your case I'd recommend using at least server-side SSL to protect your password and data, but using a (self-signed and trusted on the server) client SSL certificate might not be a bad idea either.
+I don't generally recommend host-based authentication or using a host-based ACL to secure your connection to anything, because IPs (and DNS names, as some people use!) can be spoofed and hijacked, and also you don't need administrative access to the trusted client to compromise it enough, and generally these things are easier to do than compromising a reasonably long private key.  Additionally, if you don't use SSL you are vulnerable to traffic sniffing attacks.
+If you're talking about Amazon's RDS instances, then you can already have the connections use SSL to connect. If you configure your DB users accordingly you can also make it a requirement.

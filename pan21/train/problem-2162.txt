@@ -1,0 +1,6 @@
+So, from the performance point of view - nothing changes to the worse when using D2700, also, you are getting more availability.
+You'll want to keep the arrays in the external enclosure separate from those inside the server. Just from a fault-domain perspective.
+However, you can have boot disks in the enclosure or have the server itself be empty. Up to you. The D2700 enclosure is a rock-solid unit, so the advantage when using SAS disks is dual-porting/dual-pathing, depending on which host RAID controller you're using.
+D2700 provides four physical interfaces per SFF port, each 6gb/s, which gives total 24gb/s per one physical port. In multipath configuration it can provide up to 48gb/s when using two HP HBA's and two storage controllers.
+Remember that a single (spinning) disk's throughput won't approach 6Gbps, so oversubscription is fine in this case.
+Your SAS connections are multi-lane 6Gbps links on a SFF-8088 connection. That's 24Gbps. You'll probably be doing this with one controller.

@@ -1,0 +1,7 @@
+On the hardware side of things... an F5 load balancer can do this sort of thing whilst also ensuring high scalability.
+The secret sauce is proxy_next_upstream directive, which determines in what cases the request will be transmitted to the next server.
+You can nginx with HttpProxyModule (it's pretty standart module and usually is inside nginx) to implement such load balancer.
+Nginx provides a lot of functionalities, including all the ones you are looking for: http://wiki.nginx.org
+check especially the upstream and proxy settings, there you can implement all your requirements: http://wiki.nginx.org/HttpUpstreamModule http://wiki.nginx.org/HttpProxyModule
+Another possible solution to implement your requirements is LVS (Linux Virtual Servers) which are implemented in the Linux kernel itself. if you just google for LVS tutorial you will get tons of results.
+On the proxying side, squid/nginx can do the job relatively reasonably - which you go with is somewhat a matter of preference, but also how important it is to have the kitchen sink at your disposal (if it's not, nginx is arguably the best choice)

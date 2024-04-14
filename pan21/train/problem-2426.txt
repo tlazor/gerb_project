@@ -1,0 +1,6 @@
+You should be able to find the SAM file from your in-Windows user account before trying it so you can get the proper path.
+I use NT Offline Password Recovery to reset passwords and enable accounts on NT-based systems. If you just read the prompts it's pretty straight-forward.
+I just removed my vista laptop from domain, but now I cannot login in with local administrator as local admin account is disabled. I have only local user account that works.
+You might be able to boot from a Rescue is Possible (RIP) Linux disc, mount the hard drive, change into /mnt/mountpoint/WINDOWS/system32/config (or wherever your particular version of Windows is holding the SAM file), then run "chntpw ./SAM" 
+If either of those bother you, or fill you with fear, then add the computer back to the domain, and then enable and reset the local admin account that way.
+That application I believe has the ability to enable the account as well as wipe the password. I don't change the password, I just wipe it and reboot to Windows to re-set the password.

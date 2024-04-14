@@ -1,0 +1,9 @@
+So in fact the mutool run scripts are provided an API (see everything below "JavaScript Shell") for working with pdf and do not require knowing the pdf format (contrarily to what the example scripts hint at), for reference here is a script achieving pdf->one image per page->pdf.
+    device.fillImage(imageRender, Concat(Scale(pageBounds[2] - pageBounds[0], pageBounds[3] - pageBounds[1]), Translate(2*pageBounds[0], 0)), 1);
+http://git.ghostscript.com/?p=mupdf.git;a=blob;f=source/tools/murun.c;h=16582b5d83234c880c4c3b67b279a4428d3f2303;hb=refs/heads/master
+I'm currently using Mutool and especially mutool create. I am willing to switch tools (command line, gui or programming library) if you have any you recommend using. Would prefer something that can be automated through scripting or code. In general, I'm looking for a way to extensively and freely manipulate pdf files.
+Using this content stream file, how do I not resize an image? Using 1 0 0 1 <x> <y> cm for positionning should work (page 206) but it also scales the image to 1x1. And how do I make a page the size of the image in it? How do I "switch" to the next page?
+// scale up render if needed to have non-blurry images up to filling up screen when zooming on a page
+    // no idea about how the translate bit works: not sure where the origin for coordinates is (but it works)
+I couldn't get a simple source for what the content stream syntax is (from what I read it's basically a part of the internal pdf format syntax, doesn't seem very user-friendly...), is this really how I'm supposed to use mutool?
+Lack of clear documentation (especially on argument types) made me look at the mutool source code. Most error messages I got were not related to what the problem was.

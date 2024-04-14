@@ -1,0 +1,5 @@
+First of all you need to make a comparison using the five-number summary (min-Q1-median-Q3-max) and make a first conclusion for the distribution equality.
+If the is a significant difference, then the classifier trained using a dataset with different distribution from the test set will have a poor performance on the test set. A solution could be to use Transfer Learning/Domain Adaptation Methods to tackle this difference and adapt the classifier trained on a different distribution for the test set instances. 
+A second option could be to perform a statistical test as the Kolmogorov-Smirnov test to check for distribution equality and see if there is a significant difference or not between the two samples. 
+The range of the dataset values can be influenced by extreme values (outliers), so it is not the right way to check if the training set and the test set follow the same distribution. 
+If I am trying to build a classification model where Values for columns have different ranges: For Example: Column A in training set ranges from 0 - 30 but for testing set it ranges from 0 - 80. 

@@ -1,0 +1,8 @@
+Joe Celko also wrote quite a few excellent articles about this topic, you can start with this one, and this one.
+This is a controversial topic, and you will find people with strong opinions both ways. A quick search for "Natural Vs. Surrogate keys / artificial keys" will yield you enough reading material for years.
+I assume (correct me if I'm wrong) that your question is not about the specific properties of SQL Server or Oracle IDENTITY, but about the use of IDENTITY as surrogate keys in general, which will be true for other implementations such as AUTO_INCREMENT, SEQUENCE, IDENTITY, GUIDs, OID as a design choice.
+IMHO, that is unfortunately also the root cause of many data consistency, modularity, performance, coding, and manageability challenges that later end up very hard and very expensive to correct.
+However, I also see that surrogate keys are used indiscriminately by most, just because finding the correct keys and modeling it properly is a significant effort, that requires mastering the relational model, which is hard.
+Most people new to SQL never stop to ask these questions and just assume 'this is how it's done' because everybody seems to be doing it this way.
+At that point, you have no choice but to look for the natural key. But, if the natural keys were never explored, or properly constrained with UNIQUE constraints, the inconsistencies and duplicates are typically in abundance.
+In my designs, I find that I use natural keys for the majority of the tables, and carefully plan for the edge cases where a surrogate is beneficial.

@@ -1,0 +1,6 @@
+I can't see anything in BOL that explains why SQL server is trying to access an old backup for this.
+so it cannot access the backup from two months ago - I know there's a very good reason for this, as that backup is no longer present (we don't keep backups that long).
+My question is, why is SQL Server trying to access a backup file from two months ago for a restore to a point in time only yesterday? Is there something I'm doing wrong here?
+I have tried to do a point-in-time restore of a database through the management studio gui, the point-in-time being yesterday morning (2016-04-12).
+for a restore to a point in time, you just need the latest full-backup and all the transaction logs thereafter.
+I've checked all my settings in the restore wizard gui (to make sure I hadn't got the date wrong). All the required (Or the only ones I think should be required) backup files are correct and accessible. I am going to just restore the 2016-04-11 nightly backup manually anyway so the urgency for this is off, but it's still interesting/annoying. 

@@ -1,0 +1,6 @@
+The problem can be equivalently stated as follows: given $b,c\in\mathbb N$, determine whether the quadratic $x^2+by-c=0$ has a solution $x,y\in\mathbb N$.
+The problem is about tiling an $n \times n$ grid with a fixed set of tiles and constraints on adjacent tiles and tiles on the boundary. All of this is part of the specification of the problem; it is not part of the input.  The input is only the number $n$. The problem is  $\text{NEXP}$-complete for some choice of tiling rules as shown in
+(The original paper states the problem with $ax^2+by-c$, but it is not hard to see that one can reduce it to the case $a=1$.)
+Additionally, they also define a similar problem that is $\text{QMA}_\text{EXP}$-complete, which is the bounded-error quantum analog of $\text{NEXP}$. (The classical bounded error analog of $\text{NEXP}$ is $\text{MA}_\text{EXP}$.)
+As proved by Manders and Adleman, the following problem is NP-complete: given natural numbers $a,b,c$, determine whether there exists a natural number $x\le c$ such that $x^2\equiv a\pmod b$.
+Our FOCS'17 paper on the Short Presburger Arithmetic is an example of a "natural" problem which is NP-c, and uses a constant number $C$ of integers in the input, say $C< 220$.  It is different from Manders-Adleman in that the constraints are all inequalities.  See Gil Kalai's blog post for some background.  

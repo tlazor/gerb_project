@@ -1,0 +1,6 @@
+Short version: install the 12c software, create an empty database, and transfer the data with Data Pump. This way you can skip 11.2.0.1+ versions.
+I first asked this question on stackoverflow, but someone pointed out that this might be the appropriate site. Hope I am doing this right.
+I am used to be forced to login to download stuff from Oracle, but the second page tells me I need special support privileges. Seriously? Oracle allows me to setup a developing machine with their enterprise editions but I need support privileges to download a patch to the most recent version of Oracle 11? 
+The setup file of Oracle 12c then told me to patch to 11.2.0.2, 11.2.0.3 or 11.2.0.4 first. So I tried to find and download the Patch to 11.2.0.4 for Windows x64. The official Oracle page only lists 11.2.0.1, so I did a quick search that lead me to this page.
+To perform tests in advance of an upgrade from Oracle 11gR2 to 12c on our production systems, I tried to update the database of a developer virtual machine (Windows 7). The current Oracle Database version of this old developer machine is 11.2.0.1.0.
+A valid support contract is needed for that. Actually a support contract costs extra on top of the database license, so there are companies that choose not to pay for it (and not to install patches...).

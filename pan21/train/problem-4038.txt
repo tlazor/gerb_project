@@ -1,0 +1,6 @@
+This will send user1's email via smtp to 192.168.1.2 (or a domain) without looking up the MX server, which may point back to your original server.
+You would then run postmap /etc/postfix/transport which will generate the DB file, and reload postfix.
+To move mail from one server to the other you will need to set up a per email transport in your transport table. Assuming that the transport table is set up in this manner: transport_maps = /etc/postfix/transport , you would add in a line for each email user@domain.tld  transport:[nexthop] 
+If the second mail server is also Zimbra, you could use the built-in Zimbra capability to spread of users across the mail servers in the same domain - "Zimbra Multi-Server Installation".
+What you are describing is a split domain situation. This is well documented on the Zimbra wiki. What you want is the following:
+Server recieving mail for ALL addresses that doesn't even exist, - is fast becoming spam target. So, better to check address existance before accepting mail.

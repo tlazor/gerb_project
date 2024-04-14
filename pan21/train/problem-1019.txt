@@ -1,0 +1,5 @@
+Moreover, encrypting password when everything is backed up is just absolutely useless. If IE can pick the key and decrypt your passwords, anyone who has access to a backup can do that too. (If the 'pick and decrypt' sounds too complicated, I'll be more specific: extract a copy of your profile from backup and copy to %AppData% locally.)
+The important part is, if your system is in a corporate domain, the IT people, bad or not, already have all access to your data. They could sniff the traffic (it's harder in case of gmail because of SSL, but possible), they can just open radmin/vnc and do anything they wish, etc.
+To summarize, while some encryption may look safer, anyone with basic IT skills can circumvent it without any troubles.
+As an alternative to the IE password storage, I recommend the iMacros for Internet Explorer addon: http://www.iopus.com/download/imacros-ie/ - I like it because the macros are simple text files and nothing is stored at strange places in the registry.
+iMacros is free and encrypts passwords with 256-bit AES. Similar iMacros extensions are also available for Firefox and Chrome (open source).

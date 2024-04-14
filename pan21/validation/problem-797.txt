@@ -1,0 +1,7 @@
+Be aware that if you store data in a lossy format, and then convert to another lossy format, and then another, your video quality will degrade with each transition.
+So it's probably best to pick a lossless format, because once you pick one lossy format, you're stuck with it.
+I totally agree with sysadmin1138's post in every way bar one caveat - I don't think you're going to have the budget to really achieve what you want.
+As difficult as it is for technologists, I would recommend immediately stopping thoughts about disks and technology. Break out your business problem into things that you have to make decisions about.
+So what you want to do can be done, I've done it myself a number of times over the past two decades or so - but none were cheap I'm afraid.
+That way Amazon have to worry about the actual storage of the data, and, unless there are no computers that can compile C/C++ in 30 years' time, you'll be able to get at the information...
+Perhaps there's something I'm missing, couldn't you encode everything using an open format where the source code for the codecs is available, and then just stick it all on Amazon S3?

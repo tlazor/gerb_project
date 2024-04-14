@@ -1,0 +1,7 @@
+There nothing unreal about Desktop. It's actually ~/Desktop, where ~ is your home directory (usually /home/username).
+If you install Homebrew (and follow steps in the above tutorial) it will download MongoDB, extract to the right locations, setup the symlinks, etc. for you.
+Without root privileges, you only have access to ~ anyway. All your personal files belong there.  Consider it your C:\.
+You can follow the guide at http://www.mongodb.org/display/DOCS/Quickstart+OS+X it will install MongoDB under /usr/local. It also contains instructions to create the data directory under /data
+While the other answers are all true, I'd like to suggest you create a sparse bundle in disk utility, and use this for your install. It will act as a "virtual" drive - use it just for your install.
+Nice thing is you can freely move it around and don't have to worry about getting in conflict with installations of other programs or your system. It's worth gold when you want to clean/update your install in a few months...
+The file system used by *nix operating systems is fundamentally different from that used by DOS, Windows, etc.

@@ -1,0 +1,8 @@
+Physical drive 2: Large, slow.  Typically has a RAID1 mirror.  Here, I store all user data.  I use the registry (or TweakUI/VI) to relocate shell folders to a location on this drive.
+The reasoning behind keeping dedicated partitions for swap is that I've found one of the best ways to crush Windows performance is to have a fragmented swapfile.  If you have a whole partition with only one file on it, it can't fragment.
+Physical drive 3: Small, fast.  On partition A I have temp files, browser caches, scratch space for audio and video editing programs, etc.  Swap partition B again.
+Once you have all your small swap partitions created, use the System control panel to assign them swapfiles that are (size of the partition) - 105MB.  Leaving the open space will prevent Windows from nagging you about low free space.
+Physical drive 1: Smallish, holds OS and program files on partition A, small partition B at the end for swap.
+I actually find it pretty easy to relocate temp files.  All you have to do is adjust 4 environment variables.
+I think that if you want to do this right, you'll use multiple devices.  I probably take this to a bit of an extreme, but here's the scheme I've been using for many years now.
+I can tell you from experience that re-installation (I re-install at lease twice a year) is a breeze as far as user data goes.

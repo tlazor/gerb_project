@@ -1,0 +1,7 @@
+But given that you need this on a laptop, it's more complicated. You could try to find something like Microtech 1M USB To SCSI Converter DB25F/USB but they are extremely expensive compared to a SCSI PCI card you can get from old recycled PCs/servers.
+It's going to be far easier if you can get a rescue OS booted up on that system and copy the files from a running live Linux CD or similar.  Linux has great support for older SCSI hardware so it should recognize the drive, assuming no physical issue with the controller or drive itself.
+But you will also need a SCSI drive enclosure, to power the drive, as only the hotswappable server variant of SCSI provided power over the SCSI connection itself.
+And if there was such an adapter, would I be able to access the HDD? I mean in terms of drivers etc. will a modern laptop (preferably Ubuntu) be able to communicate with it?
+USB to SCSI adapters do exist.  Search "IOMEGA JAZ SCSI USB ADAPTER cable -SCSI USBA converter 04089800" as an example.  These look expensive, and they may only work with Iomega hardware though.  There are others if you search hard enough.
+My girlfriend has an old computer that she didn't use for MANY years. It has some important pictures on its hard drive, so I tried to access that data. The HDD is an old Seagate ST34520W with a 68pin SCSI. What are my options? I didn't finds any SCSI to USB or to SATA converter/adapter...
+You connect it to a PCI slot, connect the SCSI drive to the card. Such cards have a SCSI interface. They also support booting from them.

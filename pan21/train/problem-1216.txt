@@ -1,0 +1,5 @@
+There's no reason for these variables to be declared at a class level, you only ever use them within a single function:
+It looks like you're only expecting a single client (your listen thread doesn't contain a loop to accept more than a single connection).  Rather than spinning up another thread to perform the receive functionality, you might as well be doing it in the same thread that you performed the listen on.
+If the user clicks on the send button, before they've clicked on the Listen button, your client member won't have been initialised so will throw an exception when you do:
+Your listen code doesn't check the state of the Server before calling start.  If you click it twice, it seems likely that this is going to cause a problem.
+You don't have any exception handling around your read/write calls.  TCP can be a bit of a pain at times, depending upon how the connection has been shutdown it may throw various exceptions rather than just returning 0 from the read call.  It's also worth remembering that since you're accessing the socket from multiple threads it can change state between your is connected call and your write operation.

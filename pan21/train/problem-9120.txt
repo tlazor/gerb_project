@@ -1,0 +1,6 @@
+If you can't access the variable you want, then you need to refactor the structure or redefine the variable at a higher/different scope so that it's available. Sometimes this issue is indicative of a design problem in the package structure itself.
+A more hack of a solution could be to use multiple namespaces for example you could have [Global::FilePath] and [Local::FilePath]
+When creating an SSIS package in Visual Studio 2008, in the expression builder, I know I can reference a variable by using @[User::FilePath] for example but this only works if you are evaluating the expression for an object that is within the same scope of the variable that you are referencing.
+Is it possible to reference the SCOPE of the variable such as @[User:PackageScope:FilePath] or @[User:SQLTaskScope:FilePath] for example so that I can call a variable that is in a different scope then the object I am building the expression for?
+The task/component will look for the variable in its current scope, then its parent, then it's grandparent etc until you hit Package level.
+It sounds like you have two variables defined with the same name at different scopes. If you use only one variable at the higher level it will be accessible from both.

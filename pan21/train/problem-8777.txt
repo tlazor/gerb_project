@@ -1,0 +1,7 @@
+The alternate solution is that you convert the video to FLV anf upload to some remote server, in my case YouTube.
+I've got a situation where I want to distribute a Powerpoint presentation to several people.  I want to be able to embed several large videos in this presentation by linking to a URL, for the following specific reasons:
+Any suggestions on how to make this work, or how to at least satisfy the criteria listed above would be great!
+One option that addresses #1 is to hook up a webcam and allow them to see video stream from the office, but our upload rate is too slow for this to be a viable option.
+That's it!  I have confirmed that the file isn't cached on the OS (at least not with the same name), and if I delete the file from the remote server, it disappears from the presentation!
+Here's a detailed tutotial of how to achieve it: http://www.wikihow.com/Embed-YouTube-Flash-Videos-in-Your-PowerPoint-Presentations
+I've tried embedding a video and giving Powerpoint the URL.  It seems to work initially, because the first frame appears in my slideshow.  However, when I play the slideshow, nothing happens.  I looked at the network traffic on my computer, and nothing was getting downloaded from the remote server.

@@ -1,0 +1,8 @@
+and then made it executable with chmod +x ~/bin/screen. You might have to open a new shell to get it to pick up the wrapper.
+It seems like you have some .bashrc (or equivalent) file in your home directory which defines this variable. I don't know much more details though.
+Now screen (or aterm, xterm, ... just substitute it above) should preserve $LD_LIBRARY_PATH as wanted.
+(This question is very old, but I just encountered the same problem, and am documenting the solution for posteriority:)
+Edit Ok, since starting bash works, I'm guessing not the .bashrc. But maybe some other configuration file which happens to be executed on the same way, when you start xterm or aterm.
+My solution was to save LD_LIBRARY_PATH before execution, and restoring it afterwards. So I created a wrapper ~/bin/screen (put ~/bin on PATH), with the following contents:
+I've had this problem with GNU screen (the terminal multiplexer), but it can as well happen with a regular terminal. Teddy was right in my case, screen has setguid set.
+Then I added the following to ~/.bashrc . Remember ~/.bashrc gets sourced every time you start bash, unlike ~/.bash_profile which only gets sourced at login (usually at startup, or when you login over ssh).

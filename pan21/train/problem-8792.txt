@@ -1,0 +1,11 @@
+OSPF maintains a complete picture of the entire OSPF area in which it resides, and only that area, not necessarily an entire AS which may consist of multiple areas.
+I'm confused about routing table sizes in BGP vs OSPF. My understanding is that in an AS with the routers running OSPF, each router will have the whole picture of the network, and as such will have an entry for each router and the metric for reaching it. If the routers in the AS are running BGP, each router will only be aware of its neighbors; as such, it will have much fewer entries.
+The (very) old way was to redistribute all the external routes inside OSPF. It is not a good practice now because OSPF was designed for faster convergence and won't scale with that many routes.
+Inside your AS, you may have several BGP routers, that know about those external networks. But somehow they have to exchange the information. For instance your router A may be directly connected to colt network, whereas router B can reach google more easily.
+OSPF would flood every change, won't be able to apply 'policies' the same way as BGP, and would not support dampening (AFAIK).
+BGP and OSPF serve different purposes. OSPF will always be within a single AS. BGP is primarily to route between ASes (eBGP). BGP can be used within an AS (iBGP), but there are some limitations and rules for iBGP. For instance, iBGP peers cannot advertise routes learned from another iBGP peer, so iBGP must maintain a full mesh or use some sort of mitigation (route reflectors or confederations). 
+OSPF will only exchange routes in your Autonomous System. Basically, OSPF knows about all your vlans and all your router interfaces.
+The current best practice is to have internal BGP sessions between all your routers (iBGP): external routes exchanged between your internal routers.
+BGP will have entries for each neighbor, and the prefixes which each neighbor advertises to it, along with BGP attributes, which can take up considerable space.
+Don't confuse the routing protocol tables with the routing table. Each routing protocol maintains its own set of tables which are not the same thing as the routing table. The routing table will contain the best routes from the routing protocol tables.
+Is this assumption correct? If it is, could you provide an example showing how this is so, and why this is always true?

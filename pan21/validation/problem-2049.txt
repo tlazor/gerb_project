@@ -1,0 +1,5 @@
+Even if "this" problem isn't due to Proxmox, it's generally not going to be worth the effort, because it won't work in the end anyway...
+First off, check the physical hardware like connections, cables, and correctly-seated cards. For the disk itself, check SMART data on /dev/sdb to make sure the disk itself is not failing out periodically. Western Digital Raptors are fast but prone to failure, I've had one fail on me out of nowhere (not even SMART data predicted it). Use smartctl to read the SMART data and run tests. It comes in the smartmontools package:
+Your partition arrangement is a bit strange on the RAID devices. If those devices will be dedicated to RAID, you don't need a partition table at all. Assuming there's no data, you'd be well advised to keep it simple and use the block devices directly. In fdisk they would show up like this:
+To eliminate any issues with partitioning and start from scratch, just dd some zeros at the beginning of each disk;
+Finally, run a manual self-test, which will take about 2 minutes. long can be substituted for short, and is more thorough, but it takes far longer ("tens of minutes"):

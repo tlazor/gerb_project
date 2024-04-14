@@ -1,0 +1,6 @@
+In my case several configuration items and protective Add-ons are in place to block Flash (because we know great Flash's security is, heh), so it was being silently blocked, thus preventing the videos from playing.
+add-ons include flash.  The fix was to disable flash by clicking the f icon.   The video then played fine.  Note that I had all positive browser support checkmarks on the "YouTube HTML5 Video Player" page, and they did not change when I toggled flash On or Off, (https://www.youtube.com/html5)
+Apparently changes in various Add-Ons and in Firefox itself only caused this to be a problem recently. The relevant Add-ons in my case are: Flash, NoScript and FlashStopper.
+This happend to me in Opera after updating to the latest version of Ubuntu. Oddly enough, the problem seemed to be with Flash. Uninstalling everything associated with flash player from the computer and then installing the Opera extension fixed the problem.
+The problem was/is that Firefox uses Adobe Flash to play all movie types, except HTML, so if Flash is blocked for any reason, then you get the message shown in the question.
+By tweaking my settings I was able to remove the silent block and make it a case-by-case block, so now I can approve videos and YouTube is working once again.

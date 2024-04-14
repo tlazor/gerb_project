@@ -1,0 +1,10 @@
+If I add one colocation constraint (resource3 cannot run with resource2), resources remain correctly on their node. 
+When the resources are created with the adequate priorities they are indeed running on each "main" node as expected.
+Transitive colocation constraints for resources with -INF scores (example : r1 with r2 -INF and r2 with r3 -INF) result in invalid placement. See https://bugs.clusterlabs.org/show_bug.cgi?id=5320.
+You can inspect these policy engine input files to see "what the cluster was thinking" when it performed those actions using the crm_simulate utility. It likely has something to do with resource scores, so I would start by checking those out:
+Debugging Pacemaker's policy engine can be tricky. I would recommend tuning/testing preference scores before you spend too much time with crm_simulate. Maybe "heavier" resource scores like this just work:
+But as soon as I add a second colocation constraint (resource2 cannot run with resource1), resource1 switches to the spare node and I cannot understand why.
+And then inspect the pe-input files surrounding it to understand the changes your resource's preference scores and constraints had on the policy engine. 
+I have created a 4 nodes cluster (3 "main" and 1 "spare") with 3 resources, each resource should run only on its own node or on the spare and never together on the spare.
+One workaround is to assign utilization constraints to resources so as to limit their simultaneous placement on a single node.
+If you look at the output of crm_mon, you'll notice that a single node is running as the cluster's DC. This is the node who is currently running Pacemaker's policy engine (pengine). You should see messages in the logs (/var/log/messages or /var/log/syslog) at the time the resource was moved that look something like this:

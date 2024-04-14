@@ -1,0 +1,6 @@
+Having all your users connect using a sysadmin-privileged login (even if it is one other than sa), is, to put it mildly, far from ideal.
+The impact is a very severe security risk. It might be that your application is hard-coded to use 'sa'; often very poorly written and implemented 3rd party apps do this kind of awful thing.
+The question you need to ask is, "what can I do to fix this?", because it definitely needs fixing urgently.
+I found out that on an instance of a certain SQL server at my company- sa is virtually the only login used by all the sessions. The SPID# extends to 130. What do you think is the impact of this? Is there any downside despite of course security? Appreciate you pitching in on this. Thanks. 
+Ideally you will create a new database role, assign minimum required permissions to that role [e.g. exec on certain Stored Procedures] , then create logins/groups for your users, add them to this role, and modify the application's connection settings to use their own logins instead of sa.
+You should also then create a new sysadmin login NOT called 'sa', for your own use, and then if possible, remove sa itself from the sysadmin fixed server role, and/or disable it.

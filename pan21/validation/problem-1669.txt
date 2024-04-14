@@ -1,0 +1,6 @@
+Just stumbled upon this answer while researching for my own solution. The problem with incron is that it does not monitor sub-directories and folders.
+I have setup a web server running nginx and another server running php-fpm on Linode VMs. Nginx proxies all PHP requests off to the PHP backend and this works great.
+We have a similar setup with nginx in front of ruby app servers.  We're using gluster in this scenario.  The load-balanced web servers are the gluster servers, with the app servers as the gluster clients.
+The problem, is that the actual web files need to exists on both the web server and PHP worker and need to be synced.
+How is this accomplished? I was thinking an optimal solution would be using shared storage (NFS) and mounting the storage on each server, but I don't have experience with this. Any good guides on this? Is this even possible with Linode?
+Also another solution (though not good), would be to run something like rysnc every 3 seconds, but there would be sync lag, and not to mention all that extra network activity.

@@ -1,0 +1,5 @@
+So what I would like to do is to install the D-Link DIR-655 somewhere in my house to work as some sort of repeater/access point (what is the difference between those two terms?) so that I get good signal strength in my entire house, and in addition use the HDD connected to the D-Link DIR-655 from any machine on the network.
+Is this possible, and if it is, how can I configure the D-Link DIR-655 to work the way I want it to?
+Set them to the same SSID (wireless network name) and encryption settings. Use different channels if possible. In the router that's not connected to the WAN (Internet), disable the DHCP server and don't use its Internet/WAN port for anything. Connect a LAN port on one router to a LAN port on the other.
+1) I have an external disc that I would like to access from other machines over the internet, and the D-Link DIR-655 has a usb port that can be used for mass storage devices.
+I have a wireless ADSL router that came from my ISP installed, and it's working fine. However, there are two small issues that I would like to get resolved, and I hope that my D-Link DIR-655 router that I also have at home can help me with them:

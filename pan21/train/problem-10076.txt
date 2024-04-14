@@ -1,0 +1,7 @@
+Trying to rsync files from one server to the other in a screen session.  Instead of writing the long command every single time, I decided to put in a Bash script.  However, when I run it, I get a Missing trailing-" in remote-shell command. error.  
+Using the ssh configuration file is also a valid option. Here's what you can put/add to your ~/.ssh/config file:
+You can also filter these parameters by remote host by prepending these lines with Host xyz.domain.whatever and indenting them:
+The script echoes what it will do first and then executed the command.  Below is a dump of my script:
+There may be a way to get this to work by adding or removing backslashes, but I suggest the following workaround instead:
+The maze of escaped and unescaped quotation marks in your $RSYNCOPT confuses the heck out of me; I'm not surprised that it confuses rsync, and/or ssh, and/or the local or remote shell.
+I tried a slightly simplified version of your script on my system and got the same error message you did; this workaround corrected it.

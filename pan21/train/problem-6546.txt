@@ -1,0 +1,7 @@
+4: Taskbar should now pop open when you mouse down to bottom of screen, even if apps are open full screen.  You can reset the property of taskbar to locked again, if that's the way you had it before.
+I have the same issue, and 1 manage to find that with firefox regular version (i got the developers) the layer in which appears is in front of the one of the task bar thus making it impossible to appear... the solution is obvious dont maximize to the fullest.
+3: Use windows key to pop open the taskbar.  Click on the taskbar and drag it to any other docking location (side or top) and release it.  Then drag it back down to the bottom and dock it again.  Make sure you are doing this while you have your app open full screen.
+I know this is a pretty old question, but here's how I fixed my issue.  Recently, my taskbar (set to auto hide) would no longer pop up when I dragged my mouse pointer to the bottom of the screen, as long as any app at all was in full screen mode.  If I had apps minimized or in less than full screen, it would work fine.
+I've been experiencing the exact same issue for years. Haven't found the reason or how to fix it, but you might want to try out the following workaround:
+This helps you in the following way: If your mouse is at the very bottom of your screen and the task bar does not come up: Simply click once and it will appear (win+t is being pressed by ahk)
+it looks like this is already a reported bug, I only post this for you because it looks similar to the issue you are having.

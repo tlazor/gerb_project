@@ -1,0 +1,11 @@
+This code seems to be repeated in both branches of the condition. You should refactor it into a separate method, so that you Don't Repeat Yourself.
+This looks like mChildCardID should be a property that returns _item.mChildCard.mCardID. Or maybe it shouldn't exist at all, I don't see what value does it add.
+Also, programming is not about typing the least number of characters, so you should spell words in full (e.g. cardQuery instead of cardQry) to make it clearer.
+The only thing this code does is to remove information about the cause of the exception, making debugging harder. If you want to throw some specific exception type, pass the original exception as innerException. This way, you only add information, not remove it:
+The name DatabaseEntity makes it sound like it's, well, an entity stored in some database (a single row in a table, or something like that), not some object used to access the whole DB.
+I don't really see a reason why CardData should be a separate class here. In fact, your requirement (“that a CardData class be exclusively instantiated by a "manager" class”) makes it sound like the single method from CardData should be part of CardManager. Another option would be to make CardData a private class nested inside CardManager.
+Your classes don't have any instance state at all. Because of that, I think they should be made into static classes.
+Also, the m prefix is sometimes used to indicate fields and those should never be public. If that's the case, change those fields to properties and drop the m prefix.
+I've seen underscores used for private fields, but never for parameters. You shouldn't use this convention, since it's not consistent with the rest of the .Net world.
+And finally I see no reason why cardData is a List and not an IEnumerable. Then you wouldn't need so many calls to ToList(), which wastefully enumerates the entire query.
+GetX methods should return X. Depending on what exactly does this method do, something like PopulateCardImages might be a better name.

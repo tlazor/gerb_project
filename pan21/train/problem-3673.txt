@@ -1,0 +1,5 @@
+After joining the machine to the domain, remote management has been disabled. When I try and re-enable it in Server Manager, it shows a progress bar for a few seconds and then then does nothing.
+I've got a windows server 2016 DC, and another server 2016 machine. By default, the second machine had remote management enabled (showed up as "Enabled" under Server Manager > Local Server).
+If enabling through GUI fails with no error, first of all try to check its current status outside of GUI by using Configure-SMremoting.exe -get and then try Configure-SMremoting.exe - enable - if it won't work out for you it may give you some error message to work with.
+I've also tried setting the group policy key "Windows Components > Windows Remote Management (WinRM) > WinRM Service > Allow remote server management through WinRM" but that appeared to also have no effect.
+If it matters, both computers are in the same AWS subnet, and both have a public IP address, but security group rules prevent them from receiving connections from the internet at the moment.  

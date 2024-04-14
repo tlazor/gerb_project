@@ -1,0 +1,6 @@
+Basically, there's a series of steps you have to follow to make a copy of an existing VM. This tutorial covers them. However, if you're not interested in the process itself (and why should you?), you can use XP-More to do all the work for you, and create a copies of any VM.
+And voila, you have a completely fresh XP mode VM. :) I've been using this for a while and it works perfectly, and with minimum amount of disk space needed.
+You don't need to make a copy of the VM, just create a new VM and make its .vhd file a difference vhd file using XP Mode base image as base (on my comp it resides at c:\Program Files\Windows XP Mode\Windows XP Mode base.vhd). 
+You can copy the "XP Mode" VM that you downloaded, though I don't know whether that's permitted within the license you clicked through.  (I didn't read it carefully either.)
+It sounds like you just want virtual machines.  That's fine, and you can have as many as you like, assuming you have the right software licenses.
+An "XP Mode" VM is just a VM that happens to have Windows XP with the software that allows you to make an application from that VM appear directly as a window in Windows 7.  That software can also be installed in other VMs, too.

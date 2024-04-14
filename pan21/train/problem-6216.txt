@@ -1,0 +1,9 @@
+I changed str[0] to *str because I knew that I was going to be saying *str in the for loop anyway.  Rather than use two different things that return the same value, I picked the one that worked in both cases.  It would look kind of odd to repeatedly do str[0] and act as if the values would be different.  That's more understandable with *str.  
+Now we don't have to declare intNumber outside the loop.  And we don't have to continue to skip the break.  
+You only used the length as part of the condition check in the loop.  But we don't need it.  We can just check for the end of the string directly.  We know that the end of string marker is '\0', so we can just check for that.  
+Not a critical mistake, since you used it consistently.  Don't forget to change other uses when you fix it.  
+We don't convert to and from a floating point type.  No danger of precision losses.  Everything is an integer type.  We probably don't even need the explicit cast to int.  I haven't run the code, so I left it.  
+I don't like the single statement form of control structures.  I always use the block form as being more robust against editing mistakes and a little easier to read.  
+There is no point in a continue when there is no statement to skip.  Just let it go.  It will continue automatically.  You don't need an else case.  
+This suggests that there is trouble allocating memory, but this code doesn't allocate memory.  It reads from input.  
+I find it easier to use positive if conditions with else statements.  So the if is the positive case and the else is the negative case.  In this situation, we don't need an else then, as we return in the if.  

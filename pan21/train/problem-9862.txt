@@ -1,0 +1,7 @@
+Once you've gotten Excel to finish opening the first time, you can get the query in Excel in a number of ways.  One approach is:
+If you don't want to wait on Excel to finish loading results, you can get the query text using sp_WhoIsActive (more details on that next).
+This isn't an extremely reliable approach if the number of rows returned by the query changes significantly, or if various circumstances cause the execution plan for the query to change.  But if the query is stable, this could give you a general idea of how far a long the query is.
+You may also want to go into the "Connection Properties" withing Excel and uncheck the "Refresh data when opening the file" option if you would like to be able to open the file quickly, and then refresh the data on demand.
+This will give you the number of reads done by the query for that specific execution.  Next time the query is running, you can compare that to the "reads" column returned by sp_WhoIsActive to see approximately how far along you are.
+One possible solution to get an "estimated progress" would be to run the query in SSMS after executing the following statement:
+Not exactly.  You can run sp_WhoIsActive to see information about the running query (including the query text!).

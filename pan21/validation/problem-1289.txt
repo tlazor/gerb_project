@@ -1,0 +1,8 @@
+Avoid using the between statement as it is proven to be less efficient than using where date > x and date < y
+Each SELECT will pick its optimal index.  The UNION, alas, will involve a tmp table and a dedupping pass.  Therefore, there are cases where a full table scan using OR is faster.
+MySQL isn't going to be able to choose a key/index since it's doing created_at > X OR updated_at > X, so it's going to be slow. How can I speed this up?
+I have to run a query where I need to find all records that were created OR updated within a date range. 
+I usually implement updated to be set to the creation date on creation.  It makes queries like this trivial as you only need to query on the update date.  
+Still in doubt? Run your query using TOP 100, you'll get a result set cycle finished and be able to determine if it suits your needs.
+The quickest solution here is to create non clustered index (secondary index) on your date field(s) with the unique key. 
+The problem with this is that the data set is large and so a query in the past couple years can return a few million rows.

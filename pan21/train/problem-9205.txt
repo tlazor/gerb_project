@@ -1,0 +1,8 @@
+Maybe it's a good idea to replace the modem if your connection drops are modem-related. In most cases older DSL routers suffer from drying capacitors. In most cases I've experienced the router Ethernet switches silently die. Often this can be diagnosed quite easily by connecting a PC to the Switch (most often 100Mbps) and issue a continuous ping to its IP. On Widows command prompt you can type:
+You can also press the Alt button to make the menu appear and then check whether Work Offline is enabled within the File menu.
+I think Firefox automatically switches to Offline mode if it detects that no internet connection is available. In Firefox 4 you can untick Work Offline within the Firefox menu on top left button.
+Try clearing your DNS cache with ipconfig /flushdns from an administration command line (assuming windows) 
+You should see replies with less than 5ms on LAN connection typically. If you experience random timeouts then your router is likely to be broken. In some cases it helps to set Ethernet connection speed to 10Mbps/FullDuplex by manually changing the connection settings. But this usually just helps for a couple of weeks until the Router/Switch dies completely.
+So bottom line is: It might be better to look for the cause of the problem of losing the connection instead of tweaking around in Firefox.
+Also remember that a DSL modem usually takes up to a minute to re-connect to the DSL network and log in to your provider. So after switching on the modem/router it might take a while until you can reload the page.
+If no Work Offline menu item appears there you're actually in online mode. Somehow Mozilla decided that this item only appears to disable offline mode, but not to enable it.

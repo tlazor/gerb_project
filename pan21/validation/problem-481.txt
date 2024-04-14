@@ -1,0 +1,7 @@
+You should patch your system immediately.  Google Sheets only supports the current build of IE11 on Windows 7 by the way.
+But I think I was wrong and it was an update for IE 10. However, in the 6 options in that web page, none was an installer for anything except for Windows 8 for Vista operating systems as shown in #3 in the image.
+2nd: Look for automatic updates in About Internet Explorer 8 but then there is no checkbox as other web pages say.
+3rd: I tried to download a IE 11 offline installer for Windows 7 SP1 32-bit which is my operating system, but it says I should have a Windows 7 SP1.
+I really need an Internet Explorer 9 or later because it is necessary for a data connection from Google Sheets to my Excel File. I have tried many options but all are not working.
+In order to install IE 10 or IE 11 on Windows 7 you  must install Service Pack 1.  You currently do not have it installed.  If you do not have Service Pack 1 installed it means you are also vulnerable to numerous SMBv1 vulnerabilities.
+The default Internet Explorer on Windows 7 SP1 is IE 11. So what we need to do is install Windows 7 SP1 at first. 

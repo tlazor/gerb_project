@@ -1,0 +1,6 @@
+With your current setup, any service looking for the email exchange service ('MX') for your domain, will first try the MX string with the lowest value, i.e.:
+I hope someone can figure out, what's wrong with this configuration. When I start a ping on mail.mydomain.org I get an answer from 111.111.111.111 and not from the google server ALT1.ASPMX.L.GOOGLE.COM.
+I don't want to set up a whole entire mail system on my server, so I decided to use Google Apps. The ownership of my domain is approved, and now I'm trying to change the MX records in the zone file of my domain. But I think I'm doing wrong, it doesn't work.
+If you want to verify your MX records then you should perform an MX record test using dig or nslookup.
+I want to use mail.mydomain.com as a adress to the mail server for POP, SMTP and IMAP. My zone file looks like this:
+mail.mydomain.com is a CNAME (alias) for example.com, which is a synthesised &ORIGIN for your domain based on the @ symbol replacement you've created for the A record.

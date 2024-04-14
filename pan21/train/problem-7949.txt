@@ -1,0 +1,7 @@
+The correct implementation would be a junction table like "DealDealCategories", with DealId and DealCategoryId.
+Check for Nested Sets (good to read, but hard to modify) and Closure Tables (best overall performance, but possibly high memory usage - probably not too much for your DealCategories) when implementing hierarchies!
+Like any other form of optimization, you need to know what queries you are going to run before you can decide if the denormalization is justified.
+Also, an FK in DealCategories to another DealCategory looks like a bad implementation of a hierarchy/tree of DealCategories. Working with trees through a Parent ID (so called adjacency list) relation is a pain!
+Denormalization has its place, but you have to keep in mind it optimizes for one type of query at the expense of all others you might make against the same data. If you know you will always be querying in one pattern, then it might give you an advantage to use the denormalized design. But if there's any chance you could need more flexibility in the types of queries, stick with a normalized design.
+And it also makes it really difficult and error-prone to do anything else -- like updates, counts, joins, etc.
+It's also absolutely no speed gain, since the tables are to be linked in the database. You have to read and parse a string first, then select all categories for the "Deal".

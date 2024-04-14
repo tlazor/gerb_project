@@ -1,0 +1,5 @@
+It should be noted that Notepad++ 7.5.8 (32 bit) with XML Tools 2.4.9 (manually installed) DID work as well. I still don't have an answer as to what's causing the problem, which is the frustrating part, but I THINK it might have something to do with an update process vs. uninstall and reinstall.
+It turned out that a corporate firewall was blocking the Plugins Admin from accessing the repository. Unfortunately, there is no notification in the UI for this which is causing a very frustrating experience of nothing happening. 
+I had an issue with XML Tools failing to install via the Plugins Admin even when reinstalling the latest version of NPP (currently 7.7.1). 
+I tried some of the answers that Mr. Hooper linked, and also did not have success. After a whole lot of see-if-this-fix-works, I ended up completely uninstalling without saving any settings, grabbed the absolute latest installer (7.6.2 - 32bit), and installed it. Then, using the built-in Plugins Admin, I installed XML Tools, and it worked!
+It took me a while and some Googling to figure out how to manually install the latest version of XML Tools (2.4.11) with Notepad++ higher than v7.6:

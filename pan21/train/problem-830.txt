@@ -1,0 +1,8 @@
+For this to happen every 10 seconds or so does seem a bit too frequent for this though.  I would expect longer between invocations.
+I am running a computer vision program on a Raspberry Pi (Linux raspberrypi 3.10.19+), and when it firsts begins, each iteration of the main loop runs in 6 ms. After a few seconds, the time per loop increases to 50 ms, and then switches between 6 and 50 ms every 10 seconds or so. Why might this be happening?
+Have you checked the CPU temperature? The clock speed will decrease if it overheats and this will slow down your execution speed. Once the CPU has a cooled a little then the clock speed will rise again and your code will execute faster.
+Try creating a static object or a fixed number of static objects and using these directly.  You should find things a bit more reliable.
+The only thing I can think of is that some memory (maybe the cache?) is filling up and then slowing things down, and then getting cleared out every so often, thus speeding things up again.
+I have checked very carefully and I am pretty sure there are no memory leaks. The process remains at 3.9% memory usage the whole time. I have tried increasing the priority of the process (nice -n -19) but that didn't work.
+According to your tag you are using C++.  In your code are you creating objects dynamically?  If you use new and delete, either explicitly or implicitly, then you will invoke garbage collection on the heap from time to time.
+When I take out all of my vision processing and simply pull frames from the camera, the speed of the process does not exhibit this changing behavior, so I don't think it has to do with the camera.

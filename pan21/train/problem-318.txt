@@ -1,0 +1,7 @@
+But good luck getting feedback or info from Cisco about why this is so. Perhaps someone with a paid support contract could file an enhancement request, to benefit the rest of us. :-)
+However it dawned on me that ClearType would be disabled for another important reason: it's dependent on the specific LCD screen. If a viewer has a different order of the Red Green and Blue sub-pixels than the presenter, then they might see horrible visual artefacts.
+So I guess the workaround by RaGE seems to be the only option. (Albeit annoying when you just want a quick WebEx.) Most modern LCDs do use the same layout, so if no-one complains about the quality then there's probably no problem.
+But then, wouldn't it be better if Web Ex could degrade from ClearType to standard Anti-aliasing and not dropping to horrible "jagged" text?
+NB: this isn't an "answer", rather some rationalising about why it is - which I hope people searching for answers will find useful / interesting.
+If that's really no image compression, then using Anti Aliased fonts would not make any difference. However I wonder if they've just tried to dumb-down the language for users, and what that really means is that they do some quick lossless compression (like run-length encoding).
+Still, I would have thought if you pick this option, you'd at least want smooth fonts - surely that falls under the "Better imaging".

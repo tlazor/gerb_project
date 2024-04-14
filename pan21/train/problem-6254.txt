@@ -1,0 +1,8 @@
+And of course there is last reboot and last shutdown (as mentioned), but this is too simple for my needs (only provides dates).
+This will give you the last 5 reboot, shutdown, and root (console shutdown included) entries in the wtmp log.
+if no log is present, you may try to add some 'date >>mylog' to shutdown script(in some dists, it is called rc.shutdown)
+Second, please note that the following command is bad practice and falls under the "useless uses of cat" (google search for it) category...
+Finally, As to where to find a record of system shutdowns and/or reboots, use the last command as that is exactly what it is meant for. It reads the /var/log/wtmp log file for all login/logout entries. Because shutdowns and reboots are actually a system level login/logout event, they are recorded here. The same applies for root console shutdown, it is a logout event. 
+First, let me start by saying I know this is an older thread. I only comment so that others that find this while poking around the net (as I did today) will have a clear answer. 
+The reason I am asking is I am doing some tests involving how long my laptop battery lasts under certain conditions.  My laptop is configured to automatically shut down when there is about 10 minutes of battery power left, so if there is a log file somewhere that records when the computer is shut down, this will make my testing much easier.
+grep, and most unix/linux commands (sed, awk, etc...) for that matter do not require cat to read a files contents. It is sufficient to place the file path and name after the command to pass it as an argument. Adding a pipe and another external command (cat) is just wasted time and resources.

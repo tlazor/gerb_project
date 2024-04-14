@@ -1,0 +1,7 @@
+Almost all modern RAID controllers offer SSD caching functionality - starting from even basic consumer ones.
+Yes: If you move that caching to somewhere else, e.g. to the main computer then you can do so. Read up on ZFS as an example for that. (The optional ARC part).
+Yes. As with the example above, create a pool on the HDD and use that as a partition, then use ARC to cache for that.
+Third-party Marvell cards support more cache and operate in "hardware" with no size limitations. The following 4-port for example, allows 3 SSDs + 1 HDD: 
+Intel Smart Response Technology is one option. If your motherboard has an Intel RAID controller from the 7x generation or above you probably have it built in. The biggest limitation is that you can only use up to 64GB of SSD cache with Intel SRT - but that's not an issue for you with a 60GB SSD.
+There are plenty more as well, these are just examples. Highpoint and LSI/Avago cards support it too, but they're more enterprise-orientated products. None of these of these actually require you to use RAID, they're just called RAID controllers because they share the core technology.
+No: Without specialised tools and a lot of work you can not just just a single device which basically is a harddisk with an-onboard SSD used by the SSHD's firmware as a caching device.

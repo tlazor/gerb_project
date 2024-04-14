@@ -1,0 +1,6 @@
+When I only had one interface ens2, I can access the server using ens2's IP address. When I added the second interface ens3, I can't access the server using the IP on ens2, but accessing it using ens3's IP works.
+Recently, I added a second NIC to my Debian server. Another NIC is being shipped, bringing the total to 3 WAN connections.
+Assume the NICs are named ens2, ens3, and ens4. "Accessing" means any network connections to the server (SSH, VNC, ping, etc.)
+What you want is for the packets to go back out the same interface. This will set up a second routing table for the second interface:
+How do I access the server from all WAN interfaces? I tried to mess with the routing table, but my lack of knowledge in routing simply made the machine inaccessible from the network/s.
+Regardless of which interface a connection comes in on, the routing table determines how the response is sent.  If, for example, you have ens2 as 10.1.2.3/24 and ens3 as 10.1.9.3/24, and a server running.  A packet comes in from 172.12.2.2 for 10.1.9.3.  The server replies and the default gateway device is ens2 so the response goes back to 172.12.2.2 from 10.1.2.3, and nothing works. 

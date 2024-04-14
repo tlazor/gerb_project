@@ -1,0 +1,22 @@
+Furthermore I would probably extract that bit of code to a method and call the method in three places, passing in the values as args. That would in fact be more inefficient than what you're currently doing, though it would be equally negligible in this specific situation.
+But, we're still doing something wrong. We're just returning nothing and not doing anything to inform the user why we returned immediately.
+Overall this is quite good, the logic is sound and I don't see any obvious errors that would make it painful to maintain. Hopefully this advice is helpful for this project and future projects as well.
+Another issue is you're creating a new byte array and assigning it to downloadedData, but then you immediately overwrite it with downloadedData = memoryStream.ToArray(), so there's no point creating a new byte array in the first place. Just do this: var downloadedData = memoryStream.ToArray(); instead.
+So, we'll replace that with string.IsNullOrWhiteSpace. This will mean any of the valid paths are invalid: a. null paths, b. empty paths, c. whitespace paths.
+Many of your comments are superfluous. You should only comment things that aren't obvious by the code (and if they aren't obvious, try to make them obvious.)
+This isn't a comprehensive answer by any means but it's the stuff that immediately stands out to me.
+If "Download" is a verb then the comment is misleading; if it's an adjective then you should rename dataBuffer to something describing its intent/purpose, given you feel the need to have a comment to clarify it.
+Now, we can remove one of the levels of indentation of the rest of your code. (This is a good thing.)
+You can remove the webReq variable entirely and replace using (var webResponse = webReq.GetResponse()) with:
+A lot of your naming could use some work. Public, protected and internal properties/events/methods should be PascalCase. Private fields/properties/events/methods, parameters, and local variables should be camelCase.
+I see you've included braces everywhere, which is very good. The only recommendation I would make here (which removes arrow-code in Visual Studio) is to omit braces around using directives that are directly proceeded by other using directives.
+You should consider a bufferSize parameter (or even setting value) so that 1024 isn't a "magic number." As it stands, if the user wants to use a larger or smaller buffer, it's impossible without modifying the actual code.
+It means we are testing the directory existence after downloading and before saving, a waste of time if the directory doesn't exist it seems
+Generally, we try to return as early as possible, and throw any necessary exceptions as quickly as possible. This means we use what are called "guard clauses" to validate our input.
+Let's throw an ArgumentException instead of returning. This means the caller can wrap the whole thing in a try/catch block and handle failures as they like.
+As most of times, catching a general Exception instead of a specific one means a bad pattern, I suggest to catch only specific exception, may be IOException. Althought you are logging the exception, may be rethrow them AFTER the logging.
+There are three places where the above code exists with slight variations in each. My issue with it is that byteArgs is never used unless _bytesDownloaded != null, but the work of assigning values to byteArgs is done outside that check. Sure in real life it doesn't matter because what it does is negligible, but as a general principle it doesn't sit right with me. 
+Why declare downloadedData so far before you actually use it? Keep variables localised to their use. (Mind, this wouldn't be an issue if your method was smaller - which it should be.)
+This also throws a little C#6.0 in there: the string interpolation, the nameof expression. We can also do the following for 
+I assume _bytesDownloaded is an event, so you should structure your code as such. Create a method for it, and call the event in that method. (This means you don't need to null-check everywhere you call the event as you are right now.)
+But, we're allowing some invalid data to be passed. It may not be plainly obvious, but string.IsNullOrEmpty still allows some clearly invalid paths. (All whitespace, in fact.)

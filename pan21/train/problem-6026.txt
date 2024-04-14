@@ -1,0 +1,15 @@
+- Does it include a behavioural learning and detection modules? or Does it use only rate-based thresholds? 
+It could also be worth your time to leverage Akamai (or similar CDN) to host your content, which will also solve this problem, but typically has a high dollar-cost.
+- Does it include authentication options (for HTTP/DNS and other protocols)? again for reducing the chances of false negative. 
+As you can see, there is no clear answer to the question, as it depends on many parameters, budget is only one of them. The quality of the service or product is a significant aspect as well - 
+As in all things, a risk vs reward analysis must be performed, but you must keep in mind that beyond your service availability, you're also essentially paying for your brand's reputation.
+- What is the mitigation rate the service/product can offer, regardless of the legitimate traffic rates. 
+- Does it include an action escalation mechanism, a closed feedback option that can automatically use more aggressive mitigation actions based on the success of the current mitigation action taken? 
+It depends greatly on the type of traffic that you're serving, but there are a number of ways to mitigate.  (I'm going to assume Web sites.)  A relatively simple and inexpensive way to solve this is by putting Varnish (or another http cache) in front of your web servers.  This will reduce the number of traffic hits that make it to your web and app servers greatly.  Also, using a product like HAProxy as a load-balancer can help somewhat by managing the distribution of your http traffic to your servers.
+There are DDOS-preventing measures available, but are going to be expensive.  I know that if you are using Rackspace for hosting, they have a product offering called Preventier (which I know to be expensive.)
+Most mechanisms to identify and mitigate attacks like anonymous attacks are well known, and most Anti-DoS products and services can deal with them with high rates of success. 
+NOTE: I say inexpensive for Varnish and HAProxy because, while they are Free/Open-Source, it does have a cost in engineer-hours to implement and support.  Note that this is true of any solution, but these have a zero-dollar licensing cost.
+Anonymous usually use well known tools. There is no reason that a local SOC/NOC or service provider's SOC/NOC will not be able to block their attacks. The question is whether detection and blocking are accurate enough without false positives of blocking legitimate traffic as well. As the consequence of that is a successful DoS/DDoS... 
+However, sometimes organizations and enterprises do not have a tuned or updated protection policies. Furthermore, I was amazed to discover that many of them do not have Anti-DoS protection at all, neither by product nor by service. 
+Traffic Scrubbing services from companies like Verisign, Prolexic and others are the most effective way to protect yourself unless you have the money to spend on a hardware solution like Arbor or Rio Rey. 
+- Can it generate 'real-time' signatures for accurate mitigation without affecting legitimate traffic? reducing the false-negative ratio?

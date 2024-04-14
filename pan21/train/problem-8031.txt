@@ -1,0 +1,11 @@
+I have been helping a student to write a program (in PHP!) to recreate the CREATE TABLE statement that is implicit in mySQL .frm files, by attempting t parse the .frm files directly. (yes we know it can be done with various tools!!). 
+I was able to use this file (apart from a few minor corrections) to work out the indices in the .frm file where everything is stored and how to recover the various fields.  
+How can I figure out the actual offset for where the "Table 11.4 .frm File Column Information Section" begins?
+I don't think anybody knows .frm format even in Oracle. Because if you play with mysqlfrm you will notice that it actually starts mysqld to read an .frm file.
+"Table 11.2 .frm File Key Information Section" says the "Name of engine" is at 0x101a, but I'm finding "InnoDB" at 0xAA39 in my .frm file. I'm guessing those offsets aren't actually exact, and they depend the number of indexes and such.
+Eventually I was able to track down the source code for mysqlfrm.exe and from there I located the particular class file that does the .frm file parse. It is written in Python, which is very readable - even if you dot know the language.
+It was very difficult to track down the structure of the file and what is available at the site reference by mpen above is incomplete and sometimes incorrect.
+From what I remember, columns are listed in the end of the file. strings tbl.frm will show them. Obviously these are just column names, not full info.
+The first part on "Table 11.1 .frm File Header Section" mostly matches up, but after that I'm not sure what to do.
+Is there a more up-to-date specification for MySQL's .frm files than the one on dev.mysql.com? I'm trying to parse it manually (don't ask... just experimenting; not trying to recover anything).
+http://www.commongrounds.co.uk/Library/lib/python2.7/site-packages/mysql/utilities/common/?DA and the required file is aptly names frm_reader.py/ 

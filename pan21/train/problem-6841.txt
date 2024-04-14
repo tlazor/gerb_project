@@ -1,0 +1,7 @@
+A very simplistic approach would be to eliminate all monochromatic paths whose color is different than the given bit (e.g., a $1$-path can be eliminated if we get a $0$-bit). This seems to give a very weak bound.
+Here’s a simple idea: try a certain number $s$ of samples, and for each vertex, record how many times its colour agreed with the provided bit.
+That is, if $6$ of the vertices along the path were colored with $1$ and $4$ were zero, then the bit will be $1$ w.p. 3/5.
+We then get a single bit, that is $1$ with a probability proportional to the number of $1$-vertices along the path.
+The goal is to learn some unknown shortest path from $s$ to $t$; the set of edges of the graph is hidden at first and there may be multiple shortest paths.
+Thus, if $s\approx k^2\log n$, the Chernoff–Hoeffding inequality ensures that with probability at least $2/3$, all vertices outside the path agree for less than $s(1/2+1/4k)$ samples, and all vertices on the path agree for more than $s(1/2+1/4k)$ samples, which lets you pinpoint the path. If you don’t know $k$ in advance, you can just bound it by $n$.
+For vertices outside the path, they agree with probability $1/2$ on each iteration, while for vertices on the path, the probability is $1/2+1/2k$, where $k$ is the number of vertices on the path.

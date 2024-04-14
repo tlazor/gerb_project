@@ -1,0 +1,7 @@
+Bombarding people with data via a single channel is counter-productive. Provide people with information and a choice about how they access it and they will be more involved, motivated and effective.
+I have a large TV in my office plugged into an old PC that has my nagios status page always showing.  If I need to change anything on that computer I use Synergy to access the computer from my desktop.
+We use hobbit as our monitoring tool, its non green page has almost everything we need. But its lacking a view of.our vmware enviroment and everyting regarding ou inhouse.software. So, I'm probably going to write something from scratch.
+Synergy works for me, but what if one of the other admins want to change the screen?  Is there any easy way that any of us (currently 4 people) can change the screen from our desktops?  (Remote desktop doesn't work because it locks the console which is the output to the TVs.)
+You could use VNC.  It can be configured to not lock the screen and to allow multiple simultaneous users.
+In my office I have all our monitoring tools setup and working great, but I dont have an easy way to view them.  
+Using something like Nagvis to create your own view of the system may save you a lot of time, money, effort, wallspace and electricity. For various reasons I ended writing my own front-end - it's not hard!

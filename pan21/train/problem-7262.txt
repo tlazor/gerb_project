@@ -1,0 +1,5 @@
+I want to use my old hard disk as an external hard disk without formatting it. I want to access some information from that. It is not showing up in my windows computer as a disk drive or removable drive. But it showing up in DISK PART utility as Disk 1. This hard drive has been taken out of a Mac computer.
+Once you've saved your data somewhere, if you want to be able to access the drive from both operating systems this article gives you an overview of the formatting options: http://www.cnet.com/how-to/the-best-ways-to-format-an-external-drive-for-windows-and-mac/
+The problem is that it is formatted using a file system (Mac OS Extended, HFS+) which Windows does not understand.
+You should be able to format the disk normally for use in Windows (unless you want to use the data on the disk, that is). That is an easier path (and with much better support) than using a non-native filesystem.
+If you connect it to a Mac you will be able to access the data. Alternatively you could install 3rd party software in Windows to access the drive. e.g. http://www.mediafour.com/software/macdrive/

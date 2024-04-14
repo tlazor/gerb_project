@@ -1,0 +1,8 @@
+Anyone got any clues? I'm running the cmd-windows as the local administrator (windows 2008) and this is also the admin for DB2. The connectionpool-user cannot connect during quiesce-state.
+I just use 'db2stop force', then 'db2start' , then drop db. This way is better than quiesce command which is asynchronous by nature.
+Just as a tip if Arun's tip does not work, because an remote app is instantly reconnecting to the db.
+I have similar problem but no matter how I force application to stop, it will automatically come back.
+There is a connection pool somewhere using the database, so trying to drop the database when an application is using the database should give this error. The problem is there are no connection to the database when I issue these commands:
+To find PID, open to DB2 Control Center, All Databases, DATABASE (the one you are trying to drop), Application List, Show Lock Chain, Show Lock Details and scroll down to find Client Process ID and terminate this PID and try again.
+Your problem might occur because of the differences of connect reset and terminate. Have a look at this discussion. You can also have a look at the IBM documentation. So it might work for you if you run a db2 terminate instead of a db2 connect reset. 
+I was able to solve this by terminate PID service from Windows Task Manager with PID found in DB2 Application List.

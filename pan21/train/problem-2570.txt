@@ -1,0 +1,7 @@
+However, I don't think the code does what you desire. You are checking collision between meteor i and bullet k, but the value of k never changes (in this loop). That means you are only checking one bullet against all the meteors.
+Even though you move an element backwards after the removal, the size of your list shrinks after you removed a meteor. The for loop is still set to iterate for the initial Count returned by the list. Therefore, it will exceed the boundaries of the list once a meteor has been removed.
+And in addition to that, I doubt LoadMeteors is being called every frame. Since that method (from a logical standpoint) is only executed once, collision would only occur if a bullet and a meteor spawn on the same position.
+I have 2 lists, one is for meteors and second is for bullets. I have problem with collision detection between them, this is my code for meteor spawning:
+EDIT: One other thing: as mentioned in the comment, in your other Start method, where you are iterating over the bullets, you run until meteors.Count rather than bullets.Count
+I'd generally not recommend deleting elements from a collection in the first place, but you can instead iterate backwards. I.e.:
+This solves the issue of the value of count changing. The same goes to what you are doing in your Start method with the bullets.

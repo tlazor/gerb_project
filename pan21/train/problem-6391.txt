@@ -1,0 +1,6 @@
+Usually programs change this thing during installation (some even ask before), but in the case of portable programs one usually has to do it by hand, and for editors which open a gazillion of different file extensions, it gets tiresome really fast.
+What is the easiest way to permanently change association (program which opens etc.) for several file extensions at once?
+About one year ago, I wrote a small batch script to deal such text file association issue. I works in most time, but sometimes (after windows update applied, for example) the association will restore to default, if it happened, I will run the batch again.
+You need change them to your favorite text editor, and you need change the corresponding file types to yours.
+Click File Types tab in Folder Options window and the full file types and their association will be listed.
+Let's say you used TextEditorUncool up until now to open txt, dat, bat and abc files. Now you got TextEditorReallyCool and you wish if there was an application which on the left had a name of the program, and  on the right a list of file extensions associated with it (which it, let's say, opens).

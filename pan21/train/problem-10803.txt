@@ -1,0 +1,5 @@
+Flows like that suggest to me that the various TCP flow-controls methods aren't working right. I've seen some problems with Linux-kernels talking with post-Vista Windows versions and you get throughputs like that. They tend to show up pretty well in Wireshark once you take a look.
+The absolute worst possibility is that TCP delayed ack is completely broken and you'll see a traffic pattern that looks like:
+I've solved that one by applying NIC driver updates to the Windows servers. The smart NICs that come with some (broadcom) servers can sometimes fail in interesting ways, and this is one. 
+I haven't worked with that kind of NAS device so don't know how tweakable it is to fix whatever is found.
+The other thing to look for are long delays. Suspicious values are .2 seconds and 1.0 seconds. That suggests that one side isn't getting what it's expecting and is waiting for a timeout to expire before replying. Combine the above bad packet pattern with a 200ms delay for the ACK and you get throughputs of a whopping 1MB/s. 

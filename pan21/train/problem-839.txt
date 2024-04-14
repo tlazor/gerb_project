@@ -1,0 +1,8 @@
+I have two user accounts on my PC, one is administrator and the other standard user. The standard user account is for my son. I am wondering how do I create a white list where I can choose the programs he is allowed to execute.
+For example, some of (but not all) the programs I will only be wanting him to open are the Microsoft Office suite programs, google chrome and Skype e.t.c.
+Navigate to User Configuration \ Administrative Templates \ System. Then under Setting scroll down and double click on Run only specified Windows applications.
+Note: This process uses Local Group Policy Editor which is not available in Home versions of Windows 7 or 8.
+A Show Contents dialog comes up where you can type in the apps you want to allow users to run. When finished with the list, click OK then close out of Local Group Policy Editor.
+Set it to Enabled, then under the Options section click on the Show button next to List of allowed applications.
+How am I able to set this white list or something similar from my administrator account, or do I have to set those rules while logged into standard account?
+If a user tries to access an application that is not on the specified list they will receive the following error message.

@@ -1,0 +1,5 @@
+To disable 8.3 name creation on all NTFS partitions, type fsutil.exe behavior set disable8dot3 1 at an elevated command prompt, and then press Enter.
+Note: Although disabling 8.3 file name creation increases file performance under Windows, some applications (16-bit, 32-bit, or 64-bit) may not be able to find files and directories that have long file names.
+Unfortunately the only way to really deal with this is an annoying set of gyrations, depending on your version of windows, disabling the ability to generate 8.3 names.
+I'm not exactly how sure the script works and how your network it setup but how about filtering via something in front of the IIS server (even if it's just a virtual device in a virtual machine)? Namely, you setup an IPS with a rule that specifically drops traffic pertaining to that particular issue?
+"NOTE: The change to the NtfsDisable8dot3NameCreation registry entry affects only files, folders, and profiles that are created after the change. Files that already exist are not affected. "

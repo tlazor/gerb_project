@@ -1,0 +1,6 @@
+That worked for me. So i guess, the apache versions we use look for an htaccess file in every dir they encounter, when AllowOverride ALL is set. And then they fail, when no htaccess is present, insted of going on.
+You need to change the permissions on the folder referenced. The folder needs to be executable for the user that owns the apache process.
+So double check, that adding an htacces file leads to the same error in the SAME DIRECTORY. If not, the following may help:
+The problem was that the www folder is a VirtualBox file system mounting point, and the linux Apache user (nobody) was not authorized to browse the mounting point.
+webroot /var/www and all files within owned by www-data, all files readable, all directories executable. had tried to access directories mentioned in the error logged in as www-data (sudo -u www-data bash, then cd /var/www/<somedir>). All worked fine.
+My webserver is running inside a VirtualBox host, and the www folder is shared between the guest (SLES11) and the host (Windows).

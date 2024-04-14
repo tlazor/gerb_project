@@ -1,0 +1,6 @@
+I have a problem when my Windows 7 64-bit laptop is used during BST (British Summer Time)/ daylight saving periods.
+I tried my manufacturer's OEM distribution of Win7 Ultimate, rather than a generic OEM version, having had to reinstall it. So far, I've not had the date jump ahead an hour! How odd.
+Is there a fix for this issue? I've seen the issue described in questions and various articles online - but I haven't found a definite fix.
+I've used all servers listed in the NTP server list - it makes no difference. I've just tried using pool.ntp.org, but I'm not convinced trying that is going to solve my problem, either.
+From what I've seen, this is an issue that affects other Windows 7 users in other time zones, so it's not exclusive to GMT/BST users or users of a particular NTP server. My assumption is that it's something obscure in Windows 7 that's causing this issue.
+Instead of the +1 shift in time, the system clock shifts +2 hours and can be a few minutes out from the NTP server time.

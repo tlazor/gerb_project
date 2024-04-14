@@ -1,0 +1,11 @@
+You are clearly aware that this can be done in Apache for each virtual host, but you prefer not to use that to avoid configuration oopses; otherwise sgtbeano's solution is what I would recommend.
+How would you go about solving that problem? iptables, apache, custom shell script with netcat and some magic to make it go SSL?
+I'll be using Apache on 443 so could bind it to 80 easy enough, but don't see the solution as having to include Apache on port 80.
+I'd like to setup my linux box so that anything hitting port 80 would simply be told ask that of 443. I want it to be regardless of domain, IP or whatever specific details may exist. If it can be requested of port 80, it should be told nope. We do that on 443.
+You could even run a separate instance of Apache on port 80 with a different configuration dir. This will also avoid the configuration oopses, but may be harder to maintain (not many people expect 2 different instances of Apache on the same host with 2 different sets of config files). In this case you can use sgtbeano's config for the port 80 instance.
+Based on that I would recommend you stop using Apache on port 80 and that you run another webserver on port 80 that does the simple redirect.
+Redirecting port 80 to 443 is trivial with iptables, but from your description you clearly do not want to run http on port 443: You want people to be redirected from http to https.
+as HTTP and HTTPS are two different protocols, you cant simply iptables tcp/80 redirecion to tcp/443, as apache would not understand HTTP on tcp/443
+The recommended method is as you state to set this in the VHOST file for each site as described here;
+so the HTTP request must make it to apache/nginx/etc, and then be "redirected" at the application layer. this would be done on nginx with "redirect / https://domain.name/" or using rewrite rule on apache
+To be clear, I'm looking for a solution that would require no changes to the vhosts. I understand global redirects that can be passed down with inheritance. That requires vhost changes. I'm looking for something more all-encompassing and less prone to "Oops, I forgot that line and now port 80 is exposing my data unencrypted."

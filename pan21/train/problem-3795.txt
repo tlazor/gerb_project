@@ -1,0 +1,6 @@
+Check out Sumo Logic, it offers a cloud to cloud integration with Akamai, with rich out-of-the-box content, utilizing cloud monitor. Setup is a breeze, and you don't have to concern yourself with batch downloading/processing anything on-prem.
+Perl can be great for repeatability, but be careful, when dealing with large data sets (I've recently been playing with BGP dumps from a DFZ router) it's really easy to push even a big machine into swap if you leak any memory.
+You can configure the Log delivery option to send you logs in "Combined" format. So you can use any standard tool of your choice (such as awstats or similar).
+Tools like Splunk etc. seem like they might be nice for ad-hoc stuff where a simple unix pipe might not work, but don't appear to be a good solution for more permanent reports.
+You could simply use Awstats or similar, most web log processing tools can be told to to use a different input format.
+https://www.sumologic.com/2013/10/09/akamai-and-sumo-logic-integrate-for-real-time-application-insights/

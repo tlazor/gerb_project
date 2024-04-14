@@ -1,0 +1,6 @@
+If you can buy as much memory as you can afford, ensure it's configured to run at its peak performance (usually by buying the right type and number of modules to match your server/CPUs).
+While more and faster processing cores will help in general for best database performance you need to focus on memory and IO capabilities.
+Then try to optimise your IO subsystem by using low-latency disks (such as SSDs/2.5" SAS) in a hardware RAID 10 arrays, if possible with a dedicated array just for your logs.
+You're very sparse on your details (operating system? version? budget?) but some general points that might help:
+I'm not aware of your budget, perhaps come back and tell us about what you're looking to spend and we can help.
+What kind of server should I use in order to work with database with table with milion rows in order to save time while operating on the database. Now operation like optimize table takes few hours which is quite bad. Other simple operations also takes many hours. What kind of server will be suitable for my needs? Now I use 2.4 Intel Core 2 Duo and 2 GB of SDRAM.

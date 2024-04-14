@@ -1,0 +1,7 @@
+I've tried all the solutions, and found that haveged works the best even when others don't work (especially on a headless server that doesn't have much user input or activity).
+You can verify by running cat /dev/random. Normally, it will quickly run out of entropy and pause. That's why the --key-gen hangs. But after installing haveged, cat /dev/random should provide output continuously.
+There are no "++++++++++++++++++++++++++++++++++++++++++"'s which from forum posts looks like should be expected as the key is generated. 
+However, the best approach I have seen is use of dedicated TPM device. They are small hardware which are quite expensive. You put them and rngd utilizes random true entropy from the hardware source. As far as I know, Fujitsu has some good TPM device.
+It starts the haveged daemon service that will keep /dev/random full of entropy. --key-gen should complete in less than a minute.
+The problem with RHEL/centos 6 and entropy is that they are tickless kernels. So, by themselves, these kernels don't generate enough entropy. You have to get some keyboard attached or even some mouse movement or use dd as mentioned.
+For a more reliable solution you could install random number generator related utilities, which will make sure that you always have enough random bytes.

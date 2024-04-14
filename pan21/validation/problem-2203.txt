@@ -1,0 +1,6 @@
+The kiosk software I've used always had stuff like this including central configuration, they were usually not expensive either.
+If there's an easy way to send a "go to home" command to a running instance/tab of IE7 then you could create a custom screen saver or a scheduled task that starts on inactivity to trigger this...
+I think Firefox can be configured in kiosk mode with a visible home button - useful for kiosk users as well as admins.
+I've worked recently with kiosk applications, and should say you, that there must be a possibility to logon as administrator. It's not very clever, that developer didn't create such possibility, see the documentation for this product. 
+The kiosk software should have a reload-to-home-page action executed when the terminal is idle for a few minutes, and a "restart" button including custom error pages. If no dedicated kiosk software is used perhaps one should be if the requirements demand these features ^^
+Seconds, the unstable work of IE7 is mainly the result of some 3rd party applications or worms/viruses that works on this computer. Make a clean up !

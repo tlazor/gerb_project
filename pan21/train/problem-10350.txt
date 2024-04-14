@@ -1,0 +1,6 @@
+but when a browser does a DNS querry for these domain names, the returned IP is the IP of the proxy.
+When a browser wants to visit server1.myproxy.com in http, it does a DNS query and get the IP of the proxy. It then connects to the proxy through TCP and send a HTTP GET request. The proxy can parse the HTTP request to know which webserver the browser wants to visit.  
+since in ordinary https, the browser sends HTTP GET in ciphertext, there is no way for the proxy to get to know which destination the browser wants to visit. So when HTTP proxy is set on browsers, the browser send HTTP CONNECT request which show the HOST in cleartext.
+but if a browser wants to visit server1.myproxy.com in https, since the browser doesn't set the proxy as default proxy, it will not sendt HTTP CONNECT request. So it seems to me that the proxy will have no ways to know which web server the browser wants to visit.
+now I have a proxy, behind it are several hidden web servers. They are all with different IPs. And only the proxy knows their IPs.
+In ordinary http proxying, the browser sends HTTP GET in cleartext. HTTP proxy parse the HTTP GET request HOST line to know which website the browser wants to visit.

@@ -1,0 +1,7 @@
+I use Linux, and mostly use the command line pwsafe and occasionally MyPasswordSafe - both available in the ubuntu repositories.
+Dropbox works on Windows, Mac and Linux, and there are programs that use the passwordsafe format on all three platforms aswell. The original works on Windows, there is a java version that works on Windows, Mac and Linux. For a fuller list, see the related projects page that shows platform support for Windows, Windows Mobile, Mac, Linux, BSD, Solaris, perl modules, C# support ...
+I save passwords in passwordsafe (or one of its variants) and keep the passwordsafe database in a folder shared by dropbox. (Dropbox syncs files online and across multiple computers).
+When i am setting up services that are rarely going to need to be logged into i try to use the most obscure password (start of an md5 hash for instance) and then just store it in an encrypted/password protected spreadsheet.
+It keeps you from worrying about that if someone somehow got the password for your domain name that he could essentially gain access to the whole system.
+I use the open source PasswordSafe application for storing my personal passwords.  I keep the database file on a DropBox volume, so it is accessible from anywhere.  (hat tip: Joel)
+There is no reason that the password database file can't be kept on a network share, and there is an option to open the password file in read-only mode.

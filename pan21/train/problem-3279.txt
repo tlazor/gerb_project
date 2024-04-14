@@ -1,0 +1,6 @@
+Should my customer copy the photos to the local drive, edit them and upload them again to the network drive or is Adobe Drive or Adobe Version Cue the answer?
+One requirement is that the photos need to be accessible / editable from both computers even when one of them is offline. Adobe Version Cue needs a dedicated service running to be usable, so this solution is not possible as far as I understand the Cue software.
+He and his co-worker are accessing the photos (about 1TB of photos) over a mapped network drive from their windows machines (Windows XP - 32bit and Windows 7 Ultimate - 32bit). Both are using Photoshop CS5 to edit the photos.
+I did install a QNAP NAS TS410 for a customer (professional photographer) with 3 Hitachi Deskstar 7200rpm 2TB disk configured as RAID5. The NAS and the workstations are connected over a Gigabit network.
+The problem is that to save a edited photo takes a really long time, it takes about 3 times as long to save a photo as to open it.
+After some tests I can exclude the network, the NAS and the windows machines as source of the issue. I think the problem is the Photoshop software and its handling of the network drives.

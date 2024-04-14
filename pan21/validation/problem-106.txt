@@ -1,0 +1,7 @@
+Local variables should be named using camelCase casing. TrackedCollection -> trackedCollection but maybe a different name would be better to distinguish it more from TrackedCollections.  
+I have a need to get notified about validation errors that occur in a child collection of my ViewModel. For validation I use the INotifyDataErrorInfo interface.
+In the Item_ErrorsChanged() method you have a naming issue in the foreach (var TrackedCollection in TrackedCollections) loop. 
+Your coding style gets inconsistent here. In the Validatable class you used the C# 6 feature using the null conditional operator ? and in this class you are checking against null.  
+As you can see I have added braces {} to the if of the SetProperty() method as well. I am a defender of always use them.  
+I've created a class that handles this successfully however, I feel that additional refactoring / simplification can be done on it.
+You have some code duplication here. Why don't you call OnPropertyChanged() out of the SetProperty<T>() method ?  

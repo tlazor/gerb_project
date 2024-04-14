@@ -1,0 +1,10 @@
+"Amazon EBS volumes are off-instance storage that persists independently from the life of an instance." see EBS Information
+I have read some articles about amazon ec2 instances and ebs. I found out that, the data on the instance are not persistent, which means, if the hardware fails, instance shut down, I will lost my data. Hence, what is your backup plan for this case?
+Q1: Either use Amazon's RDS service to backup your database regularly and automatically, or run mysqldump on a cron job, compress + encrypt your backup file, and perhaps push it to S3.
+There is not a single pre-canned backup solution for all EC2 instances.  A web server, database server, file server, domain controller, dns server, etc all have different backup needs.
+Q2 I created/mounted an EBS volume. What should I do with it? (How big should I assign the Volume, by default, I assigned 1 GB, is it enough? Or is it extensible?)
+It doesn't matter if your storage is persistent when someone accidentally runs a DELETE FROM without a WHERE clause, or your website is compromised or anything else happens that doesn't cause "physical" data loss, but makes the current data no longer useful.
+Q3: Snapshots allow you to roll back to a point in time - so before you do potentially breaking upgrades, you could snapshot to ensure you've got a rollback plan.  You can snapshot as frequently as your data/service demands.
+Q2: You can snapshot an EBS volume, then create a new volume from the snapshot and specify the storage space (effectively expanding it).
+You may consider using EBS based instance that persists it's data on EBS volume when stopped. However, you should backup your instance regularly as any other server. These different  persistence schemes do not replace regular backups in any way.
+"Local instance storage" is probably what you're thinking of - and that is lost when the ec2 instance is terminated.  I use local instance storage to handle data that can be rebuilt from elsewhere.  It can be very handy as a fast cache of data - but you must be able to rebuild it. 

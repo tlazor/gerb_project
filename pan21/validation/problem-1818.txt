@@ -1,0 +1,6 @@
+My guess is that you could download the source for the BSD version and compile it on your Linux host - but I've never tried such an operation. Also, if you did such - upgrading the GNU coreutils might break it in the future.
+Your script will then need to be modified to use this version of split (newsplit). This can be done in many ways, such as changing the PATH variable in your script, or using the full path of split/newsplit. I normally do this in the bash shell:
+I'm running Centos 5.3, and I'm using split as a critical part of a data import. The version of split running on the servers doesn't seem to support -p (pattern matching). 
+The version on the server is split (GNU coreutils) 5.97, while the version on my mac, which has -p, doesn't respond to either -v or --version.
+My guess is to try compiling a newer version of coreutils on CentOS, then copy split into a special directory, perhaps the same directory as your script). Be careful of the default PATH though, this should not be in in any of the system paths. You may want to rename split to somethine else too, say newsplit.
+The short version is that you're looking at the GNU version of split on Linux, and the BSD version on your Mac.

@@ -1,0 +1,8 @@
+I remember them in order by the number of punches in the face a failure of any particular level equates to:
+Everyone seems to know RAID 5, so you just need to remember that RAID 6 is an extra parity drive.  (RAID 6 doesn't really exist, BTW, it's also sometimes called RAID-DP for Dual Parity)
+RAID 1 - one punch in the face, especially if you were using a hardware controller and thought you could just take a drive out and grab the data easily...because, hey, it's just a mirror, right?
+How do you remember(if you really do :-)) all the different levels and what each level does? Can anyone suggest an easy way to remember?
+RAID 5 - five punches in the face when it fails, especially when your Adaptec controller says "no arrays detected"....or a second drive fails during a rebuild.
+People seem to mostly confuse 0 and 1, but it's pretty easy to remember that RAID 0 provides zero help when you lose a disk.
+You learn terms you use daily. 0, 1 and 5 become natural, 6 is just 5 with an extra disk. I've never come across 2,3 or 4.
+RAID 6 - six punches in the face when it fails, because you had two dang parity drives and thought you were really uber safe....until your Adaptec controller said "no arrays detected".

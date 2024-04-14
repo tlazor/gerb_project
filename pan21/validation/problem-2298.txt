@@ -1,0 +1,5 @@
+Use a plain text control rather than a rich text control. Rich Text controls will store Tab and Carriage Return (Enter) so pressing either of those keys will not tab to the next field. Alternatively encourage the users to use the mouse instead.
+I have  tried using the Rich Text control, the Plain Text control, the Text Form field and the Text Box control and it all does the same thing.
+When filling out the form the user will key in their data into the Rich Text box, if they hit tab it will extend the box.  If they hit enter and then tab it will take them to the next field.  
+I am trying to create a protected form in MS Word 2007.  However, once created it won't tab between the text fields, or from a text field to the next field, it only tabs inside of the text fields.  It will tab to the next field for everything else, ie date boxes, list boxes, etc.  
+I don't know if this solution will work for you, but it's worth a try.  You will need to first protect the document by checking the box for Editing restrictions and pick Filling in Forms from the drop down.   

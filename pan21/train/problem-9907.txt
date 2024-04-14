@@ -1,0 +1,7 @@
+I also renamed a_iter and b_iter to leftIndex and rightIndex. Both because a variable shouldn't have an _ in it's name and because it better conveys what the variable is. Same for renaming a and b to leftElement and rightElement.
+The biggest problem with this implementation is that it creates a lot of temporary lists. Taking a quick glance at how the built in list sort in java is implemented shows that they turn it into an array first, sort the array and then update the given list:
+As a final note: if your intention was to actually use your code in a project other than studying how merge sort is implemented or practicing your java skills I would advise against it. Just use the built-in functions if available.
+No wait, the first thing I did is paste the code in IntelliJ and have it autoformat to comply with the java coding conventions.
+If you're looking for more improvements to the merge algorithm itself you could look up how it's implemented in java. (Although recently it's changed into a Tim sort which is a combination of merge sort and insertion sort).
+Now back to splitting up the while loop. I changed the || in the while condition to an &&, removed the "when xxx exhausted" parts and added the 2 new while loops after. This is the result:
+Since it's just some minor points like spacing I'm not going to list them here, overall your code looks decent already.

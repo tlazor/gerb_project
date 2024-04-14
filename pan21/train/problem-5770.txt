@@ -1,0 +1,6 @@
+(e.g. encrypted from laptop->SSH host; from SSH host->authentication server; and from SSH host->other hosts)
+To expand on abbra's answer - SSSD does NOT allow authentication through an unencrypted stream at all. So while your identity data (name, UID, shell, homedir, ..) could technically be unencrypted, you can be sure sssd won't ever send your credentials over the wire in the clear.
+For example, with tshark (console version of wireshark) you can do both interception and analysis at the same time:
+An easiest way is to start capturing packets on ipaserver.mydom.example.com, listening for the traffic coming from loginhost.mydom.example.com.
+This is configured to use Kerberos tickets to authenticate to servers within our environment, once one connects to a login server. i.e. SSH from login server to other servers in environment.
+Once you have t.log, you can look in it. Apart from several initial LDAP exchanges where SSSD does discovery of LDAP server capabilities, the rest of LDAP communication should not be parsed by tshark as it would be encrypted after LDAP bind with SASL GSSAPI. Once SSSD starts using SASL GSSAPI, all the traffic in LDAP communication will be encrypted and sealed.

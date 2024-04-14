@@ -1,0 +1,5 @@
+I have tested two ways: sshfs and unison. Both worked for file syncing... but wordpress never shows a picture?! And normal files (example: pdf) are only showed by one of my backend-servers on the other a 404 is coming.
+Rsync/Unison seem like the better option, but they must be executed on a regular basis to sync the files. I don't like the idea of running it from cron on a constant basis as both rsync and unison scan all files for changes each run. If you have a lot of files, this can cause excess overhead.
+This seems to work just fine for us so far. Note that this works best on a two server setup. If you have more than one server, this method will need to be tweaked.
+We've come up with our own solution which is quite simple. We wrote a simple Python daemon that does the following:
+I've had the same problem recently and I've been scouring the web for potential solutions. It seems that the most common suggestions are: rsync/unison/scp the files between the hosts or using some form of central file storage (like NFS or iSCSI). I'm not a fan of the central storage solution as it seems heavy handed and you still need to build some redundancy into that solution.

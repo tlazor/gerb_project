@@ -1,0 +1,6 @@
+For a lot of devices PCIe is perfectly fine going through various bridges as they simply don't have the intense memory dependence and bandwidth requirements. If the situation can tolerate a few nanoseconds more for it to traverse a north/south bridge link then there is no reason to connect the device directly to the North bridge or CPU, you connect it where there is spare connectivity.
+A PCIe x1 soundcard for example would have fairly light bandwidth requirements, does not require nanosecond level response timings and quite frankly could probably tolerate being controlled over a couple of "wires" made from wet string.
+I read in an article from 2007 called "What Every Programmer Should Know About Memory" that the PCI-e connections were connected to the Southbridge chip in contrast with AGP connections which were connected to the Northbridge chip.
+A graphics card on the other hand does require good latency and regular large transfers of data, so you put it close to the memory and CPU. 
+Just because you can put a PCIe bus at the end of a north/south bridge chain doesn't mean that that is your only PCIe bus in the system.
+Is this true? If yes what was the reason for which the PCIE connections were connected to the Sourhbridge because the Southbridge is slower than Northbridge?

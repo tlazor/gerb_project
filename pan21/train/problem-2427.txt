@@ -1,0 +1,7 @@
+I couldn't find a way to move NP++ while in Post-It mode. I had a good look through the documentation and the only mention of Post-It mode is how to enable it.
+There is an easy way: Just like feqwix said, you can use the tiny free utilities that allow you to grab a Window from anywhere. I use AltDrag: https://stefansundin.github.io/altdrag/
+I tried the following tricks with no avail, and they're pretty deep, so if none of these work, it has been disabled programatically and thus it was designed to never be moved.
+As Windows Snap or the Ctrl + Space menu don't work with NP++ while in Post-It mode, I would guess that it was designed to be unmovable while in that state.
+No. All handlers regarding the moving of a window are disabled for Notepad++ when it is in Post-It mode.
+It has an installable and portable version, and it allows me to use a customizable modifier key (I just use Alt) to grab any Window from anywhere, and move it. It also comes with a few neat features. It's perfect in conjunction with the Notepad++ post-it mode.
+You can move the post-it window using the third-party application AltMove: http://www.deskex.com/altmove/. You have to keep the Alt key pressed and then drag the window with the mouse.

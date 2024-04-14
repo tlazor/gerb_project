@@ -1,0 +1,5 @@
+The Amazon Linux AMI supports setting up a 'user-data' script which will be passed securely to the VM when it starts. 
+I've started to use CloudFormation which seems a little better for my needs, but requires more setup. 
+In your case, you can pass the required credentials in the user-data file and save them in a known location on the instance. Your app can pick them up from there.
+My only concern is that I had to hardcode a few MySQL DB credentials, FTP passwords, and other things that might change in the future. I have other servers where these credentials could be made available (outside Amazon's network) but I'm not sure hot to get these credentials into the EC2 instance after I start it up. These should be easy and secure for a new EC2 instance to get but not for anybody else.
+I created a custom Linux AMI with all I need to run my PHP app (basically a node that does batch processing of images/video/audio). There can be n amount of instances running at the same time. So far it deploys and works fine. 

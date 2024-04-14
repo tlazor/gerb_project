@@ -1,0 +1,7 @@
+Of course, you have to take care of the non-matching traffic now. So add a second policy with destination of the exclusion range and disable (rather, do not enable) SNAT in it.  
+1- create 2 policies, one where the destination is the exclusion range, and one following it with the whole destination range. Enable SNAT just in the second policy. Note that policies are matched top-down so no traffic destined for the excluded range should ever hit the second policy.
+Not sure if I got you correctly - normally, you just set up a rule for source/destination as required, without NAT and put it above the SNAT rule.
+I have a Fortinet 100D router with 5.6.2 OS.  I need to set up a SNAT rule that matches everything but a certain IP range.  This is easy to do on a Linux system with iptables, but not quickly apparent on a Fortinet.  Example:
+I want to SNAT 10.107.100.0/24 not having a destination of 192.168.102.0/24 to some IP address like 10.200.100.104
+This is nearly the same effort as #1 but less visible and therefore prone to misunderstandings. The 'negate' parameter is best used for more complicated cases, e.g. where you have several 'holes' in an address range and want to block traffic matching those.
+2- create one policy with the exclusion range, and in the CLI add "set dstaddr-negate enable". Now this policy will be matched by any traffic except the exclusion range. Enable SNAT on it. 

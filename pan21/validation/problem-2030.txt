@@ -1,0 +1,6 @@
+Since this problem comes from that pip comes with python 3.4 installer, you can simply uncheck  the pip install option in the installer and try to install pip manually later.
+So, removing the custom open/command allowed the installation to succeed. I added it back in, once the installation was completed.
+A couple things to note. I wouldn't have had the problem if I wasn't changing the installation location. And, I could have just updated the open/command entry to point to the new location instead of removing it and re-adding it afterwards.
+The problem was that the new version of Python was getting partially installed and then it was trying to run some Python commands during the installation. Because of my custom registration, it was trying to run the Python code using the old path to python.exe, which was of course uninstalled. So, it would fail every time.
+I ran into the same or at least similar error, but I couldn't find a solution. I had just uninstalled Python 3.4.1 and was trying to install Python 3.4.2.
+I tracked down three different issues in my environment, but #3 is what really fixed my issue. The first two items didn't make much difference for my situation, I just included them as additional options/ideas for others (particularly when installing a second Python version, etc.).

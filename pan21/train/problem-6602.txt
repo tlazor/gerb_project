@@ -1,0 +1,7 @@
+A minor nit would be that in your constructor you check for emptiness of the provided string via an implicit size() == 0
+in.read reads len bytes from in, and stores the current position in its position pointer, so that next call to payloadSource will start reading from in at that position. 
+text->in is an object containing a buffer with the message (like a char*) and a pointer to the position in that buffer (at first, the beginning of that buffer).
+I managed to solve that by replacing text->msg by a buffer from which I can read bytes, and changing the payloadSource_ function to something like this:
+I had a look at the read_callback function here https://curl.haxx.se/libcurl/c/post-callback.html to help.
+You now call payloadSource several times until you copied all your message in the curl buffer and return 0 (which signals end-of-file to the library). 
+A quick note regarding long messages handling in your payloadSource_ function as I stumbled upon the same problem. The problem is that if your message is too long (long body or attachment in base64 coding for instance), then (nmemb * size) >= text->msg.size() is always false and you return 0 without copying anything to the curl buffer. You then send an empty mail instead of your message. 

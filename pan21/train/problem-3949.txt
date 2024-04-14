@@ -1,0 +1,11 @@
+In my case, I only needed to see what one small image change would look like in different responsive sizes. It was easiest to Save as... a complete webpage to the desktop and then open that instead. I inspect and edit the image src.
+Okay, you can't just let somebody else acess your local file system! You would need a server-service like Apache, let your computer run 24h a day, make sure it wont overheat, care for good security and much more to make that even possible. And because server-administration is expensive and time-consuming, most people let the pro's host our stuff for us (Webhosting).
+Since you mentioned 'Chrome', you could use Chrome extensions to do this, to enable local access to your files.
+If you want to test local image on the live site you can run local web server and set URL like http://127.0.0.1:8123/img.jpg on page using DevTools
+In conclusion, if you don't want to run your own server, it's much easier to just upload it to your webhoster of choice.
+6) The extension 'File Exposer' should now be listed in the list, and have a check mark against 'Enabled'. If the folder is on a network drive or other slow drive or has lots of files in, it could take 10-20 seconds or more to appear in the list.
+Note, that the *.jpg is recursive and it will automatically match files in the specified folder and all sub folders, you dont need to specify for each sub folder. Also note, its Case Sensitive.
+8) Now in your HTML you can access the file with the following, changing the 'EXTERNSION_ID' to whatever ID your extension generated:
+In the 'img' tag you dont specify the original folder, its relative from that folder, so only sub folders need to be specified.
+1) In the local folder where your image(s) are, create this file called 'manifest.json' and enter this:
+If you modify the manifest.json file, you will need to click the 'Reload (Ctrl+R)' link next to the extension.

@@ -1,0 +1,10 @@
+First you will have to make sure your computer automatically logs into a user. You can do this by clicking start menu, type "netplwiz", press enter or open the wizard, under the users tab, select your username,  and un-check "require password", type your password, close this window.
+And go into Windows Udpate and change the settings to say "Download and install updates automatically", then you should be able to start Windows Update manually and go away. After the update is completed it'll reboot, after the restart it'll go look for more updates.
+Once again follow these instructions at your own risk as it can create an endless loop if you do not know how to stop this process by removing it from the startup folder or going into windows under safe-mode to remove the batch files
+I had to reinstall Windows 7 on my laptop. How can I tell Windows Update to completely update my laptop without asking the user nor waiting to restart. I want it to run overnight and get everything installed and done by morning. 
+One. Save as: any_name.bat then copy this batch file to your startup folder for the user you made auto login. (Click start > All Programs > Startup)
+Create 3 batch files to start the automated process. (Open notepad paste each code into a separate notepad and perform a save as corresponding_file_name.bat)
+To automate windows update these instructions may or may not work for your system however it appears to work to an extent for Windows 7 as these instructions were tested on Windows 7. 
+MUST READ: 1. If the step below does not work verify then you are most likely part of a domain and your security policy may not allow you to perform steps below! 2. UAC prompts were also disabled for the duration of the windows updates so the batch files can run without interruption; be careful to restore this to default when done
+Final notes: If you run into issues running the batch files chances are you may have to look up how to disable UAC prompts for your Windows version
+Caution this step will make your computer less secure, immediately remove this after your computer is completely up to date. Set a reminder for 24 hours later if need be:

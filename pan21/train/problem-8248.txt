@@ -1,0 +1,5 @@
+If you want to have the child objects not have these permissions, you'll have to edit the first child folder and correct the permissions.
+Go to a subfolder, and check its permissions, and you'll notice those permissions are greyed out (child permissions).
+Because if you deny a user to enter this directory, and you allow that user child directories, they will not be able to get there unless they manually enter that address. Only a person who knows that directory exists and how to manually get there will have access, something not many do. (which is why security settings are set to all child folders when changed, because it usually needs to have those permissions all the way down to the last child folder.
+This is standard behavior. It will add the permissions you set to those folders, but marks them as child permissions.
+Usually a network system administrator will suggest to have a subfolder with no childs created and apply the new rights to that folder, then move the files that should have these rights there. This way, any subfolder will have the same rights and you don't worry about child objects not having different access rights.

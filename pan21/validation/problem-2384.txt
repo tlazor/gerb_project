@@ -1,0 +1,8 @@
+Actual aliases on the other hand, where a completely different address is actually a reference to another email is up to the configuration of the server you're dealing with and is beyond the scope of Stackoverflow, it is far too specific to your environment.
+Generally speaking, using email+tag@example.com is not considered an alias, the + and the text afterwards are simply dropped, so it would have no appreciable affect on anything.
+For most of the email servers I've looked at adding an alias is a linear growth process. It does add 'some' overhead - a small fixed amount for each alias. The amount of overhead is dictated by the individual email server in question. You'll need to look at capacity planning for more details in that regard. 
+Brent already gave part of the answer, everything after the + gets discarded, so that more of a catch-all which doesn't take any additional processing time. 
+Your concern sounds like you wonder if the work increases in an exponential / geometric fashion as you add later aliases. That isn't the case. 
+A genuine infinite number of explicit aliases would, besides taking literally forever to compile, also take forever to search through and you would never receive your messages. 
+I was wondering if allowing users to have infinite number of email aliases have much overhead on the email server. 
+For example, my mail email address could be vlad@vladmail.com but I could also use  thousands of other aliases like vlad+test@vladmail.com, vald+newsletter@gmail.com, etc. which will all come under vlad@vladmail.com. I am not worried about having a few, but was wondering what the effect of having tons of them is.

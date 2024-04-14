@@ -1,0 +1,6 @@
+That said, you could look into error diffusion, halftoning or other dithering techniques for changing continuous-tone images into 1-bit images. These are techniques for reducing the bit depth of images.
+I grabbed your original image from your other question and did a straight threshold at 128, and it comes out looking a lot better:
+This is just a supplementary answer based on the accepted answer, using the original 64x128 pixel images instead of the zoomed-in interpolated screen shot.
+In the olden days, for things like fonts, they didn't do antialiasing. They generally hand made bitmap fonts because it generated the clearest, easiest-to-read results.
+PIL's Image.convert function performs dithering by default when you convert the image to 1-bit—not simply thresholding. That's what creates the noise along the edges of the shapes; the antialiasing isn't the problem. Unfortunately, at such a low resolution, the dithering does more harm than good.
+That's probably about as good as you'll be able to do on a low-resolution 1-bit display, absent a bitmap font that's specifically designed for those circumstances.

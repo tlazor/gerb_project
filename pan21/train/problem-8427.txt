@@ -1,0 +1,6 @@
+Our setup is quite simple, we are running two/three web servers (large instances) behind a ELB and a RDS (XL instance) instance to server the web servers.
+We have just started to move our infrastructure to Amazon's AWS (EU West). Since we started the move we have started seeing some quite substantial spikes in network latency.
+Is there anything we can do to improve the response time or is this something that we have no control over.
+I read about the problems Amazon seemed to have in Jan 2010 (http://www.theregister.co.uk/2010/01/15/amazon_ec2_latency/) however haven't heard anything since thus assumed it was a brief period where this happened.
+Our response time now ranges from abysmal to OK, today's values: 427 ms [London, UK] - 1,642 ms[London, UK] (values from Pingdom). With our previous provider (same setup, traditional managed hosting) we were used to seeing around 200 - 300 ms.
+What do you guys think, is there something I can do or is it the penalty you have to use for Amazon's flexibility?

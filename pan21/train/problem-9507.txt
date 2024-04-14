@@ -1,0 +1,13 @@
+If you really want to have Active Directory for every customer, the best solution is separate AD forest for every organization with NO trusts between them.
+You deff want them in separate forests.  This is by far the industry standard.  If something went wrong, and this was a contributing factor, then you may have some liability issues because you're not following what is generally considered the industry standard.
+But if your customers are mostly 5 PC companies which probably have no servers in office, you should avoid having Active Directory all together.
+One thing I've seen some orgs do is have what used to be called a red forest.  I believe MS is now calling it an ESAE (Enhances Security Administrative Environment). There are trade-offs here.
+Also option 1 comes with previously proposed solution to use Azure AD and cloud-based device management solution.
+Since Active Directory isn't designed for multi tennancy, we are currently evaluating trust relationships.
+Technically it is possible to have a single domain across several organizations. But in your case is not a viable solution and a very bad idea.
+You should NOT create a single forest between all your customer domains or make any trusts. This is because customers do not have to access each other resources (hence no need for a trust)
+If you need to simplify how you manage and administer the IT assets and infrastructure for your clients then you should invest in a quality RMM.
+It's much easier to go with option 1 and just get your profit from selling plans, skipping all expenses which come with option 2.
+2) Hosted Exchange on your servers. You become Service Provide and support all servers, infrastructure, security, etc. This requires investment and management  expenses and only makes sense if you have a large base of customers
+Try researching device management solutions (e.g. Microsoft Intune) and move your customers to a cloud management platform (e.g. Azure Active Directory)
+I've worked for and with a number of Managed Service Providers and none of them do this. There are a litany of reasons why this isn't a good idea.

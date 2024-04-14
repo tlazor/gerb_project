@@ -1,0 +1,8 @@
+Now I want to parse the file given above and convert it to aaa.bbb.ccc.0/8 format and aaa.bbb.0.0/16 format and I also want to count the number of occurences of the ip's in each subnet.I want to do this using bash.I am open to using sed or awk.How do I achieve this.
+Which gives me an output with ip addresses in the sorted order.The partial output of that file is shown below.
+I have an input file that contains a list of ip addresses and the ip_counts(some parameter that I use internally.)The file looks somewhat like this.
+As you can see the ip addresses themselves are unsorted.So I use the sort command on the file to sort the ip addresses as below
+The about input portion should produce 8.19.240.0/8 and 8.20.213.0/8 and similarly for /16 domains.I also want to count the occurences of machines in the subnet. For example In the above output this subnet should have the count 4 in the next column beside it.It should also add the already displayed count.i.e (11013 + 11915 + 31541 + 23304) in another column.
+If your gawk-foo is strong, you can probably replace this whole thing with a single awk script, but I found this easier to hack together.
+Obviously, it relies on ipcalc, but parsing that is going to be less painful than trying to do your own parsing in Bash.
+8.19.240.0/8 4 (11013 + 11915 + 31541 + 23304) 8.20.213.0/8 6 (96434 + 108191 + 170058 + 23512 + 10420 + 24809)

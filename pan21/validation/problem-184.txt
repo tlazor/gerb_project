@@ -1,0 +1,6 @@
+I get several thousands of failed sshd attempts per day, sometimes more.  I ignore them because I use secure passwords, do not have "guest" accounts which have weak passwords, and do not allow users to choose weak passwords.
+The unmatched entries are from something that is accepting IPv4 addresses and displaying IPv6 "mapped addresses" -- my imapd does this.  It may just be that.  Can you look manually and match up PIDs?
+is this someone attempting to gain access to our server? Is this something to be concerned about - over 1500 attempts seems worrying?
+There are many probes for security every day, if not every hour.  If you worry about them all, you'll go insane.  The real question to ask is how secure your system is against these probes.  If you have come of the common user accounts without passwords, with weak passwords, or with guest logins (without passwords or with common ones) then you should fix that.  If not, well, ignore them.
+There are perhaps 4-5 entries (this isn't a very busy server) here. And what does the "logout" mean? And why would cpanel be so high in  comparison?
+thanks for any further info, I appreciate there's a lot - are there any decent resources for understanding what this means? "LogWatch" doesn't really turn up much on google

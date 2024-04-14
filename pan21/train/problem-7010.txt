@@ -1,0 +1,5 @@
+Although Windows is the active partition, the Grub 2 menu still appears and Windows and Ubuntu both run as they should.
+You can revert to grub2 as bootloader after the windows upgrades succeeds by setting he Grub2/ubuntu partition back as active again. This may not work if Grub2 is installed in the MBR itself instead of PBR!
+To complete updates you can switchback to windows as active partition (only when its own partition is also bootable) using windows CLI tool "diskpart".
+I was able to fix the problem by making the Windows 10 partition active and hiding the Linux partition using a Grub4DOS memory stick. I found that Windows 10 wants to park files wherever the active partition is. In my specific case, the active partition was Ubuntu, and being that Ubuntu requires the EXT4 file system (a file system that Windows doesn't understand), Windows 10 wasn't able to write the files it needed to in order to successfully update.
+I can indeed confirm that when dualbooting windows 10 and ubuntu linux on a BIOS/MBR bootstrap the bigger windows upgrades will always fail/stuck (We Couldn't...loop) if the Ubuntu/Grub2 partition is set to active!

@@ -1,0 +1,6 @@
+Possible. Try running logs, identify the user, look at some spam and see where it originated from ;) Voila.
+I've started with verify SMTP with a site like http://www.pagasa.net/test-smtp-server/, so relay has been ruled out.
+As a preventative measure, I'd set up quotas, with admin alerts whenever a user tries to exceed them. Set them high, like: 100 emails/hour, 15/minute. This will help you find those pesky infected machines before you get on every blocklist under the sun.
+A more likely scenario is that you have a PC which is infected and sending out spam itself. A computer does not need to go through your server in order to send out spam. There are a few ways to prevent this from occurring or effecting your ability to send out email:
+Our exchange server is sending out spam, as it has been listed on various spam blacklist and not to sure know how to stop it.
+I started to suspected that it's came from internal user's PC, which has been infected by spam trojan or zombie and piggyback on log-on user's AD authentication performs a broadcast (from the log the source ip is 255.255.255.255) doing a try and error and hopefully try to landed on a SMTP server within the lan... Is my assumption correct?

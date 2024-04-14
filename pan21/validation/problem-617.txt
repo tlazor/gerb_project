@@ -1,0 +1,11 @@
+For a real-world anecdote, a Vyatta 3520 (a rebranded Dell) is specced at 3 million packets per second of routing with 64-byte frames; I've seen one top out and start losing frames with the interfaces nowhere near saturated at just over 300,000 PPS when it was dealing with real-world frame sizes (averaging 1400 bytes) and lookups against a full global BGP routing table.
+The issue about x86 routers is not performance but support. A Cisco router may cost an arm, but it comes with the assistance of TAC in case of something goes wrong.
+In my opinion, i would prefer PfSense, as i am using it on my network and using it to serve more than 10 services and about 8 different sites are connected through it. Everything is working perfectly fine without any type of delays or issues.
+A router will have a higher PPS number when dealing with 64 byte packets than when it's moving 1500 byte frames, and the size of the routing table can be a big issue if the routing isn't being done in hardware.
+Cisco has a router performance sheet in pdf that uses 64 byte packets. You could probably use this to compare your model/brand versus a Cisco.
+Packets-per-second is the metric that you want to look at, but be very careful to make sure that you're comparing apples to apples.
+the biggest weakness of propriety routers is that they cannot be customized. but in case of opensource routers, you can add Tens of GBs of RAMs, Terabytes of Disks space for logs, and you can scale it to any possible way.
+That's one of the main reasons to go with a hardware router, by the way - they use ASICs that are specifically built for routing, which generally lets them achieve much higher throughput than x86 hardware doing routing in software.
+e.g, By setting up PfSense firewall/router, you can add big RAM, good I/O controllers, high bandwidth/high throughput NIC and high speed processors and DISKS and then benchmark certain services like TCP throughput, DNS response time, squid proxy server benchmark, etc etc.
+another issue with propriety routers is that the number of NIC available to them is limited, which is not an issue with opensource. as you are not bound to fixed hardware in them.
+there are many opensource routers/firewalls available, but you can benchmark one of their part, not WHOLE of them with any utility, as it doesnt makes sense.

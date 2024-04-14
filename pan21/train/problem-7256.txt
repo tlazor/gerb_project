@@ -1,0 +1,9 @@
+Lastly, using the OS file system ensures that the database memory is reserved for query processing.  Pushing large files through the database memory pool can push out the performance benefits stored in cache.
+When an image file is stored in database, it affects the database file size.  What if many images are inserted? If autogrowth is set improperly, the growth can happen so frequently and impact performance.  
+If you're so concerned about performance, use the filesystem as a caching layer. Ex: GET /files/12234 -> if not on disk then fetch from db and put on disk -> read from disk.
+If you're dealing with pictures of cats, go ahead and use the file system. If you're dealing with x-rays, use the database.
+You can find out from a purely theoretical generic RDBMS view with the details posted, however think about what is happening when a RDBMS has to find and sort data.  RDBMS has to track each data page (or lowest amount of data read/written), and it has to track if it's in memory (dirty page), if it's on disk, if it's indexed, if it's sorted physically, if so how, etc.  
+Also it's effectively encapsulated in another file, and the fact that you'd have to go through the database engine to reassemble the file can be more than nuisance.
+Other stuff: dealing with orphaned files. Dealing with file path security issues (path traversal). Preventing users from accidentally deleting files. You need to replicate your db security to the file system now. 
+All of this creates a lot of metadata which maintains pointers/bitmaps and other forms of technology to ensure the proper data is read physically and logically, RDBMS's do this differently based on the technology used but at the end of the day, they have to track each page and what it is associated with.  
+There's more to life than performance, like data integrity. If you only care about performance you should be writing all your code in Assembly. 

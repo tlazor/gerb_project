@@ -1,0 +1,7 @@
+The password requirement can be eliminated through the use of ssh public key authentication instead of turning off passwords on your ec2 boxes.  
+Turning off password checking on your EC2 boxes could mean that anyone can login and use them.  That can be a problem.  For instance, someone could run up a bill on your account.  
+I'm not using NX but you've made me curious about it if you think it is fast enough to support this sort of thing.
+Also, I don't know why you would want to run 100 instances all running firefox.  If you want to automate the collection of web pages, consider looking at wget.
+you keep the private key in your .ssh/id_rsa and you copy the public key to the remote computer and paste it into .ssh/authorized_keys
+There is a way to do this sort of thing without NX; namely, with an X client  (like a local ubuntu installation) and ssh with Xwindows forwarding.  Perhaps this is similar enough that you can modify it for your needs.
+If you decide you want a password after all, you can add a passphrase to your key if you like, but you only have to do that on the local computer, not the remotes. Or, you can delete the key out of .ssh/authorized_keys and ssh will use password checking instead of key checking when you log in.

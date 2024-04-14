@@ -1,0 +1,6 @@
+This alternative approach is O(1) however it is overkill for a small set of words such as in your question because the constant is larger than the time taken to run a small if or statement.
+My apologies, the C++ switch case only works on primitive types. That will teach me for writing answers late at night on my phone.
+There is one thing that almost all C++ programmers get wrong, and that's calling ::tolower with a char argument. This leads to undefined behavior as soon as you enter German umlauts or café. Your program may appear to work, but it is not guaranteed to do so. Any good tutorial on the tolower function (which requires #include <ctype.h>, by the way) should mention that its argument must be cast to unsigned char.
+For now, let the code as it is, but keep that in mind when you write code that has to accept untrusted data.
+Assuming you have a fairly recent c++ compiler (c++11 or later), you can do this with a bit less code.  It also gives you more versatility over then answers you can accept:
+The next useful step would be to extract this code into its own function. Imagine how easy your code would look like if you could already call yesno with a prompt:

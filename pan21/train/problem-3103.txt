@@ -1,0 +1,7 @@
+And it's also available in Sid, so it looks like you might have some APT misconfiguration problem or the package for that plugin Fancy was renamed etc.
+But the Debian repositories do not contain either the Dillo plugin or the  Gtkhtml2 plugin.  The stable code tarball for version 3.15.1 does not contain them either, so I can't compile them.  The git tree includes the dillo plugin, but I'm reluctant to use that as I'll have to compile the entire client from what appears to be a development snapshot.  
+Is there now no stable HTML viewer for Claws Mail?  I am really hoping that this isn't true, because then I'll have to switch clients (the non-HTML display method just doesn't cut it when most emails are now in HTML), and I don't want to do that.
+I use Claws on Debian, and recently the Fancy plugin stopped working because of what looked like a filesystem issue.  I uninstalled it and tried to reinstall it, only to discover that the Debian repositories no longer contain any installable candidate for 32-bit x86 systems.  I gather there have been security concerns with this plugin. 
+I have been using Claws Mail as my email client for almost a decade.  It's fast, configurable and friendly.
+The fancy plugin has been removed because it depends on libwebkitgtk-1.0-0, which has been removed from Debian 9: https://bugs.debian.org/790199
+However, it does not natively display HTML mail.  For that you need a plugin, and three were earlier available - the Gtkhtml2 plugin, the Fancy plugin and the Dillo plugin.  

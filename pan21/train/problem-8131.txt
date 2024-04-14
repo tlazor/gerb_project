@@ -1,0 +1,8 @@
+If I can do this without killing every piece of hardware that I own, my next question is: how do I do this ?
+First see how to get a power supply turning on without plugging it into the motherboard. To do this, take a paperclip and stick it in the green and the black. 
+And hey presto. You do that for your second power supply, now plug it into whatever components.  It is that easy.
+This probably isn't worth it.  The chance of messing something up and damaging your computer or yourself isn't worth saving the sixty dollars it'll cost to get a better PSU.  Regular computers aren't designed for this (although some server motherboards support it).  You'll also need to mod your case to fit another PSU, deal with the extra heat, deal with the extra power use (PSUs are more efficient at higher load percentages, one of these is going to be underloaded and 800w is a lot for that build).
+Personally, i've used ATX PSU's in a similar way (shorting pin 14 to ground), but only for testing/temporary purposes.
+We'd need more specs of your system to check... Or you could use one of the many calculators to do it yourself.
+The only long term additional PSU i've done was add an additional AT PSU (modded a second switch for it into case front) for running case fans along with a watercooling pump in a full tower 'home' server... Back when using an Athlon T'bird 1200 overclocked :) 
+I'm sure that at times when i've had a low power fanless computer and needed more power i've used a big power supply like this. I saw no problems.

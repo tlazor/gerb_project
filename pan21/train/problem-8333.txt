@@ -1,0 +1,6 @@
+However, the code took quite long time to execute, roughly 2-3 minutes. My system is windows 10 64 bit with SQL server 2016. Is there any way I can speed it up?
+Another problem is that I found SQL server occupying as much as 8GB in the database after executing the above query. Does it need so much memory? How can I release them?
+I have a table as large as 8GB and with 20M records. There is an int field called mth. The mth field stores date information in form of YYYYMM, I want to transform the mth field to consecutive integers. So I use a formula to get the year and month from field mth and calculate the month order, specifically, I use the following code:
+You could try using Paul Randall's script to capture the Wait Statistics occurring during the execution of your script. 
+Paul Randall's and Brent Ozar's sites are good starting points for performance tuning and optimizing. And I still find that the SQL Server 2008 R2 Books Online (which can still be downloaded) contain heaps of information regarding database internals even though some of it is outdated. 
+Based on the results that are returned you can then search top Wait Types and interpret the performance issues.

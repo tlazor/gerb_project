@@ -1,0 +1,8 @@
+A single file with one tweet per line showing User Name, Tweet Text and whatever other information you have.
+On the database side of things, make sure you have an index on the username field of the tweets table, if you don't MySQL will perform a full disk read on each query, taking minutes at a time (in a good scenario).
+If you're using a transactional database, using transactions (that is, closing them) is a good idea. Assuming python2.6 (or do an from __future__ import with_statement for 2.5), this is almost trivially easy.
+Also, the username in the where should be escaped so that unfortunate twitterhandles don't mess up your query, or your database:
+Yikes, you're running almost 3,000,000 individual queries.  If you could do 4 a second (and you probably cannot) that is still a day!
+Then of course you have to do some fancy footwork to switch from one file to the next when the user changes.
+That will still be rather slow without any indexing and keys; so use users.username as your primary key, and add an index on users.no_tweets. Add another (non-primary) key on tweets.username. If that doesn't help, set the foreign keys in tbl tweets to the users table.
+Am i missing something here or why don't you do it in one simple query and let MySQL write the file?

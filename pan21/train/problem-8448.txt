@@ -1,0 +1,6 @@
+or in case of paid solution, you can go for Acronis drive image, which will clone your drive to new hard drive.
+What is the best way to replace my hard disk if I don't want to go through the pain of installing all my software again? (I have a Win7/Ubuntu dual boot laptop with a 320 GB hard disk)
+My hard disk has become very slow. (for ex. Listening music or watching movies which are stored on the hard disk is nearly impossible because they keep getting stuck for seconds before continuing, this doesn't happen when doing the same for things stored on my pen drive etc.)
+I ran Disk Utility and viewed SMART data and it showed that my hard disk has 282 bad sectors (Reallocated Sector Count).
+Just do the exact same thing you would do if your hard drive failed completely and suddenly. You might want to try extracting any critical files off the drive before doing so, but I wouldn't risk trying to extract any OS or program files from it because they might be corrupted.
+there are two special - more 'stubborn' - versions of dd that come handy when you recover data from dying hard drive: dd_rescue and ddrescue. try them if dd stops in the middle.

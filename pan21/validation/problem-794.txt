@@ -1,0 +1,10 @@
+I would really appreciate if you could help me. I really don't know what to do next and I need it for my final paper for Master's degree. 
+I was having the exact same issue. I had a regular Excel file, would hit Save As, and select the first CSV option which is; 
+I have a problem converting an Excel sheet in a *.csv file. I've searched all day for solutions, but nothing seems to work. 
+After I select the sheet and save it as "CSV(Comma delimited)", pressing OK and Yes as Excel tells me there could be some problems, the file opens in format .csv without putting all the date in one column separated by commas... it just remains the same and obviously I get an error when I try to open it with R.
+Is there someone who had the same problem? Did you find the solution? I even uninstalled and reinstalled Microsoft Office 2010 or cancelled the last two columns because they contain commas. Nothing works...
+But what I understand from your question, you want to ascertain if it has been converted to CSV or not. Once you save the file in CSV, try opening the file with Notepad, you will see what you want to see.
+This seems to a regular problem which Excel 2007 and above users face. In one sense it is a blessing in disguise, because you are saved a couple of steps if you want to view a CSV file.
+Because I am unclear on the format of your original file, I will take an initial a stab at a possible issue.  On the original excel file, have you set the formatting of the column with the date information and then resave it as CSV?
+Or maybe add a column in front of your date column, and copy ' down the new column (not sure how large your data is)
+This would give me all of the data in one column. However, if you look down the list of save types, there is also;

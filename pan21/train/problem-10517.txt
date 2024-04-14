@@ -1,0 +1,5 @@
+You used --bindir="$HOME/bin" in your ffmpeg configure, so your ffmpeg executable is in ~/bin, and not in /usr/local/bin. This usually isn't a problem (~/bin is in the default PATH for Ubuntu for example), but the hash table has not been updated. This is a somewhat rare case that occurs when installing, executing, uninstalling, re-installing occurs in a certain order, and is why the FFmpeg Wiki suggests using the hash command after installation.
+I have an Nvidia GPU in my computer and I wanted to use it with ffmpeg to convert video files much quicker using hardware capabilities.
+This does work pretty well with CUDA but the fact is that all the free codecs are not supported- (one example is CUDA). So I did :
+On the documentation of Nvidia (ttps://developer.nvidia.com/ffmpeg), it is said that we have to recompile ffmpeg to gain support for CUDA. I am on Linux (Debian based, Ubuntu). First, I did "sudo apt remove" and then I've the repository and did :
+I tried to install ffmpeg using apt, the installation worked, but I wasn't able to run the program...

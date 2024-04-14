@@ -1,0 +1,7 @@
+Actually I use the formula with linear and quadratic factors without gamma can mimic the glowing effects very well. Linear cannot. 
+When using the openGL model to approximation a spherical light source all three coefficients make sense and are valid (not "to prevent overflows" or to have "artistical freedom"):
+Imho this approximation is better than using infinitesimally small point lights with no extend at all!
+by Thomas Engelhardt, Carsten Dachsbacher But unfortunately they don't have a final simple formula for light scattering. I guess maybe the final GPU imitation effect would be similar to the linear and quadratic formula.
+The linear attenuation coefficient is the physical counterpart of light travelling into a medium. Without attenuation, light seems to travel in perfect void. When rendering "realistic" scenes, you want the air to attenuate the intensity of light over distance, and this attenuation is linear.
+"Epipolar Sampling for for Shadows and Crepuscular Rays in Participating Media with Single Scattering"
+When we view a spot light, for example, actually we see the light scattering. So the formula of 1/d^2 is only for the emit light of that pixel. But the brightness in our camera of that pixel will have a more complicated formula, which will use light scattering theory. See the paper

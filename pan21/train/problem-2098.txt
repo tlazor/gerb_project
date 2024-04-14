@@ -1,0 +1,6 @@
+I feel severly restricted by the CLI, as it seems I can only do one thing at a time. Surely, there must be a way where I can 'switch between' several command line consoles?
+Also, I am using vim, and I sometimes need access the command line. At the moment, I have to quit vim to get to the CLI, and then start vim again. This is not very productive.
+You don't have to quit vim, you can run a shell from within it using the :sh command. When you're finished in the shell, just enter exit at the shell prompt to return to vim. This gives you another technique to choose from.
+I often split Vim windows to edit several files, but I use tmux if I need to combine Vim with a shell in a single terminal. I haven't had good experiences with the Conque plugin personally, but I thought I could mention it to help complete the discussion.
+I am gradually getting used to the CLI for Ubuntu. I am used to switching between windows when editing a file, going to the command line to run a cmd, and then back again etc.
+can someone tell me how to switch between CLI screens/consoles and also how to switch to the CLI from withinin vim and then back to vim again without having to close vim?

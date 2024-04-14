@@ -1,0 +1,5 @@
+I have several rails applications on my server. Each application uses its own rvm gemset. I'm using Thin as web server for each application, this servers installs as a gem separately for each application. Each server runs on different port. Main server nginx acts as a proxy server.
+Thin can be replaced with any other server if necessary. Main nginx server is also using for running several PHP sites, so I don't want to replace it. 
+I was thinking about recompiling nginx with passenger module and installing it as main server. If I do this, will it be possible to run each application using its own ruby installation and gemset?
+To separate the installations different users should be ok in most cases, I think it depends on your security constraints.
+To monitor and autorestart or do other autoreaction methods I would use nagios or icinga. Probably you need to implement different checks and autoreaction methods yourself, but this framework is very flexible and can grow with your installations. Or/And Puppet for configuration and installation duties.

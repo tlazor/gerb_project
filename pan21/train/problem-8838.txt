@@ -1,0 +1,8 @@
+We have a service provider switch which has an interface that we use to connect to other users over. 
+The interface on the SP switch is set as an access port, I know I have VLAN in the pic, but this is the VLAN number on the trunk back to the router. The switch interface works fine with the end equipment (a IP gateway). Also when I plug a laptop straight into it. It is only when I attach the second switch it goes err-dis. 
+We have been advised by the SP that we can use this interface how we wish (i.e. feed it into a switch to allow more users to access). 
+I have turned off everything I can think of CDP, STP etc... and also increased the priority of the switch so it doesn't try to get picked as root (I know, not best practice, but I'm trying to see what mechanism is putting the port into Err-dis). 
+Unless you have access to change the provider switch configuration, there is not much you can do about it but contact the provider for help, and the question would be off-topic as a network not under your direct control.
+If you can modify the provider switch configuration, you can disable portfast and bpduguard for the switch interface.
+I am trying to add a switch in, so I can do some testing, but any time I connect it, the SP switchport goes error disabled, and recovers about 2 mins later. 
+The provider switch probably has portfast and bpduguard enabled for the switch interfaces. That will disable the switch interface if it sees any BPDUs enter the interface from another switch. That is a standard best practice.

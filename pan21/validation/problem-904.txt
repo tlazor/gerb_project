@@ -1,0 +1,5 @@
+I need to set up an SFTP server on a Windows 2008 Server machine that will be used to recieve large files (~200MB). I need the server to authenticate any users trying to log on, against the company's LDAP / ActiveDirectory.
+I have tried to do this with OpenSSH for Windows (AKA SSHWindows) but had no luck. It seems to be possible in Linux by fiddling with the OpenSSH config files, but it does not seem to be possible in SSHWindows.
+While it's not free, we have been using zFTPserver for about a year. It integrates with AD and runs on windows.
+Have you looked into using ProFTPd?  It has a module for sftp/scp and for LDAP authentication.  I recently setup some Solaris servers at work that are being used for sftp/scp file transfers and are using Fedora Directory Server for user authentication.
+FreeFTPd works just fine, and can use Windows or application authentication. If your SFTP server is a member of your AD domain, it can use your AD. If you need actual authentication via LDAP, or can't make your server a member of your AD, then it won't fit your needs.

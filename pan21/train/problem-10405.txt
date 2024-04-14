@@ -1,0 +1,10 @@
+I have no idea what AnyDVD actually does, but I can speculate. Here are some scenarios that could lead to this:
+Reading this reminded me of when someone I know (not me) completely destroyed his optical drive using AnyDVD.
+Some DVD drives allow you to change their Region Code programmatically. However, some only let you do it a few times. If AnyDVD does change the drive's Region Code to play a foreign disk, it will quickly exhaust the number of changes. 
+The Wikipedia page states that AnyDVD is a driver. Which makes sense - it's a good place to intercept of drive access at a low level. It could be then, that AnyDVD didn't actually mess up the drive - it messed up itself. The drive was fine, but AnyDVD's driver wasn't. As a result, the drive couldn't be used anymore - on that computer. This could be easily tested by putting the drive in another computer or reinstalling Windows from scratch.
+I have done exactly this a few times and it has never broken the drive. Effectively running the player software supplies the drive the decryption key for the disk which VLC then takes advantage of. 
+He did it by (successfully) playing (in VLC media player) a copy-protected region 1 DVD on a DVD drive set to region 2. This was while AnyDVD was running in the background. For fun, he then exited AnyDVD while the DVD was still playing, to see what would happen. What happened was he broke his DVD drive. It refused to read discs after that and it never worked again.
+It may well be that your friend "locked" their drive to region 1, preventing them from playing region 2 disks rather than it destroying the drive.
+What I wonder is how was AnyDVD able to break the optical drive? How can an optical drive be susceptible to software?
+At worst playing a region 1 disk on a region 2 drive will set that drive to region 1. Most commercial drives can only have their region changed 5 times before they "lock" to that region.
+Software that ignores the drive region and performs the decryption themselves would not be affected but commercial players would no longer work, except with region 1 disks.

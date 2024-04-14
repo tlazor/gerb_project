@@ -1,0 +1,11 @@
+I once had to implement a limited undo function (undo changes to the current field, or addition/deletion of records).
+Input tokens would be pushed on a stack as they are parsed, and when an operator or command is encountered that needs n arguments, the upper n tokens would be popped from the stack, used for calculation or function execution and any result pushed on the stack again. 
+The Hello world example from the Wikipedia page shows the Reverse Polish (postfix) notation used in PostScript (similar to the CS50 AP Calc 2.0 Peter showed in his answer that uses prefix notation):
+At some point you have to talk about pancakes and the fact that people don't actually eat them as a stack -- they frequently destroy stack integrity by cutting top to bottom. I personally use a stack of pancakes as a queue, extracting one at a time from the btotom as it soaks up syrup but I've been told I'm an odd one :-)
+In this game, spells are cast to "the stack", with the last spell cast resolving first.  During resolution of the stack, more spells may be cast to the top of the stack.
+In my view, a good computer science example for stack-oriented processing is the PostScript language. 
+Also the stack of papers (where the actual human interaction is never to take the top item but rather to take the second from the top.
+¹ In fact, the def command, which defines a function, will not put its result back on the stack but into a dictionary which is used to look up commands.
+The first line defines¹ a conversion function mm which is used in the third line to draw a vertical line 40 mm long. The function pops the top element from the stack, multiplies it with 360, divides it by 127 and pushes the result on the stack again.
+This won't work for all students, but some will likely be familiar with the very popular collectable card game Magic: The Gathering.
+This can even better be seen in the example that draws a line, using a conversion from PostScript points to millimeters:

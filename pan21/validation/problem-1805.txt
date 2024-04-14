@@ -1,0 +1,6 @@
+The fact that the address can be entered both in incoming/outgoing does not actually mean much. Yes, it does work but nothing prevents that domain's ISP from having different domains all handled by the same host (advertised as MX). 
+The MX record from nslookup tells the address of an MX server. In the email client, this address can actually be entered on both [incoming email server] and [outgoing email server], will this work?
+The MX record for your domain tells the Internet where to forward mail to get it to you. If you have only one SMTP server this should be the MX. If that same server also has a working IMAP and POP server on it, then yes that will work.
+In short - to answer your question: yes, it might work. But even if it does, it would not mean anything meaningful.
+Usually bigger ISPs use seperate machines for receiving mails (the MX hosts which are listed in the domain name system), sending mails (only with authentication) and serving mails (POP3/IMAP).
+Furthermore, your own ISP might block all traffic going to SMTP servers but his own, in a (futile, anyhow) attempt to reduce spam. Thus you might have to use a different SMTP server, based on where you connect from. And combination of the above.

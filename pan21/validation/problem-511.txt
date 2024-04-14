@@ -1,0 +1,6 @@
+Nicolas check out this documentation.  With cassandra set to use internal authentication, the cassandra username and password are set in the cluster configuration file for opscenter on the opscenterd server.  The file is named .conf
+See the datastax agent configuration and the upgrading guide to 5.1, because some parameters have changed.
+Verify that the local_interface ip address matches the ip for the node as seen in the nodetool status output.
+(Since on Solaris, there is no package install provided, thus a manual tar install, and manual launch of Cassandra, the agent, and the opscenter. Note also that the opscenter script needed tweak, because it decided it could use 'epoll' as the reactor, which is not supported. Forcing to use 'select' worked.)
+Verify that the opscenterd server can reach the agent on the node using the agent rpc broadcast address ip.
+If that is set properly and your agents still can't connect then you might also check that the various ip addresses set in your address.yaml are correct for your installation.

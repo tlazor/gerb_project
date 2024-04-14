@@ -1,0 +1,9 @@
+4) Read up on your routers how-to maybe you forgot to disable something. SPI firewall disabled? UPNP disabled? http://www.dd-wrt.com/wiki/index.php/Asus_RT-N16#Current_Known_Issues_and_Bugs
+I used the same router. The problem goes away after I setup my own router (No WiFi) and change the Asus to a simple Access Point. Access Point needs a lot less resource and that's why it can work
+This is my first time running DD-WRT so I'm not sure what sort of information I can give (log files, command outputs, etc). If it matters, my laptop is running OSX and my server is Ubuntu.
+I'm running a brand new Asus RT-N16 with DD-WRT v24-sp2 (08/12/10) mega on it. Lately, I've seen slow transfer rates when moving files from my laptop to my server over wifi (laptop is using wifi, server is on lan). I'm currently transferring a 1.2GB file at speeds between 200kb/sec and 500kb/sec ... that's way too slow.
+3) do NOT use chanel 6 try others. Best yet Go to status/wireless/survey and see which channels are free! You can use scanning soft from your laptop like inSIIDEr:
+7)your router has broadcom chip what chip does your MAC wrl card have? Sometimes broadcom doesn't play well with atheros and vice versa in dd-wrt. Try another laptop. Try lan connection maybe there's something in the LAN wires.
+If the problem goes away upon cold boot of the router. You are running out of resource within the router.
+5) if after restart problem disappears no biggie. Go to admin/scripts (can't remember where exactly) or was it cron? Anyways add a restart every 24-hours. Helped me once.
+1) why do you have the mega build? Any super functions you need?  Put mini on if you don't need anything fancy.

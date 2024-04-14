@@ -1,0 +1,6 @@
+If I terminate EC2 instances created by the AutoScalingGroup, they get recreated as expected. This is actually quite useful for testing changes to my LaunchConfiguration and CloudFormation::Init settings (basically making sure it works from scratch).
+Another alternative is to change a configuration value that forces the creation of a new instance, such as changing the subnet of the instance.
+What can I do to get CloudFormation to recreate this resource, short of deleting the stack and recreating it? 
+I also have an EC2 instance (named DnsServer1) that has a public IP. While working on its CloudFormation::Init data, I also manually terminated its instance. I know CloudFormation doesn't restore it like an AutoScalingGroup does, but I was expecting it would be recreated when I ran aws cloudformation update-stack. 
+The easiest way is to give the EC2 instance a different resource name and update the stack. Cloudformation will interpret that as you creating an entirely new instance and create it.
+I'm experimenting with CloudFormation right now. I deployed a stack that included an AutoScalingGroup (and LaunchConfig and CloudFormation::Init), LoadBalancer, a single EC2 instance (and CloudFormation::Init), and a couple security groups. 

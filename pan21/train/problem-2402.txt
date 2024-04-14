@@ -1,0 +1,7 @@
+If you have plenty of disk space available, you could try taking a disk image/snapshot using something like ghost/true image
+Change owner to the Administrators group and the drive will work perfectly in both XP and Windows 7.
+Once you have the image, you could try restoring this to a real drive or partition or to a new drive in a Virtual Machine (eg Virtual XP) and then use the take ownership of the files.
+If the drive is failing, that obviously complicates things, but most imaging tools have options to ignore errors and copy what it can. However this make it harder to determine what parts have been copied correctly.
+You can safely "chown" the drive as long as you change owner to one of the built in accounts/groups. The built in groups have the same security identifier both in XP, Vista and Windows 7. However if you "chown" to a user you have created XP will not be able to read anything off the drive until you restore the permissions.
+Your best bet is to try to recover the drive under a Linux live distribution, like Ubuntu. It won't have any qualms about ignoring security permissions on the XP drive.
+Windows Vista and 7 has a complete different security model then XP. Furthermore, when installing Vista/7 the OS is not aware of previous users that was on the old harddrive, and therefore it will treat the old harddrive as alien. 

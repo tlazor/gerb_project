@@ -1,0 +1,5 @@
+And have set up a LAN between them. Sharing files works fine, except the Windows XP Laptop cannot access the Windows 7 Desktop; It asks for login credientals. So:
+One difference between the XP laptop and desktop is that the desktop is XP Professional where the laptop is Home, I believe. Could it simply lack Pro's "anonymous" network access capability? Or is there something I'm missing? Am I forced to create a login on the Win7 to grant access to the laptop?
+By "access" do you mean network shares? (The "desktop" usually means what you see on the monitor.) And which version of Windows 7?
+With XP Home, the only way to share is through the guest account, which should be enabled on Windows 7 and have the permissions to access the shares. It is the same as using Simple File Sharing in XP Pro. 
+As far as I can tell all systems have identical and correct network settings. I don't understand why the Win7 machine can access the laptop but not the other way around. Or why the desktop can but the laptop cannot.

@@ -1,0 +1,8 @@
+Basically there are many ways to do these things, but experience shows that some work reliably, others less so. Often it's the old ways that work reliably ;)
+Buy an Ethernet wireless access point and connect this to a third hub socket. (or get a combined hub/AP) Configure it as a client of the WiFi network.
+(where the ip is that of the serving computer) Run this batch file to connect to the share. Drive H: should then become the share on the client.
+On the client, create a batch file containing  net use h: \192.168.1.23\sharename /user:username password
+There could be a number of reasons for your problems, and it's hard to say which. My advice when setting something like this up would be:  
+Share a folder on the serving computer, and if necessary create a user account to access it with, and assign share and filesystem permissions.
+To avoid IP changes, either give the serving computer a static IP, or else give it a secured lease on the Internet router's DHCP. 
+When wired, turn off the WiFi on the Win8 Computer. It will also get its Internet connenction via the hub/AP. 

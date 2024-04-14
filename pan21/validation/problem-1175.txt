@@ -1,0 +1,7 @@
+You can read the data provided by those daemons with tools such as snmpwalk. Most likely, that's not what you want though.
+I'd like to know if there's a GUI app, preferably for OSX but other platforms work too, which could handle the data collection and render them into graphs so that I wouldn't need to open a lot of terminals? Optimally the app could be so light that I could use it in day-to-day monitoring, but this is handled by Munin already on a wider scale, so it's not a necessity.
+I'm administering a set of Linux servers with varying purposes, and occasionally when I run maintenance tasks I'd like to see how each of the servers handles them. For this I need to open several terminals with tload running in each, and a couple more for free -m looping in a couple of boxes.
+Other tools can also periodically fetch that data from the target machine and plot nice graphs from it. One of these tools is Cacti.
+If Cacti is not for you, I completely understand :) Alternatives can be easily dug up search the web for SNMP and RRDTool (the tool that draws the graphs shown in the picture above).
+Note: I'm not sure if this belongs here or on Server Fault, but since I'm looking for a client-side app, I thought I'd try here first.
+If an appropriate daemon is running on the target machine, you can connect to it and retrieve the data you're interested in. Appropriate daemon packages are:

@@ -1,0 +1,6 @@
+In my opinion, there should not be any difference between these two approaches, because the only difference is a scaling factor on each feature, but since the split is done at the level of single features this should not make a difference.
+However, you eventually may consider using other classifiers that do not have this property, so it may still make sense to use the entire TF * IDF. 
+Since multiplying by the same factor is a monotone transformation, I'd assume that for Random Forests there indeed is no difference. 
+I am using the basic implementation of Random Forests (the one present in scikit), that creates a binary condition on a single variable at each split. Given this, is there a difference between using simple tf (term frequency) features. where each word has an associated weight that represents the number of occurrences in the document, or tf-idf (term frequency * inverse document frequency), where the term frequency is also multiplied by a value that represents the ratio between the total number of documents and the number of documents containing the word)?
+Decision trees (and hence Random Forests) are insensitive to monotone transformations of input features. 
+I am working on a text classification problem using Random Forest as classifiers, and a bag-of-words approach. 

@@ -1,0 +1,7 @@
+User was back online after that. No data loss, only programs lost client didn't know/want installed anyways.
+I realize I'm probably up a creek without a paddle on the partition, but I thought I'd reach out and see if anyone had a way to recover data from the drive before I call it a loss and reformat...
+The drive has 2 paritions (one is a manufacturer repair drive), and the repair parition is perfectly fine (accessible, etc.), but the OS parition seems to be shot.
+I pulled the drive, and plugged it into another machine, which recognizes it, assignes it a drive letter, but I can't access any files on the drive or get any information about it (size, gb used/free, etc.)
+Also, why would power loss during a disk check cause the parition to blow out? I've never seen this happen before; in the past I've been able to run a windows repair and recover the installation.
+I initiated a reboot to perform a disk check, and during the check I lost power to the machine. Now it doesn't boot.
+I tried doing a windows repair, but it doesn't detect any installations of windows and simply wants to install over the parition via a reformat.

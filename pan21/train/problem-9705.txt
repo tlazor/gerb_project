@@ -1,0 +1,7 @@
+(can't come home from a hard day at work and play my favourite game online because my ping is >300 RAGE :p )
+I have the timeless issue of being the 'gamer' in a shared house on a highly contentious Sky internet connection and i want to do something about it! 
+Using this architecture I’m thinking that i could either throttle all the wireless connections at the wireless router level, or prioritise Ethernet traffic over the wireless router traffic at the switch level, while still connecting to the internet using Sky's proprietary router. let me know what you think!
+currently my gaming PC is connected via Ethernet to the wireless router, however the router can be getting used by up to 4 other people - up to 9 devices! (smartphones, second PC / laptop etc)
+However i am with Sky and using their router (a black DG834Gv3?) and this router does not have QoS on its configuration pages.
+So what can i do? i had an idea but it could be gibberish as im not an expert when it comes to network topology so it would be good to hear your thoughts / ideas on how to solve this problem.
+an obvious solution would be to buy a router that supports QoS, but apparently sky is funny with using third party routers to connect to their service? so i guess this isn't an option.. >.<

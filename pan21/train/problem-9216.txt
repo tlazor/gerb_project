@@ -1,0 +1,16 @@
+It is a lot faster as it clips primitives rather than test them per pixel reducing the number of primitives, pixel shader executions, and framebuffer pixels processed.
+If you need separate stencil tests, you have 8-bits worth of stencil to fool around with. Your code is not accumulating stencil values, it only performs binary set/clear, so that means you can do up to 8 boolean tests per-pixel with the proper masking logic.
+Rather than testing for equality versus 1 using the mask 0xff, you can use a more sophisticated mask to isolate the individual bits. The mask 0x2 and 2 for instance will test the 2nd bit, while 0x1 and 1 will test the 1st. Right now you are using the entire 8-bit stencil buffer to do a single boolean test, and that is not going to help you at all.
+As you can see, the bounding m_screenQuad being drawn in the same way by the internal Container overlaps with the external Containers m_screenQuad and effectively extends the Stencil Mask further than it should.
+Otherwise, use all bits of the stencil buffer incrementing the value every time and test for equality.
+So if I move the container, the elements inside of it are moved along with it; but keep their distance relative to each other.
+More complex clipping shapes can be processed using a geometry shader which is still faster than using the stencil buffer.
+Stencil test is done at the pixel level, Scissor test is done at the primitive level before the pixel shader.
+Here's another image where the object inside the first Container is a subsequent Container. Each calls the same code above, with the second one being called at the // draw the things that are visible through this window. The window is defined by m_screenQuad line.
+The problem I'm having arises when one of the things that are visible through the window, are also another window.
+I have a class called a Container. An instance of Container has other elements "inside" it. These elements have independent positions that are relative to the position of the container.
+If that is required it becomes more efficient to calculate the clipped geometry right on the CPU and submit batches of pre-clipped & ordered triangles to the GPU or generate a clipping shape on the CPU from the hierarchy and use the geometry shader to clip to that shape but there is a limit to the shape's complexity that can be processed.
+Note that this does not handle recursive clipping shapes, you can't properly handle all cases with this simple stencil test, you'll have to clear the stencil and process the clipping hierarchy every time.
+How do I separate these two different Stencil tests so that they don't affect each other? Consider that the internal Container may be smaller than the external one, so it would need to truncate/cut it's internal contents as well.
+Here's some screen shots with the above code (again, note that the red it to show the different bounds being drawn by the m_screenQuad objects).
+In the above example you can see that I didn't mask out the red channel, this was to reveal that when the bounds of an "interior" container went outside the edge of he exterior container, the whole stencil doesn't work as planned.

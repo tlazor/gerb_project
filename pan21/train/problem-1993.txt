@@ -1,0 +1,6 @@
+Therefore, you are correct, you cannot connect your work Gmail account to your local Outlook client.
+Google considers the authentication methods available in Outlook to be "less secure" and your company has decided they will prevent you from changing this setting.
+If your company permits you to connect your Outlook account to your Gmail account, Google will let you do it.  
+I was fighting with this for couple weeks. I had exact the same situation. My employer uses gmail as his corporate email provider, he force employees to use 2-way authentication and doesn't allow to use "less secure apps". 
+I am using it for couple days now and it is working perfectly. It syncs mail and calendar without any problems.
+My employer uses gmail/gsuite for emails, coming from a microsoft camp and adapted to outlook therefore I am trying to configure to use outlook to access the email/calendars etc. Now I turned on the 2 step verification on gmail, generate an app password, try to create an account to connect to gmail, outlook keep saying 'unable to connect', while on the same time google says 'prevented a sign in from less secure app', and since it is a corp managed account I cannot change google to allow get access from 'less secure app'

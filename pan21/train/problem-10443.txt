@@ -1,0 +1,9 @@
+I also moved the special-case of the first row outside the loop of the Triangle method. This makes it clearer, I feel.
+So, your major issues are code style, and naming. The actual code is otherwise OK. Some tweaks may help readability - but that's something you should decide whether it's better.
+It's interesting that you chose to put the code in its own package. I think it's great - but it does make the code a little more difficult to run as an experiment, or on ideone, or something. So, I encourage you to use packages, but remember that the main function/entry point will need to be in a different directory.
+Then, working through your functions, the next most striking thing is the poor choice of variable names. x's that are "lines", y's that are "triangles", etc. Worse, you use the variable x in two different ways in the two different functions. Renaming some variables made it easier to read.
+On the other hand, I did mess a bit with the nextRow method to use append(..) instead of direct index assignment. I feel the append helps by making the 1 at the beginning and end of the line more obvious.
+Now, as a package, there should be no reason to have an exported function NextRow. Why have you capitalized it? It should be nextRow.
+Consider using unsigned integers to avoid checking for negative values for depth and to extend represented range of the values.
+You can also take advantage of the symmetry of the Pascal triangle to improve performance for higher depth values.
+Finally, the go fmt tool will re-format your code to conform to go conventions. You should always do this for your code. It helps when sharing go code with others.

@@ -1,0 +1,8 @@
+With IPv4 private ranges like 192.168.X., you randomly pick the value for X, but only get a few values to choose from (you picked 192.168.0.), and then pick a random number for the machine (you picked 99). You can have multiple networks, e.g. 192.168.1., but can't really combine two existing sets of networks together as they will likely clash. Using the private range 10.X.Y. gives you more options, but is still limited.
+With IPv6, start with 'fd', followed by ten hex digits for your unique allocation (x), and four hex digits for your network (y). Each machine then have a number up to 16 hex digits (z).
+To expand grawity's answer (the equivalent to private ranges are Unique Local Addresses, RFC 4913), here is how to pick the actual address to use.
+Your entire allocation would be 'fd12:3456:789a::/48', and subnet you are using would be 'fd12:3456:789a:1::/64'.
+e.g. Pick '12:3456:789a' as your first random ten (x), and then use network '0001' inside that (y), then for your machine pick '0000:0000:0000:0063' (because hex 63 is the same as decimal 99).
+Note that the above examples happen to have the same number (99 decimal, 0x0063 hex) for the machine in both the IPv4 and IPv6 ranges, but they don't have to match (it just might be easier).
+This would give your machine the IPv6 address 'fd12:3456:789a:0001:0000:0000:0000:0063'. (For your specific network use different, random, values for the 12:3456:789a part.)
+This will give you a value like 'fdxx:xxxx:xxxx:yyyy:zzzz:zzzz:zzzz:zzzz', although if you put a lot of zeros in it will be a lot shorter to write out.

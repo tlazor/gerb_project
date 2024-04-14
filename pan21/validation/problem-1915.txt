@@ -1,0 +1,8 @@
+This post also helped me while I was looking for the correct offsets for fan speed control in the EC RAM.
+Changes made to the EC are reset after a reboot, so you might want to make a batch script and run it at boot to set the fan speed correctly. Here's what I used for my computer.
+I faced a similar problem a while ago. My Acer Aspire 5542G notebook was overheating and the fan just wasn't spinning fast enough to cool down the CPU.
+Read this informative forum post on how to use RWEverything to tinker with the EC to manually control your fan speeds. Be well aware that a wrong move could bring your system crashing down or worse, cause physical damage to computer components.
+SpeedFan didn't allow me to control my fan speeds so I set out to look for other options and came across RWEverything, which is a very powerful tool that lets you tinker with your motherboard's Embedded Controller (EC) among other things.
+The fan speed control offsets in the EC RAM are different for every computer model so you might have to experiment a little to find yours. However, do not attempt to make any changes to the EC RAM unless you fully understand what you're doing and the implications of your actions.
+I also had the same problem... The fast heat sink fan with high rpm and hot cpu above 56°C. Once after i changed the processor, it was fine 
+as it seems the temp sensor 'on-die' got busted, by now you can download a cpu temp monitor like Core Temp (there's a free version), this one comes with a utility that can set up the RPM speed of the cpu heatsink fan depending on user-defined temp parameters, so you can customize the fan speed

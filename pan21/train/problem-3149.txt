@@ -1,0 +1,6 @@
+Spreadsheets by there very nature are static. They are very reminiscent of writings things into a physical orders book/ payment journal.
+The proper design of such a database goes beyond an answer on here, there is much to learn on how to do it properly and maintain it both for user sanity and your own.
+These can then be brought together using forms to make it user friendly. You can even have the access database link to a read only spreadsheet that is used to input data so that there isn't such a large learning curve.
+You can have a table for imports and or exports. A table for Staff, and a separate table for their pay which is then linked.
+If you wanted to stick with an excel sheet, you could change it from daily to monthly. That would be more inline with what businesses do. The sheet would be updated daily, but a blank copy created each month. This gives you easy to access archival and you can see what is happening in your current month.
+As Dave suggests, you could write a VBA function that at a click of a button Saves the worksheet, but then that is just an automated version of what your doing now and is not neat.

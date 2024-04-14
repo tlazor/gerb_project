@@ -1,0 +1,9 @@
+Yet another way to do tiles graphics, but to hide the fact that its tiled is to use texture multisampling.
+The reason this works well is because the images overlap and change per pixel not per tile, so makes tiling patterns much harder to detect.
+You could make a 20 by 20 generated content (matrix or whatever you implement) that repeat itself over the ocean.
+Another common technique is to pre-render your tiles (at runtime) into a large texture, or a set of large textures.  This way, you can draw large swaths of the screen with a single draw call, at the cost of increased texture memory usage.
+Maybe you might want to make "false random generated" area. Let's say you want to display 20 by 20 tiles each time you render. let's say you have 1000 tiles total.
+The basic idea is that every pixel is some blend between multiple textures, and that the contribution from each texture varies based on some rule. Common rules include height of the vertex (to blend between rock, grass and snow for instance) but it could also be based on random numbers.
+You could take a random number using the rand() or any other random function. Then take that number, and as you place down each tile upon the map, use that number to determine what type of ocean tile it is going to be.
+This is an example from c++, written by me, but you could probably take it and write it out in unity.
+this is for the case where you don't have to render all the ocean in one unique time (or maybe it would, its up to you)

@@ -1,0 +1,6 @@
+Excel does have a "Track Changes" feature under Tools/Track Changes on the menu bar; although it only keeps change records for a default of 30 days.
+There may be an excess of blank rows or columns in the larger file. If this is the case, the larger file will have a much lager scroll-able area and much smaller scroll bars (along the right and bottom edges of the window). 
+Now save the document. Once saved, the scroll bars should return to the appropriate size, the scrollable area should now include only the area of the spreadsheet that contains data, and the size of the file should decrease.
+To delete extra columns, highlight the first blank column, hold ctrl + shift, and press the right arrow key to select them all. Right click the highlighted columns and select "Delete" from the context menu. Next, select the first blank row, hold ctrl + shift, press the down arrow key and delete the extra row. 
+Try creating a new, empty .xls file, copy the data you want from a larger file, and paste it into the new one.
+Excel files can become 'fragmented' with constant editing.  If you want to reduce the file size to a minimum, look at the following:

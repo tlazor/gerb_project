@@ -1,0 +1,6 @@
+To use the ec2-api-tools you need to have a X.509 certificate: http://docs.amazonwebservices.com/AWSSecurityCredentials/1.0/AboutAWSCredentials.html#EC2Credentials
+AWS issues X.509 certificates to authenticate these requests... You'll have to have the client go into AWS and generate one for you - there is no way to do what you are asking without proper authentication.
+sorry, i can't  change security settings without have access(certificate), that have security reason ;) u need both key and cerificate.
+http://cloud-computing.learningtree.com/2010/09/24/understanding-amazon-ec2-security-groups-and-firewalls/
+You may be able to craft a request to the REST API using just your Access Keys and AuthorizeSecurityGroupIngress:  http://docs.amazonwebservices.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html
+To get your cerificate, you need to go to Account > Security Credentials > Access Credentials > X.509 Certificates. More details can be found at: http://docs.amazonwebservices.com/AWSSecurityCredentials/1.0/AboutAWSCredentials.html#X509Credentials

@@ -1,0 +1,7 @@
+As Ricket said: Try to split the files into smaller chunks. Loading these huge files into memory will cause problems otherwise.
+The question of how to compress and decompress data/files with ActionScript is a great candidate for asking at Stack Overflow; it's not game dev specific.
+However, I personally like XML, and I think it suits your usage very well. As you found, XML compression is extremely efficient (cancelling out the fact that it's human readable rather than binary) and I'm sure there are XML parsers in ActionScript for you to take advantage of.
+If you can't modify the server settings (eg. enable gzip compression), then you could also zip your files manually and use ActionScript (AS3 Zip Library) to unzip the data.
+Switching to JSON rather than XML would also immediately save a lot of space. It's also a lot more readable, as a side effect.
+As for the question of is that a good idea, well you'll have to load, parse and keep the entire XML file in memory just to load one level. So I most certainly think you should split the levels into one xml file per level and then dynamically load and unload, so as not to waste valuable RAM.
+As for compression of the data: The easiest way would be to simply enable gzip compression on the server. When using Apache, you would have to enable mod_deflate and configure it, so that it also includes your xml files into compression. That way, all your files will be gzipped before sending to the client and automatically extracted by the client-browser.

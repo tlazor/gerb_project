@@ -1,0 +1,10 @@
+I'm not Word user, but I'd guess that when a document is saved with a given encoding, the codepage for the language is stored as part of the document metadata.
+both containing Japanese text. If you copy some text from one text file and paste it to other you will see a successful pasting. you must ask that they are different encoding how come they are getting pasted in the same text file?
+the answer is when you copy some text it get copied in UNICODE and also pasted as unicode(with my little programming knowledge all text that is displayed on windows are in unicode. If you dont convert text to Unicode you cannot print them properly). But when user save the file, it get saved in its proper encoding....................
+Yes, you need to use an editor that supports multiple encodings. Most full-featured editors (notepad++, (g)vim, etc.) support this. Usually, you need to tell the editor which encoding the text file has (because this information is not in the file itself), though sometimes the editor can guess it for you. E.g. in Notepad++ and gvim there are menu/config settings for choosing the encoding.
+For plain text files, in general you cannot tell the encoding. However, you can guess (mostly based on byte frequency); this is probably what Word does.
+But it is very much possible that you can use different language in the same text file. But it must have to be same encoding. 
+http://www.microsoft.com/downloads/details.aspx?familyid=8C4E8E0D-45D1-4D9B-B7C0-8430C1AC89AB&displaylang=en 
+For reading in text editors, see above. As to "SecureCRT": I assume you mean the file is on a remote server which you access via SecureCRT. Then you need to use an editor on the remote system that supports the file's encoding.
+But if you might get some pretty interesting issue where it will seems that you are getting data in different encoding... as example
+if you have development idea. You can try simple test on encoding issue. try to print two different encoded data in the same page. you will get garbage output.

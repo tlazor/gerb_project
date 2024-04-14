@@ -1,0 +1,8 @@
+The load average is displayed in 1, 5, and 15 minute averages. If the 1 minute average (i.e., the one on the left) is less then the number of CPU cores you have then you don't need to worry unless you see a problem.
+Is this true ? What other parameters should I monitor to detect load levels that affect performance ?
+As for how much RAM is used, it's pointless to have a bunch of unused RAM sitting around. You want to scale your RAM capacity to your need. You want neither too much (because you're wasting money) nor too little (because your application is starved). It's OK (and even desired) that your main applications are using up most of your RAM. When you look at free memory you can effectively add the buffers value to free to determine the amount of available memory. So again, don't worry unless you see a problem.
+I have a 512 MB VPS running on Debian Squeeze 64bit serving a complete email system (postfix, courier, amavis, clamav, spamassassin, roundcube). All the RAM is always used: max free memory is 10MB, min is 0 MB. The Swap is 2 GB and is almost not used (5-15 MB max).
+I have read that this situation is not so bad, because all the ram is used but there is not much need of relying on disk io, so I should not get any performance issues.
+Subquestion: about half the ram is taken by amavis and clamd, is there a way to lower memory usage by these software ?
+There's a lot more that goes into system monitoring and performance tuning, but if you're a newbie and you don't want to spend very much time on it then you can feel mostly OK just by looking at the load average.
+If you're very new to this then the main metric you want to look at is the load average. Use the uptime command to display load average.

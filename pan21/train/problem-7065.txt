@@ -1,0 +1,6 @@
+I don't want the MySQL files and home directory files to be accessible in the same place (the FTPS clients shouldn't have access to the databases) and I don't have any free USB slots to mount another USB stick therefore I need both sets of files on the same USB stick but without being in the same place (logical, I know...).
+I have a USB stick permanently mounted to my Pi to increase its storage capacity and to reduce strain on the ever so volatile SD card.
+At present, the USB stick is mounted to one of the users' home directories to be used as file storage for an FTPS server which is all working fine.
+My question is this, would I be going down the right road to partition my USB stick, to mount two folders on the USB stick in a different way (which actually works) or to use another method completely?
+I initially tried mounting different folders on the USB to different locations however this ended in failure. My second thought is to split the USB into two partitions, put each set of files on each partition and mount each partition to the location I want.
+I've come to realise, however, that I also need to move my MySQL files off the SD card due to the ever increasing size of the databases and so the logical solution is to drop that onto a USB too.

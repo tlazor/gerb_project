@@ -1,0 +1,5 @@
+Also, this technique allows you to run more than one instance on the same machine (if you have everything that more than one application/process needs defined in the config file - this might include message queue ids, directory names and so on). Our current product doesn't do this, and it's a pain in the proverbial.
+I am about to write tcp-server for a project my company is working on. The server will use several port for different tasks.
+I've had trouble using port 2000 for some things.  The problem was a virus used that port a long time ago and some routers/firewalls/etc are suspicious of data on the port.  I started to default the port numbers to above 30,000.
+However, why not make it configurable? Have the ports defined in a configuration file / or directory or something, then if you do have a clash, it's just a quick edit to change it to something else.
+Could we use this ports on our production server? Or are there some security and / or compatibility issues we have to think about?

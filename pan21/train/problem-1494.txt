@@ -1,0 +1,5 @@
+group."  Is there a way I can put my forwarding e-mail address on my messages instead of my real one?
+Add your forwarding address as a POP3/SMTP account in thunderbird.  Then, make sure you uncheck the POP3 account settings options "check for new messages" and "automatically download new messages" so you don't actually download the messages from your forwarding account
+I appear to be able to edit my from address in Thunderbird (v52.2.1 for Linux), simply by clicking the "From" address in the compose window, and selecting "Customize From Address..." in the drop down menu.
+I subscribed to a mailing list under a forwarding e-mail address.  But Thunderbird sends mails from my real address (a GMail account).  I tried to send my first message to the list today, but it got rejected because "The email address used to send your message is not subscribed to this 
+This works for me because I have a lot of disposable email addresses, and sometimes need to reply from one of them.  If you have a regular address you want to use a lot, adding a new identity as described in the other answer seems appropriate.

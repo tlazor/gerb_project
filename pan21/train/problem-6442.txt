@@ -1,0 +1,7 @@
+Assuming that the WAN1 and WAN2 interfaces of both machines have public IP addresses corresponding to the ISP, you will need to ensure that you also have a VIP on the WAN side for both ISP networks configured in CARP, as setting gateway groups does not appear to also create a VIP.
+All the systems in LAN is able to access internet even if any of the ISP system or the firewall system (PFSense) goes down. The below architecture works great for load-balancing between ISP's and failover. 
+This ensures that the IP source address will not change when pfSense migrates the session over.  You would then need the same type of config for ISP-2.
+The problem happens with SSH connections. If any of the system goes down the SSH connection breaks, so I have to restart the connection.
+The problem is that whilst this will maintain the SSH (or any active TCP session) for a fail over of PFSense Master to PFSense Backup, it will not help if the active ISP-x fails as your IP address range for each ISP is going to be different preventing pfSense from maintaining the session.
+What change is required in the architecture so that the SSH connections does not get interrupted even when any of the systems goes down?
+In both master and backup I have two interfaces WAN1 and WAN2 which connects to two other Linux machines (not running PFSense) which in turn connects to the ISP's. I have created gateway groups for load-balancing and failover.

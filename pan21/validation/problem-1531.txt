@@ -1,0 +1,8 @@
+has a dynamic IP...... Which actually DOES change from time to time. So how can I create an alias? (I am using Windows 8.1 Enterprise)
+You can think of simple script that will resolve gtxxxxxxx.database.windows.net through DNS and then map IP address to gt on OS startup. Still, this can be tricky if IP changes during your work - hosts file won't change until next boot.
+You can also think of a simple service in VB.NET or C# that will lookup gtxxxxxxx.database.windows.net through DNS from time to time and if necessary, change hosts file.
+Breevy is a text expander for Windows that helps you type faster and more accurately by allowing you to abbreviate long words and phrases -- saving you time and money.
+Well. Apparently what you're asking for isn't that trivial as it seems. Two options I can think of to consider.
+I could not find any solution other than using a DNS server. Which is a bit too much trouble to make something easy. So i simply used Authotkey en made it replace de character-combination gtxxx with gtxxxxxxx.database.windows.net. Good enough.
+Seems like all you need is text expansion, check out Breevy or something similiar: http://www.16software.com/breevy/
+For a reason like yours I don't think it's worth it (yet you can try if you want to learn something).

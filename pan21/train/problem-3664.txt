@@ -1,0 +1,5 @@
+For every host being unique, the best solution I can come up with involved using a volume for persistence. You would need the following workflow in your entrypoint:
+Because this is basically layering a new container on top of the old it seems like this should be possible but I am a docker novice.
+I am looking to package up a lot of local and open source code into a docker container that will distribute out to host machines to build and run.  The intent of the final container is to be executed command line style and output the result ex. (docker run cmdcontainer args).  The issue I have is the source that is distributed needs to be targeted and compiled on the specific host it will be running on once and this takes hours to complete.  However once compiled the command runs very fast.
+Distribute Docker Container with source files -> Run the container to generate a new container with compiled binaries -> Subsequent runs execute the compiled container
+This does require that your image build embeds a version number, e.g. a git hash. You can do this with a build arg:

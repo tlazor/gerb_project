@@ -1,0 +1,7 @@
+You can then use either this Windows based app or this web based app to wake your MacBook up remotely. There are a few other apps available to do the same thing, but you can search for those on your own.
+If it works on the LAN, you're well on your way. You now need to have a router and forward the WOL traffic to the internal PC in question. Perhaps give the internal PC a static IP or a DHCP reservation so it never changes and the forwarding rule is always valid.
+Wake on Lan does work over the internet, you just need to set your router to forward subnet directed broadcasts to your lan.
+So in your routers firewall add a rule to forward data from UDP port (say) 7 to the internal networks broadcast address 
+i.e. if your internal ip is 192.168.1.8 and subnet 255.255.255.0 then your broadcast address would be 192.168.1.255.
+Wake on LAN works on layer 2 (MAC addresses). For anything to work on the internet, it needs to operate on layer 3 (IP addresses). You're out of luck.  Set it to never sleep or remote into another computer that's on the same network as the mac in order to wake it up.
+It's possible to get WOL to work over the internet. However, does WOL even work on the LAN? Check a few things:

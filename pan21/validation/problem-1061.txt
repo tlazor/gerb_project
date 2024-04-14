@@ -1,0 +1,6 @@
+Now, from time to time, we noticed some computers got problems. Usually correlated with some general power interruption (at the house level, but AFAIK no thunder implied).
+So, there is that house in France with three phase electrical power. I don't know if this is relevant. And I can't tell the whole installation was set properly. But the grounding is recent and strong.
+Maybe at some point the material plugged into one UPS was consuming (demanding) more power than supported (10A).
+Then we have some computers —local second hand professional servers, with now very low service load— with their own inner surge protections (in AC-DC block).
+But more recently, again we got some damage. A network area storage got burnt. One server doesn't come fully up any more. Seems some problem with ROM corruption or I can't tell.
+One server would be found off while the BIOS settings said to restart after power interruption; but the BIOS settings had gone. The motherboard battery was changed and same occurred again. That's when the UPS was installed, stopping that problem, and confirming the "electrical shock" hypothesis.

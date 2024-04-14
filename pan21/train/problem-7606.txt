@@ -1,0 +1,8 @@
+Unfortunately it seems that its not possible in newer Qt version on recent distros. Problem is described in this link for Arch, but suggested workaround is not working on Ubuntu/Debian.
+Problem is, that all apps that are executed as root (via sudo) are using root settings and enviroment. 
+I am developing applications in Qt5, but it requires low level hardware access and thus need to be executed as root. My target operating systems are Debian (ARM) and Ubuntu (x86).
+But found workaround, that is probably much better if you want 100% static design (on all machines) in root Qt application.
+Is it somehow possible to achieve this? Like executing via shell script with additional execution parameters and commands?
+System availiable styles are located in /usr/lib/x86_64-linux-gnu/qt5/plugins/styles/ . In my case, availiable styles are Adwaita, Breeze and Oxygen. These styles only affects style of UI elements - e.g. pushbuttons, lists, dials and so on.
+To apply custom UI colors and fonts, I used custom stylesheet. I wrote my own based on this custom stylesheet intended for QtCreator
+This will force app to run with completely custom specified design, no matter how local style and fonts are set up. It can be used on user and root  

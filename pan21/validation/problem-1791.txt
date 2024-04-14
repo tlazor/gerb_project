@@ -1,0 +1,5 @@
+Try opening the "USB 3.0 Host Controller Utility" and unchecking the "safe energy" box. If you do not have the actual utility, it can be downloaded here. Choose the Windows 7 option in the dropdown to get the utility to show.
+I solved the problem of my WD passport external hard drive not being recognised on a USB3 port by putting a USB2 extension cable between the laptop and the hard drive - hope this solution helps others
+I got new Thinkpad T450 which has 3x USB 3.0 ports. BIOS is having three modes for USB config namely Auto (default), USB 3.0 and USB 2.0
+I have updated Intel® USB 3.0 eXtensible Host Controller Driver to latest (1.0.10.255) but no change
+I'm sorry to hear about your performance issues with the WD My Passport drive, @sreeKang. I'd advise you to try using a different USB 3.0 cable and see if that will actually improve the connectivity & transfer rate. If it doesn't help, make sure you check the warranty for the WD external. If it's still covered, I'd suggest you contact our Customer Support and let them know about your problems with the HDD. Here is a link to our Warranty Policy as well. 

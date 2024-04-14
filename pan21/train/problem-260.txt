@@ -1,0 +1,8 @@
+However, even using his advice, you might find that your applications might not start with the same window positions and sizes you had when you shut down (depends on the applications of course).
+Hibernation was designed (in part) to solve the exact problem you're trying to solve. If hibernation is working well on your system, why not continue to use it?
+You can also make an individual file, such as a word-processing document, open automatically by dragging a shortcut of the file into the Startup folder.
+Also whenever you change your mind about what specific set of applications and documents you want open on start up, you'll have to re-jig things in the Startup folder. That'll get tedious pretty quickly.
+source: http://windows.microsoft.com/en-us/windows/run-program-automatically-windows-starts#1TC=windows-7
+If you always open the same programs after starting your computer, such as a web browser or an e‑mail program, you might find it convenient to have them start automatically when you start Windows. Programs or shortcuts placed in the Startup folder will run whenever Windows starts.
+Right-click the item, and then click Create Shortcut. The new shortcut appears in the same location as the original item.
+What you have open is in RAM. When you "Shut Down" the computer, RAM is cleared. So as your question stands, I would say No.

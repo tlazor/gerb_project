@@ -1,0 +1,5 @@
+I prefer to have a single function return the range object.  Using the WorkshetFunction.Match() is far more efficient then iterating over the cells.  
+I would have a dictionary that stores a sub-dictionary for each stock that stores a dictionary for each day that stores an arraylist to store the values.
+You are doing twice the work by having a function to get the starting row and a second function get the last row.  Passing the starting row into the GetLastRow() function would be more efficient. 
+The dataset in the image shows that you need to know the Open, High, Low, and Close for each day to create the Chart.  Considering there are over 200 K rows, I presume that you will also need to filter by stock.  If this is true then I would take a different approach.   
+I did a quick mock up and it took 21 seconds to load 259,967 rows of data into the dictionaries and ArrayList and just 11 seconds to build a new Array and write it to a worksheet.  After the data has been processed, it would be a simply matter of getting the date range and updating the chart table.  Changing the stocks or chart data should take no more than 1 tenth of a second.

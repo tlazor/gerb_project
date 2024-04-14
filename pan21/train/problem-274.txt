@@ -1,0 +1,7 @@
+Open up a command window and do the following where X is the last octet of the IP in your web server.
+Then go into Firefox Tools -> Advanced -> Network -> Settings for Configure how Firefox connects to the Internet -> Manual Proxy Configuration -> leave all the fields blank except for SOCKS Host, which should be localhost on port 8080. Set No Proxy For to 192.168.1.0/24 and click Apply. Everything except your local internet network should now be sent via that server.
+Use a SOCKS proxy. Open the PuTTY window and go to Connections->SSH->Tunnels (it might be slightly different as I don't have access to a PuTTY atm). Type the source port as 8080, select the options Dynamic and Automatic and click "Add" (you don't need a destination port for dynamic) and connect to the SSH server.
+I think I can achieve this using ssh tunnels but I'm not clear on what settings to use in Putty and I'm not sure what to put in my hosts file for the vhosts. 
+Now if you want to connect to a specific host name you'd want to add it into your hosts table and point it to your localhost.
+First go into putty and set up a saved connection to your ssh server at the office.  Let's say for the sake of the rest of the instructions you name it "office"
+This command uses the SSH session "office" and maps your local port 80 to the remote port 80 of the web server tunneled through the "office" server.

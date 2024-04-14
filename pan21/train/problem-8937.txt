@@ -1,0 +1,10 @@
+However, since the medium is shared ("air" / Frequency) you need to devide the #Bandwidth by the number of connected devices (since each will get their own share of the bandwidth).
+First of all, what is the device you are connecting to ? If it's your home router, provided by your ISP then no such low hard limits should be in effect (although that may be ISP related policy, cannot comment on that).
+If you are both, for instance on 5 Ghz and your channels are near each other (you on 2, him on 3) and you see a free channel, try and switching your router to use the channel that is free. That could improve both your connectivity as well as throughput.
+You can, theoretically, connect 254 devices to a single Wi-Fi router/access point (you have to substract the gateway address and the broadcast address). But that doesn’t mean you should.
+You will be limited by CSMA/CA nature, not by IP addresses. The rule of thumb is 25 clients per access point.
+Hope this helps you out a bit, at least be able to identify / troubleshoot some basic things (By using the WiFi analyser).
+Generally speaking WiFi does not have a "cap" on # connections except when the medium it uses to send / receive data is saturated. In practice that means that, if you have a WiFi hotspot capable of 802.11N for instance running 5Ghz frequency theoretically you'd have 300Mbps throughput.
+By the way, you should read the specs of the Access Point you are using. Not all AP support the same number of devices against it
+and see if your WiFi is sharing the Frequency AND Channel with a neighbour who also has WiFi on for instance.
+For instance, run a WiFi analyzer (https://www.microsoft.com/en-us/store/apps/wifi-analyzer/9nblggh33n0n)

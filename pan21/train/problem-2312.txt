@@ -1,0 +1,8 @@
+You can add a function to your repository to get all user which they are president with a simple query.
+Seems like your main problem is that you cannot reuse computeName() and that's because you've decided to couple it to the user model object, the nail in the coffin for that coupling was using $this there's a few ways to uncouple that at run time but you'd be better off without the coupling in the first place:
+Since it seems like you need computeName() outside of the context of the model object I think it's time to decouple your method into its own function and then reuse it wherever you need it : 
+Now that I didn't have a pivot table anymore, I stored the type column in the president table and thus I could change the query to
+By the way, if you wanted to keep the relation as a 1:n relation than the query should be called like this:
+I used a hasOne relation in the user class because it can be used if you need  a hasOneOrZero relation ( see https://stackoverflow.com/questions/46866046/does-laravel-have-a-one-to-zero-or-one-eloquent-relation)
+I'd also consider renaming the function, 'compute' seems redundant, as does the trim() function unless you're absolutely sure you have white space at the beginning of your titles or end of your surnames, in which case I would ask why that wasn't stripped before it reached the database
+why do you have a 1:n relation? you can just add a 1:1 or column to your user table which has a type column for example and it holds president or vice-president values and then you can have a function in your model to check if it's a president or vice-president.

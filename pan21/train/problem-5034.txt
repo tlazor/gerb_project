@@ -1,0 +1,8 @@
+It's a bit complex, but setting up a VPN via OpenVPN might help.  There are HTTP proxy options for OpenVPN clients which may allow it to connect to an OpenVPN server that you operate outside of the network.
+I'm assuming for the machine that is behind the proxy, that it's only path out to the Internet is via the proxy.  So you are not able to receive incoming connections, and only make outgoing ones through an HTTP proxy.
+This system that you want to RDP into, you must set it up as an OpenVPN client.  Use the http-proxy options as explained here.
+On the server side, you'll want to do this (which will require you to set up server and client certificates - using xca to do this may be easier than following the steps in the OpenVPN documentation) to make sure the client, which is the system you want to RDP into, always receives the same VPN IP.
+Suppose the win2k server has the address 10.10.10.10 and uses the standard RDP port this rule should pass the RDP traffic:
+Once both client and server are active and connected, from the server machine which is outside of this network, you ought to be able to mstsc /v:{VPN-IP} from the Windows "Run" dialog to reach it.
+If you want extra security you can also specify which interfaces/clients/networks are allowed to connect.
+If you don't want to install OpenVPN on the Win2k server directly, install it on another system behind the proxy on the same network and then once you are RDP'ed into this intermediate system, RDP from there to the WIn2k server.  Windows 7 and 8 handle "cascaded" RDP a bit better than XP IMHO.

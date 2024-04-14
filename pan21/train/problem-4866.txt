@@ -1,0 +1,6 @@
+On some consoles, it is required to have a loading screen if it takes more than x seconds to load, and the loading screen has to have a 'loading' animation if it takes more than x+y seconds to load. 
+This is on console, where you know the device and can be quite certain that the time it takes to load a part of the game will be the same for all users. 
+I was wondering if my 2D Pixel Art platformer HTML5 game(a lot of words there..) should have loading screens for maps.
+My game has different maps and I don't know if a loading screen should be implemented to transition to those maps, they are already loaded when the page finished loading right?
+Since this is in JavaScript, you don't have such control, so the time to load a part of the game will vary a lot from a user to another. 
+If you're not able to stream content while the user is playing the game, and your game is made in such a way that the player could be waiting for a part of it to load, it would be advisable to plan to use a loading screen. 

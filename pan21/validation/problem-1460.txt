@@ -1,0 +1,6 @@
+Intended design that flies in the face of convention and causes developers and users alike headaches, but still intended design. Plus it would segregate the browser market even further, into people with IE6 who had updated, and those who hadn't.
+Seems like it would be pretty easy to just issue a patch which fixes the CSS bugs and save a lot of web devs many headaches.
+Because then all those sites fixing things in IE would break again. If you didn't test te version and it breaks because they fix something in the new one, that's your fault for being stupid.
+This is a serious question; I'd like to know why Microsoft will not (or cannot) patch IE6 and/or IE7 to make them more standards compliant browsers -- SPECIFICALLY pertaining to the CSS rendering bugs?
+From a development perspective it does not make a lot of sense to return to older browsers and alter items that were "by design" at the time the software was developed and have later been determined by users to be "bugs."  Microsoft is better served ... and so are IE users ... by focusing development efforts on new versions of IE.
+Really, the best course of action is that that MS is doing anyway - trying to get people to move to IE8, though it's still far from perfect in the rendering department, it's much, much better.

@@ -1,0 +1,5 @@
+But it really does all come down to whether the ~0%-20% overall likely performance difference is worth the move.
+Firstly do you NEED extra performance, as moving from one to the other will be time consuming, risky to some degree and incur an outage.
+One thing's for sure, unless you're memory-starved or use code that hates hyperthreading then there's not that much in it between them, though if this were a new system I'd probably go with the Opteron (or nag the Xeon supplier for a more modern chip).
+Do you reccomend me to move to a new server? I don't know a lot about differences beween Xeon and Opetron. Thanks.
+That Xeon has hyperthreading, so you can kind of think of it as being able to do eight things at once, same as the Opteron. Normally I'd always take an Intel over an AMD as on anything but price Intel almost always rules the roost but there's at least one generational leap between the 2009 Xeon and the much modern Opteron - and that does cancel out the 'Intel lead' I'd normally go with.

@@ -1,0 +1,9 @@
+add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\UserSwitch /v Enabled  /t REG_DWORD /d 1 /f
+My solution also uses the well known registry setting HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\UserSwitch\Enabled,
+of all tasks. The last column of that overview contains the results of the last run. The date of the last run is in the previous column. 
+To check if it worked (apart from the fact that no auto login is seen anymore) look in the Task Schedular itself: when you select Task Schedular library, you get an overview
+For that I used the Task Schedular: I created a Task triggered by an event - Log: System; Source: User32; EvenID: 1074, Action: Start a Program.
+After a lot of searching I found a solution for the auto-login problem, a solution that is usable for Windows 10 Home, that has no Local Group Policy
+But if you change this registry setting to "1", from that moment on it is not possible anymore to run an application as administrator: normally you get a screen to enter the
+So I had to set that setting as late as possible, just before the shutdown/reboot. The setting is auto-reset during the next boot.
+admin password, but when you change the registry setting you get an error about corrupted files. When that setting is reset, it works normally again.

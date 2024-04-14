@@ -1,0 +1,7 @@
+I couldn't install Windows 8 on my "new" (old) hard drive because I replaced the Superdrive with it (the hard drive), and the Mac didn't support USB booting, so I ended up following this tutorial: http://huguesval.com/blog/2012/02/installing-windows-7-on-a-mac-without-superdrive-with-virtualbox/
+Now, that's a huge task! So my actual question here would be, I guess, how on Earth should this be done? Any ideas at all?
+Then, you can do whatever you want with your HDD, format it, make more partitions, install OSX on one of them or whatever else you want to.
+I would like to remove OS X from the SSD, transfer my current Windows 8 (as an image?) installation from the 500GB HDD over to the (then) formatted and clean SSD, install Windows 8 on it, and remove Windows 8 from the (then) redundant 500GB HDD, and use that as a storage drive instead.
+At the moment, I'm running Windows 8 on it's own hard drive (5400 RPM - OLD) which was replaced with the standard Superdrive (DVD-drive) a while back. The problems first occoured when I realized that my MacBook Pro 2010 edition didn't support booting via USB, meaning that:
+Well, you can't move Windows as image because it would not fit into that SSD and that is not how it should be done.
+If I was in your place I would save my data from OSX to windows HDD. Then I would do a clean Windows install on SSD. After that you can put back your data from old HDD to new installation on SSD.

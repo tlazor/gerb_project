@@ -1,0 +1,10 @@
+My question is how secure would this be? Is it possible for someone to spoof the client IP and manage to connect anyway? How would this compare to a VPN?
+Limiting per-IP should be considered pretty secure as long as your traffic transmission is also secure, you should be using SSL. 
+I'm now thinking that allowing SSL web access with a username/password would be acceptable if it was strictly restricted to authorized IP ranges - I would assume this setup wouldn't be secure, with ip spoofing etc, but I can't find anyone warning against it.
+I'm currently developing software which requires various remote sites to securely connect to our servers to access a basic webapp.
+Up until now, I've been working on a client/server VPN setup - it's certainly very secure, but there's a lot of difficulty involved with windows/linux connections, routing among client computers, and the need for extra client servers/hardware etc.
+An attack based on IP spoofing would be highly targeted, so the level of risk is probably related to how valuable a successful attack would be.  
+If the information is extra sensitive you could look in to client-side SSL certificates to confirm user access too.
+IP spoofing to authenticate to a network is not an easy task, but it can be done. Most IP spoofing attacks just want to conceal their identity because they don't care about getting an answer(DDoS). To succeed in SSL handshaking you will need to be able to intercept all the packets for the IP you are spoofing, because you need to answer them. It can be done but it's extremely difficult as you would need access to certain routers or be on the same subnet as the IP you are pretending to be. 
+Since you are also adding an authentication mechanism, I don't think it will be easy to attack it. Just keep track of login attempts and implement some tressholds so you can block off an ip after so many attacks (and a notification mechanism), and you will be alright.
+I think it is a good defence against probing attacks, and combined with a secure authentication mechanism would be effective.  If you can achieve everything you need with an https interface, then it is probably good enough.

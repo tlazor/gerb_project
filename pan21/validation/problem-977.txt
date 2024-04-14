@@ -1,0 +1,10 @@
+For instance, example.com, www.example.com, blog.example.com, could all be secured using the same wildcard SSL as they all use the same primary domain. However, billing.yoursitesdomain.com could not be used with this certificate, as it is using a different primary domain.
+Wildcard SSL Certificate can secure only first level sub-domains of the common name (CN), so when the certificate issued for *.example-private.com it can secure the root domain and it's all first level sub-domains as below. 
+For more information about how multi-domain wildcard certificate works, you can refer this link - https://www.ssl2buy.com/comodo-multi-domain-wildcard-ssl.php
+A wildcard only matches one domain level, so *.staging.example.com would not be matched and you need another cert for subdomains of it. 
+I suggest you to browse this article to know more how Wildcard SSL can be helpful to secure sub-domains.
+Now if you want to secure second level sub-domains, you should go with Multi-Domain Wildcard certificate. This certificate will secure domains as under:
+You might have misinterpreted the function of Wildcard certificate. Wildcard SSL Certificate issued on *.example-private.com  will only secure single level, for example;
+This product allows you to secure up to 100 websites and its unlimited sub-domains with a single certificate. You need to set *.example-private.com as your primary domain name and add another domain names in the SAN field.
+this thread says Ideally, our staging sites (*.our-agency-staging-domain.com) would all share the same self-signed SSL certificate. That would allow us to:
+Your administrator needs to purchase the different certificates for each one and manage all  certificates configuration, renewal, expiry, and installation.  

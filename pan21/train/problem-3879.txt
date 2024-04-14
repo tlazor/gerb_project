@@ -1,0 +1,6 @@
+Is it possible to connect those remote servers to private network using OpenVPN for those use cases, I mentioned earlier?
+Choose one to be a server and make the rest clients. You could even make a separate machine the VPN server and have everything else as clients. The world is your mollusc.
+For example, I would like to let OpenSSH server listen on virtual private network interface and accept only SSH connections within private network. So in order to connect over SSH to server, I would have to connect into private network first, and then connect to that server over SSH. 
+I have studied some OpenVPN examples, but but I'm not clear which server should be OpenVPN client and which should be OpenVPN server in my example ? 
+Furthermore, I would like to let DB server listen on virtual private interface and let other servers to send SQL queries over private network. 
+I have several servers hosted by few server hosting companies. Each server has its own public IP. I have app server, DB server, web server, etc. What I wanted to do is connect them into private network, altought they are physicaly in different locations. I was looking for some solutions and I came up with VPN. But I'm still confused with some VPN concepts.

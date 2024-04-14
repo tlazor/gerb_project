@@ -1,0 +1,8 @@
+A while ago I have written a script to wait for the end of another process. NOISE_CMD could be something like notify-send ..., given that DISPLAY is set correctly.
+A former version of the script above might be interesting, if you want to avoid a dependency on pgrep and accept to lookup process IDs yourself:
+to restart the job in the background (just as if started it with really_long_script.sh &). Then you can wait for this background job with
+Slightly off-topic, but useful in similar situations: One might be interested in reptyr, a tool that "steals" a process from some (parent) shell and runs it in from current shell. I have tried similar implementations and reptyr is the prettiest and most reliable for my purposes.
+If I start a script that is going to take a long time, I inevitably realize it after I've started the script, and wish I had a way of doing some kind of alert once it finishes. 
+Of course you can do many funny things with such a script, like letting an instance of alarm.sh wait for an instance of alarm.sh, that is waiting for some other command. Or executing a command just right after some task of a other logged in user has finished... >:D
+Without any argment, just make some noise immediately. This behavoir allows something like this for convenience (say you call script below alarm.sh):
+where N is the job ID (probably 1 if you didn't run any other background jobs) which is also displayed as [1] above.

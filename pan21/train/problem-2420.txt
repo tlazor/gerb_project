@@ -1,0 +1,10 @@
+If you have spare ports on the switch, you could choose that those are to be used for the ports, which are currently connected through crossover cable. Before you connect those, you need to configure VLANs on the switch.
+You could configure all the currently used ports to use VLAN 1 as untagged and VLAN 2 as tagged. And you could configure the ports to be plugged in next to use VLAN 2 as untagged and VLAN 1 as tagged.
+You can leave your public IPs on the untagged VLAN, which means the public IP segment will be business as usual and require no configuration changes to the router on the other side of the switch.
+The next server you add could have only a single network connection, which could be given access to both VLANs. At that point you'd have to decide which VLAN would be untagged, if any of them.
+Then you can connect each of those ports to the switch instead of through a crossover cable. That way you can get started with the VLANs without needing to reconfigure the servers right away.
+Then on each host you create a virtual interface for a VLAN tag and use those for your internal segment. For example if you use Linux, the command to use could be vconfig add eth0 10 which would create an interface named eth0.10 and send and receive packets with VLAN tag number 10. You can then bring up those virtual interfaces on each host, just as if they were a physical interface.
+What you are asking for is possible to achieve with VLANs. It will even be possible to do on some unmanaged switches, though a managed switch will give you some more options.
+You'll want a firewall. Something like a Cisco ASA 5505 firewall will provide you the ability to NAT public to private IP addresses and allow you to use the full block of IP addresses you've been allocated. 
+When you re-IP your hosts, you can still maintain VLANs on your switch and run internet-bound traffic through the Cisco ASA.
+If it is a managed switch, it might not permit the tagged packets by default. In that case you would have to enable the VLAN tag on each port in the switch configuration. A managed switch does you some other options though.

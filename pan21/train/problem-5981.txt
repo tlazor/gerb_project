@@ -1,0 +1,5 @@
+Intel does have a virtualization technology called VT that provides an instruction set tailored specifically towards virtual machines. The Intel ARK has a list of VT capable processors. You'll find quite a few mobile processors there as well as desktop.
+You need literally tons of memory and a fast disk.  Go for a 7200 RPM or even 10000 RPM if traditional harddisk, or a SSD (but these are small).  The RAM you do not need, will cache the disk so the more the better.
+A powerful Intel Core i5 processor with 8 GB of RAM is recommended if you looking for best laptops for virtualization. Some of these are listed here:-
+I was concerned about disk speed. I have an SSD boot drive, but even at 240G, a few VMs would fill it up quickly. So I got a big 7200 RPM drive that I put in the Ultrabay, and I run VMs from there. I'm sure performance would be better if they were on an SSD, but given all the compromises, I'm happy with this setup.
+I'm very happy with the performance of VMWare Workstation on my new laptop: a Thinkpad T520 with 8 gigs of RAM and the i7-2720QM, which is a 2.2 GHz hyperthreading quad core.

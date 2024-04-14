@@ -1,0 +1,5 @@
+By using HTTPS and ensuring the certificate returned is genuine then the ssh sys admin would not be able to decrypt the traffic but will be able to see which IP address it is going to which could be indicative of the content. 
+Yes, the sys admin off the SSH server will be able to see unencrypted traffic and could monitor DNS lookups depending on how you've configured the client. 
+A transparent proxy for the secure traffic would appear to be the remote system to the local client and the local client to the remote system.  It would have a secure connection to each of the systems, but would be decrypting and re-encrypting the traffic passing through it, permitting it to be scanned, logged, and queued.
+I have access with ssh to server. If i use it as tunnel for bypass local firewall, how can my actions can be logged in server?
+If a particular system (firewall, router, server) is being bypassed via an encrypted connection, including SSH tunnels, the system being bypassed has to access to the unencrypted content.  As such, unless it is acting a transparent proxy for the secure traffic, it will not be able to log the content of that traffic.

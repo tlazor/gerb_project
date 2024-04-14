@@ -1,0 +1,6 @@
+Docker creates an isolated network so that each container in the bridged network can communicate, in your case it's docker0. So by default, the containers on your docker host communicate within this network.
+According to the documentation, the default driver (i.e. when you don't specify --net=host in docker run, is the bridge network driver.
+As you might have already figured out by now, yes 172.17.0.1 is the default route on the docker0 network, but this does not act as a router that forwards packets to the destination, hence you see it as the source from netcat's output.
+In fact, you can verify this by running ss -tulnp on your docker host. You should see that the process listening on port 8080 is docker.
+It's not about docker 'masking' the IP addresses, but on how bridged and host networking modes vary.
+On the other hand, using host networking driver means there is no isolation between the container and the host. You can verify this by running ss -tulnp on your docker host; you should see the process listening on socket instead of docker (in your case, you should see nc).

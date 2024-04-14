@@ -1,0 +1,8 @@
+The problem is that php 7.3 from Ondrej repo works only with mpm_prefork mode. He has git repo, so you can find him in net and ask him, will he make php 7.3 for mpm_worker and mpm_event.
+The source of the problem seems to be a change in mod_rewrite of Apache 2.4.25. I've used Apache trace1 log level to observe a "loop" that pass $1 to php-fpm after index.php/$1 has been passed. The $1 generate the "AH01071: Got error 'Primary script unknown\n'" error.
+Basically you setup a handler for the entire server that will catch any php scripts and pass them to fast-cgi.
+source: https://emi.is/?page=articles&article=php-7-installation-and-configuration-for-apache-2.4-using-php-fpm-(debian,-repository)
+Best way to solve this is to turn on debugging logs for mod_proxy and mod_rewrite and php-fpm. In apache 2.4 you can now turn on debugging logs for specific modules only.
+Next edit SSL site (In this case certbot from Let's Encrypt has been installed and configured previously at the beginning of the SSL cert configuration).
+https://stackoverflow.com/questions/44054617/mod-rewrite-in-2-4-25-triggering-fcgi-primary-script-unknown-error-in-php-fpm
+This works with Wordpress 5.1.1 and newer together with PHP 7.3, FastCGI , proxy, also MariaDB/MySQL. Checked twice on my servers. Works like a charm.

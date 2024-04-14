@@ -1,0 +1,8 @@
+Your disks are improperly prepared. Specifically, to boot in EFI mode, you must have an EFI System Partition (ESP), and your disks lack this. When using Linux's software RAID, the ESP should be outside of your RAID configuration.
+I have researched to the best of my noob ability and tried a couple things resulting in varying degrees of failure.
+If I simply reboot, not only can I not boot back up, but booting from the a LiveUSB shows that Mint was not even installed. It should be noted that I do not get the screen informing me to remove the installation medium and press 'enter'.
+I tried installing rEFInd instead, which seems to install ok and even allow the installation to complete upon reboot (although, still no 'remove medium and press enter' prompt) but then I cannot boot through rEFInd and must resort to my LiveUSB. I have no idea why this would happen if rEFInd was installed after chroot.
+I have a MacBook 7,1 and I am attempting to configure 2 ssd's in RAID 0, with a fresh install of (64)Mint 18.1 xfce on top.
+Also, your disks have a hybrid MBR configuration, which is ugly, dangerous, and unnecessary if you'll be booting in EFI mode.
+Everything has been peachy until just before time to reboot. After chroot, it will not allow me to install Grub into my new filesystem.
+I am currently stuck post installation but pre-reboot, trying to install grub so I can restart to complete the Mint 18 install and reboot normally w/o the LiveUSB. Thanks you for any help. I am very much a noob so forgive me if I am all confused but I am determined to learn.

@@ -1,0 +1,6 @@
+After that we don't seem to be able to get a connection to the outside world, either after disconnecting and reconnecting or powercycling the router again. Only a laptop reboot seems to fix things.
+Frequently, when the router happens to restart (typically because a child-initiated-power-cycle) the wireless network will reappear, but with a '2' appended to the ssid. 
+I had a similar, though not identical issue, which was caused by having a router/modem and a wireless bridge on different channels. This happened when I changed the channel on the router due to interference and clean forgot about the bridge :-)
+We have two Windows 7 laptops that connect through an older Belkin ADSL modem / wifi router. We have a second Siemens wifi router on the network that acts as an extender.
+I can't seem to hit on the right question to ask the internet, so any suggestions gratefully received even if not the actual answer.
+If the two were started in the correct order, everything was fine - but if not, Windows 7 machines that picked the bridge up as the stronger wireless signal exhibited symptoms like those you describe. Strangely, an XBox that was wired into the bridge and iDevices were fine.

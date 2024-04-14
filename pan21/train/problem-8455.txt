@@ -1,0 +1,8 @@
+I see your question is 6 months old. Maybe this will help anyone else with a similar problem (this seems unlikely :-)
+Would there be something in apache or startup scripts that might point to a master db? do Unix applications have standard data source locations? I'm not sure if I'm wording this right so apologies in advance.
+I can tell that the app is running off of http, but its reporting and data export functions are limited and I'd like to find a master db or data source on the box that maybe I can migrate into something more useful. Any ideas how I could possibly find that? 
+In order to find the web-server configuration files, you need to find out which version of SCO Unix the system is running, older versions (5.0.5, 5.0.6) used Netscape FastTrack (and NCSA) but more recent versions (5.0.7, 6.0)came with Apache (though NCSA is still there too). So far as I know, really old versions didn't have a webserver.
+In general, pulling data off an undocumented system with an unfamiliar operating system and an unknown DBMS is likely to be difficult. It's not the sort of job I would take on with any confidence.
+This command (as root) may help you find which versions of web-servers are running and where there configuration files are located.
+Once you have found the web-server configuration files, you probably want to look for the section that deals with the URLs for the application (perhaps a CGI directory?) - this will tell you which directories to look in to start tracing the application.
+Try loading lsof (list of open files) and see what file handles or libraries the web application is using. This may help in tracking down what the data back-end is.

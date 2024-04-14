@@ -1,0 +1,7 @@
+when i remove the directive datadir from my configuration file then mysql server starts but without loading the appropriate db data from my desired location.
+i have two identical ubuntu machine on amazon servers. two of the machines have identical /etc/mysql configuration files. the problem is that when i unmount /elastidb (mysql data) on one server and remount it on the other, when i try to start mysql on the other server i get the following error:
+I edited /etc/apparmor.d/usr.sbin.mysqld, replacing all instances of '/var/lib/mysql' with '/opt/mysql'.
+In my case the problem was apparmor. Since my machine is purposed for testing only, I chose the simplest way for solving it:
+I had a similar issue (same error message, but on Ubuntu server 10.04, and I changed the mysql datadir to point at /opt/mysql).
+The problem was that apparmor was blocking attempts by /usr/sbin/mysqld to read /opt/mysql.  I found lines like:
+I want to be able to quickly move that mysql data storage from one machine to the other. what may be the problem ?

@@ -1,0 +1,16 @@
+There are also some control panels (e.g. Webmin/ISPConfig) that will help to configure your server - I would not recommend them though unless you are comfortable enough to undo anything they do.
+To improve deliverability, I would definitely suggest adding an SPF record to your domain, as well as implementing DKIM/DomainKeys signing (via dkimproxy).
+A nice setup is Dovecot and Postfix - using Postfix for delivery, and Dovecot for authentication and IMAP. In this way you can easily create virtual users (for instance, in MySQL) and don't need to bother with modifying files for each new user/domain. (On the other hand, a pam or flat-file approach might offer slightly better performance).
+Postfix supports redirecting mail - so your MX record could point to your postfix server, and if you have a redirect setup for that particular address, postfix will deliver the mail to the desired address (either local, or as in your example, GMail). Again, with PFAdmin, you can configure the redirects in a database.
+You can setup an MX record pointing at GMail (http://www.google.com/support/a/bin/answer.py?answer=33352) which would essentially result in all mail coming to your server ending up at Gmail; but you would still have control over the mail you send from your server (alternatively, you could just use Gmail as your SMTP server as well).
+I would highly recommend Postfix-admin (http://sourceforge.net/projects/postfixadmin/ ) for use to manage your virtual domains/mail-users
+Is there a good step-by-step series of instructions on how to configure a CentOS server to send and receive email from multiple domains?
+And this site provides a good overview: http://rimuhosting.com/support/settingupemail.jsp?mta=postfix
+Postfix virtual has some good ideas on database design for virtual users: http://www.postfixvirtual.net/postfixconf.html
+I'm using CentOS and I need to be able to have this machine send and receive mail from multiple domains. I've only found one set of instructions (here as well as others from that site) but they are clearly incomplete (they don't tell you what your MySQL schema should be). I can't get everything in them to work so I thought I would go to the experts.
+I will recommend HowToForge as having good step-by-step instructions: http://howtoforge.com/virtual-users-domains-postfix-courier-mysql-squirrelmail-centos-5.3-x86_64
+A side note - the configuration files for Dovecot changed for version 2 and most guides reference the 1.x series. Check your version if you use Dovecot.
+So, I'm a programmer and I thought, "You know, I've had enough of <hosting provider>. It's high time I struck out on my own and moved over to a VPS." Getting Apache, Tomcat, databases, et al. to work was simple -- I've done those all a dozen times on Windows, Linux (Fedora and Ubuntu), and even Mac. But I feel like I've hit a wall when it comes to setting up a mail server.
+As a webmail interface, SquirrelMail has a small footprint; however RoundCube is more 'modern' - both work well.
+You might take a look at SME server, it is based on CentOS and has Postfix integrated with Horde as a starting point.
+If your vps is hosted on Linode - they have very good step by step guides on setting up email servers on nix based platforms.

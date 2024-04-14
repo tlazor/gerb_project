@@ -1,0 +1,7 @@
+You can read more about this here: http://blogs.msdn.com/b/rds/archive/2013/12/16/resolution-and-scaling-level-updates-in-rdp-8-1.aspx
+See if changing the screen resolution in the RDP client has any effect (in particular, changing between full screen mode and a specific resolution, and also changing the multi-monitor settings).
+That would also explain why it works for some users and not for others - they might have different resolution settings on either the client, or on the target 8.1 system.
+It probably works with the older RDP clients because it forces a protocol version downgrade where whatever issue causes this does not occur.
+My guess is that it might be related to screen resolution. Microsoft made quite a few changes related to screen resolution and multi-monitor handling in RDP in Windows 8.1. Although your symptoms do not appear to be related to resolutions, maybe the negotiation fails between the Windows 7 RDP client and Windows 8.1?
+I don't know how to apply this update because it is not available on the Microsoft site. I only get it with the automatic Windows update but not on every computers.
+This update solved a similar problem for me. And since this update is applyed on SOME computers, every others work too. I didn't searched why.

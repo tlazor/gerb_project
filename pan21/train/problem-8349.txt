@@ -1,0 +1,6 @@
+accessed using said Job Activity Monitor. From the Job Activity Monitor, the job-history of each enlisted server (TSX) can be accessed by selecting View history:
+I am attempting to construct TSQL queries to substitute various GUI tools provided by SQL Server Management Studio. One of these tools is the Job Activity Monitor, accessible through the Object Explorer window.
+Recently, we configured Multi-Server Job Administration for our servers, using S1 as the MSX (master) server, and N1, N2 and N3 as TSX (target) servers.
+I've tried digging through the job-related tables and views of the msdb database, but with no luck. The msdb.dbo.sysjobhistory table on the MSX server contains no history from enlisted servers, and I can't seem to find any good documentation on how else I would go about gathering it. Is this data even accessible through TSQL? Any relevant resource is greatly appreciated.
+Our current database environment includes a cluster with 3 nodes(one primary and two read-only replicas), as well as a single, independent server standing next to the cluster.
+This is the information I am trying to recreate, using a TSQL query on the MSX server. I want to see the outcome and history of the jobs by all enlisted servers, similar to what is displayed by the GUI window.

@@ -1,0 +1,6 @@
+Alternatively you could create a logs group and add yourself to the group then change the group ownership of all your log files to the logs group. 
+I am trying to clear the logs and I do not have permission since the file permissions on Apache error logs are like this:
+If I recall correctly, most modern Linux distros have the apache log files owned by root, with group root, by default.  Thus, you'll need to have root level access to modify the permissions, or clear the logs.  If you don't have that via root login, sudo, su, or some sort of setuid root tool, you're likely out of luck.
+You can't change the permissions mode on a file that your user doesn't own unless you are root and you can't remove a file from a directory that you don't have write permissions to either through the user or group owner of that directory. So unless you have root access, you're going to have to ask your administrator to do it.
+Any idea how to change my permissions to allow myself to clear out my logs and delete the old error log files?
+You didn't post the file ownership, but I'm guessing based on what you describe that it is user owned by root and group owned by your group user.

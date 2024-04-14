@@ -1,0 +1,8 @@
+The iSCSI network is segregated from the vConsole network, and routing between them is not possible. Name resolution for the ESX hosts works from the Data Recovery appliance VM, and vice versa.
+Creating a new ESXi 4.1 trial version (fully licensed) server using local disk datastore, creating a new VM, and creating a new backup job, shows the same behavior.
+The vmware.log for each VM shows that a snapshot was created successfully, and then immediately removed.
+Everything was fine until 11/4, on which every backup job failed with error -3902 (file access error). Since then, no job has completed--all jobs fail with the same error.
+Both appliances show the same issue starting on the same day: no backups are being made to any destination.
+Rebooting one of the two DR VMs caused its IP address to revert to DHCP, and all destination, backup job, and configuration information was lost and had to be re-input.
+It ran correctly every day, although there were occasional error -3948 (vcb api exception) messages, though running the backups again would be successful.
+The other appliance has two 500GB (440 and 450GB free) destinations on CIFS shares to two Windows 2003 servers.

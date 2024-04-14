@@ -1,0 +1,7 @@
+Create a polygon from the points, do a "is-point-in-polygon" check. So whenever the players add a point that would expand the "area" regenerate the polygon. On the update do a simple position check against that polygon to determine if an object or player is inside the area or not.
+The problem isn't drawing the boundary itself, of course, but having the GameObjects detecting the area they are in.
+Use voronoi 2d subdivision for your space (in the example the central points distr is (pseudo)random, but you can insert your logic)
+I've thought about a nice approximation, which is splitting the terrain in fixed chunks, and having the player control them "chunk by chunk": every chunk can have its own collider, and that should be easy if not trivial. So the question is how to do it "properly", since I already have this workaround.
+On a map, currently a Terrain, I'd need to have some "areas" which can be controlled by a specific players. The shape of those areas can arbitrarily change during the course of the game, such as you add a  marker in any point, and the area evolves (like a spline, say) to pass through that point too.
+Then asociate a value to each point that results (in the example image) in different color for each cell 
+You can play with the number of point and/or distribution to get more defined shapes. For the voronoi diagram property, when you click on the map , the origin point nearest to your click position identifies the voronoi cell you are in.

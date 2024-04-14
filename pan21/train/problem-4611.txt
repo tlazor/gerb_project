@@ -1,0 +1,11 @@
+If you want to have Python 2.7 and 3.7 available at the command line, you can rename one (or both) python.exe interpreters e.g.:
+Lastly, make sure that you are calling the correct version of python (as alluded to above). If you python -m pip install numpy where python refers to e.g. C:\path\to\Python27\python.exe, python (refering to C:\path\to\Python37\python.exe) won't be able to use it (primarily due to being separate installations but also differences between 2.7 and 3.7).
+Requirement already satisfied: numpy in c:\users\jarob\appdata\local\programs\python\python37\lib\site-packages (1.16.4)
+When I originally installed pip and numpy it was through python 37. I need to know how I can switch the installation to python 27 or if I need to uninstall it and reinstall it in a different file location accessible to python 2 and 3. Copy of cmd script is below: 
+This assumes both their base folders are in your System Path. You can also specify their full paths when calling them.
+pip 19.0.3 from c:\users\jarob\appdata\local\programs\python\python37\lib\site-packages\pip (python 3.7)
+pip 19.0.3 from c:\users\jarob\appdata\local\programs\python\python37\lib\site-packages\pip (python 3.7)
+pip should come with the Windows Python 2.7 installer (above), but you can always use pip-get.py. Similarly, numpy can be re-installed in Python 2.7 as in 3.7.
+I would suggest you use a Python distribution manager. This will allow you to run multiple versions of python in isolated environments. I have environments for python 2.7, 3.6 and 3.7 that each have their own dependencies.
+On Windows, you can manually install the latest version of Python 2.7 (which is currently Python 2.7.16) from Python.org. You likely won't want to add 2.7 to your System Path during installation unless you want python (2.7) to replace python (3.7) at the command line. Other than that, there should be no issues with running 2.7 and 3.7 side-by-side.
+One thing to remember is that Python installations are entirely separate on Windows, regardless of whether you install Python 2.7 and Python 3.7 "normally", or clone them with virtual environments (as detailed in the other answers to this question). You will always need to re-install packages for a new installation. There are no "common" folders for e.g. pip and numpy (or any other modules) between Python installations of any kind. 

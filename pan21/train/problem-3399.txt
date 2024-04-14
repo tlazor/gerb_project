@@ -1,0 +1,17 @@
+(explanation: cut -d' ' -f 4- -> chop the line into fields using space (-d' ') as delimiter, show fields fourth to last ( 4- ) )
+Here is how you install the kernel module. This is valid when the post was written but it can become outdated:
+(explanation: while read U C E ; do ... done -> loop over each line, reading in each of out three bits of data into U,C,E (userid, command, executable))
+I have automated the above steps, including the tc delay, in a small script called ptrap (which is a more general solution, not limited to DNS requests, thus eligible for detection of processes using any TCP/UDP based protocol). With its aid i found out that, in my case, the service contacting the old DNS server was sendmail.
+(explanation: sed "s|^|@\n|g;s| |\n|g" -> edit line, prepend '@' char-plus-newline to start of line, change spaces to newlines)
+There are many options to netstat that show combinations of listening/open sockets over tcp/udp/both. Something like:
+I wrestled with the very same problem a few days ago, and came up with a very simple method. It is based on the fact that the sending process will be waiting for a DNS response to come, on the same port it sent the request from:
+(explanation: { C=\"echo $C | sed "s|\(..\)|\&#x\1;|g" | recode h4..ascii\" ; } -> print the command string, edit each pair of chars 'FF' to be '&#xFF;', then pass through gnu 'recode' to turn them from html entities into ascii chars.)
+...would have given you a lot of output, but included the source, destination, port numbers, and PID of the process owning those ports.
+Commands containing spaces are encoded in simple ascii-to-hex method (see audit_logging.c ). To decode, replace "FF" with "&#xFF;" and recode that from html to ascii :
+(explanation: tr '\n@' ' \n' -> now having only the wanted fields, turn the newlines back into spaces, and the prepended '@' back into a newline 
+(explanation: sed "s|^[^=]=||g;s| [^ ]=| |g" -> edit away the 'xxx=' part of the lines - first: line-start (^) followed by any-char-except-'=' is replaced with blank, then space followed by any-char-except-' ' replaced with space)
+There is atop. There is a kernel module (netatop) and daemon which will make atop track network usage by process.
+(explanation: grep -E "^((uid|comm|exe)=|@)" -> as each field of the original line is now on it's own line, pick out the interesting fields: user-id, command, executable - and the line-start '@' char.)
+Of course, as the response arrives within milliseconds, you can't do that manually; moreover, even when automated, there's no guarantee that you will be able to query the system before the DNS response arrives, and the sending process dies. That is why before even executing the above steps, i also configure the kernel Traffic Controller to delay outgoing packets directed to a specific ip/port (using the tc module netem). This allows me to control the time window i have to query the system about which PID is waiting for the DNS response, on the source UDP port obtained in step 1.
+If you have systemd, create the service file netatopd.service file in /etc/systemd/system/. It would contain:
+(explanation: echo "$C" | grep -q '"' || -> test the command field to see if it contains a doublequote - if not ('||') then do the following: )

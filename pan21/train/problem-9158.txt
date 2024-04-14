@@ -1,0 +1,5 @@
+DAS is fine as long as you have no problem with the lack of flexibility coming with this sort of storage.
+Many of our (our = the company I work for) customers even run virtualization hosts based on Ubuntu + KVM with RAID 5 disks (DAS) - so far we have had no problems here. We also mirror the data to another virtualization host so there is no problem with moving VMs to another system.
+Not sure about KVM, but recent Hyper-V presentations for the new 2012 R2 vrsion have shown that MS is using DAS (Directly Attached Storage) on every node ;) SO, A SAN is clearly not needed for running larger farms of virtualization systems.
+So, in short, there's no real answer. Many large installations use SAN storage, and there's a reason for that. But no one can really answer this for your environment except you.
+I am looking into setting up 3 kvm hosts. Currently I am using local storage with mirrored drives raid 1 for images. I am also using raw images. I was wondering if this is against best practices and I will need to invest in the SAN unit or its acceptable to use local storage. I am running around 20 vms on each host , mostly web servers like cpanel.

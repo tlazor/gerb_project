@@ -1,0 +1,7 @@
+And you want to use a Public IP from each ISP: select which IPs and create Address Objects for each (in my example the X1 WAN IP Object will be the only IP for that interface, for X2 and X3 you will need to create Objects for the IPs you want) such as:
+You will need to create a similar Firewall rule from WAN > LAN using SERVER-16 Public IPs as the Destination (since it is a NAT rule), the same Service, and Any as the Source.
+For OUTBOUND return traffic the SonicWALL will send the data back using the original inbound interface (so if someone connects to the X3 IP it will come back to the user via X3.
+PS: You could probably set multiple 1:1 inbound NAT rules if you'd prefer, but that just gets messy with many WAN IPs, and when you want to make changes.
+Just create Address Objects for each WAN IP and put those Address Objects into an Address Object Group. Then create your NAT (and Firewall) rule using the Address Object GROUP. Inbound Internet traffic destined to any of the Public IPs in the Address Object Group will be NAT'd to the internal IP.
+For OUTBOUND original traffic -- meaning browsing from SERVER-16 for Updates NTP time updates, etc -- the outbound interface/IP will be determined by the Outbound NAT rules and likely the Load Balancing settings and routes.
+Currently I have set 1:1 NAT to translate 1 public IP to 1 private IP but is there any way to set multiple public IPs to one private IP on NSA 2400? Or I need to set another 1:1 NAT with different private IP and add that IP as secondary to that device from the first NAT?

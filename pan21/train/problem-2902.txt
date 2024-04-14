@@ -1,0 +1,11 @@
+We could get a little craftier and say that if we haven't observed a login, after a logoff - within a given timeframe, we can have another column to mark the user as permanently left the seat - but that is out of scope.
+Ideally, I would expose this model as a consumable API through an HTTP-endpoint, such that I would be able to programmatically provide some attributes such as "day and hour" - or simply just "day" - and what I would get back is the "predicted" number of employees.
+For any given day, there could be multiple login and logoff items per user (which would signify they've sat at their desk, and at some point may have even left.)
+I have a lot of time-series data, that tracks user's logons and logoffs as they plug in their machines into the LAN port for a given floor.
+I have data that stretches as far back as 2015, so there's plenty of observations (few buildings, and every floor per building).
+I'm trying to predict occupancy for every floor in a building (with the primary focus on only one "proof of concept" floor for now).
+We also can not make assumptions that if a user logs off, that they are no longer sitting in their seat - as there could be a number of reasons for that: the laptop is in hibernation mode, perhaps they've gone to a meeting, and their personal belongings are still at the table etc.
+We know what the maximum occupancy is per floor, and we can have a coarse-grained daily view of the floor utilization.
+For now, if there are 50 seats on the floor and 35 logins for that floor, we can say the floor was 70% utilized for that day.
+Given above: what would be the best approach and the best model. (factoring in the "query parameters", should I wish to predict, say TOMORROW or TOMORROW @ 1pm.
+I want to note that the predictions wouldn't likely go too far into the future. I'd probably want to know the floor occupancy perhaps today + 2-3 days into the future.

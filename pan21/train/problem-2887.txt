@@ -1,0 +1,10 @@
+So, the question is: what method of distribution/synchronization (utilities, approach) would be best suited for my situation?
+You can think of set as of collection of large media files, really big image libraries, complete applications, whatever, it doesn't really matter, as long as there are large files in the set.
+I have many sets of many files (some files are small, but some are large, like, ~10-20GB). I have multiple servers, each one can host one or more of those sets of files. Of course, one server can host 50% of total number of sets, and other 50% can host another number of sets.
+You can use Windows Storage Server 2008, it is sold with a NAS device from different providers, but it is very good and effective, with Single instance storage as well it will save you a few GBs. You can then have a dedicated device serving that big files.
+Most of these NAS come with Dual Nic and you can even get Quad Port nics too, so if you have a Gigabit or higher Lan infrastructure then you can bundle / team those ports up to provide more throughput.
+Server can update its copy of set at any point in time (either by replacing files in the set with completely new files, or by applying patches to some of files, which would result in having almost same files with only slight differences).
+They both cache reads and writes locally and as such are not bond by network performance if you have enough local space for cache.
+Dell sells Window Storage Server too, get the one which has iscsi so you can utilize storage if you have too via iscsi later.
+On the other side, I have many clients, who should be able to obtain any given set (or multiple sets) from servers, and keep their copies of sets up-to-date (synchronized) with sets on server, whenever one wants to use the set.
+Even though I am fully aware that versions of this question have been asked googol number of times, I'll try not to repeat them.

@@ -1,0 +1,9 @@
+SVN over HTTPS is considered as secure as your HTTPS configuration (so disable SSLv2, use a strong certificate and you're probably fine).
+I know that I can run svn through svnserve (although I do not have any experience with it), but I don't know if there are any pitfalls to doing so. I read that using svn+ssh doesn't let svn cache passwords, which I'd like to happen, but I'm not sure if svn:// without ssh is secure or not.
+I've recently switched from svn:// to https:// mainly because I can configure LDAP authentication in Apache so I don't have to configure separate usernames/passwords for the repositories.
+However svnserve does have its advantages - it's easy to set up and zero configuration (for the server.)
+Plus if you're running HTTP or HTTPS anyway, it makes sense to utilise that service instead of having to maintain another service.  I have my SVN as a separate virtual host in Apache.
+I'm curious as to why you want to switch from Apache to something else? (I've no experience of nginx.)
+All other things being equal I would chose the path of least complexity (#2 - Apache for www & svn).
+I'm setting up my new VPS for my Rails application and was thinking about transferring my sites from apache to nginx (in order to do that, I would also have to convert my apache config over to nginx's, which I would have to learn). However, one thing that makes me think before doing this is that I want to host my SVN on the new VPS as well, and I know that SVN doesn't run on nginx.
+My main beef with svnserve is that authentication is on a per-repository basis, so if like me you have one repository per application, and you have upwards of 20 repositories, you have a maintenance headache on your hands.

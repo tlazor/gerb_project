@@ -1,0 +1,5 @@
+On a separate worksheet I have a second table with the same column headers but just the unique row labels with no duplicates (1a, 1b, 2a, 2b, 2c, 3a etc.). What I would like is each cell in this worksheet to reference its row label and column header, then sum the entries in DATA with that row label and header. I tried this:
+Essentially I want a table that produces summed subtotals of the data in the first table. Any thoughts? Thanks in advance.
+I have a worksheet of data with unique column headers (numerical IDs) and non-unique row labels. (1a, 1a,1b, 1b,2a,2b, 2b, 2c, 3a, 3a etc.). Both of these are defined ranges – HEADERS and LABELS. The whole range of data is named DATA.
+If HEADERS is exactly the same length as DATA, and LABELS the same depth you can use SUMPRODUCT like this
+Unfortunately sumifs is not designed to work on 2D data table "The Criteria_range argument must contain the same number of rows and columns as the Sum_range argument.", you need to combine sum and offset: =sumif(labels,$a2, offset(labels,0, match(b$1, headers,0)).  

@@ -1,0 +1,7 @@
+Below is a scenario. It is not a real life situation, but more a hypothetical so I can get clarification of a specific of networking behavior.
+Does the NAT modify the source IP in the incoming public packet to it's own IP before sending it to the private PC, so that the internal PC knows where to send the response ?
+Or does standard NAT implementation not modify the source IP of the packet, and therefore the internal PC must use a default gateway ?
+Port forward rule is configured to send incoming traffic from public side to single PC on private side. (lets say to allow TCP pings)
+With no gateway configured on the host, the host will not reply to the ping since it will know the destination will be off the network, and it cannot resolve the layer-3 address to the layer-2 address and has no gateway from which it can use the layer-2 address to create a layer-2 frame.
+The situation you describe will not modify the source address from the outside to the inside; it only translates the inside address, in either direction.
+Say we have a single PC directly connected via ethernet to a router on the private side. Public side of the the router is connected the the internet via whatever means. Router has NAT enabled, and a single port forward rule.

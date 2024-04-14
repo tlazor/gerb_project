@@ -1,0 +1,8 @@
+All with no VBA, the same disadvantages as if you were using VBA, but much more complicated than simply using VBA.  Thoroughly worse.
+In your master formula you can specify an OFFSET, but you need a reference cell.  You can't just reference A1 for the same reasons as before.  You need a way to reference "this" cell.  Enter another genius hack I found here.  Select cell A1, create a named range (eg THIS_CELL), enter the formula =!A1 (! just means "this sheet").
+Of course the problem is if you try to evaluate the formula A2*(1-0.04*(A3-20)/80) you don't get to specify your own inputs.
+Ok this way doesn't use VBA, but it's arguably worse.  Apparently Excel had these "Excel 4.0" functions that you could use in defined names.  They do what you want, but they still need to be saved in a .xlsm file:
+Now you just need to create a named range that EVALUATEs the FORMULATEXT of the fancy formula with in-built offsets:
+I'm not sure you can do what you're describing, but I did see a very good page on defining your own functions:
+There is a function (?) called EVALUATE (I can't find any official documentation on this, but this page explains it) which can evaluate text as a function.  But you can't type it directly into a cell, it needs to "run" from a named range:
+So on your master formula page you put formulas in column A, and arguments in columns B, C, D, etc.  And you get massively ugly formula like this:

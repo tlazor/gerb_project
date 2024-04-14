@@ -1,0 +1,6 @@
+I had the same problem with my GMail account ... no real error message. Click cancel and try to set your password in the account dialog, there I got a really useful message why my password wasn't working.
+I wanted to add an IMAP account to Office Outlook 2013 (university account) and when "Testing the account" (sending a test email) the programme keeps asking me for my credentials. No matter if I check the "remember password" box.
+If your university got webmail for that account as well you may verify that you´re able to login with the same credentials via webmail.
+Strangely enough, the solution arose when contacting the ICT helpdesk. Apparently, something had gone wrong with password storages or what-not. Changing/resetting the password fixed the problem!
+Note that this is a new account in Outlook. So it is not the case that it is an account that I was already using in Outlook and that's gone haywire now. My older accounts in Outlook all work fine. (IMAP as well as POP3)
+I got a similar problem with outlook 2010. Like tumchaaditya said try different security settings. Also check the ssl port you are using 143 if ssl/tls is disabled and 993 if it´s enabled. 

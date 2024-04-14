@@ -1,0 +1,5 @@
+This will hopefully allow one machine (the one running the script) to surf the web without sharing bandwidth.
+This is because the deauth packets are sent to particular clients, and only they will respond with a re-authentication to the router, effectively jamming their connection
+However I am curious as to whether all the deauthenticating of the other machines will affect the AP's ability to serve the machine wanting to surf the web. Let's say 5 MACs are in a loop continuously being deauthenticated while one is allowed to surf the web. Or let's say up to infinity, will there be a point where the interference could be noticed?
+A linux shell script that continously deauthenticates all MACs on a given AP except for the MAC of a USB wireless dongle (with packet injection capabilities) and also the wireless card of the computer running the script.
+The interference will be noticed by the affected macs... because their internet will drop, and they just need Wireshark to figure out what is happening.

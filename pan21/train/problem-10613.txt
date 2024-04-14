@@ -1,0 +1,7 @@
+Additionally, your 'icon' and 'portrait' are very similar, perhaps it is enough to specify "Ranger" instead of "/Resources/Ranger.gif" and "/Resources/Ranger.jpg" ?
+The Splitter and Preconditions classes are part of Guava. @Getter comes from project Lombok. There's also a @Builder there, which creates a class working just like your Generator ("Builder" is the right name here).
+For example one might question if they should create a Champion using the builder, or using Champion(builder).
+Currently all your champions are hard-coded into the code. I can highly recommend loading the champion data from a file.
+Just get a CSV-library or write a simple parser yourself. This trivial table contains all the information from your first 50 lines. It also makes obvious, that there's something wrong with your Attack/Armor/Health, which is harder to spot in the code.
+You can create a couple of functions to avoid duplications. You already abstracted a lot away by introducing the Champion class, so this is actually rather easy:
+In your code it seems to be "obvious" that a .gif is icon and .jpg is portrait. I would recommend naming them ranger_icon.gif and ranger_portrait.jpg instead though.

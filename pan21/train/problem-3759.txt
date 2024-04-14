@@ -1,0 +1,7 @@
+Have you checked the logs to see what is going on yet? I would expect to see something in syslog and httpd. 
+You can kill the process in question after doing this to restart apache but if it does turn out to be that you should consider your system compromised and requiring further investigation.
+You can use the start time by cross referencing around the same time in the logs to try to determine how that process got to be there in the first place.
+Update the configs with chmod 000  in /etc/httpd/conf.d/ that are doing so and restart httpd (/etc/init.d/httpd restart)
+[Tue Mar 15 19:21:34 2011] [warn] Init: You should not use name-based virtual hosts in conjunction with SSL!!
+For pre 3.1.4, this format seems to crash apache. apc version can be seen via phpinfo();. Solution: Remove "M" suffix for apc.shm_size and apc.max_file_size. Then delete the lock file and restart httpd.
+This can actually be a bad sign. It can indicate you have a rogue process that has been previously ran on the server which inherited the binding to port 80.

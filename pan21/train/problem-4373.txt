@@ -1,0 +1,8 @@
+I need to add a last_modified column to a MyISAM table tbl_items. The crux of this problem is that tbl_items houses several gigabytes of data. Also of note, I am using a master-slave deployment with one slave. 
+ * There is a brief outage when it makes the final switchover.  This is probably brief enough to be acceptable.
+One way that might work is as follows.  It requires that you already have "dual-master, single-writer" set up.
+Another possibility...  Facebook has a posting on how to do an online ALTER.  It does have drawbacks...
+Obviously, running the necessary ALTER TABLE command on the master is unacceptable since it locks the table for well over a half-hour. I cannot afford this kind of downtime at ANY time of day or night, most unfortunately. 
+Is this a viable solution? It would seem to me that all new tbl_items inserts would be lost between the beginning of step 2 and step 4; that is, is it possible for tbl_items data to replicate throughout the interval that it's missing the new column?
+If that's the case, is there an alternate solution that eliminates the possibility of both downtime and data-loss? 
+While the nonunique indexes are disabled, they are ignored for statements such as SELECT and EXPLAIN that otherwise would use them. 

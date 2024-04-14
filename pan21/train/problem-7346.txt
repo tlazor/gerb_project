@@ -1,0 +1,17 @@
+Ensure cables at back of patch panel are routed to leave room for easy switch insertion.  It works well for us.
+IMHO, there is an element of laziness in the option 2 approach. Just put it all together and plug it it .. don't worry about tomorrow! Save a few bucks! Organizing things properly, considering future changes, and keeping things tidy and looking sharp takes time and effort. 
+I think your plan is as sensible as any. You're saving money and saving almost half of the rack space with your design.
+And another point you have to look at: air flow. If you have so many cables just in front of the switch then it could be that the switches can not suck enough cold air. Or the hot air can not leave fast enough. In short your switches could get defective faster. (This all depends on the type of switches of course.)
+** Why are you concerned about rack units?  Are you leasing by the U? The cost differential between 2-post racks of various heights is trivial. Cable management things are over-priced but don't matter in the overall cost of the project. If you have physical space, I recommend a full height rack! 
+** Future maintenance should be a primary consideration. Things change. Your installation needs to allow you to quickly and easily identify what is where, and move things around easily.
+.. get appropriately sized patch (and power) cables. Long cables that have to get coiled, tucked or stuffed somewhere contribute to big problems later.
+** You don't mention a UPS/battery backup.  You need to worry about the back side of the rack as well.
+.. use velcro straps rather than zip ties and don't wrap tightly. You should easily be able to slide a finger into a bundle.
+I am agreeing 100% here with tomjedrz. My company provides network management services to several companies and we always see the same thing. Over time option 2 gets harder to handle.
+Cables are easier to trace, and space is used much more efficiently in Option 2.  Crosstalk increases when longer cables are tightly bundled, so you should have LESS with the short ones, even if they were switch-to-switch.  
+Option 2 will look great on day 1, but has no flexibility. Murphy will come looking for you, and make your life miserable. Your successor will curse your penny pinching.
+I disagree with most of you guys .. I think that some form of cable management is very worthwhile. My perspective is primarily from a consulting, having visited hundreds of sites, fixing problems and dealing with changes.
+I don't get how the vendor thinks that 6 inch cables will introduce any more cross-talk than cables of other lengths will or by jamming them all into cable managers?
+** You want to be able to easily see the front of the equipment.  You want someone to be able to take a picture or put a web cam in front of the rack. You want to be able to read the labels and markings.
+** I suggest leaving space at the top of the rack for another patch panel. Execs are moving walls and changing floor plans all of the time. If you leave space, then adding a few desks is a minor annoyance, not a lost weekend.
+.. My understanding is that cables < 1m are not technically within the CAT5/6 spec, but work fine for standard applications. I avoid them between switches or for connecting servers.

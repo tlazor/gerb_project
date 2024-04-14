@@ -1,0 +1,5 @@
+You've really answered your own question here - just fire up an ssh session and un-tar to your heart's content.
+I guess this is more and more common these days with plenty of people having almost-storage-only systems at home, running say... Ubuntu, and hosting plenty of files there. I guess it wouldn't be hard to program it (the code necessary to do unzip/unrar/$WHATEVER_FILE_MANIPULATION) and you should ask the software provider to code that feature. I would support it for the GNU/Linux platform.
+So, obviously, you cant use WinSSHd for unix but you could use the Tunnelier windows client to connect to your Unix SSH daemon and do your FTP.
+I use a program called  WinSSHd  and I use the accompanying program called "Tunnelier" , which has a FTP gui that tunnels through the SSH port hosted by WinSSHd.
+As it has already been pointed out, SSH and SFTP are different things, but for the specific scenario you are describing, the SSHFS/SFTP client should understand your request and try to perform the unzip directly in the remote machine (the one you are connecting to) rather than bringing it down, unzipping it and copying the outcome back.

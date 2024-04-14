@@ -1,0 +1,5 @@
+Another command to try is "ifconfig eth0 add x.x.x.1 netmask 255.255.255.0", or with "netmask 255.255.255.252" for a /32 class network. this command will automatically assign the subinterface numbers for you, starting with eth0:0, using eth0:1 next.
+If you want to use /30 class networks, you can use xxx.xxx.xxx.1 and xxx.xxx.xxx.2 on one network segment (the xxx.xxx.xxx.0 network) and xxx.xxx.xxx.5 and xxx.xxx.xxx.6 on another network segment (xxx.xxx.xxx.4 network)
+In each subnet, the first address is for the network, and the last is usually for broadcast. so xxx.xxx.xxx.0 and xxx.xxx.xxx.3 wont work for a /30 class network, and all IP addresses on a /32 network are network addresses. network addresses are used for routing, and cannot be assigned to a device
+Also, im not sure if the networks can be referred to as being "/30 class" or "/24 class". I'm not sure what the proper term is.
+Also, it looks like your trying to assign all IP addresses to eth0:1 , try using eth0:2, eth0:3 and eth0:4

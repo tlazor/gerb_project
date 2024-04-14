@@ -1,0 +1,5 @@
+sshd seems to almost always try to perform a reverse DNS lookup on new connections. For hosts without a PTR entry this causes delays of 5 seconds per query. Sometimes it accepts the connection immediately, sometimes it tries to resolve once, sometimes twice. I observed this using tcpdump port 53 while trying to connect to the server. I have really no idea why it tries to lookup twice sometimes.
+Use DNS = no does not prevent sshd from performing DNS lookups, it prevents it from rejecting clients when PTR records don't match.
+I found another suggestion here. I tried to add -u0 to /etc/default/ssh, but it doesn't seem to have changed anything.
+Well, it's been a while, but it turned out that the lag disappeared the next time we rebooted the server. I have no idea what happened, but it must have been one of the things I tried and apparently just restarting sshd wasn't enough.
+This seems to be a fairly frequent issue and the standard response is UseDNS no in /etc/ssh/sshd_config. However, I already have this option set and sshd is still trying to perform these reverse lookups.

@@ -1,0 +1,6 @@
+First I would like to say that not all x79 motherboards have 8 slots.  Many only have 4 slots.  For the boards that have 8 slots they are there only as an option but you DO NOT want to use them all unless you require more ram than what 4 slots can provide you. Filling all 8 slots will cause a lot more stress on your ram controller and the ram in general.  You may have issues with stability that require voltage increases.
+That said, the best performance is usually achieved by using exactly one DDR3 DIMM per channel, all identical. So, to get 64GB on a 4-channel CPU like the Core i7, you indeed would want 4 identical modules of 16 GB.
+So unless you require 64GB of ram I would suggest running only 32GB and ensuring they go into the correct slots.
+Other answer is: WHen you search google for the model for example 3930k you will have a result with the word Ark in the result.  This is the Intel page and the max memory will be listed on that page.  The max is indeed 64GB.
+No, this will not negatively affect your stability. The DDR3 specification allows you to run with one DDR3 DIMM per channel, that's perfectly within limits, and there is no need to put a DIMM on every channel.
+You can also expect an easy 20-30% overclock on these processors without too much effort. People familiar with over-clocking can get much further.

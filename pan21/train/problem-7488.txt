@@ -1,0 +1,5 @@
+The ServerFault question is slightly out of date, and I only know the answer for the VMware platform. Short answer: yes, with restrictions. The latest versions of Workstation and ESX support running the latest version of ESX inside a VM for demonstration purposes. You can then build up a guest VM and run that from inside the guest ESX instance. You do need to edit the VM config though to turn on some advanced options.
+You can but you would be highly limited to resources. I recommend VirtualBox for something like this... and a lot of RAM
+Not seriously. YOu can with software simulation (slow). But hardware virtualization (fast) only supports ONE layer. Because noone seriously needs more.
+I have had success in running ESX under fusion 2.0, with several VMs but as other have mentioned it did require a bit of tweaking to get it running. I assume this is mostly for testing so I can see the reasons for doing it as was with my case. I cant imagine anyone doing this for production. 
+Also, as someone did point out it does require a bit of resources but I was able to manage all this on a mac pro with 4GB.

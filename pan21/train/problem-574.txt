@@ -1,0 +1,8 @@
+ - for this scenario as ASA is VPN-used it means you can also connect your inside to the L2-aggregation switches. Without those L2-aggreg switches your 5545 will become useless for your network. 
+ - technically you can connect it to your L3 switch so you will split the role or the load between your network devices, also makes sense for a regular firewall (if at some moment you will have issues with your L2-aggreg devices, at least the network from bottom to the firewall is working)
+Bottom line: if I have ports and capacity for better logical and troubleshooting I would connect inside straight to L3-bottom-switches.
+I prefer the last one as in this case VPN L2L filtering is done on the firewall (ASA 5545) instead of group-policy ACL (and then applying it to the tunnel-group). It is easy to manage, view, troubleshoot (for me) and also it keeps me away from some ASA more delicate traffic hairpin scenarios.
+ I have used inside interface both as a shared network with the other inside firewall (you could run into some details with same-security-traffic command and also as a dedicated network, than using bottom switches connect to the rest of the network.
+Nevertheless for this choice you have to think about monitored interfaces as all your firewall physical interfaces will be connected to one physical device.
+From what I understand of your scenario, it does not matter if you have two different firewalls internal interface on the same internal subnet. You need to keep the following in your mind when making this decision:
+For the outside interface, first of all secure your OSPF process using MD5. You are to connect this interface to your L2-aggregate switches.

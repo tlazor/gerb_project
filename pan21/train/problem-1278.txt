@@ -1,0 +1,6 @@
+Close Google Chrome and browse to that location using Windows Explorer or by entering the path into the "Run" command and make a copy of the Default folder and store it somewhere safe, then delete the Default folder from that location and try restarting Google Chrome.
+There were only two extensions installed; a Google Docs extension and a McAfee extension (try as I might, collegues continue to believe "well-known brand" != "crapware"). Other browsers and applications do not seem to be affected by whatever the cause is.
+I'm not sure what's causing the problem, but it could have something to do with a faulty user profile.
+On any consecutive tab; Chrome does not show the thumbnails, nor can you navigate to any URL. Whatever I try, it just shows the spinner (counter clock-wise) forever. This also happens when I try to access internal pages like the extensions or about page (they both work fine on the first tab).
+When starting Chrome browser (version 33), the first tab works fine; it shows the thumbnails and you can type a URL and it'll happily go there or show search results.
+A collegue has encountered a problem with Chrome that I've never seen before and, after trying to search for it, neither has anybody else. I hope somebody here will recognize it.

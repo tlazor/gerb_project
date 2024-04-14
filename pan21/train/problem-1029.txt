@@ -1,0 +1,8 @@
+For example, if I wanted a user named bamboo to be able to execute without a password any command as any user, in my /etc/sudoers file I could have
+If the server was spun up constantly, I could SSH into it and figure out how to enable sudo privileges, but it's not...it is created, the build is run, and then it terminates. 
+Bamboo is setup with a key so should not require an actual password (there isn't one as far as I know), which means the lack of tty input should not matter, right?
+No. This is where you're confused. How you authenticated to ssh has nothing to do with sudo. If sudo is configured to require a password, then you have to enter the user's pasword. If you don't, it won't work. If the user doesn't have a password, then it can't possibly work.
+I'm using Atlassian Bamboo to setup a build server. It allows the use of "elastic images" which I can specify which of their AMI's to use (I'm using the Amazon Linux/CentOS image). It also allows you to add scripts for essentially "provisioning" the server. When I run the build using sudo in my scripts, I get errors like this:
+Bamboo is setup with a key so should not require an actual password (there isn't one as far as I know), which means the lack of tty input should not matter, right?
+check if the /etc/sudoers file is configured correctly. I had this error messages yesterday when one of our build scripts did overwrite the changes i did in the /etc/sudoers file resulting in the permission issue.
+As the documentation told you, if the images provided by Atlassian don't do that you want, then you should create a custom image.

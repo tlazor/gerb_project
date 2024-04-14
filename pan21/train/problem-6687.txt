@@ -1,0 +1,13 @@
+If I were you, I'd be much more worried about finding replacement 73 GB drives. What will you do when one fails? Sounds like these disks, and possibly server, are in need of replacement.
+...but for the machine itself, I'd not recommend that configuration (one drive volume with mixed RAID in that configuration)
+So no, you shouldn't lose data, it should work fine. But you want to keep it documented somewhere how you have it configured just in case theory doesn't want to play with practice.
+I have 4 x 73G drives, the only option in the controller is to create either a RAID0 or a RAID1. Loooks like the former admin created 2 x RAID1 arrays from the 4 drives. Then took the 2 RAIDs and turned it into a software-RAID0 giving us roughly 140G. My only concern is if one of the drives died, I would lose data regardless no?
+The correct answer is no, you won't lose data, because in a configuration like that you have a heavily tested backup server protecting your data :-)
+Ah...so you have one volume that is made of 2 mirrored RAIDs. You shouldn't lose data, although this configuration could make restoring data a little tricky if something unexpected happens. 
+If you're saying that you have three physical drives, and two of them are mirrored and one is appended to create one big volume, then I believe you are running the risk of losing data.
+You should be pretty safe because each part of your span is internally duplicated; it does indeed exist on 2 drives at any given time. If one drive goes dead, then it will rebuild the internal mirror and not affect the span.  
+Ideally you should be able to lose a drive and replace it and the controller will rebuild and everything should be fine. In theory that works.
+In practice,...I'd be a little unsure of it, and would personally avoid it if possible. Just because there's some potential issues.
+You'd still be running. If one of the drives dies, your OS won't see anything as long as you add a new drive to your hardware RAID and let it rebuild.
+If you have 2 drives mirrored as a data drive (for example) and the remaining disk as a system drive, then you run the risk of just losing your system drive. But this doesn't sound like how you have it configured.
+I'm trying to maximize the capacity on one of my servers. Unfortunately I'm not able to create a RAID5 or span across the two controllers on this server.

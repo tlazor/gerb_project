@@ -1,0 +1,7 @@
+PHP Warning:  PHP Startup: Unable to load dynamic library 'ext\php_curl.dll' - The specified procedure could not be found.\r\n in Unknown on line 0
+When PHP is run through Apache, its bin directory probably takes precedence over system %PATH% variable and therefore PHP's curl extension uses libraries from Apache, resulting in version mismatch (Apache's libraries seem to be older than required).
+I am unsure of what dependencies that php_curl could have, if you could provide any suggestions then this would be greatly appreciated.
+However I have checked my PATH variable and the PHP directory is listed, the ext folder is set correctly and php_curl.dll exists in the folder.
+I had the same problem, but it only manifested when running PHP through Apache. In CLI it was fine - cURL was shown in phpinfo().
+After doing the dll copying above, make sure you have the below lines in your php.ini, and that the perm file is there. Don't forget to put your paths.
+During my checking I have found that all of the following ddl's are present when opening them from run (to test they can be found from the PATH variable):

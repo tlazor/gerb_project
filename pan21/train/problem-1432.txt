@@ -1,0 +1,8 @@
+http://us.acer.com/ac/en/US/content/drivers and using the Acer Aspire E1-572G SNID to find the right drivers and installing the ones that relate to VGA seems to have fixed the problem.
+Make sure that you have the latest drivers (just because it is new doesn't mean it has the latest). If that doesn't work, you could even try downgrading the drivers if the old ones are available.
+Check both the Acer web site and the graphics card manufacturer's site (if you have a discrete graphics card version).
+I had a problem with an Aspire R7 that would sometimes not wake from sleep or standby.  I found somewhere that when the laptop is not responding correctly, do a hard reset.  There is not a way to remove the battery, but there is a tiny pinhole in the back or under side. Has a battery like icon. Press is for about 5 seconds and let go. Turn on your laptop.  If everything looks normal, cool. If not, please take notes on what you see and error codes for more troubleshooting. Hope this helps, take care! ~Lucy
+You could also try connecting the HDMI connector both before putting to sleep and before waking to see if it is doing something strange with the external connector.
+This is an issue with the BIOS and 8.1. All you need to do to fix this issue is to update the bios to the latest one from the relevant product download page on the Acer website.
+There is at least one other person who seems to have the same issue. So you should also raise this as a fault to Acer.
+This used to be a very common problem on many laptops and some desktops. Not seen it so much recently though. It is generally a bug in the video drivers. 

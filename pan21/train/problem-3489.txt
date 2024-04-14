@@ -1,0 +1,8 @@
+When I boot the laptop, I get the message "3F0 error - Device not found". I took out the harddisk and placed it in a Dell Optiplex 7010, which upon boot asks for the password as well.
+How do I either remove the password, or more likely, reformat the SSD so I can reinstall the laptop?
+If a password is already set, you simply proceed with initiating the erasure with a new password that you select. Using your own arbitrary password will only work for the purpose of initiating a new erasure, not for any other commands that require a password.
+Booting the laptop with a linux live distribution gives me the same result - I can see the partitions just fine, so the drive seems to work.
+This means that the only way that you can return the hardware to service is by erasing the drive from scratch, using the on-controller ATA Secure Erase command.
+If I connect the SSD via a USB adapter, I can see the partitions and format them, but afterwards the drive is still not accessible.
+Apparently someone found it funny to password protect the SSD harddisk of one of our HP ProBook laptops, and now the laptop is unable to boot. Of course the password is unknown to us, but I'd like to reformat the disk so we can reinstall the laptop.
+The purpose of an on-disk password is to prevent access to the data, not to render the drive inoperable.

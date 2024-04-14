@@ -1,0 +1,6 @@
+Is the requirement that when you hit www.somedomain.com/ the index.html content shows by default, but you want the index.php stuff to show?  If that is the case, you can set the apache "DirectoryIndex" directive to include index.php
+HTML pages are static text files, they are not processed by the web server and so can't do anything at all. Another PHP file would instead be able to do this, so you could have f.e. "index.php" call "someotherfile.php".
+As Massimo said, if you want users to specificly hit index.html and end up witha php processed page, RewriteRules would be required for that.
+If you want users to hit index.html, and get PHP interpreted stuff inside the page, you can't really do that.  Technically you could tell PHP to interpret files that end in .html, but I wouldn't really recommend doing that.
+I'm no web designer but to do the same thing on our site we use <meta http-equiv="REFRESH" content="0;url=/index.php"> inside the head of an otherwise empty index.html. That will make calls to index.html end up at index.php.
+If you absolutely want your users to be able to request "index.html" and instead obtain something else, then you'll need some URL rewriting.

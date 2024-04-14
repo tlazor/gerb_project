@@ -1,0 +1,5 @@
+Remember, a FEX should only be thought of as a remote linecard of the upstream Nexus switch i.e. it doesn't perform local forwarding between ports. The topology you are describing would be like sharing a linecard between two chassis, something that doesn't really happen (I know people could argue that this happens in VSS or nV though).
+The reason it isn't supported should be posed as a different question: 'Why WOULD you dual home a FEX to two separate N7ks?'
+Dual-homing to a single N7k is a supported topology so I'm guessing you mean dual-homing to two N7ks.
+I want to connect FEX directly to Nexus 7k as dual home.. but recommendation says not to connect FEX with 7k as Dual home.. I want to know the reason.. Please help.
+If you have a server with a single NIC then you can only connect it to a single switch anyway. So even though you want to add redundancy upstream, you will still have a single point of failure where it connects to the FEX. Cisco's rationale is that if you really want HA for a server then you would have two NICs on it. Each NIC would be connected to a separate FEX that are each dual-homed to a separate N7k.

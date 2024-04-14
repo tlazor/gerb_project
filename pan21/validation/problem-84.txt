@@ -1,0 +1,5 @@
+However, what you have configured is not actually correct for a server that is supposed to be authoritative for lots of different zones.
+Ie, you have a nameserver that claims to be authoritative for the root zone, and which has a wildcard A record that will match anything below. It does not have NS records other than for the root zone.
+If you want to do this thing with as correct behavior as possible, but without specifying all the zones (which would be best for correctness), I think you would want to look into some highly scriptable nameserver software that can answer as if it had the relevant zones matching some kind of patterns (maybe based on the public suffix list?).
+If example.com is delegated to your nameserver, your nameserver is supposed to have this particular zone (with at least SOA and NS at the apex of the zone), not only some parent zone (like .).
+Things that will be wrong with this configuration include responses to queries for NS (ie, it will claim that there are no nameservers for example.com) as well as all negative responses (negative responses will have SOA for the wrong zone).

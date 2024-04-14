@@ -1,0 +1,5 @@
+Perhaps you should also consider not syncing a file onto a device :) rsync can sync a file with a file, a device with a device, but you appear to sync a file onto a device. That will probably don't go.
+rsync doesn't just copy files' contents, it also syncs file attributes. This is somewhat limited by the options you pass (or don't pass) to rsync, but only somewhat. rsync has a --devices option that makes it syncing device files as device files, but apparently not passing that option doesn't prevent it from syncing plain files as plain files.
+The last operation is what overwrites your /dev/null, because it simply overwrites the device file. You expect that it will write (append) into it, but it doesn't.
+More generally: /dev/null is a safe place to write data into; it is not safe to use it as a target for things that mess with file attributes or structure.
+/dev/null is a character special file and, as you have discovered, copying to it using rsync as root will overwrite it.  AFAIK, rsync will not do what you want it to do.  It might be possible to pipe through ssh to cat.

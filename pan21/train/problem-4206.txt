@@ -1,0 +1,15 @@
+Problematically I'd also like to use Unity's terrain tool, so if I'm creating a single world object in Blender I'm not sure how I'd do this.
+I'm trying to decide how to manage my 3D assets, and even how I should construct a world for my game.
+I can just imagine spending hours upon hours correcting a single silly mistake I produced and repeated without noticing for several days.
+Should I use Unity to place my assets to create my world, or do I create another blender file with all my assets linked?
+I'm tending towards the latter because I feel I can do a lot more within Blender, but it doesn't appear very easy.
+I know there's an offset option in the groups panel where I could set it to -2,4,0 to counteract this but I don't like this at all. If I move 10 original grouped objects I have to update each of their offsets! I suppose I could create an empty axis for each wall object, but this also seems an odd way of doing things.
+Within Blender I've tried making each wall object it's own group, however they're all in one file and have different xyz positions. I don't want to separate them into dfferent files, in order to create seamless walls I need to have them all in one place. When I create a group instance with shift+A, the origin is of the original group object's xyz position:
+In Flash, you can create movieclips which nest other movieclips. Preferablly I'd like a system as close to this as possible within Blender or Unity.
+Walls are 2 sided objects, the design of one could be different on either side, one could be pink on one side with a skirting board, the other side could be exposed brick work. How would I do this?
+Sorry, that's a lot of questions for a single post, I hope someone can point me in the right direction.
+I should maybe explain, my game is basically a single explorable world set in a school. It's quite large. Every room and building enterable (possibly transitionless), and a large outdoor area (sports field, playground, etc.)
+Lets say I use Unity to position all my assets (which I'm now assuming is probably the right way), ideally I'd like to select a load of walls faces and change their design with a combo box of styles and a color picker in the inspector (a script would be necessary obviously).
+In Blender, I use alt+D to duplicate an object and link it to the original, however it's very easy to duplicate an object without selecting it's children and creating a variety of differently childrened duplicates, which in a vast world which is hard to keep track of, would become a massive headache to deal with.
+The world is somewhat tiled. I've create several different blocks for walls (Straight, cornered, T shaped, cross shaped, door, etc.) which I can place sequentially to create rooms and buildings.
+Without affecting the original asset, I want to place objects on the table like books and whatnot, and then control this as a single instance called 'Table with books', maybe duplicate it elsewhere, if I change the position of the books on one it should update all other instances.

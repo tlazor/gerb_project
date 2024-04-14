@@ -1,0 +1,6 @@
+Secondly that text can be a watermark too...which can be removed from a pdf creator software like Adobe Acrobat proffessional  or NitroPDF 
+Try highlighting from the end of the passage instead of the beginning, or from slightly before the text you're interested in.
+for restrictions removal you can use services like http://freemypdf.com/... but removing restriction from a PDF can be illegal as also warned by this site.. so it depends upon the content of the pdf.
+If you can't copy because it's "encrypted" and the permissions don't let you, then just use a PDF password remover program.  There aren't any easy-to-use free ones that I know of, though.  Even most open source PDF programs enforce the no-copy, no-printing nonsense.  (although pdftotext doesn't care, and lets you dump the PDF to text).
+The big letters which say "DO NOT COPY" were probably added to stop you selecting text and copying it to the clipboard. 
+For my own use, I modified the source of pdftk to not check the restrictions.  Recent updates to the library its based on made me re-do that change, which I haven't gotten around to getting working yet, or I'd post the patch.

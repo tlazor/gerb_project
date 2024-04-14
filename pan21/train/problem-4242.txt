@@ -1,0 +1,6 @@
+Now I have differentiate which all resources are using a specific subnet in order to separate subnets between VMs and gateways. 
+Can you please let me know if there is any available Rest api to get the resources list that provisioned using a specific subnet. For example subnet XYZ is being used to provision VMs V1 V2 V3. So how can I get the list of VMs V1,V2 and V3 by providing the subnet name in url using rest api.
+The other option is to use Azure Resource Graph to query your resources. The query below will get you the count of resources whos first NIC is in each subnet:
+Recently while working on application gateway, I came to know that application gateway can’t be provisioned using a subnet which is being used by other resources and we need to create a separate subnet for application gateways.
+There's not an easy way to achieve this using the REST API. You would have to get a list of all virtual machines, then get their NICs to list the subnets they are attached to and then categorize using that.
+This assumes you run this using the CLI, but in theory it is possible to use resource graph using the REST API - see here 

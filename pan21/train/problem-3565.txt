@@ -1,0 +1,5 @@
+sc create myService binPath= "\\192.168.0.225\share\myApp\myAppService.exe --debug --log \\192.168.0.225\share\myApp\logs\myApp-%computername%.log" DisplayName= "My App" start= auto depend= LanmanWorkstation obj= .\MyUser password= MyUserPass
+In the Log on tab of the service, I have tried choosing "Local System account" and checked the "Allow service to interact with desktop", but that generates an error: Error 5: Access is denied.
+Starting with Vista all services run alone in Session 0 while the first user always starts in Session 1. This is called Session 0 Isolation. So what you try to do doesn't work.
+However, I wish this server would run in the auto-logged in account, so that the spawned processes will show on the desktop. Or, even better, have only the spawned processes appear in the auto-logged in account (but I don't think that's possible -- so therefore I'm going for running the service in the right session).
+My Windows 7 machine has a user account "MyUser" which is auto-logged in on boot. I am running a Windows service "myAppService" which runs a server which in turn is spawning other processes. This all works without issues...

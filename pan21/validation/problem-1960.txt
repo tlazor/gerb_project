@@ -1,0 +1,5 @@
+I am using my institute's LAN and I wanted to use Remote Desktop Connection app to connect to a friend's laptop on the same network.
+You can try login using just his username and password. It depends on protocol, you are going to use to reach your friends computer. If it is through Windows File Sharing then providing no such domain should be needed. In case you have accounts maintained by your institution, you might actually need the domain. It could be actually address of your instituion (foocorp.com). 
+You can look for connection-specific DNS suffix which is found in details of your network adapter or fire up cmd.exe (command prompt) and type command ipconfig. You should see that.
+I have his IP address but do not have Domain Name and actually I do not understand what exactly (username@domain) means.
+In case you didn't know his IP address you would need to know his hostname, to ask DNS server for his IP address. If there is a domain on your institute's network you can also write his address in hostname.domain.tld format, eg. alex-PC.foocorp.com in case that yours instituion domain is foocorp.

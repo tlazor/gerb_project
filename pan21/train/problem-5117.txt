@@ -1,0 +1,10 @@
+5: from these 10 solution, create 10 children for each, by randomly adjusting their angle and power.
+A system like this, with multiple bodies, is going to be chaotic. I don't think that you would be able to solve an equation for it in real-time. The best you can hope is to find a solution using a genetic algorithm;
+You will need to limit the number of iterations, in case there is no solution to be found, or it is taking too long to search.
+I'm building a game with Unity3D. It's a  Gravity Wars  clone. Both player and AI turrets shoot missiles at each other (giving an Angle and a Power variables), trying not to crash missiles on planets.
+3: if any of these, end up hitting the target (or coming sufficiently close), Done! otherwise continue.
+You could of course just have the AI fire at random levels for both inputs, which could produce some interesting results...
+But here's my question: how do I make AI calculate power and angle before shooting his missile, considering a planet's gravity too?
+When I played Gravity Wars, this is what I did; start with a semi-random power, and adjust accordingly by an increment. Within a couple of shots, you get really close.
+Given that the trajectory of the missle is based on the inputs of Angle and Power, you should be able to solve (get an exact answer) from an inverse equation.  
+How about making it realistic by not having them calculate, but starting with a guess and adjusting appropriately?

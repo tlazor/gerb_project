@@ -1,0 +1,12 @@
+~all is a Soft Fail: All mail servers not listed in the SPF record are not authorized to send mail using the sender’s domain, but the owner of the domain is unwilling to make a strong assertion to that effect.  So in other words the SPF check will not necessarily fail and the receiving server may accept the email message.
+"enquiry@clientdomain.com" is not set up on mx1.helloevery1.co.uk. It is only on the client servers.
+The reason the SPF record with the ~all parameter at the end probably worked is not necessarily because of the inclusion of both IP4 and IP6 Addresses but because of the ~all parameter.
+So if you have someone sending mail as "ninja@ninja.com" and the receiving mailserver checks SPF, it looks for an SPF record on "ninja.com" to see if the sending mailserver is listed.
+mx1.helloevery1.co.uk is our mail server. It is a simple ISPConfig Postfix setup. We send all mail through 1 account, let's say that is "noreply@example.com". 
+An SPF record states which mailservers are allowed to send mail from the sending domain. Basicly, what is in the from: address.
+This looks like it is trying to lookup the domain on my SMTP server (where is not is configured). If I were to set up the domain on my SMTP server and create an account then when I send through my SMTP server then it will try to deliver it locally.
+At the advice of Mwuanno I changed my records to be ip4 and ip6 based and it started accepting the spf record. The record now reads
+I cannot seem to get a SPF record working for a client of ours, Google mail keeps failing on the lookup.
+There is a username and password set up to send through but we change the "from" address in our application. The from address is "enquiry@clientdomain.com".
+When I send through my SMTP server from the site, I am receiving the following error when I send to my email account. 
+I've always assumed that SPF was just a verification tool to say which server is allowed to send but never really took into account the email it is coming from. 

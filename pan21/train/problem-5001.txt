@@ -1,0 +1,9 @@
+Another option would be to create a class that implements IGrouping and gives you access through the this[] accessor.
+So basically I don't think there is anything wrong with you code, it the example provided you don't need defered loading, and that is one of the cases where I would do the same.
+The difference between your GroupToDictionary and the IEnumerable is that when a where is performed on the IEnumerable the calculation is performed when iterating over the value, and this is done each time the value is used as the result aren't cached. A common way to get around this is to either do ToDictionary, ToList, ToArray or any other "conversion" which enumerates a saves the result. This also gives you the performance you expect.
+The main reason for using IEnumerable<IGrouping<TKey, TValue>> would be defered loading/calculation, meaning that:
+In your GroupToDictionary method the groupings are calculated when the method is called. So basically you are waiting in another place in the code.
+And there already is a method that does almost the same thing as your GroupToDictionary(), it's called ToLookup().
+Even now, LINQ is works with any number of different providers, and each can implement the grouping in different ways, as long as the interface requirements are met. One example is that a LINQ provider can implement a lazy loaded grouping, which is not how the dictionary works.
+I think the reason it's done this way is to make GroupBy() consistent with the rest of LINQ: everything is as lazy as possible, so that following queries can be efficient.
+Anyway, your solution is also quite good in my opinion. Just change the function return type to IDictionary instead of Dictionary, so you can change the implementation in the future.

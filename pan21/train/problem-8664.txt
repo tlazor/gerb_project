@@ -1,0 +1,7 @@
+A fatal alert was generated and sent to the remote endpoint. This may result in termination of the connection. The TLS protocol defined fatal error code is 20. The Windows SChannel error state is 960.
+I have already used the SSL Check by GlobalSign which gives me Grade C. https://sslcheck.globalsign.com/en_US/sslcheck?host=laola.biz#191.233.85.240-cert-ssl
+It's the first time that I use SSL and to be honest, I have no idea what I am doing. For me it looks fine when I request the website (http://laola.biz).
+I moved the website to a new instance, so I have exported the certificate with its private key and imported it on the new instance.
+I have a Windows Server 2012 R2 instance on Azure. For a new website I have ordered a certificate by GlobalSign. After getting the certificates from them I have completed the certificate request in IIS and installed the root certifcate.
+A fatal alert was generated and sent to the remote endpoint. This may result in termination of the connection. The TLS protocol defined fatal error code is 40. The Windows SChannel error state is 1205.
+An SSL 3.0 connection request was received from a remote client application, but none of the cipher suites supported by the client application are supported by the server. The SSL connection request has failed.

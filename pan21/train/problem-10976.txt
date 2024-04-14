@@ -1,0 +1,7 @@
+On my puppet client I have no entries that resolve the hostname of puppetmaster to a particular IP in /etc/hosts because if puppetmaster goes down and I have to launch a new puppet master from a new ip, I want to avoid changing all the /etc/hosts files in my clients.
+I would like all my puppetclients to be able to connect to the new puppetmaster only by its hostname in the A record.
+Are there any directives I need to change in etc/puppet/puppet.conf on either the client or master to get this to work correctly?
+In /etc/puppet/puppet.conf of puppetclient-01 the only change I made to the defaults are adding this
+Looks like you did not use the FQDN when generating the master cert. Following http://docs.puppetlabs.com/guides/troubleshooting.html: If sudo puppet master --configprint certname on the master produces puppetmaster rather than puppetmaster.mywebsite.com you'll need to:
+Why do I receive the error Server hostname 'puppetmaster.mywebsite.com' did not match server certificate; expected puppetmaster?
+I created an A record for my puppetmaster.  In case the puppetmaster on this ip address goes down and I have to spawn a new one from a new ip address, I can just change the ip address associated with the hostname in the A record to that of the new box.

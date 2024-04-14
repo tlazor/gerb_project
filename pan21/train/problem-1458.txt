@@ -1,0 +1,5 @@
+The best way to deploy the application depends on several factors but is probably best done by means of the distribution's primary package manager. This might mean providing an RPM file for download or it might mean adding a package to an Internet-accessible repository.
+Using setuid bit on the application file seems like a logical choice.  My understanding of setuid is that the files should be owned by root, and only be writable by root, or otherwise an untrusted user with write permissions could edit the file, and execute anything in root context.
+However, this complicates deploying the application, since I need to set the files owner to be root after it is deployed (pulled down from remote Git repo), something like:
+Is there a way to avoid this, or a better way to develop and deploy an application that has to run as root?
+An application that has to run as root must be installed by an administrator with root access. This can be done using privilege escalation (e.g. via sudoor equivalent).

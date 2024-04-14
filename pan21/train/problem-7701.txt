@@ -1,0 +1,8 @@
+The following config is safe for the version I've tested - 2.6.6 on ubuntu 12.04 - the previous examples crashed the server. Put this into /etc/logrotate.d/mongod:
+See: https://jira.mongodb.org/browse/SERVER-11087 for more details and a suggestion from Akshay Kumar which I used in the above (use create instead of nocreate and cp /dev/null to the logfile).
+And now get well-named logfiles from logrotate and empty logfiles like mongodb.log.2013-09-18T23-49-44 as traces of SIGUSR1 switching. How to get rid of the latter?
+Note that in version 3.0 and higher it is not required to kill your database daemon simply to rotate a log. Refer to documentation here:
+Since mongodb 3.0 you can change the behavior of mongodb with the logRotate parameter, change in /etc/mongod.conf
+In later releases there is supposed to be a logRotate option you can use to reopen the file - not rename it - which will work around the rename problem -  but it didn't work in my version (it was unsupported).
+The server crashed for me if you send SIGUSR1 to mongod after you have moved the logfile out of the way with logrotate.
+I want the OS's logrotate ability to zip old files and remove oldest, but see no way to tell mongod process to switch current log other than sending SIGUSR1.

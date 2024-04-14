@@ -1,0 +1,7 @@
+The slightly longer answer is: I have seen at least one SOHO router that allowed you to specify a DNS entry as the endpoint, so if you find a router that has this feature you may be able to get around this limitation with a Dynamic DNS service to track at least on of the two dynamic IPs and map them to a resolvable hostname.
+Apart from dynamic dns as mentioned in the other answers, another technique is to use a 3rd device that both tunnel endpoints register with, and which informs the endpoints of the peer's address.
+I want to ask whether it is possible to configure Layer 3 Tunnel with the two end points/interfaces have dynamic IP address?
+If your equipment supports it, you can set up the tunnel endpoints by DNS name rather than IP address, and using some dynamic DNS service keep the names up to date when the addresses change.  It can be made to work, but note that the failure modes are likely to be awful.  (Might have to tune timeouts to detect the broken link.)
+The two L3 Tunneling protocol I know are GRE and IPSec. GRE definitely need static IP. Does IPSec need static IP as well?
+E.g. in DMVPN the hub performs this role, in Viptela SEN (now Cisco SDWAN) the vSmart controller does.
+The short answer to answer your question is No.  IPSEC needs at least one endpoint with a static IP.

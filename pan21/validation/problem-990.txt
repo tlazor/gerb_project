@@ -1,0 +1,11 @@
+It doesn't include a full "software-push" feature, but we solved this by using psexec to run it on all our client/hosts, from a remote computer.
+Look at GFI's RemoteManagement. It's cheap. It works. It's a hosted web-based console. It uses LANguard for patching, so everything you liked without the errors you didn't.
+I am using WSUS for Microsoft patching but would like something that will inventory and patch Adobe, Java, Firefox, Quicktime, etc.
+"W-package" (GUI and Command line) is an automated software deployment, upgrade and removal tool for Windows.
+We use Ninite.  They don't support arbitrary apps, but they do have a curated collection that includes pretty much every high-quality free program you've ever heard of.
+With that said, can anyone suggest me a reasonably priced/free patch management application that will do 3rd party applications, and maybe work with WSUS? A remote client or web interface would be nice also, I also have off-site (VPN) or dis-joined systems.
+Another solution could be using software called Local Update Publisher.  It allows you to publish 3rd party software updates through your WSUS server.  It seems to use WSUS API feature called "Local Publishing".  I haven't used it though, here's what claims to do:
+You can use the wpkgCreateReport tool to generate a report showing which packages are installed on which computers.
+I downloaded a trial of GFI LANguard which looked nice but it is a standalone .NET application with no web or remote console and crashed throwing .NET errors.
+Here's a list of software that have already available silent installs, upgrades, and uninstalls configurations (yes, Adobe flash/reader, Java, Firefox, Quicktime are included here).  You can write your own too, and contribute to the community.
+I have used Lumension in the past and it was OK but it is too expensive. I have used Kaseya and don't like it. Shavlik is also too expensive. ECORA's website is difficult to navigate and I am not interested in starting a trial simply based off that.

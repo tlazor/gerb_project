@@ -1,0 +1,5 @@
+However, you could enter BIOS and see if you can set an option like: Halt on systems errors. Usually you can choose what errors to halt on. Just disable Mouse and Keyboard errors... If you know what mainboard you have, you might even be able to check the manufacturer to see what beep means what! ;)
+Sounds to me like you should disable the ports in the BIOS and possibly purchase another PCI USB card for the pc. (of course a new machine might make all this mute) but I'd put another 4 USB slots into the machine disable the PS/2's via the Setup and that should eliminate any "ghost keyboard" signals from a shorted out part of the board.
+The problems with the PS2 ports happend to me too but without the beeping sounds. After almost a year of searching people to fix it I got tired and I bought a new motherboard. 
+Those beeps are normal when BIOS detects something wrong. If you have a PS2 port, you must have an old mainboard. 
+I don't mean to be the voice to gloom, but I think it has had it. It could be a short somewhere in the port housing itself or an issue with the PS/2 controller leading to the BIOS thinking it is constantly receiving keystrokes. 

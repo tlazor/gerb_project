@@ -1,0 +1,6 @@
+You don't even have to compute the length of your machine name. You just need to know how many characters you want before your message.
+Let's say you want your message to start at position 44. You already have your timestamp and your machine name strings. The timestamp is constant width, but the machine name width varies.
+For more information on variable substring operations (and also search and replace), type HELP SET or SET /? from a command prompt.
+What I can't work out is how to produce a string that contains 'x' number of spaces, or append those 'x' numbers of spaces to the end of the machine name?
+Create a variable that has your timestamp, followed by your machine name, followed by 43 spaces. Then take a substring of the result, preserving only the first 43 characters, and append your message.
+But in order to align the log message on the right hand side, I need to calculate the length of the machine name, which I have done, and deduct it from the max length to get a number spaces. 

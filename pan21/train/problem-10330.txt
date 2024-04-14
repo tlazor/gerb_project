@@ -1,0 +1,6 @@
+This example code demonstrates the problem and the fix, however it only works with VARCHAR columns.  As soon as a CLOB is used, the conversion fails:
+DBMS_LOB package has conversion functions as well. Unfortunately there is no support for converting CLOB to CLOB and change characterset in one step, so the data is first converted to BLOB, then back to CLOB.
+However if the VARCHAR2(20) is changed to CLOB then this no longer works.  CONVERT() returns garbage characters.  I can use TO_CHAR() to work around the problem, but eventually I get an error that the CLOB is longer than 4000 chars so TO_CHAR() fails.
+The symbol β GREEK SMALL LETTER BETA should have gone into the database, but instead the two characters Î² have gone in...as the two UTF-8 characters 
+Is there a way to get the above example working, when using a CLOB column that's longer than 4000 chars?
+I am looking to repair a table of data in Oracle, ideally via unprivileged SQL, which has had UTF-8 data inserted into a UTF-8 database, using the Latin-1 character set by mistake.

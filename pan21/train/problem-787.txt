@@ -1,0 +1,5 @@
+Once you have an idea of what's happening, you can take steps to mitigate. Right off the bat, I'd recommend closing port 3306 on the public port and also locking down "May run queries" creds within MySQL's permissions. That'll lock the barn door. 
+Wireshark, pcap, or other variant of packet snoop would reveal source (the SQL server) and target, ports/protocols used, and so forth.  Zero in on port 3306 (either TCP or UDP), which is the MySQL port. 
+Sounds like something is running some kind of periodic SELECT query that's dumping data out the public interface. 
+If you've a lot of disk space on the system you can set your packet snoop up to save the pcap files containing the network traffic over your public interface.
+I would recommend spooling mode, say, 10GB, broken into 2GB files, such that you never use more that that amount of space, but you should be able to capture at least one of these uploads (or at least the start of it). It may take an hour or two to fill that, or only a few minutes, but you'll always have at least 8GB of intact conversation using this method (the last file will be <2GB and will be the newest data).  

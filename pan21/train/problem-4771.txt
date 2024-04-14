@@ -1,0 +1,7 @@
+I googled around but could only find another poor soul like myself who asked a similar question here: http://www.google.com/support/forum/p/Chrome/thread?tid=69f0a6e776ceab1c&hl=en
+For the sake of completeness, I'll add another solution which aparently did work in the past, but at least for me (WinVista, Chrome 31) does not.
+If you want to replicate your existing browsing environment in this new profile location, you can copy the entire contents of your old profile (or Chrome's default one) into your new path.
+When I set google chrome as the default browser, it picks the "default" user profile as against the custom one I have setup. I tried setting google chrome as default browser after opening it from that particular user profile, but it doesn't seem to have an effect.
+The solution is to make the User Data folder a hard-link (an NTFS junction) to your actual profile folder, like this:
+I adopted the solution proposed by Rehan Khwaja above. Following the steps below will make Chrome launch from your new user location, you DO NOT need to edit shortcuts or any of that.
+If you want to launch Chrome from different profiles with separate shortcuts for each, you will have make the shortcuts and edit the path's etc (as suggested in other posts).

@@ -1,0 +1,6 @@
+Dropbox won't attempt to merge the changes for you. Therefore, any changes made to the same file after it has been updated will also have their changes synced to all computers, but as a "conflicted copy" of the file.
+Suppose I have a source code file in my dropbox which I have worked on from my desktop machine, and the version in my laptop is out-of-date because I haven't had internet access or the company proxy blocked dropbox or whatever.  
+The name of the new file will be the same as the old one but appended with "conflicted copy", the name of the person/computer responsible, and the date that the conflict occurred. This way, everyone's changes are preserved and nobody overwrites another person's hard work. If you find a conflicted file in your shared folder, you may want to discuss which changes to keep with your friend."
+"If two people or computers change the same file at the same time, the first person to finish uploading their new version will "win."
+If I continue working on the file from the laptop, and then reconnect to the internet later, what will happen to my file?  Will the earlier changes from the desktop be lost? 
+edit: this isn't exactly what you asked as you're not working simultaneously from two locations on the same file but it still explains how dropbox handles conflicts.

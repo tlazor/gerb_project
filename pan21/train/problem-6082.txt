@@ -1,0 +1,6 @@
+if some of the items are updating, and some are not, there must be some difference between them. could it be that some are zabbix passive items, and some are active items ? if so, figure out why some category has stopped working.
+Go to Configure -> Hosts -> (the host or template) -> Items to get a list of items that the host is checking.  The right-most column will either be a green checkmark or a red x.  If the item in question is a red x, you can hover your mouse over it to see the error.
+Go to Administration -> Queue to see how many items are "stuck" and are not updating.  Is it just a couple or do you have a systemic problem with lots of items?
+as you have added, querying for items is working, so maybe they have been set to be active items ? you can see that in item  properties.
+As someone else said, check your zabbix_server.log file.  You may also want to temporarily crank up the debug output by editing the zabbix_server.conf file.
+if that is an accidental change, reverse it. if it's on purpose (or they have been like that always), check that :

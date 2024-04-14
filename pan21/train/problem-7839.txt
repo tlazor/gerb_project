@@ -1,0 +1,5 @@
+How do I go about moving certain data (returned by a simple query) from one database in AWS' RDS to another?
+This thread is a little dated. AWS now offers the Data Pipeline product for this purpose. However I had the same need to move partial data on a regular basis from one DB to another (different RDS servers). The approach i took was to create a cron job hosted with Iron.io. The service also runs on AWS US East so there isn't much network latency. Connect to one server, grab your data and format it. Then connect to the other server and update. You can run jobs with Iron Worker as frequently as every 5 mins. 
+My current plan is to use Sequel Pro to perform an Export, and then Import it into the target database, but I'm wondering if there's a better way to do it.
+If they are both MySQL databases then perhaps you could use the federated engine (which facilitates access to databases on remote servers) to update the remote db using a scheduled task to update as often as required.
+Can't you setup replication? It would be the safer/faster way to do it, but I am not sure you can replicate only certain queries (you can do it with specific databases, though)

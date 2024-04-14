@@ -1,0 +1,6 @@
+I've pointed A record to ip 54.214.111.76 (as only ip can be given there not ip/mysite). Now it successfully stays there in mydomain.com, but the apache homepage is what displayed.
+I've forwarded the dns to http://54.214.111.76/mysite. And typing mydomain.com successfully redirected to my site. But the url now pointed to http://54.214.111.76/mysite and not mydomain.com. As i understand that it forwards but what i really wanted is, the dns should point to my site and i want the url to remain as mydomain.com.
+Thanks guys for your help. i solved the problem myself. Here is what i did (not sure if this is the right way)
+Am a novice in DNS related configurations. I have a domain registered in godaddy which i want to point to a website hosted in one of my amanzon ec2 instances.
+So what i want to do is to point to 54.214.111.76/mysite, but the url should still remain in mydomain.com. It's a small prob for techies i understand ;). Thanks in advance for helping me out. Cheers!
+This will take some time and now when you just give example.com you will be redirected to your site internally and the url will just remain as mydomain.com. This is what i exactly wanted.

@@ -1,0 +1,6 @@
+In the wrapper script we touch a state file (/var/state/puppet-run) everytime that the puppet agent exits with status code 0.
+In our setting we have a wrapper script around calling puppet agent --test that also checks for some environment settings like existence of a "stopper file" that allows logged-in admins to disable automation temporarily.
+We then track the age of this file to determine whether it's older than e.g 1.5 times the time between puppet runs.
+I don't see the advantage of using a third piece of software to compare the catalog versions between the master and agent when a normal agent run should provide enough data to alert properly.
+I wrote a simple check_puppet NRPE script that does most of what you want. It's based on RI Pienaar's original which was more than I needed. In both cases we parse /var/lib/puppet/state/last_run_summary.yaml to see the state of the last agent run.
+This exact problem inspired me to build this as a service so people could just move on and not have to build their own monitoring tool. Check out http://cronitor.io -- one monitor is free and there are paid plans for business. 

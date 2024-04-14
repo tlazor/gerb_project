@@ -1,0 +1,10 @@
+The records are inserted via a powershell script that calculates the average time taken to insert each record. It typically takes about 1.5ms per record (including some record parsing and a trigger).
+https://www.postgresql.org/docs/9.6/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-THRESHOLD
+Usually autovacuum is active on a postgres database, having this enabled is allowing the db to to the Analyze in the background.
+Every now and again (typically after about 3 million rows are added) the processing time jumps up to about 12ms/record (it's a very noticeable step change that happens very quickly)
+https://www.postgresql.org/docs/9.6/static/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-SCALE-FACTOR
+Try to use Analyze without stopping the process. I think you already tried this, wny is this not working ? 
+One option is to Analyze only specific columns , this will take less than analyzing the whole table.
+The database is already shutdown for a brief period at night and all the tables get ANALYSEd regularly, but is there any way I avoid doing additional ANALYSEs during the day?
+I've already found the cure. I stop the process that adds the records, do an ANALYSE on the table, and restart the process. The insert time goes back to 1.5ms/record. Although this only take 5-10 minutes, I do end up loosing several thousand records during this downtime. 
+(note - I've tried simply stopping and restart the INSERT process - it makes no difference. It's only stopping, doing an ANALYSE and then restarting that makes a difference)

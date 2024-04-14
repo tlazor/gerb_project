@@ -1,0 +1,5 @@
+Typically, you will want to remove the old version and replace it with a compatible Win32 or Win64 version of cURL from the official cURL download page.
+If cURL is registered at the command line, you should be able to use where curl to determine the location of curl.exe (the Windows where command is similar to which on *nix-style systems). You can also use curl -V to check your cURL version.  
+Personally, I might suggest the builds by Viktor Szakats (he builds the latest versions frequently and often has a good amount of features enabled). You need to click on the blue revision number link (e.g. 7.59.0) if you wish to download the actual curl .zip file (or whatever). Author name links often lead to unrelated pages.
+If these commands fail, you will (optionally) have to check your installed software, make a search of your hard drive for curl.exe or use other means to confirm if cURL is actually installed.
+Please note: these are generic instructions and not specific to Windows Server. Furthermore, PHP and (to the best of my knowledge) Plesk currently use the version of cURL registered with the OS.

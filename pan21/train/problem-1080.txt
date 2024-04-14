@@ -1,0 +1,5 @@
+If you are seeing webserver scripts accessing parts of the filesystem they shouldn't be then the solution is not to block that access but find and eliminate the scripts which are exposing access. 
+Just FYI that since your machine is joined to the domain through winbind that userid and group lookups will go through winbind through NSS.  Running ls(1) in a directory will cause the userid/group mapping lookups to be done, running ps(1), etc. will cause the mapping lookup to be done, both in the /etc/passwd file and in AD.  That may be the source of all your traffic.
+This is exactly the kind of thing that SELinux was designed to address. If you are feeling queasy about setting it up, then use a distro that was designed for it, such as Red Hat or one of the derivatives, such as CentOS.
+So, probably this vulnerable script allows hacker to bruteforce out domain controller through winbind unix domain socket.
+(actually blocking access to the socket is simply a matter of setting the permisions on the socket or running the webserver chroot'd)

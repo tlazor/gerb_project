@@ -1,0 +1,7 @@
+Note you can disable keys within the X session, see xmodmap.  I don't think this is necessary, however.
+That probably doesn't really prevent the user from accessing the desktop somehow, but again, if there is no DE and no WM, there is nothing that can be done with it.
+This will just run chromium (excuse my ignorance of the invocation) over and over again every time it closes.
+Without trying I'm not sure, but I think if you run an application in the foreground in an .xinit script, X exits when that application does.  This leaves the user still logged in at a VT, unless you actually use a DM.
+If Chromium is the only thing running in the X session, then there is not much s/he'll be able to do, as a bare X session gets you a mouse pointer -- no menus, no hotkeys, no taskbars, no nothing.  I have some more stuff about this here:
+Whatever you do, you should start Chromium in an autologin session as a totally unprivilleged user -- i.e., not pi, unless you remove all references to it in /etc/sudoers.
+The user could still use AltCtrlF-[N] to reach a virtual terminal (VT) -- but they will be running login and unless this person has a password, useless.

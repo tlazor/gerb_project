@@ -1,0 +1,9 @@
+Devopers can access the server with ssh, and upload files with sftp. But then they have to "sudo su - appXuser" and move the files to the web page directory.
+You can setup vsFTPd server. Then you can link users to multiple folders, and multiple users to the same folder. So several developers can work on the same application. You should not use FTP but sftp or ftps, as it's more secure. 
+Or, grant access to groups. app1grp can write to app1, and there are multiple users in this group. You could then allow direct scp transfers by individual users. Individuals owning files is not a big deal if the server process can read them. 
+Developers are arguing they cannot upload directly with winscp to the web app. Is there an alternative, better scheme?
+For doing reproducible deployments, you can restrict the sudo rules to some deploy script. Developer stages their changes in some way. Whoever does the deploy then calls  sudo -u app1user deploy. The script transfers files, updates databases, emails people, tags something in source control, does a backup, whatever.
+The developers are contractors but the web pages are owned by the company, so they might change and I'd not like to change all the file permissions when this happens
+I'm setting up a web server at work, with Ubuntu 14.04 and apache. It hosts 3 webpages (can be more in the future), managed by different developers.
+Another option is to use Git. Let the developers commit their work to Git, and then you update the production site via SSH. The developers don't need to use FTP in this situation. 
+Each web page is owned by a application id (eg. /var/www/app1 is owned by app1user), which has ssh login disabled. (to keep accountability)

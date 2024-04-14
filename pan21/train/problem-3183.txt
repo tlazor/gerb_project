@@ -1,0 +1,12 @@
+It may be worth seeing if you can configure OS X and Linux to use different copies of the Xauthority file.  (I'm not sure if you can even do that).
+You might be able to glean useful information by using lsof, on either the files or (lsof -i) network connections.  Possibly you could turn on logging for AFP and NFS (or use nfsstat?) and cross reference them.
+I'd recommend having a test user ssh in using different accounts on the Mac client and Linux host for a while and see if the issue comes up for them.  If it doesn't, then it does have something to do with using the same account in two places at once (and quite likely due to mounting the home folder twice).
+Every now and then when users SSH from their OS X (Snow Leopard) workstation to one of our Linux hosts they receive the message:
+I would also try having a test user access their home folder on OS X over NFS and see if that makes a difference.
+I'm not certain how you could tell if this is the case.  I think you could use the fs_usage command on the server (or a GUI tool like fseventer) to see if the same file is being access in rapid succession, although that doesn't necessarily prove anything.
+2) the timing is out enough that the two systems don't try to use the same file at the same time [hence this being a race condition].
+I'd consider compiling iftop, but, all you should see when running it is that, yes, there are connections to the server from both the Mac client and the Linux client, and they are using different ports and transferring information.
+If the ssh_config file does not have ForwardX11 set you may have to use -X on the ssh command. I.E. see if 
+1) they are attempting to connect to a known host and the OS X client doesn't need to record any information and doesn't access .Xauthority,
+Had that once ages ago starting a few dozen X apps via ssh. ssh uses xauth which itself locks the .Xauthority file and will plain fail if it cannot lock it. Solved that back then by modifying the xauth program to spin on the lock instead, but do not have the patch anymore.
+However, if they log out and log right back in again they do not get the message and everything works as expected.

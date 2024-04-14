@@ -1,0 +1,7 @@
+Now when I create the same Task schedule on client's Server(Windows server 2016), things become wired: 
+Given that you have set: stop the task if it runs longer than 3 days, it will run for 3 days. Given that the task is set to repeat for the entire day, it will appear to run for 4 days.
+So since last time(long time ago) it worked successfully, then it never ran anymore, no error, no exception, nothing, I've no idea why it strike.
+Your problem is that your task does not stop, so when a new task is run, it detects a previously running task and as such aborts the launch.
+Lastly, set: if a task is already running, kill the previous task and start a new instance. Be sure that the task is not running longer than your delay, or strange things will happen. It is a known fact, that with Task Scheduler, tasks can complete normally, but Task scheduler does not detect this, and keeps it running.
+I create a console application by C#, it will write "Hello World" to a .txt file. Then I create a new Task Schedule to run it. on my PC everything is perfect, then I move it to a dev-server, also works fine.
+This should give the desired effect. Do note, if you or someone else stops the task, the task will not run again until next reboot, so you do not want to stop the task unless you have to.

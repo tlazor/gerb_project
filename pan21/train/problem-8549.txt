@@ -1,0 +1,6 @@
+I believe the problem was that our domain registrar did not propagate updated nameservers to the TLD name servers, that are responsible for .be domain names.
+In one minute after their response on the support chat, I could run dig mydomain.be +trace and see that the changes were propagated.
+after the authoritative nameservers are updated there is the "propagation" time, which is in fact a poorly term, since the change does not go from top to bottom at all. This is where you should always use dig for troubleshooting and explicitly specify the nameserver to query, and it should be the authoritative one at least at beginning of investigations; because if you do not specify anything, dig will use the default recursive one, which will cache the result, which will be a the result before the change and it will be kept during the TTL specified previously in the old record and/or the default at registry.
+Did you try to refresh you local dns server. sometimes the local dns server refresh time set to very long, you have to manually refresh the local dns buffer.
+PS: for better troubleshooting provide the domain name involved, otherwise things are pure speculations...
+First thing, you need to check whois of your domain to make sure that your DOMAIN.TLD NS(NameServer) are changed back to your desired NS  (https://who.is/)

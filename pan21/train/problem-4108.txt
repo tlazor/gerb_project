@@ -1,0 +1,7 @@
+from a root shell prompt, sitting back, and waiting.  This basically writes pseudorandom bytes, a megabyte at a time, all over /dev/sda (you may need to use /dev/hda or other device as appropriate to your setup).
+If you're really worried about it, simply have them ship you the physical hard drives, then destroy them yourselves.
+Because the kernel and the tool are in-core, the system will stay up for a surprising amount of time while this is running, and it leaves an utterly unbootable and mostly-completely-scrambled system behind it.
+Do you have (remote) access to server console before booting? You can add DBAN to grub.conf and run it from grub menu (use kernel=dban.bzi with dban.bzi copied from downloaded ISO file).
+I endorse all the other recommendations for DBAN, but if you really can't do this, I've had a lot of success with shutting down as many services as I can (esp. the windowing system), then doing
+Wiping disk from under running system isn't reliable - you can never know if system wouldn't crash in the middle leaving you with an unbootable and unaccessible, but not quite cleared system.
+One thing I've found to be useful, if you want to avoid "cutting the branch you're sitting on", is to create an initramfs image that includes shred, then burn that onto a bootable CD.

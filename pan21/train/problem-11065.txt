@@ -1,0 +1,6 @@
+I have setup a site on dev.localhost, which is my ruby app. The app is called my_project which resides in var/www/my_project
+My virtualhost for it successfully points to the 'public' directory of my ruby app and it seems to work. If I access dev.localhost - my ruby application works perfectly, there are no complaints. However, if I access localhost/my_project, my entire ruby application is displayed, the Gemfile, the controllers, all it's directories - everything. It displays the directory's content.
+How can I stop people from seeing the ruby application files on say localhost/my_project? It doesn't display it on dev.localhost, it displays the site 100%.
+Why is this? I can't figure it out. I've tried .htaccess files, everything, but those obviously also reflect on dev.localhost.
+You've attached a Name-based VirtualHost (by using ServerName dev.localhost) to port 80 on all interfaces, but you haven't set a default VirtualHost so it's using the main DocumentRoot configuration (probably in /etc/apache2/conf/apache2.conf).  Two options:
+I have installed mod_rails (phusion passenger) for Apache on Ubuntu 11.10. Ruby and Rails are running fine, and so does mod_rails.

@@ -1,0 +1,6 @@
+The initial set-up of the game-side macros, server/client protocol (the solutions I've seen just serialise xml back and forth), and writing the client, is large.  However it's extremely useful, especially as using the network for communication means you can work on any platform.
+Python, Lua, etc. can all be utilized expressly for this. Angel Engine probably can serve as an example.
+Writing a simple reflection system for C/C++ is fairly trivial. This way you can browse through all your variables in game (be it with a network tool, keyboard or joypad) and change them to your heart's content. It works for me, but all the above answers are equally valid.
+One solution I've seen in multiple studios is an external debugging app that attaches to your program using the network.  This app shows specific exposed variables, and allows you to edit them in real time.  Adding new variables is a matter of adding some macros to the game code.
+Hot loading is another element to check out (basically, an event is fired off telling you an asset has changed--a config file, an art element, etc.--and you run it through a series of conditioners that modify it for the final format before replacing the existing with the new.
+Integrating a fully interpreted language can allow you to rewrite game elements very, very easily on the fly.

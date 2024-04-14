@@ -1,0 +1,7 @@
+In many cases from the generated MP3 data you will be able to identify the encoder and something about the version of the encoder. Also in some cases you could be able to identify used system libraries and CPU architecture as they can possibly influence the generated data.
+No, when it comes down to it, any file can be opened with Notepad, and examined in UTF-8 format, the raw data in the file.
+Some programs which create MP3s can also explicitly add their identification (program name, version) into the MP3 tags.
+Those data can only supplement other data to narrow possible sources of an MP3 file. The data alone cannot be used to identify the source computer. 
+Sometime in the properties of the file, there will exist the Username, and possibly the Machine name, but nothing else.
+If a Forensics professional examined an Mp3 file, would they be able to tell the mac address of the computer that created the file, or find any information that identified the computer that created the file?
+The header would be the place if any that this information would exist, but, it does not. It  is a 32 byte chunk that contains basic information about what the file is, what the raw data is, and how it is compressed.

@@ -1,0 +1,7 @@
+I have checked that the combinations and slot choices are in accordance with the Hardware Owners Manual and it all checks out.
+To use 16GB of memory you will need XEON processor and a quantity of (4) 4GB sticks that are dual ranked and use a x8 data width (2Rx8).
+I am trying to upgrade a Dell R310 from the 1GB RAM that it came with (1 stick - 1GB UDIMM - Hynix part number HMT112U7BFR8C) to 16GB using 4 x 4GB Dual Rank RDIMM 1333MHz memory modules purchased directly from Dell. However, I cannot get these new chips to work. 
+Dell don't seem to have any idea why they don't work, and they have already replaced them twice with no luck. The motherboard has also been replaced by Dell in case that was fault but it still doesn't work.
+Dell's documentation isn't all that great. But I would start by making sure the BIOS is up to date. Then look inside the BIOS to see if there are some settings related to memory.
+Look in section 8.1 (pages 36-37) for information on which RDIMMs or UDIMMs to use to obtain different memory configurations. The speed and rank are also important.
+None of these combinations work. As soon as the original unbuffered DIMM is put back in by itself, it works fine.

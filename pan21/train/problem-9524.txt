@@ -1,0 +1,10 @@
+If you type dmesg in Redhat you might see a driver for the RAID controller, but in generally hardware RAID arrays are transparent to the operating system.
+If you see drives named like an actual hard drive manufacturer + model you have no RAID or software RAID on those drives.
+If your disks say Dynamic and you see the same drive letter on multiple drives you have software RAID.
+If you see drives named like RAID manufacturers or that say something like "Dell VIRTUAL DISK SCSI Disk Device" you have hardware RAID array(s). And yes the part in quotes as redundant as it looks is the actual name of an array in the device manager on one of my servers.
+I don't have Red Hat 5 running here to play with but I'd have to assume there are clues you can pull out of some part of the UI or a command line option to do the same basic how does a non raid drive describe itself, vs a software RAID, vs a hardware RAID.
+I have several servers running Windows 2008 and Red Hat 5 that are capable of hardware RAID.  How do I check that hardware RAID is configured?
+Well i don't know your system but i think one of the best way of viewing the current RAID setup on a system is through its BIOS. EXAMPLE on HP DL380p gen 8 bios menu, you can press F8 to view the logical disks.
+The best way would be to watch the boot process and see if there is a message before the OS boot starts.  It might something like:
+Having Dell OpenManage installed, rebooting and going into the BIOS or RAID config are all nice but you can do the steps above from Remote Desktop connections even on a system with no specialized tools installed.
+If your disks all say Basic then you either don't have RAID arrays on them or you have hardware RAID.

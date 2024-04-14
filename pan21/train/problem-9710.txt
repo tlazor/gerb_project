@@ -1,0 +1,7 @@
+Additionally, formatting the Java 8 code across multiple lines isn't "relying on indentation and newlines" any more than the other code example is. Try reading this:
+And each of those functions would be trivial one-two lines of code. That's not what functions are for.
+Your IDE should format your code with newlines and indents, or leave the code unformatted when it is wrapped across lines. Making individual functions to do this would be the analogue of making individual functions the following pre-Java 8 code:
+This code should not be moved into its own function as it's highly specific to this location and refactoring into a function just seems useless. Don't do this for the Java 8 code. In all honesty, separating each call into temporary variables is probably cleaner than making new functions for everything.
+You want to remove the function chaining and temporary variables by replacing it with other functions. I strongly recommend against this.
+Regarding the concern of colleagues formatting away the line breaks, you could add a comment explaining why it is like that. But poorly chosen IDE format settings could still interfere, unless you did something like this (this isn't good in practice, though):
+Breaking this into small methods, as you suggest, isn't good. Functional programming is designed to be highly readable as is like this. Hiding the details behind functions makes it hard to understand:

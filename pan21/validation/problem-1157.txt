@@ -1,0 +1,5 @@
+I've done the "hard part" for you - the Node 0.6.19 Portfile is at https://trac.macports.org/export/94009/trunk/dports/devel/nodejs/Portfile. So you just need to do the following:
+Instead, you have to follow the steps at http://trac.macports.org/wiki/howto/InstallingOlderPort which basically require you to browse the [MacPorts repository|http://trac.macports.org/browser/trunk/dports] to find the older Portfile, then download it, and then install it.
+This will install and activate it. You can then switch back and forth using the activate command I listed above.
+If you previously had Node 0.6.19 installed and just upgraded Node using MacPorts then switching back is easy:
+If you have never installed Node 0.6.19 on the current machine then you need to install the older version on your machine. Unfortunately that is not as easy as sudo port activate nodejs@0.6.19. I'm not sure why, other than no one has got around to updating MacPorts to do it (all the info is there in the repository).     

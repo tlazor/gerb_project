@@ -1,0 +1,6 @@
+Some USB devices are made up of several subdevices. Your keyboard is likely one of them. This is perfectly normal.
+Daniel B's answer is probably correct (your keyboard is acting as multiple devices). The reason why keyboards will do that is because the designers of USB decided that a USB keyboard should only be able to send 6 simultaneous regular keys + 4 modifier keys (shift, control, etc):
+1:  Make sure it has the latest drivers installed, there are drivers and programs listed for download in your link.  I bet those would fix the problem.
+3:  Obviously a bit extreme, but a re-install of the system would definitely help narrow down or fix the problem.  (It's very easy to re-install in some cases, not sure if your situation is one of them)
+2:  I would try a different USB bus.  Usually the front USB and back USB ports on most desktops are on different chips, perhaps trying the other chip might "reset" it or something.
+To illustrate, here's a screenshot of my configuration, consisting of one keyboard and one mouse (Logitech G700):

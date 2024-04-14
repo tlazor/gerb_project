@@ -1,0 +1,5 @@
+This then wouldn't be evaluated until the collection was enumerated over. However, I think that's probably more confusing/unexpected behaviour than the simple eager foreach.
+Overall, the problem of having a collection, not knowing whether it's null, and wanting to treat a null collection the same as an empty one is probably a problem to be avoided, rather than solved. But that's beyond the scope of this question.
+More generally, you can remove both those methods and your overloads which take predicates altogether. Then you can just do, e.g. collection.Safe().Any(predicate) rather than collection.AnyML(predicate). This saves you basically having to reimplement the majority of LINQ methods and just add in an extra null check.
+Generally this is well-written. You already mentioned the reason for the "ML" suffix, but to emphasize, it should definitely be removed.
+Some of your methods seem a bit redundant. Do you really need a special IsNull method? Do you need IsNullOrEmptyML when you can just negate AnyML? 

@@ -1,0 +1,6 @@
+Foxit PhantomPDF supports to sanitize documents by removing the hidden information that is private or sensitive for users from their PDFs, generally including metadata, embedded content and attached files, scripts, etc.
+You can remove hidden data from a PDF by one-click, please go to PROTECT > Hidden Data > Sanitize Document
+. . . In my case, 7 PDFs went from a total of 109.0 MB to 56.5 MB.  There was just a little highlighting done in one of the PDFs.
+I'm going to assume you're using Windows. If you right click and choose "properties" on the .pdf, then choose the "details" tab there is an option to "Remove Properties and Personal Information". You can choose what to remove, either some or all of the properties.
+Those details exist for files other than PDFs. The Owner and Computer details you wish to remove are used for permissioning and only exist on your local computer. When you share that file elsewhere, the details will not be in the file.
+Per the manual for Foxit Phantom Business, version 7.3, page 240 of 311 in the PDF (numbered page 239)

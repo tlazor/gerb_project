@@ -1,0 +1,9 @@
+What I recommend for you to take a look at for the patrolling is the usage of a waypoint system. If you want all guard to patrol that is. It basically is an array of points which the guard shall walk too. You can make this random or structured.
+For the rotation you should look at the MoveRotation documentation for unity. This will allow you to smoothly rotate a rigidbody a certain way. You can use a random number to determine which way the will rotate like:
+This is the behind the door outside the hall. This is where one of the npcs should start patrolling and the other one wait some seconds facing the door like he is locking the door and then after some seconds to join and start patrolling too.
+The scenario in general is: Two guards(npcs) lock the door from the outside and start patrolling outside.
+As for the locking the door I recommend making a state machine for your guards so that you can assign a close door state or something along those lines. Which you then fill with the data you want regarding it closing a door.
+I found a good answer on the Unity forum Just to be sure I will copy the code he showed into this answer in case of removal:
+The last screenshot show where they should be patrolling. The left image is the hall outside the door the right image is a door on the front hall on the right and the bottom image the door on the left.
+And this is the hall out side the door and then the hall right and left. They should be patrolling the hall right and left and also the hall with the door.
+This is a screenshot of both npcs each one have a box collider. The door they should rotate smooth randomly and facing and moving to the door the one behind them.

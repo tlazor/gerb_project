@@ -1,0 +1,5 @@
+It depends on what happened during that outage.  I take it you have checked the fuses and the UPSs are truly dead.  If there was a strong power spike over the rating of the UPS when the electricity came back that can do it.  Or if the feed is not grounded correctly -- especially if you are in an area prone to lightning strikes. 
+We recently had an electricity outage of 1-2 seconds at one of our buildings. In this building we have 6 UPS and 4 of them died while/after the electricity outage and all the servers were powered off.
+Every UPS has only 1 server attached to it. And the UPS are rated at 600W. While the largest server uses max 500W on full load.
+And it sounds like over-doing it, but you should have a UPS to protect your UPS.  If the power glitch (most often a spike) is large enough, it can take out almost any protection device.  In particular, any retail UPSs that are portable enough to be carried by 1 person.  
+I'm in no way an expert with UPS or electricity. But we thought we had it covered with this UPS and also thought that we had some overhead. However this pretty much came to us as a kick in the teeth.

@@ -1,0 +1,6 @@
+Any multi-master setup has this limitation:  Every row inserted on the original master must also be inserted on each other Master (and each Slave, if you have them).
+Yes (to one thing) -- you can do some load balancing with any multi-Master setup (Group Repl, Galera, M-M) -- both writes and reads.  It usually requires a proxy between the clients and Masters.  I strongly recommend a simple round-robin algorithm; other algorithms can't measure the "load" fast enough to make a difference.
+That is, without "Sharding", you cannot get much more write scaling than with a single Master.  (Read scaling is a different topic.)
+Let me backtack a little bit.  If the Master needs to do more prep work than actual INSERTing, then having more Masters is beneficial.  (This does not sound like your situation.)
+All(?) multi-Master setups (assuming you use AUTO_INCREMENT) depend on auto_increment_increment being at least the number of Masters.  (So, 'yes' to your note about offsets and increments.)  But, that does not necessarily deal with other unique keys, or with normalization ids.
+Give us some numbers.  You make it sound like you are inserting a terabyte every few weeks?  There are a lot things that need discussing is such a situation (SSDs, network bandwidth, contention, RAID, etc).  How many rows per second?  How much prep work?  Are you already "batching" the INSERTs?

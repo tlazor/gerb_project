@@ -1,0 +1,7 @@
+If its common that you want to plug in extra drives and this screws up the raid then i would suggest you write some udev drive rules to /dev/raid5disk1 or something.
+I have created a degraded RAID5 array with the drives in the wrong order before and it didn't destroy the data but YMMV.
+This is enough to get the array started, so check the partition layout is what you expect with fdisk -l /dev/md1, then mount the file system read only (mount -r /dev/md1) to check your data. If it's corrupted I would try again with /dev/sdc missing, i.e.:
+if possible a reboot will rescan for raids and then assemble them regardless of the drive letters as the raid information is stored at the start of every hdd and it assembles a raid based on that information and not configs stored on system.
+It should give you a warning the drives are part of another array, make sure the timestamps are identical (if not stop and try with the other failed drive missing instead).
+But what I would do is stop the old array (mdadm --stop /dev/md0), and create a new array in a degraded state. HOWEVER the command I've given here assumes that the drive position hasn't changed, you need to know which disk goes where as the order is critical:
+In my experience, a RAID5 array where two drives get marked as failed has required creating a new array. This is obviously risky and you need to make sure you have everything setup correctly before any writes or a resync occurs. Thus if someone else can suggest away to get it going without creating a new array you should probably try that first :)

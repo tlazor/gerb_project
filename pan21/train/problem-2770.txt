@@ -1,0 +1,7 @@
+Alternatively, you could add another user to the system, provide everyone with the password (or better yet with a key) and let that user do the updating.
+If this is a permanent thing for each user, then I'd suggest dropping that into the user's /home/user/.bashrc
+for each login, you can separately provide, either manually or as part of the login process, a CVSROOT via:
+When I checkout the web-solution the CVS/Root is set to :ext:USERNAME@ADDRESS:CVS-PATH - Which is fine for as long as I use cvs to update. But if another user (different USERNAME) makes a CVS update, it tries to update it with my username for which the other user doesnt know the password to.
+We have a server that we host web-solutions on, they are updatede on the server with CVS. About 4 people need access to the server and the ability to update the web-solutions through CVS.
+Couldn't you simply get rid of the USERNAME part and set your CVSROOT to :ext:ADRESS:CVS-PATH. You could then change your respective ~/.ssh/config files to include the correct user name for the CVS server.
+I would like to "force" the cvs-root to be something for each user, but unfortunally the file CVS/Root overrides the enviroment variable CVSROOT.

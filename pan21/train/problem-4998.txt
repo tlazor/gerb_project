@@ -1,0 +1,5 @@
+We have one of their boxes and it can do pretty much exactly what you've just described, and it'll do it at an application level rather than you having to specify URLs for each website.
+It requires the Microsoft Firewall Client to be configured on the client PCs to work in the most transparent way, but that's easily done using Group Policy.
+We do this with Barracuda Network's Web Filter, which can be integrated with Active Directory.  You can also assign certain IP addresses specific permissions - it is easy enough to make sure the same computer always has the same IP address on your network via DHCP or plain old static configuration.  We chose this because we liked the reporting it does, and we got a good deal.
+There are plenty of competing web filter solutions, hardware, software, open source, and even cloud based Software as a Service solutions, that integrate with Active Directory - if they do that then they almost 100% do what you need.  
+MIcrosoft ForeFront TMG can do that with locally installed firewall client or transparent proxy. As the client knows the computer identity AND (!) the identity of the user, rules can be defined for them.

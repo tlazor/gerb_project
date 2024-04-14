@@ -1,0 +1,10 @@
+And cascading updates across several tables?  Yikes.  That means unnecessary I/O, bringing with it more row locks, index locks, gap locks, more potential cases for deadlocks... 
+Consider a FK that is repeated a lot in the referencing table - like an audit table may repeat each user 1000+ times.   
+Do have an index for the join column in one (or both) table.  Otherwise, it will have to do a full table scan to find the match(es).  This is sloooow.
+But b2 is faster than a2 as once it is turned into an index scan the overhead of the join becomes a smaller relative factor.  The join lets SQL do the hard stuff on a smaller set of data. 
+The criteria aren't likely balanced.  They're almost never going to be balanced.  The cost of the extra join to look up the surrogate key (that's the MEDIUMINT; a surrogate key is an opaque value, typically implemented as an auto-increment in MySQL, which has no intrinsic meaning outside the database and is ideally invisible to the user) is going to be negligible compared to the large storage, larger indexes (which means fewer rows per index page, which means more RAM for the same performance).  
+Do not fear JOINing on VARCHARs.  Think of it this way...  The effort to load a row is much bigger than to compare two strings.
+Do not mix types or collations when JOINing.  That is, the column definition of the joined column should be virtually the same on both tables.
+No, I don't think the two apparent alternatives are likely to be genuinely balanced.  Go with the surrogate key.
+In this case a1 is faster than b1 as the index seek is very fast and the overhead of the join makes a difference.  But both are very fast.   
+There are database purists out there who don't like surrogate keys, and if memory serves me, these may be the same people who spend too much time thinking about about theoretical databases and don't like NULL.  Don't listen to those people too extensively, brilliant theoreticians they may be.  (Dare I add, "caveat lector").

@@ -1,0 +1,15 @@
+I'm pretty sure that lot of professional Admin have been in the same case than myself, so there should be a way to easily pilot several server at once.
+How about using Wake-On-LAN to wake them up from their slumber, and using SSH to shut them down.  You could script SSH quite easily, with any one of a number of tools, (I'd probably look at using Ansible... but that's how I think..)
+Ansible doesn't just do hardware and operating system, it can also manage cloud-environments, network-equipment, applications and everything else with a proper API.
+Why do you need to power these server all off or on at once? It's actually not a common request or action amongst professional sysadmins.
+I'm planning to add 10 more server (probably HP because they are very cheap) and I definitively need 
+There's another dirtier method, where you put them all on a network-enabled PDU, then you could just switch the port relays to OFF, and it's like unplugging the power leads.
+I would like to switch on or shutdown all the servers from another Win7 machine. The win7 machine is now on the same local network, but I'm looking for a solution that can work even outside the local network.
+Ansible can also instruct the OS operating system to update, reconfigure or shut down, works for most (if not all) flavors of Linux, Unix and Windows.
+I'm also going to assume that they're running Linux - Because rendering on Windows is terribly slow and inefficient.
+Can I make an alternate suggestion?  (I'm going to ignore the fact that servers don't like being switched off - Perhaps you're booting from a SAN? :P)
+Look at Ansible as an orchestration tool that can talk to your iLO interface (or alternatively Wake-on-Lan) and instruct systems to boot (or boot from a boot-media).
+If they are running on Windows, and you want windows to be the cluster controller, you could still use Wake-On-LAN to start them, but use Powershell Remoting (or similar PSExec runes) to shut them down again.
+I just installed a small render farm composed of 16 HP proliant 380 G5 and 10 Bull Novascale R2 (supermicro based motherboard). OS is windows server 2008 R2.
+On both brand I can turn on or shutdown the server one per one using a browser interface (tested from local network).
+Either way, you can either use a combination of ILO and IPMI tools: Using the ILO SSH interface for the HP servers and ipmitool for the Supermicro servers.

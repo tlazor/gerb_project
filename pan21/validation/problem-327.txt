@@ -1,0 +1,7 @@
+Try deleting the profile from the System properties Advanced tab (which is the correct way to delete user profiles). The profile may show up as Account Unknown, so if you see any profiles listed as Account Unknown, delete them and see if that corrects the issue.
+Since the problem happened with another user, I tried restoring his profile back to before I deleted it and he was also unable to log in even after following these steps.
+When I got the "User profile could not be loaded" message, and got logged in with a temporary profile, I noticed that my profile directory (C:\users\) was missing.
+After deleting a few domain-based non-roaming user profiles manually from C:\Users (including my own), I kept getting the following error upon login:
+I'm at a loss on what to do here. Every piece of info I've searched keeps referring to the SID deletion method, which clearly isn't working for me.
+I tried to delete the SID from the registry as well as the GUID registry key used to cache the SID to no avail. After using procmon to find out what it wants, I see that it's referring to a few folders:
+I recreated it and left it empty. It then showed up with a status of "Backup" in Advanced system settings; I deleted it from there, and the next time I logged back in, a new one was created for me, with the correct status (i.e., "Local").

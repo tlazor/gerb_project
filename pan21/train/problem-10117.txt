@@ -1,0 +1,5 @@
+The PARTITION BY works as a "windowed group" and the ORDER BY does the ordering within the group. However, because you're using GROUP BY CP.iYear, you're effectively reducing your window to just a single row (GROUP BY is performed before the windowed function). The average of a single row will be the value of that row, in your case AVG(CP.mUpgradeCost).
+These queries below both give me exactly the same results, which I assume is because of my dataset rather than how the arguments work.
+As for query 2, are you trying to create a running average or something? Not even sure what you would expect that query to return.
+On a slightly different note, why not use the term GROUP BY instead of the more complicated sounding PARTITION BY, since it seems that using partitioning in this case seems to achieve the same thing as grouping. I know you can alter these inner partitions and that those changes then reflect in the table. Is that the reason?
+So you can see that there are 3 rows with a=X and 2 rows with a=Y. The ORDER BY clause comes into play when you want an ordered window function, like a row number or a running total.

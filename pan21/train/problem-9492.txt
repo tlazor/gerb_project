@@ -1,0 +1,5 @@
+But I remember from AD that if you delete an account, re-create an account with the same details it would be considered a new user, and it would create a new user folder and the old user session you would not be able to logon too. Would this be the same? and if so is there a work around?
+So the environment has been setup with Azure AD, all the computers (Windows and mac) are using Azure AD credentials to logon.
+If we recreate the on premises AD - and sync with Azure AD - will this cause the user accounts to be still recognized, or will all workstations need to be reconfiguration to open a new session under the user account and then transfer the data? Or would it re-associate the same session?
+Now we would like to create a hybrid environment, I already figured that we will need to rebuild the AD - export Azure AD and recreate on premises AD and then sync with azure AD - now for the questions;
+So we're mostly a cloud based company (G suite, Azure AD etc.) Azure AD has too many limitations, we're going to work with new HR soft that wants a full fledged AD.

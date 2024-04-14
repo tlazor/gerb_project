@@ -1,0 +1,5 @@
+When active however like decoding audio it should jump up to about 50mA or so and with the speakers playing loudly about 100-150mA.
+Question one is simply enough, of course not as the speakers and decoding use a significant amount of power. The exact amount of power used in idle can very and depends on who designed the device but generally its not going to be a lot because Bluetooth is intended to use very little power.
+Most likely your headset has a dedicated chip with bluetooth, a speaker driver, DSP and MCU which means it'll use about 1-2mA while it is receiving. It might be something a little less than this due to the fact that the receiver will be turned on and off rapidly to save more power and further bluetooth is fairly minimal with messages it sends in idle.
+Some devices have an external MCU which will mean slightly more power. It really depends but certainly not much more than 3mA when idle.
+In the case of a headset or speakers for music Bluetooth uses the A2DP profile and uses the standard protocol not low energy protocol. This means power is used in the overhead of maintaining a connection whereas LE requires very little connection overhead.

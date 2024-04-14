@@ -1,0 +1,13 @@
+If you don't have a Linux test machine, consider downloading a Live CD to do the testing or someone else can comment and tell you how to do that in Windows.
+Since you wanted all devices to communicate with each other, you shouldn't have them in different LANs rather use the same for all devices.
+What I would do is disable the LAN DCHP Server on the Router2 and change the cable from WAN to LAN. (Cap WAN port)
+So without resetting your cable or other configuration, just disable NAT on 2nd router. (On TP-Link it might show as 'Wireless AP' mode, not 'Wireless Router Mode'. 
+Then try pinging 10.89.49.101 (to verify you can hit the wan interface of your router) and then try pinging something beyond it like 10.89.7.1.
+I am not sure if answering this question will add any value to this problem as it was posted about 6 years ago! 
+After carefully reviewing your diagram and reading answers above, I understand the configuration preventing both way communication. TP-Link type Consumer router (SOHO) expected to operate as stand alone internet gateway device most of time and to allow non-technical user to start using these devices NAT on LAN>WAN traffic set by default. On your network any traffic originating from 2nd router reaching open internet after having at least 2 destination NAT header on every packet. 
+When you ssh on 10.89.49.Y network, traffic ssh-server host see connection originating from 2nd router's WAN interface (10.89.49.Y IP), 10.89.7.x actually never going out crossing 2nd router. 
+Firewalling may be preventing traffic from the WAN interface from reaching the LAN.  Unless you have a reason to enable it, I would consider disabling the all firewalling on the device.  (Hopefully the manufacturer supports that).
+The first thing I would suggest is plug in a test machine into the internet-connected router.  Manually give it an IP and set a route on it to the other router.
+You leave clear with the address you are using on the routers and what you say: "I am able to connect from a wireless device to a wired device, for example SSH-ing from 10.89.7.X to 10.89.49.Y, but it doesn’t work the other way round"
+Also, give it (Router2) a Router1 LAN IP Address on its LAN port, so you will be able to get to it via its HTTP Server
+Lastly, check if the router has NAT settings.  If NAT is enabled it may be expecting you to explicitly set forwards for ports on 10.89.7.101 to machines and ports in 10.89.7.0/24.

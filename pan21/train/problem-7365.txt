@@ -1,0 +1,5 @@
+So all conversion from PDF into any of these formats (and basically all formats you can sensibly edit) will be lossy. Very lossy.
+The other three formats you mention (Doc, DocX, RTF) are Microsoft-specific "source" formats, which describes sequences of characters with attributes, and doesn't describe (at least in principle) the layout of these characters on visible pages.
+Bottom line: PDFs are not editable. Edit whatever was used to create the PDF. If you don't have access to that, tough luck. You can still try to edit the PDF directly, but that's also not easy.
+If you put enough effort in the conversion, you may get an PDF back that resembles more or less the original PDF, but making it look the same is really, really difficult.
+PDF is a page layout description format: It describes the general structure of the document, resources like fonts and embedded images, a tree of all pages, and possible other things. For each page, it contains commands to put certain glyphs into certain positions, or other image operations, like placing an embedded image.

@@ -1,0 +1,7 @@
+The method seems to work fine, but I had to read it twice before I understand how it works. Another approch is to traverse the linked list and store the visited items to check if it was visited twice:
+In your while loop is redundant.  The slow pointer is always going to be behind the fast pointer, which has already performed the null checks.
+Personally I would rename your heads to slowHead and fastHead. The expression slowHead == fastHead makes more sense then.
+Your else block will always return false though. So you can get rid of that and replace it with return false. If you do that, the return false after the while loop can be removed as well.
+But || Head.Next == null can also be dropped, since it is handled by the slow.Next != null check in the while loop.
+The else clause is reached only if either Head or Head.Next is null, in which case it returns either false or (Head == Head.Next), respectively.  But since Head is non-null and Head.Next is null, (Head == Head.Next) will always be false.  So, the function should be simplified to:
+@venerik had already covered the majority of the code, however I think it's worth mentioning that checking:

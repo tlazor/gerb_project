@@ -1,0 +1,7 @@
+As you are db_owner, your default schema is dbo, so there is no problem when you don't specify dbo schema while creating objects. But for other (Windows) users it's not the same. 
+To resolve the issue just assign dbo schema as default schema to all yor users-Windows groups or write the schema explicitely when creating objects. Always.
+When I (DB Owner) run this proc, everything works as intended. When my co-worker does so, who has DROP/CREATE rights on this database through a role in the Active Directory, several things go wrong. What boggles my mind is this:
+As a rule, you should explicitely specify dbo schema if you want to create the object in this schema.
+The creation of the table did not have the dbo schema explicitly specified before the name. This resulted in a table called domain\cowork_id.table_name_here table to be created. Besides that table being created in his personal schema, he now also has that schema on the database (it didn't exsist prior to running the proc).
+What happened? Why does SQL Server create tables in user's schema's instead of in dbo when that isn't specified?
+Your users are members of Windows group that has no default schema. In this case the corresponding user and the schema are created when the user creates any object, it's documented here: CREATE SCHEMA (Transact-SQL)

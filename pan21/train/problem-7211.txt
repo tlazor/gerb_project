@@ -1,0 +1,10 @@
+This approach will give you a lot of control over the rain style both visually and programmatically, and you've got some interesting space here to do things.  
+I would say first, your problem is more one of deciding on an artistic style, and not as much about code.  Like with a lot of things artistic, there is no right answers, but there are definitely ideas and approaches.  
+You could have all drops "fall" from the top of the screen, but it might not quite look right.  It does not match the pseudo 3D/isometric stye.
+Acoustically, you can also do some great audio effects based on rain intensity.  Technically you could trigger a little "splash" sound on each drop falling, so the sound of the rain fully matches what is drawn visually.  This might be a problem with a lot of raindrops, but it definitely would work for light rain, or when a rainstorm is just starting.
+You could just do animations of rain drop splashes on the ground, but that could look wrong.  The player sees the drop hit the ground, but they don't see the drop fall. So based on that, I think you have to animate rain falling before you have it hit the ground.
+Second, your game is not 2D - it's 2.5D in a pseudo 3D way, just like isometric is 2D, but also 3D'ish.  Your characters are not drawn from a top down view for example, which hugely changes the artistic approach.
+Personally what I would do is manage this with two sprites for each raindrop:  one sprite for a falling drop, and another sprite for a drop splash on the ground.
+If you want heavier rain, increase the random chance of a drop being spawned, or decrease it if you want lighter rain.
+Falling rain drop sprites would be spawned randomly across the map at X/Y locations, and be assigned a starting altitude (pseudo Z coordinate).  Then the sprite is animated with the following conditions...
+Have raindrops hit objects and not the ground.  So rain hits the branches of a tree (with no splash) and not the ground under.  Or give the player an umbrella.

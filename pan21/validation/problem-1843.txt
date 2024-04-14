@@ -1,0 +1,7 @@
+You are not multiplying something by dt twice; you are multiplying the acceleration by dt to get the velocity change and adding it to velocity, then multiplying the velocity by dt to get the position change and adding it to position.
+I was wondering why this is done instead of simply multiplying the acceleration by the dt and leaving it at that ?
+From what I understand about time based Euler Integration is that you will set a number of pixels you want your object to move in the space of second and then the value will be regulated based on the frame-rate of the machine your running the game on.
+Similarly, velocity is in units per second; it is the change in position over time. So you have to multiply it by time to get the change in position (units).
+Acceleration is in units per second per second; it is the change in velocity over time. So you have to multiply it by time to get the change in velocity (units per second).
+What I'm trying to get is that instead of the 30 pixels per second I initially intended for the character to move I will need to put in an acceleration value of 1800. 
+but then when you add the velocity to the position it yet again multiplies the result by 0.0166667 which leaves you with 0.0833366667

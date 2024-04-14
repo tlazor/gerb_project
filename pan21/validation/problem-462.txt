@@ -1,0 +1,7 @@
+Open a simple text editor, like Notepad, and type in the commands with the arguments you want it to take, like so:
+(In this example, putty.exe is a program that can take IP addresses as arguments, and it's saved in C:\Users\\useful-files\executables.) When you're done, save it with the .bat extension (if you're using Notepad, just make sure you replace the .txt it starts you off with; in our example, we could save it as something like run-putty-with-IP.bat).
+It sounds like you want a brief script that you can just double-click to run a command with certain arguments - is that right? If it is, here's one way:
+If you open any folder, then the shortest way to run any application with arguments is just typing program name and arguments in the upper textbox.
+Note that certain programs, without configuring system or environment variables, will require you to change to their directory to be able to execute them, hence the cd command included here.
+If you've done this correctly, in File Explorer it will show the file type as "Windows Batch File" and double-clicking it will run its contents.
+Is there an easy way to launch an application from Windows Explorer with arguments?  Or do I have to actually run them from the command line?

@@ -1,0 +1,7 @@
+In larger/deeper networks with more complex input data, this disadvantage of ReLU units generally has lower impact and can be worked around more easily.
+- if the weight for the neuron in the first layer is negative (a 50/50 chance), then both 0 and 1 inputs will produce a 0 output and no gradient, so the network cannot learn to separate them. 
+Change to tanh instead will completely fix the problem, and the network will learn the relationship trivially. This as will also work with "leaky" ReLU or any other unit without the simple cutoff of ReLU.
+I am trying to understand what is going on so I built a simpler version of my project. I set the X and the Y to be identical and I'm trying to predict Y using X, this should be very simple, but my setup isn't working. Here is my code : 
+The problem is the relu unit. It is not a very good choice in such a simple network. There is a good chance that the ReLU starts off "dead" -
+The answer is that the code above works as I thought it should, most of the time. Each run of the program is slightly different due to some randomness, and sometimes this randomness means that the program will not find a link between the X and the Y. The way to fix this is to run the program several times over. After running it 10 times, I got a successful result 8/10 times. 
+You should think about how the initial values impact the ReL Units. If, for example, you use init='one' for the activation='relu' layer you'll get the desired result (in this simple setup).

@@ -1,0 +1,8 @@
+Obviously, your dependent variable will be whether a product is purchased, so it should be binary. Your independent variables will also be binary. You can also merge the binary variables into smaller number of categorical variables.
+Microsoft_VC80_DebugCRT_x86_x64 1.0.0; Microsoft_VC80_DebugCRT_x86 1.0.0; ;Windows UPnP Browser 0.1.01;Adobe Acrobat Professional 10;
+Treat the installed software as categorical variables, and train a binary classifier such as logistic regression using training data, if you have it. If you don't, there is nothing you can do. You could create derived categorical variables from the company and type of software product, etc.
+Now the question is: what are the ways to turn the list of software into something learnable by a machine learning algorithm?
+Based on user's used software, you wish to evaluate his chance of using another one(and maybe buying it).   
+Be aware that usually these method need more data than standard classifiers(logistic regression/decision trees/~SVM)
+You should do do at least pairwise correlation (e.g. Phi coefficient). You can use it to merge highly correlated variables, such as, Microsoft Windows Word and Microsoft Windows Excel into Microsoft Office. 
+I would build a logistic regression with multiple independent variables. I don't think this is the only possibility, but logistic regression makes sense you are trying to model for the probability of purchase.

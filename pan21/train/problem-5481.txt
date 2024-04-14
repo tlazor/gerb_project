@@ -1,0 +1,7 @@
+Even after space will be reclaimed by deleting files/directories, non-root user won't be able to write to particular partition.
+You can easily check if that's your case by trying to create a file on a device as root and non-root user.
+That way, you'll quickly find files that still occupy space because of a second hardlink. It will also show space occupied by deleted, but open files (as (permission denied), I believe, since it cannot read the file name).
+The other answers are correct: If you delete a file, and space does not get freed, it's usually either because the file is still kept open, or there are other hardlinks to it.
+To help in troubleshooting, use a tool that tells you where the drive space is being spent: You can use du to get an overview of where space is going. Even better, use a graphical tool like xdiskusage (there are many like this) to hunt down the culprit. xdiskusage and friends let you drill down into the biggest space hogs to find where space is going.
+If partition has been configured to reserve certain portion of disk space only for root usage, df will not include this space as available.
+mention any size it will show which files are occupying above the threshold size and delete the file you will find the memory retained 

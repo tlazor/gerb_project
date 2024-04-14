@@ -1,0 +1,11 @@
+Also, why use surrogate keys for such a model? Try using the natural keys which in your case are short, stable, and familiar, and see hot it simplifies your queries.
+Alternatively, you could just have one course_id and one sem_id in your new table and use these columns in both of the foreign keys (one to each parent).
+The CourseStudentEvaluations relation will contain records of all students' performance in each evaluation entered in CourseEvaluations.
+I have another relation: CourseEvaluations with composite primary key: (course_id, sem_id, section, type, serial)
+If your database supports it, you can use a table level CHECK constraint to compare two columns to make sure that they're equal.  You could have a single CHECK constraint that confirms the course_id and sem_id pointing to each parent are the same.
+I think you are missing part of the key here, in the model you showed every course can have only one evaluation...
+Now I want to make a third relation: CourseStudentEvaluations with two composite foreign keys from both the above tables. Both the above tables' primary keys contain course_id and sem_id. How do I enforce that they are equal in a row/record so that I can ensure only those students' evaluations are entered against only those courses in which they're registered.
+Let's say I have a relation: CourseRegistrations with composite primary key: (course_id, sem_id, student_id)
+Now you can see that since both Course_Evaluations and Course_Student_Evaluations have DRI to Course_Schedules, it enforces everything you asked for, and more..
+I think the second approach is a little cleaner, but if you're using some kind of ORM that has trouble understanding a child table column pointing at two different parents then you may not find the second approach to be practical.
+I think your issue is a modeling one, as you skipped a few relations along the way. You can enforce your data consistency exclusively with the schema, no need for code enforcement with triggers or otherwise. 

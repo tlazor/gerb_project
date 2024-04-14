@@ -1,0 +1,6 @@
+For sending outgoing call, I have a Cisco SPA504G, willing to buy several more if I can find a working solution.
+From what I saw, the "outcall" in sip.conf is used on inbound calls which I don't want. I tried a lot of configurations with online tips/howto but my case seems a little particular.
+I have a particular case where carrier (not provider), give me calls without having to register. On carrier side, numbers have an associated IP which is used to route any call. 
+After testing a lot of configurations, I am able to do outbound calls or inbound calls with changing settings but I am unable to have both working at the same time.
+You should rename your SIP user 'outcall' to 'trunk a' because that's what is it; yes, both inbound and outbound calls are going to use that. 
+Asterisk is doing exactly what you told it to do.  Calls that hit the endpoint at 10.254.32.1 belong to the SIP user 'outcalls' whose default context is fxsgroup.  Unfortunately the user 03XXXX9510 does not exist in the fxsgroup context, so your call is failing.

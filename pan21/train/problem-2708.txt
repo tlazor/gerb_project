@@ -1,0 +1,9 @@
+*The post is almost ten years old, but search engines sure like it, and I keep seeing it. It's a good question, and I don't think the top answer to "how to speed up rsync" should be "use cp instead."
+First - the number of files in this case is going to be a major factor. It's an average size of 3MB each. There's probably an io bottleneck influencing the speed in the OP's case. More here - that's a pretty dry read, but the cover picture is worth it.
+It's running it's first sync at the moment, but its copying files at a rate of only 1-5 MB/s. That seems incredibly slow for a USB 2.0 enclosure. There are no other transfers happening on the drive either.
+Use the -W option. This disables delta/diff comparisons. When the file time/sizes differ, rsync copies the whole file.
+Bonus - here's the rsync man page, and if you want to test your hard drive speed, bonnie++ is a good option, and for your network speed, try iperf.
+You don't say what size distribution your files have. If there are many small files then this will reduce overall transfer rate by increasing head movement latency in both the source and destination drives as the tool opens new files and the OS keeps directory entries and other metadata (such as the filesystem's journal if you are using meta-data journaling like ext3/ext4 and NTFS do by default) up to date during the transfer. A file copy proces will only "get into its stride" for larger objects, when a simple bulk transfer is happening.
+If all looked well, I'd delete "--dry-run" and let it go. A, X, and E cover extended attributes and permissions not covered by -a, l is for soft links, H is for hard links, and h is for human readable. 
+Updating an already synced directory on a USB drive, or the same drive, or over a network, will all require different rsync commands to maximize transfer speed.
+I'm running rsync to sync a directory onto my external USB HDD. It's about 150 gigs of data. 50000+ files I would guess.

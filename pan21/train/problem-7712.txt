@@ -1,0 +1,6 @@
+If you feel the need to stop it the only option would be to do a hard restart by turning off the power of the computer. If you turn off the computer and restart it you will have to delete the files that it’s scanning first and later try to run the chkdsk again. 
+Any other advice about what you would do? - well unless I was absolutely confident that I had good, recent backups and that I could definitely restore them within the time needed and that nothing further was going to go wrong then I would let it run. 
+Please note that it is not recommended to stop or interrupt the chkdsk running on the computer until it completes by itself.
+I have a Windows 2003 Web Server that was rebooted and is apparently now running ChkDsk.  I need to have the server back up in a few hours for the work day - is it possible to stop a ChkDsk is progress and force boot back into the OS?  
+I appreciate that you have a problem with the box being unavailable, but sometimes you don't have a choice between good and bad alternatives, just "which one will suck the least".
+Though hard reset in not recommended, you can try at last. Power off and on the system. Press F8 key until you get advanced menu. Select "Last Known Good Configuration" option and press Enter. This will load login window of your server computer without starting check disk utility.

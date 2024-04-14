@@ -1,0 +1,5 @@
+The k=2 case comes up in parallel merge sort since the merging of two sorted arrays from different threads needs to be split up among two threads to maintain the same amount of parallelism. This homework solution is one reference.
+Frederickson and Johnson obtained an optimal result in the 80s. Let $p=\min(k,t)$, then there exist an algorithm solves your problem in $O(k+p \log \frac{t}{p})$. 
+G.N. Frederickson, D.B. Johnson "The complexity of selection and ranking in x+y and matrices with sorted columns" 
+The algorithm described by Frederickson and Johnson in 1982 considers that all sets have the same size. They also described in 1980 an optimal solution that takes advantage of the different sizes of the sorted sets. The complexity of this algorithm is within $O(k + \sum^k_{i=1}\log{n_i})$.
+Greg N. Frederickson and Donald B. Johnson. 1980. Generalized selection and ranking (Preliminary Version). In Proceedings of the twelfth annual ACM symposium on Theory of computing (STOC '80). ACM, New York, NY, USA, 420-428. DOI=10.1145/800141.804690 http://doi.acm.org/10.1145/800141.804690

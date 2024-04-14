@@ -1,0 +1,6 @@
+Performance wise for DNS there isn't any real difference between a vdir or separate site (with a subdomain).  A separate site will require an extra DNS lookup but the impact is negligible.
+The biggest question is more of housekeeping and deployment.  If you want the two to be deployed separately sometimes, or if you want to isolate them into their own roles, then separate sites makes more sense.
+Scalability is another reason you may consider two separate sites.  Rather than scaling up to a larger server or webfarm, you could separate them into different servers/farms with a different domain name.  Mind you, you can do that with many load balancers too.
+With 2 different sites you do have some isolation between them in case one isn't as stable then the other can continue to run, so that is always a consideration.  You can also create separate security sandboxes between the two sites.
+IIS itself will also serve both up equally fast.  Well, again, slight differences not worth counting ... if you have each in their own app pool it could take a brief few seconds longer to load on the first hit.
+So, the answer is really that it depends.  Both methods are fully acceptable and my guess is that you could go down either path and it would work well for you.

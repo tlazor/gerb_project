@@ -1,0 +1,9 @@
+… where \$r\$ is sampled uniformly from the interval [0, 1] and \$\theta\$ is sampled uniformly on [0, 2π].
+passed is a count, so it should be an int rather than a float.  A better way to count a bunch of boolean values is to use the built-in sum() function with a generator expression.
+Which is better for performance: taking a chance with looping (and consuming 27% more random numbers), or performing a square root and trigonometric calculations?  It's hard to say in advance, but it turns out that the performance of my solution below is about the same.  I think that the \$\langle \sqrt{r}\ \cos \theta, \sqrt{r}\ \sin \theta\rangle\$ method is more elegant.
+In this case, math.pow() should be written more succinctly using the exponentiation operator, since you don't need the validation that math.pow() performs.  You also don't need math.sqrt() in check().
+$$\frac{\pi}{4}\left(1 + 2\left(1 - \frac{\pi}{4}\right) + 3\left(1 - \frac{\pi}{4}\right)^2 + 4\left(1 - \frac{\pi}{4}\right)^3 + \ldots\right) \approx 1.273$$
+How many tries does it take to place a rabbit?  Each attempt succeeds with a probability \$p = \dfrac{\pi}{4}\$, so the expected number of tries is
+The idiom to repeat something num times is for _ in xrange(num): ….  By starting a 1, you skipped one iteration.
+move() and check() are specific to the exercise at hand and feel out of place in a RandPoint class.  Furthermore, based on just the method name, it's not obvious what check() would check.  Perhaps is_in_unit_disc() would be clearer, but I would choose to reorganize that code altogether.
+In RandPoint, x = 0 and y = 0 are unnecessary, and in fact misleading.  Those variables are not the same as self.x and self.y.

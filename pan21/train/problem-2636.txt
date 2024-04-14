@@ -1,0 +1,10 @@
+I don't see much harm in initializing lastCalledTime right away, to eliminate the one-time-use special case inside GameLoop() — even if you technically didn't call GameLoop() at the time.
+The GameLoop() function sets fps as a side-effect.  If you don't actually need fps anywhere else, then it should be local.  Furthermore, if you don't need fps, then there is no point in setting it to the reciprocal of delta.
+I used the very common convention for private properties to have them prefixed with '_'  (expl : this._delta ).
+• Use Classes : Most easy way to have a clean start is to build a class, and start adding properties (in the constructor) and methods (on the prototype).
+Even if they won't be private (Javascript requires more work than Dart to have properties private), it is a good convention.
+To say 'hey, when i talk about this function, i mean it as a method of 'this'', you have to bind the function. Binding the function creates another function that i prefer to store once to avoid creating garbage.
+The function that you will send will just be the plain method you wrote, it will loose its context ( this === undefined ).
+• requestAnimationFrame : I'm not sure you need the requestAnimationFrame stuff : It has been unprefixed since quite some time, and i doubt someone playing on his browser can have a > 2 years old version.
+Alternatively, if you would like lastCalledTime neatly tucked inside the gameLoop() function rather than dangling outside, you could write:
+Instead of var GameLoop = function() { ... };, you could just define a function the "natural" way.  Calling it gameLoop() would respect capitalization conventions better.

@@ -1,0 +1,7 @@
+I need a high-resolution monitor for multi-monitoring applications, but I don't have much room for a big TV. I had the idea of buying an iPad3 (2048x1536!) instead and sending the screen of a Windows XP running on a local computer over wlan. Is it possible without affecting the use experience - that is - 100% smooth? I've done the calculations for a 108mbits wlan (13500000bytes/s):
+So I got a 1.5 fps without compression. With PNG compression plus sending only different pixels I guess it would be possible to reach a good 30fps; but I'm not sure if a computer is able to take 30 screen shots + compare 30 images + compress 30 images all in a sec. Is it?
+The only way this could be used as a monitor is if an application is written custom tailored for such purpose. I haven't heard of one, so I think you're swimming uphill on this one.
+Assuming you have the connectivity, you could purchase MORE THAN two monitors, with height adjustable stands, and many more options: http://www.newegg.com/Product/Product.aspx?Item=N82E16824260062
+iPAD 3: Starting at $499, $599, $699 (all USD), and it goes up from there: http://store.apple.com/us/browse/home/shop_ipad/family/ipad/select_ipad
+I use iDisplay and it works.  Its cheaper than AirDisplay (mentioned in another answer) but it works fine, but there is lag, but Im only running a .11g network.
+"Without affecting user experience" and "100% smooth" - well, it depends on what you're displaying. Is it 100 fps gaming, HD video or...?

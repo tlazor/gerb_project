@@ -1,0 +1,8 @@
+We want change the database setup in the future to avoid this manual approach but for now I am hooked to this context and approach.
+Currently we have one single production database (also production and testing but they are not important to my question) with MS SQL SERVER 2012. No mirroring and no fail over clusters.
+When we update our production database with our scripts, and something goes wrong there, we want to revert the failed changes. 
+You can't use differentials as stated in the other answer, but you CAN use database snapshots. They require Enterprise Edition, but they function exactly like what you're looking for. You take the snapshot, start your deployment, do user acceptance testing, and then either delete the snapshot or roll back to it.
+Is it not sufficient enough to use my differential back up when something went wrong with the cleanup and update scripts ? Or do I really have to restore first the full back up and then the differential backup ? Because in this case, I won't win much time if something goes wrong.
+Be aware that "snapshots" is an overloaded term - there's also snapshot replication (which wouldn't help) and SAN snapshots (which actually would help, but it requires a SAN, which I'm guessing you don't have.)
+When we release a new version of our web application we need to update the production database with SQL update scripts. (changes to the scheme, tables, constraints etc...). We want to keep the down time as short as possible.
+But all documentation states that I should first restore the full backup and then the differential backup. 

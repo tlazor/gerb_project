@@ -1,0 +1,6 @@
+I'm using Windows 10. Most often I copy/paste some command into the command prompt that needs to be modified say for example
+The easiest way I have found to avoid this is to select by clicking at the end of the text, then dragging to the beginning. If you accidentally include an extra new-line it will be before the text, which will execute a blank line, before filling the next line with the text you want, but not executing it.
+If you paste text with a trailing new-line into cmd, then the text will be executed as a command immediately.
+Alternatively, you could use Kamil Maciorowski's suggestion, to type rem (or ::) at the start of the line before pasting, so that if the line does execute, it will be a comment, which can then be edited with history editing or cutting and pasting within cmd itself.
+The thing is, as soon as I paste it, the command prompt starts executing it, I think it's detecting a space at the end of the line somewhere. Can that be fixed?
+This effectively does what you ask, stopping a pasted command executing immediately, even if there is a trailing new-line, though I prefer to make sure that there is no new-line in the pasted text.

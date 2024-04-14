@@ -1,0 +1,5 @@
+Add a '#' to the beginning of your current line. Hit enter to add the comment to your history. Execute the prerequisite command. Go up to the previous command and delete the #.
+After you've used CTRL-U you can use CTRL-Y to paste back what you've erased. It works after erasing a word or a number of words with CTRL-W too.
+Note this way you don't really need to copy anything to the clipboard or select it with the mouse - CTRL-U actually yanks the line to a separate clipboard, so to speak.
+You can do Shift-Alt-3 to comment current line and go to the next one. Then you press up, Ctrl-e, Del and tadam!
+You know the situation: You are halfway through typing a long command (for example a commit message) and realize that you have forgotten to execute some prerequisite command that can not be added with &&. Normally when that happens to me, I select what I have typed with the mouse, copy it to the clipboard, press Ctrl-U to clear the line, run my prerequisite command and paste form the clipboard. But maybe there is a better way, preferably without needing to use the mouse? I'm looking for solutions for bash and/or zsh.

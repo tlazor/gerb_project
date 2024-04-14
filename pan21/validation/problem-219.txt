@@ -1,0 +1,9 @@
+The security context used by sqlcmd.exe is the one inherited from cmd.exe, which is created by SQLAGENT.EXE. You should notice a difference between the security contexts created in the 2 cases and that will lead to the solution.
+The fix was to add a few more SPNs to register the canonical name of the server to the actual name.  Then the SQL service is registered with another SPN. like this:
+During a double hop scenario from my local pc to xyzAlias to abcAlias, Kerberos authentication fails and falls back to NTLM because the alias and SPN cannot be resolved.  This is why the logs were showing NTLM.
+Execute the job, first as you know it works. Go to Process Explorer and inspect the Properties tab for the corresponding cmd.exe process (it will be the one calling timeout.exe). Take a screenshot of the Security tab, it will last you longer.
+We reference many of our very active SQL Servers and Instances with SQL aliases and canonical names.  This allows us to perform parallel upgrades and switch machines in and out without code interruption.  The SQL aliases are all configured to reference the canonical names for the same reason.  The standard SPNs we had registered are for the machine names.
+These appear as unique SPNs and allow the SQL alias to resolve to the actual machine name. The double hop authentication logged is kerberos and everyone is happy!  Except the AD guys...they're going to have a lot of SPNs to register in a couple of hours.
+Modify the CMD file invoked by your SQL Server Agent to call timeout 600 just before the failing sqlcmd.exe call. This will introduce a 10 minute delay just before sqlcmd is actually called.
+The server and instance also have canonical name cxyz\xyzInstance.  Finally, the SQL Server has a 32bit and 64bit alias of xyzAlias, pointing to canonical name cxyz\xyzInstance.
+These are all registered to the service account that owns MSSQLSVC on that machine and delegation is set for each to pass credentials.

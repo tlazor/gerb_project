@@ -1,0 +1,9 @@
+The syntax of command line expressions of /switch1 /switch2 is a Windows/DOS thing. On Linux, and all UNIXes I know off, the command line argument syntax is --switch -s. /? is being thought of as a regular expression. The regular expression /?, at least as far as I can tell from grep's man page, would match 0 or 1 /es. That doesn't seem to explain why that would kill SSH, but it does explain what happened. 
+So the ? means the previous caracter may or may not appear. Since there was only one other character, the /, then pkill killed every process it could.
+On CentOS 5.2, the man page provided by running man pkill says it would interpret the /? as an extended regular expression for process names or command lines.
+That will return the PIDs of processes matching that shell pattern. Running pkill with the same parameter will kill everything listed in the pgrep /? output.
+The first two commands didn't provide me any information, that's why ran the third (kinda instinctively...). 
+My best guess is that it has something to do with the shell's evaluation of the '?' character, which probably translated to a list of a few single-character expressions which were passed on to pkill, which in turn closed these PID's.
+I think you were killing your own session, as well as a number of other processes (all PIDs, in this case).
+I would like to understand why this happened: What is the exact evaluation (step-by-step) of my input and what did it cause.
+What happened next is that my SSH session to the server closed, and it wouldn't reconnect. I'm guessing that it stopped all (or most of) the running processes, including the daemon in-charge for such sessions.

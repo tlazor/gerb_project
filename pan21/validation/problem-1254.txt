@@ -1,0 +1,6 @@
+Or there's the ever present screencap/activity monitor installed on the server itself, which neatly bypasses any encryption by just taking video and keystroke data.
+I'm sure they can see the activity on their network, but if I check (for example) my personal gmail from work, and it's over https it should be invisible right? As far as I know the network is monitored, but I don't believe the local computer is actually monitored/key logged.
+If they control the machine, the could have installed a CA certificate allowing them to forge certs and perform a MITM attack.  There are monitoring products that do this.
+Realistically if you're on a "compromised" terminal - whether that be by corporate policy or a hacker, SSL will not protect your data.
+If I am on a network that is monitored, like the network at my office is, but I am on websites that use https, or if I SSH into a server, can that traffic be monitored or does it just show as encrypted noise?
+Network security is not exactly my area of expertese so I apologize if I've phrased this question wrong or if it's already been asked somewhere:

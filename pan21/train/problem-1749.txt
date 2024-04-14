@@ -1,0 +1,7 @@
+I would reccommend using SuperGRUB.  It is a tiny image that you burn to a CD.  Once you have booted to that you have various, relatively straightforward, options to restore GRUB or indeed windows to the MBR.  Have used this countless times when the thought of routing around the command line makes my head spin.
+You can also leave the Ubuntu partition as it is, and manually replace grub as described in Andy's link (reproduced here). However, in my opinion this is harder than just re-installing.
+When you install Windows, it overwrites your MBR with the pointer to run Windows. This effectively means that when you install windows you can no longer access your other operating systems.
+The simplest way to fix this is to always re-install Ubuntu after any Windows re-installation (which will replace grub as part of the installation process).
+For future reference, it may be best if you seperated your root (/) and home (/home) folders into seperate partitions because then you can re-install ubuntu on the root partition without losing any settings or data on your home partition. This process is described in Partitioning your disks.
+When you install Ubuntu, it overwrites your Master Boot Record (MBR) with the program Grub that allows you to choose which operating system you want to boot into.
+what happened is GRUB (the bootloader installed by Ubuntu giving you options) got overwritten by MBR of WinXP, which have no entry for Ubuntu... 

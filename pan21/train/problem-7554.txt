@@ -1,0 +1,6 @@
+Google seems to have had a series of issues where they're either reject mail targeted at mailing lists or, worse, will silently drop such emails on the floor.  This seems to apply both to the for-pay Premier edition and the free Standard edition.
+I've been quite happy with this arrangement as my server is not bogged down with Qmail, SpamAssasin, Horde, etc.
+"spam" targeted at a mailing list goes nowhere  - This critical issue means that you should never use Google-Apps "groups" (mailing lists) for anything that might involve email from the general public. There is a hacky workaround, but it doesn't inspire confidence.
+I did the same thing recently for two of my clients. Commander Keen is correct you are looking for Google Applications. There is a free and paid plan. The paid plan has more uptime guarantees and vastly more space.
+We switched about a 18 months ago, and I'm very pleased with the service and not having to maintain my Courier + Postfix + Horde server anymore.
+You route mail from your server to Google by modifying your Zone Record/DNS. Its not that hard to do. And they provide some decent documentation.

@@ -1,0 +1,11 @@
+The use of VLAN seems mandatory, to separate those network, but as most servers use multicast for the video, i don't want to have to broadcast the video stream on each server.
+I know that the Cisco SG300-28 can do the thing you want with sending multiple untagged vlans out an interface, as i have seen that in production.
+I am aware that I could solve this problem using a router, but i can't do it on some clients, as they use very specific kind of traffic (Ethernet broadcast) to work. 
+I can't use IGMP on client to retrieve the media stream, and VLAN must be untagged for clients as those both features are not supported.
+Each client have very specific needs like a dedicated DHCP configuration, video broadcast through multicast, .... I can't put them on the same network even if I review services configuration for example. 
+Have you thought about sending the multicast stream out and then configure the switch to statically join the multicast stream on ports where it is necessary. That would atleast be my prefered way of getting arround this issue.
+The old network consists of many servers linked to clients though a switch (can be seen as separated networks).
+We want to limit the number of server used, and put them in the same room, and later virtualize them. 
+I was asked to review a network architecture at work. As I am not very familiar with VLAN utilization with multicast, that is why I am here to request your help.
+Is that possible? Add an unidirectional untagged VLAN into another untagged VLAN? Which kind of switch could handle that kind of thing?
+My initial idea was to set a separate VLAN on which the video stream will be send, and then put it on the untagged port of the switch linked to the client (with the video stream also untagged). 

@@ -1,0 +1,8 @@
+I want to expose my development site to more computers in the house. What I'm finding is that accessing it via an internal ip like 192.168.0.198 is extremely slow compared to hitting localhost .
+Interestingly, it seems much faster to access the static home page than the subsequent pages that have DB/memcached/solr access.
+A lot of my confusion stems from what exactly the differences between localhost/192.168.0.198/127.0.0.1 are, how these various ips interact with the network infrastructure (in my case, crappy dlink router). Further, there's various systems like solr and postgresql where I'm not sure about the ip's I want to use.
+The server is running nginx for static content, redirecting to apache (127.0.0.1:8888) for dynamic django-generated html. I'm also running postgresql and solr for database and search index as well as memcache.
+The goal is to configure these areas so that I'm on the right path towards horizontal scalability - which means 127.0.0.1 probably won't be where my db / search index are located.
+My django settings.py file lists 127.0.0.1 and 192.168.0.198 as it's internal ips. The DB backend is configured for localhost. The memcached and solr backends are configured for 127.0.0.1. 
+(I was accessing my redmine project management system using a name based virtual host until I installed nginx - that's what that is for).
+I'd rather train myself a bit in debugging these situations because there might not be a single answer. 

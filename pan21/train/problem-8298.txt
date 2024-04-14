@@ -1,0 +1,7 @@
+The problem in the registry than can be cause by a double installation of BDE. This can happen for several reasons:
+This has happened sometimes in the clients computer and it was hard for us to replicate on our environment. Since it's an old version of Crystal it is very hard to find any helpful documentation to know the exact source of the problem.
+This happened particularly in my application, but the same process needs to be followed on applications using Crystal Reports and BDE Admin.
+Now you can reopen your application and try to open any report on screen. If you've followed the simple steps correctly you shouldn't get any error and you should be able to see the reports on screen.
+The error I'm talking about in particular is the one on the image below. This happens when trying to print any Crystal Reports on screen. 
+We all know that Crystal & Delphi can be temperamental sometimes and the worst thing is, nearly no detail on the error. Also there is a big lack of documentation on the web about this. There's lot of people with similar issue but no solution.
+[HKEY_LOCAL_MACHINE \ SOFTWARE \ Borland \ Database Engine] "DLLPath" = "C: \ \ Program Files \ \ Common Files \ \ Borland Shared \ \ BDE" in the form of path1, path2. 

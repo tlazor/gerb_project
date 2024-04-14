@@ -1,0 +1,13 @@
+It is often the case that you need to reference the factory object from within the factory function. We can think of the factory functions closure as the object state and the returned object as the interface.
+Shorthand notation reduces the source code size, and thus is a major player in reducing to occurance of bugs.
+Also you do not want to accept values that are not numbers. You can throw a range error or ignore such values.
+I do know that you can implement it without the need for the first item in the heap without adding complexity.
+Because in JS the token this is unsafe we need to create a safe reference to the returned object that can be used from within the factory.
+What that name is, is up to you, I would personally have called it interface however that is a reserved token in JS so I have taken to standardize the returned object name to API which works well and replaces the this token with the visually easier capitalized name.
+You have the following functions that are equivalent to getters (hint they have get at the start of the name)
+...creates and returns a new object each time it is called. You ate just interested in the 2 64bit numbers (if ints then 32bit numbers), but an object requires much more than 2 64bit values, and it need to invoke memory management, and when done with the object it is added to the GC workload.
+I have added some additional state protection to the interface. Done some renaming, and reduced memory management overheads. The whole thing is now 50 lines that easily fits a display meaning the whole function can be understood without any device interaction
+You do not protect against removing more than available and thus you can mutate the state to unusable. You should first check if there is anything to remove before doing so (see rewrite)
+Yes it is by far the best for objects that will have more than one long lived instance. Not so good for many short lived instances in which case use prototyped factory to reduce instantiation overheads, but lose some flexibility when protecting state.
+You do need to prevent your code from creating invalid states. Such as if you add a string as a number heap.add("1") your determination as to which is greater will false eg "11" > "2" evaluates to false. To prevent that from happening you need to convert added values to Number type. (see rewrite) 
+Memory smart functions aim to reduce the overhead that GC (Garbage collection) incurs by reducing needless memory allocations. It also has an additional benefit as it reduces the allocation and creation overheads associated with new objects and or arrays.

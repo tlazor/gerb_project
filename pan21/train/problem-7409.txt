@@ -1,0 +1,16 @@
+And it's working. I compiled proftpd from source (reason below), installed and configured it and it seems to work just as it should. I don't need help getting proftpd to run properly.
+If there is anything I could improve or if my question rather belongs to unix and linux stackexchange, just let me know. I chose superuser over serverfault to ask this question because it's about a server environment at home.
+So there is still something about the usage of virtualhosts, global and server context section I don't understand properly and that's why I came up with the questions above.
+I thought the overall process was the following: Whenever a client connects to the server, the server checks whether there is a virtualhost corresponding to the address the client connected to. If not the server context section gets 
+I first thought I should just make two virtualhost sections, one for LAN and one for external access and disable
+As it turns out, I wasn't right about some information I provided. I'm going to mark this question as answered to avoid people spending time on answering it. A simple edit won't help as I don't know when I will have time to recheck my proftpd setup. I will however clear up whatever caused the incorrect description I provided, revise my question and post it again in some time. 
+I followed multiple guides and searched the forum for similar questions. The server is working, I just don't really understand why it is now and why it didn't before.
+sections. So I'm quite unsure whether I'm using the 3 possible sections as I'm supposed to. Do I need to use the server context section to have some kind of default config? This could be done with the DefaultServer directive according to the documentation.
+the server context section by setting Port 0. But then there are directives I can't use inside the virtualhost
+I couldn't get the server to run just by reading the proftpd documentation though and I had to keep tinkering with the configuration file until everything worked out just fine.
+Basically all I want to do is run a proftp server on a local machine at home and make this server reachable from both the internet and my LAN.
+For example I can not put directives like UseIPv6 or MaxInstances into a virtualhost or the global section but putting it in the server context works just fine. 
+I read about configuring proftpd behind a router and the meaning of virtualhosts, global and server context section:
+chosen (except the DefaultServer directive is used to prevent this). So I thought the server context section and a virtualhost section are equally "powerful". But that can't be the case as there are directives which work only in one of the sections. 
+This is quite a long text. I tried to shorten it, be precise, avoid unnecessary but provide enough information.
+What is the difference between the server context and a virtualhost section in the proftpd configuration file? In the sense of what can I do with the former I can't do with the latter. 

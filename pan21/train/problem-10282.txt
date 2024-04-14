@@ -1,0 +1,8 @@
+However, as you would imagine, depending on where the player has put the thrusters, sometimes undesired linear forces are affecting the ship. In this case, the ship starts moving forward.
+The space ships in my game a meant to be player-built with an arbitrary amount of thrusters attached anywhere with any rotation. I currently have some dirty code to rotate the ship to a given angle (accelerating and decelerating). 
+I'm no rocket scientist so I'm hoping there's someone who can tell me if it's even possible to calculate the throttle of each thruster this way and give me a push in the right direction.
+Here's an example of a symmetrical ship facing where the red line points, being told to rotate left.
+I'm elaborating on whether it's possible to find the maximum thrust a thruster can apply to cause no linear velocity. (In the above case that would be none since there's nothing to counteract the forces from the rear thrusters, and the front ones kill eachother).
+, basically "a.cross(v1 * t) / |v1|" is supposed to be the turn efficiency. And then we subtract it by the turn efficiency of the thrusters combined, to see if firing the new thruster is worth it.
+What I've come up with so far is a formula to determinate the "turn efficiency" e.g. how much rotation is caused in relation to linear movement.
+Problem arises when I realize that thrusters aren't surposed to be on/off, but can vary their thrust from 0 to 1. And how to go about when the player wants the ship to go forward. Ofcourse, there would need to be a balance of how much to rotate/move.

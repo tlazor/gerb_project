@@ -1,0 +1,5 @@
+Don't forget to contact Dell Support if your system is still in warranty.  They are very good at helping diagnose issues like this.
+If there are available firmware and/or driver updates for your controller or backplane, consider installing them.  I would recommend doing this while the array is healthy, if at all possible.
+You're absolutely correct that a single disk failure in a RAID-10 array should not result in the volume becoming unavailable.  Something is likely wrong with your PERC controller.
+You should get into Dell OpenManage Server Administrator or iDRAC and see if any information is reported there. You can also check the Windows Event Logs (if OSMA is installed and configured to write events to those logs).
+It's also possible you have multiple failed disks. Depending on which disks in a RAID-10 set fail, you can lose more than one (up to 3 in your case) without the array going offline; however, if you lose only two, but they're in the same RAID-1 pair, then the whole array will go down.

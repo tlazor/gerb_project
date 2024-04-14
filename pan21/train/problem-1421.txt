@@ -1,0 +1,6 @@
+After a few months of tolerating this bug and ~2 weeks of trying to find a solution I eventually gave up and switched to a different software:
+Whichever is the case, you should contact the program's developer and provide them the exact copy of the Outlook event that triggers this bug and its Google Calendar "copy".
+It's quite likely that copies actually end up imperfect in many cases due to differences in functionality between Outlook and Google, and Sync has an internal database of such cases to handle them in a sensible way. Then it's just that it doesn't (yet) know of this particular case (maybe it results from some recent change in either or the products, or some specific settings that you have that result in some automatic actions).
+I hope no one will consider this to be an advertising. Both programs perform effectively the same set of functions.
+Looks like "Calendar Sync" cannot correctly sync an event with some specific set of properties. When it copies it to Google, the copy ends up being imperfect, and at the next sync, it sees it as a different event.
+CalendarSync in my case has a bug described in my original question (which I could not tolerate any more)

@@ -1,0 +1,5 @@
+I'm more mysql than php but are you binding the $guestid php variable twice?  You need to supply a variable for each ? placeholder in prepared statements and presumably so in mysqli.  In a native prepared statement on the server, the ? is legal within an IF() but then again so is ? = ?, which apparently mysqli doesn't allow.
+We know that r.eventId will match e._id OR will be null if no RSVP, so we don't need to test it, because r.guestId will be what we want or null if no rsvp, so this becomes simply:
+...because otherwise you're joining all of the rsvpList entries for that event, not just those for the guest in question.  You may have tried to filter for this in the WHERE clause at some point, which doesn't work if they haven't rsvp'ed.
+the truthiness of the assertion that r.guestId is not null in the joined-up result set is returned as a 1 or 0, and r.guestId will be null with no rsvp because there's no matching row in rsvpList for that guestId.
+We know that i.guestId has to contain the guestId you're interested in, because you've specified it in the where clause so we should be able to compare it this way.

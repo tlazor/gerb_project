@@ -1,0 +1,8 @@
+Least likely is a dark-fiber arrangement, similar to leased-wave but without any transport equipment from the carrier.
+All connections have access to the intranet 172.etc.etc.  I don't quite get how this works.  A cable internet provider is our main source of WAN connection, but I don't how it's all connected to the same LAN structure.
+Next possibility would be a leased-wavelength service, with plain Ethernet to the CO at both ends, and the carrier's optical transport gear in between.
+I've been to all the data closets in the network.  Fiber feeds in to switches, the switches feed the machines.  There's no vpn devices at any particular building (save maybe the CO cause I have no idea what some of those things are).
+Do you think the fiber goes to the cable provider that provides a circuit or relay between locations?  I feel like it's doubtful that my company actually owns the entire transition between these buildings.  
+10 miles is a bit much for normal 1000BaseLX, but within the range for 40km-rated EX optics, so the only unusual component you'd see for leased-wave or dark-fiber would be a fancier SFP module in the uplink switch.
+So where I work there's several buildings.  There's a central office with a lot of switches and fiber, and a couple buildings are about 10 miles away from any other.
+There are several ways this could work. The most likely, for the remote buildings, is an MPLS-based L3VPN (if each building has different parts of the 172.x.x.y range) or VPLS (if they don't) setup  -- the CPE for these is usually a switch (Cisco 3550, 3750 Metro, ME3400 are typical.)

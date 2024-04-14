@@ -1,0 +1,9 @@
+Note that in theory anybody on localhost that knows the user and password can connect. However, a proper system-wide installation of Monit will have the monitrc file set to permissions 0700 and belong to root. When Monit is installed properly and when the password is not shared, then only root can access the httpd interface.
+I'm trying to securely install the monit on Ubuntu 14.04 Trusty. The default packaged version is 5.6. From what I can see, monit is basically unusable without the httpd service enabled (ie you can't start, restart or stop monitoring a service). Is this right?
+The httpd interface has to be turned on for the command line monit to work. The documentation states:
+Assuming it is, I'd like to enable httpd, but I'm finding difficulty with setting up authentication. The config I want is to allow root to start/stop the services. How can I achieve this? 
+The two only means I know of controlling Monit is by connecting with a browser to the httpd interface or by using the monit command. So indeed if the httpd interface is not turned on, then Monit will monitor the system but you cannot issue commands to it.
+This seems to work OK, and I guess this allows any user to connect. Now I want to lock this down and just let root administer the services. How can I achieve this?
+Note: if you want to be able to manage remotely please do not simply extend the scheme above to allow connections from other hosts: the user name and password will go in clear text over the wire.
+This restricts access to the httpd interface only for users who connect from localhost and who identify themselves as user admin with password foo when the httpd server asks for authentication.
+(Emphasis mine. My hyperlink above points to the doc for 5.6 but it is also true of 5.4 and of the latest version at the time of writing this answer.) 

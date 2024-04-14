@@ -1,0 +1,7 @@
+To that I added an MX record with no name, so "same as host". I set 1 A record, "mail", pointing at the MX record. And 2 alias records, "pop" and "smtp", pointing at that A-record.
+I've tried looking this up, but almost everything I've found is about active directory or linux. The instructor says it should be easy to look this up, but I'm constantly hitting the same wall. I feel throwing my monitor against a wall.
+The course requires us to use hMailServer as mail server software. On that, I set the domain to "familyname.eu". I made several accounts with simple passwords, but it's not working.
+I've changed the computername of the first server to S1.familyname.eu and the second to amsterdam.familyname.eu, to allow dynamic dns updates.
+I have the DNS server role installed on both servers. Servers are 192.168.1.2 and 192.168.1.4 respectively.
+Usually MX records point to a host, rather than the just the domain name. You might want to try changing the MX record to mail.familyname.eu .... In any case you should be able to figure it out from the Linux and AD resources, as they both can implement DNS servers, one's just on a different platform, or with slight enchancements, respectively ....
+I've installed thunderbird on one of the clients(which has the correct dns server set), and any account I try to add is refused.

@@ -1,0 +1,8 @@
+If I am reusing the same vertex data in my indexed vertex buffer, how can I differentiate when vertex X is used as part of the cube's front face versus the cube's left face? In both cases I would like the surface normal and texture coordinates to be different. I understand I could average the surface normal, however I would like to render a cube. Also, this still doesn't work for texture coordinates.
+It might be a bit overkill to have normal mapping with cubes but for real models I suppose they work out just fine.
+Or should I just duplicate each vertex for each context in which it gets rendered. (So there is a one-to-one mapping between vertex, normal, color, etc.)
+My question is, how do I now deal with vertex attribute data such as color, texture coordinates, and normals when reusing vertices using the vertex buffer object?
+I am displaying a cube using a vertex buffer object (gl.ELEMENT_ARRAY_BUFFER). This allows me to specify vertex indicies, rather than having duplicate vertexes. In the case of displaying a simple cube, this means I only need to have eight vertices total. Opposed to needing three vertices per triangle, times two triangles per face, times six faces. Sound correct so far?
+Is there a way to save memory using a vertex buffer object while being able to provide different vertex attribute data based on context? (Per-triangle would be idea.)
+Plus, cubes have their own special textures, cube maps, with 3D texture co-ordinates. In conjunction with a normal map, you shouldn't have any problems.
+One way to 'solve' this is to use a normal texture and look up the normal for each pixel in the fragment shader. Hopefully this should be possible with OpenGL ES. 

@@ -1,0 +1,10 @@
+In R, neither B, nor E is the key. So both B->E and E->D are "bad", and we need to take measures. On the contrary ABC->EF is "good", because ABC is a key.
+The goal of 3NF (and BCNF) is to avoid situations when a set of attributes is functionally determined by something that is not a key (or, more formally, a superkey), which may lead to anomalies and redundancy.
+So we decide to split using B->ED dependency as "the worst" one. That's the way we do this, according to Heath:
+Currently R is in 1NF, because B is a part of a key and functionally determines E, which is not a part of a key. This kind of situation is unacceptable in 2NF.
+Keeping that in mind, we can describe certain functional dependencies as either "bad" (if they prevent the relation from being in 3NF) or "good" (if they do not).
+So your solution is wrong, because "your" R1 has the E->D dependency and E is not R1's key. Determining a key for a relation is another topic which, I suppose, is beyond the scope of the task you need to accomplish (we are told that ABC is a key). But if you are interested, you can look the method up using "attribute closure" keywords.
+Anyway, the E->D dependency is "bad". But that is not the only problem. Another one is that your decomposition is not a "lossless-join" one. In other words, if we have some real world data, split the relation according to your proposition and try to join R0 and R1 back, the data will be corrupted. Data corruption is not what normalization is designed for.
+Now we have R1, which is in 3NF and R0, which is in 2NF (it has a transitive dependency B->E->D, which is unacceptable in 3NF).
+Another thing to mention at this point is that a set of dependencies {B->E, E->D} implies the dependency B->ED (according to so called Armstrong axiom of transitivity).
+We need to split R0 and to do so we have to choose a "victim" dependency among B->E and E->D. As we see, B->E is now a "good" one (B is a key) and E->D is still "bad".

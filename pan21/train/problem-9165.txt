@@ -1,0 +1,5 @@
+I checked the callstack of some disk activity and see that a Lenovo driver called DzHDD64.sys is involved. Look if this driver is really required and if not, remove it.
+For testing purpose please try to disable the following services: Windows Error Reporting, Network Location Service, Network List service
+before the screensaver (c:\windows\system32\morley.scr) kicks up, Windows Installers installs some software which is triggered by Kaspersky NetworkAgent (klnagent.exe). Look in Kaspersky logs to see what it does during boot.
+Tested and verified in a domain environment.  "Please wait" is not necessarily a computer problem especially in a enterprise environment.  Rebooting DC helped resolve the problem which was likely caused by DNS caching.  Hopefully will save someone time versus troubleshooting the computer in vain.
+Running a Win 7 x64 machine.  About a week and a half ago it started stalling on the 'Please wait...' before login.  I tried the hotfix https://support.microsoft.com/en-us/kb/2617858 to no avail.  I am able to get past it once the screensaver kicks on and I wake it.  Thoughts anyone?

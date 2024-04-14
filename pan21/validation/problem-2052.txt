@@ -1,0 +1,9 @@
+It's best if the Package sets the PATH correctly and removes it when you uninstall the Package (so you don't get too long a PATH - which usually won't happen). Setting it manually prevents future breakage and forces it to work, but you need to manually remove the extra text if you uninstall the Package.
+I am using Python 3.7, Windows 10, Anaconda. Graphviz was installed using conda install python-graphviz, but I don't believe there's any difference in this case
+A method that worked for me was inserting these lines in my code (before the graphviz related functions):
+        (a) Control Panel > System and Security > System > Advanced System Settings > Environment Variables > Path > Edit
+See: Graphviz's executables are not found (Python 3.4) and graphviz package doesn't add executable to PATH on windows #1666 and Problem with graphviz #1357 - it's a reoccurring problem (for that program) with the PATH environment variable settings. Installing particular versions, or in a particular order, or manually adding a PATH fixes the problem.
+I have unsuccessfully tried zhangqianyuan's suggestion as well as specific orders of module installation and using python-graphviz (official solution, widely discussed here). Only thing I didn't try was tampering with my PATH variable system-wide.
+I got the same issue, so that I just installed pydotplus independently(pip3 install pydotplus) and import pydotplus,
+I had the same problem and did everything suggested on this and other forums and nothing worked out. The following instructions will 100% solve this problem if you are using Windows and Python 3:
+In my case I am able to find graphviz executables manually in anaconda3\Library\bin\graphviz, but I still would get the GraphViz's Executables not found error.

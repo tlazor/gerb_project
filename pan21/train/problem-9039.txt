@@ -1,0 +1,5 @@
+Your RDP session video resolution is not related to the physical graphics adapter on the terminal server but is more related to the resolution you are running on the workstation initiating the connection. 
+Connecting directly through the Hyper-V console to the guest you will be limited to 1600x1200 resolution but this limit does not apply to an RDP session.
+Building on what @Rex said, the issue is likely to be the client itself supporting the necessary resolution and bit depth. But if setting the internal emulated graphics card on the host to 32 Mb fixes it, I'd go with that (I hope you can spare 32Mb with 256 GB of RAM).
+Ideally, whatever imaging software you're using to display things should have a software-rasterizer which it falls back to automatically when accelerated graphics aren't available, so at least the program should still work.
+I think your question is just a mite too general. Short answer: no, there is no software available that will emulate graphics card hardware that is Aero compatible (and Direct3D etc).

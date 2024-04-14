@@ -1,0 +1,12 @@
+The mounting will not be an option since all clients are paying for a unique template. A thing which is a mustrequirement.
+Without knowing all the details of your actual CMS application it is somewhat hard to advice specifically. But assuming the CMS software has some system in place to differentiate between the clients and what they can access your DirectAdmin system will solve the rest more or less; it is able to chroot the users (keep them in their own directory), measure bandwidth, diskspace usage and enforce quota's. It also installs MySQL I think.
+If I understand you well enought, everybody would get the same software but may be able to add its extra files/themes.
+You should be able to solve the issues by adding clients to certain groups and giving the webserver user access to some (storage) directories while the clients themselves can not write there.
+I don't know if it would be a great solution for you but it is possible to mount a reference template (let's say a LVM slice) in read-only mode and mount in write mode a customer disk space on a "theme" or "custom" folder.
+So I would look into linking (man ln) your CMS software to each home dir, making it available. Test this - and be VERY AWARE that if I can write to your CMS software I can hack all other clients that use this CMS. So look into setting correct permissions (man chmod / man chown).
+Create one installation per client, I do hope that it's an application feature to manage multiple distinct sites with the CMS and not the OS, it's just the wrong place and I recommend everyone to run not walk away from a product that claims to be able to manage multiple sites but in reality just needs multiple installations.
+SaaS is indeed a new term since a year or two, and rising in popularity. In fact it's just a servicebased contract with your clients. They rent your software to keep up with their competence ;)
+My software is almost ready. The interesting parts are all done, the displaymodules (template renderer) needs optimalization, but it's ready for testing.
+It should pretty much do what you want but with a catch: only if you install your CMS on every client's domain. Which is something you do not want. 
+Personally I'd forget about the about symlinking, disk space is indeed cheap and upgrading the installation of your CMS to a broken state (it will happen) pisses of all your clients at once.
+I don't get that shiny new term now widely used on the Internet "SaaS", but... let's join the discution :)

@@ -1,0 +1,6 @@
+Since our users may be connected for more than 24 hours at a time we keep this in here, it will reset some attributes daily so that the accounting packets work correctly.
+We've been using Daloradius with mysql and freeradius 2.  The boss wants to use the accounting information and while this is all set up and appears to be working, I've found that not all the accounting information is present.
+However, that link references freeradius 1 and I can't find this in the radius.conf file for freeradius 2.  What does it do and could it be a reason I'm missing data?
+I have found one issue.  We have a backup freeradius server that is also receiving the accounting packets.  Although they are replicating, it's only a master/slave configuration.
+http://wiki.mikrotik.com/wiki/RouterOs_MySql_Freeradius#Configuring_RouterOs_for_Radius_.26_PPP.2A_AAA
+Although I suspect this might solve it, the boss is not convinced due to the always module. Is there anything special I need to configure in the mikrotik AP's or freeradius 2 for clients connected 24/7.

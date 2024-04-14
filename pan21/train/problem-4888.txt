@@ -1,0 +1,8 @@
+And generally, what consequences does it have if I set a password? I noted that Scheduled Tasks apparently cannot run under an account w/o password (creating a scheduled task will prompt for the account PW). Is there anything that will not work with a password set? Why is it even possible to have accounts without a password?
+When you start Windows XP for the first time, it is expected to create a password for that account. It's just a different way of doing things.
+If you set a password it will not auto login, unless you specifically ask it. (something which in my opinion makes no sense).
+I do not quite understand how Windows (specifically Windows XP) handles accounts with/without passwords.
+Scheduled Tasks can run just fine on an account without a password. When you're prompted for the password, press Enter.
+If you set a password, it will (naturally) always ask for it. However, on my installation (with integrated SP2) it always asks to click on username, regardless of whether it has a pass or not, so that depends, obviously maybe.
+By default the new accounts you create don't have password, with the exception of the Administrator account.
+Unless, it is your home machine, which only you have access on, I would generally suggest putting on a password. At least something simple which you can type in a quick one handed stroke (like trew or something like that).

@@ -1,0 +1,6 @@
+Single quotes are more flexible because you do not have to escape each control character and you can  more easily encase characters like @ or /
+You also may be running into an issue by not escaping or single-quoting the dot in the filename. find supports RegEx syntax so that dot in the filename could be misinterpreted. Either of the examples below should address this
+This saves the output to a file, and discard all errors (such as permission denied error). You can check the status by either peeking in the output file tail my_result.txt or by typing jobs.
+It is indeed running in the background and you can do other things, but anytime it outputs something, it outputs to your current terminal. 
+However, instead of running it in the background and letting me do other things, this just made the process uninterruptible! It continued to run in the foreground but Ctrl+C no longer had any effect; it could only be stopped by closing the terminal instance entirely.
+So I ran the command find / .bash_profile to see if it existed anywhere on my Mac before I create one.  Searching the entire computer obviously takes a minute, so I wanted to run it in the background (something I haven't tried to do before) so I added an & to the end, like so: find / .bash_profile &

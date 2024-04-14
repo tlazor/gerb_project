@@ -1,0 +1,6 @@
+That said the licenses provided by both MSDN and TechNet are quite restrictive and essentially limit the OS to being used for evaluation purposes--no "production" or development work.  You should be able to change the key without a reinstallation, but I'm not entirely sure if that will also change the activation.
+It's already a final version, you'll receive updates automatically via Windows Update. The version which will be available in the retail shops this autumn will be the same, but can probably include some of the updates which will be released till that time.
+RTM stands for "release to manufacturer", and is the final "1.0" release you want. You just got it early from MSDN.
+If you got it from MSDN or TechNet you most likely have the RTM version, so you will not need to update.  RTM = Release To Manufacturing, meaning it is the final version that will be given to OEMs to load on machines and to be sold in stores.
+You can check if you have the RTM version by running the winver.exe command (Win+R, type winver Enter) and checking that you have build 7600.16385.
+The TechNet and MSDN releases are the final RTM versions of Windows 7; so you won't need to reinstall once it's publicly available.

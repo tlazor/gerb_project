@@ -1,0 +1,8 @@
+fuser may do the trick.  This lets you look at what processes are using a file.  Only move if no processes are using it.
+Question: how can I determine if the uploaded file is complete? The only thing I can think of is checking the file size to see if it's changing, but that seems like a kludge. Is there some sort of flag or something that is set when the upload is complete?
+The safest way would be to search your ftp server logs for a "transfer completed" message (depends on the software).
+I have a cron job that processes files that my client's upload via FTP to my FreeBSD server. The cron job runs once an hour, and normally processing each file only takes a few seconds. 
+The cron job looks in the client's upload directory and moves any new files to a tmp directory. It then processes the file(s) and moves them into a final directory where they are then available to the public through a website.
+The problem is, every once in awhile, the cron job runs just as a new file is being uploaded. It moves the half-uploaded file to the tmp directory, and tries to process it, and fails, of course.
+If that is not possible only process files that have not been touched for some safe time, say 10 minutes. Use find to get a list of these files, e.g. for 10 minutes and your uploads in $UPLOAD_DIR
+Does the cron job create an identifiable process name? If so, use ps with grep to see if the old process is still running.

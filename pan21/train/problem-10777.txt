@@ -1,0 +1,7 @@
+Users don't store any valuable data on their workstations, so is there a way to configure this fsck to automatically run on errors without any password ?
+This is annoying because the user can't use his workstation and we need to send someone just to run fsck.
+when the Red Hat 5.x workstation of a user crashes and leaves its filesystems with errors, on the next boot, it ask for the root password to enter single mode and run fsck manually.
+The system would no longer run an fsck on the following boot.  If you're using ext3 (or ext4), you generally won't need to run fsck.
+This is all controlled by /etc/rc.d/rc.sysinit, which is just a shell script.  You could modify this to suit your needs (although you would need to be careful that your changes aren't lost in the event of a package update).  Look for places where the script calls sulogin.
+One other way around the issue: in GRUB/LILO, add init=/bin/bash to the end of the command line.  This will allow you to bypass the sulogin prompt you're getting for the fsck.
+I'm not sure how to bypass the password for that.  If you are not worried about the integrity of the filesystem, you can bypass the fsck completely by appending fastboot to your kernel line in your grub.conf.

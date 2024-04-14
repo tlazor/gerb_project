@@ -1,0 +1,9 @@
+Your code looks nice and seems to be fully PEP 8 compliant indeed. The fact that you have 1 blank line between functions except in one place where you have 2 puzzles me a bit but that's not a huge issue.
+Be consistent with your parameter names.  step_size is more descriptive than step, so use it for all of the functions.  step_number sounds like the nth step to me, and would be slightly better named steps.
+Extracting repeated code will ensure that, if a bug exists in the common code, you won't have to remember to fix it in all the locations. It can also lead to a smaller overall code size. With this code the benefit is minimal, but as code gets more complex it will help a lot.
+Instead of creating a dictionary and randomly indexing a specific value, you can use random.choice(). It will do the work to select a random element.
+All of the go_* functions are implemented with the same code. The only difference is the value passed to setheading(). You could create one common implementation and replace them with calls to that function.
+Running the code with the exact same parameters may yield completely different results because pseudo-random numbers are used.
+I've changed the terminology from right/left to east/west, since the former could be misinterpreted as a relative turn rather than an absolute heading.  In any case, the designations are entirely optional.
+You can actually make your code much easier. Here are a individual steps, you'll find the final code at the end.
+The rules are easy, an object is moved in the direction dictated by random or pseudo-random numbers. 

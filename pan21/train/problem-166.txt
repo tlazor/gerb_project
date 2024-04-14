@@ -1,0 +1,8 @@
+Let me know how off-target I am with what you're asking, and I'll edit to answer your real question... (smile)
+Are you thinking something like this? "When one of these users from domain ABC logs-on to one of the computers that is a member of domain XYZ I'd like to have certain group policy settings apply. When an ABC user logs-on to an ABC computer, though, I don't want those settings to apply. When an XYZ user logs-on to an XYZ computer, I don't want those settings to apply either."
+Evan was correct in his first sentence. Turning on the user group policy loopback processing, to "Merge", fixed this problem for me. I also had to enable "Allow cross-forest user policy and roaming user profiles".
+Any user policy that applies to them is going to come out of the domain their account is a member of, unless you're overriding user policy processing with loopback policy processing.
+If so, then there's no way with simple group policy to do what you're describing. You could mimic the functions of group policy with a script that checked the logon domain of the user, but running such a script in the context of the user would not permit changes to computer-specific settings.
+Computer policy is going to come from the domain that the computer they are logging-on to is a member of.
+Is there any way to specify a Group Policy only for the users who are members of a trusted active directory domain?
+Our situation: User in domain ABC logs on to computer in domain XYZ. I wanted user specific policies to be applied only in domain XYZ. The specific policy was to disable the shutdown/restart ability. Obviously don't want this to apply to computers in domain ABC (the users PC).

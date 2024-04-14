@@ -1,0 +1,5 @@
+A solution I've come across is to go to Settings -> Ease of Access -> Mouse and enable Mouse Keys (move the mouse with the numpad). This enables the pointer and still allows the mouse to control it.
+I got it to work my going to mouse pointer settings and checking the allow mouse pointer trail. This will make a long trail of the pointer but you can lower that underneath the check box and it will look normal!
+I found that I could activate the mouse appearance by opening any window, then pressing alt-space to bring up the min/max/move/close menu. If I then clicked m for move it would activate the window movement cursor, which was visible.
+At that point I could just click out or press escape and voila, I had a working cursor for the rest of the session.
+This is a known bug. A quick workaround (that you'll have to repeat each time you connect) is to click, hold, and drag the "Your desktop is currently shared" notification at the bottom of the screen. The mouse pointer will appear (but note that it won't change appearance when you hover over text or links etc).

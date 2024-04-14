@@ -1,0 +1,6 @@
+Finally, the problem was with the domain itself; the network admin had to move me to a different OU.
+I live in Argentina and the same thing happened here.  The government decided to do daylight saving one year, then canceled it two weeks before the next.  For me the fix was to find the KB windows update that added the new time zone information.  
+On this computer at work however, my timezone gets back to Mauritius every time I restart my PC. Even the IT Support can't seem to find the solution.
+Of course, they have tried every possible solution found on the net, disabling the time services, resetting and all, but something seems to be strange on my PC:
+So, is there a way to know what is changing the timezone, so that we may locate the root cause? Is there kind of a monitor for that?
+I am in Mauritius (GMT+4), and in 2008, the Government tested working with daylight saving changes in our country. A new timezone was created specifically for Mauritius. Since it was applicable for only that year (2008-2009), the next year we had to change back to the original timezone, Abu Dhabi/Muscat.

@@ -1,0 +1,6 @@
+Once I get this connection working I will probably be FTPing data from an SSIS package to their server, FWIW.
+The trouble is that your pasv command is telling the server to connect to the internal ip.  Not your external ip. That won't work for two reasons. 
+I know FTP is quirky through NAT like this with the connections being opened coming back.  What do I need to do?
+The command line FTP client built into Windows doesn't support passive mode at all. Those hacks you found on the Internet about literal pasv or quote pasv don't actually do anything as far as the FTP client is concerned; they tell the server to enter passive mode, but the client remains blissfully unaware. You'll need to obtain a third party FTP client.
+Windows Firewall is running on the server as well with what looks like Amazon's default configuration.
+I'm running a server on AWS and I'm connecting out to a partner's FTP site (not much idea what they are running).  My server has an elastic IP.  In the results below xx.xx.xx.xx is the internal IP (same as I get from IPConfig).  yy.yy.yy.yy is the external IP (same as I am RDPed into).

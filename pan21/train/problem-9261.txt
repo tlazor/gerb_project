@@ -1,0 +1,8 @@
+The first command resets the owner to who ever is logged on via the environment variables. Of course, a specific name can be used instead.
+subinacl is a Windows sysadmin's power tool for doing everything to do with ownership and ACLs.  You can change the ownership to anyone other than just you (you can't do this with the GUI).
+In Windows Server 2003 R2 (and later) you can take advantage of the built-in tool icacls.exe to change ownership from the command line, as well as all of the traditional cacls.exe manipulations upon which it expands... 
+Note that icacls.exe defaults to "edit" mode, while cacls.exe defaults to "replace" mode--a welcome change to those of us bitten (more than once) by that little nuance of cacls! 
+It is small and can set/unset "inherit/don't inherit" flag on the object, unlike most windows utils.
+This lets you set the permission to any user you like, without having to be an administrator (as I believe takeown.exe requires).
+The second command then forces the permissions to be reinherited down the tree to all of the child folders and files.
+I know this is a really old post, but there is a way built into Windows 7 and newer (may be in Windows Vista, but I am not sure). Run the following from an escalated command prompt in the folder that you want reset. /t tells icacls to perform the operation recursively.

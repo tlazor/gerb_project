@@ -1,0 +1,13 @@
+You can't use virtual hosts with SSL, so to host two sites both using SSL you have to have 2 ip addresses, each one with a specific host and ssl cert bound to it.
+There are two sites listed here, "domain1.com" and "Administration". When I go into the properties for domain1.com, the IP address has a value of "(All Unassigned)". 
+This may sound a little stupid, but I'm more of a dev guy than a server admin and I am incredibly boneheaded when it comes to IIS. So please bear with me here.
+I currently have a client that has a dedicated 2K3 box running IIS6. They are hosting one site on this box, with two domains resolving to that site (domain1.com, domain2.com). The site is stored in the typical C:\Inetpub\www folder. In addition, there is a section of the site that is protected by SSL. There are two SSL certs, one for each domain.
+Under Advanced, "domain2.com" is listed with an IP address of "Default". Also, in "Multiple SSL identities for this Web site" there is one entry with the IP address of "Default" and the standard SSL port of 443. 
+The best solution is to use a Unified Communications certificate that allows you to include multiple domains in one certificate. Just include both domains in the certificate and you're done. No need to worry about extra IP address or different ports, etc.
+So, to recap: I am trying to set up separate SSL certificates for separate domains that both lead to the same place. Is this possible? If anyone can explain the process to me (and dumb it down as much as possible) or at least point me in the right direction, it would be greatly appreciated. 
+I can view the certificate for domain1.com under "Directory Security > View Certicate". It appears everything is OK there. 
+Apache supports something called SNI (see here) which allows you to do vhosts with SSL but this isn't support by IIS currently.
+You can use a SNI SSL Certificate. It's allow you to have any website with the same IP address because no IP check will occur, but Host HTTP/1.1 header will be checked to verify SSL certificate. 
+Please let me know if this doesn't make any sense, or if I didn't provide you with enough (or the right) information. 
+When a user goes to https: // domain1 . com, everything is fine. However, when the user goes to https: // domain2 . com, Internet Explorer kicks up a security warning. Obviously, this is not what we want. (I had to put spaces in the URL because ServerFault won't let me post more than one URL at a time since I'm new here). 
+In short you need 2 ip addresses on your server, one bound to domain1.com, and one bound to domain2.com, and 2 IIS sites one for domain1.com, and one for domain2.com. They can both serve up the same content, but will need to be separate sites.

@@ -1,0 +1,13 @@
+Performance-wise it will be bad once the PK is been used as an index - let it be solely within the table or in conjunction with a FK - as a bigger PK-Key containing 5+ columns will take more space, thus less entries will fit within a page and henceforth more pages need to be read to analyze the index.
+First of all primary key are for holding data integrity, and they should be syntetic. They should not have any binding to real world. 
+That said - there might always be a good reason for actually doing so anyway, like e.g. a fact table.
+Some reporting databases imitate the pattern of star schema even if it's not explicitly designed that way.  
+At last, if the table is only aggregate, and never ever will someone need to reference row by keys(but world changes, trust me it will, at least for me it changes permanently), I will probably leave it like it is(primary key with five rows), but in case we used to have, it alway cause lots of trouble. So I told you.
+So short summary, syntetic primary key(auto incrementing, guid, ..) is simple to maintain, copy, ...
+It would also be bad once you actually use the PK by another FK, as you have to have the data of all 5+ columns in both the current table as well as the one referencing from. Once again it will increase the storage by a lot!
+Imagime you need to remember this ker in some other table/database/service instead of one field you need to copy several, and you can forget to copy some of them. Instead sysntetic primary key, is just one piece of data, you have to provide. 
+However, there is one design pattern that frequently yields tables with a primary key made up of six or so components.  It's star schema fact tables.  If the fact table of a star schema has six dimensions, then the primary key will have six components.  I've never seen a fact table with no declared primary key, and I think it's well worth the overhead, even though the ETL process still has to be quite carefully written.
+Why ? Once real world change, and it will, for sure, your primary key is gone, and you have to update it, and all related information.
+It becomes bad once the PK is also the clustered index as that one would count as the row identifier and thus would be added to each row in a NC index. This would drastically increase the required space.
+For some 15+ years I do not need such key, saw it sometimes, and it was only causing troubles. A lot of troubles.
+There are performance issues with very complex primary keys.  And It may not be defending against duplication as well as a simpler primary key might.

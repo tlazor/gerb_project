@@ -1,0 +1,7 @@
+Is it possible to manage multiple hardware devices under a Xen hypervisor?  IOW, Is the XEN hypervisor a layer spanning several devices, thus making it scalable and redundant? 
+If you don't require quite as high redundancy as Remus (apparently) can provide, Xen also provides "ordinary" live migration og VMs between different Xen-domains.
+Note that scalability and redundancy aren't necessarily related. Usually you get either redundancy (i.e. RAID1) or scalability (i.e. RAID0)
+this might sound like a dumb question but I have been unable to get a definitive answer from the Xen docs.
+I don't think this scalability and redundancy level is achieveable on xen or any other  hypervisor. That would have to be like a single operating system running on many servers, and only thing that comes to my mind like is IBM's parallel sysplex on mainframes.
+While I haven't yet tried this myself, Xen 4.0.1 supports :"Remus Fault Tolerance: Live transactional synchronization of VM state between physical servers. run guests synchronized on multiple hosts simultaneously for preventing downtime from hardware failures. Remus support in Xen 4.0.0 requires linux-2.6.18-xen dom0 kernel. Pvops dom0 kernel (2.6.32) support for Remus is available in Xen 4.0.1. For more information see Remus wiki page"
+Either way, one single Xen hypervisor won't do what you're asking for. Every server must run it's own hypervisor, but they can be configured to provide RAID1-type redundancy.

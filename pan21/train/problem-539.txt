@@ -1,0 +1,10 @@
+"... say we want to write ... does the CPU have to wait the extra time for memory, or is there some as CPU fast controller that handles that waiting time and CPU can do some more operations?"
+This is the reason why the operating-system scheduler tries to distribute threads as evenly as possible between cores, and why each core normally comes with its own cache memory, to avoid inter-core waits.
+Yes, but you would need a multi-core computer to make it happen, and with more than one thread actively using CPU.
+Some CPUs prioritize LOAD instructions, so when that STORE instruction is immediately followed by a LOAD instruction, the CPU loads the requested data from RAM before storing the data to RAM.
+In most CPUs a small amount of fast cache memory sits between the CPU and main memory, holding the code and data the CPU is currently working on as well as attempting to proactively read from the much slower main memory (or from the next level of cache).
+If the CPU has to wait for RAM (and at today's CPU speeds this includes L2/L3 cache on the CPU die) the CPU will have to wait. This does slow processing (a thread running at 100% CPU could be spending most of its cycles idle waiting on RAM).
+(Correction to question: latest DDR3 RAM goes significantly beyond 1333, 1600 is common and faster is available without considering overclocking.)
+In fact, when buying a multi-core computer, one should pay attention to the size of the memory cache, and specifically whether the amount claimed for the computer model is the total cache of all cores, so that in reality each core only uses a fraction of the total.
+This is why consideration of data layout in memory (when cache lines are crossed) can have a large effect on the performance of tight data processing code).
+Yes, high-performance CPUs have caches and a bus interface unit and a write buffer so that, after the CPU does a STORE, the rest of the CPU can -- in most cases -- immediately continue to process instructions while the cache and bus interface unit and write buffer handle sending that data out to main memory.

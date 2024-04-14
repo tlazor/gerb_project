@@ -1,0 +1,5 @@
+If user@host can start apache2, then you likely ran into a timing issue where apache tries to start before all the children have exited.  Reload can be used apply many configuration changes, and does not require the old children to exit before the new servers are started. See the documentation for apachectl graceful.
+The error you were getting means that apache could not start using port 80 since it is being used by another application. 
+user@host has the privileges to shutdown apache2, but apache runs on port 80 which requires it be started by root.  Use sudo to restart apache2.  user@root should be able to reload apache2 though.
+The PID file got changed to a different PID by running start when the server is already running.  Stop tries to stop the process from the PID file, but it is no longer running because it failed to get resources used by the old process.
+The Command looks at all running processes (ps auxw) and looks for the listitems that contain "nobody" (grep -i nobody). The -i Parameter makes sure, that the filter is applied case-insensitive. 

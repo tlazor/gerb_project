@@ -1,0 +1,9 @@
+However, now if you try to start a virtual server in the hyper-v console you will get an error saying that the hyper-v service is not running and you will have to start it manually using the net start command. To do this, start command prompt under administrator privileges and execute the following command to start the service.
+This is the normal behaviour when hyperv is turned on. Unfortunately there is no way to work around it. 
+Reboot the server. Hibernate and sleep should now be enabled for you till the time you start the hvboot service.
+Only thing you need to do is go into the BIOS and disable Intel VT-d. That's Virtualization Technology Direct I/O.
+The Start property of a service can have the following values: 0=Boot, 1=System, 2=Auto, 3=Demand, 4=Disabled.
+While there is no way to enable the hibernate or sleep feature while the hyper-v service is running, you can control when the service is started by changing Start parameter of the hvboot service -
+Now you should be able to start your virtual machines. However, as a side effect hibernate and sleep will be disabled till you restart you machine.
+Source: https://blogs.msdn.microsoft.com/tejas/2009/03/10/hibernate-and-sleep-with-hyper-v-role-enabled/
+Tweaking with the registry can be dangerous so for those who want a safe alternative, you can use the following command to set the Start property of the hvboot service as well -

@@ -1,0 +1,9 @@
+3) Create file /opt/zimbra/postfix/conf/postfix_reject_sender with the list of email addresses and domains to be rejected in the below format:
+Have you tried using SPF focus on the IP address from which the email in question originates. SPF is essentially, for all practical purposes a white list of allowed IP addresses and hosts. Maybe see if you can go the email auth route?
+1) Create the postmap database as defined below Modify /opt/zimbra/conf/zmconfigd/smtpd_sender_restrictions.cf, by adding this as the second line of the file:
+I also tried adding the hosting services ip addresses to zimbraMtaMyNetworks (postfix's myNetworks), but there's well over 70 IP addresses today, and this could change over time. This configuration seemed to not agree with Zimbra, and postfix started rejecting everything as having 451 4.3.0 Temporary lookup error. Session aborted, reason: lost connection. It seems the IP address list was too big and some timeout is occurring on the DNS server?
+I have setup Zimbra to reject emails originating from users that are not logged in (spoofed emails). 
+What can I do to keep rejecting spoofed emails, but allow ones for a specific email address to come through?
+Maybe you can use authenticated SMTP on you webserver. That way the mail will be treated as from a local user instead of a remote mail system. 
+I tried adding this email address to /opt/zimbra/conf/postfix_recipient_access and setting it to OK, but it seems to still get caught up and rejected.
+I now have a need to "whitelist" a single email address that will always get caught by this configuration. The email originates from our website hosting system, but is sent on this email address' behalf. So to Zimbra, it appears to be a spoofed email address in the from field.

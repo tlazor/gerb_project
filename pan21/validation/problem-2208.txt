@@ -1,0 +1,5 @@
+The normal case will be to forward the requests directly (given that there is no proxy settings in your browser). You just need to setup the default gateway and specify the needed FORWARD rules. The rules above assume using transparent proxying.
+I use a linux based router which has dnsmasq and iptables. On a LAN machine I have squid proxy. I want to know if requests for certain urls can be forwarded to the proxy, while other urls are allowed directly to the WAN. For example the request for www.onedomian.com should be forwarded to the proxy by the router.
+Yes, using a proxy.pac file, that you can save on your disc or on a http server and then setting it the proxy configuration of your browser.
+If you want to specify a proxy settings in your browser, you can use exception list in the browser to specify the URLs/IPs that are not passed to the proxy server.
+You can use iptables to redirect the HTTP requests based on the destination IP (IP of web server) and/or based on the URL (some string) using string matching module.

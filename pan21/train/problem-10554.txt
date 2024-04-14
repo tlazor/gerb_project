@@ -1,0 +1,10 @@
+I have also run some other hard drive test provided by Sony's Vaio Care and a CPU test by Sony. All of these have passed without errors.
+I haven't installed any 3rd party drivers. All the drivers have been there by default or updated via Sony's program called Vaio Update. 
+I did notice some Win 8 Home Premium versions on torrent sites pre Win 8 release last year, these were fake, edited Beta releases.
+Any ideas? Is there something I could try myself before sending it back to Sony and waiting for a replacement for a month?
+Some 3rd party troubleshooting software is not quite Windows 8 ready and may give you false positives.
+I recently purchased a Sony Vaio Pro with i7-4500u, 8 GB memory and a 256 GB SSD. It had Windows 8 Home Premium preinstalled.
+Other than that, running Windows Updates (Windows key + R, type 'wuapp') until there are no updates should resolve any issues.
+If your device is new and still under warranty, do not go installing any 3rd party software as it may invalidate the warranty and leave you stranded.
+You could try going to the 'Device Manager' (Windows key + X), selecting your device, click refresh, troubleshoot and/or update any device drivers that have any warnings.
+It has failed with error code NTFS_FILE_SYSTEM twice and once with MEMORY_MANAGEMENT, PFN_LIST_CORRUPT, DPC_WATCHDOG_VIOLATION and IRQL_NOT_LESS_OR_EQUAL. All of these errors seems to be related to different problems according to search results.

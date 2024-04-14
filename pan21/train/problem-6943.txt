@@ -1,0 +1,6 @@
+I understand that the question should one perform automated and unattended system upgrades is highly debatable, but let us assume that I for one, never had any issues with that concept so far.
+Now, my problem is, when there is an update to Apache and SSH, dpkg asks whether one should keep the original configuration or replace it with the generic, default one. Unfortunately this is a menu-based prompt and one cannot use simple pipe to yes to select the proper answer. Any ideas how can this be scripted?
+The idea behind this is: if there is an update to the software that is the only attack surface to the outer world, install it and restart that software. (The restart occurs even if Apache and SSH weren't upgraded, and the service downtime at that point is less than a second).
+The setup is the following: stripped down Debian based server system, running, for example Apache and SSH servers, properly protected with very strict iptables rules and behind a HW firewall. There is a daily cron job that does the following:
+According to the debian handbook you can avoid the configuration file questions by adding the following line :
+I guess it would be best to simulate the upgrade first, and then decide if it is 'safe' to force an upgrade or not, that is if force is necessary.

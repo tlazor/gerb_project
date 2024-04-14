@@ -1,0 +1,7 @@
+This was mentioned in passing in one of the comments, but I wanted to call it out specifically in case anybody else finds it useful.  I was having this same problem and I was able to resolve it by changing the App Pool Identity.  This is found under "Advanced Settings" for the given App Pool.
+SETSPN -X will check for duplicates; SETSPN -Q http/www.example.com will look for owners of that specific SPN.
+I suspect that the non-Microsoft browsers don't do Kerberos (or at least, don't do it in the same way as IE does).
+If an SPN exists for http/www.example.com or host/www.example.com, and it isn't owned by the account that runs the Application Pool, that'd be a good reason for this type of break.
+(I tried to post an image, but I need more reputation apparently.  If someone upvotes this answer then I can add the image.)
+Other guidance might tell you to disable Integrated Windows Authentication in IE Advanced properties; that's a boneheaded move which breaks Kerberos for everything and covers up the problem.
+Someone had set this value to "AppPoolIdentity" but I had to set it back to "NetworkService" to fix the problem.

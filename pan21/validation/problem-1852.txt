@@ -1,0 +1,7 @@
+So basically you grab all the 20226 and 20227 events, and then, from that list, reject the 20226 results with an error of 631
+I did however come up with an answer that finds all events with an EventID of 20226 (RAS Connection Termination) or an EventID of 20227 (RAS Connection failed on Connection)
+This works well since there are about 150 error codes associated with rasClient (https://support.microsoft.com/en-us/kb/163111) and the only one I don’t want to initiate a restart is when I disconnect the connection (631).
+I disagree with Owen’s answer above because using the "not equal to" (!=) command does not seem to work when comparing a value to a EventData element. The query returned zero results.
+The trick is to then suppress those results that have an EventID=20226 with a data element of 631 (The port was disconnected by user)
+It is not a “perfect” solution as it does rely on storing your VPN UserID and Password in plain text, but I figure if someone has reached that deep into my computer, I have bigger troubles then worrying about one VPN password.
+Here is the query I came up with. Testing it in the event viewer; it seems to meet all the necessary criteria.

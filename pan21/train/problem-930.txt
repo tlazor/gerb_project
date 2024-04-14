@@ -1,0 +1,7 @@
+You can configure the GPIO to slightly higher currents as @Milliways mentioned. But there is an overall limit for the combined current for all GPIOs that you can't exceed anyway.
+NOTE this is not current limited, but if you try to draw more operation is not supported, and may damage the chip.
+If you want to drive the LEDs to full power (eg for illumination, or to be visible as indicators in daylight), you must buffer the GPIOs. Use a transistor, or use some sort of buffering IC that is designed to drive those currents.
+I was able to connect three LEDs to my Raspberry Pi without any problem. The LEDs glowed pretty bright. I did connect them in parallel though, as suggested by Wilf. 
+There are some worthwhile comments above (although you should NEVER run LEDs without current limiting, and LEDs should not put in parallel.
+The GPIO pins cannot supply 50mA, the source and sink current is configurable from 2 mA up to 16 mA.
+Modern LEDs are efficient enough that you can use them as indicators even at 2mA. It's safe to drive them directly from GPIO if you calculate the resistors based on a 1-2mA current.

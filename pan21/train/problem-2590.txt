@@ -1,0 +1,5 @@
+To change your formulas or remove Data validation, just select the range again, open the Data Validation window, and change Allow back to "Any Value".
+Once you have your formulas in place, select the cells you want to protect. Under the Data tab, select Data Validation. Then change the "Allow" option to Custom and enter =""in the formula field. This will prevent changes to the formula in the cells, but still allow for formatting (conditional formatting too).
+In the example below, I entered a simple "If" formula. Column H is data validated as shown, and color changes were made after validation. 
+How can I lock (protect) a formula within a cell, but still allow formatting of that same cell? I am using Excel 2010. I have tried checking and unchecking locked and hidden and nothing is working.
+This will populate the cell B2 with the formula =A2 * 10 anytime the worksheet changes.  You will be able to change the format of the cell, just not the formula.  Repeat this process for any other cells where you want to control the formula.

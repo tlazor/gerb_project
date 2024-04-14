@@ -1,0 +1,6 @@
+This is one is common to computational geometry, but endemic elsewhere: Algorithms for the real RAM can be transferred to the integer RAM (for integer restrictions of the problem) with no loss of efficiency.  A canonical example is the claim “Gaussian elimination runs in $O(n^3)$ time.”  In fact, careless elimination orders can produce integers with exponentially many bits.
+The complexity class $\mathsf{RL}$, the randomized logspace, is defined as an analog of $\mathsf{RP}$, that is, the decision problems that can be solved by a non-deterministic logspace machine $M$, where
+Even worse, but still unfortunately common: Algorithms for the real RAM with floor function can be transferred to the integer RAM with no loss of efficiency.  In fact, a real-RAM+floor can solve any problem in PSPACE or in #P in a polynomial number of steps.
+We prove by induction. For the base case it holds for $n=1$. Assume the relation holds for all numbers smaller than $n$,
+This is really a false belief in math, but comes up often in TCS contexts: If random variables $X$ and $Y$ are independent, then conditioned on $Z$ they remain independent. (false even if $Z$ is independent of both $X$ and $Y$.)
+An elementary one, but common when we first dealing with asymptotic notations. Consider the following "proof" to the recurrence relation $T(n) = 2T(n/2) + O(n \log n)$ and $T(1) = 1$:

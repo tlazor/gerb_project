@@ -1,0 +1,9 @@
+http://www.ebay.com/itm/Kingfast-MLC-SSD-Drive-Disk-mSATA-F6M-60GB-for-HP-Thinkpad-Lenovo-Acer-Notebook-/151275761414?ssPageName=STRK:MESE:IT&tfrom=161468714173&tpos=unknow&ttype=price&talgo=origal
+By the end of the article, you'll be told that mPCIe SSDs are rare! I've looked for them myself, but couldn't find any.
+ASRock Q1900 ITX board includes a mini PCI Express connector. You can use this port to add one mini PCI Express SSD, not a mini SATA (or mSATA) SSD. Check this article:
+http://www.aliexpress.com/store/product/New-Kingspec-SSD-SATA-mini-PCIe-64GB-CHA-SMP-6-M064-Solid-state-drives-for-laptop/908576_1759966149.html
+I assumed these were just examples before, the same way you see USB cables 'for samsung' or 'for blackberry' when they're actually all cross compatible, or that maybe just the size of the card varied a little.
+http://www.ebay.com/itm/64GB-SATA-Mini-PCIE-Kingspec-SSD-Only-for-ASUS-Eee-PC-1000-S101-900-901-900A-/151258564544 
+If anyone can tell me what to look for, or even better suggest a specific product (one that's available in the UK) I'd be grateful as I'm going to end up with an expensive pile of SSDs that I can't use at this rate.
+Bottom line: anything that includes mSATA, SATA, PATA, IDE on its description will not work on this mPCIe connector.
+I didn't realise at the time that there is quite a lot of confusion around the ports and standards here. I don't think what I have bought is compatible (can anyone confirm??), and I'll need to buy a different one, but I'm not sure how to choose one that will definitely work.

@@ -1,0 +1,6 @@
+As I am a new user here I can't post a second hyperlink in an answer, but MogileFS will come up on Google
+[MogileFS][2] is an open-source distributed filesystem that can handle many small files and is supposed to have no single point a failure.
+I'm looking for a distributed filesystem which I could use for storing lots of small files (<1MB usually). What I want to get is:
+However I think this lacks locking support. Not sure if it would be feasible to implement locking at the app level instead of in the filesystem?
+What I mean by the resync is that, I'm ok with both servers doing read/write operations even if they split-brain. I'm also ok if a local process obtains a lock if the other host is not reachable. From the resync I expect only a file-level consistent view after a while - that is - if file x is modified on both nodes during a split-brain, I don't really care which one is available after they join again, as long as it's full file, not one block coming from node1 and another block from node2.
+Is there a solution like that out there? I see that gluster has some problems with file locks (even in 3.1). I also noticed that OCFS2 will panic if both nodes split-brain. What other filesystem would allow me to do what I want?

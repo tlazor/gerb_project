@@ -1,0 +1,9 @@
+Calculations that are CPU intensive benefit the most from multi-core processors.  For example, one hobby of mine is computer rendering and ray tracing.  There is a linear speedup with the number of CPU's available.
+The trick is that it doesn't happen by magic.  The application has to be written in such a way that it's aware of multiple processors using algorithms that explicitly take advantage of them.
+Java Swing has a separate thread just for processing UI events.  I would say it's a definite benefit, even for single processor machines.
+Multi-threaded applications benefit from multi-core processors, because you can assign threads to run on different processors.  You get true parallelization instead of time slicing that way.
+Calculation intensive software will perform best using a blend of multi-core and GPU-based computation.
+Microsoft .NET 4.0 has significant advances in parallel programming that make it much easier to write multi-threaded programs.  As a result, they will be even more common in the near future.
+Since clock signals are limited it's the only way for scaling, count your currently opened windows don't forget system tray. If you still doubt open the task manager or do ps -ef it you're running linux.
+Note that high intensity calculations are now being shifted to the GPU (Graphical Processing Unit, i.e. Graphic Card) using such technologies as CUDA, OpenCL and Direct Compute.
+Yes they are necessary for faster speeds with current CPU design. There are pitfalls with this approach however, mainly that the program in question must be capable of running parallelized.

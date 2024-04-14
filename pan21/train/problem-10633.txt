@@ -1,0 +1,10 @@
+You may want to look at puppet for windows which should help you with a lot of automation and software installation (msi). I believe the puppetmaster has to be on linux and a puppet agent will run on windows.
+Secure remote access: OpenVPN + RDP? If you are brave enough, you could install Cygwin + OpenSSH server.
+One of the cool things about it is like @ChrisS mentions, PowerShell is the scripting environment for Windows, and to that extent the Web Farm Framework also has PowerShell cmdlets to ease remote administration of the service itself.
+While powershell is an excellent tool for the Windows admin, it still needs a secure connection, and installing software strictly by means of Powershell (without the gui desktop) would be unnecessarily difficult.
+For my purposes I use a web gateway to establish the vpn (Adito) and then run an RDP app that I have published inside the gateway.
+In addition if a Web Platform Installer package exists for certain components like PHP and MySQL it will automatically install and patch those for you as well.  Last but not least the system will ensure that each machine also has the identical level of Windows Updates which could throw things off here and there.  
+IIS runs PHP and most other FastCGI apps pretty well if an ISAPI filter exists for it.  That being said, I would almost look at using the Web Farm Framework, a module for IIS, as well as maybe the Web Deploy toolset.  
+Essentially you setup a master server that you configure the way you want it from IIS settings to MySQL and PHP and then simply configure IIS to serve pages for that application.  Once this is all setup you can simply turn on other "secondary" servers in the farm and they will automatically sync all of the application and server settings.
+Essentially, you want to run RDP over a VPN.  So establish a vpn to the box by whatever means (hamachi/open vpn etc.) and then run an RDP client to connect to the box.
+There are some tools available for calling and using PowerShell from *nix, like Pash. I've never used any of them so I can't speak to their abilities, completeness, or polish.

@@ -1,0 +1,7 @@
+On a desktop computer (Mac OS or Windows) the location of the files can be obtained with the following code:-
+For more information have a look into http://docs.unity3d.com/Documentation/Manual/StreamingAssets.html.
+To actually copy some files into your app, use StreamingAssets folder (http://docs.unity3d.com/Documentation/ScriptReference/Application-streamingAssetsPath.html). This folder is simply copied into resulting build, so you can use files in it like normal OS files, including, I suppose, opening them in Safari (I don't know, maybe some iOS quirks can still prevent you from doing that. It definitely works on desktop).
+Any files placed in a folder called StreamingAssets in a Unity project will be copied verbatim to a particular folder on the target machine. You can retrieve the folder using the Application.streamingAssetsPath property. For reference, the location of this folder varies per platform:
+If this is not possible, is there an alternative way I can load a locally stored website on an iOS device?
+It's always best to use http://docs.unity3d.com/Documentation/ScriptReference/Application-streamingAssetsPath.html to get the location of the StreamingAssets folder, it will always point to the correct location on the platform where the application is running. 
+Yes you can, but you're using wrong folder. The Resources folder is not copied with your build; rather, it is compressed into a single file cotaining all assets from the folder.

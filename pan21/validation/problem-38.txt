@@ -1,0 +1,6 @@
+As for your second question, there's a blog post here which tells you how to go about setting up a cluster in Weblogic, though some of the images are broken. There's an updated version here for Weblogic 12c.
+If want to add a remote node into the cluster, you would need to create a machine , start a node manager on the remote physical machine, enroll the nodemananger. Then you would need to create a managed node with the remote server hostname.
+Cluster settings can be modified after installation so if this is a completely fresh environment, then what to set that to is not an immediate concern. If no channel is specified, then a default is used.
+I'm trying to create a two node cluster with Oracle Weblogic 10.3.5. During the "Fusion Middleware Configuration Wizard" setup process, I'm not sure what to put in for the "Cluster Address" if I choose "unicast" cluster messaging mode.
+The cluster address can be either a DNS host name which maps to multiple IP addresses, or a list of host names or IPs separated by commas.
+Also the second node resides on another machine. How do I go about creating and adding the node on the remote machine to this cluster? Thanks.

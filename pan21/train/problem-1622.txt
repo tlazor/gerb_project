@@ -1,0 +1,5 @@
+They are also significantly cheaper than On Demand instances but have the added benefit of not disappearing halfway through processing a request.
+My problem lies in implementing the process. I don't know of any tools that would allow this kind of monitoring and action. 
+I have a WordPress site currently hosted on an EC2 server. After doing some digging on the interwebs, I found Spot Instances - often half the cost of a normal instance. 
+You see, my idea was to have a spot request all the time - at a certain price. When the request is fulfilled, my on-demand server would be backed up (S3?) the spot instance restored to that backup, static IP's switched, and the on-demand killed. When the Spot is running, it could back up its contents every so often (site mostly static). When the Spot is terminated, a new on demand would be started, restored to the Spot's backup, get the IP and continue life.
+The problem I see with it is that the Spot instance could terminate at any time. I think I've come up with the solution (some downtime is OK) but not the implementation. 

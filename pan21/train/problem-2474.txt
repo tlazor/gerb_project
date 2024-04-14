@@ -1,0 +1,6 @@
+ZFS on Linux with deduplication may be your friend in this case. There are Red Hat RPMs/repos available for installation. 
+This can be chained - you can create a rdiff from old.qcow2 to evenolder.qcow2 and so on. This is rather slow but very space efficient - I generally don't ever need to delete old backups using this. There's also a rdiff-backup program, which automates similar scheme for whole directories.
+At this point you can access original file by mounting LVM snapshot. Also the latest version of the large file will be available. You can create multiple snapshots this way.
+Even without dedupe, if you can work this into the ZFS snapshotting workflow, there are some significant advantages to attempting this with ZFS.
+Can you explain a bit more about how you wish to work with these files? Are you seeking point-in-time snapshots, or copying multiple revisions of the same/similar files to the datastore?
+I'm using librsync for this purpose. It is available for CentOS and other RHEL clones in EPEL repository.

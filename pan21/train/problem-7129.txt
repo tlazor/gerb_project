@@ -1,0 +1,6 @@
+And judging from the list of changelogs of the 2.4 branch, it seems it's indeed been released in 2003.
+I think you're asking the wrong question here - you want to know whether your kernel has all the security updates you care about. The way you find out is from the kernel's version number, not from when it was built. This isn't necessarily easy if you want to know all the gory details; you'll have to research not only the mainline features/fixes added since 2.4.21 but also the backported fixes in RHEL (mentioned in cd34's comment) which may make up some (but probably not all) of the gap.
+Typically kernels are stored in /boot but it may also exist as a file named /vmlinuz.  Look at your bootloader for exact details.
+http://rpm.pbone.net/index.php3/stat/4/idpl/1537823/com/kernel-2.4.21-4.EL.i686.rpm.html confirms that your kernel is indeed from 2003.
+A 2.4.21 kernel is quite old... according to kernel.org, the latest version of the 2.4 branch is 2.4.37.9
+Have you considered just looking at the date of the file?  That should be a pretty good indication of the age unless you are doing something weird.  I don't think I have ever seen any systems that modify the date of the kernel file to the future.

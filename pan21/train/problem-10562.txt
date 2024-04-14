@@ -1,0 +1,7 @@
+You can actually do this but only using Windows server and even then it's bad bad idea. What you've actually done is massively-corrupt your volume, consider it now entirely dead and unsavag
+Since you want to eliminate a single point of failure, you should consider a file or a block-level data replication.
+You will either need to switch to a proper cluster-aware file system or more likely use CIFS/NFS/etc to share out the storage from one central location to all of your clients. 
+The "shared"-disk is mounted as E: on both VMs, when I write something to the disk via VM1, it's not visible on VM2 on the same disk. After reboot the files are visible on both VMs
+What you'd do is create a new VMDK, attach it to the first VM with the VMN shutdown - ensure it's set to 'multiwriter' mode then attach this same exact VMDK to the second VM, also shutdown and again ensure 'multiwriter' is set. When they come up you need to have MS Cluster Services/MSDTC configured and define the new disk as a shared/cluster-managed - then only one node has read/write on the disk but the second node can read the volume as MSDTC is doing the locking.
+You cannot just do what you're doing and expect it to work. NTFS is only meant to be mounted one time, by a single operating system.
+As for file level check DFS or FreeNAS. As for block-level, Microsoft S2D, StarWind Virtual SAN, HPE VSA will do the job of highly-available storage.

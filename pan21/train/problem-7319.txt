@@ -1,0 +1,6 @@
+This is the code i came up with, note I do not know the conventions of Thread safety and design patterns usually used in multithreaded programming in c# or any other language. 
+I'm quite sure your implementation does not satisfy the requirements' intention. Where does it say that none of the tasks should be started when added, and then they should only be started all at once (but not really, because of the delay between thread creation)? And once the "thread pool" has been started, you can't add any further tasks? As it stands, I cannot see any real use for it. Not that I can see a real use for a better version either, since you can pretty much do all that with the standard thread pool.
+This is a first attempt at a topic im interested in, The point of the review is to see if there are improvements I can make to my code and learn some new methods to make it tidier and easier to understand
+I have implemented some methods to make the creation of multithreaded programs easier for me in the future
+Also, why do you use a task to launch a thread inside a thread pool ? Task.Run is running with a default thread pool.
+I don't have time to write a better implementation of a thread pool, but I'll point out what I see is wrong.

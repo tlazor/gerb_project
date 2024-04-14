@@ -1,0 +1,7 @@
+This may sound stupid, but think that you cannot trust a file by its name: its content could contain multiple VirtualHosts.
+However, if you want to show the current configuration used by Apache, you may want to look at the -S flag.
+This is a generic Apache tool and will be available on Redhat/CentOS, Mac OS X, Solaris and whatever other Unix you like, hence it doesn't know about the Debian-based sites-available, sites-enabled, mods-available and mods-enabled directories.
+Obviously I could do some grepping, sed-ing and awking to fetch this information, but I am quite sure this has been done properly somewhere before :)
+I am using Ubuntu Linux with Apache2 and several vhosts, located in /etc/apache2/sites-available and symlinked (activated) from /etc/apache2/sites-enabled. The default setup on Ubuntu. 
+apachectl -S does not list the DocumentRoot directive as it is not a required directive and may not be present in some vhosts.  It also doesn't list any ServerAlias directives because there can be any number of them.  Since they (as well as the ServerName directive) can contain wildcards, listing domains could prove troublesome.
+This command will list all vhosts defined in your current configuration, regardless of whether Apache is running or not.  The information includes IP addresses, ports, the value of the ServerName directive, the configuration file names and which vhost is the default.

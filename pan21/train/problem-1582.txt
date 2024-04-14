@@ -1,0 +1,6 @@
+So, to lock it down, put a proxy in front of it and pass only the application URL patterns you know you want the world to see. We are using nginx as a proxy on Linux talking to JBoss servers on Windows x64, but there are a lot of options in this area. Even ARR on IIS7 works well in this scenario.
+The reason you don't want to do it is pretty clear, it allows anyone to invoke any servlet they want that is on your system.
+http://www.astrahosting.com/blog/2009/09/16/chapter-14-tomcat-security-disabling-an-invoker-servlet/
+This morning i received from the auditors a scanner result for our jboss server and we need to solve three important issues, but honestly i was googling for a while and nothing found. if any one know or have any clue how to solve, i will appreciate. We are running jboss 5.0.1  on (windows 2003 x64)
+JBoss has horrifically insecure defaults, and is a terrific pain in the ass to lock down (a lot of files to touch, and crummy documentation spread all over creation on a collection of sites). It's worse than the first versions of IIS were back in the mid-1990s.
+IMHO it should never be exposed directly to the internet - it's just too easy to screw up, and you never know when an upgrade will introduce a new open-to-the-world "feature". 

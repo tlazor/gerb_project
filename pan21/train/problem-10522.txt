@@ -1,0 +1,8 @@
+I've tried to move it to another folder and "mark it as read". But that doesn't seem to suppress the notification
+Is it possible to set up an outlook rule that supresses the system tray (and envelope overlay on the Win 7 icon) for certain messages
+Don't know if this is a new feature or what, but there seems to be an easier way now.  In the same rule that is deleting or moving the message you don't want out of your inbox, you can select option "Do Not Notify" under the Do The Following section.
+Bit late to this one, but as it's a top hit in Google, here's what to do in newer versions of of Office...
+You can turn off the notifications and create a rule which gives you a notification when mail is received from people you choose from your address book.
+The default notification is triggered as the mail is received and before rules are run. I do not know of a way to selectively get default desktop alerts. 
+In the rules wizard, under "What do you want to do with the message" select "Clear the message flag"
+I would like the notification for the vast majority of my email but have certain automated messages I'd like to suppress the notification for

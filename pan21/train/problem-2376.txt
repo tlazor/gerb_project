@@ -1,0 +1,6 @@
+You can use nconvert, which is freeware (for private and educational use) and available for Win, Linux and Mac.
+If you would like to use Automator for this you can simply use Rotate Images (180deg) twice in the workflow.
+For example I use an automator action that converts all images to JPEG, rotates them 360deg (due to the OP's issue) and then scales them to 1024px wide.  Run the action, select the files, profit! :)
+That command will batch convert all JPEG files in the current directory and prepending their names with rotated_. This is controlled by the -o option, refer to nconvert -help for more possibilities:
+This is not a scripted solution. I like this way as it allows me to change another aspects of the photos in one step. 
+After adding pictures in, all photos are autorotated for displaying. If the picture should be autorotated in the file, it is enough to push the save button on the picture folder. This will save all pictures in the folder with corrected rotation. Picasa is available for OS X as well and runs in Linux under Wine.

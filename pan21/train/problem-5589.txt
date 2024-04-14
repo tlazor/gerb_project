@@ -1,0 +1,7 @@
+For remote access, I'd have each machine establish an OpenVPN tunnel to a central location.  This gets around NAT problems, and ensures that any protocol you might have to use that isn't encrypted by default is kept secured.
+As a heads up don't install the packages in the Ubuntu repository.  Use the official packages from from the eBox website or use their Ubuntu installation ISO.
+I think a common technique is to run the image in some sort of chroot. That way you can install a new package containing a new chroot environment with all the updates etc without affecting the "master" OS.
+If you haven't taken a look at eBox for a dashboard/appliance/remote-admin type situation I would highly recommend it.
+As far as updates go, I'm going to continue to beat on the Puppet drum.  It really is the best way currently in existence to automatically manage and update a number of identical or near-identical machines.
+Other than this you can use chroot environment and open VPN tunnels to get around NAT as other uses have suggested.
+You can update packages and apply patches without re-install. But if you feel reinstalling is necessary then you can run one OS in virtualized environment. That way you can always update the guest OS. Only thing you may want to update in host OS is the software you use for virtualization support.

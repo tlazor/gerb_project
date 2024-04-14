@@ -1,0 +1,5 @@
+Then i did a Transition from Walk to Idle. This way when i press on W it's start walking a bit then it keep moving the character but without the walking animation.
+I created a new controller called it SoldierController and dragged it to the character Controller under Animator component in the Inspector.
+If i delete this transition and make transition from the Idle to Walk then when i press on W it will walk but then if i leave W key and it's idling then after 2-3 seconds the character will walk on place i mean it will animate walking without moving and i'm not pressing anything it's starting automatic when idling.
+Then i set the animator controller i added to it two new States: Walk and Idle. HumanoidIdle and HumanoidWalk.
+In the animator create a horizontal movespeed parameter and set idle as the default anim. then when you transition set the param float 'horizontalspeed' to if greater than .1 it will transition to walk. then in your playerscript you can have the horizontal input update the parameter anim.SetFloat("HorizontalSpeed", Mathf.Abs(x)); 

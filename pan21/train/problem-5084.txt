@@ -1,0 +1,5 @@
+I think the simplest answer is to count how many AES packets you can encrypt starting with a random string and a random key for each process, or how many times you can hash a string. That should keep branch prediction and processor cache out of the equation.
+As for testing network performance, this is challenging because you can't easily isolate it. You'd need multiple instances to test against to ensure that your baseline system wasn't changing. Even then, routes to other systems may have different performance characteristics.
+As for testing memory performance, I wouldn't bother -- the CPU consumption is usually the arbiter of speed there.
+What you want to do is create a piece of code that runs in constant computational time in a loop. Every second, the code should interrupt itself every second and print out the number of operations it has completed. This code should be multithreaded and allow you an option to pass the number of CPU cores as an option.
+As for disk performance, this would only be useful if you weren't using EBS-backed disks or you were testing the overall performance of EBS since its variances are independent of the instances.

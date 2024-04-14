@@ -1,0 +1,7 @@
+I've had the same problem several times and haven't found a way to specify a default color that would be used when a texture is not used.
+I've ended up creating 1x1 pixel fully white, black and transparent textures that are globally available. This does the job pretty well and is easy to use, although I don't like the unnecessary texture accesses in the shader.
+Ideally, I don't want to have an extra uniform for each mesh specifying whether or not the texture should be used.
+The way I imagine it, I would just pass a flat "grey" as the specular map, for instance, and the shader could just act as if a texture was passed in. Is this possible?
+I'd like to, without making the shader code too complicated, be able to specify a constant color instead of a texture, for the normal or specular maps. This is for example if a given mesh doesn't need one of those maps.
+So I have the following situation: I'm sharing a blinn shader accross many meshes. Some meshes have specular & normal maps, others do not.
+Another alternative would be to actually create a grey texture on the fly, if this is the better way, please advise on the simplest way to do this.

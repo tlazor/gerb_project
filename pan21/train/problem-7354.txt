@@ -1,0 +1,8 @@
+See FAQ: My site was hacked « WordPress Codex and How to completely clean your hacked wordpress installation and How to find a backdoor in a hacked WordPress and Hardening WordPress « WordPress Codex
+Alex, unless you're a full-time security person, doing forensics on stuff like this is a waste of your time. Running WP 2.5, which is 3 years old, is just asking to be pwned.
+Do a grep on your existing blogs and look for any iframes or eval method calls in your WP directory. Also check the DB. Once it's all clean, update your WP version and themes/plugins and keep it updated. 
+I suggest you either put some effert into your web sites or stop playing at being a webmaster and get someone who knows what they're doing to manage your systems and ensure all reasonable safety measures are implemented, including upgrading as necessary. There's more to a web site than just throwing a prepackaged version of software on it, typing some content and sitting back.
+I used to have this problem with a few of my defunct blogs, but keeping them constantly updated fixed it.
+That's your problem right there. Most of these attacks are carried out by automated scripts that look for known vulnerabilities in older wordpress systems. Since anyone can look at bug reports and changelogs, it's not too difficult to engineer a script to exploit a weakness.
+Welcome to reality. Your sites got hacked because you completely failed to take any precautions. Running such old and vulnerable versions of WordPress is simply asking for this to happen. Given the invitation you've created don't be surprised when people come to the party.
+Next login to Google webmaster and, if you haven't already, prove ownership and ask for a review of your site. The warning should go away after awhile. 

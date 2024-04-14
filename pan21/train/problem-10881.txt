@@ -1,0 +1,5 @@
+open task manager before it happens, go away come back, and see if you spot anything in task manager. try removing processes until you find the culprit and can suddenly open processes again. that's an approach that'll help to solve it.. report back
+Check your power settings, verify (or change) the option to put your Hard Drive to sleep to see if that fixes the issue. Other things to check would be suspend options, pci and usb low-power options (personally i turn these all off)
+I just started running into this about a month ago.  Basically when I boot my machine everything runs fine, but if I walk away and come back a few hours later I can no longer start new processes.  This includes:
+I can still move around in open programs, but starting anything new does not work.  Does anyone have any ideas as to why this would happen?  I've done a virus scan and nothing comes up. 
+You can of course order processes my how much RAM they take up.. or CPU Usage. These could lead you to a culprit process.

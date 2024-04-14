@@ -1,0 +1,5 @@
+Also beware the fact that the puppet master apparently does NOT reload your custom type on every agent run; rather it syncs it the first time only.
+No, that's how it works. Stuff in different modules are not supposed to conflict -- the separation exists more for organization than for insulation.
+[and yes I'd rather post this as a comment but that requires reputation that I don't have -- I figured I would save people the trouble that I had researching this as it's not mentioned in the docs]
+Nope, that's how Puppet does pluginsync.  That generalised philosophy (of "we don't care that it came from a module") was already in place when I wrote the pluginsync code, so I just ran with it.  Even if you namespace the files, you can't namespace native types, so it wouldn't do you any good to have them in separate directories.  Keep your type names unique (prefix them with the module name, perhaps, like most existing plugins I've seen do) and you won't have a problem.
+I have opened a bug at puppetlabs, https://projects.puppetlabs.com/issues/8750 to check whether this is a fault in my assumptions etc.

@@ -1,0 +1,6 @@
+If it makes any difference, I'm using Fedora 24, and dhclient is launched/managed by NetworkManager.
+Your router is simply using the information your device makes available to show you the best possible name for the machine.  
+Yes, I know there's no technical reason to give my at-home desktop a static hostname, nor for the router to display a different hostname.  I'm just weird and finicky about such things.
+I'm using an at-home-type wireless router as the DHCP server for my desktop, with said router's management console showing the host names of the connected machines.  If I put send host-name "AAA"; into dhclient.conf and my desktop has no static hostname then the router will show the hostname as "AAA".  However, if I then set the desktop's static hostname to "BBB" the router will show the hostname as "BBB", even though I want to stay as "AAA".  I tried using send dhcp-client-identifier "AAA";, but that confused the router so much it forgets any hostname and just shows the desktop's MAC address.
+Since the information you provide mismatches, it knows it is unreliable and decides to only show the information that is verified: the MAC address.
+There is absolutely no case where this should be a source of worry or take more than 2 seconds of your time.

@@ -1,0 +1,7 @@
+Possibly not an answer, but an option - as a lot of mobos don't have a beeper onboard, but do have a connector to attach one - a buzzer attached to that port perhaps, something that can be felt rather than heard?
+Note 2: Alternatively, since beeper is driven by 0/+5V voltage, you can power a BJT or MOS FET and drive any electronics with it, e.g. firing missile rockets at the moon at every beep; YMMV.
+Plug a LED with a ~330 Ohm resistor attached (note the +/- polarity!) instead of the beeper; it should light up when the beeper goes on. 
+I worked in an IT shop previously where one of our senior staff began to lose his hearing due to old age.
+Note 1: "Beep" is actually a square current alternating between GND (0V) and +5V rail - but since the LED will light up and down a couple of hundreds times a second, visually it will just light up with decreased intensity (as in PWM).
+I can't seem to find any similar commercial versions of this (Is the market viable enough for commercial manufacturing?). Though I suspect an Android phone and app might be able to accomplish something similar.
+He was a bit of a DIY-centric person so he built this small handheld black box powered by a 9v battery. It had what looked like a rectangle with 10 square lights built into it, as well as a microphone. Simply put, the louder a given noise, the more lights lit up allowing him to visually distinguish sound.

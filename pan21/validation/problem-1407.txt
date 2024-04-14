@@ -1,0 +1,5 @@
+Also, strictly speaking, overwriting (no matter the passes done) is no longer authorized by the DoD to sanitization hard drives.  Also, many software say DoD wipe but do the 3-pass and not the 7-pass.  In addition, I hear from many people talking about hard drive magnetics and the best wipe is a multipass random pattern.  They say having a known pattern would make reconstruction easier.
+If you want to erase the whole SSD, DBAN on a single pass would work.  I would set it to pseudorandom so if anyone looked it would look like it could be encrypted.
+All that said, I don't know if all the spare cells in the flash would be overwritten.  (Most flash have spare cell just like hard drive have spare sectors.)
+I agree with Molly minus the encryption.  Encryption is a good way to protect data, but it doesn't erase it.  
+If you want to only wipe a file, using a conventional wipe program (one for a hard drive) would only make it save from undelete tools.  I don't know of any data carving tools that are SSD/flash wear leveling aware, but I'm sure if they aren't out there, they will be.  The most effective way to wipe a file from a SSD/flash is to fill all the free space.

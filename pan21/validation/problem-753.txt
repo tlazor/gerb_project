@@ -1,0 +1,7 @@
+If anyone can try to help, it would be great. It's not a production server, but i would like to have it online. I've tried for the lasts 2 days (just a couple hours a day) but without success.
+My home-backup server, with 8*2TB disks won't boot anymore. Two disks failed at the same time and i rebuilt the raid 6 array with no problem, but now i can't boot the os. I'm using ubuntu server, 10.10.
+It looks like you can get to busybox (the emergency shell), so mount up your root filesystem manually, edit /etc/fstab, and put in the correct UUID (you can get it with blkid /dev/sdX1 or the output from your mdadm output in your screenshot)
+You will need to remount root as read/write to edit fstab. If you are unfamiliar with the process, its mount -o remount,rw /
+Also, you need to carefully think about why 2 hard disks failed at once. There could be many more failures already waiting to happen very soon.
+IT would be a good idea to boot from an Ubuntu liveCD and see if you can mount the partitions on the RADI6 array that way. This way you can then edit your grub and fstab configuration easily (i.e. you don't have to use vi and you can have manual pages or tutorials open :-) )
+The problem lies with your fstab. When you created the new raid array, it ended up with a new UUID which is what you are using to specify your root filesystem.

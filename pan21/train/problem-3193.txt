@@ -1,0 +1,9 @@
+But there is another issue with the load-balancer scheme which you didn't mention, but you will definitely run into and that is maintaining sessions. But if you don't have logged in users, that's probably not a problem for you.
+If you have the option to change your application you could also give Amazon's Relational Database Service as try. However, since this is a MySQL clone, it is not identical regarding features with PostgreSQL. 
+If you would want to give a totally different storage option a try, you might want to take a look at SimpleDB - which is one of these "modern" NoSQL storage options. But do not expect to be able to do everything you are used to from a relational database.
+When the time comes to add the third server, you can add a front end server and set a load balancer between those two, but both of them will be connecting to the same database.
+PHP/Apache instances can get sync getting files via s3,git,or svn. Or use shared filesystem like NFS.
+You will get more efficiency, since it's easier for a server to always do the same task, than it is to jump between the database and the php scripts. Especially for the database.
+When you're only running two instances, I would wait with the load balancer and start by dividing up server roles. So you run the PHP application on one server and the PostgreSQL on another.
+Both of these storage options (RDS and SimpleDB) are scalable by design, so you should not have problems when using these with lots of load-balanced web servers in front.
+I would also suggest to separate the web servers from the database. Scaling out web servers (= starting more instances of it) is usually simple using one of the filesystem synchronization or sharing options described in the other answers. 

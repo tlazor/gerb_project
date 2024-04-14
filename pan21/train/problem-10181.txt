@@ -1,0 +1,5 @@
+Regardless of isolation level, two users cannot update a single page simultaneously, nor can any user read a partially updated page.  Just imagine how SQL Server would deal with a page where the header says Col3 starts at byte 17.  But it really starts at byte 25, because that part of the row hasn't been updated yet.  There's no way a database could handle that.
+But for rows larger than 8k, multiple pages are used, and that makes a half-updated column possible.  Copied from the MSDN link (in case the link breaks), start this query in one window:
+The second query stops when it reads a column that is half updated.  That is, when the first character is different from the last.  It will finish quickly, proving that it is possible to read half-updated columns.  If you remove the nolock hint, the second query will never finish.
+Surprising result!  A half-updated XML column might break a (nolock) report, because the XML would be malformed.
+This creates a table and then updates it with a string of 100.000x the same character. While the first query is running, start this query in another window:

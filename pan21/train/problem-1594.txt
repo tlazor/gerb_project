@@ -1,0 +1,6 @@
+Tools like fdisk like to suggest a starting sector of 63 for the first partition, but given the possibility of 4KiB sectors on the host, I think this could lead to future alignment problems causing performance issues.
+You could use gparted and it offers alignment to 1MiB boundary. I think it is safe bet for most situations and I personally use this scheme as a default for all my needs. Other Linux tools may also support this scheme, but I only have experience with gparted.
+I think if I stuck to multiples of 8 for a starting sector (thus working for storage with 512B or 4,096B sectors) that would cover alignment. Since fdisk seems to like sector 63, perhaps it would be best to start at sector 64?
+Say I've got an LVM logical volume that I'm going to pass to a virtual machine (Xen, but I don't think this matters) to be used as a whole disk. The virtual machine is going to see that as /dev/xvda and expect a partition table on it.
+What is a safe way to determine the starting sector of the first partition? How much space at the start should be left for a bootloader?
+As the default stripe size of RAID is likely < 512KB, so start from sector 256 should be safe.  Or start from sector 512 (1Mb) to be sure

@@ -1,0 +1,6 @@
+Well, at the risk of going with the obvious, industry standard option, I'd set up a very basic SNMP monitoring server and enable SNMP on the workstations.  You can just monitor up/down, but you'd have the beginning of a much more powerful monitoring system if you decided you wanted to expand its use.
+It is an agent-less tool that was built on a Debian Linux distro and has been also published on the TurnKey Linux site.  This solution was built to either be run from a CD or from a VM and takes about 5 mins to setup.  
+Just keep in mind that this is a basic open source solution so it does not have all of the bells and whistles of the paid options but it will give you the basic information that you are looking for based off of your requirements from the question.
+I need a simple setup to monitor the usage of several Windows 7 machines in our office. Nothing fancy, I just need to know when they are turned on and off, and ideally have an overview of daily uptime hours for them.
+As nobody else has mentioned it yet... Nagios. More commonly used to monitor servers but there's absolutely no reason not to use it for workstations, just be sure to either disable the alerts or at least set them appropriately.
+The software can either run locally on the machines themselves, or from an office server (Ubuntu Server). The machines in question have static IP addresses.

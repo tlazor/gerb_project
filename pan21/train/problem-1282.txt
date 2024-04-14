@@ -1,0 +1,7 @@
+I went ahead and uninstalled one of them and I no longer seem to be having the double click event problem.
+I've corrected my issue (or it seems to have improved) by disabling the power management settings on each USB Root Hub device in Device Manager (devmgmt.msc)
+I was just having the same issue in Windows 10, and noticed in the Device Manager that I had two HID-compliant mouse entries under the "Mice and other pointing devices" tab.
+It's my opinion this is a windows problem. In the device manager I uninstalled all mouse HID (including the hiding devices) except the mouse I was using. This solved the problem.
+Previously I had tried other mouses but had the same symptoms (or similar) problem. I suspected this was not a hardware problem since I run 2 computers with the same mouse and keyboard using a USB commutation device. The computer with Linux did not display the ''one click'' problem but the one with Win10 did.
+There's a small program called MouseFix written by Daniel Jackson (source code available), that's implements a global mouse hooks that filters the redundant clicks based on a threshold. The essential logic looks like this:
+It's a long shot, but the following worked for me (on Windows 8.1, but as it appears to be a hardware problem, it doesn't really matter).

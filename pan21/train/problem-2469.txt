@@ -1,0 +1,6 @@
+Note that this method will only notify you after your job completes as opposed to a step by step email.
+You can also try using job tokens (I have not tested this). So replace the last two lines in the TSQL above with:
+Just adding to the answer from Max.  If you need to know the name of the stored procedure that is failing just call ERROR_PROCEDURE() function.
+Change the on failure action step to run a new step of the job which includes a dbmail script to email you of failure and then set the on success of that step to perfomr the next step of the job
+A better option would probably come from some error handling in the script in each of the step runs to email you of failure and use the advanced option in the job to move onto the next step on failure
+Add a seventh step with the TSQL shown below. This step will send out one email showing all the step's outcome for the specified job for the current day. The TSQL should be run under the msdb context. Set @recipient , @profile_name, and enter-your-job-GUID-here with your values.

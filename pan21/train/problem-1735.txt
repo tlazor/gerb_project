@@ -1,0 +1,10 @@
+If you get the idea, it's probably quicker to do it than write down the description, but whether you would prefer a Python script or not will depend on the number of spreadsheets...
+Optional Step 7: If you need only the values, copy the whole column and "Paste Special" just values over top.
+Mr. Excel has the answer for pre-Ribbon versions of Excel. Below are instructions for Excel 2007. With foo/bar in column A and your data in column B:
+I have spreadsheets (not created by me) that have blank entries in one column where they should really have data. I want to take every empty cell and fill it with the nearest value above it. I'm looking for as little manual intervention as possible, because I'll have to do it repeatedly.
+There is actually an easier way to do this without having to copy the entire row you need to drop down values.
+I'm worried that this might need a macro to be done properly. I used to be a whiz with Excel macros, and then suddenly they were all in VB.
+Formula in B1 is something like =A1, in B2 (and copied down to the end of the data) =if(A2="",B1,A2). Column B now has the foo-bars almost as you want them, but they are the result of formulae rather than text.
+I thought some previous version of Excel, or maybe another spreadsheet from the distant past, would do this by default -- that is, if you selected the column with foo and bar, and chose the equivalent of "fill down", you would get what's in the WANT column. What I actually get in Excel is the GET column.
+My fallback position will be to dump the whole thing to CSV and write a Python script, but if there's any way to do it in Excel that would be much preferable. Even if it involves a couple of different manual steps, that's fine; just not one step per group of lines. That is, a process of "copy the column, do X to it, cut and paste it back" would work, but "do X for each occurrence of foo or bar" won't. The files are too big for that.
+Create a new Column, Use the =IFBLANK() Function and follow the steps similar to an =IF() Function. 

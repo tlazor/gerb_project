@@ -1,0 +1,5 @@
+I would like to run an Oracle script through SQL Plus via a Windows command prompt. The script does not contain an "exit" command, but I would still like SQL Plus to exit, returning control to the command prompt on completion of the script. My goal is to do this without modifying the script. Is this possible?
+That said, I don't recommend this approach at all -- SQLPlus has a great many gotchas for programmatic use; when writing shell scripts in the past that used Oracle, I built a Python wrapper around it (adding more reasonable error-handling behavior, sane separation of output between stdout/stderr, native CSV output support, and other such goodies), and that worked much better.
+Realizing now that your problem may be with the sql file itself, realize that sqlplus needs to be told to exit. The way I do this is:
+Yes, it's possible -- generate a wrapper script which sets up SQLPlus appropriately, includes your script (ie. @YourTargetScript.sql), and then does an exit.
+For those worried about the security of including your password in the script, AskTom has an article about "identified externally"

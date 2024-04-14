@@ -1,0 +1,6 @@
+Once those messages are found, they can be added to the Blackberry by selecting the message and 'Add' or 'Add All'.
+Alternative workarounds could be to install a POP/IMAP client, obviously you'll need to then enable reprocipal service on your mail server and convert your MD's mail file.
+I've tried Google but there doesn't seem to be any way of doing this without having access to the old unit and doing a backup/restore.
+If a user has OS 4.5 or higher on his device and is on a BES of a certain minimum version, they can do a remote email search. Hit 'S' in the Messages screen and change the search type to 'Remote'. This searches through email on the server mailbox.
+The max you can prepopulate without using the Remote Search feature is 14 days. If you still want to do this (I suspect not), here's the instructions:
+The new unit has been set up on our BES and is synchronising without any issues, however the MD has now said he wants to see all of his old e mails on the new device (some going back 6 months or more).

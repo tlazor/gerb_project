@@ -1,0 +1,7 @@
+TIP: Don't depend on curl much to troubleshoot two-way SSL issues, try openssl s_client instead. curl can give misleading results sometimes, see this. I too fumbled around for a while in my Ubuntu 16.04 docker container.
+SSL certificates are dependable on a specific domain meaning if you have multiple ssl certs then these should be added to different server blocks. something like this.
+b) Another, thing which was missing was ssl_verify_depth parameter in the nginx config file which must be 2 or more. It does not make much sense to make the number bigger than 2 in my case, but it works with any number other than 1 (which is default value). Interestingly, this is not required in nginx v1.12.X (my colleague with the exact same setup didn't have to specify this). However, it didn't work for me (nginx v1.13.5) until I used this parameter.
+I had this issue when my computer (where I issue the cert) and the VM clock where I test my application where out of sync. And so valid_from in the VM didn't reach yet, and the check keep falling for me, until it suddenly start working (as the VM catch up eventually).
+also I notice in your sites nginx that only one cert is present unless this is a wildcard certificate you should have 2 certificates.
+Here is an example OpenSSL configuration file that generates the correct certificate signing request.
+a) For two-way SSL, the certificate signed by the Intermediate CA must have clientAuth in extendedKeyUsage (Thanks to @dave_thompson_085) which can be verified by the below command

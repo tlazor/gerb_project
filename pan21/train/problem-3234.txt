@@ -1,0 +1,10 @@
+I've no experience using Windows 7 as a storage server, but I have a small VM environment that I use NFS backed onto Solaris, and that works really well. Very easy to set up and configure and the performance is quite good. I've got some iSCSI shares through COMSTAR on there as well, and the performance is similar.
+I have a licence for ESX 3.5 but for testing purposes I am currently running ESXi 4.1. The storage server runs Windows 7 for testing purposes.
+Simply, we went with iSCSI because it was the default method for our new SAN nodes, but I couldn't imagine taking any other approach at this time.  We have had 0 outages over the last few months and are running our entire SAP infrastructure (DEV/TEST/PROD and the related databases) all on these 4 machines.
+http://blogs.netapp.com/virtualstorageguy/2010/01/new-vmware-and-netapp-protocol-performance-report.html
+If your goal is ease of use, you may want to consider NFS. It has a mediocre performance overhead (-~5% overall throughput, +~20% storage-related CPU) when compared to the FC.
+Cakemox is correct though, just because I get good results on NFS talking to Solaris, doesn't mean that NFS is right for a Windows based solution. You might find better support in the iSCSI realm. 
+First, we are 100% iSCSI for the shared storage and we are running it over redundant dedicated 1GB network links. We currently have 4 ESXi hosts inside of an IBM BladeCenter chassis.  
+These hosts all share centralized ESX storage on a pair of HP LeftHand iSCSI SAN nodes which reduced the complexity of SAN management as the SAN OS on them handles the actual drive allocations internally for each LUN and moves them around to provide maximum redundancy as the SAN cluster itself changes.
+What storage connection method should one prefer to use for connecting ESX servers to a shared storage server with 10GbE links?
+I am not sure how this would apply to your environment, but I can share with you how ours is currently configured.

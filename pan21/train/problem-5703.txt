@@ -1,0 +1,5 @@
+I have an alias that passes in some parameters to a tool that I use often.  Sometimes I run as myself, sometimes under sudo.  Unfortunately, of course, sudo doesn't recognise the alias.
+I don't see the reason for using awk or cut unless it's to only have the core alias defined once in order to make it easier to modify. If that's the case, then this works:
+I was hoping for a nice, concise way to ensure that my current pd alias was fully used (in case I need to tweak it later), though some of my attempts weren't concise at all.  My last resort is to put it into a shell script and put that somewhere that sudo will be able to find.  But aliases are soooo handy sometimes, so it is a last resort.
+Then executing pd ./mytool will execute your debugging command as root but still preserve the benefits of sudo (audit trail, not operating out of a root shell).
+Wouldn't it be easier to simply hack out a script that includes your options, then place it somewhere in one of the folders that is the path for regular account and root?  It really wouldn't take much of a script.

@@ -1,0 +1,5 @@
+2.Everything was fine on UAT system where users count was 20 but when we moved the same application to production system where users count is more than 80 , we are facing issue in Jboss regarding connection pool count. This count keeps on decreasing and after 8-10 hours, users are not able to login in the system so we need to Flush the connection pool manually by clicking the Flush button available in Datasource section in Profile tab.
+3.We have checked there are no connection leakage, as we have closed all the database connection in the Finally{ } section.
+1.We have a J2EE application using Servlets & JSPs running on Jboss EAP-6.2, and using SQL server database.
+Question- Is there any way by which we can automate the Flush button functionality available on Jboss Adminstrator console so that idle connections will get destroyed automatically.
+4.We have also increased the max-min pool size in STANDALONE.XML file and added some validation tags recommended by RedHat site.Please see attached file.

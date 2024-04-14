@@ -1,0 +1,9 @@
+Ok, so it seems this should be called Move (or MovePiece if you prefer). To be honest, I think that should be a method of ChessGame rather than Board, but that's by the by.
+temp as a name implies to me that the variable is being used in a swap, or maybe as a factored out part of a complex expression. For a loop variable, why not man? (Or piece, since that's what the base class is called?)
+See previous comments about the identity of a man. You shouldn't need to do a linear search to find out whether a man is black or white.
+So far I think I've found at least five bugs, and I'm only 40% of the way through the code. No interviewer would have stuck with it as long as I have, and I'm not going any further.
+Also, what about the case where a white man tries to move to an occupied square? Not handled at all.
+What are these doing there? (The obvious answer would be that you used the default template in VS and didn't bother to clean up, but I hope that you have a better explanation than that).
+Generally the idea of a constructor is to construct, not to implement the logic of an entire program.
+We're still in InitWhitePieces, so this looks like more copy-paste which either means that it's unnecessary code in both Init***Pieces methods or that there's a bug.
+What is the identity of a chess man? I would say it's colour and type. Its location at any given time is a property of the game, not the man, so I don't understand why locations are being passed into the constructors, nor why the men are not being added to a 2D board structure (perhaps encapsulated by the Board class).

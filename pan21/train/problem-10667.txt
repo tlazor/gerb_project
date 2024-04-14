@@ -1,0 +1,9 @@
+YAML files on the other hand you have to edit using a standard text editor with no assistance whatsoever and this makes the learning curve even steeper. 
+Just to add some more resources. Recently there was a paper studying the differences between several packages of neural networks and deep neural networks. 
+I may be missing the big picture but I still don't understand what were they thinking, I don't think prototyping in code would be much slower. For that reason I'm considering Theanets or using Theano directly.
+Examples and tutorials can be found on https://github.com/Microsoft/CNTK/tree/master/bindings/python
+Although many of the benefits above make PyTorch much nicer to use than other commonly used libraries, it is worth mentioning that the upcoming major release of Tensorflow will, by default, also use dynamic graph creation (a.k.a. eager mode). This will make it comparable to PyTorch in usage. 
+Microsoft Cognition Toolkit (previously known as CNTK) has a  Python API. Amongst other things, it is supposed to be good for multi-GPU:
+Pylearn2 seems to be the library of choice, however I find their YAML configuration files off-putting.
+Python itself was designed to be an easy language for prototyping, why would you not use it to define the network properties themselves? We have great editors with autocompletion that would make your life much easier and Python is not like C++ where you have to wait for long builds to finish before you can run your code.
+It runs "line-by-line" (via dynamic graphs), just like normal Python and can be easily debugged - even using standard print statements. It also integrates very well with NumPy and other well-known Python linbraries, like Scikit Learn.

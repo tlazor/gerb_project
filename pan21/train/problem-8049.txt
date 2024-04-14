@@ -1,0 +1,7 @@
+This could also be extended to the file name as well, so you won't have to refer to full paths either. For example, if I use "NMY1" for my first enemy, it's data would be stored in the file "NMY1.dat", with the texture sitting in "NMY1.png", script code in "NMY1.lua", etc.
+There's no best approach, because it always depends on the actual use case and your overall architecture.
+Another thing would be modability: If you want users to be able to easily mod your game, try to avoid overoptimizing it. I.e. prefer talking names over abbreviations, don't use raw IDs or GUIDs and use something easier to read/understand/copy instead, even if that means you might have to update lots of references as well.
+What you can do, is using some fixed length identifier. For example, you could use 4 alphanumeric characters to identify everything. This also has the added advantage, that you'll be able to easily cast the ID (string) to an integer (just keep byte order differences in mind) and compare it the fast way.
+Using IDs or GUIDs won't necessarily be easier to use or replace. Just remember that you'll have to copy and use those as well. Especially GUIDs are typically rather long and hard to remember without copypasting. Same can be true for raw numbers of some kind.
+If your data gets too complex to easily update/check, write tools to do it for you (and to verify integrity as well) or rethink your approach.
+As such, "talking" names are probably the best approach, even if this involves some more writing or replacing.

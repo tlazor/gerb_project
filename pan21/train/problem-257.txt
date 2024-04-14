@@ -1,0 +1,8 @@
+So that's more than one, but that's fine, we need to finish our analysis to make appropriate decisions on what to do next. Let's look at simple_a1:
+So we're going to look at all your code top-to-bottom and determine what responsibilities we have in each method.
+Perfect, so this has one responsibility. It's not the prettiest, but it will do. Next we have to implement this in our other method:
+This does exactly one thing: prompt the user for a number and store it in the array. We won't store it in the array in our sub-method, but we'll extract the prompting out. Let's create a new method:
+Let's talk about SRP for the moment (I'm not going to cover anything else but this). SRP (or Single-Responsibility Principle) dictates that each and every component of code should have exactly one responsibility.
+What happens when we're not going back to the main menu again from either of those methods? Now you have multiple places that you have to modify, and in a larger, production application that would mean very possible breakages.
+So we're down to one responsibility: process an array. It's made up of steps, but the implementation for those steps is not part of simple_a1.
+We've got all our major components separated, and we can clearly see what each section is supposed to do.

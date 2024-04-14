@@ -1,0 +1,5 @@
+I am not able to SSH to Raspberry Pi 3 from Putty. I can ping the 192.168.137.1 IP address assigned by sharing Internet connection. Note: I do not have HDMI monitor so need to access remotely only. 
+If you use Windows the boot partition will be mounted as soon as you plug in the SD card. Open any editor you are familiar with on Windows and create a file called 'ssh' and save it.
+The problem I realized that SSH is not enabled by default in Pi3 and saw the posts which suggest to enable SSH by creating 'ssh' file inside /boot folder. I got the SD card which has pre-installed Noobs so when I open SD card it shows only /recovery folder. How to enable SSH in this case ? Please help to resolve it .
+Even if i get monitor which supports HDMI, it seems i need to edit the display settings to adjust the screen resoltuion to 1920 *1080 by changing /boot/config.txt file. But i can not see boot folder in SD card. Please help to resolve this.
+If you can somehow get the display up and running, you can enable SSH from raspi-config. For me the 'ssh' file in /boot partition didn't work. But I'll give you a walkthrough anyway, since I saw some false info in your post.

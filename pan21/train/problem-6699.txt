@@ -1,0 +1,8 @@
+Another Caveat: This script assumes that the monitors are arranged horizontally with the left display being #1. If they are in a different arrangement (e.g. already in a vertical arrangement) then weirdness will likely ensue!
+I  work in an open space office type with external monitors at every single work space. I don't have a set work space, so everytime I connect to a new external monitor screen I get the default open of two screens next to each other. I exclusively work in a mode where the two screens are on top of each other in the arrangement window. 
+Caveat: This may not work depending on the Script Execution settings on the machine, if you run into that you need to run the script with the appropriate setting enabled:
+Then create another script to run the above like so (the numbers are the width and height respectively of your second screen, and obviously you'll need to update the path to wherever you put the first script!):
+I know that it is only about 3 clicks if done regularly but it gets annoying if it occurs every single day. 
+Is there any way that I can automate the arrangement in Windows 10, e.g. if I connect a new monitor to run a quick batch command to set the arrangement? 
+Then you just need to run the second script and it should stack the screens for you with the primary being on the bottom.
+You can do this with PowerShell. First create a Powershell script called "MoveScreens.ps1" and copy and paste the following code in:

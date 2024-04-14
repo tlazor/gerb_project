@@ -1,0 +1,7 @@
+However my limited experience suggests this was a little out of date in terms of file locations. On the client, you need a file like so:
+Nodes are always centrally defined, either in your manifests or an external node classifier (or both).
+Again the second link alludes to the fact you can do a "case" statement of sorts to then pick and choose which modules/manifests are used. So i can apply a base set of rules to most machines, then some custom ones for certain types, without touching the server manifests.
+On the server (puppetmaster) if you follow the files in the second link provided then the .rb works fine, but the location is wrong (I'm using v3.x). Try moving it to:
+I'm pretty optimistic this give me what I want and I can keep the manifests free of server names, which are legacy and growing continually.
+Sounds like you might just need some better organization to your node manifests.  Maybe some node inheritance for your system "roles" to reduce duplication every time you make a new node, as well as some good regex node names that cover sets of system names (as in, you might not be able to cover every webserver_type2 with one regex, but put one in place that covers the naming convention you're using for new nodes).
+I guess you could put together an ENC that allows clients to specify their role.. but why are you wanting to touch each computer to configure it locally?

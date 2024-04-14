@@ -1,0 +1,7 @@
+It depends on which memcache binding you are using. But you could put something like this in your wsgi.py
+We're basically at a loss for diagnosing this issue. We're approaching the point of "install Redis" and hope it works better.
+The issue with django and memcached is that it makes a connection each request. So part of that time is connection setup time.
+So far my research indicates that 10ms is "slow". By this I mean the memcache docs themselves refer to sub-1ms times as being 'expected'. So the response times we're seeing are an order of magnitude slower.
+Try either putting the FQDN in the clients and servers' /etc/hosts and restart so that nothing gets cached, or change the reference to be IP address based, and see if you don't see an improvement.
+I found that write is lighting fast, single reads are crazy slow, but buffered reads are very very fast.  You need to do a buffered read with get_many, passing in an array of the keys that you want to retrieve.  Here is my test:
+First thing that comes to mind is: are you using a FQDN/DNS to initiate a connection to your memcache server or are you using an IP address or local socket?

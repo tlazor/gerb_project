@@ -1,0 +1,10 @@
+When we were seeing the weird "disconnect after 10 minutes" issue, the security policy was set to only allow inbound UDP on port 500 (whitelisted to the  peer).
+The problem is that after a short amount of time, say ~10 minutes, we are no longer reachable from the telco's perspective.
+From their perspective, they want to whitelist a single static IP of ours for all application traffic (http). So any connections we initiate to them must appear as if it came from our static IP, no matter what the rest of our internal networking architecture may look like. So we use NAT to satisfy this requirement.
+The interesting bit is that if we ping the telco's subnet from our side, then incoming traffic, including http, works again for another ~10 minutes, before dropping.
+Anyway, we can successfully establish both an IKEv1 connection as well as an ESP connection with them, and both ICMP and TCP traffic can flow in both directions. We can ping them, they can ping us, and inbound http traffic to our application server also works.
+To me, this means our AWS security policy is configured properly, our firewall rules are sane, our VPN settings match up, and routing our subnets is working too.
+We changed the policy to allow all inbound traffic (on all ports) from the  peer and the problem seems to have gone away.
+Using tcpdump on our end doesn't show anything informative either. Many entries that look like the below, along with typical ARP traffic, NTP, etc.
+Since the telco is large, and we are small, they have dictated all the required settings to us, and are unlikely to change anything on our behalf. Additionally, getting log files or more configuration information from them can be tedious.
+There doesn't seem to be anything informative in the log files either. The output of show log has many entries that look like this:

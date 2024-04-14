@@ -1,0 +1,5 @@
+Do not use e.printStackTrace, even when your IDE generates that code for you. It is wrong. You must report any exceptions to the calling method, or alternatively log them and provide a sensible fallback value. An empty string (like in your code) is not sensible.
+THe most striking issue I can see in your code is that you're severely limited in the size of files you can compute the hash on. This line of code is particularly jarring:
+The reason that the MessageDigest methods contain the update method, is to deal with larger files, and allow you to hash them in parts.
+Using a class with fields is overkill here. This should be a utility function, like the one provided by Apache Commons Digest.
+The advantage of the above code is that is plays much closer to the operating system. In theory, it should be the fastest possible way for a Java program to read the file, and it should never transfer the actual file content in to the Java memory space. It removes at least one data copy between the file represented in the OS on disk, and the copy in memory.

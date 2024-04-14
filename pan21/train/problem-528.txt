@@ -1,0 +1,5 @@
+The argument I've heard is that having ISA there in the middle prevents people from trying to hack away at your CAS server, but if your CAS server is setup well and especially if you utilize the SCW for Windows on the CAS server after all is setup and running then you really won't have any more security to be concerned about then if you had ISA in the middle.
+So my recommendations is to use a MIP (mapped IP) down to the CAS server for just those ports needed (80/443, etc.) for the roles.
+I had found that ISA in the mix just added another layer of complexity and actually introduced a little bit of slowness as well.
+I personally stopped using ISA a little after 2004 edition came out.  While the functionality and "ease" of the integration with MS products is a plus, an existing hardware firewall if configured correctly can be just as secure.
+Now...Dr. Shinder and others will disagree strongly and urge you to put an ISA box in, but what I find funny is that most people outside of "Windows Administrators" that are networking/firewall experts simply don't use them...that tells me something.

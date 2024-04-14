@@ -1,0 +1,10 @@
+In theory it would be possible to create multiple fake webcam devices on the hosts and then map each of those to a Docker container, though that would be a logistical nightmare (the test would need to control the cameras on the host, rather than talking to the containers), and v4l2loopback is limited to 8 devices in any case (again, theoretically I could recompile the driver to support more.)  
+As part of the testing, I want to send controlled audio and (preferably controlled) video into the Chrome running in Docker.  
+I've come across several posts where people have successfully got Docker containers to use webcam devices (including fake ones) on the host system, but that's a mapping to a single device on the host, and I want to be able to run multiple Docker containers (20+) on the same host, each with its own unique webcam device.  
+Does anyone know a way that I could control video into Chrome's capture device inside a Docker container, either using a fake capture device in userspace, or through some other means?
+The standard way to do this seems to be using the v4l2loopback driver, but that is a kernel module, and Docker uses the host's kernel and so cannot load its own modules inside containers.
+Chrome's --use-file-for-fake-audio-capture feature function only works if --use-fake-device-for-media-stream is also active, which will disable access to the system's microphone input.
+I need a way to emulate a webcam in such a way that it can be used in Chrome for a WebRTC video call, all inside a Docker container.
+I already have controllable audio input using a fake audio device, but using that means that I have a "real" microphone in Chrome, and can't use its fake device functionality to emulate video input.
+It seems that what I'm really looking for is some way to fake a webcam device in user space instead of kernel space.
+I am trying to control the input to a WebRTC web application running on Chrome, controlled by Selenium, inside a Docker container.  

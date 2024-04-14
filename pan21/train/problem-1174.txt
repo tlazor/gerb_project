@@ -1,0 +1,7 @@
+Remember that size often have a tipping point. ie What works for < 80M rows doesn't necessarily work for > 80M rows.
+If columns 4,5 or 6 are variable length (e.g. varchar) then updating new value can cause a lot of page splits, that definitely will make it slower.
+Also, I would look at changing the join to be an INNER JOIN instead of LEFT JOIN since you know for sure that all the records in originaltable exists in shelltable.
+I think what John M meant was that if there's a reasonable amount of distinct values in for example column1, you could first collect the distinct into a temp. table and then run the update separately for each of the values because doing the joining the tables in smaller parts is usually a lot faster.
+It might help a lot if you would have listed the indexes you have or the query plan. If the columns 4, 5 or 6 are indexed, that can slow the process down, and having a clustered index on columns 1, 2 and 3 should speed it up.
+What indexes do you have on each table? If you could have a unique clustered index, or a primary key, on column1, column2, and column3 for each table, that would be ideal since those are the columns you are joining on. Remember that each other index that contain the columns column4, column5 and/or column6 will have to be updated as well, which of course takes more time.
+Of course everything depends on several things, like data types, number of distinct values in the columns 1-3 etc.

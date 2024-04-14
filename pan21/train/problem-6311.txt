@@ -1,0 +1,6 @@
+OpenTK provides Vector3. If you're representing a model, you're going to need a few more definitions, including your definition of what a "triangle" is. Here's a rough guideline of some classes you'd need to define:
+A Vertex defines a single point in space, along with additional data required for rendering the mesh, such as texture coordinates, normal vector, and a vertex color.
+A Mesh or a Model defines what you'd think of as a full 3d object; it is a collection of faces. Instead of keeping a List of Triangles around, typically you keep an array of vertices, since in modern OpenGL, you would draw the mesh data by passing OpenGL a pointer to a vertex array. 
+A Face defines a collection of vertices that form a single polygon in space. Most of the time, the only polygon type you'd want to use is a Triangle. 
+Note that if you use a Vertex Buffer to render your mesh, after you've registered and populated the buffer with GL.BufferData or GL.BufferSubData you don't need to keep the array of vertices around.
+List is System.Collections.Generic.List, which is the standard resizing-array-backed vector class you'd see in Java ArrayList or STL vector. 

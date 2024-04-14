@@ -1,0 +1,7 @@
+Also your usage of ''.join(ADDED) is problematic: if you ever add more than one file every second in the folder you monitor, you will end up with a name that can't be matched againts anything:
+Lastly, try to separate computation from presentation. Make this a reusable function and move your prints outside of there, into a main part:
+Your check for existing file may help catch some overwrite errors, but what if the second filename also already exist? If you want to properly handle such cases, you should try in a loop with increasing attempts to write the new file.
+However, you never make use of the values of the dictionary anyway. So keep it simple and use sets instead. This even let you compute additions and suppressions ways more easily:
+Now, onto your real problem: this code repeats exactly the same instructions for each of your subfolders! This less than optimal. Instead, write a function that operate on the folder name. It would also be a good idea to list these destination folders automatically instead of hardcoding their names.
+Let's start with that as this is the least of this code problems. A dictionary comprehension is roughly like a list-comprehension (that you know of and use well) except:
+Instead you should loop over ADDED and check if the file names match either of the destination folder.

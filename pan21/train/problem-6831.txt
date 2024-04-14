@@ -1,0 +1,7 @@
+(Please note that due to the current meltdown/spectre panic the MS servers are quite overloaded and slow at the moment.)
+Even if you get all that to work you still will have to deal with the fact that all OTHER hardware in that NetBook won't have XP drivers, or only limited functionality in the drivers (like no WPA2 support for the Wifi) that are available.
+Alternatively you can download the ISO downloader tool from www.heidoc.net which gives you an easy interface to download any official MS ISO.
+Getting XP to find the internal harddisk, which isn't actually a harddisk but some kind of eMMC storage will require special XP storage drivers integrated into the XP image. (You can't side-load them via F6 and a floppy unless you have a USB floppy drive available. Changes are that this NetBook doesn't even support floppy drives at all.)
+Even if you can live with that: Your security patches will be years out of date and no modern, secure web-browser will run on the thing. And most modern Wifi networks require WPA2 as a minimum.
+Getting XP on that NetBook can only be done with an USB bootstick. The Acer recovery image isn't helpful as it is not a slipstream install that can be modified to supply a different image. It uses proprietary Acer software. Besides it doesn't provide any XP drivers.
+Win7 is still under full support (and will be for the whole of 2018) . If you have a valid key for it (should be one on that NetBook, possibly hidden beneath the battery) you can request an ISO download from the MS website. As easy as that.

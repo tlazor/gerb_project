@@ -1,0 +1,16 @@
+I had the idea to run a bunch of stability tests to try and isolate the faulty component(s), and I wanted some input on my results.
+The only thing working right now is the parted magic version of the ultimate boot cd.(Its a repair linux distro that runs live from ram)
+I did different cpu stresstests for different times. No problem (temerature ~60°C sometimes peaks at 65)
+I have 3 crashdumps from Windows wich I can not open. (visual studio says it cant open old crashdump files) [*] 3 dumps in the dropbox
+The best way to determine the cause of the blue screen is to analyze the .dmp file using WinDbg. The clearest steps I have seen are in Stu Mackellar's answer on stackoverflow.
+This, in combination with the fact that you can't run or install most other OSs you're attempting, tells me you definitely have a hardware error of some kind.  
+The odds of it being a "CPU error" are slim, as CPUs are one of the least likely components to malfunction; More likely a motherboard problem causing the CPU-related errors - but it's basically impossible to say for sure without replacing and testing components.
+It would be interesting to test the cpu with L2 cache disabled (and with the other core enabled again) but thats a whole different level.
+Regardless of where you start, you should begin troubleshooting the hardware, one component at a time.  e.g.: Drives, RAM, PSU, motherboard, CPU, in (basically) that order.
+I've been having problems with a blue-screening Laptop (BCCode 124), and I've been trying to track down whats causing it. (It bluescreened randomly after 5-30 minutes of running in win7). It worked in safe mode. I tried reinstalling Windows, which didn't work, so I tried to install various Linux systems which also didn't work.
+The laptop is a Lenovo B570. Here are the detailed system specs (the ram is a 4GB kingston now) [*] the hardinfo file in the dropbox
+Every linux system I try to install crashes when I try to install it. (It either freezes with no error (rarely happens) or I get something like this shortly after I tell it to install (tried about 20 different distros): [*] 3 photos in the dropbox
+I just came here to say that ive managed to get linux running with the startparameter maxcores=1 (its a 2 core cpu).
+Trying to isntall windows 7 just gives a generic "there was a problem" / "an error has occured" screen with no further information.
+Edit: im not allowed to post more than 2 links here so here the dropboxfolder with all the things I mentioned:
+So if someone has this error and doesnt feel like repairing hardware/buying new, get linux on it. Install with that parameter and add this parameter to the grub default parameters.

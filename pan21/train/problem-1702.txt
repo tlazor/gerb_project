@@ -1,0 +1,9 @@
+Also, depending on whether you're using a 32 bit (x86) or 64 bit (x64) version of Windows 7 you will need to find 32 bit or 64 bit drivers.
+Most laptops should work with windows 7 provides that you have the vista driver with the correct bitness (I.e. 32 or 64 bit)
+Drivers are what affect compatibility. You will need to make sure you have Windows 7 drivers for all the components that require drivers. Windows 7 has very good driver support but you may need to obtain Windows 7 drivers directly from the PC maker (Dell in this case) or from manufacturers of the internal components. As @Sim has also pointed out, you may be able to use Vista drivers if you cannot find Windows 7 drivers.
+What are the reasons for this incompatibility?Specifically incompatible in WLAN Card. What can I do to make it compatible.?
+Is it possible that a laptop or a computer isn't compatible with windows 7 even if it has 2Gb of memory and a decent 2Ghz intel processor and the hard drive has 200Gb free space?
+You should still be able to install it, you just won't be able to use said piece of equipment without the correct driver.
+It is not the hardware specs that are causing the problem. Just because a computer/laptop meets certain hardware requirements does not mean it will support an operating system.
+We don't know why <unknown WLAN card> doesn't work with Windows 7. Probably drivers. See if the manufacturer has an updated driver for it.
+just provide the vista driver if you are asked. If it happens that you so not see the dialog asking for the drivers then go to device manager . Right click my computer / properties / you should see device manager.

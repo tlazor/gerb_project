@@ -1,0 +1,7 @@
+But how do I know what the timezone Linux OS is running on?  What does cron and other daemons base their timezone off of?
+No, this is not correct. date, ls, and just about all other software don't just revert to UTC when TZ is unset, they use the defaul timezone. On Linux, the default timezone is set in the file /etc/localtime. There's little point looking into the file, it's a binary file in tzfileformat. It is either a symlink to or a copy of one of the files under /usr/share/zoneinfo; these are the rules for different timezones.
+Cron, unfortunately, is something of a special case: There are several implementations, which handle timezones differently. "Vixie cron", which is the usual cron on Linux, just always uses the default time zone. Some crons (e.g. on BSD) allow you to switch the time zone in the crontab. Whether this is an improvement is debatable...
+If /etc/localtime is a symlink, just see where it points. If it's a file, it's best to use your distro's tools to find out. Under Debian, use
+However, if TZ=America/Los_Angeles, or America/Chicago, then I know what the LOCAL timezone is set to.
+The BIOS date and the system's date can happen to be out of sync. When it comes to TZ, it is usual to set the BIOS time to UTC and let the system's date adjust its TZ, but some people prefer to set the BIOS time to their local time.
+It's based off of the contents of /etc/localtime, which comes from one of the files in /usr/share/zoneinfo and can be changed with tzselect or system-config-date.

@@ -1,0 +1,10 @@
+You're right, if you don't take any measures this could happen. It's a violation of the acceptable use policy of most IXP's I know, but still you want to prevent it from happening.
+Now for security I wonder if other participants could not simply route all their outgoing traffic through me? For example what happens if any other participant would point a default route to my IXP ip. If I understand correctly all outgoing traffic from that participant would then go to my router which would route it to the internet using my transit uplink, right?
+On all the hardware router platforms I know this problem is solved in configuration by configuring RPF on the outbound interface and/or by writing filters.
+Your first solution is a good thing to do and will solve your problem. Just make sure you don't keep track of session state in iptables, that will probably kill performance or even your router.
+If you're running Quagga on a Linux box, you can enable RPF by setting kernel parameter net.ipv4.conf.default.rp_filter to 1 or 2.
+Am I on the right track? Why is 2. not implemented in Quagga directly? How do hardware routers (cisco, juniper, ..) deal with this problem?
+I wouldn't implement the second solution. It's complicated and doesn't scale well if you have multiple routers handling your transits and peerings or if you have a large number of peering sessions (a couple of hunderds on an IXP isn't that uncommon).
+Please see this page for more details: http://www.slashroot.in/linux-kernel-rpfilter-settings-reverse-path-filtering
+I have a quagga router with two transit neighbors and announcing my own IP space. I recently joined a public peering exchange (IXP) and so I'm part of their local network (/24), together with all other participants. So far everything works fine.
+You could consider to do outbound filtering as well in a similar way: do not allow packets to leave your network originating from unknown sources. This will prevent prevent hosts in your network from sending spoofed IP packets, which are commonly used in DDoS attacks.

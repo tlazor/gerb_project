@@ -1,0 +1,5 @@
+What I wanted to do is to create a mirror of one machine's disk on a failover machine so that, in the event the primary machine failed, I would just reboot the failover, select a different root partition and be ready to go.
+Is NBD unstable?  Could RAID decide to disconnect the local partition and run off the nbd partition at the same moment that the network fails in some way?  Is this just the wrong way to go about it?
+The problem I ran into is that, about once a week, the primary machine seems to completely freeze up.  You can't ssh into it, the console won't respond and, after rebooting the machine, the log entries just stop at a certain time and nothing in the log that indicates an error.
+I disconnected the NBD partition and ran everything with just the local disk in the RAID array and it's run for a month without any problems.
+I wrote some scripts to automatically start everything up, configured grub on the failover so that it has the right options to allow you to boot from either a small mirroring partition or the failover partition.  I tested it and it works.

@@ -1,0 +1,6 @@
+Some computers, however, can be configured to (for example) leave the network card powered up when in S4 but turn it off when in S5.  In that scenario, power consumption will be higher in S4 than in S5.
+It uses no power, I've numerous times put my computer into hibernate brought it to a friends house and start up as if I never unplugged it.
+They have to be different sleep states because the transition rules are different (what happens when you hit a key or press the power button). So even if the power consumption was precisely the same, they'd still have to be different sleep states. The documentation for S4 says, "The system consumes the least power compared to all other sleep states."
+On some computers, S4 and S5 will use the same amount of power.  I believe this is the more common scenario.  
+According to my knowledge, Hibernate saves your work to a file on your HDD and then turns off your PC as shutdown would do.
+I rarely shutdown  my pc (only on occasions when i actually have to reboot in order to load some new files or when windows is acting crazy)

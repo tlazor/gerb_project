@@ -1,0 +1,7 @@
+Once the replication takes place, you have the same information in any of the DC. Usually replication times are about minutes, but in some cases it is only set to 1 or 2 times per day.
+Would the filter queries I write for searching users across geographic locations work if I run them on the root AD server ?. The query I use is
+In AD you can configure the replication of data changes between servers, so if a user change some attribute in Australia, and you query for some data against the server in NY maybe you will get different answers. The domain administrator can tell you about time replication in the domain.
+The AD is distributed and multimaster database, in general terms you can query any of the Domain Controllers about a user and get the same answer in any of the DC (nodes).
+As long as you're querying domain controllers of the same domain, you will get the same answer to the same query from any one of them (aside from replication issues).
+I have written some code to fetch user information from an Active Directory Server. Suppose the Active Directory Server has nodes, each of which is another Active Directory Installation in a different geographic location. Eg: one AD server in US and another in Australia with a root AD Server in US with the former two as nodes.
+But if you have multiple domains, or if you want to query specific subtrees (OUs) of a given domain, you will get different answers.

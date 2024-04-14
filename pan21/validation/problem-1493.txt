@@ -1,0 +1,6 @@
+First, check what software exists on that server. Did the software require any special accounts? Are you sure they were recently added?
+I have a Windows 2008 R2 Standard (64 bit) running in a virtual machine.  Suddenly from yesterday onwards I am not able to login as administrator.  Nobody changed the password.  Both in the console as well as using remote desktop I am unable to login.  Whenever I login as Administrator I am getting this error:
+Nothing has changed in the machine and I have logged in the past successfully both through console and via remote desktop several time on the same machine. 
+If not, second, do not hesitate to disconnect that server from the internet ASAP. Get Microsoft Security Essentials or other AV product on there, do a scan. Check for installed software, check running processes and services.
+One strange behaviour I noticed is, I am seeing some additional user accounts if I try to login as other user.  The suspicious user account are:
+Is it created by some malware/virus?  Or is it some windows hidden account?  Microsoft site says that SUPPORT_388945a0 is:

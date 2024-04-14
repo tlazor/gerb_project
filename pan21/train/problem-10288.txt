@@ -1,0 +1,12 @@
+(I am reproducing here a blog post, Hindsight, from a couple of years ago, as suggested in the comments.)
+In a lecture by Madhu Sudan* he claimed there was some belief that there exists $s > 1/2$ such that $\text{PCP}_{1,s}[ \log n, 3] \subseteq \text{P}$, via semidefinite programming, prior to the proof of Håstad's three bit PCP theorem. 
+Indeed SDP does show $\text{PCP}_{1,1/2}[ \log n, 3] = \text{P}$, giving a tight bound on the complexity of such PCPs.
+This was disproven in 2014, by Allan Grønlund and Seth Pettie, who gave a deterministic algorithm that runs in $O(n^2/(\log n/\log \log n)^{2/3})$ time [1].
+The $\mathsf{3SUM}$-conjecture: That any deterministic algorithm for $\mathsf{3SUM}$ requires $\Omega(n^2)$ time.
+From Georg Kreisel's review of The decision problem for exponential diophantine equations, by Martin Davis, Hilary Putnam, and Julia Robinson, Ann. of Math. (2), 74 (3), (1961), 425–436. MR0133227 (24 #A3061).
+$\mathsf{NL} \neq \mathsf{coNL}$. Prior to the result that these two were equal, I think it was widely believed that they were distinct, by analogy with the belief that $\mathsf{NP} \neq \mathsf{coNP}$ (i.e. the general principle that "nondeterministism and co-nondeterminism are different"; this turned out to be false under space complexity bounds that were at least logarithmic).
+Of course, my favorite quote in relation to the tenth problem is from the Foreword by Martin Davis to Yuri Matiyasevich’s Hilbert’s tenth problem.
+(*I found this lecture of Madhu published in "Computational Complexity Theory edited by Rudich/Wigderson")
+[1] Threesomes, Degenerates, and Love Triangles. Allan Grønlund and Seth Pettie. In Foundations of Computer Science (FOCS) 2014, pp. 621-630. arXiv:1404.0799 [cs.DS]
+The solution of Hilbert's tenth problem by Davis, Matiyasevich, Putnam, and Robinson, showing that the recursively enumerable sets are precisely the Diophantine sets. 
+Prior to $\mathsf{IP} = \mathsf{PSPACE}$, it was thought possible that even $\mathsf{coNP}$ wasn't contained in $\mathsf{IP}$: in Fortnow-Sipser 1988 they conjectured this to be the case and gave an oracle relative to which it was true.

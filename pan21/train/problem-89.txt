@@ -1,0 +1,9 @@
+The password can be reset to default if needed, but you'll need to contact Promise technical support, you'll need a confuser file that can be installed from a lower level.
+2) RJ11 to Serial Connector (normally you have to prepare it yourself http://www.amazon.com/InstallerParts-Female-Modular-Adapter-Ivory/dp/B008NCDN3I
+I have been assigned an E610F Vtrak Storage unit, the previous admin left and did not leave any documentation, so IP Address for Management and Credentials are unknown.
+From the screenshot you do not have a proper serial cable. Other vendors have cables that look like the Promise cable, but are wired differently.
+Also, the default IP for a VTrak is 10.0.0.1, if this was not changed you may be able to login to WebPAM via the ethernet port. The default 'login/password' is 'administrator/password'.
+Does anyone have an idea on what i can do to regain access? I think our support has ended long ago and I need to use this storage as instructed.
+I get the Cli Promprt but I cannot see the boot messages, cannot input commands and cannot see the login prompt.
+i am also configuring Vtrack e610f, first issue i couldn't find out any cable than i went to promise support and they sent me a diagram how to prepare this cable. 
+I need a help from rich, how i can get Confuser.img files without promise technical support, since my warranty is finished. 

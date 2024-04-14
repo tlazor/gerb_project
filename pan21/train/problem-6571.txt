@@ -1,0 +1,6 @@
+As for who to give it to, there are few people for whom such outdated hardware would be useful enough to deal with its limits. Perhaps just put it on ebay or craigslist for free.
+But you can first start Linux via Live CD and run something like dd if=/dev/random of=/dev/sda to wipe the HD.
+Here's a list of very small (and therefore probably low on RAM usage) Linux distros. Damn Small Linux is probably best for you since it is designed to use a GUI and be extensible via APT.
+A "boot and nuke" CD is the way to go, something like http://www.dban.org/ should do the trick. This will allow you to securely and easily wipe the hard drive.
+You will have to look at older versions of lightweight distros such as Damn Small Linux or Puppy Linux or other versions that run XFCE as the GUI.  They can run on 64mb.  More of the current versions require atleast 128mb.
+I've donated my obsolete machines to Goodwill.  They have an agreement with Dell where the machines are recycled.  You could also look for local charities that might have a need for computers, or perhaps your local library.

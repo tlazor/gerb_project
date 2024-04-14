@@ -1,0 +1,6 @@
+Remap Left-Shift / Caps-Lock / ` / etc. to Enter, using whatever method you like. That way, you aren’t messing up a key/combo that you actually use; instead you just “create” a new Enter key that is closer to your left hand.
+Better option: Download Context Menu Search, which searches for selected text using the context menu (right-click).
+You can always do an AHK remapping, which isn't really an elegant solution, but will get you your shortcut with the least amount of effort:
+I assume you mean searching in Google. Given the fact that you right-click the address bar, you already use your mouse and used Ctrl-C to copy a text that you again selected with your mouse before. 
+I created a Chrome Extension that does this without you even having to click on the address bar! You just click Ctrl/Cmd + Shift + E to search for whatever text you had copied to your clipboard. Hope this helps! https://chrome.google.com/webstore/detail/pastequery/dglpgijbinajkdnmplaegaofkgjmfdbg
+This means you switch from mouse (selecting) to keyboard (copying) to mouse (right-clicking) to keyboard (pasting and enter).

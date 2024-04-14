@@ -1,0 +1,6 @@
+If your site is purely static, or at least is somewhat useful when setup read-only.  Then you temporarily pay for some web-hosting, and then use something like wget, or similar tools to spider the static portion of your web site.
+Have a second server take the load, using a load-balancer or just by re-pointing the IP for the duration of the update. In fact, if you use a load-balancer, you can then leave both servers up afterwards.
+You could setup a proxy in the cloud, setup squid as a proxy to your site, adjust DNS temporarily so all access goes through the proxy, then configure Squid to operate in offline mode, after you have everything cached.  You would probably want to script something that would have a browser visit all the important pages via the proxy, so everything gets into the cache.
+This is assuming the site isn't database-dependent. So, given the limited set of facts you gave us, this is my simple answer.
+If you don't want any downtime, then really the only option is to build your new install on separate hardware and when you're happy that it's all working correctly, alter your DNS settings to point to the new server.
+If you don't have another physical server, you might consider running your app on a cloud server while you do the upgrade of your physical server.

@@ -1,0 +1,8 @@
+Use run deck. Run deck is a server which allows you to execute commands on hundreds of machines simultaneously. You can group machines into groups, in order to execute commands on just a subset of machines. 
+It contains a sample script for changing passwords that you can use as a base. As it seems that you have an heterogeneous environment you would like to group the hosts by type and use a different dialogue handling sub for every one.
+After reading many manpages and lots of Google-fu, I managed to come up with a script that loops through a list of target servers, opens an SSH connection, and runs one of the following:
+First and foremost, this is a really annoying task to automate, especially across many different environments. The most correct answer to this question is probably @tomi's: use Puppet.
+If you can write Perl, the module Net::OpenSSH::Parallel allows to write scripts that perform actions in parallel on remote hosts via SSH quite easyly.
+Another approach - automate execution using SSH libs either sequentially or in parallel using Fabric http://docs.fabfile.org/en/1.6/, Capistrano  or similar that do not require much time/effort to deploy.
+Eventually I hope to get Puppet to manage out infrastructure, but deploying to the entire enterprise's UNIX servers for a root password change right now isn't that feasible of an option.
+I couldn't find any simple way to non-iteratively change the password on Solaris - so we resorted to modifying /etc/shadow on the fly.

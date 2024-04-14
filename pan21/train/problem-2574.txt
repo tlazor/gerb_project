@@ -1,0 +1,5 @@
+Also if you type updatedb as root it will update the locate database of files that are in the various path trees of installed packages. Binaries, man pages and Source trees. Searching with whereis or locate is much faster than doing the actual disk search each time.
+Rather than using move which is a Blunt tool, check out rsync which can shift directory trees in archive mode which preserves permissions and both soft & hard symbolic links.  
+Thus you cannot use mv to move a directory. You may however, first copy it then erase the old copy.This command
+provided you have the authority to do so: in fact, the error message above is about your having insufficient proivileges to create a new file (it should have been a folder, but became a file because of the error above). Are you sure the new  /Backup/dir1 belongs to you? You should check that, and fix it. 
+will store the relative path to the directory you are interested in, in a convenient variable. Now we can make the directory in the new position,

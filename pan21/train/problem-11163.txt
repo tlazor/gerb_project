@@ -1,0 +1,9 @@
+So, after I load a mesh data (say from an OBJ file), first I prepare the "first copy" and then using "vertex indices" I prepare the "second copy".
+(For example: If my mesh is a simple cube ,my "first copy" will have 8 vertices,and use Vertex Indices to render it properly.But my "second copy" will have total 36 vertices.Because  I have to do ray-casting on triangles)
+When doing tests like collision detection , I make a temporary copy of vertices again,by multiplying  "verticesForPhysics" by "transformationMatrix" giving the vertices in World coordinates.
+I keep a transformation matrix inside the "3DEntity" to keep states like Position,Rotation..etc of my "3d Entity".
+I was thinking  how to do collision detection in my OpenGL application and came to conclusion that I should keep two copies of my geometry data.
+2)Second copy :I save in client side(in a class ,say 3DEntity) which I perform all tests including bounding-box collision test,ray casting,
+1)First copy : Only for OpenGL rendering purposes.This can be saved as VBO,Vertex Indices.(saved in GPU?)
+I keep the "verticesForPhysics" values fixed.(Means, its always in  model coordinate system).So When I want to move,rotate my entity I simply change "transformationMatrix".
+I am worried about data redundancy by keeping two copies and making another temporary copy for collision detection tests

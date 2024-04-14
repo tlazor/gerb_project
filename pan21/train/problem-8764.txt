@@ -1,0 +1,8 @@
+I am in the middle of frantically reading KB articles and doing other searches.  I'm seeking help from the community from anyone that has been in a similar situation and needs the quickest way to an operational solution.
+http://www.msexchange.org/articles_tutorials/exchange-server-2003/high-availability-recovery/generating-active-directory-accounts-part2.html
+It sounds like you didn't use the same Exchange Organization name as was in use in your "lost" AD forest when you installed Exchange into the new Active Directory. You will need to remove Exchange from that forest and re-install a new Organization using the name "XXX" for the Organization name (see http://technet.microsoft.com/en-us/library/bb217956.aspx).
+To make this answer less of a "gloss", here's some help re: removing the Exchange Organization, too: http://technet.microsoft.com/en-us/library/bb217956.aspx
+We lost our domain controller and had to rebuild AD from scratch and reinstall Exchange.  I am now trying to mount or Exchange database from backup and the error I receive is:
+Then just finish rebuilding your AD, adding your accounts, new mailboxes, exmerge the data from the recovery group, and exmerge it back into the new store?
+I know that the two are different.  However, it seems draconian that I cannot mount an EDB file and migrate data.
+Event ID 1088 - The information store could not be loaded because the distinguished name "XXXX" does not match the DN of directory "YYYY"

@@ -1,0 +1,6 @@
+I recently purchased the Samsung SSD 850 EVO 250GB to replace my (rapidly filling) 64GB OCZ Vertex 2. The drive installation went very smoothly - I was extremely happy with that.
+So, now I'm confused. Obviously the benchmarks are not as good as SATA III should provide, so that leads me to believe I am only connected to SATA II. But, all other indications (including the documentation from the motherboard) point to SATA III. (I also did some research to make sure the cable wouldn't have any effect - it appears that that doesn't matter.)
+You can reliably identify the SATA generation of the port your hard drive is connected to by either:
+When I had built my computer ~1 year ago, the motherboard had at least 2 SATA III ports. So, at this, I was a little confused. So, I went over and downloaded HWiNFO64, and ran that. After its analysis, it told me:
+So, I quickly ran the performance test to see if what it was saying appeared to be true, and I received back these results (which appear to be SATA II speeds):
+However, after I started my computer back up, I fired up Samsung's Magician software to just check out what was available for my new drive. When I loaded that up, I noticed this information on my screen.

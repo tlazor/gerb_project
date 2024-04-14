@@ -1,0 +1,7 @@
+So, if you want faster RAID, get a card. There is no purpose on putting a hardware RAID card on top of MDADM.
+The referenced document outlines a method of using a general purpose GPU accelerator to increase the performance of RAID systems, by using it to carry out parity calculations.
+If a driver was written for MD that could use OpenCL / CUDA, then it could potentially increase the performance of software RAID by an order of magnitude.
+If you're thinking "hardware acceleration", you're thinking hardware RAID with a suitable controller w/battery-backed flash.
+MDADM is considered something to be used if you either can't afford to have a RAID controller that suits your needs (or has enough channels, for example) or you can't feasibly stuff one in the box itself which is the case with say, your average desktop. Yes, desktops can have hardware RAID too, but MDADM is designed for retro-fitting RAID on hardware without support otherwise.
+http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=4536322&url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F4519061%2F4536075%2F04536322.pdf%3Farnumber%3D4536322
+Sorry, are you really asking if there's a hardware version of software RAID? well...yes, it's called hardware RAID.

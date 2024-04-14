@@ -1,0 +1,9 @@
+i saw this kind of problem and i change the format of flashdrive ntfs to fat or fat32 and this solve the problem i hope it works ;)
+What that command is basically doing is creating a new empty folder, then mounting the USB sticks filing system to in - however, it makes alot of assumptions, the main one being that /dev/sda1 is your usb stick.
+I tried a little searching first before I came to ask in here. And I found this code, but I don't understand it.
+If it hasn't, it is possible that the drive is either damaged or not properly connected. If it has found it, I will step aside so someone with more *nix experience can help you!
+Ubuntu should automatically mount your USB stick into a usable "drive" visible from Computer. If it isn't, I recommend you go to Terminal and type lsusb which should tell you if the computer has detected your USB stick.
+The code that you found describes how to mount flash drive manually. You must replace sda1 with the proper device name for your flash drive. One of the ways to find this name is to run the following command in the console:
+-t basically tells the mount command what filing system the device uses - vfat is the filing system it will use.
+You will see a bunch of messages about the drive being found. There will be info about device name in one of the messages - it will be something like: sdb1, sdc2, sdd4 or similar.
+Your usb flash drive should mount automatically. It is usually mounted in /media/XXXX directory, where XXX is the label of your flash drive.

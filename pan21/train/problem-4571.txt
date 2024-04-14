@@ -1,0 +1,5 @@
+Since this is achieved by javascript, there's probably no native Firefox setting that would prevent this (please correct me if I'm wrong). However, as others have pointed out, there are multiple browser extensions which can be used to stop this behaviour.
+If your don't like this kind of sneaky tracking either, you can get rid of it with a browser extension such as Privacy Badger. But well, you're still using Google's browser...
+In the most recent versions of Chrome (at least as far back as late 2018), you shouldn't be seeing this behaviour anymore. Google has replaced the modified URLs with the "ping" attribute - essentially the same tracking, but more user friendly.
+In Firefox, and probably all other non-Chromium browsers, you still get the modified links as described in the question. Now, the problem here is that they're created via client-side javascript triggered by onmousedown event.
+Note: I am not affiliated with Privacy Badger or the EFF in any way, except as a user of the browser extension.

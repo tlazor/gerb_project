@@ -1,0 +1,6 @@
+There is no "standard" answer or even a reasonable range to give you without you providing any details. Depending upon where your server falls into the many ranges below, your mileage will vary.
+If you would like some help, please post some level of detail or there is nothing useful we can give you. If not the answer is 42.
+The webserver could be anything from an old PC that has been re-tasked after being handed down a couple of time because "LINUX will still run on it". All the way up to a 64 way top end box with many GB of RAM, or anywhere in between.
+The next piece is what are the connections doing? Grabbing a static text file or image, or running a query on a large db parsing through millions of records with a sql query of who knows what level of tuning.
+From your post this could be just a WWW server, running any number of flavors and versions from Apache, IIS, .... or it could also be doing the application and DB work all on the same box of undetermined size.
+I've got a site running that is handling somewhere north of 600 concurrent HTTP connections without undue effort.

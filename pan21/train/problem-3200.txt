@@ -1,0 +1,8 @@
+This would be the manual way to install and avoiding downloading the updates multiple times.  If you would like a more automated centralized method, check out JohnT's answer.
+3 - Update one machine fully, then use an imaging solution such as Clonezilla to take a fresh image, and apply it to all machines.
+mclone works like this, You setup the ISO to boot into an mclone server mode and set all of the other pcs to boot into the mclone client mode. Once all of the other PCs have established a link (not really a connection as mclone is UDP centric), start it up on the server and all of the computers will get an exact image of the first one. Very easy to do and VERY fast (uses my entire network speed... which at gigabit is really really fast)
+1 - Configure a WSUS Server which can download all the updates once then apply them to all your machines.
+If this will be a domain environment, you may want to look into Microsoft's System Center Configuration Manager (SCCM) which integrates a whole bunch of Microsoft products into one, including WSUS.
+Slightly late to the party but AutoPatcher it downloads updates from Microsoft's servers to a local disk such as a USB key and that can be transferred from computer to computer to install the updates.
+Then you can just put that on your network file share area and install from that on all your machines.
+2 - Use WSUS Offline Update to create an update binary and run it on all machines via startup script or method of your choice.

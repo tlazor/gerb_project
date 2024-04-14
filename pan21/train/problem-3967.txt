@@ -1,0 +1,5 @@
+On the server open the /etc/ocserv/ocserv.conf file (default configuration file) the file begins with a lot of explanation about alternative authentication methods. To enable Certification based authentication method you can follow the instructions on vultr.com
+After latest upgrade, while trying to connect using nm-openconnect in NetworkManager I get the error "Server myserver.com requested Basic authentication which is disabled by default"
+Don't bother with the man ocserv's way of issuing client certificates. Just use easyrsa (as explained by vultr) and save yourself A LOT of hassle.
+Still not sure about this one. As specified in the manual of networkmanager-openconnect plugin, it's the plugin who is disabling basic auth by default. You have to pass some options to the plugin to enable the basic authentication. How can you make nm to do that? not sure. You'll get some idea from openconnect's mailing list
+Eventually you'll get a certificate file supported by NetworkManager, AnyConnect client (on Android, iOS, Windows) and ...

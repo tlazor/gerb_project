@@ -1,0 +1,5 @@
+The problem then starts if i want to have a machine on the 200 VLAN. So, i change my IP Config of the Desktop to...
+I've got a setup in my house as a test to try and figure this stuff out, but i've hit a bit of an end point. Here is a picture of my network setup.
+I now can't ping a thing, getting destination host unreachable across the board. So that leads me to think it isn't working!
+From my Desktop PC, i can ping 192.168.1.253 (dell) and 192.168.1.254 (cisco) and the gateway of the Desktop PC is 192.168.1.1 (virgin). If i was to change my gateway to 192.168.1.254 (cisco) then i can now ping 192.168.200.254 (VLAN 200) as well as the rest of the network. Which is great, so i know i can get across the subnet which is exactly what i'm after.
+So i have my internet provided by Virgin Media, which comes through into a 16 port unmanaged switch, our of that into a Desktop PC which uses DHCP to pick up an address from the Virgin router. I also have another cable going down to the garage which has a managed Dell Switch and a managed Cisco router.

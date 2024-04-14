@@ -1,0 +1,5 @@
+I'm working with a customer to resolve some issues with their network, and I have a hunch that their issues is that their firewall is just overwhelmed. However, I've never actually found any information on exactly what to look for to diagnose an overwhelmed firewall.
+They have larger firewalls scheduled to upgrade the older ones, but logistics have prevented this from happening just yet, so here I am.
+For more info and tips, check out this cheat-sheet of really useful PaloAlto commands to help troubleshooting an "overworked" firewall.
+Does anyone have any sources or just knowledge of what this looks like? The symptoms they are having is that their external clients are suffering from intermittent connectivity, the PAs are HA paired, but one of them is dead and a reboot of the firewall temporarily solves this issue. However, it's strange that only their external clients would suffer from this issue.
+show system resources is another useful command. Baseline performance during a time when you know the system is operating to spec, and compare to when your users are dropping. Here's Palo Alto's KB article on interpreting the output.

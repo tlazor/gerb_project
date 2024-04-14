@@ -1,0 +1,6 @@
+I can remember that HP ships some Windows Tools (including a registry edit) to prevent Windows from polling the SCSI bus (btw: the SCSI hostadapter is usually ID 7)
+Long story short - if your Arcvault is only running at 160, set the card at 160.  Also, what @Jamiko mentioned, swap your SCSI cable.  I've seen that cause problems as well.
+Have a look at http://support.overlandstorage.com/jive/entry.jspa?externalID=6561&categoryID=442 for more information about that.
+I had a problem like yours with LTO3 and the fix for me was to replace the SCSI cable. Just a thought.
+We had a problem like that a few years ago before switching to fibre channel.  We used close to the same card, an Adaptec 39320.  We'd get occasional SCSI errors and slow performance.  Our tape drive, an Overland Storage NEO2000 LTO3, was only running at U160.  After talking to a couple different techs, one of them said that he had seen in the past that it had an issue using the higher speed Adaptec card.  I restarted the computer, got into the SCSI card's configuration and set the speed down to 160.  All my problems went away.
+I had found that with BackupExec, under the General options, if you have the compression type set to "Hardware [if available, otherwise software]", the job will run much slower.

@@ -1,0 +1,14 @@
+You're not using any form of globalization. Intended? Adding a resourcebundle isn't much work and you'll finally be able to support Swahili.
+You can probably get away with naming your StringBuilder sb since it's quite a common naming scenario, although there's no harm in calling it stringBuilder.
+The Build prefix is typically only used in the Builder pattern, which you don't use here. GetOpeningHours() would be just fine since you're not actually building instances.
+I'm okay with you using 7 separate ints but at least spell their entire names. Nbdy lks abbrevs, yh?
+If you don't want to use multiple variables, may I suggest an array? Nothing fancy, just int[8] and fill it from 1 to 7. Then you can switch your switch to days[i]++. 
+No. No no no no no. We count from 0 to 2, and that is the order I expect the format to adhere. Don't introduce subtle bugs by switching them around.
+Return string.Empty instead of "". It tells whoever reads your code that you really did intend to return an empty string and it wasn't just a typo.
+Use the var keyword when defining local variables where the right hand side of the definition makes the type obvious. This looks cleaner and saves time when it comes to changing types during refactoring.
+Your code generates multiple <th> elements. I'm not sure if that's correct HTML (I couldn't find something that discourages it though).
+As Jeroen said, you should avoid shortened form variable names. Extra characters on a variable's name are free, and work wonders for a maintenance programmer down the line.
+I have no idea what a1 is. Give it a meaningful name. And make it an int if you're going to count with it.
+First a general remark: EWWW. You're creating HTML as a string and returning that to the client. That's not how we do it in a backend (at least, that what I assume I'm looking at). The proper approach would be to send data back (so in your case: an array of integers) and inject that clientside inside HTML.
+Your comments appear to explain what the code does. That is the job of the code itself. Instead, use your comments to explain why you made the code the way it is, for example any quirks you had to work around, deviations from the expected norm, etc.
+I personally prefer string over String because it is sexier but I understand if not everyone has seen the light yet. However, do keep the consistency and either stick to string or String but not a combination of both.

@@ -1,0 +1,12 @@
+Your first bullet point confuses me - we've got network shutdown installed on all our servers (Linux/Win2K3/Win2K8), and it's always a case of running the installer, pointing it at the management card's IP address and letting the server register itself with the UPS.
+Powerchute Network shutdown is fairly crappy. I've had mixed luck with it. Particularly galling is that you can't easily replicate the configuration between servers just by copying a file.
+If your servers are in a different, restricted subnet you'll either have to make sure that communication is possible to/from the default port on the card, or just manually register the server's IP with the management card and hope.  You're not trying to do a double-instance install or something, are you?
+Your observations re: the web interface on the card itself having to do only with notifications are correct. The shutdown functionality is in the software on the server computers.
+I totally agree with Evan Anderson's comments.  We use APCUPSD on all our Linux and Windows boxes as well.
+I've got 2 APC Smart UPS 3000's, one of which has the management card (AP9617).  They're both currently being used purely for battery backup, and since we've had repeated power issues in this building, I'd love to get some of the servers to shut down gracefully before the juice runs out.
+If you run with APCUPSD, then you can make it work in your DMZ - punch a port for the listener and you're all set.  APCUPSD uses UDP port 3551 by default; parameter is NISPORT and this is configurable as well.
+[edit] I should mention that my primary goal is to get the 2 production virtual servers set to shut down.  The DMZ virt server would be a stellar secondary goal.  Anyone else I can connect is tertiary (but would still be lovely).  Thanks in advance for any pointers!
+The media is long gone, and documentation seems a bit sketchy on the APC site (I imagine this guy's been long discontinued).  I'll see if I can break it down into some straightforward questions.
+I've been playing around with APCUPSd for Windows after running it on Linux and I've been very pleased. I don't have it production anywhere yet, but I hope to by end of summer. Have a look at it. It's a lot more "Unix-ey" as opposed to APC's ugly-assed Java software.
+Each of our APC's smart or USB cable connects to Linux box which in turns hosts a service for other servers to connect and listen too.
+You can also configure APCUPSD to send email alerts when switching to battery, shutdown, and self test results.

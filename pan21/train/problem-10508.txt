@@ -1,0 +1,6 @@
+In addition to the other answers: If you want to have fast, imperative solution in Haskell, the way to go would be the [ST monad]. You can use STArray or even STUArray (unboxed, which means it's strict and memory efficient - no thunks):
+It's somewhat more verbose, but separates the general properties of distributions (the Monoid instance) from the final computation, which then becomes trivial. Another advantage is that the newtype allows to hide the internal representation, which can be potentially replaced by something else, while keeping the interface intact.
+On the other side of the spectrum, a way how to look at the problem is how to construct the simplest histogram - from a single value, and then how to combine histograms together. A one-element histogram (represented as Map a Int) is singleton x 1 and they can be combined together by combining maps with unionWith (here generalized to arbitrary values that can be ordered):
+Since we don't have mutation in Haskell, you can often use a Map as a replacement for a dictionary in imperative languages (or arrays).
+This way you only iterate once through the list of pairs (number, 1) and sum the 1s of each different number.
+This returns a pure result, but works somewhat more efficiently than Map (which is otherwise the way to go in Haskell), at the expense of being more imperative.

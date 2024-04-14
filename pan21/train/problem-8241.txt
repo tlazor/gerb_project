@@ -1,0 +1,9 @@
+The old pathname (on the H: drive) may simply be specified in the .vbox file for the VM, which is just an XML file.  If so, you could save a copy of that file, edit the pathname to be the new pathname (the one on the N: drive), and see if it fixes the problem.
+I just went through this headache and there is a seemingly stupid solution. Too bad it took me a full day to get here.
+The final step, is simply delete the bank VM and Add your Old VM. Done... and yes, it's that stupid/simple.
+And then I simply created a new VM using the ft_full.vdi as its base. Matched the rest of the settings in the gui settings pane. 
+Crap seems I need to add an entry in the VirtualBox.xml under MediaRegistry->HardDisks, but I have to make sure to add each snapshot to it in chronological order after each copy. So its like this:
+If you take a look at VBoxManage.exe internalcommands dumphdinfo  you can see that each VDI has info about its parent. So, what I did is created a blank machine and added "broken"  Parent HD as a secondary drive. That placed it into Media Manager.
+Then, I added a SATA controller to the blank VM and added layer 3 snapshot. Click ok. Edit again and add layer 2 snapshot, click ok. Edit, add layer 1 snap shot.
+This makes them individual drives inside the VM, but inside Media Manager they are all attached to each other.
+Then I tried simply changing the paths in the vbox file to match the new location. That did not work as various different errors popped up and I wasn't even able to add the VM using the vbox file. 

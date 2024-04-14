@@ -1,0 +1,6 @@
+The security vulnerability comes with this: "If the wireless APs are configured as non-broadcast, each of the 500 Windows XP or Windows Server 2003-based laptops would periodically advertise the enterprise’s wireless network name, regardless of their location (in the office, at a wireless hotspot, or at home)." (Source)
+In newer version of KDE (4.6+, as far as I know), this bug is now gone. You can connect to a hidden network just using the plasma widget. If you're on an old version of KDE, upgrading is probably the best bet--there are some other new features that make it worth it.
+In short: it's easy to discover the SSID because as part of the standard, machines must broadcast the SSID in order to connect to it (so someone just has to listen for a machine that's already connected to reconnect)
+If you have control over the network, you should enable the SSID. This article @ Technet explains why it's actually a security vulnerability to hide the SSID.
+How can I connect to a hidden wireless network on Kubuntu? I have 9.10 64bit installed, and have the information for the network (e.g. SSID and key) because I've already connected to it on Windows.
+A new part of the standard states that machines may refuse to connect to a router not broadcasting SSID.

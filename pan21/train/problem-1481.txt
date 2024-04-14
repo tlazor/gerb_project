@@ -1,0 +1,5 @@
+Buffer local means there is a default value for the variable and every buffers can have a local binding. Changes to the variable in buffers without a local binding change the default value. Changes to the variable in buffers with a local binding affect only the local binding.
+So, using (setq TeX-PDF-mode t) or (TeX-PDF-mode t) in ~/.emacs should have no effect on yet to be created buffers. One has to use either (setq-default TeX-PDF-mode t), or better the provided function (TeX-global-PDF-mode t).
+There is a variable and a function with the same name: TeX-PDF-mode. One can either set the variable directly with (setq TeX-PDF-mode t) or use the function (TeX-PDF-mode t). But the variable is not only buffer local, but automatically buffer local.
+Automatically buffer local means that every change to the variable becomes automatically buffer local, if there wasn't already a local binding it gets created. There is no way to change the default value with setq, one has to use setq-default.
+I tried to use pdflatex with Auctex and (TeX-PDF-mode t) or (setq TeX-PDF-mode t) in my ~/.emacs didn't work, so here is what I found out:

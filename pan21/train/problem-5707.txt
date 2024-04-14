@@ -1,0 +1,5 @@
+On one of my domain controllers there are two network interfaces - an external with IPv4 and IPv6 addresses and an Internal with 10.x.x.x address.
+The domain controller has RRAS (VPN site-to-site with Azure), DNS and DHCP installed. It replicates with a second DC that is located in Azure VM.
+For some reason, the server automatically adds DNS entries for itself for all three IP addresses. If I delete the two public ones, after a while they are back. The network connection properties does not have "Register this connection's addresses in DNS" selected.
+Assuming that this DC is also the DNS server for the AD domain, the DNS server will register every ip address that the DNS server is configured to listen on. If you don't want it to register those ip addresses then uncheck those ip addresses in the properties pages of the DNS server.
+The problem I have with this is that AD replication breaks since it tries to connect to the wrong IP (complaining that RPC server is unavailable). If I launch the replication manually after deleting the wrong addresses, it completes successfully.

@@ -1,0 +1,6 @@
+You can speed things up by disabling the non-clusterd indexes, then manually building them after the clustered index has been rebuilt.  You'll want to make sure that end users aren't able to touch the system while the non-clustered indexes are being built as their query performances will be awful until the non-clustered indexes are created.
+On top of this any non-clustered indexes on the table will need to be rebuilt at the same time so those all need to be read and rewritten as well (along with all the memory spill that goes with rebuilding the non-clustered indexes).
+No matter what you'll be looking at a REALLY long maintenance window where you'll be slamming the disks as hard as they can go.
+Assuming Enterprise Edition you can create the commonly used indexes then let the users back in, then create the other indexes online so that users an work.
+In a nutshell you'll need to read the 120 Gig table, sorting it based on the clustering key (which is going to cause a ton of spill to tempdb writing probably 100 Gigs to tempdb), then write the clustered index to the database which causes 120 Gigs of writes.
+You'll need to look at the wait type when the query is running.  Odds are you need faster disks as building an index on a table that large is going to cause MASSIVE amounts of reads and writes.  

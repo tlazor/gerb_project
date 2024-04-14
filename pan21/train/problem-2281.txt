@@ -1,0 +1,8 @@
+2) manually, e.g. booster_params_v1.pickle, ...v2, etc. and a separate file where you would describe each version
+I am wondering if there are any best practices around this problem. My current approach is to keep track of the different combinations naming files making reference to the parts that compose it, for example a hyperparameters pickle file I would name it booster_params_{}_{}_{}_{}.pickle'.format(filter_name, features_name, model_target, params_iteration)
+In Machine Learning we usually try many combinations of different features, filters we apply to the data, transformations on the features or the target variables and different versions of hyperparameters.
+Recently I've turned to wrapping custom python classes that have attributes for these variables, so that pickling them saves that relevant information internally; this lets you save a lot more information, but of course you won't be able to see that before unpickling, so this is mostly useful if you can give a short descriptive filename and leave the details to the class.
+This fact makes it difficult to keep track of what works and what doesn't if we are not exhaustive with how we keep track of the different combinations we try.
+Finally, there are several tools being built for specifically this purpose.  MLFlow, CometML, GuildAI, and (TensorFlow-specific) HParams Dashboard are the first few I find.
+I also like the idea of a spreadsheet (or even a notebook) as the lookup, so +1 to Felix.  Jason Brownlee also approves.
+where filter name is the set of filters I'm applying to the data, features name refers to the set of features used, model target to the target I'm modeling and params iteration refers to the version of the hyperparameters.

@@ -1,0 +1,5 @@
+The Win8 machine's routing table looks normal to my non-network-techie eyes (the subnet in question is 192.168.1.*):
+When the Win8 machine pings any local devices, ping returns 'Destination host unreachable' and the target IP winds up in the ARP cache as 'invalid' entries, with MAC Addresses of 00-00-00-00-00. I have tried adding a static ARP entry to the Win7 machine, but all that does is change the ping response to 'request timed out' instead of 'destination host unreachable'.
+Since the Win8 machine can ping the router and google, I don't think this can be a firewall setting issue (I have tried it with Windows firewall on and off), or a Private/Public network issue.
+After returning from vacation during which several Windows updates were applied and my router suffered a hard power cycle, my Windows 8 Desktop can no longer ping other devices on the same subnet. Specifically:
+The oddest thing to me is that the Win8 machine can ping the router, and the router can ping the Win8 machine, which seems to eliminate most solutions I found with 2 days of goggling.

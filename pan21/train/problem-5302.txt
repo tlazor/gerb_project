@@ -1,0 +1,7 @@
+Also, with what this and the property above it do, I would consider wrapping them in a function call that will do that conversion, that's a lot of code to have in an initializer.
+There's not a single access modifier on any type, did you mean for them all to be internal? If so, specify that explicitly.
+Overall, excellent work here. It's always nice to see your questions as they tend to be very good code-wise to begin with, the worst I can find here is a few nitpicks. :)
+You should be returning IEnumerable<TokenGrouping> there, since you are returning objects of that type anyway.
+You should simply expose the properties as get-only from an interface which CronRange implements, and upgrade CronRange into a class.
+For your use case, this function is not helpful. You update lastTokenType manually as many times as you update it with this function, and one of the updates you do with this function is undone by a manual update. Just swallow the bullet and replace this with manual updates instead.
+At first glance, it looked like some kind of awkward fluent syntax. Then, I realised you need immutability.

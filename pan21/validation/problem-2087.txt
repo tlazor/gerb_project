@@ -1,0 +1,6 @@
+There is nothing wrong for used% + wasted% being equal to 100%. That does not mean you have no more memory left, it simply means you allocated at least one chunk from each and every slab.
+This is because memcached allocated a single chunk from "slab class 1" and 99% of the memory for that slab is "wasted" and 1% is "used" This does not mean that slab and the memory allocated for that slab is gone.
+I had this issue and moved from memcached to redis (without disk based saving).  I know this might not be possible but you could try it as an option and keep an eye on the memory fragmentation.  You could even turn persistence on to fix "old cache" issues on restart.
+It has been a year since this question and I don't know if you found your answer but I'm going to say your perception of "wasted" is wrong.
+so now you are using 2 out of 100 allocated chunks in slab 1, "wasted" statistics dropped, and used statistics increased.
+Wasted memory is allocated in memory so it can not be used by another application, but it still is available for memcached.

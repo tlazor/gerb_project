@@ -1,0 +1,7 @@
+What about eSata or a USB connected SATA drive that would at least guarantee that the drive could be transferred to another machine and work properly. Not anywhere near as fast as having it connected to the disk controller.  Would that work on a server.
+I had originally intended to put a 1Tb SATA drive in our new server 2012 which will most likely be a Dell or HP.  The idea was that in the event of disaster recovery that SATA drive could simply be installed and read in a different machine, I have done that before with normal SATA drive caddies.
+However it now transpires that doing the same with an HP or Dell is not likely to work as the drives may not be readable on another machine.
+If restoring from acronis (or whatever) image, you can boot from dvd on new server and restore image directly
+The method you discuss is commonly done on workstations, less on servers (and is not considered a pro approach on servers at all, barely on wksns)
+FWIW, I have done this exact setup many times. It absolutely works. You absolutely can take a SATA drive from internal to external USB or eSATA or external USB3, and visa versa and it always works.
+Strongly (very very strongly) suggest using mozy, jungledisk, or some similar system to get your data off site in addition to the sata.

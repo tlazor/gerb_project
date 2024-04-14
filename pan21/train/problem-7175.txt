@@ -1,0 +1,11 @@
+Then you can elaborate on the basic idea and check collision with multiple parts of the body, like torso+head+feet and decide on how many lights need to be hitting to trigger the reaction.
+A bit beyond that, what they are wearing might also be a factor. Someone wearing solid dark clothing is going to be harder to spot than someone in a loud Hawaiin t-shirt covered in (given the stealth context probably stolen) diamonds.
+Idea number two, which will be more accurate and maybe slower, is to render to a small offscreen buffer the scene from the NPC's eyes location to the character's.  Use shaders that make everything black except the character's lighting equations.  Average that small buffer to see how much lit character the NPC can see and decide on a value to say that the player is detected.
+For the sake of gameplay itself, it would be valuable to modify how visible the character needs to be in order to be spotted based on the attentiveness of the goons.  IF they're distracted, or bored, or working on something else, the character will have to be much more visible than if they're on patrol or even actively looking for him.
+I've been looking for a few hours now. And while I can't say I have no leads it seems that now is a good time to start asking for help.
+The idea being that if you're hiding in a dark corner of the room, the armed goons will not start attacking you.
+Assuming that you're using point light sources you could trace one ray from all light sources to the character's location and see how many, if any, collide.
+Without all that, many stealth games use pre-calculated dark areas and only one mobile light source like a guard's flashlight to dodge with just one collision check which may make game and level design easier to tune too.
+The lighting will be dynamic, so the solution needs to be dynamic. As an example, a guard might get rather upset, grab a torch on the wall and throw it in your direction.
+Or even more complex, using those same body parts first run a collision ray from the NPC's eyes and see what parts he could see if they were lit... and then run light collisions on only those body parts.
+At the simplest level, I'm looking for a way to determine how brightly lit an actor is (primarily the player right now).

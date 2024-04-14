@@ -1,0 +1,7 @@
+To get around the issue of linking to shared files that are inside the docroot of each specific site, typically shared css/javascript/img files as when you said:
+tl;dr - yes, depending on your app's limitations you can use SetEnv in apache to let your app see both common and unique code, and use individual symlinks underneath docroot to 'merge' common and unique assets.
+How much work you will have to do to make this happen will depend on the details and flexibility of your CMS' codebase.
+This topic is a favourite of mine - if you want to paste more specifics of your environment happy to get into specifics with you.
+FYI - these paths are outside each site's document root for security - the document root for each site is /source/site1/www/. 
+The end result is a directory structure accessible to my app that contains shared and site-specific code and assets.
+Thanks to passing all the site-specific vars from apache vhost (analogous to the "client id" you mentioned), my site's structural code (/var/lib/...) stays the same and will cascade down. Site-specific code is picked up via references to the /source/site1 paths.

@@ -1,0 +1,7 @@
+I have setup the Cloud-A with 1 - [CLC+CC] and 2 - [NC] computers. I have another Cloud-B with same configuration using the Ubuntu Enterprise Cloud
+So if it is possible to have some co-ordination between this two providers to share resources mutually, making client fully unaware of whats going on in the background....?
+Could you please explain what happens exactly when we ask for instance, the direct interaction happens between the client and NC or it goes through the CLC and CC ?
+Now if I want to add the NC of Cloud-A to CC of Cloud-B, [in case the resources of Cloud-B are exhausted] how can I make it possible ? I guess this calls for the interoperability stuff...
+This is definitely possible but you would need to post your exact NIC configuration to make it easier.
+What I want to say is, say there are multiple cloud providers. A user is subscribed to any one of them, say Cloud-A for IaaS. As the requirements are dynamic, all the resources of Cloud-A may get exhausted. There may be another Cloud-B which can provide the services but that Cloud-A can't ask the client to go for Cloud-B.
+Is there a good reason to have two clouds here? If you went down to one cloud the issue would solve itself.

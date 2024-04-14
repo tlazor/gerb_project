@@ -1,0 +1,7 @@
+Is there an easy way to copy profiles in win 7 or is there a better way (eg modify reg or app data) to prevent apps from performing an initial run.
+And the computers have deepfreeze running on them which removes the users profile once the computer is restarted.
+I have managed to prevent IE runonce using group policy and office run once from using the office customisation tool.
+Then pre-populate those reg keys and config files. If you can't do it by pre-baking the profile, try via a login script.
+In our environment we have several applications that are installed that have a need to run a little prompt the first time they run eg Media player, Google earth etc.
+On windows xp we used to copy a user that has run all the apps and place their default profile into the default profile so that new users get that profile template.
+Do some discovery to work out where each app is storing the settings that the user inputs on those 'first run' dialogs. I'm guessing most of them will be in the registry or INI files.

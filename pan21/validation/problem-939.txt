@@ -1,0 +1,8 @@
+Since dealing with pairs at a time isn't going to give a global solution in one pass (a resolution to one overlap may make another overlap worse), multiple iterations are done until either there are no overlaps, or the maximum number of iterations has been reached.
+Another way to do this would be to do multiple smaller movement steps and collision responses per game loop instead of moving the full amount in one go.
+A third way could be to do swept shape collision detection to find where exactly an object collides with other objects while moving along its path.  In this scenario if implemented as described, you move each object one at a time and check for collision times and make it move only as far as it can and then stop.  This ought to work decently in practice but you might see some strange interactions when many objects move relatively long distances each frame.
+Basically, objects that move too far in a frame are a source of problems in many types of physics algorithms, including yours, causing the problems you are trying to overcome (:
+For best quality results you move the objects only a very small amount each time, but have a high number of max iterations.  For fastest results however, you move the objects more and have a lower number of max iterations.
+The way that common physics engines work is that they deal with collision responses for each pair of colliding objects independently.
+In your case that means when the three circles are overlapping it would try to do something like push the circles apart in each colliding pair by just a little bit.
+In your specific case, the objects have penetrated too deeply for a standard collision response "push objects apart" algorithm to give very good quality.

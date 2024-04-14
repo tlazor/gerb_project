@@ -1,0 +1,8 @@
+2) Slower unless you mix OOP with data oriented design. Putting your data in classes potentially loose around the heap is a lot slower to process, while keeping all data of a given domain in a contiguous chunk of memory will provide a lot faster iteration times.
+I personally use a fully fledged ECS setup, and then have a thin layer of OOP referencing entities and components through handles, so I have utility methods to control each type of entity and its data. It works like a charm.
+It's not that object oriented paradigms are bad for game development, they do the job just fine. Though, there are downsides to doing everything with a typical OOP mindset. 
+"If you have a Tree (a static object in the game) and a Warrior (an object which can perform some action, like movements, attacks..) and suddenly you decide to put in your game a Warrior Tree, how do you do it by object-oriented?"
+I'd like to understand whether the object-oriented paradigm applied to game programming is bad, or whether it's just an urban legend. 
+Other than that, if you want to make a full game in the OOP paradigm, feel free to, it has been done countless times before from indie to AAA games and it worked. Chances are you will come to the same conclusions as everyone else and end up switching to data oriented design in full scale too. With this, I mean mostly going into the Entity-Component-System paradigm, as it seems to be the golden standard for today's AAA development.
+A friend of mine is developing a game with HTML5 and Javascript using data-oriented paradigm, and he's trying to convince me about the issues of the object-oriented design.
+1) Inflexible, you can't reassemble behaviors and properties of your game objects on runtime as they are tied to fixed class hierarchies.

@@ -1,0 +1,6 @@
+Assuming you are uploading to a UNIX variant, I think that the permissions ought to follow your UMASK settings.  I don't recall off the top of my head which dot-files get processed for SCP, but if you set your UMASK in one of those the files you create will have it's permissions set based on it.  It probably depends on what shell you use on the remote system.
+I would suggest setting up sticky bit on the folder so that the files you upload under that folder gets that permission automatically.
+If not, I think your only choice is to execute a chmod on the server after the upload, which you could do remotely with an ssh command:
+I am uploading files to my shell account using scp. As I need different permissions on the server than on my computer, I'd like to have a way to easily change the permissions upon upload without needing to ssh to the account and change them manually.
+If you're copying from a windows machine, you can use WinSCP to copy, and it has an option to set the permissions on the copied files after the upload.
+I wrote a small script for the task in Python. You can do python script.py -p o+r some files some/dir/on/the/server/

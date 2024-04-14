@@ -1,0 +1,6 @@
+The new way is to just save an image with Greenshot, then copy and paste into OneNote, right click the image, Copy Text from Picture, then paste OCRed text.
+SharePoint Designer 2007 is not available anymore on Microsofts webpage, but MODI is part of Office 2007 too.
+http://answers.microsoft.com/en-us/msoffice/forum/msoffice_other-mso_windows8/office-2013-and-installing-ocr-for-documenting/ab7078a3-fd67-4199-a722-6a0596b838a0?auth=1
+For those who can't find the SharePoint Designer download on Microsoft's site because it's not available any more, you can get it here: https://download.cnet.com/Microsoft-SharePoint-Designer-2007/3000-2064_4-75451282.html After I downloaded it, I followed the instructions for Method 2 above and everything worked great! OCR in Greenshot was available after I restarted it ...
+If you cannot find this in the Greenshot software once the MODI components are installed, then try uninstalling Greenshot and reinstalling it.
+Essentially it looks as if you need to download and install something that contains the MODI components. Once this is installed then the Greenshot software is supposed to activate the plug-in that gives it the OCR functionality. 

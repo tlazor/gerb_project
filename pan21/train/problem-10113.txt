@@ -1,0 +1,5 @@
+I went to my domain control panel and guess what it doesn't accept ip addresses it only accepts ns.domain.com type of string! I contacted the vps server support they told me that i have to set 2 of the ip address of my vps server as dns server.
+Who ever registered the domain for you needs to provide Glue records for the name servers to work. Once these are setup, your DNS will point to your BIND install and start working.
+I recently purchased a dedicted server for a domain i have that is rafsanjani.ir and i want to host it on my server so i had to update the dns of the domain. On my dedicated server I have 12 dedicated ip address and it has BIND DNS Server 9.4.2-P2-W2 on it installed.
+The secret trick you are looking for is a glue record, which means that the two domain names for you nameserver (ns1.rafsanjani.ir and ns2.rafsanjani.ir) has to be placed in the zone of .ir.
+I guess it's obvious that since these urls points to nowhere on the net ( pinging ns1.rafsanjani.ir obviously fails! ) the domain stucks with himself and pinging the domain will result in timeout too!

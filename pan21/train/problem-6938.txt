@@ -1,0 +1,6 @@
+No, you should not be using AV software on the host to scan your VHD location. You can install AV software on the host but you need to exclude several Hyper-V related folders from the real time AV scanning engine and from any scheduled AV scans. You should then install AV software on the individual guest virtual machines.
+You need to install AV which is specially designed for Hyper-V. It will install itself into host but it will scan VMs and their vRAM, on-disk images and also intercept traffic between VMs and host routed over vSwitch. 5nine has one (I'm not working for them it's just an example). 
+@BaronSamedi is right, best approach is a VM-aware agentless AV solution. 5nine has 3 AV options to choose from including Vipre, Kaspersky, and IIRC ThreatTrack. 
+If you install locally the AV be sure to disable the VHD scan too on the host, to not cause an IO problem on the host.
+An alternative may be ESET, they recently started offering agentless specifically for virtualized environments.
+Why? because if you scan the VHD you will catch only virus that hit the harddrive, but not the virus loaded in memory from a remote location, so I would consider the server at risk

@@ -1,0 +1,9 @@
+P.S. I've never configured squid, so I'm not positive this is the complete answer. But from reading the docs, I'm comfortable saying this is the right direction. Good Luck, lemme know how it goes!
+I do know this is an old question, but since it still being the first google search result, it still valid to post the correct answer.
+I have a Linux Debian machine with many network interfaces (venet0:1 to venet0:5) running Squid. If I connect to interface venet0:2 squid uses venet0:0 for outgoing traffic but I want Squid to use the same network interface for connections. So if I connect to the ip address for venet0:1 the proxy should also use the same interface for outgoing traffic.
+The best possible solution is to create a acl for each interface, make all the requests coming to that interface belong to that group and redirect that group to a specific outgoing interface.
+Then any requests made to "10.0.0.1" will use the "10.0.0.1" interface, any request made to "10.0.0.2" will use the "10.0.0.2" interface, and so on.
+Is there any possibility so squid use the correct network interface? It would be nice if I can avoid acl rules because that would require config changes with every change of one ip address.
+You need something similar to the link you listed, but different approach. Assume VEIP1 means the IP Address of venet0:1.
+Also, I think you'll have to remove the http_access allow ncsa_users line you had above because we now want the user to be authenticated and to be connected to one of those specific IPs. 
+I've tried out the tutorial from http://www.tastyplacement.com/squid-proxy-multiple-outgoing-ip-addresses but I don't think I can use it because I authenticate users with ncsa and not with source ip addresses.

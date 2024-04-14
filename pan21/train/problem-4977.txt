@@ -1,0 +1,7 @@
+It is not uncommon for ISPs to throttle your speed to well below the maximum speed your line will support, either simply because their back-end bandwidth is oversubscribed (so you are throttled by other users' activity), because they implement a "fair use, variable throttle" policy to try stop their back-end getting saturated, or both.
+To get a real measurement, try a test download of a fixed size from a known high performance server.
+It is also not uncommon for them to exclude know speed-test sites from the hosts to/from which traffic is throttled, so when using one of those places to judge your speed you see an unthrottled result.
+Another reason why speedtests don't always show the result of your ISP's traffic shaping is that they often allow short bursts to skip the shaping algorithm, essentially giving interactive users priority over bulk transfers so interactive use is more responsive - depending on how much a speed test transfers to make its estimate it may all fit in this burst amount so not be affected by traffic shaping where a long download would be.
+As Simon points out, your wide discrepancy in the figures you see could also be mostly due to a confusion between bits and bytes in the two speed measurements.
+CacheFly has some sample files on their homepage.  This will give you a good idea of the maximum real world speed you are getting.  I can download the 100mb file in under 2 mins on my 5mb connection
+You have a 19Megabits/second internet connection and that gives you a max supposed speed of 2.375 MegaBytes/second = 2.375MegaOctets/sec

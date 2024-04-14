@@ -1,0 +1,6 @@
+Does it indicate some inefficiencies that our database server is running at a 2.8 load, but memory is only at 10% (even if only 4GB of RAM, this is still only 20%)?
+We have a website running on 2 servers: 1 database server, 1 webserver. Our understanding was that we had 4GB RAM on the webserver and 8GB RAM on the database server.
+Our database server: Server load 2.8 (8 CPUs) Memory Used 10.76% (893,004 of 8,300,376) Swap Used 0.01% (116 of 2,096,440)
+Our webserver: Server load 0.49 (4 CPUs) Memory Used 59.72% (2,471,180 of 4,137,968) Swap Used 0.01% (120 of 2,096,440)
+What is a good way to think about memory? Is it better to have 'memory used' be higher, indicating that it is utilizing the resources or is it better to be lower? Does the very low 10% indicate efficiency or lack of efficiency?
+Side note, we've recently found out the database server is running 32-bit, which we think means the full 8GB of RAM isn't able to be utilized. So, let's assume 4 GB is all that is on the database server.

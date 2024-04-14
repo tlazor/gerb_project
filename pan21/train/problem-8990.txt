@@ -1,0 +1,5 @@
+Background: I work in a corporate environment with a head office that sets up much of the Apache configuration, though I can add my own customisations and have full access to the config files. Thanks to staff movements, this behaviour may have been previously built by someone and no longer known about by current staff.
+Is this some kind of standard functionality? (Googling "menu for" gets a whole lot of restaurants...)
+When I tried to use a javascript file with a name blah.map.foo.js it kept failing with a syntax error. After much effort tracking down why, it turns out that when I open an empty file called blah.map.foo.html I get this output to my browser:
+As soon as I change the .map. in the filename to something else, I just get a blank page as I would expect. I did a quick search through our apache config files for ".map" but didn't find anything that might cause the behaviour.
+I think it is much more likely you have a greedy rewrite that is capturing that URL. Post the contents of your .htaccess and vhost config (if necessary).

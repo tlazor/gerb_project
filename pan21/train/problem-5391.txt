@@ -1,0 +1,6 @@
+This would look through the /home/user/storage directory and locate files greater than 1MB. You can also add -exec to the line to perform actions on the files found.
+One of the systems downloads large files and creates symlinks in the shared space. The other system (a windows system) thinks that there is not space left.
+You might also limit the total size of a directory by mounting the directory from the virtual filesystem (a file):
+Another method I thought of would be to schedule a cronjob to run on the linux machine every minute or at an interval of your choosing that executes a script that looks for any files greater than 1M and either removes them or moves them to another directory for review.
+I'm affraid that it's possible to set the maximum file size limit for the whole system only (for each and every file).
+What I would like to do is to limit the size of files in one folder in linux. In other words, the directory (and sub-directories) will only contain files up to say 1MB. Anything larger than that will be disregarded. Can that be done?

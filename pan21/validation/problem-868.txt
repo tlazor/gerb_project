@@ -1,0 +1,5 @@
+Depending on how old are your equipement, crossover cables are no longer required, modern switch and routers are quite clever enough to detect the equipement connected to them.
+If all the workstations/test machines are in the same subnet its gonna work just fine. I suggest you turn on the DHCP server just to make it more easy for you test machine to get an IP and a default Gateway.
+Once you start segmenting at layer 3 (IPs and subnets), you possibly make DHCP much more complicated because it relies on broadcasting within a subnet.  
+If you transparently firewall (firewall don't have IP addresses) you only have 3 subnets.  If you don't want to have a bridging firewall you need to have additional subnets and then you need to inform your router than "subnet dmz" is reachable out interface X and vice-versa.  
+(ignoring the firewalls for a minute) You don't need any kind of dynamic routing because you only have 3 subnets directly connected to your router.  You only need to share routes when you have multiple routers.  Your machines on each subnet should use the IP address of the router for the interface on their subnet for the default gateway (upstream gateway).  

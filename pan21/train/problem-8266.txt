@@ -1,0 +1,19 @@
+There are several libraries that provide argument parsers, for example optparse-applicative. Those libraries make it easy to handle command line arguments without a hassle.
+At the moment, your user cannot work with the AST since it doesn't get exported. They can't even use the type BFProgram. They can use the values, though. So let us have a look at the power a user should have.
+Apart from the remarks mentioned above, well done. The tape movements are now \$\mathcal O(1)\$, and the same holds for jumping to the start or end of a loop. Your AST cannot represent invalid programs, which is a big plus compared to your previous approach.
+I usually keep the number of prime functions or variables down, too, and use them only if they were derived from the original one, e.g.
+This will only export the type, not the constructors, though, so I'm not able to generate a new BFInstruction. I can only reuse already existing ones.
+Since implementing my Interactive Brainfuck interpreter in Haskell I figured that it would be a good idea to build upon an Abstract Syntax Tree. I have also decided to drop replacing the IO monad by some other structure for the time being as what I have now works fine, and fast.
+Your forwardTape and reverseTape both use head and tail. This can lead to empty list errors if you accidentally swap the lines:
+splitOnLoopEnd' should never get used outside of splitOnLoopEnd. Unless you want to explicitly test splitOnLoopEnd' I don't recommend to use a top-level binding:
+So when you use do, other Haskellers will try to figure out what monad is currently getting used. However, you don't use a monad at all:
+That's all you need for your current options. Your program needs all of them set, especially the sourceCode. An optparse-applicative parser could look like this:
+Also note that I changed next argument. It's a lot harder to use a Int wrong compared to a Int -> Int. While we're at it, let's reorder some parts and get ri of the ' after xs:
+While you're at it, use Either e BFProgram instead of error. That way you can recover from parsing errors.
+By the way, makeProgram and makeProgram' do the same. I suggest to rename the latter to the former. Probably a remnant from a previous version.
+If you want to upload your package at some point you should add some documentation and use some other module names, but I don't think you're going to publish it on Hackage.
+Your interpret variant forces the user to keep the original source. But that's not necessary if the user wants to run the program several times. So instead, I suggest you to provide both parse and execute. You have to change execute's type slightly:
+The only other improvement I can think of is optimization, which needs a modified AST, and testing, which needs a non-IO variant.
+You can keep the interpret functionality as a "one does all", but for testing and maintenance it's easier to provide a larger interface.
+or similar. However, that's not possible at the moment, since BFProgram never gets exported. I have to write
+If possible, prefer the latter style. do expressions are meant as "conventional syntax for monadic programming", after all.

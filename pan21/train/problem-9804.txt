@@ -1,0 +1,13 @@
+you cannot expect to get a match on every ID in the @facilities list. This is because @facilities is not expanded into a list and instead is treated as a single item of the IN list. The commas inside it will be seen as just characters inside a string value, not as syntactic delimiters.
+A table is much more flexible in that you are not tied to just one syntactic structure. Although you could still use the temporary table in an IN predicate, as in your example:
+You should rewrite that query to use a join instead of a subquery (or newer MySQL can optimize that automatically).
+Each query that you want to use the @facilities list in would have to be executed in the above manner. I think you will agree it is not very convenient. There are other considerations to keep in mind as well. When you use a dynamic query and concatenate the contents of a variable into the dynamic query as described, you may be open to SQL injection attacks. Also, with a large number of items in an IN list the performance may degrade.
+That will change the dependent subquery into a derived table which can be evaluated only once instead for each row of the outer query.
+The "suggestion" you tried to use might work well, but only for some specific cases - the ID returned must be single value only and the schema/design does not allow for a simple join.
+In order to use @facilities the way you want, you will have to build and execute a dynamic query around the value of @facilities. It could be something like this:
+Having many options how to write your queries may be beneficial when you need to tune them for performance.
+You might use dynamic sql - prepare the statement of the second query to "inject" the string into the IN list. But thats cumbersome.
+This way the query will not contain a reference to @facilities – instead, it will have the contents of @facilities as its integral part, and the commas will thus be treated as part of the syntax.
+You might concat all the IDs to a comma separated list (still one string variable, not an array) and then use find_in_set() in the second query. But that will be too slow (no index used in the second query).
+this problem happen because your sub-query return multidimensional array and IN function has argument in single dimensional array.
+And you should check the actual query plan with EXPLAIN so you can see what it is doing now and how it changes.

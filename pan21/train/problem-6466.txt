@@ -1,0 +1,7 @@
+The problem I am having is setting up the database. Normally on a hosted site I just upload the mdf file and I get a connection string from them.
+if you don't have SQL Express Installed on your VPS. You can download and install it from Microsoft Website. 
+I tried attaching the mdf file that I created with VS2010 using Management Studio to the 'local' server on my virtual server.
+Since the new database has a different schema, when you restore the database you will need to visit the Options tab and choose Overwrite the existing database.
+Please create Database on Server. Backup local database and upload .bak file on server. Restore backup using SQL management studio. 
+Unable to open the physical file "C:\inetpub\wwwroot\gtro\App_Data\ASPNETDB.MDF". Operating system error 5: "5(failed to retrieve text for this error. Reason: 15105)".
+An attempt to attach an auto-named database for file C:\inetpub\wwwroot\gtro\App_Data\ASPNETDB.MDF failed. A database with the same name exists, or specified file cannot be opened, or it is located on UNC share.

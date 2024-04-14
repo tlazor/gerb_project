@@ -1,0 +1,9 @@
+1) The computer will recognize both IP addresses belong to it, thus it will handle the traffic internally; nothing will get sent on the network.
+2)10.10.0.1 and 192.168.0.100 are they should one physical device? I would also appreciate a link to article/book which explains this case.
+If you need to know specifically which IP address your computer sends out information from, you can fire up Wireshark and take a look at the packets as they leave your computer.
+The main advantage of using this IP aliasing is, you don’t need to have a physical adapter attached to each IP, but instead you can create multiple or many virtual interfaces (aliases) to a single physical card.
+eth0:0 is not same NIC as eth0 it's a virtual interface and can be used as the physical one to route traffic to other destinations.
+The concept of creating or configuring multiple IP addresses on a single network interface is called IP aliasing. IP aliasing is very useful for setting up multiple virtual sites on Apache using one single network interface with different IP addresses on a single subnet network.
+e.g. I have one physical NIC (eth0) and I assign on this interface 2 IPs from different network. e.g.
+When you assign two IP addresses to the same NIC... you will have two IP addresses on the same NIC; nothing more and nothing less. Whether your computer will actually be able to talk to other computers, depends on your network configuration. It's perfectly legal, although often undesirable, to have different IP subnets sharing the same physical network (or VLAN).
+2) Not necessarily. There can be another computer (or router) using both IP addresses, or they can be two different devices. In either case, as long as they are connected to the same physical network network (or VLAN) as your NIC, your computer will be able to talk to both of them.

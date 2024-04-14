@@ -1,0 +1,10 @@
+Instead you can take a look at various R packages that exist to fetch data from your SQL database. Using RODBC, SQLite, sqldf or other available libraries you can import data to R, run queries, create tables, update tables and pretty much anything else you will need.
+I've heard a lot about the importance of knowing SQL but how do you guys at the larger firms integrate your software for modeling/analysis with the server that holds the data?
+Additionally though, 'production' data science also tends to exist in a separate box to the database. This can be for performance reasons; some models are big, and most DBA's rightly don't like you taking up resource in a process they don't really control. It can also be for maintenance reasons; by 'owning you own hardware' (even if it's an AWS EC2), you can tear down, redeploy, and rearchitect as you want, without impacting the DB at all. 
+Doing the plumbing between these has been both my biggest learning curve in recent years and the part of data science that I totally didn't expect until even after I'd been doing it a little while.
+Do you simply access some SQL Workbench and download a .csv file then read the file in your software? Or do you gain access to the server directly through your software?
+There is no need to download data in CSV format, in most cases it is actually bad practice. Consider cases where data size > 1GB and is updated daily. This would add a considerable overhead and is not easy to automate.
+Learning how to make interfaces and maintain your own work for your own models is the secret key skill for a data scientist.
+There are packages like RODBC which allow to get your dataset directly from the connections, There are other packages and ways to do it, but I think this proves the point that is possible to integrate querying with analysis.
+Agree with @mincorp about RODBC, and that we don't use Workbenches and csvs most of the time in production.
+This question is coming from the guy who learned SQL but never learned how to synchronize that with R.

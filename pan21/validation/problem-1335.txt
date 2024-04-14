@@ -1,0 +1,10 @@
+The lack of a client time in your error message makes me suspicious. Kerberos authentication will fail if the time on the client and the time on the server are too different. (I've never been sure what "too different" really is. I know that a minute can do it because we had this problem (again) yesterday with a new server.) 
+If you can't get it to work then you could set up a SQL Agent job to un the bulk insert.  Then it will run under the account you configure the job to run as.
+You can force kerberos, by tweaking connection settings and strings, so that a connection will fail hard if kerberos authentication, but there is an easier way to see if you are connecting with kerberos. To ensure that you are connected using Kerberos authentication, connect as normal via SSMS and run this in a SSMS query window:
+When kerberos authentication fails, SSMS will probably still connect, but it will silently fall back to using NTLM authentication. 
+When running the stored proc connected as a SQL login SQL will attempt to use the domain service account that it is running as, for which you say you already set up the delegation.
+From the comments, you're connecting to SQL using a domain login so SQL is trying to impersonate you when connecting to the file share.  If you don't have the delegation set up for this for your domain account then it fails.
+You should see "KERBEROS". If you don't, you will probably see "NTLM" and you will know that something is wrong.
+The other thing that can mess up kerberos authentication to SQL Server is DNS problems.  I read somewhere that the sql client will do a reverse DNS lookup on the address of the server and use that name to form the SPN.
+Register SPN's for the SQL Server.  Ensure there are no duplicate SPN's.  setspn in SQL 2008 can do this check for you.
+If you connect your query window using the domain service account SQL is running as it should work since that delegation is already configured.  Set up a delegation trust to the file server for your own domain account and it should start working.

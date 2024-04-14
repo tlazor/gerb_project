@@ -1,0 +1,7 @@
+In the fizzbuzz problem, I am not a fan of a two parameter method - it seems like overkill.  You can get away with just passing in one parameter - the number that you are currently processing.  This is because one of the numbers (1 or 100, depending where you start from) never changes!
+Feel free to keep the second parameter in the method signature if you think the bounds of the problem will change.
+Suggest swapping the order: check for end condition first so you can exit immediately otherwise keep processing.
+My expectation of a recursive method is that it will check for some end condition first otherwise it will call itself with a modification of the input parameter received.
+Extract all of the code relating to printing into its own method.  This will greatly simplify the recursive method and increase its readability.
+Recursive solutions are generally short in terms of lines of code.  Yours appears to have too many lines at first glance.
+Having said that, your implementation is 'backwards' because you aren't checking for the end condition first - you are checking if you can keep going, if(a <= b), and your end condition is at the bottom, System.exit(0).

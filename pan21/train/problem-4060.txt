@@ -1,0 +1,8 @@
+I am fairly certain that you are actually using the VIP in this case. The reason you are seeing the native IP is simply due to the nature of traceroute. Each hop is designed in a way for the device to generate an ICMP error, which the system will always send using its adapters primary address.
+Ping from the real servers is also going through real IP addresses, and not the internal VIP, despite it being set as the default gateway for them.
+The 2 loadbalancers (lb1 and lb2) are sending traffic to 2 hosts running apache (fe1 and fe2) on the internal network. lb1 is master, lb2 is backup.
+To that effect, the loadbalancer has 2 VIPs: one for client traffic, on the public network; and one for ensuring failover for response traffic, on the private network.
+Despite this apparent anomaly, failover from one loadbalancer to the other works as expected from the clients' standpoint, seemingly due to the gratuitous ARPs from the surviving loadbalancer.
+What is bugging me is that the incoming traffic on the real servers isn't coming from the internal VIP (10.10.33.254), but from the loadbalancer hosts' real addresses (10.10.33.2 and 10.10.33.3). 
+I took Red Hat's load balancer administration guide as a reference and implemented a NAT'ed loadbalancer with 2 nodes which carries traffic between a public and a private network. 
+It seems that the internal VIP is not used for anything except ARP announcements, in the end (there is no traffic to or from it).

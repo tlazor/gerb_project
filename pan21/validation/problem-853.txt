@@ -1,0 +1,9 @@
+With the second it's possible to convert in pdf using expressly the option -compress jpeg specifying the geometry and size:
+I do not know of actual programs for compressing .pdf files as .pdf however your best bet would simply be to try using alternative PDF creation utilities as I have seen file size change dramatically between them.
+The second, Imagemagick is a software suite to create, edit, compose, or convert bitmap images. It can read and write images in a variety of formats (over 100) including DPX, EXR, GIF, JPEG, JPEG-2000, PDF, PNG, Postscript, SVG, and TIFF.
+This reduces our 16 full color catalog (with a few small photos per page) to 2.4 MB and still looks fairly good.
+I use PrimoPDF (free) and choose "Ebook" as the "file size" "document type". (You can choose smaller (lower quality) file sizes or larger (higher quality) file sizes.  The Ebook looks pretty good.
+The first, GIMP  is the GNU Image Manipulation Program. It is a freely distributed piece of software for such tasks as photo retouching, image composition and image authoring.  Something like Photoshop but opensource. Huge program: you can use e.g. to create a pdf from scanned images. 
+in the above case I choose A4 format 300 dpi. Below a table to remember those dimensions in pixel for each definition of oint Per Inches, PPI.  
+I have never done a 8MB PDF, however I did do a 2MB one and I noticed that by using Bullzip, Flashpaper and the official Adobe Acrobat created a diffrence of over 60% in some cases... Generally, Adobe came in best, Flashpaper second and Bullzip last. (thre are a load more tools available, but these are the ones I tested.
+Some of these utilities also enable you to compress the resources and control the quality. Whilst Bullzip is free, you may want to try a demo of the others and see if they can help you.

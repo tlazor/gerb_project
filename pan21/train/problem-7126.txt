@@ -1,0 +1,6 @@
+You can't login since, as you said, your local account is disabled. So if possible, you could add your computer to the domain again and login and activate your local account.
+My Windows 7 (64bit) computer was part of AD, but then I needed to removed it from old domain and join to new domain. I have admin access, so I removed my PC from old domain, renamed it and restarted. 
+Otherwise you can try to reset the password. I have successfully reset Windows Vista passwords with Offline NT Password & Registry Editor, and I think there was an option to enable accounts, but I don't remember.
+I really don't understand why Windows 7 won't let me log in as local admin. Now I am stuck in between. My PC was removed from old domain, so I can't use domain accounts to login, and at the same time local account is not working properly.
+Connect remotely to the file system (c$) and try to delete the policies from the file system at %SystemRoot%\System32\GroupPolicy. 
+My PC has local admin that I created and the built-in admin account was renamed and disabled. So, after the restart, I tried to login with my local admin account, but was not able. I am sure that my password is correct. I get this message:

@@ -1,0 +1,10 @@
+I am such sysadmin with emacs. Actually, I use Vim a lot in terminals and do not install Emacs on my servers, but on localhost Emacs is my main instrument.
+Never bothered with plugins with either, though. If I need an IDE I'll use Eclipse or Visual Studio or something.
+I like emacs, and I've used emacs for years, but if you're an admin you really need to know vi. Vi is going to be installed on every machine you log into and emacs is not.
+I have, however, through my career, used ed or vi on remote systems (except a few, where I knew emacs would be available, due to knowing the user base), simply because it's there and in general it's only a quiestion of a few quick edits in a config file.
+I read mail with Wanderlust, so I can insert links to emails and news articles into my Org-mode to-do list.
+I used to work as a sysadmin (these days, I'm a network admin) and I've used emacs since before I started working. I use emacs for any editing done "on my machine" (be that the primary server where my X display is driven from or whatever machine is on my desktop), for scripting and coding work.
+Dired is a great file manager. Inside Dired, I can view files of different types and all they are automatically converted to plain text (using txutils).
+Tool number one, top of the heap, king of the hill is Org-mode. I use it as a work log, planner, tiny hierarchical database and typesetting system. Org-mode is the kernel of my GTD-like time management system. I have also some remember-mode templates so I can quickly capture notes whatever program I'm working with. 
+I use the Lisp in a box distribution of Emacs because it has a good Common Lisp implementation.  Makes it quicker and easier to knock out quick Lisp programs to do things than using e-lisp.
+Then, sometimes I write simple HTML texts with html-helper-mode. AucTeX is a perfect editor for more complicated LaTeX documents 

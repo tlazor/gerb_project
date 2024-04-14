@@ -1,0 +1,7 @@
+Failover is probably the worst possible way to provide fault tolerance. While I believe there are some extensions to the DNS system to support this - its still a bad idea even if they were supported by most clinets / DNS servers.
+blog.devsundar.com ==> First IP address is my machine IP. If it is not accessible it has to take my blogger IP.
+In order to have "High Availability", solutions like "Linux Virtual Server" is a good choice, but it requires more work:
+I want to know whether it is possible to configure website DNS (In Godaddy) to use two IP address. If the first one does not work, it has to take the second one.
+There are several rough edges on that approach, even if the DNS/reachability issue is solved (among others):
+You can have multiple DNS records for a domain; but when someone queries the DNS, first IP address received would be used. If, for example, the browser fails reaching the IP address for the domain, it will display a timeout error. Hopefully, next time you refresh the web page, another IP address will be received and contacted.
+I want to setup my Blog, email server, microblog in my PC. If the PC is shutdown, then I want the appengine/wherever I configure to take over so that service is not interrupted.

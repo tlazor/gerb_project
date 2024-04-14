@@ -1,0 +1,5 @@
+im very new to this. I've set up an account "SQLBOX" thats on the a network, but not connected to the domain. I have installed an instance of SQL Server 2008 and am trying to connect to it from another machine on the network but am getting "Cannot connect to "SQLBOX"". From the "SQLBOX" i can connect to sqlservers on the domain, but not vice-versa. Any help would be greatly appreciated. Sorry if the description isn't great.
+Make sure you have SQL Authentication enabled on the server outside the domain (so you're not using Built-In Windows authentication).
+If this does not succeed then it would be useful if you could provide us with exact error message which you receive when trying to connect.
+On the new box you should check which IP address the new box has and use this IP instead of the name to connect to the server using the SSMS.
+I guess you are trying to connect to your new SQLBOX with the SSMS, aren't you? For this it is not necessary that the server is part of your domain as long as your are using the SQL authentication and not the Windows authentication of SQL Server.

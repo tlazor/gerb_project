@@ -1,0 +1,5 @@
+benefit of this solutions is when you will add anther type of Driveable you don't need to add additional if else
+While related, the factory method pattern differs in that an abstract class defines a protected create method that is called by the concrete subclasses--never externally. You can always replace the method-based pattern with an external factory to increase flexibility.
+The factory pattern defines an interface for creating instances where the concrete implementations define how to create those instances and what dependencies they require. Interfaces are used here because the factory's create method is called by other classes.
+As simao pointed out in a comment, this is an example of the Factory Pattern--not the Factory Method Pattern. In fact, you usually subclass the factory to determine the class to instantiate rather than making that determination based on a parameter. Perhaps this example mixes in the Builder Pattern or another whose name I'm forgetting at the moment.
+in C# there is specific type Dictionary that represent key value pair collection and if in PHP exist some similar you can use it look at the foolwing code

@@ -1,0 +1,11 @@
+Ideally, look into replacing the forever-loop by requiring your client to either write an array or list, or by prepending the message with the number of expected commands.
+In the uncommon case that acquirable resources do not implement AutoCloseable, you can fall back on try-finally, available since the old days of yore:
+There are two ways around this.  The preferred way since Java 7 has been to use the try-with-resources construct:
+try-with-resources guarantees that the local variables are available and defined over the scope of the try block, and that they are closed before leaving the try block.
+In case of many, many catch clauses, consider using continue on a successful run, and break in all other cases (though this is not a common code construct and merits a comment for future readers):
+Also be wary that InterruptedIOException is subclass of IOException, as distinct from InterruptedException.  If you rely on interrupts to abort, you may have to handle both exception types.
+If an exception occurs after new Socket, execution will not reach socket.close(), but will instead exit the function, potentially leaving the socket in a state where it is no longer reachable but very much still alive and hogging resources (file descriptors, I/O buffers).
+Do replace this with a thread pool or, preferrably, an ExecutorService.  Executors take care of much of the hassle and bookkeeping involved in using multiple threads, shielding the rest of your code from (some of) its complexity.
+Note: ObjectOutputStream.close() closes the underlying stream, which will close the socket's outputstream.  It's not an issue here because the socket is closed immediately thereafter anyway, but you may want to flush rather than close in some circumstances, or to slip a close-ignoring filter in between.
+I/O needs to work with either the try-with-resources construct or with try-finally, or you risk leaving dangling resources.  Let's look at the Client class:
+Multiple and nested uses of while (true) makes it hard to really, really stop your program.  Consider looping on a volatile boolean instead, and adding a close method to your actors:

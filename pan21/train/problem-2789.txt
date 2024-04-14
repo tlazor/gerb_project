@@ -1,0 +1,6 @@
+How do you easily switch Flash players in Firefox on Linux between Adobe Flash and Gnash? Neither players work very well, but when one fails, the other usually works, so being able to quickly try one after the other would be extremely convenient. There's a buggy Firefox plugin, but it only works on Windows, and only supports switching between the various Adobe Flash versions. 
+RPM based distributions should provide similar functionality but I'm not familiar with how it works or what tools would need to be used to manipulate it.
+You can enable and disable plugins from within Firefox.  In Firefox 14, check out the Plugins tab in the Add-ons menu (Ctrl+Shift+A).
+On a Debian system (or a Debian-derived distro such as Ubuntu), the possibility of multiple packages providing the same functionality is handed by the alternatives system.
+The only way I know how to switch players on Firefox Linux is to shutdown Firefox, uninstall Gnash, reinstall Adobe Flash, and restart Firefox. This is obviously quite painful, and pretty much keeps me tied to Adobe Flash. Is there an easier way?
+http://www.debian-administration.org/articles/91 explains how the system works and how to configure it. While this won't eliminate the need to restart Firefox when changing between the two, it will at least cut out the uninstall and reinstall part.

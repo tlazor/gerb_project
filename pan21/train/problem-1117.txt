@@ -1,0 +1,7 @@
+Ideally I would create my own driver after sniffing with WireShark, but at the moment I'm unable to sniff, as I can't easily see the data coming in.
+Input on my dance pad worked, and was showing as button and axis presses. (However I was hoping it would show the arrow buttons as buttons, the original drivers were able to do this back on windows xp, but alas, I no longer know the location of that disk.)
+After installation of a driver (based on visual recognition of the adapter) I made the error of installing the wrong driver, in an attempt to get the axis to show up as button presses allowing simultaneous left/right presses.
+They initially appeared as a HID Compliant Game Controller, and using the windows 10 setup usb game controllers they were visible as a Twin USB Joystick, 
+If I were able to confirm the pad / adapter worked using the old drivers, I could probably start Reverse Engineering one again.
+I have a cheap USB to playstation 1 / 2 adapter that I was trying to get working using some drivers.
+They returned to looking like the generic Twin USB Joystick, however they were still no longer reading inputs.

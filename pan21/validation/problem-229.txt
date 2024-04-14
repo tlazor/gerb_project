@@ -1,0 +1,6 @@
+Lately, I've been hearing system administrators and managers ask about solutions to keep people from accidentally removing their data. These are very smart and dedicated people asking for a solution so that data isn't lost either by accident or on purpose. A wild idea I've heard to solve the problem is getting rid of user access to the rm command. Is this truly a crazy idea?
+Uh removing rm that will help so much... http://perldoc.perl.org/functions/unlink.html cough no, no, just back up religiously.
+Administrators who have users who either accidentally, or sometimes absentmindedly, remove data. The problem they are facing is that the user removes the data, most likely using rm, and then realizes they actually needed the data.
+Though this is a decent solution for simple removals, it does not change anything if someone were to use any other switches with the command. For example, the dreaded rm -rf won't prompt a user because an alternative switch was entered.
+In this hypothetical, it would be owned by the hacker who could not agree more, with Systems Administrators, that End Users are a pain in the...
+This is true. Especially if they own the files they wish to delete, on a system (which is also owned by them). Of course, I use the word own in the traditional sense - clearly Owner Creator quite clearly lists a new, senior domain administrator's SID. 

@@ -1,0 +1,8 @@
+i not want just one direction... i want the all possible directions where my enemy can shoot and that hit to the hero
+as in picture the ball can bounce of the wall same as light bounce off wall, the indecent angle and refractive angle will be same(sorry image angles not perfect. i draw them in paint) so i know that slop of this path line will be same in whole path just interchange in negative and positive.
+any algorithm and solution to archive this....i'm working in java so later i can port my game to android easily 
+now i want to find the directions in which i can shoot like 2 coordinates of x,y or something where i can shoot and the ball reaches to the hero.
+please edit if you found anything not properly asked ...i tried to make as simple as possible, but its my first time here.
+I'm trying to make a 2D game where my Hero is standing in a 2D plan and surrounded by enemies(highest 3) that throwing balls. and my hero have a shield in hands and and will stop the balls...
+https://softwareengineering.stackexchange.com/questions/290628/algorithm-for-calculating-a-bullet-path-to-a-target-with-max-2-ricochets
+well the problem is i'm not able to found the direction on which enemy shoot the ball to reach to the Hero...

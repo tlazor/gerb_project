@@ -1,0 +1,5 @@
+I went to FileZilla (easiest way for me to do this right now) to set the folder permission to 754, which allows the public to read the folder but not execute. After refreshing, I got a 403 Forbidden on the downloads folder which was expected. However, I can't download the files under it nor access the folders under it as well. I checked and I set the permission of the files and subdirectories to 755 but that did not help. 
+I have a certain directory downloads where I upload files that my clients would need and then just send them the link. The link would look something like: mySite.com/downloads/file.zip. 
+Is there a way to limit users from accessing the downloads folder while still being able to have access to the subdirectories and files under it? 
+This works fine, however, when the user goes to mySite.com/downloads, he or she will be able to see all the other folders and files there, and I don't want that to happen.
+So far, I've been able to host webpages on it and it's been working great. However, I want to limit what the users see. 

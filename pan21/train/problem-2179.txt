@@ -1,0 +1,11 @@
+Nginx (with pub IP) receive request yyy.domain.com --> node-2 --> container with auto assigned ip(listening on port 80)
+It's a reverse proxy running globally (on every node) and routing the traffic based on domain entries in etcd to the specific containers. you then could setup your service files adding and removing their presence to etcd which gogeta monitors.
+Put a load balancer (HAProxy, Nginx, Amazon ELB (if you're on EC2)) outside the cluster routing every traffic inside it.
+Now, what I need to do is to have let's say one Nginx proxy that route my traffic to various containers depending on the vhost. Following an example:
+You need some type of service discovery for nginx to be able to "find" the containers running on the nodes.  You could write a record into etcd when container starts and remove on exit and have nginx check those.
+The key then is to have each HTTP backend announce itself via etcd, and then confd will pick up the changes and reconfigure nginx on the fly. This process is very close to what @Julian mentioned in the previous answer:
+Nginx (with pub IP) receive request xxx.domain.com --> node-1 --> container with auto assigned ip (listening on port 80)
+You could use a trio of nginx, etcd & confd to get this done. There is a great blog post titled "Load balancing with CoreOS, confd and nginx" that walks you through running three containers.
+Surfing the net, I've found many tutorials about proxying to different Docker containers running on the same host, using Nginx/Confd (or Haproxy, or Vulcand). However, what I need to do it's different. Following an overview of my infrastructure:
+It works and load balances request with Round Robin strategy. Though there seems to be an issue I filed https://github.com/arkenio/gogeta/issues/10
+Just to note, you'll only need one of these "trios" running, unless you want a higher availability setup, in which case you'll need two or more. When you go HA you'd probably want to front them with an ELB instance.

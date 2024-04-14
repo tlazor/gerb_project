@@ -1,0 +1,7 @@
+The schedules can be found under jobsdb.dbo.sysjobschedules joined with jobsdb.dbo.sysschedules on schedule_id.
+I've SQL backups, and even better, I've got the detached MDF and LDF files as they were on the SAN before everything went wrong. I've now got the task of restoring these back to a newly built server. 
+I had a MSSQL (MSSQL 2008 R2) cluster that failed in a way that I couldn't bring it back up (long story, servers ended up in BSOD loops, I'm blaming Broadcom and myself). 
+The rows can be added into your current msdb using a insert-select, or by using the stored procedures: sp_add_job, sp_add_jobstep, sp_add_jobschedule, sp_add_jobserver.
+You will have to attach the MSDB DB under a different name like 'jobsdb' and pull the jobs out of jobsdb. The jobs will be stored under jobsdb.dbo.sysjobs and the job steps will be under jobsdb.dbo.sysjobsteps. They can be joined by the job_id column.
+The databases themselves, logins and SSIS packages aren't a problem, as I've got all these. The thing that's bothering me is the SQL Agent jobs that were defined on the previous server. I'm dimly aware that these are stored in MSDB somewhere, but what steps should I go through to retreive these from the MDF/LDF files I've already got and load them on the new server?
+I'm not going to be restoring the modal, msdb, master and temp databases on the new server, so should I be looking to attach the old files under different names and pull job definitions out of them, or is there some other (better) way?

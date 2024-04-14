@@ -1,0 +1,5 @@
+I second Patrick's demo proposal. Explain your problem to multiple vendors, have them define their strong points. Then from that, distill the metrics you want to measure (and how), then ask for demo units.
+Best bet; get some demo units and try them out. See if it makes any difference at all. Chances are it won't be worth the cost but it all depends on what kind of network you have.
+If you run mostly standard applications (Windows file sharing, http, dns, etc) you will probably want application layer optimization. If you run proprietary applications you will want TCP optimization. It really depends on your traffic.
+The strong point of app-layer optimization is that it can, due to intense knowledge of protocols, eliminate round-trips, reducing effective latency. Also, things like locking resources tend to work better here.
+The strong point of transport-layer optimization is that it can approach the traffic as a bundle, applying tricks between multiple streams from different applications. And of course unknown/custom protocols benefit as well.

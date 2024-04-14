@@ -1,0 +1,10 @@
+We are in the process of upgrading our 11 years old  PBX system and looking for options like Panasonic, Avaya, Toshiba etc. We welcome any suggestions/features/product models to look for 55+ size firm...
+From my experience, (as a reseller of both solutions) if your company is a 'techie' type of company that likes a bit of fiddling, I'd go with an Asterisk PBX solution.
+Personally, I'd avoid adding FreePBX, or grabbing a custom asterisk based distro, as whilst the web GUIs make configuration of asterisk easier, they do actually restrict functionality IMO.
+Ultimately a discussion of specific product models is rather specific to your company so I won't address that.
+Briefly talked to one of our Microsoft OCS consultants the other day, and they said that they saw a presentation by Microsoft explaining that their solution, which is either ready or about to be released, is far cheaper than any of the competition, including the low-end cheap solutions.
+There's no need for a PBX and what not, pure VoIP, fully integrated with Exchange etc. It sounded real good, we'll be looking into it when we move out of this building in a year or two.
+We run Asterisk on Ubuntu Server (x64), and it's straight forward to install. Customisation is straight forward once you have got the hang of how the exten commands work, and there is plenty of good resources available on the web if you are struggling.
+IMNSHO, for a small business there's not much reason to not go for a VoIP solution. External calls can go over VoIP, POTS or T1.
+Otherwise, I'd take a serious look at the Cisco SBCS phone system. Given that you seem to already have some Cisco gear, that may be an excellent fit for you.
+The hardest part, is selecting a phone to standardise on. We've bought many Cisco 79xx phones, despite them being easy to configure, the sound quality is really poor. We've also tried Snom and Grandstream, but most recently we've tried Polycom 335 phones, which are harder to get up and running, but far superior in sound quality and operation.

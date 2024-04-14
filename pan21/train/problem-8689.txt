@@ -1,0 +1,15 @@
+Usually checkXCoordinate is sufficient. I'd replace it with a void checkRect(int x, int y, int width, int height) maybe?
+It is the same for Router, which should use the same Tile logical objects as Grid. Additionally, GridNode could subclass that Tile.
+Which looks just like an internal helper method, which should be therefore private. The way to expose this functionality would be to make it non-static as well:
+The method getTextualRepresentation works on a Grid, is defined in Grid class and it leaves the Grid and all parameters un-mutated. I'd rather use grid.getTextualRepresentation(' ', '#') than Grid.getTextualRepresentation(grid, ' ', '#') which is very repetitive. Additionally the method code will refer to this and not to a grid reference, so it's more natural. Also, if Grid is ever sub-classed (to make a sparse grid?) it won't be able to override that static method, so you'd have several static methods, and of course the user is likely to use the wrong one or to be unable to chose!
+Don't split Strings just to have a nice line return in your code (". Must be at " + "least "). It introduces operations tha can be confusing to the reader who thinks you're inserting an Object's toString() when you're not.
+First look, I'd change the if-chain in getNeighborNodes by defining directions, their offsets, and taking the same actions in a loop for all directions. Along the lines of:
+You're doing bounds checking again in Router class (checkTargetCoordinates). USe Grid's functions for that.
+Such a GridPrinter can be loaded ahead of time with the prefered character encoding of the user, or made graphic etc. This would leave Grid with dealing solely with Grid logic, which is a better encapsulation.
+In this problem, we are given a 2-dimentional grid, with each cell being walkable or holding a wall. Given an integer \$s \geq 0\$, find the shortest path from the source node to target node breaking no more than \$s\$ walls.
+...shows you're dearly missing that logical entity. Indeed a Tile could be a Point - it's good to reuse Java standard library. You should have a grid.isWall(cell) method somewhere.
+Try to reduce indenting. Handle errors in an if, then proceed with the normal part outside it. This example:
+I would argue that all three static methods are dealing with printing a Grid object, and would be better regouped under a GridPrinter Object. loadHorizontalBar is similarly guilty.
+You have a getTextualRepresentation, surely you can make a Grid makeFromTextualRepresentation(String) ? That way you just draw the map naturally in a String (or a String[] might be easier), and it is analysed. Much easier on the eye.
+By the way, if given a matrix assumed to be rectangular, I ignored a missing line (which you did) or found an irregular width (which you did not check) I'd be worried, and might throw a tantrum Exception
+This, of course, leads to the conclusion that Grid should stop representing its internals as an array of a representation (chars) and start using an array of logical entities like a Tile object (which incidentally would be able to say it is WALKABLE and SLOW and WET and HAS_DRAGON without running out of chars!)

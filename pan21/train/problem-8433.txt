@@ -1,0 +1,9 @@
+The only thing worth thinking about is that if your objects are huge, it's better to sort a list of pointers to your objects rather than the objects themselves (in order to prevent large copying.)  Again, this is only a problem if you have megabytes of data.
+Just sort them.  Use quicksort.  (Usually that's the default sort on whichever language you're using.)
+Just to give you an idea of the insignificance of thinking about other ways to do it: quick sorting 100,000 items will generally run in around 1 millisecond on modern hardware.
+You don't need to sort objects outside the view, if you have thousands of objects in the world, but out of view, you should probably put your optimisation effort on culling instead of depth-sorting.
+If you have < 100 (moving) objects in view, then sorting them is likely to be so fast that it's not important.
+Objects which are permanently attached to ground tiles, don't need to be sorted (more than once) as they won't move around, right?
+i would imagine the solution may vary from engine to engine but this would be how i approached it from an XNA / MonoGame pov
+I would sort every frame, just as Philipp with his option 2 but using Bubble Sort. The advantage is that this is an in-place algorithm and it has the same advantage as insertion sort on already (almost) sorted lists. Which should save you some memory.
+with the tile i would try to draw in order(topleft to bottom right), or define the the specific layer it should be drawn to (you can probably compute this from world coordinates (or tile index) 

@@ -1,0 +1,8 @@
+I used top -H -p to find the single thread consuming the most CPU when %CPU of the process became high, and then I used strace -T -r -c -p to find more information:
+uname -a Linux d144122 2.6.32-358.el6.x86_64 #1 SMP Fri Feb 22 00:31:26 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux
+The fact that your strace output shows so many futex errors leads me to strongly suspect that this is the problem.
+The relevant kernel option is CONFIG_FUTEX. Make sure that your kernel was built with that option (most usually are).
+And what's more, if I didn't use pthread_cond_wait/pthread_cond_broadcast, and replaced the "pthread_cond_wait" in the above snippet with "sleep", strace would show that the most costly syscall was nanosleep.
+(I know that this question is quite old, but this was a frustrating problem and I wanted to document the solution for other poor lost souls)
+I had the same issue. In my case this was caused by the usage of #pragma pack, like in this thread : https://stackoverflow.com/questions/22166474/pthread-cond-wait-doesnt-make-cpu-sleep
+My program suffered that %CPU became high intermittently and stayed high for more than ten seconds. When %CPU was stably low, it was around 1. When it became high, it was between 50 and 300.

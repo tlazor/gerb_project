@@ -1,0 +1,11 @@
+Try looking at your hosts file - c:\windows\system32\drivers\etc\hosts and see if you have any entries other than localhost (unless you created them!).
+If you have access to a second machine you can always try to download your anti-virus definitions manually and install them, hopefully it also has rootkit protection, and run various anti-malware programs.
+Many security experts say the only way to know you fixed the problem is reload the machines and patch before allowing it to be exposed to the internet.
+Some viruses can spead from machine to machine on your internal network, so you may want to check any of those machines as well, if you have any.
+If you haven't, can you from command prompty run tracert microsoft.com (or other site) and paste results in comments (get rid of personal info) and I can try to help further.
+Based on the very limited information you provided in your question, I would assume the culprit to be some form of malware.  Many viruses and other malware prevent you from accessing sites with security updates or antivirus utilities, such as Norton Antivirus.
+Depending of what it really is, it may be quicker and more sure to backup the data, format the drive, reload the OS, load the AV, update the AV, patch the OS, then scan and restore the data.
+Please disable dns client service from control pannel administrative tools component services  local services. 
+If you have, delete these lines and run a big check on your machine for other malware - run Windows update and anything else needed to bring the machine up to date.
+There are various viruses & worms that block sites that could help you protect against the infection.
+If that is indeed the problem, a reformat and reinstall would probably be the easiest way to solve the problem, but if you would like to go head to head with the malware, Jeff Atwood's blog post on the subject could give you a good starting point.

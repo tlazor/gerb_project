@@ -1,0 +1,6 @@
+I gave it a quick test by SSHing to a remote server and trying to access a page via wget - and got a 403 response as expected. The request showed up in access.log also as a 403, as expected.
+I assume you are using a device at the edge of your network to forward port 80 to your windows box.  Create a firewall rule on that device and block it there, the Apache config isn't a good place to stop DOS attacks.
+I'm running Apache on my local windows machine and I've been having problems with what appears to be a hacking attempt. The requests for some reason actually seem to render my internet very slow [returns to normal when i shut off the webserver]. The access logs look a bit like this: 
+This has been going on for weeks. I've entered the offending IP in window's firewall for good measure, but primarily was trying to rely on the following in my httpd.conf file:
+If you are sure this is a hack attempt I'd forward a complaint to your ISP's abuse department as well.
+The unexpected part is the requests from 109.230.216.22 continue, unabated and are returning a status code of 200.

@@ -1,0 +1,7 @@
+I also found a similar question on Stack Overflow with some great references to the API calls you mentioned but it doesn't discuss the cli.  https://stackoverflow.com/questions/7334035/get-ec2-pricing-programmatically
+I am struggling to understand how to obtain pricing info. programmatically (that is, via URL or aws CLI). I suspect
+There is an aws cli pricing command  which returns a ton of information.  I didn't find it to be very helpful by itself but if you ran it through jq it could give you what you're looking for.  Here's the link to the docs.    https://docs.aws.amazon.com/cli/latest/reference/pricing/index.html
+To be specific, given an instance obtained using aws ec2 describe-images --owners aws-marketplace, how do I go about mapping this to the data in an offer file obtained using, for
+I do not see a way to get information from the describe-images api that will allow you to price ec2 instances out.  The results from the call do not contain an Instance Type.
+I want to compare costs for a variety of regions & instance types but this is too time consuming to explore manually.
+I can estimate pricing manually on the web by, for example, aws marketplace -> operating systems -> select an AMI -> instance type.

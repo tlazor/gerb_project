@@ -1,0 +1,6 @@
+These tutorials didn't worked: https://www.raspberrypi.org/documentation/configuration/wireless/README.md
+Once you have done that, and rebooted, the system should see your dongle.  You can then follow one of the generic wifi tutorials if it is not immediately usable.
+And, My Pi's Desktop(Which i access through vnc server) also not shows any wifi config utility. I don't how to set it up. Please guide my thoroughly cause I am absolute novice and let me get this straight.
+Using Pi headless, Pi is connected to the router via ethernet and my pc is connected to router via wifi, and i am sshing into it using putty
+Well, everything looks fine, but I am not able to set it up, Since new version of raspbean made all tutorials obsolete(I've tried them, It doesn't work).
+I am new to this, so please help me out. I just brought a wifi adapter to plug into my pi and use it wirelessly connect to router. But, I am not sure it supports, well I am using headless pi, and when using dmesg it gives out following output related to wlan

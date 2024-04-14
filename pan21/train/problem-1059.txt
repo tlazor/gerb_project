@@ -1,0 +1,8 @@
+If so, then I'm afraid you have a faulty SSD.  A firmware upgrade might help, but given that it's new, I'd send it back for replacement.
+The first thing you want to do is determine if it's an issue isolated to the PC you are working with.  Do the same symptoms exist if you attach the SSD to a different PC?
+Have you disabled S.M.A.R.T in the BIOS to see if this helps (this will stop BIOS level error reporting on a HDD though)?
+This computer is never powered off and there were no power outages recently, also the SSD still works after rebooting the machine and there is no trace of file corruption or anything like that. All drivers are up to date and it looks like the SSD is running smoothly without any reported problems.
+When this problem happens the computer is left with no trace of the SSD anywhere and there is no way of getting it to work again without rebooting.
+One other thing apart from SSD or mainboard that could be the issue - your Power Supply Unit.  Swap out the PSU if you have a spare and see if that helps.
+So, i got a SSD a few weeks ago and started using it as my secondary storage device (specially really large files that i have to use often) and i noticed it "freezes" and just disappears from the system sometimes. 
+Are there any clues what could it be, or at least any suggestion on where i should look for more information about the issue?

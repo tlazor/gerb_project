@@ -1,0 +1,8 @@
+No. Usually it is a symptom of your class hierarchy not being specialized enough (not covering the functionality it should through virtual functions), or your client code being too generic (i.e. your code working on base pointers or refs, when it should be working on a specialized type).
+This will work because if the base class is polymorphic (has some sort of virtual function) the compiler emits information that makes it possible for dynamic_cast to check what type the object actually is. If it is the correct type, it will perform the cast. If not it will not (returning nullptr).
+Casting a base class object to a derived class object is usually not desired design. Though, it is commonly acceptable as a shortcut approach.
+That said, you should never use switch/cascading if statements with polymorphism. It's better to declare a virtual method that you override in your classes that perform the task instead.
+You can consider using Double dispatch and Visitor pattern to handle your event loop. That will be more performance efficient, though is not the same obvious as mentioned shortcut.
+A better way to do it will depend on what you want you want to do with it. If you can define an abstract interface with virtual functions that would be the normal way of solving this problem.
+You may consider looking into the dynamic_cast keyword. which allows polymorphic classes to be down-casted based on their type. 
+But you seem to be using DisplayEventData as simply a bag of properties so maybe there is no generic interface. In which case I would go with a union (but that choice could change quickly based on other information).

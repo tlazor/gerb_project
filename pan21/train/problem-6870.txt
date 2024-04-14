@@ -1,0 +1,7 @@
+If your primary DNS is unavailable to perform a lookup for a DC, this can result in delays - meaning the machine account isn't authenticated - which present themselves in this message.  Likewise, if a DHCP request takes ages because of multiple hops or a DHCP server availability issue, this can present the same symptoms
+When it has been provided a DC, the machine will have to check its SID and a machine account password against the DCs records to prove the machine is the one it claims to be and not just dome random machine of the same name (anyone can name a computer "mymachine1" - but that doesn't make it the one that is your domain member).
+Other causes of this can be DC replication problems, the machine being left off the domain (turned off) for extended periods of time or RPC being unavailable on either the client or the DC.
+Normally, the reason that it will work again if you give it time is that on failure, a machine will try again after a random short period of time.  If your DHCP address has been received, DNS client configured and connected to a dc etc - the check will complete and your machine will then be ready to logon to.
+It doesnt matter if I login as a regular user or a domain admin. It gives me a error message and after a while, automatically lets me login again.
+When a computer boots on a domain, it sends a broadcast to find its AD site and a DC within that site to connect to.  
+Sometimes my computers randomly display the error message "The trust relationship between this workstation and primary domain failed.".

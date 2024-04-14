@@ -1,0 +1,6 @@
+Considering only a couple hundred items may change in a week, a delta operation would likely be done much faster. 
+I have three different Azure Storage blob containers that are used to serve website content, one for production, one for staging and one for development. 
+I revisited the AzCopy tool today and found it's come quite a long way and serves this purpose perfectly.  The flag is AzCopy Sync and there are a number of control options as well, such as deleting destination files which don't exist on the target.
+Probably due to improvements in the Azure architecture or infrastructure, this transfer is also incredibly fast.  It did an initial sync of 10GB in less than 60 seconds. Previously this would take an hour or more.
+I put together something in PowerShell that works in principal but it's slow and heavy handed. It involves deleting the staging and dev containers, then copying the entire production container twice. For just 20k items, this whole process takes over an hour.
+Has anyone seen a tool or method that can do a delta copy between Azure Storage blob containers? I'll likely end up writing my own tool but wanted to see if there are any out there currently.

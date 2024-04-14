@@ -1,0 +1,6 @@
+Macrium Reflect is the best solution I've seen. You can create a bootable CD to restore your Macrium Image file to a chosen hard drive.
+I have found that the Acronis TrueImage WITH Universal restore works well for migrating from one machine to another if you generate the boot image,  attach the "old" disk to your new machine, i.e. by USB, and boot on the boot image and let it migrate.
+Since the Macbook Pro will probably much quicker anyway, I would suggest getting the VMWare Migration tool from VMWare which packages up your system to be run as a VM on the new Mac. Windows XP in VMWare is quick and you even get 3D support so to me this seems like a good option. I've been running a Windows XP VM since I switched (back) to OSX a year ago and can't complain. 
+The Activation will come up so, but you will get it reaktivated by just calling MS and telling the Story. 
+If your CPU and chipset are roughly similar, you should be able to image your installation and whatnot from another computer.
+Your XP will probably chuck a wobbly trying to boot into different hardware. Vista and 7 are more forgiving about booting in different hardware configurations, but XP - not so much.

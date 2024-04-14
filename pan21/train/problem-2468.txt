@@ -1,0 +1,7 @@
+Of course, do your own capacity planning. Do a rough estimate by multiplying the number of issues expected by a few KB. 
+I sorta think either gitlab or trac would be nice, and I couldn't ask which one to choose, in order to avoid opinion polling. However there's some thing... I would really want to use as little persistent storage as possible.
+Do you have any data or intuition about relative gitlab "expectable" size bloat relative to trac? (I mean, trac is older, so it's sensible to think it would have somewhat a lower persistent storage footprint) Or gitlab figures relative to any other similar software, or trac figures relative to any other similar software.
+If you don't want to store a database, let someone else do it. Both GitLab and Trac have hosted options. Or outsource just PostgreSQL to a managed service.
+GitLab requirements are documented. Starting at the total size of your repos, and the database at least 10 GB.
+I'm considering between hosting my own issues tracker, or embrace any of gitlab.com, Bitbucket, Sourcehut, etc.
+Trac doesn't state minimum storage nearly as explicitly, but the same repos + 10 GB seems sane to me.

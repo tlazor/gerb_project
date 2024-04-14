@@ -1,0 +1,7 @@
+I think what is happening is that this happens because each time you ask it to go from the current transform to the target transform, you specify the same percentage related to he scale (t). 
+It looks like you're treating the Slerp method like you're starting a tween. "Start a new tween animation from here to there at this speed, okay... Go!" - with the expectation that it will carry out its work in parallel over the subsequent frames.
+Note here I'm using the convenience method RotateTowards to get a controlled rotation speed. You can do this yourself with Slerp, taking on the speed adjustment math yourself. You can also use different easing functions to vary the speed of rotation over time, rather than keeping it exactly uniform.
+I suggest you take a closer look at the Quaternion.Slerp documentation. You'll notice they make the t value evolve with time.
+Slerp isn't that kind of method. It's just a math function that takes some inputs and gives you an output, exactly once, the frame that you call it, and never again until you explicitly call it again.
+To use the slerp method, you have to fix the starting and the end value, and make the t value change. (In your case, you make the end and the t value fixed and the start only changes.)
+Think of the "trick" question asking how long it would take to a ball that you drop to stop bouncing if each bounce is half the height of the preceding one. (Answer: it will never stop.)

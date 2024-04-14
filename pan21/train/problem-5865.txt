@@ -1,0 +1,5 @@
+You can use my suggestion from Scott's comments to get the next day with the variable part linked to your letter, so if "A" is Monday "B" Tuesday, "C" Wednesday, "D" Thursday and "E" Friday (and those are the only options)  then you can use this formula to get correct next weekday
+You said initially you wanted to exclude holidays, but if A1 is "A" and the next Monday is a holiday, what day should the delivery be then?
+If You always need delivery on a Monday, so if next Monday is a holiday it should be the following Monday (or the next Monday which isn't a holiday) then you can use WORKDAY.INTL function to do that (only available in Excel 2010 and later)
+If the next working day after that Monday (whatever the day of week) then you can incorporate the above into WORKDAY function like this
+is Monday of this week (use 3, 4, 5, or 6 for Tuesday, ... Friday).  I'm writing this on a Tuesday, so Monday of this week was yesterday and Tuesday of this week is today.  To get the next one (e.g., next Tuesday), use

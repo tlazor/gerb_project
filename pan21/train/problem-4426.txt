@@ -1,0 +1,5 @@
+a) either calculate the cross-correlation matrix between all vectors of your dataset, or the distance matrix; in both cases, you'll get a square matrix.
+I'm a neuroscientist, and I encountered what I think is a similar issue. Just to give a little background: the brain is divided in ~ 200k voxels. Using a technique known as DTI, fibers are sought. Either a fiber passes through a certain voxels (1), or it doesn't (0). Therefore, given a certain voxel, the connections pattern with the rest of the brain is a 200k vector; its components being mostly 0s, sometimes 1.
+b2) apply k-means to cluster the rows (or columns; it doesn't matter, being the aforementioned cc/distance matrices symmetrical) of your matrix of choice.
+Which distance to choose: I would suggest the Jaccard distance, eminently suitable for binary, sparse feature vectors.
+b1) use the spectral reordering algorithm, as described in http://www.pnas.org/content/suppl/2004/08/20/0403743101.DC1/03743SuppText.pdf (read the paper too, it is wonderful) to separate your data into clusters (each square is going to be one), or at least to get an idea about the number of your clusters. Optionally, 

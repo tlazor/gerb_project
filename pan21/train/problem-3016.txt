@@ -1,0 +1,7 @@
+From Windows XP, there is a 64-bit edition. If you run a 64-bit version of your OS, you can run x64 editions of an executable.
+In addition to the above, software may require certain frameworks, such as .net. Given that these frameworks are updated, support for older operating systems are dropped at some point which in terms mean that that executable can no longer be run on that older operating system unless you already have an older version of that framework installed.
+Just from the executable, its not possible to query for which architecture it was designed without using some external tools.
+A developer that builds an x64 and x86 version of their app can enforce this by displaying an error when you try to run an x86 version on an x64 OS.
+That said, unless you are dealing with software that is potentially really old, you can safely assume that software will run on windows 7 and up. If in doubt, contact the developer, or check their website.
+An executable can be compiled for a specific architecture, such as x86 (32-bit) and x64 (64-bit), but old executables can be made for older architectures, such as 16-bit.
+Windows XP still had support for 16-bit applications in the form of emulation, but Windows Vista and up dropped support for 16-bit applications all together.

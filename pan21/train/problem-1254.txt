@@ -1,0 +1,8 @@
+Here is an abstract base class for storing a grid of tiles ( from my HexgridUtilities library, hence the naming scheme:
+It will be somewhat less error-prone and easier to maintain. An alternative is to make it very clear when you are doing (row, column) access by naming the function getValueAtRowColumn or something obvious like that.
+You can implement either indexing interface regardless of the underlying storage layout. Consequently, it generally makes more sense to make the indexing APIs consistent.
+I usually store the map in a 1D array and then have accessor-functions that take the intuitive (x, y) format:
+If you're using C++ you can even define the accessor functions with the preprocessor to avoid the overhead.
+It is desired that the client application not care whether a row-major or column-major ordering has been used, as his is an implementation detail. In fact, as Sean notes, it is often desired to use a blocked storage. Here is a blocked implementation  of the abstract class above:
+More details, as well as a flat row-major implementation, are available here: Hexgrid Utilities for Board Game Implementations.
+"Row-major" and "column-major" are describing the storage layout of the data, not the indexing API. What you have provided in your question is a decision between indexing a conceptual 2D grid as (x, y) pairs or as (row, column) pairs (essentially y, x pairs, since rows stack vertically).

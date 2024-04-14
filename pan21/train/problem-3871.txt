@@ -1,0 +1,8 @@
+A bridge was what I needed after all; and you can manipulate the behaviour pretty easily using ebtables. To make sure that the bridge does not forward packets, all I needed to do was change the ebtables "forward" policy to "drop". This makes it so that packets coming in on eth0 are never sent out on eth1, while you still have nice features of a bridge (1 IP reachable from both sides) on your box. 
+The PC now listens on both interfaces for the same IP, and chooses on which interface it sends out packets based on its ARP resolutions. 
+That's not the correct way to setup a network. The system can only have one interface on which to contact a given subnet.
+2) Setting up a bonding interface with mode 3. This works but sends any reply from the PC out on both interfaces.
+1) Setting up a bridge on the two interfaces; however bridges are generally designed to forward traffic, and I do not want that behaviour. 
+The tricky part is that the PC should be accessible from both LAN1 and LAN2 with the same IP address, and LAN1 and LAN2 should not be connected. So far I've tried:
+Say your system (192.168.0.1) wants to contact another system (192.168.0.2). Which interface should it use? There is no way to tell. If that destination IP exists in both subnets, which is the correct destination system to contact? There is no way to tell.
+Then do SNAT and DNAT on the eth1 interface, so your system thinks it's talking to a different network, but iptables is actually rewriting the packets with a different source/dest IP on the way in/out.

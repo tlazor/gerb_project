@@ -1,0 +1,6 @@
+I have two users, spu1 and u1, spu1 is a superuser and u1 a 'regular' user. The owner of MyDb is spu1. I think I should also say that u1 has create databases & create role privileges as inherited from a group role.
+I'm trying to find out what the missing permission(s) (ideally the minimum required) I need to grant the regular user, u1, so that I can refresh this view when logged in as them.
+The second option seems like I'm in effect granting superuser permissions to a non-superuser, or rather granting greater privileges than I need to.
+If anyone can explain to me what exactly is going on here (or point out what info I've missed out in the description of my problem needed to solve it), and let me know if my second option is in fact the way to go or of a better alternative?
+Another option is to create a (non-superuser) group role to which both spu1 and u1 belong to/inherit from (e.g. "refreshers"), and assign that group role as the owner of the materialized view.  
+In the current set up, as described above, I cannot refresh mvw1 as either u1 or spu1. I simply get the below fun error (which I have googled extensively but not found anything which quite solves for my setup..).

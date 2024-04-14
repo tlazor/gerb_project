@@ -1,0 +1,8 @@
+(If it makes a difference, I'm re-formatting some CBR/CBZ files to get the double-page spreads to come up in the right order in SimpleComic -- it interprets page 0203 as page 203, which makes the story a bit hard to follow)
+It looks like there's not a particularly clean way to rename a file in a zip archive without unzipping all the files, renaming the ones you want to rename, and then zipping them back up, which is not really ideal.  However, I did stumble upon a OS/X utility called zipnote which does purport to do this:
+It doesn't look terribly easy to use, but it might be worth looking into, and assuming it doesn't actually unzip the files itself it should be fairly easy to automate.  Meanwhile, the command-line OS/X rar utility does support renaming files inside of RAR archives via rar rn foobar.rar oldname newname.
+I have a set of archive files -- both zip and rar formats -- inside of which I need to rename some files.  Specifically, I want to do something like this:
+The trick isn't so much in the generation of the new name; I can do that with either bash or sed or anything else. It's the set of commands to manipulate the files in the archives using rar/unrar or unzip/zip
+I've been looking into this too, and I suspect the easiest thing to do is probably write a python script to do it, especially because you'll be dealing with both RAR and ZIP files.
+I think the easiest way you'll find to do this is to unpack each archive, do the rename operation, then repack it.
+On Linux, I could use a FUSE filesystem to have transparently decompressed archives, which I could operate on like regular folders, using a batch script to do all the renaming. I don't know if that particular FUSE filesystem exists for Mac.

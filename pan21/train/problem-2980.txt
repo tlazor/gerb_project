@@ -1,0 +1,10 @@
+Animated spritesheets, along with translations are the way to go.  If you design your sprite classes properly, you will be able to control the flow of each animation exactly the way you want.
+Using the first method, the sprite stays the same size, so your collision rectangle is always in the same position, relative the the sprite.
+For example, if you use he second method, where the sprite gets wide, and you use a bounding box for collision, then you'll have to move the collision rectangle to cover the area of the sprite where the player is.
+The first is much better, people told you in other answers, but just to clear your head, yes, the frames may have different timings, frame 1 may pass with 10ms and frame 2 may pass with 30ms, but that should not be a problem.
+You should do: "walk 300 pixels per second" or doing "pass to the next frame of animation at each 20ms".
+There's a rule to gamedevelopment, that say to you to NEVER rely on the framerate to do your animations or movements. all we know, a sprite can move faster in a quad core than in a 486. Thats why you should EVER rely on delta time between frames.
+Another reason for the first method is that you won't have to adjust you collision rectangle as the sprite animates.
+By defining these transitions, you are creating your animation.  The delay between each transition can be controlled, as well as other aspects of each transitions (fade in, scale, etc.).  
+How? Well, instead of doing "walk 5 pixels per frame" or doing "pass to the next frame of animation at each frame of the application" this will lead you to different gameplays in different machines.
+Consider a frame, which is essentially a Rectangle that you place at a location in your sprite sheet and "frames out" the remainder of the image.  To animate a sprite, the Rectangle moves position in the sprite sheet and then displays the newly framed image to the screen.  This transition is programmed and controlled by you.

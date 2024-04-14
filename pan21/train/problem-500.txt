@@ -1,0 +1,7 @@
+It will allow you to login to the Windows Server using your ssh client and run commands remotely. You can then run qwinsta.exe and use its output. 
+The other (maybe easier) alternative is as you mentioned, use an SSH connection to run the qwinsta command locally, and grab/parse that output.
+Lacking such a tool, I could install an ssh server on the machine and call it remotely, parsing the output or write a small service of my own that would expose this via http, if I don't want full-blown ssh access.
+I'm confused, do you want to see who's logged into the unix machine or who's logged into the windows machine.  For Unix, just use who.
+Them thar folks over at stack overflow are all brainy when it comes to the programmin', they'll probably have additional insights.
+I'm writing some scripts to make remote connections to a Windows 2003 server a bit more user-friendly, and in doing this I want to see who's logged in already. In Windows, I could use qwinsta.exe to do this, even for remote servers. So it is exposed somehow, but I couldn't find a matching command line tool for Unix.
+If you can find a suitable means to query Windows WMI from a non-windows host (and there are some available e.g. here's one for Linux), then you can get the current sessions by querying Win32_LogonSessions. The downside to this method is the WMI service needs to be active on your target.

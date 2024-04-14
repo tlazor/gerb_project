@@ -1,0 +1,6 @@
+This sets the environment variable LIBRARY_PATH. The value is the name of the current directrory. The export instructs the bash, that the variable will be not reside in the shell only but passed to commands started from here.
+This directories you specify in LIBRARY_PATH will be searched after any directories specified on the command line with the option -L, and before the standard default directories (such as /usr/local/lib and /usr/lib). 
+You are setting the env variable LIBRARY_PATH to the current working directory and exporting it so that it is made available to programs outside the shell, compiler in your case.
+This sets an environment variable LIBRARY_PATH to the current directoty in a shell script, and exports it so that other commands can see this value. This environment variable is checked by the linker to find all the libraries that your code references.
+In Bourne-like shells, it sets the variable ${LIBRARY_PATH} to be the current working directory (at the time at which it is referenced) and exports it for other commands to see.
+Note that this command disregards any contents which may have already been assigned to ${LIBRARY_PATH}. If you wish to append to ${LIBRARY_PATH} you could use:

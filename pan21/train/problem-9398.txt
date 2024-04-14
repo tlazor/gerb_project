@@ -1,0 +1,10 @@
+I was hoping for a way to do this via the web app but it seems pretty simple from the stsadm command line eg. you can run this to get a list of database sizes:
+by the looks our database is still quite a bit off the max size - the above site details how to use multiple databases so we should be fine.
+We have had a consultant set up a sharepoint 2010 server for us to use for document management. I believe it is just on the basic (free) sharepoint that comes with windows server.
+How can we monitor the size of the database so we can predict when we might need to upgrade to full sql-server?
+If you fill up the SQL Server databases to the 10 Gig limit Sharepoint will still work, but you won't be able to write any new data to the database.
+I don't believe Express will support multiple servers.The off server storage ( Remote BLOB Storage) will allow you to keep larger files like video and others on a disk on the local system.  MS has more info here on BLOB storage RBS with SP Foundation  This can save SQL space and possibly improve performaqnce in some cases.
+From what I understand this uses sql server express 2008r2 which has a 10GB size limit. I am under the impression that full sharepoint can store file content outside of the database but that with our version they are stored in the database and am worried we will run out of space and suddenly our staff will not be able to work any more.
+Are they any ways we can stretch the sql server express database, perhaps by using multiple databases?
+I'm no sharepoint guy, but you should be able to configure multiple content databases and spread the load of the website across those content databases.  Your SharePoint consultant should be able to help you set that up.
+When you installed SharePoint did you do a Single Server install or Custom install and put everything on one server?  That may have an impact.  SharePoint 2010 Foundation can use SQL 2008(R2) as well as Express

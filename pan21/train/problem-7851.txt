@@ -1,0 +1,6 @@
+I had this problem as well a while back and if I recall correctly I simply tried another USB-port and it worked. It is also very important that you make the Windows 7 USB installer following these steps: http://www.intowindows.com/how-to-install-windows-7vista-from-usb-drive-detailed-100-working-guide/
+Officially the files in 'Intel_AHCI_RAID_V10501026_XPVistaWin7\Driver\64bit' should be what you need.
+(I'm not promoting any site here, there are several guides like this one and I just picked one of many)
+Make sure your USB is not in a USB 3.0 port. Disable XHCI Pre-Boot Mode in BIOS.  This will disable the USB 3.0 port so the Windows Installation doesn't see it, and therefore doesn't require drivers for it.
+Alternatively you can recreate the USB stick using the official method that's suppored by Microsoft:
+Here's the easiest solution to the problem without the hassles of locating the correct driver. This issue happens only with the latest builds of windows 7 installer running from a USB drive connected to a USB 3.0 port (usually blue colored). Simply reconnect your USB drive to a non-3.0 port and restart the installer by clicking the close button on the setup window and trying again. Most newer motherboards have both ports.

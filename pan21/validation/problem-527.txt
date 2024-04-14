@@ -1,0 +1,5 @@
+You can enable split tunneling using Powershell too. For example, in Windows 10 the "Use default gateway in remote" option is not accesible.
+When vpn is connected, change the gateway for the remote net to the IP address assigned to your cisco vpn client - in your ipconfig it's 10.0.53.22 - and metric to 10 (because < 276) to make sure that this route is valid.
+I'm connecting to a VPN which doesn't allow split tunneling and basically reroutes my Internet traffic through, which is slow. Additionally and more importantly, this also effectively removes my machine from local LAN.
+I'm looking for a way to modify routing table on Windows 7 to route Internet traffic and local LAN connections as usual, and restrict VPN traffic to 10.0.53.0 network, but although I know how to route delete and route add, I'm failing to understand what exactly I need to reroute.
+you problem is related to the version of the vpn client you use. If it es a cisco client, cisco has already fixed it with version 5.0.07.0410-k9 for 32Bit and 5.0.07.0440-k9 for 64Bit.

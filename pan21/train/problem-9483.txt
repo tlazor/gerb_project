@@ -1,0 +1,7 @@
+When firewalls block packets to/from that address it is called "Bogon filtering", and its commonly used. Its a sign that something is trying to hide its origin. 
+This is the default address assigned to the Sonicwall GVPN Virtual Adapter. The 223 block is IANA reserved, which means that is in unallocated and unused at this time.
+ZoneAlarm (firewall) reports blocking this address about once a day.  223.1.1.128 doesn't resolve to anything, so I tried a Web search on the number. I kept getting this site with a hyphen in its name.  So I figured I should ask here.  There's some suggestion that SonicWall uses it, and that's consistent with our hardware.  So is the 223 address block reserved for something?  Does anyone know more about this activity, or what it's trying to do?
+You can see a list of currently allocated address space here and it still shows that the 223.0.0.0/8 range is not allocated. 
+The "adapter", in this case, is a virtual network card (a driver only).  These (as well as your real cards) can be seen by typing ipconfig /all on a command line.
+What I found, and the answer I would most liked to have seen is this:  After you install the SonicWall "Global VPN Client", you will now see a network adapter has been added to your machine with this particular address.
+In my case, the client is installed on my home computer, but the firewall traps were being seen while at work.  The implication, therefore, is that the Sonicwall box occasionally emits a broadcast looking for machines that might have the "adapter" installed.

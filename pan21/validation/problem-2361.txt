@@ -1,0 +1,7 @@
+What you might be running into is changes in the way that Tomcat handles redirects when loading the root context. Check out bug 58660 and read some of the developer discussion there. You may need to turn off the default mapper by modifying the mapperContextRootRedirectEnabled attribute of the Context element in conf/context.xml.
+If your project is using dynamic web module of v2.2, you need to explicitly create atleast one file (can be empty html file) present in web.xml(eg:index.html) in your WebContent.
+Here's where the fun begins ... Lots of folks want to use *.do for things like struts. So they want index.do to be the home page. Or also common is index.jsp where *.jsp is mapped to the JspServlet.
+What Tomcat (IIRC) is doing is first iterating over the welcome file list looking for resources of that name. 
+Then it will do a second pass looking for mappings that match. So if index.jsp is specified in the welcome list and *.jsp is mapped. Then tomcat will try to forward to index.jsp and you'll get a 404.
+So I'm going to guess you have a servlet mapping and welcome file overlapping. And the behavior of that servlet doesn't support GET. (Hence the 405)
+Ancient question, but since I have recently battled with the terminating slash in Tomcat 8, I know that problems with the slash continues to plague the Tomcat user world. :-)

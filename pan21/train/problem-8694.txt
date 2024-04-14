@@ -1,0 +1,7 @@
+This controller is definitely hot-swappable, and the Poweredge R720 comes with caddies to even make this easy.  The whole idea of this setup is to be able to hot-swap failing disks.
+You can control changes to arrays using a difficult-to-use piece of software called MegaCli (which is available for both Windows and Linux).   It may also be useful to know that the PERC controller is made by LSI.
+I have a Dell PowerEdge R720 with a PERC H710P Mini controller. I currently have 10 disks in a RAID10 array, and I need to expand the array, or create a new virtual disk with 2 new 1.2TB disks I have.
+(As an aside most SATA controllers - or at least most ones using an Intel chipset) allow hotswapping are if you are careful - but they are not neccessarily designed to be!)  
+It's a dell official tool, windows and Linux compatible (even Debian too which is not listed on official doc).
+Can I plug the new hard drives into the server without taking it offline? Or is this a bad idea, and should I just wait until we can shut the server down? The drives are Enterprise 10K 1.2TB Dell drives.
+Yes, you can use Idrac card embedded card if you have it/can use it or Dell OpenManage System Administrator.

@@ -1,0 +1,6 @@
+The equivalent in Linux is to include the .so files in a directory within the package, and have a shell script set $LD_LIBRARY_PATH to point to this directory and then run the binary executable.
+I'm not sure if this is quite what you're looking for, but typically what's done for Linux programs is that you list the dependencies on the web page where you offer the product for download. In your case, something like
+You can statically link the program to all libraries but libc and libm. (Heck, you can even link in them).
+Some programs are distributed the way Ignacio explained, i.e. include all the dependencies you need inside the archive you distribute. That tends to annoy some people a bit because they're stuck with extra copies of the libraries that can't be upgraded, and may even clash with the system versions.
+The problem with 32 vs. 64 is that the compiler generates 64-bit code, and links against 64-bit libraries. You'll need to install a 32-bit toolchain in order to build a 32-bit binary. You can run file against the various binaries in order to confirm this.
+(Obviously specify version numbers as well, if your program only works with certain versions) Then a Linux user would check their package manager to make sure they have all those before trying to install your program.

@@ -1,0 +1,8 @@
+So both devices are able to achieve these network speeds. However, when I copy something from my laptop to my Pi, it maxes out at about 160 kb/s. For copying, I use WinSCP.
+Since you use WinSCP, I assume that the transfer is secured by SSH. I heard that SSH can be CPU-intensive and can slow down your transfer.
+To know whether SSH is guilty, I suggest to test the raw data transfer speed between your laptop and your RPi with iperf.
+When I download something using the Pi, it maxes out my internet connection (approx 900 kb/s). The USB drive can easily keep up with this.
+Install iperf on both your laptop and your RPi. One will be the server and the other one, the client.
+I have a Model B Raspberry Pi, attached to a wired network. It has Raspbmc installed. It also has an expernal USB drive for storage.
+Even if the router were very inefficient, I would expect at least 50% of the speed the machines can download with.
+SSH is a cryptographic network protocol for secure data communication, I guess that the CPU of the PI is not powerful enough to get high speeds. You could look at the output of the command "top". That way you can determine if the CPU is the bottleneck.

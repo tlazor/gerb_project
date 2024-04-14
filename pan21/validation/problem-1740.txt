@@ -1,0 +1,6 @@
+Simply re-seating the connectors on all patch-cables involved (and/or replacing those patch-cables) may go a long way here.
+That it works fine for 1 device (the laptop) doesn't mean it is a 100% OK for any other device (the workstation).
+"Doesn't register a cable or activity" but it works back at the old location with the same gateway sounds like not all of the wires are firmly connecting.  The next things I would try :
+Try different Ethernet cables at the new location.  Try a cheap USB Ethernet adapter, in case the workstation port is balky for some reason
+I am relocating a workstation at a business and when I plug my work laptop into the Ethernet at the new desk location, works fine. When I plug the workstation into the new location, nothing appears and doesnt even seem to register a cable or activity. When I put the workstation back at the old location, works fine and is same gateway. My laptop can ping the old location and the workstation at the old location can ping me as well. Any ideas? Drivers are updated.
+It's possible that autonegotiate is broken or turned off on either the workstation or the new location, but that's a more complicated thing to look into.

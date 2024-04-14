@@ -1,0 +1,7 @@
+I managed to figure it out! Because my company does not use issuance policies, there was nothing for the certificate to resolve to. So, to fix this, I changed the template from using issuance policies to using application policies.
+I have looked through the Microsoft libraries and googled for information on this error, however it does not appear to be well-documented. Any input would be greatly appreciated. Thank you!
+However, when I try to enroll a cert on behalf of a user, the template does not show up. When the "Show all templates" box is checked, the template appears with the following error message:
+I am trying to create a custom certificate template based off of the Smartcard User template with a Windows Server 2008 Enterprise subordinate CA. I am using the subordinate CA because the root CA is not on the domain. Here are my steps so far:
+I figure this is all I should need to do as my organization does not use issuance policies or anything.
+Next, in the "Application policy:" dropdown, select "Certificate Request Agent". This gives you the permissions to use that template.
+You need to set security on the template to allow it to be used by you. By default templates aren't usable. You do this from the Certificate Manager on the Sub-CA.

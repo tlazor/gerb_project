@@ -1,0 +1,8 @@
+Disabling/changing antivirus did not help. Neither did downgrading to TortoiseSVN 1.5.10 (that only had the consequence of not being able to read the checked out repository directories any more.
+You can recover from this problem using "cleanup" in Tortoise SVN. Find the directory(ies) that are giving you problems and descend into them. You will see files badged as unversioned. If you run the cleanup command on the containing directory, it will temporarily fix the problem.
+I had renamed a file from "Map" to "map" and committed it. The commit worked fine but Checking Out failed with the "directory is corrupt" error. 
+In my case it was fixed by going into Repo-Browser and deleting the file "map". So I still had the original un-renamed file ("Map") in version control. From then the checkout worked fine.
+What helped was configuring the Windows Indexing Service to not index my SVN/source code directories. I found that tip here: http://schleichermann.wordpress.com/2009/12/09/svn-tortoisesvn-cant-move-the-file-or-directory-is-corrupted-and-unreadable-windows-7/
+What I have found is that if I go to the indexing options in Windows 7, and click 'Modify', a new popup appears. From this popup I can see my C drive with and expand and collapse arrow. I have simply unchecked my workspace directory. Presumably this should disable indexing on this directory.
+I am still getting the errors, but I thought this might be a helpful piece of info towards the solution. NB I get the errors with indexing paused anyway, so there may be another factor.
+I was getting the exact same error, but also another error when Updating ("Cannot find the file specified").

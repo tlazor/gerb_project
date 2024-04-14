@@ -1,0 +1,19 @@
+Note that pings are sometimes given lower priority too, so a slow ping doesn't always mean bad network.
+There are many reasons why either of these things may happen, the majority of these reasons can be split into either physical or software issues.
+Often {host} will be the NIC on the local machine, or the machines gateway. The message means that it couldn't find a route between {host} and receiving host (I may be wrong here)
+Check under the Network Adapter node for your card, assuming your card is listed double click it and check for any known errors listed under Device Status
+Often at work, I need to ping a server to check if it is alive. Sometimes I get a message saying the host(name?) could not be found or other errors which result in a non-response.
+In windows you could poke around the gui in the networking properties, and in Linux you would use "ethtool".    If the hosts on either side of a router/switch are set to 10MBs and Half Duplex, but the router/switch is set to 100MBs Full Duplex, it will spew odd errors (for example).  This is more common on a new setup though than an established system.
+The error message returned by the ping command should also be considered when troubleshooting, Error messages that I see commonly include:
+These tools might help you say that the 5th hop is the one where things go crazy, and then you can troubleshoot just that hop.
+If you have errors, that's not a big deal, however if you have more and more errors by the second, that's likely a hardware/cabling/speed/duplex issue.
+When debuging I start with the physical component of the transmission path, that is NICs, network cables and intermediary devices.
+[1] You can verify that the operating system has a valid driver for your network card by checking for the presence of any Network Controller items under the Unknown Devices node in Device Manager. If  there is one you need to find a compatible driver for your card. 
+[2] The TCP/IP configuration dialog can be accessed on Vista / Win 7 by opening Network and Sharing Centere -> Change adapter settings (left hand pane) -> right click the adapter you are interested in and choosing Properties (requires elevation) and then double clicking either TCP/IP Protocol Version 4 or 6 depending on what you use (most likely v4)
+for /L %i in (0,0,0) do @cls && netstat -S|find /I "Error" && @ping -n 1 -w 2000 224.0.0.0 >NUL && @cls
+What technique is there for diagnosing the cause of these problems? Should I look at the target machine first? Or my machine and its firewall? Does it matter if the machine pinging from and to are on different domains? (I assume yes only if there are firewall settings to adhere to).
+[3] running the ipconfig /all command will display the MAC address as well as the IP address, subnet mask, gateway and nameservers. The MAC address is labelled Physical Address in the output
+This is by no means an exhaustive list of reasons why ping may fail, however it does cover many  common issues. I hope that it can help someone the next time their network breaks
+If you get pings sometimes, but not others, and can't prove/catch it... here are some tools that help identify networking issues:
+This is a very generic message that indicates that a response was not recieved within the timeout period. This may occur because the host could not respond due to workload and time constraints, or because of connectivity or routing issues discussed above.
+Sometimes across networks you need to find which device is causing slow responses, and you can't seem to find it during a single ping.  These tools help identify it over a series of pings by keeping "score" and showing you a graph.

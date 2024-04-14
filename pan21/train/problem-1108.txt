@@ -1,0 +1,5 @@
+Still, I am curious if someone with a better understanding has already thought it through. Enabling it would only be one line in the systemd script. And when in doubt, I would rather have the kernel kill the Node process than any random system service.
+In my setup, I am deploying a NodeJs server on AWS. Beside the Node server there is not much else running on the EC2 instance (expect monitoring and the essential OS processes). There are ELB health checks in place, which should eventually replace broken EC2 instances.
+I have to admit that my understanding is limited. My current understanding is that it will most likely not make a real difference, and it is better to leave the defaults in place:
+systemd has the OOMScoreAdjust option, which allows to adjust the oom-killer score of the started process.
+Still, I wonder if it is considered good practice to increase OOMScoreAdjust to make the kernel prefer kill the Node server process if there are memory issues, as it can be automatically restarted. In systemd, it could look like this:

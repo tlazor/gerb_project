@@ -1,0 +1,6 @@
+Not necessarily a useful answer, but I fixed this problem in Yosemite by using the Repair disk option in Disk Utility. 
+I had this problem when trying to remove some linux partitions from the disk. Reformatting them as MacOS partitions made it possible to remove them afterwards.
+Using OSX in virtualbox, on a virtualbox host, and I changed the dynamic disk size, but OSX wouldn't allow me to resize the partition (with the error in the original question)
+Once that had completed, I was then able to partition the drive successfully.  Previously I had been attempting to format it to use an Apple Partition Map after which I kept getting the described error message when I attempted to split the space into two partitions.
+Perhaps a simple answer: I fixed this by using Disk Utility, erasing the drive and reformatting it to Mac OS Extended (Journaled), selecting the GUID Partition Map as the scheme.
+I know it is a late response. Now only I faced this issue and I find out this blog INCREASE DISK AND PARTITION SIZE IN OS X. This solved me my issue. I am posting this because this might help someone else I hope. 

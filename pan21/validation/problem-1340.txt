@@ -1,0 +1,9 @@
+Could this be an SSL cache issue? Nothing has changed client wise. I'd also like to mention that at least 60 users still have email at various office locations across the US (we're connected via MPLS). 
+Could this be a client problem? I don't see how as nothing has changed with Outlook; the only thing that changed between it working and now is the SSL Certificate.
+We're on Exchange 2010 with about 200 users. Let me know if you need any more detail or have an questions.
+It sounds like a DNS problem. A VPN usually only works with IP addresses and connects to your exchange over IP rather than hostnames. This could be the reason why it works over VPN. Maybe your clients simply can't resolve the exchange properly, so try to let connect a Outlook client over IP address. Check your FQDN in your new ssl certificate if it's correct.
+Please check if you have installed a SAN certificate and it has all the SANs lists in the previous certificate as well. If there is the name mismatch then outlook anywhere will not connect. 
+I come into work today, and find that most people in the company are unable to connect to exchange in Outlook. Weird right? I fire up my VPN to my house and low and behold, it connects perfectly fine. 
+I've rebooted the exchange cluster (in proper order I might add), deleted my .OST and started fresh, cleared SSL cache, imported the cert that I exported from the Exchange server, rebooted multiple times, etc. 
+It started off with GoDaddy revoking our SHA1 certificate, so I had to install the SHA2 certificate. No big deal, it's recognized and accepted. 
+It works internally and via VPN because it is not using HTTPS or outlook anywhere connection, but it is a MAPI connection and hence it works

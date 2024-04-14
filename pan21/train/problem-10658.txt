@@ -1,0 +1,13 @@
+I understand that this must depend on the size of the code base, so what program size should mark the separation? 
+When thinking over this issue it's worth deciding on the geographic region, since the findings might differ not only within user groups but also for different locations.
+The "worth" of something can only be determined by you.  For some people it isn't worth porting to android for the amount of time spent vs. sales.
+I'm into XNA for Xbox360 development, and some of the developers that have written games for Xbox and PC in C# reported that porting to C++ and other platforms wasn't very hard at all.
+That being said there's no reason to just use C++ for everything.  Sure, the interfaces for certain things is C or Objective-C, but you can call both of those easily from C++.
+Next, you must reflect on the priorities for product growth and the resources available. Start working on several platforms from scratch at once might lead to uncertain results Thus, it's worth prioritizing based on the audience research.
+Finally, it's worth mentioning .net and C#, which are available on PC, Xbox 360, iPhone/iPad (mono touch), Android (mono for android), Windows Phone 7 and PlayStation Vita. That's quite a wide range of platforms.
+The game logic on the other hand, can be written in such a way that it does not reference the OS directly, allowing to share the code among platforms, or at least make it painless to port between languages and platforms.
+After releasing your prototype on one platform, it might be easier and safer to invest in other relevant platforms.
+Full portability is probably not a good idea, as the UI should be tied to the platform. This means you'll probably need to design specific UIs for iPad, iPhone and various Android devices.
+Finally, if I write cross-platform code, should I stick to C (since Objective-C is a superset of C, making it easy to use C and to use the code samples and because the NDK and the JNI interfaces are more C oriented)? The only advantage I see with C++ in that case is the fact that it is object-oriented and thus it is easier to represent game entities).
+I am currently planning a mobile game which I intend to first launch on iOS.  However, I am wondering if it is better to write everything in Objective-C, thus locking the code into the platform, and to do a complete rewrite for other platforms (ie: Android).  The other option would be to write the game logic in C or C++ and to only write the code that interfaces with each OS in the preferred language (Objective-C(++) or Java).
+It definitely depends on your audience. You should figure out first who they are and what platforms are used by them and in what proportion.

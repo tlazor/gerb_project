@@ -1,0 +1,10 @@
+Which one will the RDBMS use?  That depends on the resources that are available and if the CBO has decided that parallelization is worth the overhead of creating/managing slave threads.  Additionally, you can give a hint to the CBO that you think that running the job in /*+ parallel */ could have less cost.
+I'm assuming this setup is a theoretical question.  The only time you would do this is if the two tables are part of two different Federated Data sets as determined by your Legal department.
+Part of the SCSI command set allows the OS to queue IO requests.  The disk internals can then mix/match IO requests with a single swipe of the head.  I believe you need to use ASYNCHRONOUS IO to take advantage of that feature.  This would need to be enabled at the OS level (linux) and within the RDBMS.
+Modern hard disks use a communication protocol called SCSI (Small Computer Systems Interface).  SAS (Serial Attached SCSI) drives use it.  Fibre Channel drives use a super set of SCSI.  SATA (Serial ATA) drives use a subset of SCSI.
+Even across multiple databases, you would still match the data, between the two tables, within the RDBMS using the JOIN syntax.
+As shown, the code to access the data does not change with respect to how it is actually accessed or physically stored.
+Due to how it works, CLUSTER-ed tables can slow down DML actions against the tables.  As such, it is not a commonly used feature.
+In addition to SCSI queued commands, the IO could be split across multiple drives.  The data for Table1 could be on disks 1-20 while the data for Table2 could be on disks 21-45.  As the IO requests trickle down to the physical disks, the reads can be done in parallel.
+If you want the data for both Table1 and Table2 to exist in the same data block, organized so that they appeared to be already JOIN-ed, you will need to CREATE CLUSTER.  Remember, the database reads data from the disk by data blocks, not individual rows.
+This is one of the powers of using a database.  The language to access the data is independent of how the data is physically accessed.  Do not treat the database as a data dump.

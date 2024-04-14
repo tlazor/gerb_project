@@ -1,0 +1,6 @@
+Turns out that the SQL DB folder itself was the problem, opening it up and clicking 'Continue' to allow access via UAC did the trick. Navigating back to select all root folders then shows the correctly used space.
+I'm willing to bet you've got something like shadow copies or system restore points enabled on that volume which is taking up stupid amounts of disk space and putting it in a hidden folder, which your Select All, Properties method isn't picking up.
+Try this free program and see if it can help you. Should show you amount of space used per directory.
+Also check how much your hard drive is fragmented, this surely didn't take your 35GB but could loose you couple of megs.
+So i would say if there is any protected folders on the drive this would likely be the issue if you already checked for hidden and system files (system page file and the like).
+Just as a thought could MSSQL be reserving disk space for itself that it hasn't physically used so looking at actual disk space shows space remaining but SQL has "told" Windows that the space is allocated.

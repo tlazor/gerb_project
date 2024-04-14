@@ -1,0 +1,7 @@
+What I am wondering is what is the best way to patch these servers? The general consensus is to patch DCs manually, which makes sense. Some say add a test DC to a domain to roll out patches there to see if they break anything (A novel idea, despite the additional cost of course).
+For larger deployments, I've written scripts that will remotely kick off automatic updates and then I'd log in to each server and verify that the installation completed and reboot by hand. 
+I have a small AD domain, which consists of 14 servers - 2 DCs, file server, sharepoint 2010 server, sql server, etc.
+So what is the best update strategy? This doesn't necessarily mean best software, but just the best business process.
+Of these, the DCs and file servers remain online 24/7. The other servers are a dev environment so can be off no problem.
+You almost never want to totally automate patching including reboots unless you're at a very large scale in a highly redundant environment where it's no big deal if a node doesn't pop back up or update successfully. 
+The best process is whatever fits your needs. For that few servers, I'd set them all to auto download approved updates from WSUS but don't install them. Then, I'd patch them by hand. 

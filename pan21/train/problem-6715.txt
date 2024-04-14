@@ -1,0 +1,5 @@
+First is your english. You CAN NOT (!) purchase a dedicated IP. When was the last time you OWNED a phone number? You get them assigned, you may rent them (if you are with one of the locw cost providers where you pay more per IP), but you never purchase them as in you never own them.
+Depends what yuo do with it. HTTP? none. Actually it is forbidden by IP assignment regulation to waste IP blocks for individual sites. HTTPS - depends on server, some need a separaet IP per certificate. FTP - needs IP, old protocol.
+Interesting enough Yahoo does NOT talk about dedicated IP's. Nowhere. Where did you read that? They talk about CDN, which basically means "separate DOMAIN" (!), not IP. Separate domain CAN mean subdomain.
+No idea. Ask your hoster. IF (!) "same hosting account" means "with only one dedicated server" then OBVIOUSLY they will point to the same server. Where else?
+No. Like your own car compared to a taxi - your own car may suck. A dedicated server running outdated hardware will not increase speed to a modern shared host.

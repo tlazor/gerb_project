@@ -1,0 +1,7 @@
+I checked the voltages using the multimeter and the result was this: voltage of other 3 ports in my 4 port hub drops to 0.81 volts as soon as I plug in any device. The current output was maximum 0.18~ 0.2 Amperes. Is there a problem with my USB port (it's a USB 3.0 port)? 
+Almost no desktop that I know of only has a single USB port - so is this a tablet, laptop or other form factor?  Reason I'm asking is that you could try plugging the devices into different ports to see if they work.
+That said, I've had more (flash drive, wireless mouse, keyboard) on a cheap 1 dollar usb hub and it worked. Have you tried a different hub?
+I read you  need to use a 2.0 USB hub and not a 3.0 USB hub in order to get a keyboard & mouse to both work through one USB hub.
+I'm trying to use a Dell mouse and keyboard via a single USB port using the USB splitter hub, but the devices seem to misbehave. Just one of the devices work when I connect both. I figured out it's a power issue. But, generally, the output of a USB port must be maximum 500mA and my mouse only needs 100mA, and the keyboard, 50mA at most. So, I assumed that both should work. 
+USB standard expects 5V ±5%. That's 4.75V to 5.25V to be valid. Between the Hub IC, the Keyboard and Mouse, something is bringing the voltage down enough for it not to work. Measure the current and voltage from the Upstream port, and see what it is.
+Also, since you are using USB, Bluetooth jams USB 3.  If you are using BT, try and turn it off and test.

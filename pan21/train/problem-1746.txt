@@ -1,0 +1,7 @@
+These packets would be transmitted on that interface with the BSSID that you set when "joining" the network, and could be captured by any other Wi-Fi device on the same channel in monitor mode.
+So you could just join any IBSS network and start sending frames to the broadcast MAC address on the appropriate Wi-Fi interface.
+You talk about needing to join a network beforehand, and mention ad-hoc networks. However joining a IBSS (ad-hoc network) entails nothing more than setting the BSSID of the packets that you are going to send on the network, no packets have to be sent when "joining" an IBSS network.
+I would like to be able to send packets in the air without joining a network. Another device in monitor mode would be able to recognize which packets it should treat. I know wifi may not be the best way to do this, just wanted to know how it works technically.
+If someone could just point me in the direction of some documentation about this, I couldn't find it.
+Indeed, there must be some kind of packets sent during wireless network discovery? How are the various SSIDs transferred over network without a connection being made? What kind of packets are sent to discover networks over wifi?
+Is it possible to send a packet over wifi without having joined any kind of network (ad-hoc or not)?

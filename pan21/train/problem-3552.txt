@@ -1,0 +1,8 @@
+Plus to the script that can be found following first link you can add this code to work will all possible keyboard layouts.
+You can disable that shortcut on the Keys page of the Cygwin terminal's options (together with the Alt+Enter shortcut for fullscreen, for which Alt+F11 can be used instead).
+Here is the Autohotkey script I am using (by the way it is only for theoretical completeness that I re-map the lefthand Ctrl key to be the lefthand Windows button -- I have never actually pressed it when using emacs):
+Any ideas on why Autohotkey won't do the M-SPC as I would expect, or why C-M-SPC is understood by emacs as a C-SPC (I suspect)?
+This means that an emacs sequence like Ctrl-xCtrl-c is done with my left thumb pressing on the key labelled 'Alt' to produce the Ctrl. Ok.
+Alt+Space is a standard Windows shortcut for showing the window menu, which you can also get by left-clicking on the window icon or right-clicking on the titlebar.
+I am using emacs in Cygwin and have used Autohotkey to re-map the lefthand 'Alt' key and the lefthand 'Windows' key to be (left)Ctrl and (left)Alt respectively.
+To be clear, when I say 'all is ok' I mean that within emacs I use the 'describe key sequence' feature (C-h then k) and then try out the key combination I want. For example, all of these show the emacs documentation for the sequence I expected:

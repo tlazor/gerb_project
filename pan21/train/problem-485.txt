@@ -1,0 +1,11 @@
+1) If you can run your query in non-active hours, you should issue exclusive table lock and then delete records. this will save time SQL server will spend to propagate locks to many individual rows
+As for answer you accepted. I don't believe that it will work faster then simple DELETE approach, if you will copy 100Mb of data. It will be very heavy load and big transaction log growth. Generally, it depends on how much of that data would you like to remain untouched after delete will be finished.
+Make a delete  based on a select according to your criteria, but the select has a TOP 100000 - so only 100000 rows get deleted on every call. Call until no more is deleted.
+One major benefit of this is that your indexes will be rebuilt as you put the data back into the original table.
+In most cases bad performance of DELETE is when indexes is not used by DELETE query (you may check query plan) or when you have too many foreign keys or heavy triggers logic. 
+Problems begins when there is a very large transaction that blocks lot of other active users transactions... So you have to make delete in small portions, each in its own transaction... 
+Probably, in some high-volume OLTP databases it is better not to delete data at all. Developers can create "IsDeleted" field or something like that. But this is a consideration for the future.
+3) you could also temporary switch off (or drop and then recreate) Before/After Delete triggers and constrains (including foreign keys) however there is an integrity risk and this approach require some experiments. 
+Another option would be to select into another table just the data you wanted.  You could set up partitioning on date this way.  
+AFAIK, disabling/enabling indexes will not improve the situation because when you delete records, there will be "holes" in index trees... So this may affect the performance of the next SQL queries for the same table, and sooner or later you may want to rebuild the indexes, however I never see any effect on how indexes (even when you have too may indexes) may decrease the speed of delete operation
+If the date index was the clustered index, the deletes should happen faster as they would all be close together on the disk.

@@ -1,0 +1,7 @@
+You don't need to change a user's OU to join a group, they are two separate thing. You just need to add the user into the group using ADUC mmc。
+I'm trying to permit any user within the group CN=german_users. Two users are assigned to it, however their path in ADSI edit does not reflect that:
+Only your AD admin can give you actual OU path of an object. Fortunately, AD info is mostly readable for anyone in domain, so if you have any ldap client, you can just search that object and get its DN (DistinguishedName). You can search based on name, AD username(samAccountName), etc.
+Edit: I should note that I cannot simply use any account within the 'OU'. I need to use specific groups within the same OU to allocate different access.
+In SRX policy config, refer to the group (or groups) by using CN ("german_users"), not DN ("CN=xxxx,..."). It's enough.
+I'm in the middle of configuring a Juniper SRX to do LDAP Authentication for users and am running into an issue in my lab. I'm sure it's my own poor AD skills at play here, but I'm seeing some strange behaviour:
+I'm having difficulty referencing the specific group on the SRX. If I could figure out the absolute path to the user, I'm sure this would be simple.

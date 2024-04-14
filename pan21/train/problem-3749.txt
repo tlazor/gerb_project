@@ -1,0 +1,6 @@
+I use GL_DYNAMIC_DRAW because you would change the data often whereas GL_STATIC_DRAW would indicate that you won't change it often. It really doesn't make a difference but allows the driver to optimize differently.
+glDeleteBuffers() and glGenBuffers() destroy and recreate a buffer. Conceptually they are similar to free() and malloc(). If you're just writing new data into the buffer, destroying it and recreating it is not only overkill, but will almost certainly bring a performance penalty.
+glBufferData() overwrites the previous data, and is generally what you should use to load new data into a GL buffer. Conceptually it is similar to overwriting data in an array.
+I am using an array buffer for colors data. If I want to load different colors for the current mesh in real time what is the correct way to do it. At the moment I am doing:
+It works, but I am not sure if this is good and efficient way to do it. What happens to the previous data ? Does it write on top of it ?
+You don't need to rebind the VAO or reset the vertex attributes. You can just overwrite the data in place:

@@ -1,0 +1,6 @@
+The application sending the email needs to set the headers properly. The email server that SSMTP uses needs to be configured for those domains. Remember SSMTP doesn't send mail directly to the target server, it sends it to an email server you control which does everything else - at least as far as I know and that's how I use it.
+Is it OK to use a single SMTP server mail.domain1.com for authenticated mail sending from multiple originating domains other than domain1.com using ssmtp?
+Yes, I've done it and it works fine. I have a tutorial which covers SSMTP here, which I've copied the key parts of below.
+Should absolutely not change the from address, you must send email only from domains you either control, manage, or have permission to send. The filled in from field should only change the reply-to field.  
+If yes, what happens with FROM, SENDER, and REPLY-TO headers when an end-user fills a contact form on a web server domain-xy.com, if I setup ssmtp with FromLineOverride=yes?
+Here's the key parts of my tutorial. I did this over a year ago and don't remember the details, that's why I wrote it down.

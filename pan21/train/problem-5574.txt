@@ -1,0 +1,7 @@
+Is there a way to configure varnish or any other caching reverse proxy, to serve pages from its cache when the back-end fails? At the moment, if the back-end goes down a 503 Service Unavailable error would be returned to the browser. I would prefer it if visitors got to see a cached version than an error page while the back-end is being fixed.
+Yes there is, with Squid. Mark Nottingham worked on this at Yahoo, see this excellent blog post for all the details.
+One thing, Squid 3.0 is a pretty big rewrite of the Squid codebase, so don't blindly deploy the newest version of Squid, but check first which versions of Squid have this functionality. It might not be ported forward to 3.0.
+I think womble is right about Varnish and doing this via Varnish' VCL, but I have never configured something like this with Varnish, so I can't say.
+A hack that should work: You could generate a cached page from time to time and configure a 503 handler to use the cached page.
+On the other hand, Varnish recognises that theory and practice diverge, so there's the grace directive in VCL that I think handles this case as well as the more prosaic uses documented in that page.
+In theory, if an object is out-of-date, you don't want it served by the cache -- if it isn't out-of-date, the expiry should be set longer...

@@ -1,0 +1,5 @@
+I am aware of libraries that already do this (like GLFW), but I would actually prefer do all of the window and context creation by myself.
+There's a physical device VkPhysicalDevice and a Device.  The former encapsulates all the information about a piece of hardware, typically your GPU.  The latter is a handle that lets you actually interact with it.  
+There's no such thing as a Vulkan context, the way there is with OpenGL.  There are a number of things that kind of correspond to an OpenGL context.  
+However, since you're focused on windows, what you're probably interested in is VkSurfaceKHR.  This encapsulates interaction with a windowing system.  On Windows, to interact with a window, you need to have an existing VkInstance, and you need to call vkCreateWin32SurfaceKHR and pass it a structure containing an HWND and an HINSTANCE.  If it succeeds then you have a surface to which you can then present images.  
+There's a VkInstance.  This encapsulates access to the Vulkan libraries on the system, including the extensions.  

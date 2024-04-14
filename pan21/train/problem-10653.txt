@@ -1,0 +1,6 @@
+I don't want to list *.test.com in /etc/hosts; I don't want to install a DNS server locally (dnsmasq -S  /internal.thekelleys.org.uk/192.168.1.1); and I don't want the internal.thekelleys.org.uk DNS server to serve other domains.
+This is indeed a common use case when one has more than one network cnnection, e.g. an internet connection (for the generic traffic) and a vpn connection (just for traffic to a company or remote site).
+And yepp, this is a necro thread, but hence there is no advance in the last 3 years, I resurrect it to get the focus back on this quite old, but still unsolved problem.
+You can't. The resolver is not designed that way. You'd have to write your own resolver and either preload it into your applications or use NSS to have it examined first.
+Resolvconf keeps track on all the different domains and namserver and generates a cfg for dnsmasq. Dnsmasq includes this cfg. The local system then uses dnsmasq as nameserver.
+I know no operating system (excluding OSX as I've learned above) which can handle this problem from stock. Having linux, one solution may be using dnsmasq with resolvconf.

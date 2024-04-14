@@ -1,0 +1,6 @@
+First & foremost, that checkbox is not a status indicator! It is essentially a 3-state switch that affects the read-only attribute only on the files within the folder. The 3 states are:
+In addition, the read-only attribute on a folder doesn't affect file permissions in any way. It only serves to tell Windonws to process the desktop.ini file found within the folder.
+If you want to accurately know whether or not the read-only attribute is set for a folder, add the 'Attributes' column to a Details view in Explorer:
+So I have this windows XP box which has a folder. When I look at its properties, it read-only is enabled. When I uncheck this checkbox and saves it, it saves with no messages, but when I open it again it shows the checkbox checked!!
+You can safely ignore the read-only attribute, and the associated check box, for folders, the vast majority of the time. The exceptions would be special Windows folders, which you should not be modifying anyway.
+You might not have ownership. These two links should help. I had a similar issue with a client and book marked those links. It fixed his issue. Hopefully it fixes yours.

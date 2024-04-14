@@ -1,0 +1,12 @@
+I created some virtual machines that have only the vmbr1 assigned to them. I can happily ping between these machines. I also get access to the internet from these machines just as if they were behind my home router. If it matters, on 172.20.0.2 I have a dhcp server and on 172.20.0.3 and 172.20.0.4 I have two dns servers.
+So my question is: what do I need to do to allow the vpn clients to access the virtual servers given this setup ?
+The clients need to have routes pushed to them to ensure traffic destined for the internal subnet is routed over the VPN. This could be a default route (causing ALL traffic to be sent over the VPN from the clients) or a specific route for your internal subnet. You've identified you can push this in the VPN configuration (provided you use certificate-based auth).
+If you don't have a firewall on the OpenVPN host, it will default to permitting traffic, so you can ignore that.
+I have one dedicated/physical server at ovh(if that matters) with 4 additional ips. The OS installed is proxmox and I have two network devices (their type is 'Linux bridge'). One has the server's public ip assigned(vmbr0), the other one(vmbr1) has the ip 172.20.0.1 with 255.252.0.0 as netmask.
+I created another virtual machine that has both vmbr0 and vmbr1 assigned to it. I have configured one of the additional public ips on vmbr0 and I can ssh into it. I also installed openvpn and configured it so that clients get internet access through the vpn server. The vpn clients get ips from the 10.8.0.0/24 network.
+I am pretty sure that I need to do something on the proxmox host itself (because there is the gateway for the 172.20.0.0/14 network) and I believe that I also have to add some iptable rules on the openvpn server itself in order to forward/masquerade the traffic between the networks but I can't understand exactly what rules.
+You need to enable IP forwarding on the OpenVPN host. Use sysctl to set the value of net.ipv4.conf.all.forwarding to 1. Add a file to /etc/sysctl.d to ensure this persists across restarts.
+I need some help understanding how to allow the vpn clients to access servers that are on the "intranet".
+What I want to do now is to allow all the servers from 172.20.0.0/14 to ping/ssh/etc into the vpn clients that are on 10.8.0.0/24 network.
+The local hosts also require routes to ensure they know how to access the OpenVPN subnet. You could either:
+I figured out that I need to make openvpn server push some routes to the clients (in order for the clients to know about the other network);

@@ -1,0 +1,7 @@
+There is no such thing as a localhost directory by default. You first have to install a web server, and then drop your files in the directory that is specified in the configuration. The default for Apache is C:\Program Files\Apache Software Foundation\htdocs, for instance, but it completely depends on your configuration.
+The file you need to find is called (in a Windows OS) httpd.conf.  It should be found somewhere under where you (or someone) installed Apache. In my W10 system it is located at D:\apps\Apache24\conf\httpd.conf.  If you are delving into Mac or Linux you'll probably be quite a techy person already and be able to find out where your Apache server is installed.
+In that .conf file you need to find a crucial line where the DocumentRoot is set.  The location in my httpd.conf file looks like this:
+Now my "localhost" home is at X:\htdocs\html\ (where html is a directory).  If I put an index.html file there and then go "http://localhost" in my browser it displays the html contents of index.html.
+I am having trouble with a web application; it works fine in the Visual Web Developer IDE, and not at all on the server. My plan is to run the application from the web browser without the IDE being involved by dropping it into the localhost directory and running it from the browser.
+This isn't a very helpful answer.  Why do experienced people do this? Just lack of communication skills or what?
+... that's because I changed the default location at some point.  Hash (#) at the beginning of a line means: comment this line out.

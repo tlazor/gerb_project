@@ -1,0 +1,6 @@
+First up, the stderr log file does not have the time on the file name (missing _%T). This is a classic copy-paste+partial-fix issue, you copied the same code to multiple places, then needed to fix it, but you only fixed some of them.
+Your code does not handle complex commands gracefully. What if the command is ls -laR /etc .... how will it save away to log files called:
+You need to rationalize that. I started with the spaces and slashes first... using a bash regex/replace for [ \/] to be replaced with an _ underscore.
+Now, basename is reusable, and if you want to change all three (stderr, stdout, full), then you can change them in just one place.
+Next up, I am concerned that you have two tee processes both writing to the same "full" file. The one that starts second will overwrite what the first one started with, but I suspect that they will subsequently "merge" the results. It would be better to start a clean file, and then have both tee processes append to the existing file.
+Note that only the stderr needs to be handled by the anonymous fifo. The redirect back to stderr keeps it out of the way of the rest of the stdout. Also, note the use of the -a flag for tee.

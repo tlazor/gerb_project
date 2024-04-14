@@ -1,0 +1,14 @@
+I honestly think "subnet fragmentation" is an outdated way of thinking, but I'm want to continue the technical discussion.
+It was nice for grouping ip ranges and you could look at an IP and know exactly what it was..  Oh the 10.4.20.Xs are all databases, etc...  BUT...
+One thing people don't usually think of is splitting off printers and other highly vulnerable and unprotected network devices into their own network - with access only to say a specific print server. And then there's all the usual ones depending on your organisations information security demands.
+Currently, our primary subnet mask is configured to use 4 class B's, which is way overkill in terms of the sheer number of available IP addresses, for our small business.
+One disadvantage however is that you're limiting your future expansion capability.  You may only need one subnet now, but who's to say you won't need more in the future?  You might expand, you might want to set up separate subnets for some parts of your network, and so forth.
+Depending on the size of your subnet broadcasts might be a problem, although depending on the speed of your network they might not.
+A good rule of thumb with these things is to take what you think you need and double it, so if you have 50 hosts (and don't forget to include servers, printers, switches, etc here) a 25 bit netmask (giving you 128 hosts, less 2 for network and broadcast) will cover what you need and give you some headroom.
+I think a general rule of allocate for what you need today with a healthy overhead to grow in to is a good practice. 
+Is there such a thing as having too many IP addresses? I'm not suggesting we use the entire private 10.* Class A, but I don't see why we couldn't if we wanted too.
+We've started a small debate in the office, and I've hit the point where I no longer have the technical knowledge to continue.
+I'd also drop the "class" thinking and use CIDR for your subnets.  Classes don't really exist anymore outside of university courses and history books, and CIDR just gives you so much more flexibility.
+Not really - as long as you limit the amount of actual devices to something the network will handle... but then again, why have such a huge amount of possible nodes in that network if you won't use them all?
+Segmenting networks are good for many a things including providing a logical structure and overview, tightening security by splitting roles and/or locations into different networks and so fourth.
+Security comes with layers, network segmentation is one of many to help make stuff less vulnerable to security issues (=access, integrity and availability).

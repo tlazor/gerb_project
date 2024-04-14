@@ -1,0 +1,5 @@
+I tried booting with -x and -f and disabling InjectATI in Clover but no luck. Anyway to fix this mess?
+After reading up, I managed to solve the problem by starting up in Recovery Mode (CMD + R + PWR), entering the Terminal, navigating to Library/Extensions/, and removing ufsd_NTFS.kext. After rebooting again the system would start. 
+I then removed Paragon NTFS and installed the trial version directly from Paragon's website. It works like a charm.
+I tried installing Paragon NTFS for Mac downloaded from Seagate's website. My system would hang during the boot process. I'm on an early-2013 Macbook Pro running OSX 10.13. 
+I've been using El Capitan with Clover for a while and I heard Paragon NTFS is way faster than NTFS-3G so I decided to give it a try. I disable NTFS-3G first using the preferences pane then installed Paragon and restarted just like it told me to. And since then I can't get to the OS. I get the Apple logo and the progress bar takes much longer than normal and disappears at ~3/4 the way and I just get a black screen with "No Signal" on the monitor as if the PC is turned off.

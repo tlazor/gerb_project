@@ -1,0 +1,6 @@
+Under 'Choose albums for your slideshow', there is a 'Browse' button. It allows you to select a sub-folder (or any other folder anywhere on your disks):
+C:\Windows\explorer.exe shell:::{ED834ED6-4B5A-4bfe-8F11-A626DCB6A921} -Microsoft.Personalization\pageWallpaper
+I wanted to do this exact same thing and it took me a while to figure out how to accomplish it. What I ended up doing was using a combination of a custom library and the old Windows wallpaper settings.
+To create a library with the folders you want, click on Libraries in the left side panel of a Windows folder (or if you removed the Libraries link from there you can just type Libraries into the navigation bar). Once you're in the Libraries folder you can right-click and select new Library. Then add folders to your new library by right-clicking on it, selecting Properties, and clicking the "Add..." button.
+The Window 10 "Personalize" window doesn't let you select a library (other than your default Pictures library), but the old-style wallpaper settings does and that can be accessed with this command:
+I created a shortcut to this and put it in my Wallpapers folder, but you can also just enter that command in the Cortana search field. From this window you can browse to your new library.

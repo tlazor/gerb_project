@@ -1,0 +1,8 @@
+I'm not very familiar with bash and am quite out of practice with code in general so I would like to check behind myself. I received excellent feedback in the previous post and have addressed several of the points raised. 
+The purpose of this tool is to allow someone to copy media from cards (SD cards, CFast, etc) using rsync and to also allow someone to complete incomplete transfer that they have initiated. 
+In run_rsync, in case of partial ingest the user is prompted for "target directory", but here it will mean the full destination path. If would be better to name it as such.
+In make_directory, the term "target directory" refers to the base directory in which a timestamped sub-directory will be created, with brand name, project name, and so on, also in the name.
+I've chosen to use prompts because it's more user friendly for the environment the script will be used in. The intended users are not command line tool friendly. 
+Error handling is at a minimum still I believe and I'm not too sure what would even be relevant to handle past what's implemented. I'm not very experienced in that regard so resources are appreciated! 
+Referring to $option in run_rsync is just too far away. It's not clear anymore where it comes from and what it means. It would be better if the prompt loop passed the decision to run_rsync as a parameter, to make it perfectly clear. For example:
+option is read in the global scope to decide if user wants a full ingest or continue a partial ingest. In that loop that reads the prompt, the meaning of option is understandable.

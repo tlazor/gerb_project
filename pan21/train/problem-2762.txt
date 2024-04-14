@@ -1,0 +1,8 @@
+The operating system (Windows or Linux) provides services to applications. For example, Windows and Linux will have functions that the application can call to access files, to access the network, to display things on the screen, etc.
+2 Windows cannot fork a process; CreateProcess can somewhat be used to emulate fork however it loses the copy-on-write semantic. There is no way to do a create copy-on-write process in Windows.
+The different operating systems provide different ways of doing those things, so an application that does it the Windows way won't work on Linux, and vice versa, even though the CPU architecture is the same.
+1 filesystem security comes to mind, there is no way to translate between Linux's security bits and Windows' NTFS ACL.
+No, different Operating Systems use different formats (ie. Windows uses PE while linux uses ELF). Also, when compiled, your program makes calls to native OS methods. As mentioned, you can look into using WINE. It provides most functionality to run Windows binries on Linux.
+There are three major reasons why .exe files won't directly run on Linux and why a Linux executable won't directly run on Windows.
+The only way to run executables on Win, Linux (or even Mac)is having some kind of "virtual layer" between the assembly and OS directives, lukas' option of running it under Mono is one way to go, just like building an Java file (or even an Adobe Air).
+Building binaries that run that, as is, to run on several architectures is no possible because machine code is highly binded to the OS and even the hardware, you may have to perfom several builds for each system/OS. 

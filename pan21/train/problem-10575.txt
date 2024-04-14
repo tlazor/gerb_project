@@ -1,0 +1,7 @@
+The reason that I changed the way of input, is because Excel meant to be working with numbers, and also typing numbers is faster that typing strings, as you will save time. Think about it again. 
+Open VBA / Macros with Alt+ F11, under ThisWorkbook insert a new module and paste the code on the right side.
+If you don't want to use these temporary variable then you can replace every cell with its value, but formula would be very long.
+The formula in cell D2 takes the total number of "Work" days (cell B2) and divides them by the number of resources specified in cell C2 (each resource is separated by a comma):
+If you really want to do it then you had better use temporary variable (Use some cells to store temporary value) then hide them. (for example, set width of column G = 0)
+When you use the above function in column C, it will search for number input in column D and E, and put the correct resources. From the same function, you can also extend it further.
+Achieving your goal will be really complicated as other mates mentioned. A better way to achieve your goal is to think numerically. I see if you change the way of cells working will be more effective. For instance, make column D & E manually modified. While column C has IF statement that will search in D and E columns for numbers input. This will make it easier for you to modify or add any other functions within the sheet.

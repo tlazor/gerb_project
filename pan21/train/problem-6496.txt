@@ -1,0 +1,6 @@
+It is perfectly possible. Look at the link. Note that the channel used must be the same on the access point and on the Wi-Fi.
+I have used the guide from http://imti.co/post/145442415333/raspberry-pi-3-wifi-station-ap  (which is the same linked by Alfredo Pons Menargues) adapted to my own needs.
+It's a little quirky, and I recommend reading the comments first, as I haven't yet updated the original post to include some helpful suggestions from the comments. Either way, I've gotten it to work using my instructions. Good luck!
+As I commented here it is possible to do, but most of the articles I found online did not work for me.  I wrote a detailed blog post on it here: https://albeec13.github.io/2017/09/26/raspberry-pi-zero-w-simultaneous-ap-and-managed-mode-wifi/
+A single wlan interface may only connect to one WiFi network at a time. It cannot do both things simultaneously. If you have an​ external WiFi adaptor, then you can bridge the internal and external wlan interface, then you can bridge both of them to make one act as access point and the other as hotspot.
+The output from your iw list shows that only the second combination allows managed (i.e. client) and AP at the same time , but it says channels <=1. That is, they need to use the same channnel.

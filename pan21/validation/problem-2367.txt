@@ -1,0 +1,6 @@
+Choice #2 - http://windowsitpro.com/windows/how-can-i-force-my-microsoft-outlook-2007-client-particular-autodiscovery-server
+Either DON'T have an A record in DNS for the domain itself and only use a www record, etc. for webhosting.  This would mean that if someone typed DOMAIN.com into a browser it wouldn't resolve though...only www.DOMAIN.com would.
+You can probably get round this by making your webserver only respond for 'www.' rather than 'yourdomain.com'
+The default autodiscover queries DOMAIN.COM first before it queries AUTODISCOVER.DOMAIN.COM.   Because of this, if you have a certificate on DOMAIN.com it will query that certificate and throw up the error.  You can ignore the cert error in Outlook and then it will find the second cert and work ok, but it is a pain and will happen every time.
+Use http://www.testexchangeconnectivity.com - run the Autodiscover test and it will show you what order Exchange clients use for autodiscover information.  I think it tries connecting in such a way, that your web server is effectively 'answering' one of the requests, and then this causes autodiscover to fail.
+Choice #3 - I think you can use this registry key: “ExcludeHttpsRootDomain” in the Autodiscover section in the registry under Outlook on the clients computer.  You'll need to set it to 1.    

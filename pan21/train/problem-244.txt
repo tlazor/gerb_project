@@ -1,0 +1,6 @@
+My problem is that if daylight savings time occurs between GetUTCDate() and @utcDateTime, the @localDateTime ends up being an hour off.
+SQL Server version 2016 will solve this issue once and for all. For earlier versions a CLR solution is probably easiest. Or for a specific DST rule (like US only), a T-SQL function can be relatively simple.
+Unfortunately, there is nothing built-in that can handle this type of conversion, save for CLR-based solutions.  You could write a T-SQL function which does something like this, but then you'd have to implement the date-change logic yourself, and I'd call that decidedly not easy.
+A (complex) T-SQL function could use this data to determine the exact offset for all dates during the current DST rule.
+For SQL Server 2016+, you can use AT TIME ZONE. It will automatically handle the day light saving times. 
+The best way to convert a non-current UTC date into local time is to use the CLR.  The code itself is easy; the difficult part is usually convincing people that the CLR isn't pure evil or scary...

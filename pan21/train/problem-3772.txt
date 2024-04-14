@@ -1,0 +1,10 @@
+I have a Windows 7 laptop (Dell Inspiron) and I'm trying to simply listen to music through headphones. This process used to work flawlessly.
+direct sound is the option to play sound from ear/head phones or external speakers(in case of a dock connection).
+Also, download the latest audio drivers from your laptop maker website and install them. Even if they are the same version as your current drivers, reinstalling them may reset the settings to the default you're expecting.
+The only thing I can see is that the music seems to be playing through the Speakers/Headphones playback device (seems reasonably named) but should be playing through the Independent R.T.C. Headphones, instead. This info comes from the Sound config area of the Windows 7 Control Panel.
+You could start looking at the lower, right part of your screen. Next to the clock you will have a small icon resembling a speaker. Right-click and you can enter the volume mixer. There you can adjust volume and output individually for every sound-producing program on your computer.
+It is generally a hardware function on the laptop itself that automatically routes sound through the headphones if they are connected.
+The funny thing is that Skype uses my headphones just fine. I just don't know where to start looking to make sure the media players are using the correct audio when headphones are plugged in.
+If you have some sort of specialized audio driver (RealTek is a common one) it may have settings that determine how the audio auto-routing is handled. Check for any obvious settings regarding where sound is sent when headphones are detected.
+Something changed and now iTunes (as well as WMP and any other audio playing device) will not play through the headphones, which are plugged in. Instead, the music plays through the crappy laptop speakers.
+If so, update your system BIOS (download is usually available from the laptop makers webpage). Also, check your BIOS settings for any obvious issues.

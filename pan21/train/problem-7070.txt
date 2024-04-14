@@ -1,0 +1,6 @@
+Since addEdge adds an edge from a source node to a destination node it's more precise to speak of a directed graph. Otherwise
+I think the code is incomplete. It's possible to build a Graph but there is no way to process it as there are no methods returning the state of a Graph.
+The method addEdge verifies that a source node is already present. But it doensn't verify if the destination node is present, too. Thus it's possible to addEdge from an already added node to an unknown node.
+Whereas hasNode("B") will state that there is no node "B" in the Graph g, hasEdgde("A", "B") will return true which is at least misleading. I think  it's inconsistent as I would expected this implies there is a node "B" also present in the Graph g.
+Readding an edge doesn't throw an exception. But it doesn't add an edge actually. It's impossible since a node is storing it's edges in a Set. A Set will not add an already present element once again. As long as there is no need to know how many times an edge from a node to another was add this isn't severe.
+This results in replacing the current node by a new one. There is no exception and hasNode("A") will still return true. But all edges from the previous node to other nodes are lost.

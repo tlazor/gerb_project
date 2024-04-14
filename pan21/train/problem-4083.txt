@@ -1,0 +1,5 @@
+Your approach is suboptimal. You should be using an AWS Virtual Private Gateway to connect your office to your VPN, not connecting to a VPN on one EC instance and trying to route from there.
+where "10.0.0.0/16" is VPC sub-network and "172.20.0.0/16" is the office network. Plus, enabling IP forwarding, of course:
+Ok, so my main problem was with AWS - it doesn't allow to route traffic between EC2 instances by default. To fix this moment one should disable Src/Dst check for your "gateway" instance. After that adding a route into the AWS route table which redirects all your office-targeted traffic to your "gateway" ec2 instance (e.g. 172.20.0.0/16 -> eni-XXX - where eni-XXX is an id of gateway's interface) works fine.
+As for forwarding traffic from the public network interface (eth0) to the OpenVpn virtual network interface, iptables solves this very easy:
+Give that a go, the documentation is good, and if you have problems you should probably start a new question. If you can't use this solution you should edit your question to include more detail about your use case.

@@ -1,0 +1,8 @@
+also the /home permission where wrong and all my shares are in /home so i reset the permission to 755: chmod -R 755 /home
+This was caused by Domain Controllers being restarted whilst SAMBA and WINBIND servers were running. Simply restarting services winbind & smb resolved the issue.
+We had the [NT_STATUS_ACCESS_DENIED] error where users could access their HOME shares but not any other shares.   
+I changed the setting from passdb backend = tdbsam to passdb backend = smbpasswd, ran smbpasswd -a myuser to re-add my user and password, and restarted the smb service. This fixed the problem for me.
+This just happened to me as well, with the latest Samba on Fedora. I was mysteriously getting 'access denied' responses when trying to create/write/delete files and folders in sub-directories of my Samba share from Windows. Weirdly, changing files in the root folder worked fine.
+Do not forget to do net use * /delete as windows seems to keep some invalid data in its cache. This makes my smbd suddently accepting my password.
+first of all i removed the existing connections from windows 10 using net use * /delete from the command line since the credentials where saved and i changed them on the server
+also for some reason i had to specify smbpasswd in /etc/samba/smb.conf: passdb backend = smbpasswd in the [global] section

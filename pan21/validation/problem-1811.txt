@@ -1,0 +1,5 @@
+You could use RunAs when you call the batchfile (right click on the batchfile and click runas) to have the batch run as administrator.
+The runas command should prompt you for the credentials when you run the batch file to execute the specified command. As long as you run it in cmd.exe.  This is due to the need for the standard input neccessary to prompt for the password.  You cannot just double click it.  Storing a password in plaintext in a batch file is a bad idea because it's  insecure.  That's why it prompts at runtime.
+You may right click on the executable and click Run as Administrator, without the runas command.  This is probably the solution you are looking for.
+If you wanted to run the task as a scheduled task, you can set it to run it as different user there.
+I suspect that runas will not work inside the batch.  I'd recommend NOT putting the password in the batch file, even if it did work,  batch files are plain text, so you might as well put the password on a post-it note on the monitor.

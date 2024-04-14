@@ -1,0 +1,5 @@
+My problem is that the drive letter changes sometimes, and when I've got remotes set up in git - I've got one called usb at /cygdrive/h/ - this sometimes doesn't work and I have to change the remote URL. That's just an example, there are other scenarios where I wouldn't want it to change.
+I like what the Mac does, and puts mounts a volume at /Volumes/STICK (STICK is the Volume name of my usb stick). Is there any way I can do this, or something similar under Cygwin.
+You could use the USB Drive Letter Manager to mount your thumbdrives to a NTFS folder using the drive's label.
+I'm using Cygwin on Windows 7. When I plug in an USB stick, the drive automatically gets mounted to /cygdrive/x . This is good and really easy to use.
+As an alternative, I have found that if you explicitly set a drive letter in Disk Management  (Start->Programs->Administrative Tools->Computer Management-->Disk Management) it will 'try' to remount at the same letter every time. I usually pick a mid-aphabet letter, like L: or N:, so that the likelihood of an auto-mount using that letter is minimized.

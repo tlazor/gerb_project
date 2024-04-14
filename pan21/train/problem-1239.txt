@@ -1,0 +1,9 @@
+I'm running Ubuntu 8.04 on this server. I had PHP 5.2 installed via the package manager. I removed it to install PHP 5.3.1 by hand. I built the packages like so
+I had previously installed php on this system without apache and then I had tried reinstalling php from the same source directory with different config settings. 
+Any ideas what's causing this error? All the references I can see have to do with building php5 packages for php4 or the like. PHP4 has never been installed on this machine.
+You built php5 but you did'nt rebuilt the glue between apache and php5. Since you are using mod_php5, it fails (logical).
+You may be able to run php script thanks to fastcgi (I assume your built-by-hand php 5.3.1 is ok), but anyway I recommend you to act in another manner.
+You can get the packaging sources with: apt-get source php5, provided you have a deb-src source in /etc/apt/sources.list
+Moreover PHP5 is a big piece of software, you really should not do that for maintenance and security purposes.
+I had this same problem and what I did was delete my php source directory, re-extract the tarball and then compile again and everything worked fine.
+As @zecrazytux indicated, did you install the appropriate apache-dev packages? PHP could well have built without them, even though you told it where they were. You need to look at the ./configure output.

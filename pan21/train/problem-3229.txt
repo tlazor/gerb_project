@@ -1,0 +1,7 @@
+I have changed ciphers, moved things out of the http level and to each ssl site server but no matter what when I run:
+I have a NGINX acting as a reverse proxy for our sites and is working very well. For the sites that need ssl I followed raymii.org to make sure to have as strong of a SSLLabs score as possible. One of the sites needs to be PCI DSS compliant but based on the latest TrustWave scan is now failing because of TLS 1.0 being enabled. 
+I get a valid connection for TLS 1.0. SSLLabs puts the nginx setup for the site as an A but with TLS 1.0 so I believe the rest of my setup is correct it just will not turn off TLS 1.0.
+The problem here is that the Server name indication part of TLS negotiation is done after the connection itself has been negotiated. And the protocol is negotiated during connection negotiation.
+This allows nginx to have a configuration when it's negotiating which TLS version to use.  The downside is that you can only have one default server per port.  So having some virtual domains with TLSv1 enabled and others with it disabled is a no go.
+It might be possible to enforce no TLS v1.0 for that virtual host if you configure that virtual host to an IP address on the server that has no other virtual hosts associated with it. Therefore nginx would know based on the IP address that no TLS v 1.0 is allowed.
+Go find a server block you want to use as your "default" ssl negotiation template.  Find your listen line

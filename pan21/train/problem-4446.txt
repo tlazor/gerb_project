@@ -1,0 +1,5 @@
+I'm wondering how best to go about this situation where I have a PC (running windows 7) which I am going to be using in an exhibition. I need the PC to be online so that it can push information to a web server, however, for security I only ever want one IP address (that of the webserver) to be able to connect to the PC. So I think I want to effectively set up a whitelist where only one IP can access port 80, does this sound right? Can anyone provide some advice on how to set this up securely?
+might be safer to configure a router to do the firewalling. It would get around any local OS hackers.
+Just search for free firewalls for windows in Google, I'm sure you'll find plenty of free ones. ZoneAlarm is the first I can think of.
+You could install a firewall on the PC and set very strict rules to only allow connections from one PC and block everything else.
+just use the windows7 firewall to limit access to some ports to a range of ips. look at http://hmcguirk.blogspot.com/2010/03/windows-7-firewall-limit-ssh-access-to.html to get an idea of how to do it.

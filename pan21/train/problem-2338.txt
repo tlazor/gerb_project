@@ -1,0 +1,7 @@
+Is this correct?  What about a "normal" reverse proxy like nginx or Apache + mod_proxy?  Is that normally bridged or routed? Not sure what's the best way to accomplish this.
+There's a few reasons for a "bridged" setup, however most of them are application specific.  A bridged setup doesn't modify the request / response (or shouldn't) in any way, whereas a Proxy server acts as a middle man, which can sometimes cause issues. 
+I'm looking at the Barracuda Web Application Firewall to sit in front of a LAMP server at a colo facility.
+From what I gather in the documentation, you can set it up in bridged mode or routed mode, where routed mode is quoted as being "preferred as it's more secure".
+I don't have a Barracuda Application firewall myself, however i can't assume its much different then a Apache + Mod_Proxy + Mod_Security server.  
+So basically the Barracuda is the inside DMZ firewall for the LAMP box, which does NAT (inside/outside), and routes to the outside firewall, which in turn does NAT (inside/outside).  Double-NAT seems a bit sub-optimal when addressing/routing it this way, but I've seen plenty of diagrams (without IPs mind you) that describe this [server <- reverse proxy <- firewall] configuration.
+A "normal" reverse proxy is routed as well, and this is usually regarded as the most optimal configuration for most applications. 

@@ -1,0 +1,6 @@
+You will have much better results if your server identifies itself as the name on the PTR record.  Validations are often done on the name you provide in the HELO message.  If it does not match the PTR record, then you may be penalized (sent to the Spam bucket).  
+I have a published Email Policy that outlines the rules I apply.  I don't believe any of the rules listed for incoming messages are uniquely mine.  Most are derived from several documents.
+Your easiest solution is to configure your email server to send all outgoing mail via a relay server.  Verison should have one you can use.   
+As long as you pass rDNS validation most servers will not cause you much problem. Spam scanning software may. as your DNS entry looks the same as a lot of spam and not at all like a legitimate mail server.  
+Unless you are in the business of sending email you should have one email server dedicated to sending email to the Internet.  That is the only one you need to worry about the DNS entries for.  
+An SPF record with a restrictive policy helps, although more to block Spam claiming to be your server.   

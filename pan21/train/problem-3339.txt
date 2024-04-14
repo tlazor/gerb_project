@@ -1,0 +1,6 @@
+So my question is... is it now "safe" to run code that automates Excel 2010 on a "normal" server without using the HPC services?
+I don't need the high performance, distributed computing, aspect of HPC Services for Excel... just the ability to run Excel on a server.
+In previous versions of Excel the licensing agreement prevented use on a public server, notes from Microsoft warned about the problems trying to use Office Automation in a server environment, and we were warned that Excel was single threaded and not designed for use on a server.
+This question is not about a person using Excel on a computer that happens to have an Windows Server OS.  And it is not about using any Sharepoint services features!
+But now, Excel 2010 is designed to work on a High Performance Computing server using HPC Services for Excel.  One HPC document mentions "Windows HPC Server 2008 R2 includes a comprehensive pop-up manager that can handle occasional dialog boxes and pop-up messages".
+The question is about automated processes that use code (Office Automation) to open Excel files, manipulate them, run calculations, read data, save copies of the file and close the files... all in code.

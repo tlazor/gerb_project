@@ -1,0 +1,5 @@
+For example, Nested Loop Anti Join  (cost=0.86..3470216.17 rows=2707688 width=49) (actual time=0.809..6062.152 rows=28607 loops=1) means he estimated he would get 2 707 688 when he actually got 28 607.
+Either your statistics are not accurate (and if you never tuned autovacuum settings for those huge table,I would bet on it), either you have one column that depends on another which isn't part of the key (third normal form violation).
+To refresh your statictics more frequently, you can tune autovacuum settings for those big tables. I strongly suggest that you read that blog post to understand autovacuum tuning.
+You have huge differences between estimate number of rows by the planner and actual number of rows. It means the planer has chosen a plan based on false information.
+If your model violates the third normal form, you can either correct your model (costly but better for a long-term vision) either let the planer collect statistics on your correlated columns with create statistics (see documentation here).

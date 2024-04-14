@@ -1,0 +1,5 @@
+Your screenshot looks as if you have the app maximized (ie 1280 pixels wide). Try unmaximizing it before you do all of this. Resize the window a few more times, too.
+It seems as if the menu bar is there, but has a zero height or is hidden behind one of the other UI elements. Try reconfiguring the UI to persuade the app to recalculate the position and height of it. For example, switch the various UI items on and off using the View menu. Or drag the toolbar around using the handle on its left hand edge.
+I had a similar problem with a single application which turned out to be a corrupted Gnome configuration file for that app (vim) only. It was both frustrating and utterly hidden. The file ~/.gnome2/Vim should contain the two lines:
+Old question, but I had this issue after installing Ubuntu 12.10 and using Gnome-Shell instead of Unity. Uninstalling some appmenu packages seems to do the trick.
+but it didn't and I have no idea what corrupted it. Fortunately the fix was easy: remove the offending file and the next invocation of gvim recreated it. I don't run filezilla, but the syndrome is identical, and you'd never, ever think to look there.

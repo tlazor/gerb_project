@@ -1,0 +1,7 @@
+You can add an instruction to /boot/cmdline.txt.  /boot is actually the first, small vfat partition on the SD card.  Mount that somewhere and add to the beginning of the text in cmdline.txt:
+A possible issue with this method is you may have to run depmod -ae afterward to make it effective, meaning you'll have to use the cmdline.txt method first, to get the system running.  I'd try this one first (without being able to call depmod, obviously) just to see. 
+It doesn't have to be at the beginning, but don't add a line break anywhere.   That file should contain one line only, it doesn't matter how long it is.
+The preferred method for blacklisting is to add a line to a .conf file in /etc/modprobe.d (on the second, ext4 partition).
+After baking my own rtc-pcf2127a.ko, and following the tutorial from the website, I got a kernel panic when booting (Null pointer etc.)
+Could not find any decent emergency plan to recover my Raspbian, config.txt or cmdline.txt wouldn't help here, would they?
+The last is needed if some other module depends on it, since blacklisting is not enough to prevent loading of dependencies.  You can create a new file in that directory if you want, make sure to use the .conf suffix.

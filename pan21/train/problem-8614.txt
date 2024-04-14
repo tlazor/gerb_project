@@ -1,0 +1,6 @@
+But I have no idea where to find the private key though and no one in the organisation does either. I have access to the IIS server, where would I find the private key file for the certificate? Failing that, is my only option to get a new certificate?  
+From here you should be able to export the certificate to a backup (pfx) file. Unfortunately you may not get the option to include the private key if the key was not marked as exportable when it was created/imported. In this case you might be out of luck. (There may be ways of accessing the private key, likely involving accessing protected system files, but this obviously isn't a supported method)
+Open certificate manager on the Windows server. One way to access this is to run mmc, then add the Certificates add-in, choosing "Local Computer" when asked.
+On nginx, to have HTTPS working you need both the certificate and the private key. These correspond to the nginx config fields ssl_certificate and ssl_certificate_key. I have access to the certificates on IIS and have downloaded them. 
+I'm in the process of migrating from IIS on Windows 2012 to nginx on Ubuntu 16.04. I'm familiar with nginx but not IIS. 
+If you can export the certificate and key, it's just a case of looking up the right openssl command to extract the cert/key as text for nginx.

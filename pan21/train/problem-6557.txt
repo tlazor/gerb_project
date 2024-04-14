@@ -1,0 +1,6 @@
+First shutting down Windows without stopping SQL Server first didn't cause this.  That won't do anything bad to the database as all services are cleanly shutdown when Windows is told to turn off.
+I still do not know why Error 3456 happened during OS losing network connectivity. If I find out (which I hope I do) I will update this answer. Thanks everyone who tried to help.
+That should bring the database online which should then allow you to remove mirroring and drop the database (or do whatever else you need to do with it).
+I was then able to take the database offline. And then I was able to drop it. I restored the database from Primary and was subsequently able to set up mirroring.
+I have shut down SQL Server services and renamed the .mdf / .ldf files  to something different and restarted the SQL Server. 
+Error 3456 is an LSN mismatch error and indicates a corrupted database. Recovery will not succeed in this database. As removing the mirroring on the database involves running recovery and recovery cannot proceed due to corruption, my guess is that you will not succeed in trying to set the partner off, nor in trying to force service. Since the database is corrupted anyway (and perhaps your primary is also corrupted, btw) there is little incentive to try to bring this database online. You should just drop it and create a new one from a known good backup.

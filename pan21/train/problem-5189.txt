@@ -1,0 +1,7 @@
+What you are looking for is called "Gratuitous ARP" and can be done using "arping".  If your IP address is 10.0.0.1 on eth0, you would use this command:
+You can verify the ARP is being sent using "tcpdump" while the "arping" is running, in this case I am watching "wlan0":
+It is not necessary. As in: when you changed the IP, the computer should have done so automatically. If the clietns are hardcoded, a broadcast will not change the hadcoded override.
+Finally, because of its spoofing ability, sending Unsolicited ARP packets is sometimes considered a "hostile" activity, and may be ignored, or might lead to being blocked by some third-party firewalls. 
+Yes, it's called "Unsolicited ARP" or "Gratuitous ARP". Check the manpage for arping for more details, but the syntax looks something like this:
+I do IT for about 20 years now, and in all this time I have NEVER (!) had this happen without faulty equipment.
+Some clients in the subnet has cached the IP with old MAC address, I want them to update the new value by doing a ARP broadcast, is it possible in Linux?

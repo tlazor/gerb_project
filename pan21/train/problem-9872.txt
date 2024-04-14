@@ -1,0 +1,5 @@
+Also, you should always use brackets in your statements, even if it's just one line. Not using brackets makes things harder for other programmers to read your code and increases the probability that unintended bugs arise.
+I actually dispute that if there are no g's in a string, then happiness cannot exist and this function should return false. Unfortunately, the test case for an empty string is true... so I guess we have to work with it.
+Be explicit with your expressions.  Evaluating your conditional on every loop may sometimes be needed, but those cases are rare.  Most of the time, we just need to evaluate once and compare to a constant.
+Avoid magic values.  Our happy character happens to be specialized to 'g' for this problem, but we can still write the general solution for it and call the general solution from our specialized function.
+Most standards ensure that if, else, for has a space between the keyword and the argument list.  This helps with readability by distinguishing these keywords from regular functions.

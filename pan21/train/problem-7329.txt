@@ -1,0 +1,7 @@
+This is a cheap, easy, alternative to INS. however as the guy in the video says, sometimes the rooma run out of batteries due to itself not finding the station which will accure in every other robot using this system unless youll leave it in a squared room forever.
+you can see that the roomba spinning around and looking around while looking for an infra red sensor in the charger. once it finds it, it alligns with it and starts moving towards it.
+I found this video which explain the roomba docking mechanism. https://www.youtube.com/watch?v=cCX-1KN_6GE
+Id like the robot to be able to go and charge itself when its batteries are low, I do have a plan for the battery, connections, and charging timing, the only thing I am missing as for right now is a way to make the pi steer its way towards the charger that may move from area to another around the house.
+Id like to create a small "car" alike robot (4 wheels and steering via servo) that will travel around my house. 
+What I wanted to create is essentially a roomba robot that doesnt clean (maybe in future) just travel around the house and charges itself.
+Is there any peripheral that will allow the pi to check what direction and approximate the distance between itself the charger?

@@ -1,0 +1,5 @@
+On an unloaded system, the load average will typically be in the range 0 <= load_average <= n, where n is the number of cores on your system.
+So if you have a lot of processes waiting to run (or a lot of processes blocked waiting for I/O), you're going to have a high load average.  This article talks about it in more detail, and has useful links to other resources.
+Every time I login to my servers via SSH it flashes me a bit of server info. IE IP Address, Swap Usage, Memory Usage, etc. One of the other things it flashes me is System Load. Now most of the time the system load number is < 0.10 but other times it I've seen it go up to 0.89 (usually around boot). 
+This this brings up the question, how high can system load go? For instance is it possible for it to go up to 2.00 even 100.00?
+When you repeatedly start processes that block immediately, the load will be as high as the number of processes you manage to start. Assuming you have enough RAM that the system is not swapping, the system will even stay responsive as load due to blocking processes is not really harmful.

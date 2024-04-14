@@ -1,0 +1,6 @@
+With the prefixes the formula becomes "multiply the cell on the left by one that is in position B1 no matter where the current cell is" and copying the formula to B5 (and B6, B7, etc) gives us the desired result.
+The prefixes are applied by pressing F4 with the appropriate cell selected in the formula.  In the example, when setting the formula in cell B4, press F4 when cell B1 is being added to the formula.  Then copy the cell to B5, B6, etc.
+Without the $ prefixes (B4 would be "=A4*B1") Excel treats the row/column values as "relative to the current cell". When copying, Excel looks at the formula in the source cell - "multiply the cell on the left by one that is 3 rows above relative to the current cell" - and repeats it in the cell below.   So if we copied B4 to B5 the cell three rows above B5 would be B2 and we'd end up with the formula "=A5*B2". In the example, B2 is empty and the result would be zero.
+Note: Repeated pressing of F4 when the cell is selected cycles through the  variations of "fixed column and fixed row", "fixed column only", "fixed row only", "neither").
+The $ prefixes on the row and column indexes tell Excel that, when copying the cell (to another row or column), don't change the row/column values.  
+There is no "master row".  Copy a cell containing a "good" formula then paste in all other cells for that column.

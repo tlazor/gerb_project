@@ -1,0 +1,5 @@
+The standard practice is to remove each component one by one, replacing essential ones, until a working system is obtained.
+Since the BIOS screen is screwed up, you can narrow things to very few components. Graphics card, memory, BIOS and CPU are all candidates. You can probably unplug all drives and non-essential peripherals without affecting the problem to start.
+Most likely, this is bump underfill cracking. It's a mechanical failure inside the GPU, in the 'bumps' that make the electrical connection between the GPU and the video card.
+The solder in the bottom of the bump makes the electrical connection to the video card circuit board. Because it's soldered in place, it cannot move. As the GPU heats and cools, it expands and contracts. This causes stress on the underfill, the material the solder connects to. Eventually, the underfill cracks and you get intermittent contact between the GPU and the circuit board.
+If the problem, at least initially, gets better as the GPU gets hotter, then this is almost definitely the problem. If it gets worse when the card gets hotter, then it's not bump underfill cracking.

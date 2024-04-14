@@ -1,0 +1,7 @@
+Moving partitions is a copying itself, so it is going to take many hours. So probably it would be easier to save all critical data as backup to external drive, and then delete all partitions, design a new partitioning, reinstall OS and restore your data from backup. 
+I have played around with parted,resize2fs,lvextend, etc but I can't seem to figure out exactly how to do this. Can anyone help by providing me with specific fully-working steps/commands?
+You can boot from Ubuntu's LiveCD and use GParted on it or download GParted's LiveCD .iso, burn it to a CD and boot into it.
+Unmount (if it's mounted) the partition that will be involved in the resize/move operation, /dev/sdaX (by right clicking and selecting unmount from the context menu),
+Since the unallocated space is to the left of the ext4 partition you wish to resize, you'll first need to move the partition to the left of the unallocated space, which might cause boot error. Follow GParted's instructions on moving partitions.
+As Gparted moves partitions, not unallocated space, it is may be quite complicated task to get your aim. This is because you have a number of partitions. So you probably need to move them all to the left. At the final step your partition /dev/sda7 will be moved and resized (increased). 
+In your case, if the /dev/sda7 is your / file system from which you work and try to resize it, then you need to boot your machine from different place. You can make live CD, boot the machine from DVD or USB and run gparted from there. 

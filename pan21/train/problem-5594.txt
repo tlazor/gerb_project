@@ -1,0 +1,7 @@
+3º now you only have to interconnect the avenues with short streets, also, you could spawn random squares all along the town and make the same as above for all of them, or just spawn small streets from some secundary squares, it's up to you.
+First of all, there are loooooot of ways to do procedural generation and none of them is easy at all, i will make kind of approach to how you could make it work, is up to you take it, modify it or discard it.
+Once you're happy with that, you're done. If it's supposed to be a town, surround it with walls and repeat the last steps a few more times, adding additional houses outside the walls.
+1º define an entry point, as you want to build a medieval city we gonna start with a square, so lets say your town will have 300 squared units and the square will be in the middle of it (represented with an X).
+If you look for medieval/old city plans on Google you'll find many different variations, mostly based on city origins (e.g. random settlement vs. organized military position).
+Now we have to set the avenues that doesn't start in the main square, they will intersect the other avenues
+2º now we will the avenues, there will be a random number of them, they will be straight and will start from the middle square or from other avenues

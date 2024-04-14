@@ -1,0 +1,10 @@
+From your code it appears you are running for 10 epochs. It is highly improbable that your model will make significant progress in so few epochs. You might start to see learning after 1000 epochs, but large scale implementations of word2vec often require millions of epochs and take months to train to an acceptable level.
+I honestly can't understand why this is happening. I've tried setting "trainable=True" explicitly when creating variables, but that didn't help either.
+    hparam_string = make_hparam_string(embedding_size, num_noise, learning_rate, batch_size, epochs)
+I was going to implement a word embedding model - namely Word2Vec - by following this TensorFlow tutorial and adapting the code a little bit. Unfortunately, though, my model won't learn anything. I've used TensorBoard to keep track of the value of the loss function and to observe how the network's weights evolve over time. Here's what I found:
+                _, cur_loss, all_summaries = session.run([optimizer, loss, merged_summary], feed_dict=feed_dict)
+# This allows us to quickly retrieve the corresponding word embeddings for each word in 'train_inputs'
+nce_biases = tf.get_variable(name='output_biases', initializer=tf.constant_initializer(0.1), shape=[vocabulary_size], trainable=True)
+                              initializer=tf.truncated_normal([vocabulary_size, embedding_size], stddev=1.0 / np.sqrt(embedding_size)), 
+# NOTE: for some reason, even though output weights will have shape (embedding_size, vocabulary_size),
+embeddings = tf.get_variable(name='embeddings', initializer=tf.random_uniform([vocabulary_size, embedding_size], -1.0, 1.0), trainable=True)

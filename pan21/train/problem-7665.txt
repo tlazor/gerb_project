@@ -1,0 +1,13 @@
+The presence of anything DivX will keep resurrecting the 'UPDATE' pop-up, as long as they were there. 
+I did the cleansing suggested. And saw the removal of a number of files. I then found another post by #Ashtree which called for the removal of yet another divx file. I did so, but found the file to be non-existent.  
+I may have located the reason for this. They are  DivX embeds over the past months and years.  If like me, you have been using DivX for a number of years, you will have received, and likely downloaded, the updates. That is until you realized you were being subjected to 'App-Abuse' and decided too end it; with no need for DivX. 
+However, I wondered, 'What else might be in the /Library?' So I looked for com.divx... files that may be hiding there. 
+In order to properly 'see' these files - and any other like them - you need to open the Finder and set your VIEW to-> Columns; then set the ARRANGE to-> Date Modified.  This allows you to see different venues of existing DivX or divx files.
+All of the above, especially the #1 Answer, offer good directions for ridding your Mac of the DivX annoyance.  However, I am seeing a number of people who, even after applying these good-riddance tasks, are still being harassed with the annoying DivX Update pop-up.  
+I run Mac's activity Monitor whenever I play a Divx movie, and kill the update process whenever it pops up.
+Indeed I found this item and deleted it. Remains to be seen if popups stop. There are some other suggestions on that discussion, too.
+https://forums.divx.com/divx/topics/divx_update_notifications_still_appearing_on_mac_after_uninstalling
+I've had the Never Update option selected in DIVX preferences for about a year and it just ignores it. I suspect DIVX of dodgy behaviour, and it is only just survivng on my computer before being uninstalled, as it is quite a nice player.
+The proof of this being a totally successful clean will be seen when the next DivX UPDATE cycle is activated.  But I do believe I have thwarted and cleansed the annoyance.  
+NOTE: *I tried using the very good Search Tool - Spotlight.  It is a good search tool for finding general files within the USER /folders, but it did NOT find these files.  If one uses the Terminal to conduct a UNIX 'awk' and 'grep' search it may work quite well.  I am a bit rusty on using UNIX shell calls. So, I opted for a directory-by-directory visual search. Just to be sure. *
+      NOTE: You WILL be asked to enter your SuperUser/Admin PASSWORD to extract these files.  If you do NOT have this Password, you cannot remove the files.

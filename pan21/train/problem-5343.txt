@@ -1,0 +1,6 @@
+In all seriousness, yes it's the code.  According to the error the recipent is invalid.  Somehow the webserver is trying to send mail to an account called "Customer Service Account"  all email addresses are in the format of user@domainname.suffix.  THe fact that you got a 550 error shows that you connected properly to the destination mailserver but there is no user called "Customer Service Account"
+Technically 550 means unable to relay, but I am guessing that you are trying to send to an internal mailbox.  Even if you are trying to relay, this recipient is not formatted properly.
+In case you were wondering this is the serverfault site.  If your sysadmin said its the code- it's the code.  Errors are always the developers fault. If you want to blame the sysadmin I hear there is a site called stackoverflow that might be more sympathetic :)
+Sure, this could be the developer's fault.  For instance, the spec says that the RCPT should look like this:
+I'm not saying that's the cause in this case, but it's an example of how your code could work with most servers, but still be your fault if it breaks on a small percentage of servers.
+Most fully-featured, mature MTAs accept the latter even though it's not strictly correct.  Some apps (like mail firewalls, CRM mail-catchers, etc) will be strict about it and return an error.

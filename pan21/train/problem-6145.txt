@@ -1,0 +1,5 @@
+Suggestion (2) Win32 unix tools usually work a bit better than the cmd equivalents, so I would give them a go.  At the very least they're worth installing:
+To the poster above who said to enter "del ..", do not do this. It will prompt you 'Are you sure (Y/N)?' and answering Y will delete all files in the directory BELOW. Sorry for posting in the answer box, but I only joined yest and can't post comments yet.
+Navigate to your desktop in a command window ("cd C:\Users\YourUserName\Desktop").  Type "DIR /X" -- this will spit out a directory listing.  
+There will be two entries at the top named "." and "..".  Look for another ".." AFTER that, in the right-most column.  Does it have another name in the next column?  That's the short filename.  Type "rmdir /s [short-filename]".  Reread what you typed.  Reread again -- make absolutely sure you typed it right before you hit enter.
+Suggestion (1) Login as a different user, move all your valid files out of Desktop directory, then delete/recreate it.

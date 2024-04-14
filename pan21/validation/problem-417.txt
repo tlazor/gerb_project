@@ -1,0 +1,6 @@
+The simplified description in the book is that it first  determines the first logical page and the first physical page. If different it takes X locks out on both pages and swaps them using one additional new page as a temporary storage area. Then it does the same for the second physical/logical pair and so on. 
+As re-organization does not allocate new pages to the index it cannot reapply the fill factor if the pages are fuller than required however. Additionally no defragmentation is carried out for pages in mixed extents.
+It is somewhat more complicated than that however. The book mentions that it also looks at a sliding window of eight logically consecutive pages and determines whether rows can be moved around between these pages to allow a single page to be emptied and removed (while taking into account the index fillfactor). 
+My reading on SQL Server BOL related to reorg it only involves leaf level, and only needs a single 8KB Page, 
+While index rebuild will require at least same amount of space in the data file as current index index (as a copy of the index will be created)  
+The reorganization then (assuming the LOB_COMPACTION option is not OFF) compacts any LOB pages belonging to the index by moving pages out of low density uniform extents (less than 75% / 6 pages full) into other uniform extents with free space.

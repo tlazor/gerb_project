@@ -1,0 +1,6 @@
+That's sort of the right approach.. Ideally you would be running your RDS instances inside a private subnet so they aren't accessible from the public internet at all. Then, you would either configure a vpn connection with aws, or set up a bastion host that you could pass through for connectivity.
+I just went through this last week. You will need to add at least your server IP to work with your databases in the instance as @tayworm stated. If you are using your databases in websites you may need to set the IP Address (CIDR) to 0.0.0.0/0. At least I had to do this for my Heroku applications.
+However, that still wasn't working. Now, I've added one more inbound rule postgres port 5432 on myIP and that lets me log into the database.
+It gave me a link that I could use to connect to it, so I tried connecting using pgadmin but it gives a timed out error.
+So, I read the documentation again and I've made sure that my VPC security group is correct.  It has an inbound rule - postgres port 5432 on a security group sg-something-something.
+But strictly speaking with the instance you already have, adding your public Ip in the only way to get access from your machine.

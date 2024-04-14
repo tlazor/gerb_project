@@ -1,0 +1,7 @@
+I'm trying to restore my iPhone from backup (because my kid did accidentally deleted an app with a lot of important data). The process could not be completed due to low disk space. I have freed some space and tried again, only to fail again. 
+How much space do you have left on your drive? IIRC you can delete backups by going to iTunes - Preferences - Devices
+If that fails, it’s most likely that iTunes keeps its working data in a temporary folder in /var/folders. Generally your user has access to one of the subfolders in there, and there, in the -Caches- and -Tmp- folders, you’ll find applications’ temporary storage.
+iTunes creates a copy of the backup and uses that to do the restore. On a 16GB iPhone that is mostly full you can see the insanity of this on a small hard drive.
+You should be safe to delete old ones you don't need anymore, only keeping the one with the newest modification time.
+Now there is again no disk space left. It seems like the "Restore from Backup..." option in iTunes extracts the backup somewhere on disk, but when it fails, it does not clean up after itself. How can I reclaim this space (on Mac)? How much free space is required to restore 32GB iPhone 4 from backup?
+Also, the backup files themselves are stored in: /Users/username/Library/Application Support/MobileSync/Backup

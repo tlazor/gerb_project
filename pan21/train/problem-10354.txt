@@ -1,0 +1,7 @@
+Maybe a real world example: Your network is fed with pictures of dogs, cats and pigs. Therefore it has 3 final nodes which (usually) represent the probability of the input image showing a dog (class 0), cat (class 1) or pig (class 2). Let's assume, you put 10 images into your network  at once (minibatch = 10). Then your target tensor could be:
+Does this mean that for binary (0,1) prediction, the input must be converted into an (N,2) tensor where the second dimension is equal to (1-p)?
+So for instance if I predict 0.75 for a class with target 1 (true), would I have to stack two values (0.75; 0.25) on top of each other as input?
+Your network must have two final neural nodes, if your input can belong to one of two different classes. The target tensor must then be of the shape (minibatch) and only contain zeros and ones. 
+Actually there is no need for that. PyTorch has BCELoss which stands for Binary Cross Entropy Loss. Please check out original documentation here. Here is a quick example:
+This can be interpreted as the first image of your batch shows a dog, the second image a pig, the third image a cat, ...
+Generally your network must output a Tensor with shape (minibatch, C), where C is the number of classes your data can be classified in. The target tensor must be of shape (minibatch) and consist of only numbers of type long, that are element of the set {0, ..., C-1}.

@@ -1,0 +1,7 @@
+The above grep command will yield many thousands of lines; what I desire.  Within those lines, There is usually one chunk of data I am after.  Sometimes, I use awk to print out the fields I am after.  In this case, the log format changes, I can't rely on position exclusively, not to mention, the actual logged data can push position forward.
+The first grep command will give me many thousands of lines like the above, from there, I want to pipe it to something, probably sed, which can pull out a pattern within, and print only the pattern.  
+This is not specific to an IP address, the pattern will change, but I can use that as a learning template.
+I don't know what OS you're on, but on FreeBSD 7.0+ grep has a -o option to return only the part that matches the pattern. So you could
+To make this understandable, lets say the log line contained an IP address, and that was all I was after, so I can later pipe it to sort and unique and get some tally counts.
+For this example, using an the IP address would suffice.  I tried. Is sed not able to understand [0-9]{1,3}. as a pattern?  I had to [0-9][0-9][0-9]. which yielded strange results until the entire pattern created.
+To answer your first question, double quotes allow the shell to do various things like variable expansion, but protect some metacharacters from needing to be escaped. Single quotes prevent the shell from doing those expansions. Using no quotes leaves things wide open.

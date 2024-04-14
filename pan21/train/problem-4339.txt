@@ -1,0 +1,5 @@
+A future "svn log" will tell you which files changed in which patch, and after the commit if you add a tag with "svn tag" it'll let you find the change-sets easier by patch. 
+Have you thought about putting the application under version control? You could set up a system wherein updates are only performed on a test machine, then checked in to a version control system such as SVN. Each of the deployments could then be a checkout of the version-managed repository.
+Now doing Change Management/Change Control from a business process perspective, you might need to use something like CA Unicenter, if you need layers of authorization or such to make the changes in production. 
+@Author: If your users are averse to typical SCM, then use a graphical tool like TortoiseSVN, or TortoiseGit that integrates with Windows, and makes the command-line wizardry go away.  Hell, it works for my Dad's Excel product pricing spreadsheets, and he's a total computer n00b. 
+Substitute git or Mercurial or bzr or ClearCase - this isn't hard, but is a fairly easy and authoritative way to track the changes you've made to your software. 

@@ -1,0 +1,8 @@
+If it matters, I use Debian. Also I use hardware MegaRaid Raid Controller. May be it influences on smth.
+If you want totals since boot, you can read those from /proc/disktats. Description of the file format is in your kernel's Documentation/iostats.txt (or here).
+This information is also available per-device or per-partition in /sys/block/${DEVICE}/stat and /sys/block/${DEVICE}/${DEVPART}/stat (substitute ${DEVICE} with your device name eg. sda and ${DEVPART} with your partition name eg. sda5).
+Take a look at sdg vs. sda in the example above. Both are writing around 40MBps to disk but the request size is much lower for sda (random workload) resulting in a higher IOPS.
+If you want to track IOPS (and other performance) for an extended period of time I strongly suggest using nmon to collect the data and generate pretty graphs.
+I can't find information about ways to count disk iops in GNU/Linux for some time period. I saw iostat, but I'm not sure it is right way. Also i need tool, that can count iops for all time since system is started, but iostat doesn't do this.
+I prefer to use cd /dev; iostat -xk 3 sd? fio? to watch disk IO. Take a look at this sample excerpt:
+Your average IOPS for this interval is the sum of r/s and w/s and your avgrq-sz (average request size in sectors) gives you an idea of whether the workload is random or sequential.

@@ -1,0 +1,8 @@
+So go to https://gitlab.newdomain.io/users/sign_in log in and change this setting in the adminpanel under settings.
+When I look into Chrome's Developer Tools > Network, I see the Request URL to https://gitlab.newdomain.io, the Status Code is 302 and Location is https://gitlab.olddomain.com.  The interesting thing is Server: nginx.  The Remote address is xxx.xxx.xxx.xxx:443, but the service listening the port is supposed to be Apache2.
+For GitLab the story is a little different.  I searched for all references to gitlab.olddomain.com and changed them for gitlab.newdomain.io.  So in the file /etc/gitlab/gitlab.rb the change is:
+Within Gitlab you have a config for "startpage". This is the page you are redirected to, when you are currently not signed in.
+I have a VPS with Ubuntu Server 14.04 and I installed GitLab with different sites served by Apache2.  The GitLab version is Omnibus package 7.14.1.
+Both DNS records for gitlab.olddomain.com and gitlab.newdomain.io are pointing to the same machine.  When I check the certificate in the browser, I have the good certificate, the wildcard one of newdomain.io, but I'm visiting the wrong domain.
+I had successfully configured GitLab with HTTPS and with a self-signed certificate for testing (say it's with olddomain.com).  I bought a wildcard SSL certificate (for *.newdomain.io) and installed it for other websites served by Apache and they work perfectly.
+After the changes I made the gitlab-ctl reconfigure and even the gitlab-ctl restart.  For Apache, the service apache2 reload has been executed.

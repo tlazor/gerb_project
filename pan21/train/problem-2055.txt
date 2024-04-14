@@ -1,0 +1,10 @@
+What would be the best solution to provide users with a very simple backup tool on a headless server and how would you do this?
+Assuming the server is Linux, you can easily use 'autofs' to automatically mount your USB drives at a predetermined location.  Your backup script will need to be smart enough to look at slightly different names for each USB drive's mount location.  But those locations are predictable.
+Then you create a user which has only access to this custom command and you have your manual backup solution ready.
+I have a server hosting files (~300 Gb) and I need to perform a full backup every week on an exernal USB drive. People without good IT knowledge need to be able to do it too, so it has to be a very simple process with a GUI.
+The bonus of 'autofs' is that it only mounts the drive when needed, then will dismount the volume after a configurable period of inactivity.
+There you defined a custom command which mounts the USB disk, does the backup and finally unmounts it.
+Create/Edit /etc/auto.master and insert where you want to mount your USB drives, the configuration file that maps each drive to the location, and the dismount timeout period.
+OFFSITE1 -fstype=auto,rw,noatime,data=journal,commit=1 :/dev/disk/by-uuid/b5c1db0d-776f-499b-b4f2-ac53ec3bf0ef
+When the USB drive with that UUID is attached and you access the directory '/mnt/offsite/OFFSITE1', it will auto-mount and be ready for access.
+Other then having to figure out the UUID of the USB drive after you format it with ext4, editing the auto.offsite file, and then restarting the autofs service; this results in a very foolproof method for hooking up external USB drives.  The users just need to know enough to plug / unplug the drive each day/week.  Everything else can be handled via scripts (checking the drive mounted properly, checking that the backup ran, checking free space, etc).

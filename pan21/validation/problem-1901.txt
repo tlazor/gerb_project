@@ -1,0 +1,7 @@
+Click start, type cmd.exe, right-click "run as administrator," and cd to whichever folder you copied bridgeutil.exe to.
+bridgeutil.exe lists numbers for the networks it found (and then a long usage message).  If the numbers for the wired network and the miniport adapter happen to be 5 and 6,
+I've a PC at home which has highspeed broadband internet connection. I don't have wireless router or access point. I just want to use PC's internet connection on my phone. 
+Install a program that's designed to bridge like this: http://sourceforge.net/projects/networkbridgingutility/.
+Back in the GUI, you can confirm that "control panel > network and sharing center > change adapter settings" shows both those networks as "enabled, bridged."
+In my phone when I connect my phone, in Settings > Wireless & networks > USB Internet (sharing Windows PC internet via USB cable) checkbox, which I checked then it asked me to choose my Windows version (which is Windows 8.1 but since it didn't show that option) I chose Windows 8.  It gives me further instructions as showing in the following picture:
+You can't bridge a wired network to ad-hoc wifi, straight from the Windows 7 GUI.  Instead of trying to unhide the Sharing tab, do this.

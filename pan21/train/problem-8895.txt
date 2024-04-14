@@ -1,0 +1,5 @@
+Is there any automated solution without manual interfering on rewriting software for feedback to varnish? like:
+If you load this code, or adapted for your varnish version, you can then send requests of type PURGE, with the request URL matching the thing you want to purge, to wipe the item from varnish cache. You can use this to basically automate selectively purging at the end of the deployment process against your Varnish servers, via cURL commands or similar.
+I've got Varnish in front of multiple webservers, I can run them as native to varnish or through upstream checks via nginx, but only static content is cached (no surprise), also respecting query strings i.e.
+I update servers one by one, in fact, all this cannot be done at exactly the same time without downtime, general deployment thing.
+If main.css gets updated on one backend and I send request according to the new webpage version to the varnish and request /main.css?=v2, it may still look for file on the machine which has old version and where main.css hasn't been updated yet, so, now I am getting v1 in the cache as v2 and there is nothing I can do, unless TTL expires (which is too late).

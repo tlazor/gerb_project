@@ -1,0 +1,11 @@
+When applying gradient descent, we wish to continuously modify parameters such that the loss function steadily decreases, which is the same as saying we wish to keep moving down towards minimum.
+A preliminary: there are three attributes of a function that are relevant here: continuous, monotonic, and differentiable. The RELU is continuous and monotonic nut not differentiable at z=0. The exponential relu or ELU is all three of those attributes.
+The differential or gradient gives you a direction. When the derivative of a function is undefined at a point, then the direction of the gradient is indeterminate at that point.
+The z means the x-axis on the graph above. I understand the derivative is smooth since the z < 0 line has a curve and in that realm the derivative is no longer equal to 0. 
+I now read a book titled "Hands-on Machine Learning with Scikit-Learn and TensorFlow" and on the chapter 11, it has the following description on the explanation of ELU (Exponential ReLU).
+I have an intuitive notion of why smooth functions are faster to optimize but no mathematical proof or anything. 
+However, why is it the case that if the function is "smooth everywhere, including around z=0", it speeds up Gradient Descent?
+When the derivative of a loss function is undefined at some point, the gradient is indeterminate. This means the gradient descent could potentially move in the wrong direction. The magnitude of delay caused by this indeterminacy depends on the learning rate and other hyper-parameters. Regardless of the hyper-parameters, statistically, the undefined derivative in RELU at z=0, does contribute to slowing convergence of gradient descent.
+The other weights need to adept to this radically different behaviour of a specific unit for specific data points. If, however, the behaviour of the unit change radically again during the next epoch the network keeps on adepting towards changes in the previous epoch.
+Gradient descent computes the derivative of the activation function to determine the change in weights. When the activation function has a hard cut (e.g. at z=0 for ReLu) the activation of the unit can changes radically (i.e. always zero or linear) for specific data points when changing the weights. 
+With a smooth function there are no such radical changes. And thus the network can more gradually stabilise. 

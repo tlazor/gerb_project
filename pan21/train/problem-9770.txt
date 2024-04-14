@@ -1,0 +1,7 @@
+Update: this is where your game logic is updated where players positions should be. What everything should be “doing” 
+Process input: this is usually where people use an observer design pattern and create an event dispatcher which dispatches events to game objects who are interested in receiving certain events .. mouse move events, keyboard events the game objects interpret those lower level events to “game events” and call functions on themselves 
+I'm a serious noob when it comes to Java game dev so any help as to why the animation is not running would be greatly appreciated.
+I have four different frames for a sprite which I would like to loop, but at the moment it only shows the first frame. Here is the relevant code for my Play class (as the entire thing is too long):
+Each of these processes usually run in context to a specific scene/screen in your game .. menu screen, gameplay screen, exit screen , etc.
+All of these processes should follow ideas of single responsibility your characters shouldn’t know how to animate or draw .. that’s the responsibility of your render system to know how to draw characters. 
+So I have been trying to figure out for so long how I can loop the frames on my animation automatically without entering user input to prompt movement of my object.

@@ -1,0 +1,8 @@
+Here, the client tells the server the algorithms it supports for each function (encryption, MAC, key exchange, host authentication, compression), in order of preference.
+The server does the same.  Note that it can send this message before it has received the one from the client.
+The client and the server begin by sending to each other the protocol and software versions they are using.
+My main reference is the RFC for the SSH Transport Protocol: https://tools.ietf.org/html/rfc4253.  This is the lowest layer of SSH, on which all other SSH services (user authentication, shell, X11 forwarding, etc) are based.
+Note that the reply of the server also contains its public host key (or certificates).  If it is a public key and the client has never seen it, the client usually asks the user if it should trust it:
+I need to understand SSH key exchange, I have tried to read RFC document but it seems very difficult to understand so I have captured packets using wireshark ,I found various packets for ssh keyexchange
+The Diffie-Hellman key exchange enables the client and the server to end up with a shared secret that an observer on the network cannot feasibly guess.  For example, they will derive a key for the encryption algorithm from this secret.
+From the two lists of algorithms, the client and the server compute independently the same cipher suite.  For instance, they choose the same kex exchange algorithm (and it takes place right after that).

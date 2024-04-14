@@ -1,0 +1,8 @@
+You should be able to download from your provider all the certificates that form the chain of trust from you signed certificate up to the signing Certificate Authority.
+But to me it's like duh, of course you can't get the local certificate - there isn't one. I don't get how I'm supposed to verify a professionally-signed certificate.
+This is a professionally signed certificate from Comodo by way of DreamHost, not a self-signed certificate. How can I verify the trust chain using openssl or some other method?
+You'll need to get a copy of the intermediate (most CAs will provide, or you can fetch it from an SSL connection whose trust is working), and point at it in your openssl command with -CAfile intermediate.pem.
+What I'm trying to do right now is simply verify the validity of the snipsalonsoftware.com certificate so that, when I try to verify the app.snipsalonsoftware.com, I know that I'm getting a meaningful answer.
+Generally what this means is that OpenSSL's default CA path doesn't contain the certificate that signed the one you're checking - usually an intermediate certificate.
+You can also use an online tool like SSL-Checker which graphically shows the trust chain your server is presenting and helps you to figure out which certificates are missing in the chain
+Then use openssl verify using those certs. Check both the -CAfile and the -CApath options of the verify(1) command to learn how.

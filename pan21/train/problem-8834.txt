@@ -1,0 +1,6 @@
+If you want to split traffic to different external IP addresses on the same interface you can define an IP Pool (with possibly just a single address) and use that in a policy instead of Use Outgoing Interface Address.
+Two different LAN IP group's internet traffic should go though 2 different WAN connections in fortigate 60D (Currently its WAN Zone(wan1 and wan2) . How to do that configuration?
+1- pull WAN2 from the WAN zone to make it addressable. WAN1 remains in the zone, no changes required.
+In your case, this is not enough because you want traffic from different sources to follow different routes through different interfaces. For this, use a Policy Route. To match a PR, you can specify the source subnet address as well as the destination (which is '0.0.0.0/0' for the default route).  
+Traffic to unknown target networks has to follow the default route. But, there is only 1 default route per system/FGT (for obvious reasons). To match a (static) route the FGT only looks at the destination IP address.  
+The easiest way is to split traffic by firewall policy - just the one WAN interface for one set of policies and the other interface for another set.

@@ -1,0 +1,7 @@
+Reconnecting to the different users will not change their order in the list and 'tony' will remain as the default login until a new user is used.
+Management Studio remembers each server that you connect to and the logins used to connect to them.  
+When I login to a database, using some other user than SA, that username will stick the next time I login.
+Probably by design. Obfuscation of the highest level of username makes sense to me... security through obscurity.
+If I then input the username SA and password and logs in, the next time I open the login prompt for that server, it will not remember that I logged in as SA, but show the user not being SA.
+The logins are remembered in from the last new login used.  For example if you connect to a server for the first time as 'sa' and then connect as 'bob', 'bob' will appear at the top of the login drop down.  Then if you connect as 'tony' then 'tony' will appear at the top of the drop down.
+This list can removed by removing the Server from the Server Name drop down.  This is done by expanding the server name list, hovering over the server name and pressing delete as detailed here: Deleting Old server names from "Connect to Server" dialog in SSMS

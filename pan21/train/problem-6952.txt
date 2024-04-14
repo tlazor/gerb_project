@@ -1,0 +1,9 @@
+In the All services search box, enter disks and then select Disks to display the list of available disks.
+In the All services search box, enter disks and then select Disks to display the list of available disks.
+On the Networking page, you can either let the portal create all new resources or you can select an existing Virtual network and Network security group. The portal always creates a new network interface and public IP address for the new VM.
+Reference:- https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal#copy-a-disk
+Create a snapshot and then create a disk from the snapshot. This strategy allows you to keep the original VHD as a fallback:
+Choose a Resource group for the snapshot. You can use either an existing resource group or create a new one.
+On the Basics page for the new VM, enter a Virtual machine name and either select an existing Resource group or create a new one.
+In the Overview page, ensure that DISK STATE is listed as Unattached. If it isn't, you might need to either detach the disk from the VM or delete the VM to free up the disk.
+Choose a Resource group for the disk. You can use either an existing resource group or create a new one. This selection will also be used as the resource group where you create the VM from the disk.

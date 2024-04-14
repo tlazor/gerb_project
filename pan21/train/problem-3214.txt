@@ -1,0 +1,6 @@
+I have no more ideas and I need help. Is there some way that my connection string is wrong, or could be incorrect for some network environments? The Server is not in a domain and is named Oxxxxxxx, if that helps...
+On my home computer I opened SQL Server Management Studio 2017 and attempted to connect with jxxxxxx.sxxxx. I am unable to connect, receiving the error message below:
+I have access to a remote Windows 2008 R2 server through RDP. I connect to this server with the address jxxxxxx.sxxxx:5000. This succeeds.
+Using this RDP connection I installed MS SQL Server 2014 Express on the server. This has been upgraded to SP2 Cumulative Update 8. I used the checkbox to install a default, unnamed instance. Using SQL Server Management Studio from the server I can connect to and use this new instance.
+I am at the end of my rope troubleshooting a remote SQL Server connection problem. I am a DBA but not a networking expert.
+Enter your Login and Password for a SQL Server Authentication login or select Windows Authenticated from the pull-down menu to login using your windows account. 

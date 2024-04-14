@@ -1,0 +1,8 @@
+I am trying to do UDP hole punching so that it would be possible to NAT traversal. After going through the text available on the internet and we can have Wikipedia article as reference.
+Many NAT systems only work on incoming traffic from the public internet. They don't work when accessing public IPs from inside the network. You should get the sender machine outside your NAT.
+First of all I have done NAT mapping (Virtual server) from public port: 11235 to internal port 11230 so that if i send any udp packet to the PublicIP:PublicPort, it should come to the InternalIP:InternalPort. Afterthis, I am doing following:
+Why is my applications not able to connect when using public IP. I also tried to send the UDP packets from client to server in a loop for all the port numbers above 1000 to 65535 so that if any port is mapped for internal ip's port, the request will come atleast once from client to the server. But that also didn't work. The code for the applications can be found here:
+The packets sent to the UDP application listening doesnt receive any if i send the packets to PublicIP:PublicPort. However, If I change public IP to internal IP of LAN, the packets are received.
+Is there any simple example of UDP-NAT hole punching, capable of hole punching for 2 peers communication via internet?
+ 3. The application then starts as a server, listening at the UDP port 11230. Any request that is received from other host is replied by almost same message body.
+ 2. I have created an application with a socket (UDP) bind to a local port 11230, which sends some UDP packets to port 11235.

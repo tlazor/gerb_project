@@ -1,0 +1,5 @@
+Doing the latter will cause the VM to get it's (DNS) settings from MS's DHCP servers, and it will be able to resolve public addresses.  You don't want to do this if your server is a DC, in which case you would setup your local DNS properly (with forwarders) instead.
+In my case, even with unrestricted internet access I could not install any roles or features. This turned out to be because I have policy setting windows updates to come from an internal WSUS server IP, which does not include the source files for Server 2012 R2 roles and features. To fix this set the alternate sources policy:
+If you're coming here in October 2014, you might just need to go to Windows Update on the VM and install the fix for this issue. It seems like a recent security fix broke the ability to install 3.5.
+So you need to ensure that your DNS resolution/forwarding is working correctly so that public DNS names are resolved, or change the VM settings to not use the AVN.
+Add-WindowsFeature NET-Framework-Core (from http://msdn.microsoft.com/en-us/library/dn169001(v=nav.70).aspx#InstallNET35) worked for me

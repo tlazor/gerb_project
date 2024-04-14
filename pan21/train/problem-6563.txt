@@ -1,0 +1,6 @@
+The quick and dirty solution: You need to quit both "Sync Finder Extension" and "CMFSyncAgent" via activity monitor, then delete sync.app.
+How do you properly uninstall Bittorrent Sync on Mac OSX? I can't find anything in the official FAQ or the User Guide
+Here is the funny part: If one deletes all the files mentionend (cache, preferences, app support...) inclusive "sync finder extension" in ~/Library/Containers but not sync.app itself then the "sync finder extension" reappears in its container-folder and is loaded again after a restart.
+I don't know how it gets started again, because there are no launch demons, no launch agents, no kernel extensions or startup item I could find that starts up the plug-ins. I looked in launchctl but still no luck.
+Since there is no FAQ for really uninstalling bittorrent sync 2 I qould appreciate if someone could comment or answer this question.
+There is a preference file in ~/Library/Preferences/ and cache files in ~/Library/Caches/com.bittorrent.Sync/, but you don't have to delete them.

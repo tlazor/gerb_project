@@ -1,0 +1,8 @@
+http://www.cisco.com/c/en/us/td/docs/ios/mpls/configuration/guide/12_2sy/mp_12_2sy_book/mp_te_autotunnel.html#wp1055333
+I don't know how to configure FRR without an explicit path (only theorise how it might work but my mental hypothesis seems sup-optimal - which is why I'm not sure its even achievable).
+I want to test FRR between R1 and R3. Under Tunnel3 on R1 (and Tunnel1 on R3) I have one dynamic path configured (I'd like to follow the IGP in this example). Looking over Cisco documentation for MPLS-TE FRR at lesat one explicit path seems to be in all examples I can find. If I add a 2nd path to the tunnel interface on each router (R1-Tu3 and R3-Tu1) that is also configured as dynamic can I use FRR, and how?
+This is why an explicit path is necessary in IOS when using static backup tunnels as it allows the software to determine the alternate path that can provide protection. 
+The way you've currently set it out would need 'mpls traffic-eng backup-path' on the protected links. However this is the static backup tunnel way and if you use 'dynamic' paths the LSP will always signal using best IGP paths. Your protection paths will not be protected by a backup as the backup would try to use the same IGP path (due to lowest metric).
+In this topology I have a full mesh of MPLE-TE tunnels configured. Below is the R1 configuration but all nodes are the same just with the IPs changed.
+Have a read about 'auto tunnel backup' and it should resolve your query. IOS and IOS-XR both support Auto tunnels.
+How can I configured MPLS-TE FRR on IOS using tunnels with dynamic paths (Is this even possible, I think it might be IOS-XR only)?

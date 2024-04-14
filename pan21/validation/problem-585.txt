@@ -1,0 +1,8 @@
+I'm at a loss, perhaps its just because I'm under the weather, or I'm just missing a piece of logic here...
+We have devices which use Compact Flash for storage. They work OK, but we recently got industrial-grade CF cards to start using. 
+One of the major problems we get is corruption on the flash card. As it is now, these flash cards run Debian with everything in a single partition. We want to have multiple partitions on the new industrial CF cards to help avoid some of the corruption problems.
+Any help is greatly appreciated, this is somewhat urgent as our existing stock is nearing its end and we don't want to purchase anything but these industrial cards, but need to get it working with partitions.
+I imagine I can't just use rsync - do I need to attach a second CF reader with a copy of the CF card, so that it's not active and in-use - and then copy from the first reader to the second? How will the system know where to find its files?
+I know I'd have to change fstab, but that resides in /etc, which will be on a separate partition...how will it find the fstab file if it can't find /etc? And what about grub?
+How can I move the data to these partitions so that it works? I have a partition for each of these directories:
+I booted up the device, and attached a USB CF reader. I then used fdisk to partition the CF card in the USB reader. 

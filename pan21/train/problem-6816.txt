@@ -1,0 +1,8 @@
+I know this is theoretically difficult, but I dare to ask: what are the possible ways to connect an internal 3.5'' SATA HDD to the board (let's say 2TB)? Let's ignore the need for additional power.
+The minimum SATA signalling rate is 1.5 Gbps (1 500 000 000 bits per second).  The maximum GPIO signalling rate is circa 30 000 000 bits per seconds.  So the GPIOs would appear to be 50 times too slow.
+Existing computer systems use a dedicated controller to interface to SATA. You could design something similar, and write the kernel drivers, but you would still need external hardware.
+I want to make a box like a Network Attached Storage that contains the board and the HDD internally, so the trivial "plug to USB connector" is excluded. How can I do this?
+Well the SATA physical link is built on two differential serial links, i.e. you would need 4 GPIOs.  So there is no problem there.
+I am not saying this is impossible, but the Pi doesn't even have the USART capabilities needed to support the data stream, let alone the decoding ability.
+The other alternative is to get a board that has a SATA connector (like Cubieboard), but I am curios if this can be achieved with Raspberri Pi.
+The conventional approach can't be used because you don't have access to the Pi's bus. USB is the only user option available to the user; is possible the Foundation could integrate a SATA controller.

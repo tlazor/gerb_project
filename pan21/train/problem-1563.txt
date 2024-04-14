@@ -1,0 +1,8 @@
+There is no physical NIC involved in the bridge and the Bridge interface is setup with no ip/netmask/broadcast. Just brought up with a single "ifconfig brX up"
+(Also, dear gods why do people think they need to set the broadcast addresss. Really, the OS can already calculate it from IP | ~netmask. It's almost never useful to configure the broadcast address manually, it just becomes easier to accidentally get it wrong.)
+I am able to ping between the 2 clients when they are both connected to the openvpn server, each to its own tap interface mentioned above however I see no traffic when trying to tcpdump the bridge interface.
+However, you haven't said anything about actually adding the tap interfaces as bridge ports. You need to explicitly tell the bridge which ports it manages:
+I am trying to setup openvpn on a machine so that I have 2 different tap interfaces (tap0 and tap1) and then a bridge connecting those interfaces. The openvpn is setup with a server-bridge configuration for each TAP interface.
+(Though, I guess that's not always true. The Untangle firewall, for example, seems to work in a cross-breed router/bridge mode, which is somewhat confusing.)
+But it's possible that the bridge is still in "learning" mode; it still defaults to 30 seconds – check using brctl showstp br0. It's possible that the ports weren't added to the bridge (see above). It's possible that the port interfaces themselves are still down.
+No, a pure bridge only works at Ethernet level – it doesn't even look at the IP header. When you assign an IP address to br0, you're really assigning it to the host OS, which is connected to that bridge.

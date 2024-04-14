@@ -1,0 +1,7 @@
+My modem connection is very slow and I wanted to combine speed with wireless connection, i use windows 7 for the operating system. is it possible?
+http://www.tomshardware.com/forum/28798-42-wired-wireless-connection-laptop - good thread talking about this
+The short answer would be no.  Assuming you are talking about connecting to the Internet, you cannot combine connections.  
+Another one, several download sites open a special connection that can only be used by a single IP. Those won't use the multiple connection, since each connection would have different IP.
+Well, all you get is the combined speed anyway. Nothing special, just connect to both at once. Do note that Windows (and other OS too) tends to favor the wifi, so unless your application are using all bandwidth available to the wifi, the modem won't be used. Now, since the connection is 'slow' for you, the application would be using both connection at once. Additionally, set both connection to the same location (Home or Public. Public seems appropriate, since you probably don't want the ISP to look at your public share folder).
+The short answer would be yes.  There's a few ways to do this with different results.. You could specific which programs use which IP/connection so say you are streaming movies you coudl have it only use one and then specific the other connection for everything else
+http://www.kerio.com/control/qos - This software claims to be able to load-balance multiple connections

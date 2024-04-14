@@ -1,0 +1,10 @@
+And use a secured connection (like TLS) to communicate to your server.  That will eliminate traffic sniffing.
+Our solution was to port all development to C.  (Nearly) nobody will be able to read your keys on that.
+How can I stop someone from getting the keys to my cloud based server from studying the SD card contents?
+If you want any hardware asset tracking, you'll have to boot up the raspberry anyway.  Therefore you can make a script to hardcode MAC and Serial number into your source code, and compile it right on the device itself.
+Alternatively, you could protect the contents of the SD card by using epoxy to make it essentially non-removable. A really determined attacker could attach probes to the traces that connect the SD card to the CPU, or disconnect the SD card reader and physically connect it to another computer, but it might be enough of a discouragement for your purposes.
+Typically, to protect the contents of your SD card, you'd encrypt the data, but that's problematic for an autonomous device (because there's typically no one around to enter the decryption key at system boot).
+If you don't use the device or you can walk there to reset your device, you can try to use secure MCU,please search "tamper" by google
+It's easy to reset passwords.  A simple Google search shows you how to do this.  It requires an SD card reader and a standard Windows (or Mac).
+I want to use the PI for a commercial data logging device that reports the data back to a cloud based server via the internet. There will potentially be thousands of PI's that are physically installed at unsecure sites (like people's homes.)
+As people have physical access to the device, they could remove the SD card from the PI and look at the SSH key for the server, and the server ip address etc.

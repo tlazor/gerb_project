@@ -1,0 +1,7 @@
+Your intuition is correct: just because your phone can "see" an AP doesn't mean it has the juice to connect to it.
+I'm asking because I'm able to boost the strenght of my WiFi AP in the settings and wonder if I really would gain a wider coverage that I actually can use.
+If you just want to know the wifi range of your phone, create an ad-hoc wifi network on your phone (just as you would if you were tethering its data plan). Use a laptop to scan for that network at any distance. Many wifi scanner type apps will give you all the information you need.
+Unfortunately, the real-life answer is to just boost the AP power and see if you can connect, and if you can connect some speed-test data to quantify how well you're connected.  
+"it depends" on how your hold your phone, the layout of the space you're in, how many walls, what's in the walls, etc.
+For example, you may get a useful connection 100m in one direction that has no obstructions line-of-sight, but only 20 meters in another direction because there's a couple of walls between you and the AP. 
+When my phone (Nexus 5) "sees" the Wifi-Network, is it always able to use it? What happens if I have a very strong AP which sends for example 300m, can my phone send a signal back (to the AP) or isn't it strong enought?

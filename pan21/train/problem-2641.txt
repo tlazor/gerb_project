@@ -1,0 +1,6 @@
+It could be that they changed from INT (which defaults to SIGNED) to INT UNSIGNED.  This would increase the limit from 2 billion to 4 billion.  However, the wording implied that they started with INT UNSIGNED and are moving to BIGINT UNSIGNED.
+In the first two cases, first a row is deleted, thereby throwing away an id; then the insert occurs, creating a new id.
+Another issue -- do they really have 2 billion rows?  In some situations, ids are "burned", thereby leading to hitting the 2B limit without really having that many rows.  This can happen from many operations:
+A deliberate way to mess with ids is to insert a row with a higher id.  Subsequent inserts always go from the highest current value.
+We now suppose the use MariaDB/MySQL. Can you explain me in detail (with SQL statements and error messages) this issue? I don't understand this data loss very well.
+I wonder where the data comes from...  If it is manual data entry, I am having trouble imagining how long it would take to enter 4 billion records!

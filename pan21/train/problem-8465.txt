@@ -1,0 +1,5 @@
+It seems that the major load is the min(priority) subselect, but I haven't had much luck with creating indices that improve it's performance, though that may entirely be operator error:
+Query execution time is rather variable, generally 2 seconds worst-case, 600 milliseconds best case, when the entire index is cached in ram (when the DB isn't under other loads).
+Are there any easy ways to improve the performance of this query? I've thought about maintaining a running count of each sub-value in the column with a append-only count table that's updated with triggers, but that's complex and a fair bit of effort, and I want to be sure there isn't a simpler approach before implementing all that.
+The cardinality of the priority column is quite low, it has about 5 distinct values, and the size of the overall table is fairly large (55,659,673 rows).
+I've experimented with creating compound indexes on multiple columns to try to improve the query performance, without much luck. I have VACUUM ANALYZEd for the above EXPLAIN.

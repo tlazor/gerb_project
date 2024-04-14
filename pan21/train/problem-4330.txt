@@ -1,0 +1,8 @@
+Unfortunately, issues persist and I'm out of luck now. What can I do to investigate this issue? (and resolve it hopefully). Do you need more information, for example topology?
+Copying works flawlessly, however my co-workers on the same local network experience stalls in their SIP voice conversation. They can hear the voice from the other side, but their voice doesn't get to the other side.
+To mitigate the problem, implement traffic shaping rules on your router to prioritize SIP/RTP traffic over other traffic types.
+This leads me to conclusion that scp somehow congests my network. I tried option -l to limit upload rate:
+Apart from SIP issue (being the most prominent one), stalls can also be observed with other network connections, like browsing and trying to connect to mysql servers. As soon as scp finishes, everything works correctly again.
+This has nothing to do with SCP. If you performed a large file upload via HTTP, you would likely see the same issues.
+Rather, it has everything to do with the fact that you're causing network congestion on your internet connection, specifically the upstream side of the circuit. This is a frequent problem with asymmetric circuits where the upstream bandwidth is very low.
+I observe a weird behaviour when I copy files to a remote machine using scp. Take for example this scp command with no special options:

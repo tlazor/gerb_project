@@ -1,0 +1,6 @@
+Wouldn't it be better to have it in a method like updateRoutes() and inside it, methods like addDefaultOption(), getRouteInfo()...? You should try to structure your code as much as independent from your tools as possible, and jQuery is a tool.
+To check a bit you use bitwise & (and) to mask (remove) all unwanted bits. If the result is not zero the bit is on. To create the mask shift 1 left to the bit position you want. 
+The variable art is a bit field, with the first bit for the top selection and to the third bit the bottom. The whole switch can be simplified with a bit of binary logic and math
+It's always a good idea to decouple low-level code, like the one jQuery is intended for (show a div, a click event) from high-level code (an action about your businness, in this case, the map).
+Another good piece of advice would be: find duplications and extract them to variables, functions... and give them a proper name that express their responsibility. 
+A simple example is: imagine that the logic you have inside that click event callback should be triggered each 5 minutes... Would you fake the click event to execute that logic? Or imagine that this action can be triggered by another button too, what would you do? 

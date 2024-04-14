@@ -1,0 +1,5 @@
+You should use the -b option on update-initramfs, or mount the root fs (and dev/proc/sys) and chroot in the root fs. Otherwise it will update the initramfs from the bootable cd..
+If you need to boot from the raid controller, you will need to re-generate the initramfs (using update-initramfs) with the firmware-file copied in /lib/firmware.
+You'll need to boot into Rescue Mode, modify your /etc/fstab to comment out the offending filesystems, then boot normally and rebuild your initrd.
+Did you try to re-create initrd with drivers provided with your controller? In theory it should be done automatically during kernel upgrade but sometimes it does not work with custom drivers.
+Use pvscan, vgscan and lvscan to find the lvm chain and mount it. From there you can use chroot to change to your production system and use the initramfs tools to regenerate it. Be sure to include all modules, just for sure. Quick tip: after chrooting to the correct partition, use su - to apply environment variables to the chrooted environment, makes the work easier.

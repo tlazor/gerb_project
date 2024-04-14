@@ -1,0 +1,9 @@
+Before you tune the default parameters of mysql, you should check your sql statements and your sql connections. Joins without indexes lead to major performance penalties. Try to use slow_queries to indentify which queries to optimize.
+will show you the the number of table rows with and without indexes that are used to compile your result.
+It's the idea of mysqltuner to recommend actions for better performance. The optimize table will care about fragmentation. Optimize on big tables takes some time though, while the table you are optimizing is locked.
+Say you have 10,000 items in the shop system, then a select * from items; call will return all 10,000 items, so your result set size is 10,000. But it's quite unlikely that you really need all 10,000 items at once.
+But if you have some hundred yellow items, that are still too many to get displayed on a web page. So you limit your results
+Generally the warning notes prefixed with [!!] are commented in the General recommendations section.
+So I would recommend to tune your statements before you tune your database, as you will gain much more preformance if you correct table indexes and limit large result sets. That's why mysqltuner spits out these warnings.
+The main purpose of SQL actually is to reduce the result set using filters, that operate most effectively on indexes. For example you are searching for all items that have a yellow color, you reduce the result set size by select * from items where color="yellow";
+One of the most usefull tools to debug joins and indexes is to use explain in front of your select statements:

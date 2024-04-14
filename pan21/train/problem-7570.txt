@@ -1,0 +1,6 @@
+But because I don't have any real F13+ keys, I'm using AutoHotKey to send them virtually, and that doesn't work. If I try to send keys within F1..F12 range or any other common key, it works, so the AHK script is working, which means the Synapse software doesn't seem to want to accept F13..F24 keys.
+If you can bind the Razor's keys to something like Ctrl+Alt+Shift+F1...F12 you can use AutoHotKey to translate back with
+Just for reference, I'm using A:: Send {F10} autohotkey script code with different numbers, there's nothing complicated about it.
+Is there a way to bind the side buttons to F13-F24 keys? Maybe somehow without the Synapse app or by editing some of its config files and uploading the custom configuration into the mouse manually?
+I'm trying to use the Razer Synapse configuration app to bind the 12 number buttons send extra F keys from the 13..24 range, but I'm not having any progress. When I'm in the right menu, I can press F1 through F12 on my keyboard (or onboard keyboard) as usual, and it registers and works fine.
+I'm using Synapse 3.4 (macro tab) and the latest Autohotkey (in my defense, I've never used Autohotkey). It's not a consistent solution, but it could be helpful.

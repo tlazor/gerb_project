@@ -1,0 +1,5 @@
+Not sure how to "hard code" the subtitles into an existing divx, but you can re-rip your dvd's with DVDx which supports "hard coding" one of the subtitles languages which are on the DVD (I suppose there's a subtitle track for only the Japanese parts).
+When I do that, I want to take the edited srt and hard code it to the video file so as not to need the srt.  How do I hard code a video file with the subtitles?
+Use Subtitle Edit to edit the subtitles the way you want. Then you can use VirtualDub to hard code the subtitles into the video file. You can find the instructions here.
+I have ripped my Kill Bill DVD's but the Japanese parts aren't subtitled in English... I found some subtitles online but the only ones which seem to work are the ones for the entire movie. I want to edit the srt file so that the only parts left are the ones where they actually speak Japanese.
+Hard-coded subtitles are unnecessary (and even a little misguided).  Just use a container format than can hold subtitles within it, just like it holds the audio and video streams.  OGM or Matroska should do it, amongst others.

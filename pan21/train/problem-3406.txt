@@ -1,0 +1,5 @@
+traceroute will show you how long each hop takes, and you can work out where the biggest contributor to your 55ms rountrip time sits.  As ErikA says, without previous data, it won't help much but at least you'll have some idea.
+When you see latency change like that, the cause 99% of the time is internet routing changes. Unfortunately unless you're capturing periodic traceroutes, there's nothing you can do to see what the route used to be.
+I notice I get the same (55ms) latency to 4.2.2.2, but I wasn't graphing that IP so I don't have any reference data to prove a degradation in service. 
+I've been using smokeping to monitor internet latency (for early problem detection) at 8.8.8.8 for several months. On Friday the average latency went from 12ms to 55ms and has been at the 55ms plateau for 3 days. Our WAN uses the same provider for all internet connections so we're curious as to whether they have a problem or if 8.8.8.8 just decided to choke the pipe down.
+PS: Flow shows no excessive traffic on our routers that would point to a behavior-driven drop in service.

@@ -1,0 +1,9 @@
+You set a fixed private IP on the WAN interface of the new router and forward all incoming traffic to it, and set another private network on the LAN side.
+I've come to do so and I now think it is impossible because a /30 does not give me enough IP addresses.  Is this correct?
+If the DSL modem doesn't provide PPPoE pass-trough but does have a "DMZ" option, I.E. forwarding all incoming traffic to an internal IP, you can also use double-NAT.
+I want to change the router/modem to use only public IP addresses and have another Ethernet router behind that router which has more features (i.e. IPSec etc.) and put the private network on the LAN port of the router.
+10.0.0.0/24 network -> (0.0.0.254/24 - New router - 192.168.0.2/24) -> (192.168.0.1./24 - DSL router - public IP) -> the Internet
+The new router will NAT all traffic with it's WAN private IP then forward it to the DSL router which will NAT it again with the public IP.
+I have customer in a very remote location with a DSL router/modem with a /30 subnet assigned to it's WAN interface.  The upper of the two available IP addresses is used for the router and the lower for the ISP's gateway on the other side of the DSL link.  The LAN network is on a private range using NAT.
+Then let the expensive router establish the PPPoE connection to the ISP via the external modem. If you provide more details about the involved devices, we might figure out more details.
+Connect the expensive router to the DSL modem and switch all routing as well as internet connectivity setup off on the router/modem. Then the modem will not use any IP. Most devices (home routers) provide such features, often called PPPoE pass-through.

@@ -1,0 +1,6 @@
+These days the linux kernel has good auto-tuning of TCP, you can do better, however those are not the default because they're seen to be "greedy" and not fair on the Internet.
+One thing you may want to look at web100.  It is a kernel patch, and a userland too designed to optimized the Linux kernel for high-performance networks.
+I figure it's a good idea to have a central question for linux network tuning. I'm particularly interested in tuning options for the following.
+and you really want [ maybe you don't know about it yet ;-] gather statistics - eg with munin - to do some capacity planning and see if your tuning indeed decreases system load.
+At this point it's generally not worth the overhead of "tuning" within the kernel. Unless you have the test gear (or a cluster to A/B options on) and very good documentation it's not worth it for the sys-admin overhead alone.
+for file/sql/poroxy server you definitivly want to mount partition with data/spool with noatime,nodiratime and for reiserfs - notail ] to avoid additional disk trashing whenever file is accessed for read.

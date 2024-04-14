@@ -1,0 +1,7 @@
+In Apache: I'm mainly interested in the logs and the requests per second and few other simple metrics.
+I think that Nagios not very good solution. I propose you to use Munin for DB load and disk sizes and etc, and phplogcon for logs.
+Similar setups can be done for Nagios (though I'm biased against Nagios as every setup I've ever seen had decayed to total unusability), and likely for the other tools as well.  You may also find that one of the other tools does what you want "out of the box".
+There is no one answer to this question.  The best answer you're likely to get is "Pick a monitoring system that is extensible, and extend it to monitor what you care about".  @EightBitTony gave you a nice list above.
+Be VERY wary of log monitoring, for that way lies obsession and sleepless nights (you configure the system to report anything unusual, then one day your pager blows up because a normal event never happened when you were collecting your data).
+Is this where something like Nagios comes in? If I'm correct these would be pretty common things to monitor and I guess there must be tools around to do that without the need of a hodgepodge of scripts and digging through logs manually.
+What tool would I need to use if I need to monitor an Apache installation and a Postgres installation?

@@ -1,0 +1,6 @@
+For MyISAM, if you never UPDATE or DELETE records, a record with N bytes for the blob will take N+8 bytes in the .MYD file.
+The MyISAM PK will be found in the .MYI file; it will be pretty small -- about 11 bytes/row, plus a little overhead, rounded up to 1KB blocks.
+If you are using InnoDB, the layout is quite complicated.  There are 16KB data blocks which are never quite full, there are blob extents (even for VARCHAR), which kick in after 767 bytes (maybe sooner, depending on version), etc.  The extents are allocated in 1MB chunks.  Plan on something like 2N bytes per row average.
+Don't play games with your own chunking; it will slow down things, complicate your code, etc.  Disk is cheap.  (Yeah, it is fun to play such games.)
+An aside:  If the blob is compressed data, you should really use BLOB, not VARCHAR.  VARCHAR assumes CHARACTER SET attributes, which would really burn you if you switched to utf8.  If you must use VAR-xx, use VARBINARY.
+The InnoDB PK is stored with the data, so it is completely included above.  And, being AUTO_INCREMENT, your blocks will tend to be relatively full.  Note: blocks are 16KB in size, allowing you at least 20 per block.

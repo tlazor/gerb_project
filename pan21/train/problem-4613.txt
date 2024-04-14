@@ -1,0 +1,6 @@
+And also there is the Kolab Groupware project. (http://www.kolab.org). You can use it along with a Horde Webmail and Calendar. It can also work with a variety of other clients including Outlook, Kontact, Thunderbird.
+Evolution (projects.gnome.org/evolution/) can replace Outlook as Microsoft Exchange client (it works over OWA). 
+If you're looking for complete client+server solution - Zimbra (as already specified above) it's a good solution.
+Not open source, but you could consider Google Apps for Domain. Not directly comparable to Exchange/Outlook, but if you consider this alternative and the company is willing to change the way the company works, this will give additional benefits from a collaboration viewpoint. 
+If You want to have your own mailing system to manage mails, Its very good to have zimbra mailing server. Even we have given zimbra server for our clients it manages superbly. But it requires hardware requirement.
+Also there used to be hula-project which Novell infamously dumped in 2006. AFAIK, the project seems to have dead and there is no active development happening now. The source code for that is still lying available via SVN from Novell's servers (http://developer.novell.com/wiki/index.php/Hula_Subversion). 

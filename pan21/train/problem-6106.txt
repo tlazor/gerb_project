@@ -1,0 +1,5 @@
+You will need to block the ICMP "time-exceeded" messages in order to keep the router from showing up in traceroute output.
+on the Internet-facing interface, and while this successfully prevents a response to a traceroute probe when the destination is the router itself, it does NOT prevent the router from showing up in a traceroute to hosts behind the router. I am desiring to prevent the router from showing up not only in the typical, standard ICMP traceroutes but also 'tcptraceroute' and anything else that would completely trace the route into the network and to the destination.
+Has anyone implemented something similar to this and, if so, how? If not, how would you propose to do this?
+I am trying to prevent a Cisco 2911 router's IP address from appearing in an inbound traceroute. I have configured the line:
+I am vaguely aware of some kind of access list configuration whereby one would block the ICMP unreachables (and others) and then apply it to the interface, with perhaps trusted hosts added as exceptions. If this is indeed the way to do this, how would I configure my Cisco?

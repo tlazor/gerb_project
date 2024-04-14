@@ -1,0 +1,5 @@
+Switch to the Bourne Again Shell (/bin/bash) from the Bourne Shell (/bin/sh), and a simple solution becomes possible.
+So, setting the nullglob option gives the desired behaviour for patterns. If no file matches the pattern, the loop does not execute.
+The nullglob option doesn't affect a word in the list which is not a "pattern", so special.ext1 will still get passed to the loop. The only solution for this is @Gordon Davisson's continue expression, [ -e "$f" ] || continue .
+But the nullglob option may well interfere with desired behaviour for other commands. So, you will probably find it wise to save the existing setting of nullglob, and restore it afterwards. Fortunately, the shopt -p builtin command emits output in a form that may be reused as input. But it emits output for all options, so use grep to pick out the nullobj setting. See the log below (where $ indicates the bash command prompt):
+Acknowledgement: both @Ignacio Vazquez-Abrams and @Gordon Davisson alluded to bash(1) and its nullglob option. Thank you. Since they didn't immediately contribute a answer with a fully-worked example, I am doing so myself.

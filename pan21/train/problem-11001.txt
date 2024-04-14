@@ -1,0 +1,8 @@
+The usual route is as @PersonalNexus says - DHCP - which can auto-assign them in such a way that you do not get conflicts. This is the simplest for a large network, in fact for very large networks it is the only practical solution.
+An alternative, which is very messy (and one I would not recommend), is to have each device on a separate network (and actually run networks to each patch point) - this, however, requires you to set up the router/switch to cope with multiple LANs or VLANs using the same network space so requiring every one to be NAT'ed.
+If you are manually assigning IP addresses for devices that are on the same network, it is up to you to ensure they do not conflict.
+With certain switches you can restrict exactly what ip addresses are allowed on each port. For example, on a Cisco you could do:
+What this means is that the only ip address allowed to be on the device on Fa0/1 is 192.0.2.1. If the user tries adding other ip address, they'll get no where.
+If you are haven't had experience managing network conflicts I would suggest configuring a switch to do this may be exceptionally difficult.
+There is no real way to block users from assigning themselfs IPs by random ( = risk a colliding IP) but to restrict them from assigning the IPs themself - aka by the admin's own hand or by DHCP.
+If the network is a little larger it might be a good idea to seperate into client and server vlans with some routing (L3-Switch) in between - so at least the precious servers are safe from these coliding IPs. - but no need for a vlan for each server - just one vlan where only the admin can change things and no user has physical access and just plug in their laptops...

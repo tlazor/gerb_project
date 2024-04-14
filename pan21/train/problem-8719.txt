@@ -1,0 +1,6 @@
+Have you configured the DHCP scope settings to get the clients to register their DNS? Or configured the client network interface settings to do their own registrations?
+The article below shows some screenshots of all these DHCP scope options, although it's not very well laid-out. You'll need to do some scrolling down to find the relevant examples, particularly for the one to configure client DNS registrations in the DHCP scope.
+Also, less relevantly, but useful, do you have the reverse zones set up ready to take the PTR record registrations? Is the option to register PTR records disabled in your DHCP scope config?
+https://blogs.technet.microsoft.com/teamdhcp/2014/01/26/windows-server-2012-r2-enhancing-dhcp-policies-and-dns-registrations-in-dhcp-server/
+I'm running a Windows 2008r2 server in a non-Domain (workgroup) role. It is a DNS server and DHCP server for the LAN. 
+The DHCP server lists the correct hostname for all the devices on the LAN in its list of leases, but the DNS server seems to be unaware. 

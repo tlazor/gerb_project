@@ -1,0 +1,5 @@
+It may be helpful to keep your site-specific or host-specific key-store / trust-store outside the java installation-directory, and instead point to it when you need to consume trust. Presuming your trust-store is at /opt/site/cacerts.JKS, you would do that one of two ways:  
+For reference, this is a RHEL 5.10 equivalent (technically Oracle Linux).  I'm using java-1.7.0-openjdk through the official repositories, and just upgraded to U65.
+I have imported internal Certificate Authorities into Java's CA keystore.  (Using keytool to import into the "cacerts" store)  This works fine and dandy, until I update the Java RPM.  At which point all of those imported certs are not carried over to the new install.  So applications bomb when attempting to make SSL connections.
+Is there any way to make these certificates persist through Java upgrades?  Or an easy way to rerun the import commands on an upgrade trigger?  I can obviously script these commands into my upgrade process, but I'm hoping there's a more elegant solution.
+The way I do (maybe not the best?): save cacerts before upgrade and restore after, I scripted it in my update script like this: 

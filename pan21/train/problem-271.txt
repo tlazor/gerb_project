@@ -1,0 +1,10 @@
+Getting a dedicated internet connection isn't a budgetary concern, but I'm able to piggyback the wireless connection of the building's live-in caretaker.
+Problem is, there's an elevator shaft between me and the AP I want to use, and that double concrete wall is making the signal terribly weak. It works, but intermittently and very, very slowly. Here's a rough sketch of the layout:
+Can anyone think of additional solutions that might work in my situation? Am I even right in thinking that the elevator shaft is the cause of all my problems?
+To get this going, I've set up an old wireless router as a client bridge. It acts as a client for the caretaker's network, and the two security computers are hard-wired into that router.
+I am able to move the wireless router all along the wall in the office, but at every point I am still going through that elevator shaft.
+Elevator shafts are notorious for being a source of strong magnetic fields. You will need to route around it, either with wiring or with a repeater.
+I have a unique problem. My apartment complex has a small security office where our access control and security camera computers are stored. The computers were not networked in the office.
+You could try directional antennaes at one or both sides and bounce the signal off a wall around the shaft.
+You could try ethernet over electrical and establish a connection through the electrical wiring (I hear they are getting better all the time.)
+You could try a power over ethernet WAP and push the wiring near (but not completely through) to the otherside and locate the WAPs nearer to each other (let's say you can't go into one room or the other - push POE and run a ethernet wire near to the forbidden room and place the POE WAP at the end of it. 

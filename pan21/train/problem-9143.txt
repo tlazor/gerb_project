@@ -1,0 +1,7 @@
+It really depends on your application, check if it supports unattended installation or silent installation, then you may use suitable command line parameters to install.
+It depends on the applications being installed, some installers just don't support silent installs or even actively prohibits them. 
+If silent installs is possible you can use most installer makers. This seems like a good resource on sourceforge.
+also you can use Auto-it to make an auto installer script for most of the applications and it's quite easy and suited.
+For silent installs - as others mentioned - you would need to ensure that you package silent versions of the programs you are planning to deploy.
+Windows has a built-in installer creator that can bundle multiple executables located at %SYSTEMROOT%\system32\iexpress.exe
+You'll want the redistributable version of the Adobe AIR installer (this version is optimised to allow silent/unattended installs, and doesn't include any bundled bloatware or toolbars). Get it from http://www.adobe.com/products/air/runtime_distribution1.html

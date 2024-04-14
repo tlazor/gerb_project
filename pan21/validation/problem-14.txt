@@ -1,0 +1,7 @@
+I'm completely at a loss here and it's difficult to troubleshoot since I keep locking myself out of servers. I'm hoping someone can help me with the following:
+I can still connect directly to the server with ssh server2.uswe2.example.com over the public network though so I know that the CA and cert are being loaded correctly.
+My next thought was that maybe it was something to do with how the bastion is configured, but if I add my public key to ~/.ssh/authorized_keys on both servers, I can connect without any issue.
+I'm setting up some servers for a new system and decided to do things a little bit differently. I'm running into an issue that I just can't seem to get past though. My desired configuration is having one bastion server and N other servers that can be accessed via the bastion only—a pretty typical configuration.
+The difference from what I normally do is that I would like to use signed SSH keys for authentication. This is pretty straight-forward for a single server but is throwing a wrench when using a bastion.
+Right now, I have two identically configured servers. I can access them both directly using a signed SSH key. However, if I try to use one as a bastion/jump host, I can't connect to the other. My ~/.ssh/config looks like this:
+With this configuration, I can sign in to the bastion with ssh ssh.uswe2, but when I try to connect to the other server with ssh server2.uswe2 I get the following error:

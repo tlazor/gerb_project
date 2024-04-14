@@ -1,0 +1,15 @@
+In active FTP, the place that you're FTPing to, initiates the data transfer on a different port then the incoming request...which is why it's usually blocked by your firewall.
+If the ftp transfer is PASV you need to enable the packet inspection, and the appropriate ACL's at the firewall.
+Try setting the MTU down on the sending side (in fact both sides will probably need it). Could be there is a device that's either not generating or not passing Path MTU discovery packets correctly. If lowering the mtu to, say, 1350 on both ends fixes it, then investigate whether you have ACLs blocking ICMP.
+After this command was issued I then established the VPN to the remote site and was successful in transferring the entire file.
+In passive FTP, YOU initiate the data transfer to the different port and it works because most firewall allow everything outbound to occur.
+Edited to add:  The signatures are cumulative.  While the 407 update doesn't show anything related to FTP, every other update from 95 days ago till now, could have something.  I'm not going to research every update to find out for you though ;)
+There is nothing in the 407 signature related to FTP.  Generally when you have FTP issues like this, that start and then stop, it's usually related to active vs. passive ftp.  What ftp client are you using?  Try changing it from active to passive on your FTP client and see if that helps.
+We have a customer that we must connect to via VPN to their network to exchange files via FTP. We use the Cisco VPN client (version 5.0.01.0600) on our local workstations, which are behind the firewall and subject to the IPS.
+To me this seems like the IPS is blocking, or somehow interfering with the initial VPN setup to the remote site.
+I then disconnected the original VPN session, which was established when the access-list was inactive, and reconnected the VPN session, now with the access-list active. After starting the FTP transfer the file stopped after 150K.
+I also have to ask because of your other questions about this...are you using the default inspections on this 5510 in addition to diverting traffic to the IPS module?  If you are, you really don't need to.
+The VPN client is successful in connecting to the remote site. However when we start the FTP file transfer we are able to upload only 150K to 200K of data, then everything stops. A minute later the VPN session is dropped.
+I think I have isolated this to an IPS issue by temporarily disabling the Service Policy on the ASA for the IPS with the following command:
+This only started happening last week after the latest IPS signature updates were applied (sig version 407.0). Our previous sig version was 95 days old becuase the system was not auto updating itself.
+The file transfer was tried again and was once again successful so I closed the FTP session and reopened it, while keeping the same VPN session open. This file transfer was also successful. This told me that nothing with the FTP programs was being filtered or causing the problem. Furthermore, we use FTP to exchange files with many sites everyday without issue.

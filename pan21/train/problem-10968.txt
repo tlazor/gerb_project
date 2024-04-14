@@ -1,0 +1,7 @@
+Something purely ActionScript that you can do is store your data in objects which are listed in an array, example:
+I would create an XML or other file to look into, instead of writing all those content related conditions yourself. I think its better to separate content and logic in this case.
+In lot of cases it would be better to load the XML external, but for the example this will work too.
+You need to store data properly to be able to use it efficiently. What you're doing there is storing all the data within an endless amount of if() statements.
+Since your if-else statements follow a simple logic (ALL the strings are expected EQUAL to something you know), you can simply concatenate the values and use them as keys in a lookup table (for convenience, I created one for you, but this can and should be done at runtime):
+Then I would find a node matching all content using a E4X expression. Basically there is one condition; just match 3 fields in the XML.
+I would suggest storing everything as XML, but not knowing your experience level I'll avoid that solution.

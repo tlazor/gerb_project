@@ -1,0 +1,9 @@
+When you need to reset a lost Microsoft account password, try to use Microsoft's password reset page.
+If you would still like to change your password for peace of mind, and you are not using a Microsoft account, this may be done by opening Command Prompt as administrator (with a right click in the Start Menu) and running the command net user USERNAME PASSWORD, replacing USERNAME with your username and PASSWORD with your new password.
+PIN is a password-based sign-in option and it's just used to add convenience. PIN does not replace passwords. Most of the time Windows 10 will prompt for password instead of PIN when you try to run an elevated program, enter into safe mode or even change your PIN.
+After logging back into your local/MS account, you can open Settings and create a new PIN without needing to provide the old PIN.
+Even when logging in, if you have a good PIN (you say you do), you can change the Password at that time. 
+Cant remember my Windows 10 User Account password, since I constantly logged in with my PIN. Now my PC wants to restart. I am afraid I cant login afterwards with my PIN and it might force me to login with my user account pw. Will I always be able to at least login to my account with my PIN?
+I am running Windows 10 with a PIN and have been since before its release (I am still on the Insider track), and I haven’t once been forced to enter my password in Windows, even after restart.
+UAC, the lock screen, even viewing Chrome’s auto saved passwords are all accessible using just my PIN. The pin is equal to a password in terms of access in the GUI.
+I assume you have a Microsoft Account (very common) and you can use another computer to go to the Microsoft Account Login and change your password. Make a record of this and then log into the other machine. 

@@ -1,0 +1,6 @@
+A word of caution - hosts are LOUD! a "quiet" host's fan sounds like the engine on an F16, versus a 747. A soundproof rack is important if you plan to put this in a classroom, or any closer than the next county.
+With that setup, you could carve out personal or project virtual machines, and the students could get up close and personal with the cloud.
+I'm going to start with a bit of definition, since industry terminology is somewhat in flux. "Server" means "an instance of an operating system and its contents". "Host" means "the hardware on which servers run".
+However, Ubuntu server comes with the OpenStack MAAS components as one of the primary models of installation. (https://docs.ubuntu.com/maas/2.2/en/) .  
+With three hosts, you can set up a cloud just like the big players do.  OpenStack was open sourced by Citrix, from a subset of the same code base that major hosting providers use. Being able to get hand-on with the metal of a real virtual cloud system using the same lineage of tooling as AWS, 1 and 1, or BlueMix would be a win/win.
+You can pick up decent retired hosts for under $600 on Ebay (2 x 8 core i7, 96GBRAM, 6TB HDD, 2 GPU's)  Fire one up with Ubuntu server and LAMP stack.  This is comparable to what you would get if you bought bare metal on a low end cloud system.

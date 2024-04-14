@@ -1,0 +1,7 @@
+Unless you older records have fields that have be deprecated and it would be a nightmare to convert the older record then don't do it.
+But you could stop inserting into the older databases, and start the id's at the next number in your newer database.
+Well, if it were up to me, I'd take the table with 1,000,000 rows. Not necessarily for efficiency purposes, but because I'd lose my mind trying to keep track of data stored across five different tables which is actually the same set of data. There's too many ways to shoot yourself in the foot. Just for example, if I need to update a record with a certain key, which table am I going to look at? 
+According to you, it's better to have a single DB with 1.000.000 rows or 5 DBs with 200.000 rows, in read/write?
+And besides, when your usual approach fails because you have so many records in your table, you'll be forced to learn loads and loads about optimization, and so you will actually get a lot better at database management!
+If there is any reason that splitting up the table can improve performance, then you just have an inefficient table design; try to normalize/denormalize the database such that such inefficiencies can be removed rather than trying to split the table arbitrarily.
+Don't you think that if splitting a table arbitrarily could somehow improves performance, then MySQL developers could have done so internally?

@@ -1,0 +1,7 @@
+Therefore any DNS queries sent to ns1.MyDomain.com will then be sent to the IP for ns1.VPSProvider.com instead and they will respond
+The domain is registered with 123-reg. Therefore, how/where do I add a dns record for ns1.MyDomain.com would it be with 123-reg's help? Is it just a CNAME record of ns1?
+For example, they have said I need a DNS records directing ns1.MyDomain.com to the IP of ns1.VPSProvider.com. 
+Frankly, if you do not know the DNS at all, it is better to not use "vanity name servers", specially for paying customers...
+Secondly, are their any disadvantages by having a vanity nameserver like this e.g. spam, google, rdns etc
+My VPS hosting provider has agreed that I can use their DNS servers to present a more professional look by giving out vanity nameservers to my clients.
+You cannot use CNAME records since the right-hand side of a NS record cannot be an alias (RFC 1035, section 3.6.2).You have to use A and AAAA records and keep them in synch with VPSProvider.com. Not easy because they can change suddenly.

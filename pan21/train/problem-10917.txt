@@ -1,0 +1,9 @@
+Personally, I would have the id column in that table, and set it as an auto-incrementing integer, as that gives the ability to extend the content of that table by joining to another table that contains information about the relationship, such as when updates to relationships are performed, who performed them, etc.
+Some shops have an id on every table as a standard. Consistentcy is good, so that would suggest having the id in this table, too. If this table is the parent of a 1:m relationship it can help performance to have the parent keys directly in the child table without having to follow surrogate keys.
+and an UNIQUE INDEX CHIP2DALE_UQ ON (chip_id, dale_id), because multiple relations don't make sense.
+You never ever need the id column in any table. It is a surrogate key which replaces the natural key for pragmatic reasons. Often this is because a narrow, monotonic key gives better performance, or because join clauses become cumbersome with multiple natural key columns.
+Two tables called Chip and Dale have m2n-relations to each other. I am used to build a link table called
+My question is: Do I still need the ID-column here? Is there any good reason for having this column? My rows are ultimatly identified by the combination of chip_id and chap_id GIVEN THAT I have absolutly no other columns here but the two.
+It does take room on disk. If you have a gazillion rows that may be an important performance consideration. This would suggest omitting the id.
+Keeping the join table as small as possible improves the performance of joins if the data gets very large, and the additional table of relationship information can be joined in on an as-needed basis.
+Broadly, in my experience it is best to omit the id from intersection tables, and add it later if the model changes.

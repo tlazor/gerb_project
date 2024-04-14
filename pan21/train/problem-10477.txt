@@ -1,0 +1,5 @@
+The site is writeen in C# ASP.NET. So Could I perhaps just update the web.config file to route mail via google apps?
+The term to research is 'smarterhost'.  IIS SMTP and other tools like SmarterMail support a smarthost.  This allows you to send to 'localhost' which in turn will forward your request to another mail server.
+I am using the free version for Google Apps to host my mail. I want to set is so that mail is routed via google apps as this will give me a much better reputation and mail will not go to the spam folder as much. Doe anyone know how this is done? Would I need to setup IIS to do this?
+However, I don't know off the top of my head if IIS SMTP or SmarterMail support custom credentials and ports that Google Apps requires.  They probably do, just be careful to remember whenever you make a password change that you'll need to update these settings too.
+Alternately you can directly send it from C#.  Here's a post on the syntax in your config file and from code: http://www.4guysfromrolla.com/articles/072606-1.aspx

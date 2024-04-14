@@ -1,0 +1,5 @@
+You could use this data and methods to then figure out the areas where someone's skills are lacking and make recommendations from those findings.
+Although the concept is opposite, i.e it finds out points near and similar to the existing classified regions which the model classifies wrong but sometimes the points are close to be identical like: the panda example in the reference at page 265. 
+             https://www.deeplearningbook.org/contents/regularization.html @7.13 Adversarial Training and the image example of the panda.
+This problem can be addressed from an Economics perspective, even with existing data and without complicated algorithms.  There is some existing research in the Labor Economics field about transferability of skills between occupations.  For example, this "The estimation methods of occupational skills transferability" paper: https://link.springer.com/article/10.1007/s12651-016-0216-y
+There is one method it discusses, referencing another 2016 paper by Ormiston, that could be helpful to you.  It involves calculating "the ratio of shared, standardized knowledge, skill and ability categories across occupations".

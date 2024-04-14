@@ -1,0 +1,6 @@
+When I enter a wrong key for the psk (typo: woa-psk instead of wpa-psk) I didn't get ANY error that the config was wrong!
+Then I tried, according to Switch between AP and client mode, to stop the unneeded services and start wpa_supplicant:
+Now I want to switch my Raspi back to a normal WLAN configuration where it connects to a WLAN where I provide SSID + PSK - but it seems I somewhere got lost between configuration of access point mode and other configuration steps.
+I did already configure network/interfaces to disable "static" mode, and and also tried to disable config in but id did not work.
+My dhcpcd.conf is fully commented-out because no local DHCP server in use when using wpa_supplicant (this is at least the goal)
+What is the minimum set of services to shut down, to make it a normal WLAN client again? I don't want to uninstall anything, but disable configurations in the end via shell scripts. Goal is that I can easily switch between AccessPoint mode and Client of a stationary WLAN. Note that AdHocWifi is no option for me; Android Clients must be able to connect while in AccessPoint mode.

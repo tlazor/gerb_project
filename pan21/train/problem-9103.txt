@@ -1,0 +1,5 @@
+Not sure if it qualifies for TCS, but the classic paper by Kleinberg is a good example for good writing. At least this is what I use as an example when I am asked this question.
+Except for the clear exposition, he nicely paints the bigger picture: why is any better-than-factor-of-2 approximation to MaxCut hard, why one would expect that spectral techniques could work, how his algorithm relates to Cheeger's inequality, and to the Goemans-Williamson SDP. In addition to the algorithm itself being very neat.  
+Entropy waves, the zig-zag graph product, and new constant-degree  expanders conveys a lot of intuition about graph products and expander graphs and the ideas are accessible to anyone with basic knowledge of linear algebra.
+I remember really liking Luca's paper giving a spectral approximation to Max Cut: http://arxiv.org/pdf/0806.1978v5.pdf. 
+It is also quite interested to contrast this paper with the "Google paper" that was published in WWW. The Kleinberg paper is much better written.

@@ -1,0 +1,11 @@
+If you can't get the group installed regardless then you can still get VNC access by installing vnc-server and configuring that.
+The next option down would be installing an X server on your local system and doing X forwarding via SSH.
+Oh - and I've heard there can be missing/broken dependency rules when upgrading from a minimal system to a fuller one, so keep that in mind if you see package conflicts, etc.
+In order to reference the Environment Groups you can use yum install @^GroupName while yum install @GroupName works for standard groups.
+The final option, and the most popular by far, is to just learn how to administer the system via command line.
+@Ignacio - Even if there is no X :0 console, vnc-server still needs gnome binaries installed, or at least some GUI like xterm + twm.
+Looking on one of my machines, you have the right group name.  Somehow the minimal install must leave you with an incomplete repository.  Try to enable the repository for the CD/DVD and install from that.
+The following works atleast on CentOS 7, which while not the version in question, should help anyone who finds this question through google looking for a similar thing.
+If that doesn't help, worst case you can pull the list of packages from comps.xml on the DVD and install them yourself.
+The list of available groups can be shown with yum grouplist. If it doesn't show up then someone (is this a VPS?) may have disabled or crippled the default yum repos.
+The command yum grouplist shows packages in two groups, Available Environment Groups and Available Groups.

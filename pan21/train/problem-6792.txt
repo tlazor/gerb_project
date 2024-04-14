@@ -1,0 +1,7 @@
+This can not be fixed, IT'S A BUG and has existed since the very first version of Windows 8.1 came out. I however don't know how many are affected by this.
+Interesting however that you did not have this problem on Windows 7. I have the same issue on Windows 8.1 Update 1, but don't remember it behaving correctly on earlier versions.
+This bug can be seen (More Clearly) in "Delete confirmation dialog box". Its the dialog box which appears on screen when you want to delete an item in Windows. Since Microsoft disabled this confirmation dialog box in Windows 8 and 8.1, you'll need to first enable it with the help of following tutorial:
+This cannot be fixed as it is Windows generating these thumbnails. It doesn't treat the alpha channel of icons correctly when stretching them for the folder perspective.
+Make sure "Let me choose" Is checked, and select Medium... Experiment with different sized and check your icons each time.
+More here: http://www.winbeta.org/news/windows-81-bug-displays-ugly-distorted-icon-delete-confirmation-dialog
+This bug doesn't affect Windows 8.1 functionality but causes some icons to look ugly, distorted, fuzzy or whatever you would like to say.

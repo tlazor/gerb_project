@@ -1,0 +1,7 @@
+Yes, it is doable. If it is apache, load mod_authz_ldap and point to your Active directory. Or point it to openldap proxy, which fetches auth credentials from active directory.
+There are two technologies for that: Kerberos and NTLM. There are a lot of info on how to implement both, the best choice will depend on your IT environment.
+Some questions: Do you use Active Directory for authentication? What is your webserver? IIS on Windows, Apache on Linux? Something else? What are the apps? What auth methods do they offer? 
+Basically, this is possible. If your particular webapp is capable of handling this depends on your environment and if this webapp is prepared for this. 
+Regardless of the technology, prepare for a challenging experience, as doing this right is quite difficult. 
+The most important thing you should research in this regard is Kerberos, which is used by Active Directory (and many other things) for exactly this purpose: Single sign on. 
+Is there a way to integrate an LDAP authentication system on a windows network with intranet webapps so that the user on logging into their desktop does not need to log in a second time with the web app?

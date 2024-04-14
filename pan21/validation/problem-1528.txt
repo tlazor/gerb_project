@@ -1,0 +1,5 @@
+I have often wondered whether my extra drives (I have 5 internals I don't need most of the time) power down automatically when I am not using them, but from my searches I can see they don't. Maybe they spin down, but they definitely don't enter a no-power usage scenario, which would be ideal?
+There are some utilities that take care of low-level stuff in Windows like HD Tune Pro - you can try with those. That's the closest solution I know.
+I have looked, and I don't find a way to do this, even using PowerShell, which is quite disappointing. 
+Somehow, I feel this is a huge failing by the powers-that-be, especially when we're all trying to go green. Who cares if you have to wait a few seconds while your secondary drive/s boot - there's a reason you disabled them in the first place, not so?
+I have a SSD as my booting hard drive. I also have a spinning HDD for large files and backups that does not need to run all the time. I have it on a timer, such that it spins down after being idle for 20 minutes. My issue is that it spins up each time I wake my computer, and each time I turn it on. I am using Windows 10 and my HDD is a Seagate Barracuda. 

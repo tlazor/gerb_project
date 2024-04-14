@@ -1,0 +1,7 @@
+A more hacky solution is to register a normal domain name and then point subdomains to your (private) ip addresses. It will work just fine.
+this can be done without a DNS server using the broadcast names (the machines name) so you could type http://mypc/ from within your network
+I know you can change the hosts file to add it but I'd have to do that on each computer and I'd still have to type in the IP to access it from my iPod/Wii... etc.
+You will have to configure DNS at some point if you want it to work at all different devices. The usual strategy is that you setup your own DNS server, make sure all devices in your local network connects to this, then you add a new zone with the names of the devices you want. Traditionally you add something like .local to the names to ensure you don't get a name collision.
+Majority of routers have DHCP and their own DNS servers so you most likely have a DNS server already.
+It is possible to have devices register themselves in DNS when they are turned on, or to let the DHCP server do it. This is called "Dynamic DNS", and is specified in RFC 2136.
+I have IIS7 on my computer, and I can access it through other computers in my house on the same network through my computer's IP address - 192.168.1.10x 

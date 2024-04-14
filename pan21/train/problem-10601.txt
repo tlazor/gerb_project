@@ -1,0 +1,7 @@
+My initial thought was to use the following; however, this leaves me with an issue and I believe that it has to do with the /25 segment using/wasting too many addresses.
+The network consists of 3 routers that connect 3 different buildings together.  I need to subnet the entire network into 4 smaller networks using the 10.10.1.0 - 10.10.1.255 address range.
+I am not sure why I cannot make them all fit within the required IP allocation and believe that I am missing something simple.
+I am trying to plan out a network with the following requirements and am having problems trying to complete a subnet plan for my network.
+This is actually possible, if your routers do not use a PtP link (which is normal). You can use the subnets laid out by David, and put the 3 routers into each other's subnets.
+As others have stated, this is still a bad idea and you should be using at least full /24s for each subnet since there's already a good number of hosts in each and growth is inevitable. Plus it's much easier for a human to read the IPs and know where the traffic is coming from.
+This leaves no room for the router-to-router connections, assuming you're trying to number them all inside the same /24.

@@ -1,0 +1,6 @@
+If you don’t purchase music via iTunes and only use it to import your CDs and such into your iPod, another option is to forego iTunes altogether. Redchair makes Anapod Explorer which is pretty good. Another one that works without installing anything on your system—and is free!—is vPod (which I don’t believe does photos or videos though).
+BONUS: Even though iTunes is able to play along with QTA, every time you update to a new version of iTunes, you have re-uninstall Apple Quicktime, and then re-install QTA. Is there a workaround for this inconvenience?
+I can't confirm this because I do have QT installed with iTunes but I would assume there is a degree of dependency between the two, namely it's quite possible that iTunes would also use some of the QT APIs for video
+One solution I'm aware of is the heaven-sent "QuickTime Alternative", aka QTA. Is there a definitive catch-all tutorial for it?
+Is it possible to install/use/update iTunes without also having to install the eternal hellspawn known as Apple Quicktime? 
+When you install Apple Quicktime, it installs its QTTask.exe executable to run automatically on startup (what the hell does that do anyway?). Not only that, but it keeps coming back if you remove it from the registry. It also immorally takes over media file playing on web browsers without asking (Screw you Apple!). 

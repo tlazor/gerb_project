@@ -1,0 +1,7 @@
+Use antivirus if your server is passing information to other systems (for example, if it is running an email server).
+I would not use a virus killer on a linux webserver.  It just does not make any sense in doing so.  But you should make sure the system has a firewall, and only opens up services to the world that need to be open.
+So if your web server has files on it that others are accessing or are using it to send/receive email it may not be a bad idea to have some sort of anti-virus running.
+Most of the times when anti-virus software is deployed on a Linux server it's to protect the computers that are accessing files off the server and not to protect the server itself.  It's most common to find anti-virus on email and file servers running Linux for this reason.
+I would ask them if they had any sort of performance benchmarks between having Sophos installed or not. As well as asking if there would be any way that you might be able to try it for a month or a week or some length of time so you could do your own load testing. At work we keep AV on all of our servers (Linux included) the performance loss was negatable but the piece of mind is worth it.
+I don't know if Rackspace will support it, but there are free alternatives (Clam Antivirus) If they do not support Clam, and the fee for Sophos is minimal, I might be convinced to use it.
+You would not need it if this isn't the case, as Rackspace is managing the server and in my opinion would be responsible for any A/V, tripwire, md5 file sums on system files.

@@ -1,0 +1,10 @@
+It is best to test this out on a page far simpler than Hangouts so you can get the measure of how it works.
+Doing the same with Hangouts is tricky.  Each conversation is its own web page effectively. If you pop out the conversation, you'll see that it has a URL, but if you take the URL and put it into a new browser window, you get nothing.  The same would happen with a webslice.  It probably isn't doable, because there is javascript maintaining the state, that isn't migrated with the URL.
+The contacts list is similarly difficult.  It is contained within an iframe.  The iframe is wrapped inside a div with the id "hangout-landing-chat", so it is possible that will work, but unlikely.
+On the right of the SuperUser page when you are looking at a question, there is the sidebar with meta posts and Related questions.  Lets say you wanted a webslice of the sidebar.
+I am using the Web Slice widget in the KDE Desktop Enviroment and I am wondering how I can find the CSS identifier (or what the CSS identifier is) for the hangouts box on Hangouts.google.com so that I can set the web slice to show me only that portion of the page. 
+The web slice widget refers to an "id" within a webpage - this is literally an id="" tag that might be attached to a div element or any other.
+This covers the entire sidebar, so using the URL of this question, and the id of "sidebar", you'll get a webslice of the sidebar only.
+You can see how this works by hovering your mouse over the elements - you step through each one until you find an element that turns the entire section blue.
+The short version of this is id in a webslice refers to an id of an web page element (such as a div) that contains all of the parts of the page you want to see - it is the parent of them.
+If you right click the region, and choose "Inspect", you get a view of the HTML.  Going up from element you selected, you need to find an element that encompasses the whole area you want in the webslice.

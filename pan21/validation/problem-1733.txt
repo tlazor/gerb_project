@@ -1,0 +1,5 @@
+My host OS is Linux Mint 19 Tara running the MATE desktop. I run Windows 10 Pro in my guest OS, and I was attempting to reset an iPad using recovery mode and iTunes.
+I was able to use libimobiledevice-util's ideviceenterrecovery program to put the device in recovery mode (shows USB cable and arrow pointing to iTunes logon on iPad). Then I was then able to pass the device through to the guest OS using Virtual Machine Manager without the symptom that you described (and that I too was getting originally).
+I use KVM on a ubuntu 15.04 guest and a windows 7 and windows 10 guests. I connect my iPhone to my PC and want to redirect it (using virt-manager) to the guest. I always get the error.
+libimobiledevice "captures" as soon as you try to connect it to the guest system. libimobiledevice can't be uninstalled as it is a dependency of gnome, but the package libimobiledevice-utils can be removed. This disables any interaction (even mounting) of the ubuntu host with iPhones but enables the redirection to the windows guest
+I use virtmanager, SPICE guest tools 0.100 (that's the most current version) and my ubuntu-packages (kvm...) are up-to-date.

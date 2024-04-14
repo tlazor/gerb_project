@@ -1,0 +1,7 @@
+The answer to your question is short: No - there in no way to let kpartx map all partitions but within the same "file"?
+I want to create  a backup of a LVM volume (Xen DomU's), however a LVM volume can have multiple partitions and those are dynamic (I cannot guarantee LVM #1 has 1 partition and LVM #2 has 3 etcetera).
+I'm using kpartx to mount a LVM volume, however it will create multiple mappings (1 for each partition + 1 swap) and I want to use rdiff-backup to backup the volume. But as I don't know how many partitions a volume has I cannot rely on this.
+From your questions it is not clear if the domu is running when the backup should be done. Therefore it's hard to give any further advice.
+Now my question is: is there any way to let kpartx map all partitions but within the same "file"? For examply only /dev/mapper/lvm1 instead of /dev/mapper/lvm1, /dev/mapper/lvm2, /dev/mapper/lvm3 /dev/mapper/lvm5 (1 to 3 are partitions and 5 is swap).
+I wonder if it would be possible for you to take another approach and use guestfish for accessing the domU file system(s).
+You can use fsarchiver to backup your lvm. You can start from here http://www.fsarchiver.org/QuickStart

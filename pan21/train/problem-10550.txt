@@ -1,0 +1,6 @@
+If I print more than onepage, Windows will print page 1 and 2 on one sheet and pages 1 and 2 again in the other sheet... even if I choose not to collate!
+Since I assume you're using Windows' built-in printing panel you may want to update your system, or Office if you're using it.
+Just to expand Ecnerwal's answer, you can try specifying the number of extra copies (1 in this case) while you have the two-sided printing enabled and by printing only the page you want to be copied (by specifying it manually). Something like this:
+I have tried several things, but Windows always prints a different page for the second copy even if I select print two sided.
+This might as well be an issue with your drivers. Update or reinstall them, your machine is either using a generic driver (hence why it can't use the two-sided printing feature correctly) or the one you already have is buggy.
+I haven't used Adobe reader for years, but Foxit reader (www.foxitsoftware.com) which I use has a print box similar to Office, where you can specify a page list, so you simply specify 1,1,2,2.... That works perfectly with double-sided printing.

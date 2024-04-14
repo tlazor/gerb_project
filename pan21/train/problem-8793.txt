@@ -1,0 +1,9 @@
+As setting a test environment for your case would be quite a hassle, this answer isn't tested enough. Use on your own responsibility.
+Which basically works, but DNAT will only randomize the 1st packet for the "connection", following packets just use the port number saved in connection state table, and will not change while the "connection" exists.
+There is a program at server side listens on port 3333, and a dedicated client box which sends and receives packet to the server, I'd like to setup a set of iptables rules, make every packet in-the-air with randomized port number.
+If you need to make your traffic difficult to trace or anything like that I would recommend you to think of different alternatives but always based on non disruptive IP traffic.
+Can you imagine if you have 2 different processes in your client trying to establish this kind of traffic with the server? of course it would be a mess.
+To me, option 2. seems the least harmful to the performance and general connectivity. Option 1. may AFAIK not work as expected without 3.
+Now server and client cannot communicate, tcpdump shows nothing on the server box, I guess DNAT may not work without connection tracking.
+Also I tried some other combinations but no of them worked. There is no target except SNAT/DNAT can modify ports.
+You are asking something that goes against the very same philosophy of the IP port system, contrack, etc etc. You won't be able to do what you want with iptables.

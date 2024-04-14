@@ -1,0 +1,8 @@
+6) Change the 'Profile name' to something more descriptive to let you know what it does. (e.g. 'Add to ZIP')
+7) If you want the context menu item to execute immediately, then check 'Immediate Execution' or leave it unchecked if you want it to pop-up the options box before processing.
+If you already have a profile set that you would like to use, such as 'Add to ZIP', then all you have to do is:
+To delete the menu items "WinRAR Archive" and "WinRAR ZIP Archive" in the context menu of Windows Explorer at the "New" sub-section, do the following:
+There is also another way to use an existing profile or create a new profile and add that new profile to the context menu without setting or changing your default profile:
+4) Set all of the settings you want in the options dialogue to process these types of files when executed from the context menu.
+I am thinking, we need to use the Winrar > Options > Settings > Integration tab to fully disable the 'Context Menu Handler' by unchecking all the options.  Then create our own entries on HKCR\*\Shell\My_WinRAR with the correct comamnd line syntax to zip a file.  It won't be as elegant as using a DLL but it might work.
+8) If you want the context menu item to execute immediately, then check 'Immediate Execution' or leave it unchecked if you want it to pop-up the options box before processing.

@@ -1,0 +1,8 @@
+I have been through this pain few years back for SoX auditing and had to exclude applications logins too. I have done this through filtered server side trace. I didn’t notice any performance impact but you’d have check your case. 
+I don't like suggesting this, but it's a valid use case, however Logon Triggers can do this. Do note that this isn't free and can cause logon issues, login issues, and a myriad of other problems under high concurrency.
+You could additionally choose to purchase 3rd party software products that can also do this or feel free to write your own.
+Is there a workaround ? I need only certain logins to be audited, otherwise it will be millions of records in the audit file if I audit every successful login of every application/user
+If you're going to do this, put the logging tables in master and move the data over to a different database at load logon times. If you choose to put the logging table or area in another database, logins may fail under another set of myriad circumstances.
+You can do this with audit objects with SQL Server 2012 and later by using a filter to specify the principals you want to audit.  The only downside is that you can't specify a group or a role, you have to include each login.
+Tried using SQL Server audit feature, using SUCCESSFUL_LOGIN_GROUP, but it does not allow me to select "principal name" and specify logins that are interesting to me
+I need to setup auditing (logging) of successful logins on SQL Server (date, time, who), not for all logins on a server, but only  for a small group of logins (developers)

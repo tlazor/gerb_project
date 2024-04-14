@@ -1,0 +1,6 @@
+So, running the copy probably won't break the running system, but won't give you a workable backup, rendering the task moot. I highly recommend making the copy offline - which would require shutting down the machine.
+It is technically possible (as in "shooting-yourself-in-the-foot"), but highly unadvisable, especially if any of the disk's partitions are writable.
+While trying to avoid breaking a perfectly working system, would I be able to dd the disk while the OS is running?
+You can run dd on the running disk.  Doing so when there are heavy changes to the disk structure should be avoided.  Also you should fschk the destination once you are done.  The quieter the system is during the backup the better. 
+If you're capable of remounting all the partitions on the USB disk as read-only, this problem shouldn't occur (emphasis on "should not"); this requires significant up-front install/offline preparation and boot-time setup for the / partition though - I don't think you can normally remount / r/o on-the-fly, there will be multiple things hanging off that requiring r/w access.
+I already do this with sucess on test environment, with fsck and rsync in the end to improve the chances of a good device copy.

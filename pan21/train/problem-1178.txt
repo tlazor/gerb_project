@@ -1,0 +1,7 @@
+Depending on your budget there are some arduino robot kits starting around $80 that I think are a good value.
+The program is fairly easy to follow for students, and there is a look of shock when it starts moving. I then tell them that they need to attach the servo along with another one to a box, and make a robot that drives forward, and they will need to add three lines of code to their program.
+My preferred lesson, using any board that has servo headers (and you can do it even without these), is to show them how to make a servo turn (I have a wheel attached to it ahead of time). 
+The challenge of adding the three lines is just different enough from what they have, that they will struggle, but similar enough that they can figure it out.
+This takes about an hour and a half if I prebuild the robots and it is just programming. If they are building them, add at least another 30 min.
+The nice thing is that this acts as a great starting lesson to lead into others. Later you can give challenges that require sensors and introduce conditionals. Serial Communication can be used to make them remote control (works better if you have a board with blue tooth communication).
+I then introduce the delay command and tell them they need to program their robot to drive around a big box.

@@ -1,0 +1,7 @@
+I'm guessing the reason it's failing is tied to why certutil -verifykeys is failing, but I haven't been able to find what it actually means when I get the error that I do. 
+You said you put the Linux machine's certificate in the Trusted Root folder. Did you do that on the DCs and the client?
+Enable the CAPI2 event log.  The error events in the CAPI2 log usually provides more information about the issues with the certificate.  
+CRL is a requirement for SSL. You have to fix that first. Everything else I am listing is stuff you can check if that doesn't resolve it.
+I'm trying to enable SSL for Active Directory in our domain. The problem I'm running into is that the server is failing to recognize the certificate I've made for it. Whenever I try to query the server using ssl (using ldp.exe), I get event 36886 which basically states that a suitable certificate could not be found on the server.
+Since you are getting an error verifying the key, make sure the ACL on the MachineKeys folder is correct, and that the Private Key does not use Strong Private Key Encryption.
+http://blogs.technet.com/b/instan/archive/2009/01/05/schannel-36872-or-schannel-36870-on-a-domain-controller.aspx

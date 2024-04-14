@@ -1,0 +1,13 @@
+print("Generating File") is in a place where no actual generating takes place. The appropriate place would be a function which actually generates something, not right before a time.sleep statement.
+A good place to start is to break your big main method into smaller chunks of work. Then you can focus on improving the code in each section.
+The function is easier to read if all the calls it makes are at a similar level of abstraction. The main method doesn't do low level operations like input reading or file writing, it tells a story.
+numbers contains a bunch of strings. Although I understand why it's called numbers, it's a counter-intuitive name.
+With these two modifications, it's interesting to note you don't have to comment on what the code does, the naming does it for you.
+Where general_input is a function that handles all the cases of possibly malformed input by printing meaningful messages.
+Taking input while making some validation is very common in beginner programs but you wrote two similar while True loops. I would go a bit more general at the cost of the code being a bit longer and write:
+@janos already stated this, but it's very important. Never use l for a variable name. i is acceptable in many languages, l is not. Depending on your font it may easily be confused for something else.
+Maintainable code has proper naming. Single letter variables are only acceptable for indexes in loops.
+Currently your main method does many things, it reads user input, builds up a song and writes it to a file. Here's how you might rewrite it:
+That's num1 and a having non-descriptive names. num1 is input from the user. userInput isn't a great name, but better than num1. Perhaps even inputNumber or userNumber. a could be named file, fileStream, numberFile or something similar.
+while True/continue/break structures are generally difficult to read, I personally prefer something like:
+Do note I'm using mixedCase while Python officially prefers underscores. It's a matter of preference. Reading the naming conventions in PEP8 may be a good idea anyway.

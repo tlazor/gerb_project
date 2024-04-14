@@ -1,0 +1,7 @@
+Currently your method calculates a result and, in addition to that, prints the value of result for every iteration. What if you or someone who uses your method does not want to have every single intermediate result printed to them?
+Your run method has a very generic name. Sure, there is code that is run, but it doesn't explain, what this method does.
+It would be more precise to call your method reduce or foldLeft or something similar, that explains in the name, what this method does.
+To answer your question about the complexity of the lambda to put into the method: There is no limit. You can do everything you like in there. A lambda expression is nothing more than an implementation of the single-method interface you have created. And there is no limit on the complexity of a class implementing an interface.
+What you have, is a special kind of BiFunction or more precisely, BinaryOperator. Now I know that generics don't allow you to specify primitive types for the generic arguments, but your func interface is not necessary and  can be replaced by a BinaryOperator<Integer>.
+Your interface is simply named func. This probably means "function" but you don't have to save on characters, Java is already quite verbose.
+Your method currently only works with primitive integer arrays. Nothing stops you from making it work with generic types or even lists.

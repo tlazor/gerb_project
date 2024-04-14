@@ -1,0 +1,7 @@
+No high CPU usage after syncing a FEW things, either. I think the high CPU usage might happen after syncing a LOT of items (hundreds).
+Google understands that the current version performs poorly, I expect they will work to improve it in future versions.
+There is no question that this is a bug.  The drive sync process somehow enters a state where the CPU activity is at maximum for the process.  If you kill the drive sync process and restart it, the sync process usage will return to idle levels.
+This is definitely not an initial sync problem. I have a personal folder sync'd to Drive from a single machine with no other users having write access to the account. The Google Drive systray application on Win7 x64 consumes large amounts of CPU in this scenario even when files haven't been modified for days. It also re-syncs files that have not been touched in weeks. The local modified date from NTFS says weeks ago for those files.
+Simply put, Google Drive's change detection mechanisms are extremely inefficient and under-evolved compared to Dropbox and OneDrive. They should be event driven for local changes (Win32 API can event drive change notifications for local file changes rather than polling for example). Remote changes should use PUSH if possible rather than polling as well.
+After syncing is complete of those items, a workable fix may be to restart Drive until they improve the mechanism.
+File permission issues should be gracefully handled (e.g. ACCESS IS DENIED shouldn't make Drive spin CPU like crazy).

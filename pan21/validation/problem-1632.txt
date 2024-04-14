@@ -1,0 +1,10 @@
+The only way I know we can bring these extends together (in order to get better read-ahead), is to REBUILD the table (or table partition).
+So if I set the file growth too small, I will have a lot of (external) file fragmentation. If I set it too high our database will have a lot of downtime, because it runs out of disk space elsewhere in other filegroups.
+just under 8, namely the 8 8kB pages that can fit into one 64kB extend. A table with 50000 pages has 6300 fragments.
+I could create one filegroup per large table in our database. This would result in a lot of files. I will have to size them reasonable, and monitor closely, in order not to have too much unused space on the harddisks. Space that might be needed by other tables.
+I will have to recode all ALTER TABLE T1 REBUILD to copy the entire table into a new filegroup instead of creating a copy within the existing filegroup. When the rebuild has finised the old filegroup must be dropped&deleted.
+We have a large data warehouse database where we continuously get new rows inserted in 5 different tables, at the left-hand side of the b-tree (=at end of the table)
+I will have to script the RESTORE DATABASE db statement, and keep the script at hand for Disaster Recovery.
+I'm answering my own question such that others can see what I have arrived at as a possible solution. Comments are most welcome.
+Is there any way I can get SQL Server to use a FillFactor look-alike when inserting rows on the left-most page in the B-Tree?
+We have one table that in addition to the new inserts get a lot of updates to the newer rows. I.E we get 6 rows every hour, and once a week all rows for the entire week are recalculated (=updated). Fillfactor only works for index REBUILDs

@@ -1,0 +1,7 @@
+I realise that this is slightly off-tag (you mentioned "AND sql-server"), but you might want to think about the possibility of running a non-Windows server (slightly cheaper) and putting Mono on it.
+However, as @Sam mentions, this does have a big disadvantage in that it is not the same environment as the likely "production" server.
+One thing to ensure is that your development environment is as similar as possible to where you will be deploying. If your going to be deploying to IIS 7 or 6, then using Windows XP on your test server is no good, as it only has IIS 5 etc.
+I want to setup my own server at my house that is capable of running ASP.net pages and SQL databases for development testing purposes. I want it to be a dedicated server (not just running on my development PC) So what is the cheapest/easiest/fastest server I could buy for this purpose?
+Finally, using XP has some limitations, you can only have 1 website in IIS and a maximum of 10 concurrent connections, so if you want to run multiple sites, you need a different OS. 
+I know I could just buy a separate PC, put a cheap copy of XP on it and use IIS and SQL Server Express . Is this the best solution?
+If you will just be using this for your own development purposes, then yes a cheap pc will run fine, IIS and SQL with a single user are not particularly demanding.

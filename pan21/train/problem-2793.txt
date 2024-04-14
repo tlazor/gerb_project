@@ -1,0 +1,5 @@
+To make these changes take effect immediately I would run the following immediately after the above command:
+which spit out a bunch of contexts in a comment and I just had to guess at which one. I don't know how to pick the correct one.
+The reason why you received permission denied is that the spamd_t type is not a valid SELiunx type. You may need some packages to be installed to make it a valid type. I'm not sure there. But I'll go over your answer to ensure you're following best practices.
+This will add a rule to recursively change the SELinux type to spamc_home_t for anything under /usr/local/spamassassin including the directory itself but these changes will not take effect immediately.
+This will restore the default SELinux contexts based on the rules the system has. Effectively the same behavior that happens when the system is rebooted or a new file is created. It's better than using chcon because it reads from the rule set (that you just modified with the above command) rather than making an ad-hoc non-persistent change.

@@ -1,0 +1,9 @@
+You might be able to find somebody else's design for an order fulfillment system in one of the models presented in database answers.
+My confusion with the Dispatch table is that logically it seems like it would behave as though there's a one-to-many relationship between Product and Dispatch tables, but the business rules make it seem like it's a one-to-one as it asks me to preload all the products even if there are no deliveries/dispatches to be done? I guess I don't fully understand the concept of 'dispatch'.
+Think of the Dispatch as part of the Full order, the warehouse staff only needs to know that this gets picked up from there and gets placed with other items of this dispatch ready to actually be dispatched
+Then finally I have a Sales table which holds all the sales transactions in the shop and is the bridge table between the Product, Customer and Dispatch table. 
+looking at the information here this is less a table you want to create and more a View since all that information will be stored in other locations you dont want to duplicate things, you just want to derive the locations
+Presumably the Disp_id is a non-unique field as you'll have an order table which contains the customer name / delivery address etc
+My scenario is a shop/warehouse and I have a Product table which contains basic product details including it's name, price, quantity on hand etc. I have a Customer table that has the shops customers and their details. And then I have a table that is confusing me: the Despatch table. The business rules for the Despatch table are as follows: 
+(I used to work in a warehouse and thats how it used to work there and makes sense, and fuflls all the needs that I can see you wanting)
+The product table will cant be a 1-1 relationship with dispatch otherwise only one person would ever be able to order that product regardless of how many they order so the product -> dispatch needs to be 1-+

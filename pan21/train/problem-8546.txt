@@ -1,0 +1,5 @@
+I have the following issue with my laptop: whenever I do any minor action (such as clicking on a text field, or just opening a new tab) my computer will get completely frozen for a few minutes.
+Run the drive diagnostics utility from the company who manufactured the drive. Usually Western Digital or Seagate. If this doesn't dig up the root of the problem try scanning the memory. Since you reinstalled and the problem is still there, it is most likely faulty hardware.
+Anyone has any idea why this happens all the time with every minor action? I tried formatting the system completely (twice) and it didn't work out. I end up always with this issue. 
+I noticed the disk is ´writting´ some stuff because when I do the Ctrl + Alt + Del combo and click on ´resource monitor´I see stuff like this (notice the blue line under the label "disco" goes all the way up to 100%):
+I also tried checking the disk for errors (by clicking on My Pc, right click on C: drive and on then on "check disk for errors") but apparently it's fine.

@@ -1,0 +1,6 @@
+You may have fixed this problem by now, but if not, find out the home directory for user apache by doing cat /etc/passwd | grep apache (the home directory will be the last but one field in the line).  Set this directory to be writable by user apache.  In my case, this fixed the problem (though I am not using apache, but am using lighttpd, in which case I had to do this to /var/www/ and set it to writable by www-data).
+However, I am a novice at server management, and have no idea if this will make your web server insecure. 
+The problem was that I needed to run the sudo command with -H argument to change the home directory from /home/www-data to /home/www-apps. Than it worked like a charm.
+OpenOffice is successfully installed and from the command line if I run the following as root I get:
+On our server nginx runs under user www-data. When we run OpenOffice (or any other applications we use), for security reasons we run it under user www-apps (user www-data is able to sudo to www-apps).
+Its obviously a user issue but it looks to me like all of the OpenOffice.org files are owned by apache. I have searched for days now and the main solutions seems to be changing the owner of ~/.config to apache but I cant figure out how to do it.

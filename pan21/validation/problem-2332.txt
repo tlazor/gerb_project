@@ -1,0 +1,5 @@
+For me this was set to "Low", and all new windows that already had started a window of the same type (e.g. Konsole, Firefox, gVim) would appear behind the active window.  Setting to "None" resolved it.
+Now, you could always install wmctrl and use the following command, if you don't have the option at the title bar.
+For obstinate programs, run kcmshell4 kwinrules and create a rule that puts new windows from that app in the background or starts minimised. This rules interface is also available from the context menu of each window's menu bar.
+This used to be working, for months even, but suddenly changed behavior a few days ago.  I'm on a managed corporate Linux workstation, so this could have been a settings rollout by I.T., no idea.  After changing that setting, new windows appear on top.
+You probably have the option already there.  So, right click on the title bar of the Widow you want to keep on top, and see if there is the option there "Always on Top".  That won't handle the activity detection, however.  I don't know of any program that will keep a window on top while it is active, but after some period of time allow it to go to the background.

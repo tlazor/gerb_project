@@ -1,0 +1,8 @@
+Pretty much any pair of graphics and physics libraries will work together. If you haven't managed to get OpenGL graphics and Bullet physics working, you probably just have a bug there which can be fixed.
+3D Graphics(including a model loader of some sort(if it works with blender that would be even better. I would also like compatability, If Theres one that fits DirectX(at least 9) and OpenGL, then that would be good)
+Also if there are any other libraries that work well with these I would like to know. Any answers would be very helpful. and details would be even nicer =)
+What would be a good combination of libraries to make an online game with? Im sure that many people have good combinations of libraries for making a game.
+2D Graphics(I liked SFML, so it its possible to get something that works with SFML, that would be nice)
+Lately I have been working on a game that i plan to make online. I have used different libraries to make this game as far as i could, but I feel that I should rethink on how Im sertting this game up, so I planned to start over. The libraries that I have used are SFML, OpenGL, and Bullet Physics, along with GLM to load the models. 
+and Physics(Ive worked with Bullet Physics, but I cant find a model setup that would fit with said physics)
+I'm just going to go put Unity out there. It is, bluntly, amazing at everything you put. Except the networking (No idea, I'm afraid), and weaker on the 2D.

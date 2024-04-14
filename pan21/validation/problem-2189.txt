@@ -1,0 +1,6 @@
+I've stumbled into the very same problem lately. The game advanced only when touching the screen. From what I have found in various articles, it may have something to do with the CPU throttling that the Flash Player uses on mobile devices. Going into fullscreen removed the problem for me.
+I don't know what software you use to develop that game. If you're using FlashDevelop or FlashBuilder, you can profile/debug your game and look for memory-leaks and errors.
+maybe it just stuck in some function in the main loop so that any other event(like touch event) make them step one point but the main loop event doesn't happen any more.
+I lowered the frame rate, and the problem seemed to have gone away (I didn't test it thoroughly, because I eventually ported the game to Java).  I didn't test on Flash 10.3 yet, though.  Maybe they fixed the problem there.  I am interested to see if this works for you.
+I'm not familiar with running flash content on Android, but I can think of two things that could cause your issue:
+I've had exactly the same problem with a game of my own.  In my case it seemed to happen at random moments.  I think this happens when the enterFrame handler does not finish the frame before new enterFrame events happen.  In that case the result is not displayed properly unless other events also happen.  

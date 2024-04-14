@@ -1,0 +1,6 @@
+Wikipedia suggests an alternative to tmpfs for Windows, but it doesn't go into details and it feels somewhat hacky.  YMMV.
+The Places Maintenance extension has a UI that allows easy vacuuming (optimization) of Firefox database files, which should help speed up the Awesome Bar and other Firefox database access. It also has other Firefox database maintenance functions:
+On Linux you could use tmpfs to mount part of the filesystem in memory.  (Ironically, of course, one of SQLite's best features is its ability to store an entire database in memory in the first place.)
+You could VACUUM the SQLite databases that Firefox uses to store it's history and other data. Vacuuming optimizes the database tables inside the files. That speeds up Firefox and saves you some disk space.
+This is because you have a lot of pages history. Clearing history every once in a while helps with this. 
+Google Chrome actually uses SQLite as well, except it doesn't give the files the .sqlite extension. You can still safely run the same command for all the files in the Chrome profile directory and SQLite will only VACUUM the files it recognizes.

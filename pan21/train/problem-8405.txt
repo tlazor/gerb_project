@@ -1,0 +1,7 @@
+Make exim accept SMTP connections only on loopback interface (127.0.0.1:25) - see  local_inteffaces configuration option. It is a pretty common default MTA configuration.
+Since I don't use the root account; I aliassed everything which goes to the root to my own superuser account:
+The hostname of the server is srv1.domain.com. I don't want to receive external mail on this machine. I just want the local mail originating from the machine being forwarded to my, hosted on google business apps, remote mail.
+I'm running a Ubuntu 12.04lts server with denyhosts, logwatch, apticron etc daemons which send emails to a user on the machine when something happens. 
+The mail now gets delivered to my richard account. To forward every mail externally I added this line:
+It's easiest to run dpkg-reconfigure exim4-config.  For the first question (what type of mail configuration), you can probably just leave whatever is selected.  For the second question (what IP addresses to listen on), you want it to listen on 127.0.0.1 and ::1 (the ipv4 localhost and the ipv6 localhost).  Answer the rest of the questions and save.
+Since Ubuntu just repackages the Debian version of exim4, you should read the detailed Debian instructions located at http://pkg-exim4.alioth.debian.org/README/README.Debian.html.  This same file is usually locally installed on your system at /usr/share/doc/exim4-config/README.Debian.gz too.

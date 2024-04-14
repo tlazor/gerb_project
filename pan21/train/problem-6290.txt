@@ -1,0 +1,10 @@
+So next time you want a package that is NOT in Git for Windows, you can download them from: http://repo.msys2.org/msys/x86_64/ (for 64-bit) or from http://repo.msys2.org/msys/i686/ (32-bit)
+So, to make it even easier for others and maybe myself on a future machine, I looked at where pacman was getting the tree package from by running following in my Git for Windows SDK Bash terminal:
+The key thing, here is that pacman is getting it from the "msys" repository (FYI: even though it says msys, it really is using msys2), so I looked at /etc/pacman.d/mirrorlist.msys and the first mirror points to http://repo.msys2.org/msys/$arch/
+Also as commented in the above SO, they link to this git for windows issue [Pacman missing on fresh 2.5.2 install #397] that it was intended to not include pacman in the default install.
+Besides that you need to add the tree program to your windows path or the tree command will be available only on cmd. Access your windows path and add this (for default installation):
+Git for Windows (https://gitforwindows.org/) (has Git Bash) but it does not include tree. tree is available for via pacman (Package Manager) but that is only available if you install "Git for Windows SDK" (scroll to the bottom of gitforwindows.org/ which provides a link to download installer for it from https://github.com/git-for-windows/build-extra/releases/latest)
+If you don't have MinGW installed already it's probably overkill to install it just for the tree command.
+On my system, Git for Windows SDK is installed under: C:\git-sdk-64, so from my Git for Windows Bash shell (that did not have tree installed), I copied it over tree.exe to it's /usr/bin directory, e.g.
+You must install the Three for Windows as said above by the link: http://gnuwin32.sourceforge.net/packages/tree.htm
+Another option would be to use the MinGW package, if you already have MinGW installed, tree is packaged there, just install it by opening a MinGW terminal and running pacman -Sy tree.

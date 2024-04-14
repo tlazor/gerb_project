@@ -1,0 +1,6 @@
+2) I update secpol.msc to state my secondary account can log on to computer locally whilst ensuring the deny log in to local computer is not set to negate this.
+3) I have given my secondary user file system permissions for read/write on the full directory structure.
+I also tried the powershell syntax: C:\Windows\System32 runas.exe /noprofile /env /netonly /user:SQLAuthority\SecondaryLoginName "C:\Prog ram Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\Ssms.exe"
+have a new Win10 pc and need run MSSQL Management Studio as a different user. However when I do so I get error: C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\Ssms.exe Access Denied
+It asked for my secondary user account logon password but then started MSSQLMS as my normal user. I reset the SQL import/export files but it made no difference.
+I managed to get it to work last week so unless I have forgotten to do something in meantime I don't understand why I am unable to run as other user today.

@@ -1,0 +1,6 @@
+Now when you copy a cell or range, you can just use Alt+4 (assuming the new button is the fourth in the Quick Access Toolbar) to paste wherever you want and keep the destination formatting.
+You could place a macro in your Personal personal excel workbook for pasting special, but you would not be able to undo the action after. 
+According to the MSDN Excel PasteType reference, there is no "paste-matching-destination-theme", although you could paste just the values or formulas.
+I don't believe there is a way to change the default. However, what I've found very convenient is to add the "Paste Formulas" button (which will automatically keep the destination formatting) to the Quick Access Toolbar. To do this:
+The paste forumula method works when one is copying and pasting into the same workbook.  When copy to a different workbook, choose paste special and then choose CSV format.
+Select "Paste and keep source formatting", then "Add" the same. You can also use the positioning arrows to position this option to the top. Advantage of this is, you can use the shortcut ALT+1 shortcut:

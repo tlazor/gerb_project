@@ -1,0 +1,8 @@
+As MicTech has eluded to, you can also download VirtualPC (or any other virtualization software) as well to give you more options.
+Personally, I still prefer VMware Workstation! http://www.vmware.com/products/ws/  However, Virtual pc is free!
+You can also use VMWare (which is not free) and Sun's VirtualBox (which is free). Both of these will use hardware virtualization if present, but don't require it like Windows Virtual PC. I currently use VirtualBox since my current machine doesn't support hardware virtualization.
+What you are looking for is the Windows Virtual PC offering. Virtual PC 2007 will still run on Windows 7, but doesn't have all of the features of Windows Virtual PC.
+Windows Virtual PC does require hardware virtualization support, which you should have, and allows you to create and run virtual images. Windows XP mode is a separate product download (and requires Windows Virtual PC) that allows you to run a virtual and seamless Windows XP environment for legacy applications. You don't need to install Windows XP mode if you just want to create and run virutal machines.
+No, Windows 7 does not provide built-in support for running virtual machines. It does have built-in support for mounting Virtual PC disk files (.vhd) but that only allows you to treat them as data drives.
+You can download Virtual PC - http://www.microsoft.com/windows/virtual-pc/ which now has Windows XP mode built in to it so that it is very easy to virtualise. Only down side is that it is only at RC stage so it may change.
+Windows 7 will come with a built-in virtualization of Windows XP called XP Mode. This should allow you to run some programs which may not work properly with newer versions of Windows. 

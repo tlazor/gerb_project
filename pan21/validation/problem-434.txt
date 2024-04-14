@@ -1,0 +1,6 @@
+This is the area of "Clustered File Systems"  and there's a bunch of different ways to implement it... all with their own pros & cons.
+iSCSI can do this at the block level while being FS agnostic, but has the same drawback as a DFS or CFS, as @TheCompWiz stated.
+with each of the partition having being served as an iscsi disk, you can make a raid filesystem on the client machine. raid5 would give you single disk failure tolerance. Raid six gives you two disk failure tolerance. but the throughput would never be as fast as having the disks locally connected over SATA/SAS
+Absolutely.   On the flip-side... this is a bit of a dangerous thing to do... as any failure on any of those 5 servers can mean total data-loss/corruption.  (the 5 servers behave as a disk.  5 disks spanned into 1 volume can have very bad outcome if one of those disks fails or becomes non-responsive)
+some CFS strategies are block-based (the "volumes" are stored on each server as a block-device" and some are file-system level only.  (the "volumes" only pay attention to "files" and pass the data to the underlying file-system to keep track of the blocks)
+You can do a wikipedia search for "Clustered File Systems" and "Distributed File Systems" for a list of various flavors... and get some information about how to implement them.

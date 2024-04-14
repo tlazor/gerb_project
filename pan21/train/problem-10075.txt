@@ -1,0 +1,37 @@
+                " you guessed a digit in the correct place.\nYou get a cow if you guessed the digit correctly, but it " +
+Top-level classes should be declared in their own files. Classes that belong to another class should be declared inside the parent class. It's a bad idea to define multiple classes in the same file, because if there's a naming conflict between two such classes, the runtime behavior of your system is going to depend on which one the compiler sees first.
+            ArrayList arr = new ArrayList();// = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        out.println("\nIn this game you must guess the secret 4 digit number.\nEach digit is unique; ie. no digit " +
+The application flow is a bit wonky here. If you resume a game, you play the entire game from within the context of the resume method. Might it make more sense to return the game, and then play it from the run method?
+            out.println("\nYou have " + (6 - game.guesses) + " guesses remaining.\nPlease guess a number!");
+Resources that you open must be closed. The preferred means of doing so is the try-with-resources block. Not doing so can lead to resource leaks that eventually bring down your server / client applications or otherwise negatively affect the machine the code is running on.
+Silently consuming exceptions is typically a very poor idea. It results in code that fails without giving you any clue as to where or why. Strongly consider always logging an exception.
+Types and variables should be as private as possible. Only expose functionality you expect and support external callers accessing.
+Consuming IOException from the socket stream and not failing upwards is dubious. I expect it will lead to ghost threads sitting around waiting on a socket that cannot possibly interact with the server.
+                    BCGame resumed = new BCGame(saved[i + 1], saved[i + 2], Integer.parseInt(saved[i + 3]));
+                        "You won after " + game.guesses + " guess" + ((game.guesses > 1) ? "es" : "") + "!");
+If you're going to use a Random, it's a good idea to pass it into the class that's using it. That helps you with testing later,  because you can pass in a random with a known seed so you get consistent test results.
+Curly braces should be used even when they're optional. It's arguably pretty to avoid them, but they prevent an annoying class of error and their consistent use is considered a best practice.
+Don't use tombstone comments at the top of a class. Use proper JavaDoc which details the expected use of the class.
+Using a totally random key will only work because this is a toy application. In any real application you'd very quickly get conflicts and cranky users.
+        out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(s.getOutputStream())), true);
+                out.println("\nInvalid input; please enter a 4 digit number with no duplicate digits");
+Predicate methods such as validate typically begin with is or has. isValidTarget might be a better name. digs is a terrible abbreviation for digits. And using a Set would be easier to read than your div/mod math.
+num isn't really descriptive. target might be better. Likewise name and playerName, and guesses and guessesUsed. For that matter, guessesRemaining might be a better abstraction, because then the game controls the guesses, not the ThreadWorker.
+                "You can type PAUSE at any time to receive a passcode allowing you to return later.\n" +
+I don't have time to go through this one, but the feedback from the previous two should help you out getting that one cleaned up. Enjoy the OOP life!
+generateNum can be written more cleanly with Collections.shuffle(). It's somewhat less efficient, but easier to read. Additionally, trimToSize isn't buying you anything.
+A saved game will live forever. It might be preferable to delete them from the file when they get resumed, but that requires streaming and rewriting the whole file. Perhaps a feature enhancement for later.
+Try to use Java generics properly. They really help out with type safety. You can turn on compiler warnings to give you a nudge.
+        out.println("\nYour game has been saved.\nYou can resume at any time with the code " + key);
+It's a very bad idea to synchronize on yourself. You should always synchronize on a private member that no other class or instance knows about. The reason is that if somebody else synchronizes on your ThreadWorker instance, your pause method will be totally at their mercy as to if and when it might be able to run. In this case, you probably want a ReentrantReadWriteLock so you can read lock from resume as well.
+In a non-toy application, it would be preferable to have the game track the guess state. ThreadWorker would pass in a guess and get back the number of bulls and cows. Given the nature of this application, that might be overkill here.
+                "\nAfter each guess you will be told a number of bulls and cows.\nYou get a bull if" +
+Your magic number 5000 is a bad idea. Better would be to store the games one to a line, and read the file line-by-line. Just check if the line starts with the key. If it does, then worry about splitting.
+Objects should be created in a known good state. If it's necessary for a BcGame to have a name, that should be in the constructor. If it can't change, it should be final.
+This class is not a Thread. You haven't added generically useful functionality relevant to multiple clients who want to run a Thread. You have a specific block of code you want to run on it's own thread. The correct way to do that is to implement Runnable, and attach your code to a generic Thread instance.
+Classes not designed for extension should be made final. Variables which should not change after initial assignment should also be made final. In addition to documenting design intent, they make it easier to read the code because you know they won't change.
+This class probably shouldn't need to worry about what Socket called it. All it needs are the input and output streams, which can be passed in from the server instance.
+                "Greetings " + game.name + ". Play by typing 4 digit numbers where each digit is unique.\n" +
+Nothing looks too bad, but there's some things you can improve when it comes to readability and other Java-specific stuff.
+Star imports are discouraged. It's preferable to specify what classes you're importing in most cases.

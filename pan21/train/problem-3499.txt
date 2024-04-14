@@ -1,0 +1,10 @@
+We have recently started using a Cloud Firewall which has been a huge success - in fact did it for the GroundHog site - which grew from having just under 30 hits a day to 2.2Million on Ground Hog Day - 300K per hour @ some points in time 
+If these are all random IPs in random ranges then its most likely a botnet that has decided to attack your site, not people. So blocking them could block some legitimate people. And what happens when the IP gets reassigned?
+You should really solve this with standard brute force protection for logins. Eg only 10 tries in 10 minutes, with sometime around 3-5 requiring answering a captcha. This way the bots will just stop eventually since they can never login.
+Might be worth peeking @ if it helps you - they have a free and a paid version - however the FREE worked just fine for that amount of traffic - its called Cloud Flare. 
+secondly, should I attempt to block the identified ips subnets(74.125.46.*) as a preventive measure?
+The only time I would resort to an IP ban is when an IP is doing so many requests that its affecting performance or eating up considerable bandwidth. Only then do the benefits outweigh the inconvenience of whoever has that IP. 
+Have you taken a look at the User-Agent? Requests coming from Google should identify as whatever service is trying to access your site. Spider User-Agent strings often contain an URL which contains more information about them.
+When suspecting an attack on your site, the first question you have to ask is, is it really intentionally malicious? In your case, consider the possibility that a misdirected webspider might trigger these. Do you have a robots.txt in place?
+My apache webservice is getting a large quantity of requests over the days, each one with somewhat random login to gain access.
+I identified about 60 such ips(a few sample below), all belong to google.   is there a way to find more information about the origin of the attacker?  or should I just block these ips.

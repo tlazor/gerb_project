@@ -1,0 +1,13 @@
+However, the simplest solution is to make a cable from your power supply or connector of choice to micro-usb, because you may as well re-use the circuit they have there. 
+On a Raspberry Pi Zero W I use one of these pins to power the Raspberry. My Raspberry is a controller for an APA 102 LED strip.
+When under USB power, this net is supplied by USB power, but there is no reason you couldn't power it yourself, however, replicating some of the protection scheme is worthwhile to protect power supplies and prevent fires.
+Note that the USB input is additionally protected from reverse power, it is a good idea to replicate both of these protection schemes in your set up. 
+The strip itself uses a lot of current, so I can't power it from the 5V pin of the Raspberry (it would most likely destroy it).
+It is legitimate to use Diodes to OR power supplies and prevent reverse current. You just have to be sure to take into account the diode voltage drop or compensate for it in your schematic like what is done on the raspberry pi. 
+This pin is directly connected to the 5V net, meaning indeed it is possible to power through that pin. 
+In my opinion, modifying the board (replacing usb header) is riskier and more error-prone than using an external supply with adequate protection. 
+Yes, you can use the 5v pins. These pins are on a 5v rail. This will however bypass any protection circuits on the Pi. If you don't want to use the micro usb, the better thing to do is to solder your power supply to the PP1 port on the bottom of your Pi. Check the link for a complete overview of the PP connections.
+As mentioned in a comment, there is no reverse polarity protection, or over-voltage protection on these pins, so be careful! You could add a capacitor between the 5V and ground pin for some protection. However, a good 5V power supply should not produce a power spike when it is plugged in. So far, I did not destroy a Raspberry Pi with this setup.
+What @Dr.Rabbit is referring to is a ressetable fuse that is used to protect from short circuit. This can be  seen here as component F1. The 5V net shows ups at the right of the schematic
+Keep in mind that these largely protect the operator and the power supply. If the polyfuse trips due to accidental short, the board is probably dead anyway, however if you are simply running too many loads then the polyfuse will protect the on board power supply and the wall-wart from continuous over-current.
+But I can easily use the 5V / 10A power supply for the LEDs to also power the Raspberry Pi through the 5V pin, hence using the pin as an input.

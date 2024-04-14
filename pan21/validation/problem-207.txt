@@ -1,0 +1,9 @@
+The site you link has all the relevant information on configuring apache with mod_geoip (which you should install beforehand).
+Then you can remove the step where users have to select the country and link to specific subpages or social media profiles etc.
+Is there a solution to this (if possible, free, but commercial solutions would be considered as well)?
+Redirection by browser language is also covered in the httpd.conf comments as well as in a bazillion google hits, like this, for instance.
+The webserver is Apache, and I've read something about the GeoIP Apache API, but I'm not sure how to apply it (some brief instructions would be much appreciated) to my Apache install, and from there how to redirect one version or the other depending on the visitor location (that as far as I know is guessed through visitor's IP).
+I've got a site that needs to have at least two almost identical versions for two different countries/languages, and visitors should access one or the other depending on their location, country or language (in fact, the best answer in my case would be redirect by country).
+You could use a hosted solution as well (like the one I'm involved in: www.splitterhq.com) especially for marketing links and QR Codes.
+Do what international shipping companies do and have a "select your country" thing on the front page. Use the browser field to determine the default language. Use geo_ip to determine the default country. Make the user confirm, make sure they can change it, and make sure you store it in a cookie so they don't have to do it again.
+I wonder if maybe the language of the browser could be of use here, and redirect to each versions depending on the language code (en_US, es_ES, etc). 

@@ -1,0 +1,6 @@
+Is there a way to log which program access the certification store and what it modifies there? I tried it with CAPI2 log enabled but it doenst write a log entry when a certificate gets deleted/disapears, it just logs when a new one is inserted. 
+Starting in Windows 8 / Server 2012 there are new Event logs to track changes to the certificate stores:
+First step for me would be to reproduce the problem and then try to solve it. At the moment im a little bit lost because i dont know where to start. There is no correlation between the users as far as i can tell right now.
+You could enable auditing on that directory, I haven't done that in a long time, but it may provide you with some hints on what is happening.
+The problem is that about 5% if our user base lose their certificate from one day to another. The windows event log dont provide us enough info so that we could even start digging into the problem. We also can not reproduce the issue right now, it happens approximately  1 - 2 times per month for any of this 5% of our user base - the other 95% never had that problem.
+We are running Windows 7 pro 64bit and using certificates for authentication. The certifactes are stored in the "My" certification store.

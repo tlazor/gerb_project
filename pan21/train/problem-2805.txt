@@ -1,0 +1,7 @@
+PPP is commonly used with a 32 bit netmask because there are only two points on a given PPP link and thus no routing needs to take place on the link, all traffic from one end will always reach the other end no matter the address.
+Imagine each PPP connection from a remote host to the PPP server as a separate cable which is a small, 2 node network of it's own, isolated from everything else, no gateways, no subnets, everything is routed on-link.
+PPPSRV1 will route the packet from the ethernet port to the PPP connection via the interface ppp8 where it will reach PPPHOST1.
+The packet will go from the mail server to the PPP aggregator server (PPPSRV1), the destination address is 192.168.1.10 (PPPHOST1); PPPSRV1 finds the most specific route in it's routing table which might look something like:
+This is the most straight forward calculation - not covered by the network bits? off the hosts you go.
+Like joequerty said, a 23 bit netmask was used which means that the network ID and broadcast addresses are 192.168.0.0 and 192.168.1.255 respectivly, anything in between can be assigned to hosts.
+Routing will take place outside the PPP link, the PPP server will usually have routes in place for every PPP interface (connection) that has been established, so for example, let's say the corporate mail server is replying to a remote PPP client.

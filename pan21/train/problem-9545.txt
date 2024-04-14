@@ -1,0 +1,8 @@
+If you are just trying to break into a network, then you will probably find more help in  other fora.
+Are you using NAT on your network?  If so, then somewhere you must be mapping traffic from the internet through NAT to the servers.  Check the config for that.
+We have a large network with many servers. What is the easiest way to find all the servers that are Internet facing?  Manually checking each server is not an option.
+You should at least know which devices have a physical connection to the internet, by whatever means, and hopefully some controlled points of entry (1 or more firewalls).  Looking at the configuration on those may help.
+If you aren't just trying to figure out how to break into someone else's network, you should be able to work it out if you gather the following information:
+Failing that, you'll have to define "internet-facing" (responds to inbound requests only? Can get out to the internet on its own?) ... and then check each one. Not from the outside, either. What if you have a public DNS name that points to a cluster of LB and that has 30 servers behind it? From the outside, you'll never be able to tell what server you've hit, unless the server puts its name in the application payload somehow - over HTTP, this could be an X-header. Although it would probably be a bad idea if it did.
+If you have a single device that can capture all internet traffic, you could parse the logs, but that will only tell you what servers talked, it would miss any servers that weren't hit during the log timeframe.
+You should be able to find out the public IP addresses assigned to your network - that is somewhere else to check.  Reverse DNS lookups of these, both public and internal, should give some clues.

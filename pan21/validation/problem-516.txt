@@ -1,0 +1,5 @@
+I would assume if each computer performs a DHCP lease on the router through the switch on startup that will allow network access until wireless is available (and DHCP is renewed again), I would hope it is that simple!
+Would connecting a switch to the free port in the wireless router, and then the four computers connecting to the switch, allow both a wireless and wired connections? is this the proper way to do this?
+Also, if this setup were correct, would I be able to have a computer contact another one in the same network even though the switch from what I had briefly researched cannot route traffic?
+He currently has four or five computer systems that all had used wireless access, now he will require Ethernet access due to the wlan drivers not able to start until much after bootup, which would restrict him from accessing the internet in case something went wrong on them before login.
+I am a bit new to this and am attempting to help a friend form a home network and cannot access it currently, so this is only theory.

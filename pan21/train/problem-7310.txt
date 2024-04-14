@@ -1,0 +1,8 @@
+I am working on a Vagrant + Ansible configuration for my team that sets up a developer VM, some of the artifacts needed are only available from my corporate network either by being physically on it or connected by VPN.
+My question: is there is clean way to do such a check in an Ansible "when" statement or something like that. 
+If we are provisioning on a machine that is not on that corporate network, I'd like to automatically connect to our vpn (using the openconnect client), copy the file and then disconnect, all from Ansible.
+After being registered you can access any of those attributes with dot notation in later parts of the playbook execution.
+Additionally, for future reference, if you want to see the JSON available when your register a var, you can do something like the following:
+In the past, I've detected the network in bash scripts using something like: if nslookup hostname | grep 'can't find'; then ...
+FWIW: I'm fairly new to Ansible so if this is in their documentation and I'm just missing it, please feel free to point me at it and flog me accordingly.
+Without getting too fancy, you may just want to use the command module and register the output, like the following:

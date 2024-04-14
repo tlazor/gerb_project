@@ -1,0 +1,5 @@
+Now when I tried to restore a differential backup I didn't manage to do it because it complained that the diff backup was out of sync with the selected full backup.
+I now disabled the service SQL Server VSS Writer on my virtual server to prevent snapshots from being taken, but will Windows Server Backup now succeed in taking backup of the virtual server or does it need that specific service to lock the database files?
+I have a virtual server running SQL Server 2008 R2. On the server I have configured two maintenance plans, one that takes differential backups every day except Saturday and a job that takes full backups on Saturdays.
+After some investigation I noticed that because I run Windows Server Backup on my Hyper-V host machine (the one hosting the virtual server) Windows Server Backup makes snapshots of the databases on the virtual server. The differential backups starts to point to the snapshots instead of the full backups.
+What is the correct way to have snapshots and "normal" backups running side-by-side? Can e.g. the snapshots be configured to be "copy-only" so that they don't mess up the normal backups?

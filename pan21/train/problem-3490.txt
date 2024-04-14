@@ -1,0 +1,6 @@
+I want to have separate files for separate databases so that if i need to restore single database then i can do that as well
+Is there any way to have incremental backups so that i take 1 full backup of database evry week  and then only incremental backups.
+Very simple: binlogging. Configure mysql to keep the binary log for at least one day (possibly longer). Then change your backup to not do mysqldump, but use something like xtrabackup. 
+That way you can reduce your backup schedule to once per day and still have the possibility to roll forward to any point in time using the binlog.
+If you want to save space, you could continue to do your full backups hourly but to a deduplicated filesystem like lessfs.  You could easily carve off a partition and format/mount it with lessfs and then let it handle the deduplication while still being able to restore at any hourly point, just without the space.
+The problem is very little data gets chnaged but every time i have to backup all databases 24 times , which takes too much space.

@@ -1,0 +1,5 @@
+If so, then your outlook was launched in safe mode. Windows released an update which causes this to happen.
+Another example: I hit CTRL+ENTER to send mails. When I do this now, Outlook tells me "You have just hit CTRL+ENTER. Do you want to send the e-Mail and Outlook to remember this setting?" Then I hit yes and tick the box, so Outlook should not ask again the next time. However, when I close and reopen Outlook it does ask again. Hence, it forgot the setting (similar to the placement of the reading pane).
+Now from the list, search for the following update: KB3114409 and uninstall it. Directly after you uninstalled the update, restart outlook and notice the (safe mode) is gone and everything works as expected.
+Although the update was released december 8th and Microsoft already removed it, you might still somehow gotten this update.
+Since a few days I observe the following behavior of my Outlook 2010: It seems to forget settings, which I define. For instance, I observed that my reading pane is gone. I then change the setting, that reading pane shall be displayed on the right hand side. When I close Outlook and reopen it, the reading pane again is gone.

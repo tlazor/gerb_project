@@ -1,0 +1,8 @@
+If you can get your hands on an older PC with two network cards I'd suggest a look at Untangle. I've found it to work great for issues like yours.
+This might be a bit overkill, but you could put a Squid proxy in front of your router.  Then configure a white list of allowed protocols - Http, Https, SSL etc..  A side affect is you may be able to reduce some of your bandwidth by having the Squid serve up cached content.
+The most restrictive is to place a non-transparent internet proxy in front of your users.  This requires them to point their browsers to your internal proxy server.  The advantage of this is most authenticated proxy servers happily report usage by user and the top sites they visit.  Just posting the names of the people who use the most internet may be enough to police people from downloading things against policy.
+If you can't get a PC to use but have a windows machine on the network you could look at Untangle for Windows. I've never tried it but it seems like it could work for you.
+As bizarre as it sounds, you probably won't want to block it, you want to give it a severely restricted bandwidth. Most P2P apps are pretty clever at avoiding blocks, so if all you do is slap a block on the standard ports, it'll poke around until it finds unblocked ports and use those.
+And those bandwidth cost savings will be continual per month/year, with only a one-off hardware cost.
+But providing a suitablu narrow channel (32 kbps, 64 kbps, whatever), the evasion mechanisms do not kick in while still restricting the damage P2P downloading can do.
+Can you try somehow and justify the cost of buying a small amount of cheap hardware to fix this problem properly, considering there will then be a considerable saving in bandwidth costs?

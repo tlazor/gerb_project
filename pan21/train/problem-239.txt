@@ -1,0 +1,7 @@
+If I were you, I'd also copy the entire Apache installation directory, that way if things go pear-shaped you can just replace the binary files and restart the services to get it back up and running - then diagnose what went wrong.
+How does a Server Pro do something like this. (I'm a programmer and am new to server systems administration).
+My first thought is to copy the httpd.conf, uninstall the current Apache, install the latest stable Apache version and then replace the httpd.conf with the previous live version.
+I have just inherited this server and need the fastest way to upgrade to the latest stable version without much downtime and without messing up my configuration.
+Just make sure you have a copy of the entire conf directory (not just httpd.conf as there are other files that could be referenced.)  
+On Unix you can get away with a simple restart of the web services to get the upgraded version running, you'll probably find it's the same on Windows.
+That's what I'd do on Unix, although the configuration doesn't get replaced - it's only the binaries that get replaced.

@@ -1,0 +1,7 @@
+This entry is not guaranteed to be 100% accurate, but that's okay. We only have to change it when an item is added to or deleted from a player's inventory.
+Now, when we change any of the properties of an entry in the Stats table, none of the other tables are affected. Because everything is stored only once, it's very easy to delete references to an object. This is referred to as database normalization.
+Not very interesting, but we can a more complicated query. First we'll save the result of this as a temporary table. Note that this is not valid SQL and purely for demonstration purposes.
+Now we want to map certain stats to an item. We will in fact need two new tables. First the Stats table:
+Note that I haven't added anything fancy like effects or whatnot. This is the minimum information required to identify a certain name. Note also that every row in both tables has a guaranteed unique identifier.
+So if you want to remove an item from a player's inventory, you simply look up the record in this table and delete it. For example, this would clear the inventory of a player:
+However, there is a major downside: queries become increasingly complex and expensive as you add more properties. Therefor it's often a good idea to selectively denormalize a database. For instance, if you just want amount of items a player has in her inventory, it's a bad idea to do the whole mapping thing I did above. Especially when you have a lot of records, this becomes very expensive.

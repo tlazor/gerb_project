@@ -1,0 +1,5 @@
+But primarily the question is, do you trust that company into helping out? Usually those companies are called in for a specific issue, for example because they support their product. And it is not in their interest to steal information, but only to help out.
+I recommend creating a second user and give it the only rights they need. You can set an expiration on that account, so you know they can only use it until the account expires. If you fear they edit their account, you can prevent that through a group policy or not handing out administrative access at all, or other means to restrict access to the Active Directory.
+Now, whenever that particular time comes, the script is executed, port 22 is blocked and even though the guy has the password, he will not be able to access the computer.
+Here's something you could do. Give the guy access to your computers via ssh. But also, keep a script on your computer, maybe a cron job to block port 22 at a pre determined time. 
+Of course, he shouldn't know where the script is, or for that matter, that the script exists at all.

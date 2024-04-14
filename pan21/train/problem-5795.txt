@@ -1,0 +1,10 @@
+On the other hand, 802-1p is a QoS based standard that classifies traffic in 7 buckets where 7 been the most urgent and 1 been the least urgent.
+Since 802.1p values are carried in tagged Ethernet frames, they do not persist beyond the layer-2 segment.  They are often mapped to DSCP values which are carried in layer 3.
+For eg. OpenFlow can be used to populate routing tables, resolve ARP requests, etc. It need not be directly related to any QoS mechanisms.
+The architecture consists of  the following, a controller, SDN enabled switches and network end devices (servers, hosts, etc)
+IEEE 802.1p is a mechanism (format) for marking "class of service" (CoS) on Ethernet frames.  The CoS has eight values (0-7) and is used to signal the relative priority of the frame.
+I was reading about queues and I came across OpenFlow Queues and IEEE 802.1p I would like to know what are the main differences between them, and how they treat the traffic. In other words how they affect the QoS.
+The standard recommends some meaning to the different values (higher is better), but does not define how that traffic should be treated.  In other words, the meaning of a particular value and how it affects forwarding in a device is left to the manufacturer.  In the Cisco world, you can use the value in class-maps to specify how the traffic might be queued, policed, shaped, etc.
+As the basic use case for this protocol is communication between the controller and the devices. This communication may or may not be related to QoS.
+OpenFlow is used for communication between the controller and the switches, and between the switches to the end devices.
+Openflow Queues are a scheduling mechanism for Openflow switches.  They are similar in function to queuing mechanisms found on traditional switches.  I confess to not having much experience configuring Openflow queues, but more information can be found here.

@@ -1,0 +1,10 @@
+There's also Scraperwiki, which requires programming skills. Non-programmers can pay for assistance.
+Scrapinghub (from the creators of Scrapy) offers a pay-for service for non-programmers similar to Mozenda.
+Yahoo Pipes comes to mind, it's easy to use for a non programmer, although you should really learn regex to get it's full potential.
+We need something that will scrape information from paginated web sites, much like scrubyt, but with a user interface that a non-programmer could use. We'll script up our own solution if we need to, probably using scrubyt, but if there's a better solution out there, we want to use it. Does anything like this exist?
+I've been using iMacros to scrape data from websites. It is usable by someone with no programming experience and with some basic programming skills you can greatly extend its capabilities. Here's a tutorial.
+Hopefully, Datatracker will be out soon. It's aimed at precisely this kind of job but for users without any programming skills.
+There are other web-based tools I've seen like Dapper that create XML or RSS feeds based on a webpage. It has a beautiful web-based interface that requires no scripting skills to use. This would be a great tool, if it were able to traverse multiple pages to gather data from hundreds pages of results.
+iMacros is particularly useful if you need to perform some action to retrieve the data. It can click on buttons, navigate through flash, select from menus, fill in forms etc.
+There are many scripting tools out there written in different scripting languages for screen scraping that require you to write scraping scripts in the language the scraper was written in. Scrapy, scrAPI, and scrubyt are a few written in Ruby and Python. 
+We're creating a mashup site that pulls information from many sources all over the web. Many of these sites don't provide RSS feeds or APIs to access the information they provide. This leaves us with screen scraping as our method for collecting the data.

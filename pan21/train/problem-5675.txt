@@ -1,0 +1,6 @@
+If you type the first few letters of the site in the omnibar (say, sch) and tab, the omnibar will change to say Search scholar.google.com and you can type in your text and hit Enter to have it executed.
+This works with many other search engines that you may not have added, like Wikis etc; once you visit the site, Chrome remembers it for future use.
+I just found out that using duckduckgo you can navigate directly from your search bar using bangs. https://duckduckgo.com/bang 
+It's not difficult to manually add engines for that matter, but this is a nice but not really advertised feature. I follow the "unstable" branch of Google Chrome, but this is not a new function, so it might very well already be in the stable branch.
+As an example, right now I went to Google Scholar and did a dummy search ("test"), and directly afterwards I can go to "Settings" → "Manage search engines…",  and now "scholar.google.com" is in the "Other search engines" list with the correct search URL already filled in. The second column represents the keyword, so just click it and enter "gs" or whatever you feel comfortable with, click "Done" and it is indeed done.
+An interesting but somewhat hidden feature in Chrome is that it actually siphons visited search engines continuously and provides easy access to their search URLs via the browser preferences.

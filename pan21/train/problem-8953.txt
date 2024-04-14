@@ -1,0 +1,8 @@
+A little more information: I'm running this all on Windows via Python's subprocess command and sending the images in via subprocess.PIPE to stdin. I think my problem has to do with getting the ffmpeg command correct and not with Python, which is why I'm posting it here.
+I found the best solution was to actually just overwrite the image locally. I played around a lot with pipes and processes in Python, but nothing worked as well as just running ffmpeg from the command line and overwriting the image. I ended up doing this on Linux, but it should work on Windows.
+The Python code's not the cleanest in the world, but it should work. It writes to "temp.jpg" first so ffmpeg doesn't end up reading from the image when Python's writing it.
+I would just have my code overwrite image.jpg whenever it created a new image. However, I'd like to be able to just pipe directly to the ffmpeg command so I don't have to deal with saving the file.
+ffmpeg streams to an rtmp URL, but it should be easy to change it to save locally. Just change the -f flag to your desired format and the URL to the file name.
+I have a Python program that generates images at various intervals. I'd like to be able to create a streaming video of each image as it appears. Previously I was using an ffmpeg command like
+when the out.jpg file is opened in the program creating the jpg files, it has to be set to "shared" read/write access, since the 2 processes (ffmpeg and the program creating the file) can both access it simultaneously.
+to take a constant input stream, but I'd like to be able to take one image and loop over it until another one is ready. Is that possible? Just throwing the loop flag into the above doesn't seem to work.

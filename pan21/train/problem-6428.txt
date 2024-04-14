@@ -1,0 +1,7 @@
+If that is not an option for some reason, the only thing you can really do to minimize the impact on the log is to:
+The table has no foreign keys, and only one clustered index on the field which contains the log date/time.
+The database recovery mode is currently set to FULL. Is it possible to prevent logging transactions when writing/deleting from this specific table, while still logging changes to other tables?
+You stand more of chance of getting minimally logged INSERTs with this approach, plus trace flag 610 although the required TABLOCK would be somewhat anti-concurrency.  This is also not worth it/ not applicable if you're logging using INSERT...VALUES.
+I have a table that is used for log data; the data is only INSERTed, never UPDATEd. The table has no business data whatsoever, and thus it is not a problem if I cannot recover it in case of a disaster.
+How about a 'normal' table in tempdb?  What I call a semi-permanent table?  As tempdb is in Simple recovery mode, this will reduce the logging overhead in your main database, but the data does become throwaway, eg you will lose it in the event of a server crash or restart.  You can however reference it with a three-part name, eg
+No, logging and recovery don't work at that level. What I recommend is, instead of trying to make one database serve two different recovery objectives, store this logging information in its own database (or a different, existing database) with alternate recovery objectives.

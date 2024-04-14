@@ -1,0 +1,6 @@
+so that you can see where the link points to and what the description is. If you only want the link without the whole tag, change the RegEx to
+Let me know if this answers your question. TextCrawler is an awesome application and since it is free its worth a try. 
+I've needed a quick-n-dirty version of this a time or two in the past.  My solution is generally this:
+That's my quick-n-dirty solution, but I haven't used an actual tool for this before.  Although, I suppose I could wrap this up in a .bat or AutoHotkey script.  I just haven't needed it often enough for that.
+Download Text Crawler (It is freeware) and install it. Launch it after it is finished installing. In the Filename/Filter box type in "*.htm *.html *.php" or whatever the extensions of the HTML files that you are parsing are. In the Start Location box browse to the directory where the files are. By default it also scans subdirectories, if you don't want this functionality then you can click on Options then unselect "Scan Subfolders". In the Find box type in:
+Make sure "Use Regular Expressions" has a checkmark next to it. Then click Find. It will show you all the links grouped by the files they are in. You can also click on Extract which will pop up a window with all the links from all the files. Since you stated that you want the links I figured you want the whole

@@ -1,0 +1,7 @@
+Later, I decided to purchase another drive, to give this filesystem RAID1 mirroring capabilities. This drive is a Seagate Barracuda (2TB, BARRACUDA 7200.14 FAMILY). Unfortunately, this was not a good choice of drive. The drive started developing large amounts of read errors shortly, although BTRFS was able to correct them.
+Alright, I figured it out with the help of this Trello link. In case anyone else wants to do this, here's the procedure.
+I have a small media filesystem, on which I store various movies and TV shows that are used for my HTPC setup. This was originally set up, using btrfs, on a 1TB WD external drive.
+to convert the data profile to single mode, but I'm unsure as to just WHERE the data will be placed. As one of the drives is failing, I'd like to be able to ensure that BTRFS  doesn't dutifully erase all the data on the good drive, and place a single copy on the bad drive - instead, I'd like to simply act as if the other drive never existed (as in, convert back to my old setup)
+Recently, the amount of read errors from this drive has spiked, with its condition steadily worsening. BTRFS is now starting to crash:
+TL;DR: started with 1 drive in BTRFS single, added another drive, made it RAID1, other drive is now erroring, how do I return to just one drive (SPECIFICALLY the known good one) with single?
+I'd like to remove the faulty drive from the RAID1 array, going back to no redundancy on a single drive. Unfortunately, there seems to be a lack of documentation on how to do this.

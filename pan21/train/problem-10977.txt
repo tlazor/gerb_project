@@ -1,0 +1,8 @@
+It's it's financially possible I certainly would as Terminal Services will more prone to vulnerabilities.  No ports open on a firewall then either
+We plan to use Terminal Services on Server 2003, and after reading up on it, it seems to encrypt all traffic that passes over RDP. 
+A VPN would definitely keep things a little more secure but if you can't go that router than using RDP on it's own should be ok.
+Even though the RDP traffic is encrypted, many people recommend that it should only be run over a VPN.
+Using no pass keys and limiting the users on the internal ssh server would work.  This limits the complexity of the networks and also protects the internal network somewhat from compromised client systems.
+As I'm kinda new to TS, I'd like to know why people recommend the two levels of security, and why it is not wise to just use bare TS over the internet.
+VPN might be overkill, you could also use an ssh port forward in a script (plink from Putty works great). i set this up using VNC for the RDC service (it was a Mac house).  
+I've used RDP over the 'net for a few years with a couple different companies and have not had any issues at all with connectivity and/or security. Granted, our companies have been a bit small so security wasn't that big an issue (not my call though).

@@ -1,0 +1,6 @@
+If you're needing SQLite to be used more widely, be wary... The reason is resolving dependency issues / recompiles for other libraries or applications also using sqlite's libraries. If you don't resolve these, you've no idea whether those will work or not.
+Your PATH variable will determine whether /usr/local/bin or /usr/bin is searched first (based on the order of paths in that variable). If this is only for your use, you could also install the later sqlite in a subdirectory of your HOME directory and add it to your path.
+In this case it'd probably be as simple as getting the spec file, bumping the version number, and deciding if the patches still apply to the new version.
+What are you needing sqlite 3.6 for? If you're just needing it as a command-line application, then installing it from source as you have done is fine, it will just install in /usr/local/bin as you discovered.
+The time to learn how to create RPMs is now. You will have no end to trouble unless you install software through the OS packaging system.
+Me too experienced the same problem.  But on quitting and starting with a new Putty session window, it works fine.  It returns the latest version.  In my case, it is v3.7.3.

@@ -1,0 +1,9 @@
+available to pam_env so it can incorporate the correct values into your environment.  Later on, calling pam_env again will just ensure those
+I use Cygwin/X to ssh into a VirtualBox hosted Ubuntu Server which has had the various X bits and pieces installed:
+The only other piece of information that may be of use is that when I first log in to the machine, the following appears immediately after authentication:
+Then, at some point, something happens and I am unable to open any new applications that make use of X. Existing applications function fine, but anything new will complain that it can't open the display. eg:
+Too bad bounties are forced to be closed out before correct answers come along.  But better to have correct answers here than not.
+environment (I have one to determine if I am on cygwin or not -- use the same init shells on both) -- they are wiped.  So any security and config information kept in functions because that is more convenient or useful will be wiped by sudo.
+To fix it, you have to undo the misconfiguration setup by your distro (who followed the sudo advice), as well as configure sudo not to trash your env.  Even still.  If there are functions you relied on in your
+values are ZEROed, (even if configured your sudoers file NOT to re-init the environment).   I.e. because of the bad security information given out in the sudo docs, DISPLAY is likely to be cleared no matter what.
+Once in, I can run gnome-terminal and the terminal pops up. Once in there I can open new tabs, run geany (a text editor like GEdit) and so-on, and it all works, the windows open and everything is fine.

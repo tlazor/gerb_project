@@ -1,0 +1,9 @@
+I found some documentation on HA for SQL Server 2012, but not on how to do this for a mixed environment of 2012 and 2014.
+Server A provides an API via IIS. The code both inserts and gets data from the database depending on the API call.
+The performance would be dependent on how big is the database, if you are replicating only the tables that you need or the entire database, the latency between the two servers as well as the amount of transactions that are occurring on your publisher.
+Doing HA in a mixed environment is a recipe for disaster because during disaster once you failover from lower (2012) to higher (2014) version, you cannot failback.
+I would like to have it so that the two databases are consistent copies of each other. I do believe this is what HA accomplishes. 
+Since you are using Enterprise edition of SQL Server, you can leverage AlwaysON technology wherein you can configure writes occurring on Primary and reads on the secondary configured as readable secondary.
+Note that if you go with T-Rep, doing schema changes will require a new snapshot. Also there will be a distribution database created as a part of setting up T-Rep.
+So a load balancer, for example, might direct API calls to A sometimes, and B sometimes, but the data needs to be consistent either way.
+Thinking a bit more on what you mean by mixed, I presume that transactional replication would be much better from sql server 2014 as publisher and 2012 acting as subscriber. 

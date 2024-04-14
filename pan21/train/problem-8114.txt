@@ -1,0 +1,9 @@
+I have tried deleting all Apple programs (in the order suggested in the support forum) and also tried to delete the temp folder. That did not work. 
+ The codec pack installs some quicktime codecs that stopped the installer. I hope this helps someone out.
+I had the same problem, it would not install. Quicktime uninstall would crash. I deleted everything Apple and Quicktime from my pc from folders to registry entries and I got it to install, but it would not launch, would crash. I had a thought... I uninstalled Ace Mega Codec pack and my problems went away. Apparently it was interferring with install and launch.
+Maybe you can use QTLite to replace QuickTime. The current version is a bit old (released in December), but it uses a much simpler installer.
+The first idea that came to my mind was to make sure that you have the x64 installer and not the x86 or even x86-64 installer.
+I am trying to install quicktime (actually just need iTunes..but then iTunes needs qt), but it fails. There seems to be a problem with the folder C:\Program Files(x86)\QuickTime\ - Quick Time wants to write the file QTTask.exe, but complains that it does not have permission to do so. Same thing happens with \PropertyPanels\PanelHelperBase.qpa
+I have run the installation file with admin rights and with different compatibility modes to no effect.
+This is very annoying as I cannot sync iPhone/iPad/iPod while iTunes is not running - due to the stupid (sorry) idea of only have your device linked to one library.
+I consider myself to be an experienced user - able to solve most problems - but now I am stuck. I need some input / fresh ideas on how to tackle the problem. 

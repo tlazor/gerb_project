@@ -1,0 +1,12 @@
+I have tried to turn Application Provisioning off by unchecking "Enable Application Provisioning" under the Application Provisioning Module, but the operation still seems to fire every 30 seconds.
+The exact error message is  Failed to run operation "ProvisionApplications". Failed to run method "Microsoft.Web.Farm.SyncApplicationsRemoteMethod" on server "abc". Exception in response stream. An error was encountered when processing operation "Delete File" on "ABC85DA.tmp". The error code was 0x80070020. The process cannot access "C:\inetpub\temp\appPools\ABC85DA.tmp" because it is being used by another process
+Our environment (controller, primary, secondary servers) is Windows 2008 Server Web Edition R2, running IIS 7.5, with WFF 2.5 installed.
+We have ongoing issues with a .tmp file in an app pools related directory being locked. Process Monitor indicates that it is the worker process (w3wp.exe) locking the file.
+Are you still geting the locked file issue? Did you manage to get a resolution to automated provisioning? 
+If I shut down the Windows Process Activation Service which AFAIK hosts the worker process, the error goes is solved.
+We have WFF 2.5 installed, and have used it to successfully configure a farm and provision a secondary server in our test environment.
+Obviously, however , to bring the server online, we need to start the service, and as soon as we do, the automated provisioning step fails, and WFF marks the server as unhealthy, and takes it out of the farm.
+I managed to get around the issue by updating the ignore list in c:\windows\system32\inetsrv\conf\applicationHost.config on the web farm controller. I updated the web farm section to skip the provision of the appPool and logFiles folders, this seems to have fixed the issue for me.
+I can get it to successfully provision the secondary server by turning off Application Provisioning, but in my scenario I need the content to replicate, so it's not really a solution, just a flag of what part of the service is failing. Platform provisioning seems fine. 
+Rebooting the ARR server caused the server to stop attempting to repeatedly provision the secondary servers (in other words applied the "Enable Application Provisioning" option, which I had turned off)
+Otherwise, I think the locking issue would still occur. This may not be an issue, since you can turn off the Windows Process Activations Service while initially provisioning the service, and during any subsequent application provisioning intended to synch the servers.

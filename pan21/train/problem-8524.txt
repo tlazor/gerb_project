@@ -1,0 +1,14 @@
+This is not thread-safe. If two threads call this method at the same time, StartThread() will be called twice and two threads will be created.
+You don't need to write all those usings one class at a time. In C#, the common approach is to add a using once for each namespace you need. This is considered a bad practice in C++ (maybe that's why you did it this way?), but that's only because in C++, namespaces are not structured properly (almost everything is directly in std) and because the naming conventions there (list, not List) make collisions more likely.
+Also, it's not common to have multiple namespaces in the same file. If the class is used only in this file, put it in the same namespace as everything else in that file.
+I don't like that your fields are in the middle of the class. If you put them at (or near) the top, they will be easier to find.
+I don't think this is the right check here. Checking quit would be better, because that means enqueuing stops working as soon as the scheduler is disposed.
+Even better option would be to use a queue that already supports blocking when no items are available: BlockingCollection.
+Not exactly a review, but since you are asking for simpler way... The simpler way is to run your tasks via dispatcher. Just run it on background thread:
+Also, if I wanted something like this, I would either use ConcurrentExclusiveSchedulerPair.ExclusiveScheduler, if the tasks didn't have to execute on the same thread, just being mutually exclusive.
+This is also not necessary, just add the necessary namespace usings, and the write IEnumerable<Task> or Queue<Task>, that's not that long.
+Both of the extension methods are completely unnecessary. If you just added using System.Linq;, both would work by themselves.
+_Imported_Extensions_ is a weird name for a namespace. Why all the underscores? And the convention is to use PascalCase (e.g. ImportedExtensions) for namespaces too.
+Also, you seem to be trying to protect against Barrier being null, but that can never happen here. So doing that just makes your code longer and more confusing.
+I think the way you're using Barrier is clumsy. If you want a notification that the worker thread is ready, use something like ManualResetEvent.
+And what does the name even mean? Why is it important to stress out that those extensions were imported? And from where?

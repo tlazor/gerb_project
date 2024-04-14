@@ -1,0 +1,6 @@
+One thing to consider when you're first starting in embedded work is to remember you're not on a multicore, multi-gigabytes-of-RAM machine.    If you're really set on making a small fileserver, I'd go with a miniITX formfactor motherboard and a smallish case, and stay away from the 'embedded' form factors.     
+if you want it really tiny, you could go for a foxboard: http://foxlx.acmesystems.it/ it's very lightweight. 200mhz and 2W power consumption. it can do webcam-streaming to internet and has gpios. very "solder friendly"
+I've used Soekris boxes before. My home router is one, mostly because it comes with 5 network interfaces. 
+At a previous job, I used PC104 systems for various tasks-- very tiny, the ones we had were well-supported under Linux, and if you look long enough, you can find one with the appropriate mix of interface/memory/flash storage that you need.
+also have a look at pcengines alix... e.g. the 3d3... 500mhz amd, 256mb ram, 5W google for "alix 3d3"
+There's a whole host of System on a Chip boards that you could use if you really wanted a small environment to play with.

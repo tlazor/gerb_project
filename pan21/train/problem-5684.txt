@@ -1,0 +1,6 @@
+Look into Streams Replication - You won't need the additional Dataguard licensing. It takes a bit of practice to get it right, but if you're using Grid Control, it provides a wizard to help you set it up. You could also just create the scripts using the Enterprise Manager. I have used this for one way and two way replication.
+I am not an Oracle guru, but from what I understand at least historically Oracle uses RAC for their clustering. That's two (or more) servers with the same storage, meaning you will probably need a SAN and another barrel full of money for the licensing.
+Also - About streams on the post above (comment isnt available for me yet!) streams is now deprecated and replaced with oracle goldengate.
+One thing about Oracle: I really really recomment NOT using RAC unless you are an Oracle guru. Everyone gets RAC horribly wrong.
+Oracle Dataguard is what you want. It provides a master-slave configuration for up to 9 slaves (which is pretty impressive!)
+dataguard in 10g doesnt support reading of data from the standby though.  So you need "Active dataguard" available in 11g.

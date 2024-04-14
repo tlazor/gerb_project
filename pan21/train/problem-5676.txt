@@ -1,0 +1,7 @@
+This lays a very solid foundation, making the BSDs an easy to maintain platform, therefore  having the potential to lead to a more secure and manageable environment.
+The BSDs are usually managed by one person, so you get the feeling that each variant is an actual product that had a lot of planning behind it.  Things work together very well, and all components are very well documented.  You rarely find kludges.
+In the Linux world, distributions tend to be lacking in that... cohesive feeling.  They are often built in a decentralized manner, which tends to lead to this.
+I've been a Linux user for 13 years now, and while I still consider it a viable platform, I have moved all of my production and personal servers to the BSDs for the reasons mentioned above.
+However, Linux still might be the better choice for the desktop due to its bleeding edge driver support.  
+*BSD is a complete OS, meaning the kernel and the userland is developed from the same source tree, whereas Linux distributions are butchered together from various sources. This is why BSD systems feel much more cohesive and solid. Also better documented.
+Whether you want to install BSD or not depends entirely on what you use your machine for. While many things are similar to Linux many things are different too.

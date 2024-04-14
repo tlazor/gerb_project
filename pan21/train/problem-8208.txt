@@ -1,0 +1,6 @@
+This security change is completely uncritical as actually everbody has such rights on the Windows root folder. 
+I have the same issue despite I have a fresh install since I just bought a new computer with Windows 8 pre-installed and it can't be that I have to refresh the installation again.
+Btw somewhere on the MS web it says that these rights have to be set on "C:\Windows\system32" only (which is true as it was set with me) but it is not sufficient. It has to be the whole Windows root folder (which was not set with me initially).
+I checked all standard hints I found but everything was fine. Actually only the advanced apps like games or calculator didn't work but the simple apps like weather or maps worked.
+However, it can't be that Metro apps have full control on system root "C:\" because this would open up a large security hole and thus I reverted this change and started checking on subfolders. 
+I learned that the Metro apps have special access restrictions on Deskop PCs (x86) only. This is why tablet PCs or Smartphones don't experience this issue.

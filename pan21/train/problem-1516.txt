@@ -1,0 +1,9 @@
+If you have CloudFront already enabled you could add WAF protection although it seems overkill for this use-case. You could also try using NGINX instead of Apache which is going to be lighter-weight and therefore less likely to run out of resources.
+When I check for HTTPD logs I see a big list of what appears to be bot attempts to find vulnerable pages:
+On AWS the instance appears as green and "running" but even the connection via SSH is not possible until I stop and start it again (also the instance reboot option simply does nothing).
+On the other hand the instance shouldn't be failing just because it gets a few random requests. There may be a problem with your code - memory leak perhaps? Now is a good time to fix it, as you're still in the development stage as you say.
+Another option would be using CloudFlare instead of CloudFront which should give better anti-bot protection out of the box and cheaper. 
+Do anyone know of a simple solution to avoid that and have this simple test server working without having to restart it every day?
+Does CloudWatch yield any insights into why it is crashing? Perhaps you can identify what resource is being exhausted. It may be number of connections or a bandwidth issue as opposed to memory or CPU. 
+While you are developing you can restrict access to the instance only to your IP address(es) - set them in the instance Security Group. That will prevent access from anyone else but you.
+I've created a simple micro EC2 instance based on Amazon Linux AMI for testing an app while I develop it, but it happens that every day it stops answering giving me error 503. It have it's own domain set with Cloudfront.

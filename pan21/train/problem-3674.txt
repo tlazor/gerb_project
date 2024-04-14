@@ -1,0 +1,5 @@
+While these will build up if you are trying to use a slow resolver to query lots of names, the root cause is likely that you are running a service which is doing rDNS queries on a lot of traffic.
+This is not a DDoS attack (probably).  Rather, your server is simply making an excessive number of outbound DNS queries.
+Depending on the content of the DNS queries, it might also indicate that you have malware on your host which is querying DNS, though this is one of the least likely causes.
+The specific reason for these queries depends on what your server is being used for, but common causes are SMTP servers (checking rDNS to see whether it matches the presented hostname or looks dynamic, for spam filtering), and IRC daemons (to determine hostmasks).  Apache, too, can cause these queries (use the HostnameLookups Off directive as mentioned in the comments to disable it).
+To determine the process responsible for opening these connections, add the -p option to netstat and observe which process is associated with the connections with an outbound port of UDP/53.

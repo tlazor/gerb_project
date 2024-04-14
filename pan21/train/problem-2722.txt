@@ -1,0 +1,5 @@
+In public async Task<bool> Visit() you only use await to wait for the task to finish so that you can return it's result. I would have rather made the delegate return a bool rather then capture result and modifying it and then I would have simply returned the task created by Task.Run or Task.FromResult in the case of your other branch.
+Actually, I am not sure if the OverflowingBucket has something to do with the visitor pattern. In my eyes, the visitor pattern can be used to add logic to a data structure by implementing visitors. A visitor visits each element of the data structure and decide what to do depending of the element's type.
+I'm not sure if it's a good idea, but maybe OverflowingBucket should clean up after it self as a IDisposable?
+The OverflowingBucket can be used to add logic to an object for processing other items in a special manner. Therfore I wouldn't use the term "visitor pattern" here.
+I prefer simplicity when it comes to async/await. await is useful and makes the code cleaner when you have code that executes after a Task completes. Using it just to pass tasks along methods (like in public async Task Add(U item)), creates noise.

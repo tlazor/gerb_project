@@ -1,0 +1,5 @@
+I had this problem with my refurbished Dell Latitude E6400. I tried everything suggested on sites like this one. Nothing worked. I tried swapping the supplied transformer (output 19.5v; 4.62A) for an old one I have (output 19.5v; 3.34A). Hey presto! Not only did the battery start charging but things that had slowed down were suddenly good as new. 
+Once you've done so, right click 'Batteries' and then 'Scan for hardware changes'. One it has readded the drivers, the battery icon should pop up again on your taskbar and report that it is now charging. 
+Click the plus (+) sign next to Batteries category, right-click all of the "Microsoft ACPI Compliant Control Method Battery" listings, and select Uninstall In the "Confirm Device Uninstall" dialog box, click OK. (it’s ok if you only have 1 of these).
+Right-click the “ACPI Fixed Features Button" and select Uninstall. In the "Confirm Device Uninstall" dialog box, click OK.
+What worked for me was uninstalling the Microsoft ACPI-Compliant Control Method Battery under the Batteries field in Device Manager, and then removing/adding the battery to the laptop.

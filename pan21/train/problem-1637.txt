@@ -1,0 +1,7 @@
+Factoring out the repeated logic into a local function would be cool, but maybe that's a lot to ask of something that's not a programming language. Maybe this data transformation is a lot to ask of something that's not a programming language?
+Given the score data in column B, I have column D, "Unadjusted Portfolio Percent", where each row has the formula =B3/SUM($B$2:$B$11)
+My first instinct is that there's probably some syntax for applying a transformation to a column before using it, lambda style. I.e. in pseudocode the Adjusted Portfolio Percent column should be able to be calculated 
+I'm having trouble figuring out how to impose this cap without using another column for score prime.
+I'm an excel newbie so it's possible there's an answer to this already and I just didn't know the right terms. I'm trying to transform a set of data and then use it in another formula, without using an intermediate column.
+I have no clue how to do this with excel, though I'd be stoked if I could write a formula with some sort of lambda syntax. E.g. with scores in column B the 2nd row would be 
+Right now I have a spreadsheet with 10 assets in column A and some score in column B. I want to calculate the percent of a portfolio that I would allocate to each asset, based on its score, but capped so that no asset can have more than 30% of the portfolio.

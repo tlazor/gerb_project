@@ -1,0 +1,7 @@
+The main issue with this approach is that dynamic SQL executes under caller's credentials, so if your users aren't privileged enough to query the link directly, you'll have to add with execute as owner (or some other being with sufficient permissions) clause. Sometimes it might not be desirable, but... it's still much better than a stored procedure not working.
+Putting the SET command inside of the stored procedure is too late; it needs to be set before the EXEC of the proc. So you were on the right track with wanting to do:
+However, you cannot change the app code and how it calls the proc. BUT, you can change the proc itself. Hence, you can rename the current proc to sp_storedprocReal and create a new stored procedure named sp_storedproc that is just a wrapper that does the following:
+The reason for this behavior is that different DAL drivers set different connection options by default, and when the application doesn't initialise its own connection properly, there isn't much you can do.
+I have tested the above wrapper proc after reproducing the stated error and it does resolve the issue.
+The only solution for your case that I can think of is to wrap the query into a dynamic SQL and set all options needed in it:
+The issue is specific to ANSI_WARNINGS as the value of ANSI_NULLS is stored with the definition of the Stored Procedure when it is created. Just run:

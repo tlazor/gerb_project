@@ -1,0 +1,6 @@
+It's also possible you have some implementation detail slowing down your results but that is impossible to tell without code to look at.
+Likely it looks ugly because you have problems like shadow acne and peter panning, it is likely not aliased either. OpenGL-tutorials.org has great tutorials for shadows. Even if you're using DirectX. Here is the link.
+I would not necessarily say it is too slow if you are getting 90 frames per second, though. When you have nothing going on in a scene it's very common to go from a very high frame rate to a much lower one. Yes, in a sense 4/5 of your power is going to shadows, but it is a relative measure not an absolute one. It doesn't mean that you can't still add all the stuff you need to onto the screen without going under 60 fps.
+This tutorial is pretty good for covering basic shadow maps and you can tell the performance is good.
+There's also cascading shadow maps you could look into, but as I said any other kind of shadow map will be even more expensive.
+For talking about quality, it is too vague to just say they look bad. Likely you have something wrong like shadow acne or having too low of a resolution.

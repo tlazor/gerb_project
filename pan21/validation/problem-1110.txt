@@ -1,0 +1,10 @@
+Lastly, you can use the xargs -I stringtoreplace option. If you use -i with no argument, it's the same as -I {}, but harder to read. In this case your second method would be
+find doesn't magically expand all {} instances after it starts, just the places it sees them in its own command line. If you want to use bash redirection within your command, you need to use it within a bash shell command like so:
+You should also use temporary files rather than in-place editing. And you might want to do this in two steps (i.e., not do the mv initially) in case you made a mistake. It'd be unfortunate to accidentally destroy all your php files.
+I'm trying to run the expand shell command on all files found by a find command. I've tried -exec and xargs but both failed. Can anyone explain me why? I'm on a mac for the record.
+The way you wrote it, the output of find . -name "*.php" -exec expand -t 4 {} is sent to the file {}.
+You may want to use -iname instead of -name or grep -i instead of grep, in case you have .PHP files.
+The thing to realize is that every element of a command pipeline is completely separate from all others. If you want to use a string repeatedly in a pipeline you should place it in a shell variable to store it. For instance, you could use the bash for loop as follows (the extra complexity is to properly handle files with spaces in their names, like find -0 does automatically):
+This just creates a file {} with all the output instead of overwriting each individual found file itself.
+And with the second example you gave, the find command prints a list of files, which are then given to the xargs is completely unassociated with the find command. xargs works by running a command once for every item input: find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f is a good example of how it should be used. Finally, the last section of that command pipeline outputs the results to the file {}.
+Note the use of -i not -I for xargs, and due to the filter through grep there is no need for the -0 argument.

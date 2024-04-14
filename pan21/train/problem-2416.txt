@@ -1,0 +1,5 @@
+You create a regular ssh key pair and use as the CA. Preferably one host CA and one user CA. Then you can sign public keys with this CA using ssh-keygen. For example
+This command will create a file called user_key-cert.pub that is now your certificate. The certificate is valid for 53 weeks and can be used to log in as principal1 and principal2 at any host that trusts the CA that signed the key. 
+OpenSSH have since version 5.4 had their own actual certificates. They are more simple in the structure than X509 certificates but have much simliar functionality.
+You can not. SSH does not look at a CRL or something similar to see if a key is still valid. If you want to be able to easily remove access to servers for people who leave your shop, I can think of two options:
+There is also severals ways to revoke ssh certificates (your actual question) and these are referred to in the manuals of openssh. But the basic option in sshd_config is RevokedKeys. You can use both text files or binary KRLs for this. 

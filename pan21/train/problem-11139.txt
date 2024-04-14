@@ -1,0 +1,10 @@
+If you're just crimping the right pairs together and not testing, you could easily be making cat3 cables that kinda work but cause someone hours of troubleshooting later.
+In racks and patch bays, I would stress you use pre-made, and colored.  We used one color for each of network devices, printers, servers, and then the blue for users and ip phones.  Otherwise it will get messy in a hurry.
+It just doesn't make sense to me to make cables. You save some money on the materials, but you quickly surpass any savings with labor.
+Everywhere else, it's up to you and your time.  If you think your boss sees you as "idle" all the time, then crimp some cables in front of him/her and look busy...  Your brain will turn to mush.
+I've been in both low-end and high-end "datacenters" recently.  It all depends on how much time you have - and your budget.
+If you can I would spend your cycles learning more about the devices you are plugging in.  That's what will pay your bills in the future.  :)
+You also probably aren't going to test and certify every cable that you make, meaning that it could turn into a hidden little problem in the future. I'm a big supporter of having quality cabling. After all, if layer 1 is unstable, the entire stack falls apart.
+There is some value in perfect-length cables in a rack environment, esp a high-density one. Allmost everything else turns to spaghetti.
+Do you use a multi-thousand dollar fluke cable tester when you're making your cables?  Or do you use one of those things with the 9volt battery that lights up red if the cable is mis-wired and green if it is properly wired?
+I've done it, but it requires proper tools and parts and most importantly, you need the tester.  We've got one at work and after doing several, I can make cables that test out to cat6 in about 10 minutes per cable.  Our tester is a cheap one ($5000 new a couple years ago) that takes about a minute to test the cable.  The expensive ones test faster.

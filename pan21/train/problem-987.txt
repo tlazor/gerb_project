@@ -1,0 +1,6 @@
+Sometimes this command gets "stuck", meaning it starts eating machine resources until the entire machine is unavailable. Logging in to the machine can take minutes when this happens.
+So ImageMagick has the "convert" command which I use for my (Linux) web platform to deal with image resizing and such.
+I can't identify when and why this is happening, the system is slugish and stuck until I "killall convert", then all is well. This command is run thousands of times each hour so unless I would log each and every usage in some way, I can't say which one got stuck, unfortunately.
+I would probably prefer solution number 2, since solution number 1 could still yield several such processes that each is limited, and stuck, and together they would still eat up my resources.
+Just before invoking the convert command you can set a resource limit on the max CPU time the process can use, convert then will get killed automatically after exceeding the limit.
+I have created a script that kills some processes listed in array, if CPU usage greater than XX% for YY seconds or kill processes that running more than ZZ seconds.

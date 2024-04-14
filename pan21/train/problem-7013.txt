@@ -1,0 +1,9 @@
+This lets you, say, make a UI button that's always in the bottom-right corner, no matter how tall or wide the window/screen is.
+What if I run my game on few random devices with different aspect ratios and resolutions? Will unity adjust my game automatically so everything fit perfectly or should I do it manually somehow? And how if I should? 
+If you like the scaling behaviour described above, you're done. If not, then you'll need to define what "proper" scaling behaviour is for your game. Some examples:
+To see this for yourself, you can try resizing the game view window in the Unity editor and setting different aspect ratios in the game view control bar to see how your game behaves.
+The canvas and UI components expose a number of controls for you to decide exactly how you want this scaling to happen - whether you want to preserve sizes proportional to the width or height, or preserve the native pixel size of the elements, etc.
+It will adjust everything automatically for different resolutions if the aspect ratio is the same. If the aspect ratio is different, everything will still be scaled automatically, but you might see a little bit more or less of the game at the edges of the screen.
+If you want to enforce a specific aspect ratio, this post illustrates the problem and also has potential solutions, such as enforcing a specific aspect ratio in the project settings, or adding a script to resize the camera viewport to fit that aspect ratio with a pillarbox or letterbox effect.
+E.g I have a bunch of objects which are generated in specific coordinates. Let's say in a range of - 5 to + 5 on X axis. I came app with these numbers because of camera size I have in Unity editor. 
+UI objects inside a Canvas element that's set to Screenspace - Camera or Screenspace - Overlay will be repositioned / sized according to their anchors when the dimensions of the containing canvas's viewport change.

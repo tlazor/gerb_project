@@ -1,0 +1,6 @@
+Windows 7 and Vista use a new format for user profiles. It's not your server being incompatible, it's Vista and Win7 being incompatible with 2000/XP profiles.
+Windows XP profiles are not compatible with Vista/W7 profiles out of the box.  Microsoft has a whitepaper Managing Roaming User Data Deployment Guide which includes a section called 'Windows Vista and Windows XP Roaming User Profile Interoperability'.  This document contains the details you need to get as much compatibility as possible on Vista, I believe most of the directions should be the same for Windows 7.
+Check your roaming profile directory, and you'll notice that you'll have a .V2 folder there (thats your Win7/Vista profile).
+When I bring my home-computer to work and log into the network with domain\username it logs me in just fine.
+What you probably want is essentially two sets of settings, one for XP and one for Vista/W7, that redirect all things you want shared to "common" areas. Or are you sure this is a one way think and you won't need changes you make here to go back to your "old" XP profile?
+Although, approving my profile, letting me into the network, including all network drives and printers, it does not download the profile fully. I do believe it might be getting the roaming profiles.

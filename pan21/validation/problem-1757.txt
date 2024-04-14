@@ -1,0 +1,8 @@
+Proper termination of Cat 6 (6a) is much more critical than 5e.  This will require a greater skill level for the installers.  If you are simply using patch cables, then the distance is probably short.  For 1Gb speeds, 5e will work fine for short runs and most long runs.  
+If you are using long runs through areas of high RF/EMI, consider Cat 6, otherwise Cat 5e will work fine.
+Are you having any physical layer connectivity issues? (i.e., frame errors, "flapping" ports, throughput issues, etc.)
+Go ahead and run the Cat6 (Cat6a). It's more of a pain to work with, but you'll get some practice with it and get better at it and you'll have the best cable you can buy installed for future proofing.  It's not really that much more expensive.
+First, check your connections at the ports and verify you don't have any higher layer issues. If you narrow it down to the cable itself, then replace the Cat5e with Cat6.
+In our data center, I've got a mix of Cat6 and Cat5e. The Cat6 was used for newer devices I've added since the rack was originally installed. The other stuff still has the Cat5e because it's still working just fine and I've got this thing about fixing things that aren't broken: I don't do it.
+If you have plans to upgrade to 10Gb, I would consider a fiber solution instead of copper in any case.  
+Maybe I'm getting it super cheap compared to some of you but to me Cat6 is 20% more than Cat5e, so I go Cat6 every time.

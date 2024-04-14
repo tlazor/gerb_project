@@ -1,0 +1,7 @@
+What you are looking for is a sort of velocity match between the two objects. You can obtain it by checking the target (first projectile) velocity and modifying the second one according to this.
+If the first projectile has a position and a velocity vector, then you can set the 2nd one's position like this:
+variables: target_velocity, this_velocity, time_to_match and max_acceleration. First and second values are the current velocities of projectiles and other twos are used to tweak the behavior of the chase. Of course you should use vectors (but I suppose you do, since it's the only way to manage these things).
+Then the result_acceleration value is applied as usually within a physics engine to current this_velocity of following projectile. In your case the time_to_match variable should be enough small to keep the two objects tights (eg. 0.05-0.1).
+Your first idea was good. All you have to do, is take into account the distance between the points the first bullet traveled on each frame, and make sure the second one travels the same distance each frame, meaning that it might "skip" some of the points plotted by the first projectile, or plot some points of its own to match the speed of the first projectile.
+If you are sure you don't want to just spawn another close behind and follow normal physics, then save the first projectile's previous position with the desired delay and use that value.
+You can still apply all the physics you want to the 1st projectile, you just don't need to repeat it all for the 2nd.

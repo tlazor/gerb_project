@@ -1,0 +1,6 @@
+I've looked at Amazon S3 and it costs roughly $4746 per month for 100 megabits/s (which translates into 31,640 Gigabytes of data transferred. That's at a rate of $0.15 per gig.)
+FYI I'm currently using a colocation facility which is about 30% cheaper than S3 and I'm familiar with colo prices - so this question is really about "cloud" services and by that I mean services where I don't have to worry about the infrastructure. 
+If the files aren't changing very often, you can look at a content delivery network, like CacheFly. Their cheapest plan is $99/mo, and includes 1GB of storage and 250GB of transfer.
+OVH has absurd pricing on bandwidth, take a look at http://www.ovh.co.uk/products/superplan_mini.xml and http://www.ovh.co.uk/products/superplan_mini.xml?bp=unmetered, which I don't really understand.
+86.2MBps is a whopping 689.6Mbps, and I think the limit I'm hitting is the speed of my connection, not theirs!
+I haven't found a cheaper "cloud" option. I'm curious if there's any other cloud hosting option out there cheaper than S3. Uptime is not an issue because I can build failover for most things into the browser. e.g. I can use javascript to say "if the image didn't load then go to this other URL instead."

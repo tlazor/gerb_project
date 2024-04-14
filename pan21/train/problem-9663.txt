@@ -1,0 +1,6 @@
+Make sure you have sysstat installed so you can track hardware metrics. I always start first by looking for hardware limitations, especially disk IO and RAM exhaustion.
+my Facebook application have : 1 SWF file, some php files with few array functions, and MySQL queries, i start receiving : Too many connections from MySQL, i fixed it, and i want to know what is the best : Apache , PHP, MySQL configuration for this kind of traffic ?
+You can do a specific server to offer static files, which must be configured with a long period of time to cache.
+Also, you may want to install some server monitoring tools. I recently posted a blog on server monitoring but cannot remember if I can link it here?
+I do a lot of performance tuning and I find that by taking small steps you can begin to fix the issue.
+By polling these pages during the time of the incident, I've found you can quickly hone in on where the issue may be happening. Being able to eliminate PHP, MySQL and focus just on apache an be very useful.  If the PHP info page is fast, but your pages are down it could be a database or web programming issue.

@@ -1,0 +1,5 @@
+In any case, you can reset the router to default settings with a factory reset. Default login should be an empty user with the password "admin".
+Default access is 192.168.1.1 via HTTP(s). If you might have changed the IP range, you can try to find it out by connecting a computer to the router and seeing which IP you get from the DHCP server.
+Usually you can just connect via HTTP using the router address (192.168.1.1 seems to be the default for this router, but if you changed it, you can find it on your connected computer by typing ipconfig in windows or ifconfig in linux at the command line) and enter in your credentials. If you don't remember those, then you have to do a factory reset.
+There is no real way to find what password was set on this router. If you really need access only solution is to do factory reset.
+I have a wrt54g router that I haven't used for a while. I can't even remember what port I have to use to get to the admin utility. I think I might have changed it to something else than the default. How can I find out what it is?

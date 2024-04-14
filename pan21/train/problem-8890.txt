@@ -1,0 +1,7 @@
+The latency with the server is quite high, but iPhone and iPad have none of those problems, I don't know what to do. Any ideas?
+Another problem happens with a Samsung Galaxy Tab where I cannot install the ActiveSync account at all. The IIS logs accuse HTTP error 449, that according to Microsoft means that "insufficient information was provided by the client". No idea what to do about that either.
+Once the account is added, I go to the Inbox and there is no mail. Telling the device to sync manually aparently has no effect, it does not say it failed either. It will eventually sync the folder after several minutes. Sending emails seems to work just fine.
+First problem happens during the account setup. It takes too long to set up the account, and it will often fail saying the connection with the server failed. I just keep trying without changing the parameters and it eventually works.
+Right now it works wonders with iPad and iPhone, but something is happening with Android devices that is driving me crazy.
+Opening a message will often display no body. After a while it says the connection with the server failed, and later it works.
+I have a Windows 2008 R2 Server with Exchange 2010 installed, and I'm having trouble to set up the Microsoft ActiveSync properly.

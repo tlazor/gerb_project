@@ -1,0 +1,6 @@
+Instead of going about the team->share method, upon importing the project (with the New Project Wizard) I made sure that the New Project Wizard used the same directory as the Import Wizard (the one the repo imported uses).
+Not sure why this is a two step process but that's how I made it go. Maybe there's a simpler way, but I haven't found it yet.
+I suppose the New Project Wizard adds one unnecessary step in this particular use case (since we can assume you mean for the imported repo to be automatically connected.
+And I'm not sure if you are going about things the same way I did. But just to compare, I imported a project from GitHub and used the "New Project Wizard" when prompted by Eclipse. This wizard asks me to select a directory for the project. And if the directory selected there is different from the directory that the Import Wizard used to import the git repo, of course, the project is not linked.
+If you are able to instead Import Existing Projects, for some reason it connects everything automatically without opening the New Project Wizard.
+Once you import the project from the git repository into the eclipse workspace, you then team->share it back to the same repository and it will attach it.

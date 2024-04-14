@@ -1,0 +1,5 @@
+That way, if you accidentally forget a necessary definition in your own header (by virtue of an earlier include happening to provide it), you increase your chances of discovering it at an early stage.
+I see no reason why individual score is computed via std::accumulate, but the total uses a loop. I recommend std::inner_product there, at least for consistency.
+Where does that 256 come from?  If it's supposed to be equal to base::table_size, then just use the constant, to be consistent with the base class.
+I don't feel comfortable with std::set used just to avoid sorting. It  obscures the intention. You seem to have the same feeling, and put the clarifying comment. I recommend to be explicit: read the names into a vector, and sort it. BTW, it would also reduce space requirements.
+I don't see a need to make the base type public - it seems that this is provided for implementation convenience only (and it tends to get confusing when you have a hierarchy where many, but not all, classes provide such a member).

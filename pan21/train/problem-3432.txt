@@ -1,0 +1,7 @@
+Vimperator solves this by having an additional BASIC mode- TEXTAREA. When in mode TEXTAREA, you can use the supported commands you'd use in vi. 
+This doesn't appear to be well documented- I ended up figuring it mostly by mistake. It works the same in multiline and single line textboxes.
+The first Ctrl-V does "next keystroke pass through". The second Ctrl-V pastes the text. This is what I do for most text fields.
+Because if you have opened a external text editor, a simple C-c at FF window will end the external editor and you will lose everything.
+If you use the vi mode for multiline text fields (set noinsertmode), you can also paste using p - so if I wanted to paste the URL of another tab into this tag I can go to that tab, use y and then move back to this tab. The bottom bar of the browser will say -- TEXTAREA -- and I can press p to paste in the URL.
+If you are in a text field in INSERT mode and would like to paste something, the obvious thing to do in vi-land is to press ESC and p to paste. In vimperator, this doesn't work- ESC takes you out of INSERT mode completely and into the mode in which you work with the page/tab as a whole.
+I'm surprised there wasn't a more accurate answer given to this question. The chosen answer's plugin link solved the OP's issue, but no one actually explained how to paste something into a text field without using the passthrough (C-v) mode. 

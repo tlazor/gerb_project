@@ -1,0 +1,6 @@
+where 12.12.12.12 should be substituted by your gateway ip address that has it's proxy server running at.
+How can I configure the virtual machine? From what I've read it sounds like "route add ..." should be able to do it but I'm not sure exactly how to use it.
+But keep in mind, this will block ALL other traffic, so you'll need to have console access to the machine. and replace 192.168.0.1 with the proxy IP for sure.
+2nd you also have to keep in mind, that DNS requests will be blocked as well, to enable them you'll need to add a second rule to enable DNS requests
+I want to see if the HTTP proxy support for an application is working correctly. In order to check this I have installed a Ubuntu VirtualBox on my Mac laptop and I want to configure the virtual machine so that it has no access to any other internet host except my test proxy server.
+If the proxy server is also the gateway you can also add the port to the 2nd iptables statement p.e. -p 3128 for squid proxy so the server can only connect to the port.

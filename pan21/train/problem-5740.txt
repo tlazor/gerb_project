@@ -1,0 +1,6 @@
+In the open source world, there's RedHat Cluster Suite. It's been several years since I've implemented RHCS so I don't have many relevant things to say about it today.
+You can also build highly available infrastructure with virtualization technologies but these solutions tend to focus on host-level availability as opposed to application level availability.
+Veritas Cluster is great (compared to Linux-Heartbeat, AIX-hacmp, HP-Serviceguard and Sun cluster), but it costs lots of money. The last time I did look at it its price was based on cpu-cores of the cluster. Current Vendor ist Symantec...
+A much simpler and open source HA tool is UCARP. UCARP doesn't provide nearly the same kind of "infrastructure" that Heartbeat/Pacemaker/CoroSync does but you can build HA solutions around it.
+I prefer to use keepalived for high-availability. I find it simpler to setup (one daemon and config) than heartbeat and company. The only drawback I run into, is that keepalived doesn't have a unicast option by default, and only uses VRRP for communication (The author of HAProxy has written a unicast patch for keepalived however)
+If you are already using EC2, why not use Elastic Load Balancing ? It will let you achieve application level availability without having to configure failover yourself.

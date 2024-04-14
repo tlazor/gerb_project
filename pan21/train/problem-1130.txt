@@ -1,0 +1,7 @@
+One issue is that delegation to taxiwayalpha.com is set to ns1.gavincoates.com and ns2.gavincoates.com however querying the zone returns only ns.taxiwayalpha.com.
+You need to have your domain updated with your registrar to use the right name (ns.taxiwayalpha.com. ) and because the NS is in its own zone you'll need to send them the right IP address for its glue record too.
+Despite trying a couple of DNS testing utils online, it appears that the domain is not resolving to the server correctly.
+I recently transferred one of my domains to a new server, and ever since I am having intermittent issues accessing the site. taxiwayalpha.com does not work, www.taxiwayalpha.com occasionally works, and email also does not work. 
+Appears your nameservers are not returning NS records for your domain.  You need to have NS records for your domain.
+Uh oh, we have a mismatch.  Your records at the .com registry are inconsistent both in name and in the glue records.
+A second issue is that both ns1.gavincoates.com and ns2.gavincoates.com resolve to the same address. This is the same address that ns.taxiwayalpha.com resolves to.

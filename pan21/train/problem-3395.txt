@@ -1,0 +1,6 @@
+You only need to do a System State backup of one DC in each domain to be covered, but, given you've got four DCs total, I'd be safe and just back all four up.
+Ask yourself, Are you sure you can recover from a backup of the domain from a single DC? Are you prepared to take that risk, or is it worth spending 30 mins setting up a scheduled job to back up the other DCs?
+What if you had replication issues? These aren't always immediately obvious, and could go unnoticed depending upon how proactive the admin is with log checking.
+One or more of your domain controllers have a copy of the Global Catalog. Figure out which one(s) have a copy of the GC - one of those should be what you back up.
+I have 2 domains. Either of them have 2 domain controllers. So my architecture is: Domain 1. -  DC1, DC2 and SQL Server.             Doman 2.  -  DC3, DC4 and IIS Server so which one these computers I must back up for active directory?
+I would always back up the system state of every domain controller. It doesn't take much storage space (or effort), so why would you consider not doing this? It's a no-brainer to me, and simply not worth the risk for the minimal effort involved.

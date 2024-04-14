@@ -1,0 +1,6 @@
+I fixed it by using the ditto command which was readily available with the OS X Yosemite installation:
+Zipped a file with the standard mac archive software... deleted the file... a month later tried to open the archive and got the same error --> Guess this has something with the fact that the file was over 1gb
+I'm not familiar with Macs; I just happen to have one near my desk at work. The Archive utility might have some GUI frontend somewhere in /Applications/utilities.
+You may be lucky trying a data recovery software. If your JPEG files have a negative compression rate and ZIP is smart enough to store them uncompressed in that case, it is possible that scanning the zip archive gives results.
+SO I tried all and more of the software above and nothing worked after a few weeks of searching and trying I found one that worked :) So I guess this is worth mentioning:
+You could use a .tar.gz archive.  The default Mac Archive Utility will decompress them; just double click on the file.  But I didn't see a way to force it to use .tar.gz when you compress it.

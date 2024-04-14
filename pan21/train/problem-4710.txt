@@ -1,0 +1,6 @@
+However, I would like to use example.com. as a mail server. Indeed, the trusted certificate I have only works for example.com. and www.example.com..
+I configured dovecot to retrieve my mail using IMAP. With my mail client, it works if I use the mail server mail.example.com., but it doesn't if I use example.com..
+Dovecot does not know the name you use to connect to your server. You configure your mail client (usually called MUA for mail user agent) with your username, password, protocol, and server name. The MUA obtains the IP of the server, connects to that IP using the protocol, and offers the username and password. As long as you are not using SSL, the server name has no importance as long as the IP is the same.
+If using mail.example.com as server name works, and using example.com as server name does not work, then there are two possibilities:
+The error you get when using example.com should be the first thing you look at, but I realize that some MUAs are sadly lacking in useful error messages. To test manually from a unix machine, assuming that you are using SSL:
+Assume I have a VPS, with the domain name example.com.. I run a mail server using postfix and dovecot.

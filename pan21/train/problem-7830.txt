@@ -1,0 +1,8 @@
+You can tweak mysql and apache to use work with much less ram than their defaults, this is a different subject though and obviously it may not be an option (based) on the volume of your traffic etc... 
+I'd be interested to see what can be learned about reducing its memory footprint. I will start research this myself. ( I'm running well over 10 coins on a server I host and just had to bump its ram to 4g as it was swapping all over the place, so it would be good to know )
+Its interesting that its connected to so many nodes, on default it only does about 8 connections last time I looked
+For mysqld checkout mysqltuner.pl and start bumping numbers (plenty of tutorials out there for this but I suggest small changes at a time)
+I think bitcoind will always need a big chunk amount or ram though... (https://github.com/bitcoin/bitcoin/issues/2485)... 
+..this is from a reasonably small mysqld I run on one of my VMs (debian 6), its around 128Mb in footprint right now (but could potentially go up to 164Mb).. 
+(use more if you want to sync the entire blockchain (from scratch) faster, then reduce it afterwards although I'm uncertain how/if this will effect its footprint.)
+Swapfiles may not be option depending on the virtualization used but its better than things crashing I assume.

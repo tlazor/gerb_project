@@ -1,0 +1,7 @@
+Regarding 2. when you can see that your changes have been published you can calculate the worst-case for when well-behaved nameservers will use the new data by adding the TTL to the current time.
+After changing the delegation of your domain through your registrar there are essentially two separate delays.
+Regarding 1. you can simply query the authoritative directly nameservers to see if the currently published records have been updated. When querying the authoritative servers directly there is no caching, so this is pretty straightforward. 
+How do I know when these DNS records are effective or do I just wait and keep on checking who.is for the domain?
+This also gives you a chance to confirm that the delegation in the parent zone matches your authoritative records (NS and A/AAAA if applicable). 
+A command like dig +trace +add example.com NS can be convenient as that will follow the chain of delegations all the way from the root to your zone, eliminating the need for you to figure out the authoritative servers along the path.
+So I have added my domain to Route53 and updated the name servers of the domains to that of Route53.  

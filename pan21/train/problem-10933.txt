@@ -1,0 +1,6 @@
+If i change the SQL-Query to "ROWNUM <= 839" it works. If i change to "ROWNUM <= 841" i get this error.
+What happens if instead of select * you itemized one field? i.e. SELECT [first_ name] FROM TABLE1 WHERE ROWNUM <= 900;
+It works fine for litte querys but the problem is that if i want to select more than 840 rows i get an error:
+i want to find out which ODBC Connection is faster on my VM with Windows Server 2008 R2. I have two different ODBC providers. The first is "Oracle Instant Client ODBC" in v11. The other "Microsoft ODBC for Oracle". I thought, that i can use Powershell to test how long two simmilar querys run with each provider. (Later i also want to test if the MS Provider for Oracle is faster on Win08R2 or on Win12R2)
+I haven't done a lot of PS so not sure what the error is really saying but... it looks like you are trying to fill a local table with the output from the select *? If that is true, I am wondering if PS created a temp table with a number/int column type for rownum but the rownum value in row 840 or 841 is something other than a number/int. Or something similar for another column. 
+Is there a posibility to change something, so that i am able to query large tables? Or has anyone a nice freeware tool i can use to query ODBC-SYSTEM-DSN entries and get a usefull querytime so that i can compare my different ODBC's ?

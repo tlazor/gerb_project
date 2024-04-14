@@ -1,0 +1,7 @@
+Assuming you can access your computer's BIOS menu, and you have a Windows ISO (XP, Vista, Seven, or 8), I would advise the following:
+When the downloader finished and restarted the computer, I was again prompted for by TrueCrypt password (which is accepted) and a few seconds later, saw the "Something went wrong" message in the installer. 
+Windows 8 has several new features incompatible with Truecrypt - the feature called Secure Boot, mainly; and possibly Windows 8's new hybrid boot. Therefore, full system drive encryption is not supported by Truecrypt (http://www.truecrypt.org/docs/sys-encryption-supported-os). 
+I just bought Windows 8, which I downloaded to my PC. The PC has full drive encryption, and I selected "Keep nothing" type of install for Windows 8.
+With Windows 8 Secure Boot enabled (by default on supported hardware) Truecrypt will never work (the point of Secure Boot is to prevent bootloader modification or "hijacking"). Check if you have Secure Boot enable first (http://www.eightforums.com/tutorials/20208-secure-boot-confirm-enabled-disabled-windows-8-a.html). 
+This should overwrite TrueCrypt's bootloader, and make it possible to resume the setup. It is also possible that something went wrong with the setup, in which case you will have to start over, using the Windows 8 ISO.
+I would consider using Windows 8 Bitlocker encryption in place of Truecrypt at this time as using Truecrypt with Windows 8 should be considered unstable and a "hack" at best.

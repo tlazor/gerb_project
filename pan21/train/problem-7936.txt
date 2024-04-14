@@ -1,0 +1,7 @@
+So, I create two new sections, turn the one in the middle into landscape, check out the "link to previous" (or something like that) in header, and modify the header in the landscape section.
+I use different headers in each section, but they all contain the page number field. The page number field shows the current page number throughout the document, as expected.
+Here's the scenario. I have the first part of my document in A4 portrait pages with page numbers in header. Then I have one page that needs to be in landscape, and then again the portrait orientation of pages go.
+Is there an option that supports different headers, but lets Page Numbers continue from the number in previous section (plus 1, of course).
+I might have misunderstood your question, for the issue you report cannot be reproduced on my system (Word 2010). I created a document with three sections; the second section is a single landscape-mode page, while the other two sections are multi-page portrait-mode pages.
+Hope this makes some sense to you, but it's really my fault for not being able to put it better. Generally, what is the corrent way to insert a landscape page with its own independent header but still continuing the page numbering from before?
+The trouble is, after that, I need to go into the third section (the portrait one), and tell Word in "Format page numbers" to start counting from ... (some page), but I need to do it manually.

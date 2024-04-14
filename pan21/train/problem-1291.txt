@@ -1,0 +1,5 @@
+Just installed Windows 8 and downloaded the Catalyst version which ATI website recommended. However it says that it can't start! My main monitor is connected to my PC via a HDMI cable and the display is not full screen (there is a blank padding area around display). Usually I change overscan/underscan settings in CCC to reset it but since I have no access to it, I wanted to know if there is any way I can change it without CCC (through registry maybe?) Thanks.
+I solved it by specifically add user “system” to the 0000 regkey and anly allow system to read the values, and applied these security settings down on all keys,subkeys.
+I couldn't get it working with my Radeon HD 3600 on Windows 8.1 64bit with the proposed solutions from here. I tried everything including
+In windows 8 it worked fine to change the values but in windows 8.1 update windows keep restoring the values so that black border is constant.
+Installing CC in a different folder is all I needed to do to fix this. The default folder was corrupted no matter what. 

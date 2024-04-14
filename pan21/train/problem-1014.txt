@@ -1,0 +1,8 @@
+I.e. on my laptop, I'd use Control Panel > Mouse, go to the Tapping tab, and there is a box for "Tap off when typing", and then a configurable delay if the box is checkmarked.
+(You want paragraph 8) -- "8.To disable annoying behavior where the touchpad freezes up when you’re typing: set the values of DisableWhenType_DelayTime_Gesture, DisableWhenType_DelayTime_Move, DisableWhenType_DelayTime_Tap all to 0."
+Note: If the Control Panel is in Category View, under View by, click either Large icons or Small icons.
+This is the setting to disable the touchpad-click when you type.  Depending on the driver installed for the touchpad, you might disable it in the touchpad properties.
+For some people this option is apparently grayed out.  In that case the setting can be adjusted via a registry value.  Go to the below registry value:
+Change the "To help prevent the cursor from accidentally moving while you type, turn off taps or change the delay before taps work" setting to "No Delay (always on)".
+Another way to get at it is explained here:  http://wj32.org/wp/2012/12/19/asus-ux31e-setting-up-the-elantech-touchpad-driver-for-windows-8/
+Nothing in the third party driver for ElanTech solved this issue.  I honestly think this was some new setting introduced in Windows 8.1 for touchpads.

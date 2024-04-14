@@ -1,0 +1,15 @@
+It is not imposible to implement such write mode, but it could take as much as a full decompress and compress.
+But wait, it is much worst... maybe windows (or some apps) do not write the whole file in just one order/command... some do it on blocks... so:
+Of course, shrink implies fragmentation or a long double move process (to be safe), first to end (if not fit on the gap), then to real position.
+Pismo File Mount Audit Package has a tool to create .pfo files, that files can have internal compression and/or encryption... and are mounted in read/write mode.
+Also Pismo has a SDK, so you can create your own container and 'driver'... or use it inside your app.
+Allways thinking you will have enough free space for holding the final state and previous state at same time (to be safe and ensure not to loose old data).
+Yes, do not think on having the file on a SSD ultra-fast disk... imagine having such file on a slow, really slow memory card... of less than 10MiB/s ... doing a single edit inside a 4GiB file would took near seven minutes.
+Some works with fixed block size, so they can shrink well in background task, it can copy a block to a lower position, making gap going to end of file... and finally reduce file size of such gap size.
+Having the .vdi inside a compressed .pfo works great and most times with a real great compression ratio (much more than NTFS native compression).
+Since we are talking of on-the-fly and transparent to the system, the only option is to mount them only in read mode.
+That is the main reason why formats that are not designed for on-the-fly write are not mounted on write mode... the other reason is:
+That is the theory... i found no tool that do it all... Pismo does not shrink, but does the rest (read/write) with CFS and PFO formats, and for some other formats (read only).
+I must investigate such WIM format... but if i do not remember bad it is a M$ format... what about Linux mounting it? Pismo has Windows and Linux versions... and other OS too.
+Also Pismo is able to mount such a file only for a PID (so only your app can mount it, etc)... and much more... but as i said,... with Windows 10 it has some things not working perfectly well... it is not fully transparent in Windows 10.
+There is no technical reason to not do it on write mode, except doing such can lead to a more than a week of time to just copy a few files inside... much less than doing a normal full uncompress, alter, full recompress.

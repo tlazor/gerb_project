@@ -1,0 +1,7 @@
+Personally I haven't ever done this; rather I have setup a script to import old IIS logfiles into a SQL DB with Logparser.
+Start here http://weblogs.asp.net/steveschofield/archive/2007/12/20/iis7-post-57-how-to-setup-odbc-logging-in-iis-7-0.aspx
+I want to know if get IIS to log directly to the sql server is resource costive, and a better solution maybe generate log files, and each hour import this files to sql server.
+The worst thing about writing your IIS logs directly to SQL server instead of a text file is that there are now two real points of failure: your IIS instance and a database server.
+If you start database logging to the same machine that is running the database for your production application, you are taking resources away from that application.  Databases can block, they can run out of space (admittedly so can your hard drive, but still), they need more regular maintenance, etc.  I.e., they can fail for reasons totally unrelated to your application.  And if it fails, then the log data is just gone.
+Opening and writing text file logs is very low overhead.  commandbreak's script is exactly the sort of short, simple thing that will take care of moving the log to a database; and if the db is down the log is still there.
+Does it VERY big cost to log to sql server each request directly? The pages are open connection to the database anyway for each request.

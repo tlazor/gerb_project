@@ -1,0 +1,6 @@
+Services aside, be sure to activate the "High Performance" power plan. This ensures amongst other things, that processor, GPU and network can run at full throttle. More importantly for 24/7 operation pehaps, it disables sleep.
+Sysinternals' Autoruns provides a nice overview of just how much starts automatically one way or the other, be that services, items in the "Start" start menu folder or Run/RunOnce entries in registry. 
+Well, sorry to be Captain Obvious, but that largely depends on which services your software is dependent on.
+Actually no. It has not. It is not made for that and using it in this environment is unprofessional. Want a server, use a server. If you need an embedded system, get windows embedded.
+Any of those services you name have a sense. You can not just turn them off and then come back here complaining about the consequences.
+Also, keep in mind that both software and driver packages, often come packaged with "helper" tools (and sometimes just crapware), that auto starts. These are often not necessary, so you might want to disable those as well.

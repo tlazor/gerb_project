@@ -1,0 +1,8 @@
+The main question has been answered several times, but the secondary has not. SSH prompts for the password after entering root after it is disabled as a security feature. It will also trigger if you try to log in as lkjfiejlksji.
+That should do the job and you can keep your root account as it is (or try to disable it anyway if you feel that is necessary).
+I not only forbid root access via ssh, I also set the "AllowUsers" parameter to my, and only my, username.  This way nobody but my own user can log in via ssh.  This may be redundant as in my own case, I only create ONE non-root user anyway.
+If you want to disable local root login, you can try to modify /etc/passwd and replace /bin/bash by /bin/false. HOWEVER, since I haven't tested it, I would say leave a root session open on the side, test it, and if there is any weird side effect, change it back.
+This is to prevent someone from testing a pile of usernames, to try and find out which are valid on your system. However, from a security standpoint, if you've disabled root over SSH, I'd also set up a bruteforce detection program (like fail2ban), and set it so that if someone even tries to log in as root, it blocks them from trying any additional attacks.
+Think of it this way - if folks can hack the Department of Defense, the CIA, the FBI, and Citibank - the rest of us mere mortals can't do much better.
+IMHO there is only so much you can do, security wise, short of unplugging the box, disconnecting it from the network, and welding it inside a 3" thick bullet-proof carbide-steel box.
+Unfortunately, as others have said many times before, as soon as someone gets physical access to the box, all bets are OFF!

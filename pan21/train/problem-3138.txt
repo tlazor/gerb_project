@@ -1,0 +1,6 @@
+According to http://www.datastax.com/support-forums/topic/error-loading-cluster-no-cassandra-connections-available an internal bug has been raised against this, but there is no current workaround other than to install on the system drive.
+It turns out that the OpsCenter agent on Windows hard-codes the path to typeperf.exe as "\Windows\System32\typeperf.exe" and so fails to execute it if installed to anything other than the system drive. 
+I'm currently running Cassandra, the OpsCenter, and the OpsCenter agent all on my dev Windows box. The agent is successfully connected to OpsCenter and I can see it listed there along with the amount of disk space it is using. 
+I'm getting the following error appear in the opscenterd.log every minute, where it appears to be encountering an error while processing the disk space from the agent:
+I'm currently using Datastax Community Edition 2.1.0 and have it installed on my E drive, which is presuming the hash key mentioned in the error message above.
+However, no other data is available including the available disk space (which not that interesting at present as there is only one machine and I'm using it), or any of the other metrics such as the write requests, latency, etc., all of which are far more useful.

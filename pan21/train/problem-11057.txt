@@ -1,0 +1,5 @@
+Maybe you could use incron which uses inotify to launch commands based on file system activity.  You could then possibly watch the mount point and use incron to trigger lsof to look for which process is accessing it.
+I have enable "spindown" on one of my Linux server's drives, which is only accessed by a BitTorrent client - meaning, when I don't have torrents running, nothing else should be accessing the disk and waking it up from spindown (right?). 
+You can check out http://samwel.tk/laptop_mode/ . Although this page is not primarly about your problem, but gives a good overall picture how IO works and ideas, how to silent your disks by shutting them off.
+I recommend mounting /tmp as a ramdisk then setting up logging to /tmp/syslog. This in /etc/fstab (and a reboot) will do:
+NOTE: be sure your system logging is shut off or written to a ramdisk (type: tmpfs) before doing so, because (quote): "your system may get into a feedback loop, where syslogd causes disk activity, this causes kernel output, and this causes syslogd to do more disk activity"

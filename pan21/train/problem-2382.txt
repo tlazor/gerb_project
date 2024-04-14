@@ -1,0 +1,8 @@
+I had a similar problem and ended up on this question. Eventually I found the actual solution here: 
+But when I actually try to mount either of the Linux (I'm assuming ext4) partitions it tells me that the device does not exist.
+The /dev/sdb2 extended partition reported by fdisk is one that's divided into a number of other "logical partitions".  The reason for this is that MBR partition tables only actually have room for four primary partitions, so if you want more, they have to be chained in this way.
+I'm trying to edit some init scripts that have gone haywire on my raspberry pi Noobs SD card, and since it's easier, I'm trying to edit them on a MacPro 3,1 Ubuntu box I have.
+This is also why there's no sdb3 and sdb4; these are the primary partitions but you only actually have two, sdb1 and the aforementioned extended partition sdb2.
+The solution would be to mount partition sdb1 with an offset where the Linux partition (sdb6) starts:
+What that adds up to is you can ignore sdb2.  The only real partitions are 1, 5, and 6.  This does not necessarily mean they have been formatted, however, so you may get some error if you try to mount them.
+sdb5 and sdb6 are logical partitions referenced via the table associated with the first extended partition, in this case sdb2.

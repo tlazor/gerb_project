@@ -1,0 +1,6 @@
+Whenever I insert a USB stick/external harddrive/CD/DVD an automatic dialog always comes up. It scans the media and tries to suggest programs to open the new files with.
+I never use it. I would prefer if this dialog did not open. Is there a setting/shortcut key to prevent this? Hopefully there are both: setting for my computer, shortcut key for other computers.
+Bonus: if it just opened up the new root directory/directories (D:\, F:) that would be great. That is usually what I end up doing.
+When you get the autoplay dialog there is both an option "Open folder to view files" and a checkbox "Always do this for foo". Ticking the checkbox and clicking the Explorer option should get you there.
+The HowToGeek provides yet another perfect walkthrough: Disable AutoPlay in Windows Vista. You can also set default actions here - ie, "open folder to view files in Windows Explorer".
+Also you can set the default actions for each media type in the Autoplay settings (easiest found by just typing "autoplay" into the start menu).

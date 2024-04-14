@@ -1,0 +1,6 @@
+Although the latest version has support for Windows 7, the question is if it has support for x64, or if you are using the latest version (4.35.5).
+Daemon tools installs a device driver, in order to run images as virtual drives. An incompatible device driver would lead to a crash.
+Last night after updating a Intel Driver from Windows Update I had something like this happening. POST would pass but after the little Windows Logo all I would get was a black screen.   
+I had this issue as well with my laptop when I installed 7.  In the end it turned out to be that Win7 had improperly identified my video card and installed incorrect drivers for it.  When I manually installed a correct driver, the issue stopped.
+All I did was restarted my computer and clicked F8. Selected Repair my computer and did a system restore from 3 days.. The one that it created that day before installing didn’t work and neither the one from the day before.  
+Regarding your Fix... Perhaps the first time you rebooted the Joystick was connected to a USB port. It probably isn't a failed driver, since you're getting the mouse, which is past the when the drivers get loaded. I would say windows was installing your joystick, perhaps - unless it wasn't plugged in on startup.

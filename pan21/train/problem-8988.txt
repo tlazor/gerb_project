@@ -1,0 +1,9 @@
+On a brand new machine, there may be a period when you first power it on where the battery-backed cache is charging, and caching will be disabled until it's ready to go. This can be up to 24h after it's initially powered up.
+I'm experiencing very poor performance on an IBM x336 server with dual 73GB 15k hard drives on a U320 controller, LSI 1030. We're getting maybe 3.5MB/sec max (per HD Tune utility). It should be over 100MB/sec at least, I would think (another x335 box is running 70-80MB/sec). The server was recently setup and didn't really notice the problem, but may have been there from the beginning, so not sure. I have installed the IBM ServerRAID Windows utility. The server is running Windows 2008 R2 Web edition (if that matters). 
+Dramatic differences in throughput like you describe have been seen in instances where the cache is missing, malfunctioning or disabled on a server, vs an identical server where the cache is operating correctly.
+Does the server have a battery-backed cache for the storage controller and if so, is the battery missing, disconnected or failed?
+I've also used the ServerRAID utility but haven't noticed anything in there that might indicate a problem. 
+Also, during RAID rebuilds, caching is often disabled by the controller. Check the perfomance again once the rebuild is complete.
+The sectors on the drives could be misaligned.  I've had this problem in the past and there are tools that will fix it for you, or you can do it manuallt.  Microsoft talk on drive alignment
+I thought maybe one of the drives was bad, so far I have removed one of the drives out of the array and tested again, but still the same results. I'm waiting for the RAID1 to resync and I will try pulling the other drive next.
+Paragon has a tool called Partition Alignment Tool.  Here is a PDF where they talk about drive misalignment and show what happens. enter link description here

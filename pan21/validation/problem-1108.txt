@@ -1,0 +1,5 @@
+I don't know the precise thinking behind that decision, but the standard was written in 1987 at a time when systems with limited support for mixed-case character sets were still relatively commonplace.
+It's rather impractical if Host.com means something entirely different than host.com. A DNS name is supposed to be a label, and having special characters or making a difference between capital and lower letters only complicates that without serving any practical purpose. 
+I can come up with two reasons without them necessarily having anything to do with the original decision. 
+*You've seen unicode domain names before?  Those are internationalized domain names - an extension built on top of this.  They really internally consist of "xn--" and then a Punycode-encoded string using the standard set of DNS characters, and are rendered as Unicode by a compliant browser.
+RFC 1035 section 2.3.3 states that DNS names are case-insensitive.  This means that the host part (and only the host part) of URLs is case-insensitive.

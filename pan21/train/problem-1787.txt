@@ -1,0 +1,6 @@
+The Route53 documentation has more detail on alias records. At the moment alias records can only point at ELB hostnames or at a hostname in the same zone.
+With CNAME records the additional step is done by the client. The server simply returns the configured value of the CNAME record, and the client is responsible for then looking up that name to find the A/AAAA record.
+With alias records the additional step is done by the server. The server takes the configured value of the record and actively resolves this to find the A/AAAA record. It then returns this result to the client as an A/AAAA record, and the client doesn't need to do anything to get the final answer. The client doesn't even know that the server did this, it simply sees a plain A/AAAA record.
+Both CNAMEs and alias records provide a level of indirection, i.e. it's a pointer to another location which requires an additional step to find the answer. The difference is who performs this additional step.
+Can somebody point out the similarities and differences between the normal CNAME record and Amazon's Route 53 ALIAS record. ?
+CNAMEs can't be used for the domain apex (i.e. example.com) without oddities. ALIAS records act essentially like CNAMEs behind the scenes, but present themselves as A records to requesting systems.

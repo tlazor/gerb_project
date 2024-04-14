@@ -1,0 +1,9 @@
+For me the fix was to change the DNS to a specific local DNS server, rather than 'getting automatically from ISP'. You might not have the same problem, in which case this won't help, but the steps to solve my problem were:
+At a guess, it could be you've got a DNS problem, which you can actually troubleshoot without doing all of the above, by using something as simple as nslookup, and comparing configurations between working and non-working machines. But that's just a guess. Fiddler or wireshark should help show you what the problem is.
+To properly troubleshoot something like this, you need to know what is actually going on, on a computer where it works, and a computer where it doesn't.
+It's not a problem with the computers, because when I try to use the same websites on my laptop on a different network connection, everything works fine. But connected to this modem, it fails. 
+I've tried all the basic troubleshooting, turned off Windows and security firewalls, all with no result.  Any help?
+I had the same problem. A list of sites would only work via proxy from some machines that connected via my home wireless router.
+We have a couple of machines hooked up to the same modem, some by ethernet cables, some wirelessly. 
+Use something like Wireshark or (probably better) Fiddler, run a session while you browse to a problematic site from a computer that doesn't have the problem. Then do the same thing from a computer that does, both without a proxy and then a second session with a proxy. Compare the successes with the failures to see what's different. 
+Some websites just won't load. They get stuck on "securing connection" and remain blank. Some load badly (eg without pictures). Some load just fine. 

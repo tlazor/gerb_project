@@ -1,0 +1,5 @@
+So, I have a web site that has been compromised twice in two weeks. every index.php and .js file gets a script injecting into the source code of the file. The problem is that I have no idea how they're doing it. I've seen this done via sql injection before, but I don't know how they are actually writing to the file. I've dug through the Apache logs but didn't find anything interesting. The site is built using the cakephp framework on a godaddy shared server. 
+Change the credentials for your database, and ftp logins and update the security salt etc in your app/config/core.php.
+Although as Fabian said, if you are on a shared server you are at the mercy of everyone elses code also. Do as much as you can and let GoDaddy know about it also.
+You might also code a helper which specifically look for this code and strips it from your files when they are executed.
+Based on the injected files, and it being hosted on GoDaddy, I would take a look at Sucuri.net's blog posts about the continuing infection of websites on GoDaddy's shared servers over the past month.  

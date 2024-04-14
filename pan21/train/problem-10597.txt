@@ -1,0 +1,5 @@
+You can disconnect that drive without any problem. People will never use filesystems (or encrypted drives) if this may be dangerous in case of accidentally power loss or disconnect.
+Of course, there's no guarantee that the TrueCrypt drivers are "well-behaved", but one would expect that they are.
+This will ensure that TrueCrypt automatically and safely dismounts your encrypted volume when you hibernate your system, which is good from a security perspective as well.
+When you sleep or hibernate a system any on-going I/O is quiesced.  A well-behaved device driver will assure that there are no on-going operations -- eg, any file move operations will be stopped in such a way that overall consistency is maintained, and file directories and free-space tables will be completely written.
+I don't believe you should have any problems whatsoever disconnecting and reconnecting the drive while your PC's hibernated. Since the drive is encrypted using TrueCrypt, for further peace of mind you can ensure that under Settings / Preferences / Auto-Dismount you have the "Dismount all when" User logs off and especially Entering power saving mode options selected:

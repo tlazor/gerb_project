@@ -1,0 +1,6 @@
+Method 2: Boot from a password resetting bootable CD such as PCUnlocker, it enables you to remove forgotten Windows password easily.
+i dont care if this file will be corrupted or removed i just want enter to this windows without password. 
+I have forgot my administrator password in windows (xp) ,and tried verything how to restore it but no luck . the only thing i came up with is i have inserted another harddisk and installed on it winXp. and  started windows via this second HARDdISK 2 (xp) . and now i can browse the first Hardisk files . 
+Each of these methods has its strengths and weaknesses. But remember to make a backup of your SAM file before using any method above.
+Method 1: Copy the SAM file from this directory C:\windows\repair to c:\windows\system32\config, it will enable you to log in to Windows without a password.
+Windows passwords are stored at "C:\Windows\System32\config\SAM" file copy it to your HDD-2 then You can use Pwdump.exe .so you can see passwords as MD5-Hashed. then you can de-code them using online MD5 decoders or softwares.

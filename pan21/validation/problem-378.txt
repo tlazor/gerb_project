@@ -1,0 +1,7 @@
+However, now whenever I open any file using nano I am told there are errors. This line is printed for each and every line in the file which has a regular expression on it:
+It starts with ", then a " right away, closing it, then regex in between. Im guessing you need to escape the inner quotes:
+If using Cygwin on Windows, ensure the line endings are Unix style (\n) as opposed to Windows style (\r\n). I encountered this exact issue, and this is the only link I found even on the StackExchange sites. It may be an edge case, but it leads to this exact problem
+I found this javascript syntax highlighting file for nano on google code, downloaded it and included it in my /etc/nanorc file:
+In general, you could do the "divide and conquer" route. Make a copy of the file. Remove half, try the config. If the syntax has an error, it's in the half that's in the file - repeat (remove half). If not, it's in the half that you deleted. Use the half that you split out, and remove half from that, until you get to one line that's bad. 
+Can anybody help me out here? I am very new to nano (and linux in general, really), but I can't see a problem with any of those regular expressions... they all begin and end with "s.
+I am still able to open any file, and syntax highlighting still works for other filetypes, but there is no javascript highlighting.

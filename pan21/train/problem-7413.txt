@@ -1,0 +1,7 @@
+Specifications of Genie Timeline 2.0 Free: http://www.genie-soft.com/Free_products/free_timeline.aspx
+I think that you are really underestimating the benefits of source control.  As Dustin pointed out, there's branching, merging, and sharing.  Also, using a source control system can let you easily figure out when each line in your code was last changed.  SVN can also track the history of files even if they are renamed or moved to a different directory.  Merging can even solve problems even if you are only 1 developer, as you can work on your desktop, laptop, and other computers without having to worry about overwriting changes.  
+Try Flashbake.  It can backup every n minutes (via cron and presumably Windows Scheduler) files that haven't changed in m minutes (can be 0).  You would need Python, so Cygwin or ActiveState Pyton.  It is based on git and designed for non-technical types.
+Check out FileHamster @ http://www.mogware.com/FileHamster/ . It automatically backups your files as revisions everytime they change.
+Cygwin + rsync + a script Easy Automated Snapshot-Style Backups with Linux and Rsync to handle old versions works good.  No GUI, though.
+Not sure if this simple utility can fit your purpose: http://downstairs.dnsalias.net/revisionmanagement.html
+Timeline 2.0 has been completely rewritten, and so far, the general consensus on the web has been very positive.

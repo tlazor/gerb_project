@@ -1,0 +1,7 @@
+My familiarity with UTF altogether is fairly weak. So I found an article on UTF support and SQL Server on blogs.msdn.com that will undoubtedly be more informative. Hope this helps.
+As UTF-8 is a Unicode encoding, it can handle any character set that SQL Server uses. So, it's not the UTF-8 encoding that is the limitation, but the collation in the database. You should select a collation that handles the characters that you want to use.
+It's no surprise that you can't find anything equivalent to UTF-8, as there isn't anything like that.
+This SQL Server BOL link may help: International Considerations for Databases and Database Engine Applications
+UTF-8 is a character encoding, it's not a collation. The encoding decides how the text is encoded into bytes and decoded back into text. When you communicate with the database the text is already decoded, so the database has no use for an encoding.
+Collation is different to storing unicode data. Collation defines sort orders and comparisions, and applies to both unicode and single byte storage data types (varchar vs nvarchar) 
+We'd like to use the equivalent to UTF-8, but Can't seem to find the appropriate option within SQL Server 2005.  Any thoughts on which we should use?

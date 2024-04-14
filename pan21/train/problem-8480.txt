@@ -1,0 +1,5 @@
+It doesn't take a RFC or standard to see it is better to do this type of processing as close to the edge as possible.
+In the case of traffic that would be dropped by ACL, this traffic is now carried further into the network and takes up resources (whether these are bandwidth, CPU cycles, memory, or anything else) that may be needed by other legitimate traffic.
+Think about it in simple practical terms. What kinds of intelligence are we talking about?  Two concrete examples that often come quickly to mind would be the processing of ACLs (or the like) and QoS.
+Now consider what happens if you place this intelligence at the core. Data will have to be carried over "some number" of links and devices before it reaches the core to be processed.
+In the case of QoS, unless you trust end devices to properly mark traffic (bad idea), traffic would have to travel some distance unmarked until it reaches the core. If there is link congestion on the way to the core, any priority traffic will be treated the same as your best effort traffic.

@@ -1,0 +1,8 @@
+How can I tell what the last access time (either to read or to write) is for particular NDF file in a db?
+I have found a mysterious NDF file in my DB. Can't tell if it contains valid data or if the file is dead.
+Find out what files, registry keys and other objects processes have open, which DLLs they have loaded, and more. This uniquely powerful utility will even show you who owns each process.
+This won't tell you the last time it was touched but it will tell you what database it belongs to. (if any)
+Try deleting the file. If you are able to, SQL is not using it. A file that is part of an attached/online database cannot be deleted.
+You'll have to run that query on each instance installed on that server.  If you don't find it on any of them then it's probably safe to try to delete it.  
+I'd like to remove it but I cannot tell if the file is in use by SQL Server. Windows Last Modified Date is 2 years ago, but for SQL files that is not reliable because SQL uses it's own drivers to access its files.
+If there are a small number of databases on your server you might be better off running it without the WHERE clause and manually searching for the file name but that depends on your comfort level.

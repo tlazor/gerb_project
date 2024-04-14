@@ -1,0 +1,6 @@
+I need to add myself to the "db_datawriter" role.  When I try, I get error 15247 - User does not have permission to perform this action.
+Is there anything I can do to give myself this role?  As a Windows administrator on the box I would have thought that it would be possible...
+I tried using the above approach for SQLExpress to no avail. For whatever reason, adding the -m flag to the Startup Parameters was causing SQLExpress to fail on start up. So I did some searching and found this blog post which seemed to do the trick of getting SQLExpress into Single-user Mode, and then followed yrushka's steps for adding a user.
+In SQL Server 2008, Windows admins are no longer SQL Server admins by default. You will have to ask somebody else to change your permissions.
+You can add yourself even if you are not sysadmin on SQL Server but are part of administrators group. 
+My username appears in the Security -> Logins section of the SQL Server Management Studio and under Properties -> Server Roles I see I have the "public" role only.  Under "User Mapping" I'm a member of the "db_datareader" and "public" roles.

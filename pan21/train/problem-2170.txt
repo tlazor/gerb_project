@@ -1,0 +1,8 @@
+Now the question is: What're the MX Records I need to enter if I want to use domain for email (as seems from question)?
+For email to work, you need to add MX Records in a zone file of Domain's Authoritative Nameservers. Look-up your domain at who.is to find your nameservers. If they are *.1and1..., then you'll need to add MX records at 1and1 control panel. If nameservers belong to kingeshop, add MX records at their control panel.
+I have bought a domain name with 1&1 to create an online shop, using kingeshop. I followed the steps explains here to point the domain name to kingeshop IP address and everything is working fine.
+If you don't have access to any mail server, its better to use free edition of Google Apps (Its free for upto 10 users). Follow this link & click Get Started button. Follow instructions to sign up. After you'll get to Control Panel of Google Apps, click Setup on top nav bar. Again follow instructions & you'll get Google's MX records which you can enter at control panel of 1and (or, wherever your authoritative nameservers are).
+Now I would also like to use my domain name to create an email account. But 1&1 seems to say they're not responsible for this now the DNS is transfered to kingeshop's. What I'm wondering is who is really "in charge" of my domain name now?
+If you've followed the instructions of the link you provided in question, you're using 1and1 nameservers. So, setup MX records in 1and1 control panel.
+First of all I apologize for my poor understanding of network and I hope I used the correct terminology for everything:
+1&1 also lets me configure the MX-record but I don't have a clue what I can do with this. Could I just use an existing gmail address somehow?

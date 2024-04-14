@@ -1,0 +1,5 @@
+Information on this is somewhat limited, the manpage simply says "pbs is a helper tool for the Cocoa frameworks.".  Google is suggesting that it's the pasteboard server.  It vaguely makes sense that the server that handles pasteboard data might end up doing something that pulls focus from the foreground app.
+Look at the man page for pbs(8). Nowadays it just handles Services (as in, the things that show up in the Service submenu of the Application menu (that is, the menu named after the current app)).
+Is there any way to get a crash log on pbs?  I don't see it in the normal ~/Library/Logs/CrashReporter or ~/Library/Logs/DiagnosticReports
+So, any ideas on what might make pbs crash-happy?  This is the only app I have that's repeatedly crashing, so I'm not suspecting hardware or the base OS.  I also see this on another Mac, and both have roughly the same additional software installed.
+I've been tracking down an odd issue where my active applications will periodically lose focus - meaning.  I finally noticed that it corresponded to these launchd notices in system.log:

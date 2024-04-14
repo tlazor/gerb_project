@@ -1,0 +1,5 @@
+A non-technical  way to get a clue is executing some software that you know needs a lot of RAM. Then after having used it for some time, you close it. If it takes more than a second to close it, you probably need more RAM. A good contestant are games.
+What is the preferred memory usage percentage at any given point in time for a system to run smoothly and stable?
+Strictly speaking, you need more RAM once the system starts swapping (using HDD memory because it has run out of RAM).
+In your particular case, it seems that you have a sufficient amount of RAM, but are potentially limited by your bus width and transmission rate. This can mostly impact how fast new data can get into RAM. My suspicion is that your computer is very much usable and that you should have no concern unless you are using some heavy duty applications.
+That answer largely becomes based on your usage preferences. On a parallel note, it is possible to disable much eye-candy which can make the system much more responsive.

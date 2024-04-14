@@ -1,0 +1,5 @@
+Both IT teams are working together to resolve this issue.  What kind of data can I request from the clients to begin ruling things out.  
+The client claims they have "bandwidth to spare" and that utilization of their "pipe" is so low that it MUST be our application, but our application has MANY clients and all features are working fine for all other clients.
+Intermittent performance problems can be a true horror to track down, as you have probably noticed by now. When I attack this kind of problems I typically try to isolate the various systems involved, and examine each one in turn:
+We host a SAAS application specially customized for multiple clients.  For one customer in particular -- they are reporting sporadic performance issues from various locations on their network, in particular UPLOADING documents through a form on our website. 
+Seems like we need to somehow measure LATENCY of the networks involved or even at the switch level, we need to understand if packets are getting dropped somewhere and why.

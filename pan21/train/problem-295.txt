@@ -1,0 +1,10 @@
+On all of my productions servers which typically run about 20 cronjobs daily I swear by the python-cronwrap package. Check it out here: http://pypi.python.org/pypi/cronwrap. It's really easy to configure and most of all reliable.
+I have SSMTP installed and working, I send my mail from my Google-account. The fact that SSMTP can only send mail using one account isn't a problem for me. It's just a home server and the users I have do not have the ability to add cron-jobs.
+I create cron-jobs in Ubuntu by placing the executable in one of /etc/cron.{daily,hourly,monthly,weekly}. There are lots of directories starting with cron:
+Adding MAILTO="foo@bar.com" to the top of a crontab will cause any output from the cron job to be emailed. This is regardless of error code.
+For scripts that output errors correctly into STDERR then its easy to get emailed only when they go wrong just do this:
+However, I've found some scripts will output errors incorrectly as STDOUT and set the exit code to 1. I have not figure out a way to grab the output from these, but ignore the output if the exit code is 0. The only method I can think of is to redirect the output to a file, then if the exit code is not 0 output that file for cron to grab. Seems pretty horrible though.
+This will redirect just the STDOUT to null. If any STDERR messages are present they will get email to you.
+I would like to know how the mailing from scripts usually works in Linux/Unix in general and in Ubuntu specifically. I would also like to know of a good way for me to get mails in the two situations above. 
+If you want to send all output (stdout and stderr) to a specific address then you can use the MAILTO variable. For example, place the following at the top of the script.
+In order to get email sent from vixie cron you will need something that replicates the sendmail command. So installing postfix or SSMTP will sort this part out. If your using postfix then the aliases file can be used to map system users to real email addresses.

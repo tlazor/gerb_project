@@ -1,0 +1,6 @@
+First off, you really shouldn't use the kill command to stop your mysql service. Use service instead:
+I am not sure what mysql-cluster-client-5.1, apart from the obvious, a mysql client designed to work on clusters (think of a server with many cpus). 
+I nearly broke down when I was trying to get python-mysql installed because I have to remove mysql-cluster-client-5.1, which I don't know what it is exactly. And when removing it I came across another problem: can't stop mysqld. I use ps -e | grep mysqld then sudo kill -9 [that pid] to kill it but it started as another process right away! Then I used killall -9 mysql and it finally worked!
+As for why mysql-client-core was removed, my guess is that it was updated so the old package was removed or that another package providing the same functionality was installed in its place. If your mysql can be controlled OK with the commands I gave above, I would not worry about it.
+So can anyone explain what's the mysql-cluster-client-5.1 for? And why installing python-mysql has to actually remove mysql?
+But something is still not right. Why I have to remove mysql to install python-mysql? If there is actually no mysql, what's python-mysql for? Isn't it an interface to mysql?

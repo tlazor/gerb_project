@@ -1,0 +1,5 @@
+Considering that it was a relatively simple case, an md device working as single physical device for a LVM volume linearly allocated, and that wraps a single ext4 fs, my solution was to go directly after the ext4 fs and mount it as a loop filesystem for the time necessary to the recovery.
+So only the linux-raid superblock got corrupted, but that is not that difficult to restore (especially if you have other devices in that array intact). 
+Supposing that there is no other read failure in the rest of the disk, would I be able to recover this 900 GB partition (as I mentioned before, it's a 'linux raid autodetect' partition, that contains a a LVM2 volume that contains a ext4 filesystem) if I copy-clone the partition somewhere else, but the first 4kB?
+I do have backup for most of the contents, but not for the very last changes, and if possible, I'd like to recover that from this failing disk.
+If your mdadm which created the array is < v.3.0, than the payload starts in offset 0x22000 (and further up if it is v.3.0 or later), which as well before the deleted first 4KB. 

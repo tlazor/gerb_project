@@ -1,0 +1,15 @@
+Using a ICollection<T> would be a good fit for the return type, for the method parameters I would like to suggest using IEnumerable<T>. The name gsp is not well named you should consider to rename it to permissions. 
+You are adding two EventItem objects to the result which you are later accessing by using the indexer, which can be done but this introduces two magic numbers namely 0 and 1. This can be avoided if you assign the EventItem's to well named variables like so 
+Comments shouldn't tell me what is happening, but why. //End outer for and //important :) don't tell me anything useful. 
+Name one of them insertEventItem and the other updateEvenItem and only compile the result list at the end, e.g.
+Instead of the inner foreach loop which is having that if..else statement I would calculate two permission sets like so  
+For your special case method throwing exceptions isn't the way to go, so I would suggest having a private static IEnumerable<string> ValidateSaveGroupStepPermissionsParameters() method like so  
+I'd also be inclined to move everything inside foreach (GroupStepPermissions stepPermission in gsp) to a separate method, if only to reduce all those indentations.
+Now, let's look at the whole method. You have four parameters, which is bordering on getting hard to maintain. Consider a class that contains companyID, groups and gsp. Note that I leave connectionString out of it; quite frankly I find it odd to see you pass a connectionstring to a method.
+Can we now please connect to the database? Unfortunately no because we don't need to do this if either groups or permissions does not contain any items.  
+You should code against the lowest common type or much better against interfaces. Right now you don't use any methods of the List<T> class which by the way is a implementation detail which shouldn't be exposed.  
+I'm sure the .ToString() isn't necessary in "ProductName.GSP.cid" + companyID.ToString() -- unless you're coding to an old version of .NET.
+After we have added this EventItem's we should now check if we really can and need to create a connection to the database. Validating methods parameter at least wether they are null should always be done if the method in question is public accessible. 
+There's a lot of semi-duplicate logic, especially in catch (Exception x) in the insert or update. Move that to a method and call it with the required parameters. 
+If this checks are passed we know, that all arguments are valid. If there are special cases for the companyID like it have to be > 0 this check should be added as well (here an ArgumentOutOfRangeException would be the correct exception to throw).  
+Meanwhile //new permission that does not exist in the database. (INSERT) tells me that if (stepPermission.RowID == 0) isn't perhaps the best way to check if you need to do an insert or an update.

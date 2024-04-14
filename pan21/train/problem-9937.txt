@@ -1,0 +1,6 @@
+You need to set up two Chef servers, one for production and one for development. The reason is that no single Chef server can support branched development; even with environments.
+** Well you sort-of can: http://wiki.opscode.com/display/chef/Data+Bags#DataBags-UsingDataBagswithChefSolo 
+My last job was as a Systems Engineer at at Ruby-on-Rails shop.  Our nginx, varnish, and rails configs (among others) go in the chef repo, but the Rails apps themselves were kept in separate git repos, and were deployed separately.
+You won't be able to use knife search or data bags**. But some people don't need those features anyway.
+Our Staging environment was a single server that ran the entire staging environment.  This was not ideal because it didn't resemble Production where Rails thins and the DB were on separate boxes.  What I would recommend is using Chef's Environments to separate Staging and Production.  (That's how it was when I got there, and I just disn't have the time to fix that before I left.)
+Or you can abandon the Chef server concept and use chef-solo. You can maintain your cookbooks in Git. You can branch & merge. You can ignore the problems with knife credentials because you won't use them any more.

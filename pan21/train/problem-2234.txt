@@ -1,0 +1,17 @@
+2- I would say it would be a good idea and easier to mantain if each domain has it's own txt record and you include it as in the mentioned example.
+The domain example.com has published an SPF policy, however, an error occurred while the receiving mail server tried to evaluate the policy:
+       spf=neutral (google.com: 111.22.33.44 is neither permitted nor denied by domain of user@example.com) smtp.mailfrom=user@example.com
+       spf=neutral (google.com: 111.22.33.44 is neither permitted nor denied by domain of user@example.com) smtp.mailfrom=user@example.com
+3- It is always a good practice to have an abuse@ account for handling rejections, bounces, etc. So yes, I would rather say having mx helps in email reputation (I would say is de facto / mandatory, as any serious provider would ensure it exists and eventually you may handle it indirectly) don't know by now but by the time I was working with email, that was an important part of "reputation building techniques"
+but mentioned in relation to this post (https://stackoverflow.com/questions/6110534/how-to-create-spf-record-for-multiple-ips) not duplicated though (as the answer doesn't seem to work anymore there)
+Received: (from donna@localhost) by example.com (8.14.7/8.14.7/Submit) id x0TIPT8L001819; Tue, 29 Jan 2019 18:25:29 GMT
+The first one is from my hosting provider. I DO send and receive email through my hosting provider. Emails from here do not go to spam.
+Second SPF is for my digital ocean droplet. I ONLY want to send email from the sever NOT receive. All messages from this server go to spam.
+Googleing around I have seen many articles that suggest not using multipule spfs record and use 1 and combine them.
+An SPF-enabled mail server received a message from example.com (111.22.33.44) that claimed an envelope sender address of user@example.com.
+An SPF-enabled mail server rejected a message that claimed an envelope sender address of user@example.com.
+If you are really interested into sending emails and reputation, I would keep sending different domains in different addresses (whenever possible) to not harm some email reputation with the other domain.
+Received-SPF: neutral (google.com: 111.22.33.44 is neither permitted nor denied by domain of user@example.com) client-ip=111.22.33.44;
+For that, i.e. you can check sendgrid or any other email sending "specialist" (they live on that, so maybe could be a good option (check as well email services that offers several domains, such as hotmail.com / live.com ...
+Received: from example.com (example.com [127.0.0.1]) by example.com (8.14.7/8.14.7) with ESMTP id x0TIPTnE001820 for ; Tue, 29 Jan 2019 18:25:29 GMT
+1- For combining more than one spf, a good answer could be looking for some spf that has achieved that already (you can try a good example by digging some, the command would be dig txt domain.name)

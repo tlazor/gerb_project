@@ -1,0 +1,6 @@
+So I can't use the disk management tool from microsoft? How do I create a partition with gdisk? Is it before or after shrinking the volume of HD?
+First of all, can I just do it using the disk management tool from microsoft? I would Shrink the size of HD, to create a new partition. Then the idea was to install Debian in the new partition and merge the rest together. Is this easy to do?
+It starts by telling me to use bootcamp on OS X. I don't have OS X anymore, I'm using windows 8.1 on my macbook. I have 2 partitions: Bootcamp (C) and HD (D). I want to install it in the second partition (HD), but only in a piece of it. Then, I want to put the rest of HD together with Bootcamp, to form a greater partition. 
+I don't have OS X, so I don't have this 'dd', I think. Can I just use a normal program to create a bootable pen drive?
+I want to use 28Gb from HD to Debian and merge the another 28Gb with Bootcamp to form a partition with 100Gb. 
+I want to install Debian on my macbook air 13" from 2011. I'm following this tutorial: https://wiki.debian.org/MacBookAir4%2C2Testimonial

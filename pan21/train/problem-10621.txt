@@ -1,0 +1,10 @@
+Check if the volume mounted as expected and create some folders and files to male sure everything is working fine. 
+Make sure that you follow every steps. Editing this file needs root access; therefore you will need to use sudo with your command. You can also open the file in any of your personal favorite text editors.
+As we can see, we have a NFS volume mounted on /mnt. (Important to notice the path kubemaster:/mnt/nfs_server_files/nfs-test-claim-pvc-4550f9f0-694d-46c9-9e4c-7172a3a64b12) 
+I have an inhouse Kubernetes cluster running on bare-metal and it consists of 5 nodes (1 master and 4 workers). I set up an NFS server on the master natively and launched the nfs-client in the K8s to have nfs dynamic provisioner. Everything are working properly and I am able to use my applications just by defining a persistent volume claim BUT I can't find my data on the disk.
+Notice that at this point you can use the name of your master node. K8s is taking care of the DNS here. 
+As we want all clients to access the directory, we will remove restrictive permissions of the export folder through the following commands (this may vary on your set-up according to your security policy):    
+1 - Installed and configured my NFS Server on my Master Node (Debian Linux, this might change depending on your Linux distribution):
+Export the shared directory and restart the service to make sure all configuration files are correct. 
+At this point you can make a test to check if you have access to your share from your worker nodes: 
+Every time I launch an application, the nfs-client creates a new directory at the path of my nfs server with the correct name but all of these directories are empty. So my question is where are my data?

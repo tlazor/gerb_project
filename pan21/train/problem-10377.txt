@@ -1,0 +1,7 @@
+If you are using Outlook Web Access then I highly recommend this approach, as Dieda suggested. I recently managed a mixed OS environment and was faced with the same problem.
+I haven't been able to dedicate much time to the project recently but I started a free tool years ago that does what you need, and more.  Its stable but can be tricky to setup, just like anything AD related.
+As you said, there are different approaches to change the active directory password. One possibility is to use the password change option in Outlook webaccess. Another option is to use a ldaps-connection and a programming language of your choice (php,perl,python,java) to change the unicodePW-attribute of the users. A PHP library which handles these things for you is for example adldap (http://adldap.sourceforge.net).
+Also, we were planning to support ADFS in the next release so your users could have built-in SSO capabilities with other applications.
+I was working on a newer MVC version but other projects have tied me up.  I'll see if I can get back into the swing of things here shortly.
+I’ve been Googling, and have found so many options, that I’m not sure how to sort them all out.  Has anyone had positive (or negative) experiences with any particular products?
+I’m looking for an affordable solution to offer a “self-service” password reset portal on the web for my active directory users. (about 150 of them)

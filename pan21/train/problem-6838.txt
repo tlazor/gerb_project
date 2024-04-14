@@ -1,0 +1,8 @@
+You're doing it correctly -- this process works on my setup.  The /cygdrive/X notation should work for any drive that Windows has mounted and given a drive letter.
+Note: You must open the properties dialog of the binary itself (ie mintty.exe)  and not the short cut to access the administration option for the application.
+I'm using the latest version of Cygwin to try to cd into a network drive on Windows XP Pro Service Pack 3. The path in Windows Explorer to this directory is something like:
+It just froze there and hung. Any ideas how I can go into this directory and at least taking a listing of the files in there?
+I tried mounting it to a drive letter ('X') in Explorer, which worked just fine, but then when I ran the command:
+Stumbled here with the same problem. I know this is an old post but hope it will help others just in case. I had no luck with the suggested solutions. However this worked for me: cd //remotehost/d$ if the the remote host is a Windows machine.  The dollar sign does the trick.
+I had the same symptoms.  The problem appeared to be related to running the application in administration mode.  As soon as I turned off the option to 'Run this program as an administrator' and restarted the application I was able to access the network drives via the /cygdrive/ directory.
+If those work but Cygwin still can't view /cygdrive/X (or /cygdrive/z after your Windows pushd test), I'd try rebooting your workstation.  If the problem persists after a reboot, you may have a broken Cygwin installation; I honestly can't think of any other reasons why it wouldn't work.

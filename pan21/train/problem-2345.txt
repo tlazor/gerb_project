@@ -1,0 +1,7 @@
+Set your bios to boot the Hard Drive first.  Then when the computer is starting up start the BOOT MENU (Usually F10, F11 or F12).  This will allow you to boot from the flash drive.
+I simply hit RETURN, and then went through the YUMI boot menu and booted the Windows 8.1 ISO on the thumb drive. After answering the standard initial questions it happily went on and installed Windows.
+Your hard drive may be using a GPT table. There is one possibility that you didn't boot your installation CD or USB from EFI mode. If the installation CD boots in the legacy mode, it is not able to handle the GPT table.
+I ran into the same problem with an Intel NUC. Following the instructions above didn't work for me, either. What did work was to let the boot process attempt to boot from the empty hard drive, fail, and then go through the process of trying to boot from the network, failing, and then have the NUC asking me to insert bootable media.
+Windows 8.x looks at the BIOS Boot order to determine where to put the "boot loader" and it refuses to put it on a removable device.
+Make sure you give the Windows installer unallocated space so it can create its own partitions (you can do this using the GParted application which comes in most Linux live-CDs).
+Go to you BIOS settings, which can be usually done by enter the booting menu. After entering the BIOS settings, try to look for something like "legacy booting" and disable it. Then reboot to install.

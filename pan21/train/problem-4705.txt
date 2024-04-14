@@ -1,0 +1,6 @@
+In Ubuntu at least, the settings for this are in /etc/apache2/envvars. Tweak those, then restart apache and you're off and running. 
+Apache has to run as root initially in order to bind to port 80. If you don't run it as root initially then you cannot bind to port 80. If you want to bind to some port above 1024 then yes, you can. Otherwise don't worry about root. That is the parent Apache process and does not serve any requests. It will spawn child processes and drop privileges for handling requests.
+I've changed it to what ever user / group I needed (in my case to the user / group who is the owner of my web app files which you can see. And this you can check by using the simple 'ls -l' command)
+Also, if you're setting up a multi-user webhosting system, you might want to look into SuExec and fcgid so that each individual webhosting user's apache process runs as said user -- so that if one user is negligent with their security, other users won't be affected.
+The location of the master configuration file depends on compile-time options and varies per distribution, but /etc/apache2/apache2.conf is a good starting guess. 
+In the course of normal operation, the root-owned apache process will not perform any actual operations other than listening on port 80 and forwarding incoming connections to its (safely non-privileged, as the www-data user) children. 

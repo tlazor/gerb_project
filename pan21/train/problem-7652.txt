@@ -1,0 +1,5 @@
+If these rules are set as do nothing even during battery mode, then at the power management rules for low battery mode & critical battery mode will take place.
+Why don't you just try it? My guess is nothing since it probably takes the actual act of closing the lid to trigger the hibernation.
+Once the the plug is pulled - it will follow the power management settings for unplugged - rightaway nothing will happen, once the battery starts draining & once the thresholds for various events ( Read: If idle for x time do y) are met, those particular actions will take place. 
+I don't think anything will happen.  The lid has already been closed, so you've already triggered the ACPI event for that (in this case, it didn't do anything).  Pulling the plug would trigger that event, but I don't think it would re-trigger the lid closure event.  Just try it to be certain.
+It would depend on your Power Management settings. Since you've set to "Do Nothing" when plugged in and when laptop lid is closed - when you close the lid - since the laptop is still plugged it, it will follow the rule and it will still remain on.

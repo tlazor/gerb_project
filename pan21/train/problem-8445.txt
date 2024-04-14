@@ -1,0 +1,5 @@
+When I went to reinstall the program (freshly downloaded .exe from apple's website, 64-bit of course), I get the following error:
+I have a legit copy of Windows 8 x64 Professional. I had iTunes installed previously, but it wouldn't update to the latest version. It also had issues being uninstalled; I had to use a couple third-party applications to finally get the program removed entirely.
+Has anyone experienced something like this before? Is it an easy fix or am I forced to try a fresh install of the OS?
+First off: obviously the HKEY_LOCAL_MACHINE32\ does not 'exist' in the sense that it is one of the roots of the registry tree. After some googling, I found that it exists here: 
+So I have tried setting the owner of the Run key (in both this location and the normal HKEY_LOCAL_MACHINE locations) to both my computer's administrators and my username specifically. No change. I also gave "full control" permissions to the key for "ALL APPLICATION PACKAGES", "Administrators", "Users", and my user as well. No change.

@@ -1,0 +1,7 @@
+Building on Gale's answer, I made the formula/math a little simpler, and I added my working C# code. I've built this in Unity, and used the same variables as Gale did.
+// Final Out: If(combinedAngle > maxSAngle or < minSAngle), where the max and min angle is measured from rotation axis (0,-1) then arm can't reach the point.
+THis code loops through all the grips (points) and for each one checks if it is reachable, given the constraints of the arm.
+// What are the angles for the direction of SE respective to SH + SH respective to the (0,-1) rotation limit axis
+// 3. Add the length of SE to the x of the vector towards the end effector to find the position of H
+At this point, we know the absolute values of the angle Sang between (SE and Sdef) and the angle Eang between (SE and EH), but not the signed value.
+The question is only asking for, "Can the arm reach the point?" However, the next question would typically be, "What angles do I set each joint to so that the arm is touching the point?" My first answer describes the set up nicely, so using the terms of the answer, I will answer the followup question.

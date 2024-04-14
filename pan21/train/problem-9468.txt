@@ -1,0 +1,6 @@
+2) For the last port, attach the port to the router and assign the static IP to the WAN port of the router. Then configure DHCP on the router to assign the private addresses for your hosts that needs to be on the private network.
+Is a good solution (simple is nearly always preferable) - if you can be reasonably confident of the firewall implemented on the OS of the servers.
+You might take a look at SonicWALL and their line of products for at least a staring point. We have one configured exactly as you described and it has been "chugging" along fine for a few years now.
+1) Attach the connect to the modem. Connect the servers to all the lan ports except one. Assign the static addresses to the servers.
+A bit unclear, but it sounds like you have a set of static address given to you by the ISP. The cheap way to do it:
+It'd be a good idea to set up at least 2 NICs in each server - one connected to the switch on the router side and one connected to your internal network (with a private IP, no routing between cards).

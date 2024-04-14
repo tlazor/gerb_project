@@ -1,0 +1,7 @@
+That is a valid concern, however the client side is also an issue.  The clients also cache the repo information.  This means you can still have problems when a client tries to update when the repo has changed, but the client hasn't updated its local cache information yet.  So you end up running yum clean all anyway to force them to update their local cache.
+I would like to ask about best practice how to serve and update private rpm repos (epel, centos, rhel mirror).
+So really, worrying about consistency in the repo is okay, but you also have to deal with it on the client side.  So I would just update the repo, and clean the cache on the clients.
+But in every documentation I found, people just do simple reposync with delete and update new packages parameter. Don't care about any incosistent state for the clients. 
+So I am just wondering, which way ist the best, because the simple method can save some time, disk io, configuration & automation complexity.
+I used the reposync and createrepo tools to download packages and generate 'repodata', exposed it through webserver, everything works perfect, but ...
+Also, how often are you updating packages on the clients?  You could schedule reposyncs after hours or at times that client updates won't happen.

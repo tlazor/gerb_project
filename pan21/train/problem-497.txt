@@ -1,0 +1,5 @@
+With my router (a TP-Link Archer D5) I need to click on the Advanced tab > Network > LAN Settings. There I find the table of reserved addresses, where I can add and remove devices. Something similar will be available in your router.
+Your wireless router should be able to give the printer a fixed IP address. The way to do this depends on the router model.
+Your "white list" sounds like a different issue. Some printers have a list of IP addresses, and only those IP addresses can send print jobs to the printer. This can be used in large offices to control access to the printer. However it is unlikely that a low-cost printer like the M2020 supports that, as it is intended for home use. 
+Log in to the router (as administrator) by typing its IP address into your browser. The login name and password should be in the manual, unless you changed it. Then find where to reserve IP addresses. It will be there somewhere. You will need to specify the printers hardware (MAC) address, and which IP address to assign to it.
+After doing that, the printer will always get the reserved address, and you should not have a problem.

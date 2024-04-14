@@ -1,0 +1,5 @@
+When you compile your own application, you need to make sure that you compile it as a "Win32" application. That will compile it as a 32-bit application, ensuring that it can run on both 32-bit and 64-bit versions of Windows. If you compile it as a 64-bit application, it will only run on 64-bit versions of Windows, and you will need to distribute two versions of your app.
+Yes, you can. It will install it in the "Program Files (x86)" folder and run it as a 32-bit application. It will not run as a 64-bit application though, and there is no 64-bit version of Visual Studio at the moment. 
+Yes, you can install 32-bit VS2010 on 64-bit Windows 7. If you find any issues you can discuss them on the Microsoft VS forum as well as asking here!
+The target operating system depends on what you have set your project to compile for (in the "Platform Target" option in the Build tab in your project settings), not the operating system you are compiling on.
+All 64-bit versions of Windows have a 32-bit compatibility layer, known as the Windows on Windows 64 subsystem (or WoW64 for short), specifically designed for running 32-bit applications.

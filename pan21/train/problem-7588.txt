@@ -1,0 +1,7 @@
+Make sure automatic is set for at least the top one and your alternate configuration, unless you have a reason to have it manually set. 
+ipconfig /release and /renew will usually not work without clearing the ARP cache out, and this is often times not an option through the GUI on home routers.
+Are you referring to INTERNAL or EXTERNAL IP address?  I don't see it mentioned anywhere else here, but you will 100% of the time have the SAME EXTERNAL IP if you are on the same router. What indication did you have that you are on the same IP address?
+If there is a reason you need a manual address (Such as no DHCP source), consider simply changing the last number in the IP to something that no other device is using.
+You may also be running into an issue where only 1 ip address is given for a port.  If you're on a campus, the administrator may be limiting the number of IP addresses used.  If you're on a broadband connect, make sure you're using a router with NAT and DHCP and not just a hub.
+if this doesn't fix it then, go to Network Connections (Vista/7 go to Network and sharing Center then click Change adapter settings on the left or in XP, go to Control Panel > Network Connections).
+Ok, I'm assuming you're using NAT and DHCP on some cheap home router. This is VERY VERY common on these devices. There are two surefire fixes. One is to statically assign them addresses using the router (see router manual to configure static addresses based on MAC address) or you can statically assign IP addresses within the DHCP range in the computers themselves.

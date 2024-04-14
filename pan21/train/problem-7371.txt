@@ -1,0 +1,7 @@
+Is any additional settings needed to implement the google cloud platform to establish a connection with G suite account?
+https://googlecloudplatform.uservoice.com/forums/302595-compute-engine/suggestions/10079937-send-and-receive-email-using-tcp-smtp-imap-ports
+As a workaround, you can use trusted third party providers such as SendGrid, Mailgun, or Mailjet to setup mail function on GCE or use port 465, 587 for STMP relay using G suite on GCE instance. You can find more information and steps on this link.
+Google Compute Engine has all standard outgoing SMTP ports blocked by design. Please vote here to get Google's SMTP behavior changed:
+We have G Suite account with our domain name. And our server is Google cloud platform. we are using PHP for our development, we trying different code for sending mails, but cant receive any mails using mail functions, and we contact G suite account they said all the settings are working perfectly...this issue is regarding the google cloud platform, cloud reject the mails. 
+Google Compute Engine does not allow outbound connection on ports 25, 465 and 587. Moreover port 25 is also blocked for SMTP relay through G Suite as mentioned here:
+Until they open the SMTP ports, there will be no good way to send email from their cloud servers. Sendgrid and the others are too expensive and lack many features that are needed.

@@ -1,0 +1,16 @@
+There's the InnoDB/Oracle Hot Backup tool, which costs money. I've never used it, but I'd presume it does what it says on the tin.
+If you have a “clean” backup of an .ibd file, you can restore it to the MySQL installation from which it originated as follows:
+Then use xtrabackup to copy the entire database straight to another server without locking any tables or using too much disk IO (after setting up ssh rsa keys):
+If you have --innodb_file_per_table enabled than you can move an .ibd file and the associated table from one database to another, use a RENAME TABLE statement:
+We have some quite large databases (up to 40GB) and i've restored one's your size in well under an hour.
+I can't remember the exact variables off the top of my head but if this sounds like it may be the case, let me know in a comment and i can see if i can track down the details.
+and then you can do the apply log step completely separate and save disk space, IO, and CPU on the production server.
+One thing that mysqldump will do to make the inserts faster during the restore is to turn off the indexes, run all the inserts and then apply the indexes to your tables.
+Personally, I take an LVM snapshot of my InnoDB tables, and backup from the snapshot -- on restore, it looks like a system crash has occured to InnoDB, which goes through it's normal log replay process on startup. I'm fond of the belt and bracers approach to backups, so I combine the regular snapshot-and-rsyncs with less frequent mysqldumps (and sometimes it's handy to have a fairly recent SQL dump hanging around anyway). 
+Another method for making a clean copy of an .ibd file is to use the commercial InnoDB Hot Backup tool
+Wait until SHOW ENGINE INNODB STATUS shows that there are no active transactions in the database, and the main thread status of InnoDB is Waiting for server activity. Then you can make a copy of the .ibd file.
+If the right variables are set large enough it will say "repair by sorting" which is much, much quicker.
+Rather than a dump/restore solution, I suspect i know the reason why the current restore is taking so long.
+If a couple mysql variables aren't big enough, mysql will say it's "repairing by key cache" or something similar ... this is very, very, very slow.
+You can exclude and include databases with the awk regex such as only dbs starting with a lowercase letter in my example above. This will of course lock the tables during the alter.
+In this context, a “clean” .ibd file backup is one for which the following requirements are satisfied:

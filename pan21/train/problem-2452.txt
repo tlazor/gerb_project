@@ -1,0 +1,7 @@
+After almost 30yrs of coding I have (understandably) become a huge fan of one-liner commands whenever possible - especially when it can replace an entire page of instructions/actions with fancy screenshots. :)
+The best part is if you change your mind and later find you need/want the service, simply change the word "disable" to "enable" in the command and re-run it with a reboot to restore the service.
+To uninstall the Indexing service, open the Windows Features dialog (Start -> OptionalFeatures.exe) and un-check the Indexing Service entry.
+Here is the most proper, fully supported, and most efficient (hard to beat one short line of a single command) method to disable AND FULLY AND CLEANLY REMOVE the Windows Search (indexing) service on Windows 7 and later:
+You can uninstall just the Indexing service (as opposed to all of Windows search which has somewhat big ramifications as below).
+NOTE:  One thing I would recommend performing BEFORE any action to abandon the Windows Search service is to follow these directions at the link below FIRST (only needed if you are an Outlook/Exchange user) to ensure ties between mail indexing and Windows Search are properly severed before removal or you may have issues disabling the mail indexing later:
+https://support.office.com/en-us/article/Enable-or-disable-Instant-Search-97975193-8f1f-4f0e-b8cd-0cfd35a5703b

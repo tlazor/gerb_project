@@ -1,0 +1,7 @@
+The problem is: when I setup the ei.cfg and pid.txt files with the keys for Window 10 Pro or Enterprise from our VLSC account, it tells me "The product key entered does not match any of the Windows images available for installation. Enter a different product key" which is in the troubleshooting section for that article I just referenced.
+I have Win10 Enterprise licenses in the volume license service center. I downloaded the ISOs, and used the old Windows 7 USB creation tool, but newer tablets do not see this installation or boot from it. The newer tablets see Win10 bootable USB sticks that are made from the Windows 10 Media Creation tool without any issues.
+I have working Win10 licneses. (this is NOT a licensing question). Creating install media from these ISOs with the Win7 DVD to USB tool. Only the Win10 Media Creatino tool works, but that doesn't have enterprise on it.
+Took a lot of digging, but it turns out the Media Creation Tool (MCT) has command line switches that allow me to specify Enterprise.
+This does NOT work with Enterprise LTSB. Probably needs a different /MediaEdition argument, but there are no good docs on this, so I could not find it.
+How do I create a bootable USB for Win10 from the downloaded ISOs from VLSC in the same manner that the Media Creation Tool makes them so newer PCs will boot from it?
+Note: The tablet in question has Windows 10 Home licenses embedded in the UEFI BIOS, so in order to not use those, I need to have ei.cfg and pid.txt working.

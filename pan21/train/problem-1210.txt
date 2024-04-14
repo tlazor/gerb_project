@@ -1,0 +1,9 @@
+So the level of stability during a switchover to another AP is at the mercy of the client's device and drivers.
+It's better to have each AP on a different frequency to utilize the whole spectrum without interfering much with each other.
+At the same time on a Windows laptop with an Intel wifi card it doesn't even migrate from one AP to another unless I force it by disabling/enabling the wifi interface.
+You can't have a stable setup by using the same air space for both your clients and your 'backbone' between all the APs. Especially on 2.4GHz which is pretty much full of noise.
+One thing that Mikrotik can do is set a threshold of minimum signal before forcing a disconnect on a client that way forcing a re-connect on another AP potentially. But this method will probably cause more lost packets. Again it all depends on the client implementation.
+I wouldn't use the WDS approach. I just don't see any benefit. Especially if you have to use the same frequency on all APs. That would be kind of disastrous in terms of generated noise between the APs.
+Wireless Roaming happens on the client. The client's device decides when and if it will switch over to a better AP. The AP doesn't play much role in it.
+Or if you absolutely need to do this without cables you should use a different band for the backbone (ie: 5ghz) and different for the clients (ie: 2.4GHz). That means that the APs you will use must have dual radios to be able to transmit on different bands at the same time.
+Regarding the TCP connections, as long as you don't do any NAT or any other connection tracking stuff between the AP and the router, and you don't change the client's IP, the TCP connections should continue just fine during transition from one AP to another.  On an iPhone I just tested this and it simply switches over to the new/closest AP. Running a ping while moving it shows zero to 1-3 packets lost during the transition.

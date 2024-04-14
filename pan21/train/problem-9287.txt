@@ -1,0 +1,6 @@
+Putting the ss flag before the input file is going to be a 'rough guess' in terms of PTS, but has to snap to an I-frame to work.  It happens much more quickly than putting the ss flag after your input file, but at a cost of being less accurate.
+I have a video with forced keyframes every 2 seconds. Ideally, I was hoping I'd be able to get frame-perfect slices without having to re-encode. For example:
+Whatever I do, I get the same result. If I look at the PTS for the original for frame 60, I get 2.002000 (instead of 2). But, even if I use this for my slice, I get the same offset.
+(Probably not realted, but I'm also curious why the first frame of 0_slices.mp4 has an offset PST/DST, even though the original doesn't)
+When you put the ss flag after the input file, FFmpeg will decode from the beginning of the file all the way through until your -ss time starts.  It then dumps all of the information before the ss time... So it takes much longer, but it should be accurate.
+Digging more into it, it looks like the first slice is frame-accurate, but everything after that has a slight offset (it might have other problems, but I'm just focusing on this for now). The first frame appears ok:

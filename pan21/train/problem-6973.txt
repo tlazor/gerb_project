@@ -1,0 +1,6 @@
+The issue here is that the include of conf.d/* is inside the http {}, which is exactly where the access_log directive is. What you can do without touching nginx.conf is to change whatever server{} you are using (if you didn't setup one you are using the default one located at /etc/nginx/sites-enabled/default). So to achieve the same without changing nginx.conf you should change your file in the conf.d folder to:
+Is there a way to tell nginx to override the previous directive and simply change the log format without modifying the main nginx.conf file?
+the answer to your question is NO, you can't override a log_format at any level in nginx and you can't override access_log when in the same level, except switching it off. However, you can achieve what you wanted without changing nginx.conf but you will have to do it at server {} level.
+The problem I have is that then I'm getting two records inside my access.log file - one with the header info and another one without.
+I know I can overwrite the nginx.conf file itself, but I'd rather avoid it if possible. I would also like to keep using the same log file (access.log).
+I'm using the default nginx package on Ubuntu 14.04 server. It is using /etc/nginx/nginx.conf as the main config, and then includes configs from /etc/nginx/conf.d/*.conf and /etc/nginx/sites-enabled/*.

@@ -1,0 +1,8 @@
+'Unable to connect' could mean that the connection was refused, or that it timed out (i.e. there's nothing at the other end, or a firewall is silently dropping the packets).
+The common thing in both is the end result, that I cannot reach data on the server. But what makes these two different? What are the two networking scenarios?
+edit is 'connection was reset' the same thing that 'actively refused'? What is actually happening in this case?
+When you see the Unable to connect message, no connection could be established at all within a timely manner. A possible reason is that you do not not have internet connectivity or that the remote server is powered off.
+Connection was reset is shown when a connection could be established, but the server decides to abort the connection before sending a response. This can happen when the webserver is configured to ignore certain invalid requests (the webserver nginx can reset the connection when the host name is invalid). Another reason is that the server software crashed.
+'Connection was reset' means that the browser was able to establish a connection, but the webserver closed it before data transfer was complete.
+These actual error message texts were extracted from my Firefox. But I suppose these describe two general scenarios in networking.
+'Actively refused' means that there's nothing listening on port 80 (or port 443 for HTTPS) at the far end.  Less commonly, an intervening device like a firewall may be refusing the connecction.

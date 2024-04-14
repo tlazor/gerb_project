@@ -1,0 +1,10 @@
+You need to plan for some sort of failover of the VMs, and to plan for some sort of "extra-VM" management that will protect your VMs in case of failure.  Of course, this sort of redundancy means increased cost - which is probably why many times such an outlay is not approved until after its benefits have been seen in practice (by its absence).
+One major problem with a large environment like that would be disaster prevention and data protection.  If the server dies, then 100 VMs die with it.
+A 100 VMs is a bit steep, but it is doable, especially if the VMs are not going to be very busy. We easily run 60 servers (Windows 2003 and RHEL) on a single ESX server. 
+Last time I checked, VMware recommends no more that 4 VM's per processing core for ESX, assuming one vCPU per VM.
+This is just a few: a massive VM infrastructure requires careful attention to prevention of data loss and prevention of VM loss.
+Never done it - but I promise you'll spend much more than on storage to get enough IOPs to support that many VM's than you will on the server hardware.  You'll need alot IOPs if all 100 of those are active at the same time.  Not to sound negative but have you also considered you're putting a lot of eggs in one basket(sounds like you're after single server solution?)
+Yes you can. Even for some Windows 2003 workloads as little as 384MiB suffices, so 512MiB is a pretty good estimation, be it a little high. RAM should not be a problem, neither should CPU.
+Anyway, we are not experiencing the 20 VM performance degradation. What version of ESX are you using?
+Most likely your bottlenech will not be CPU or RAM, but IO. VMware boasts huge amounts of IOPS in their marketing, but when push comes to shove, SCSI reservation conflicts and limited bandwidth will stop you dead way before you'll come close to the IOPS VMware brags about.
+Assuming you are talking about VMware ESX, you should also know that is able to overcommit memory. VMs hardly ever use their full appointed memory ration, so ESX can commit more than the available amount of RAM to VMs and run more VMs than it actually 'officially' has RAM for.

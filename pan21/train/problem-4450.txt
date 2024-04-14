@@ -1,0 +1,6 @@
+It has a couple of suggestions for extensions to delete duplicates and also has some tips on avoiding them in the first place.
+I've used this extension on several thousand messages at once (merging mail archives from different mail clients that had used POP to fetch mail) and it hasn't burned me yet. You probably won't want to try it on one of Thunderbird 3's new "unified" folders, as I'm not sure that will turn out too well. Rather, switch to the "All Folders" view and select two individual folders using the context menu option Set original message folder(s) for next duplicate search.
+On the client side, your only real option is to create a filter.  Differentiating the two emails is not immediately obvious to me.  Here's what I would do:
+The kind of de-duping that you're asking for is usually configured on the server.  For example, one can configure Microsoft Exchange to recognize that a particular user is also on a distribution list, and only send one copy:
+Note that it refuses to work on "special" folders by default, and you have to enable this option in the settings:  → "Message Comparison" tab → UNcheck "Skip Special Folders (Sent, Drafts etc.)."
+I believe there's more development effort behind the "Alternate" version of the "Remove Duplicate Messages" add-on. (Last update March 11, 2011 as of this writing). This is the one I use.

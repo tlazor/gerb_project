@@ -1,0 +1,6 @@
+Look at all your default and copy constructors and copy/move-assignment operators. They're not consistent (the state of accumulator after copy-construction and assignment isn't the same), and some even have bugs (missing return statement). But they also essentially don't do anything that the compiler wouldn't do for you anyway. Especially, your move constructors/assignment operators are identical to the copy ones.
+With all that, your code will be down to a bit less than half its original size, and have much, much less repetition of template and typename gook. And still pass your tests.
+Do that for all your one- and two-liners, and your code will be much shorter and more readable. And easier to maintain: less "noise" is good.
+You can actually use the same functionality for the following three functions, the latter two being special cases of the first, if you can allow a small semantic change: drop this "priority" notion you have in comments and replace it with "first map declared tried first".
+Just remove all of them, and default the default constructor, and your code will still work (pass tests), will have less bugs, and much less noise. Only keep the constructors that take State or builder that the compiler can't generate for you.
+And your advance function boils down to this, after having factored out the common part of each loop:

@@ -1,0 +1,13 @@
+I think this is sufficient to get you busy for a while and I strongly suggest you post a follow-up question after incorporating the changes I suggested :)
+Why shorten the name? In this day and age characters of code are literally the cheapest thing you can find in programming. Don't try to bargain on identifier-length. UndirectedGraph is significantly better.
+Aside from that, you're misusing the HashMap as an Array. For all intents and purposes your code could just as well use Vertex[] adjacencyLists.
+Do note that this would require you to either resize that array as needed when you add vertices (which you don't support) or necessitate knowing the number of vertices before constructing the graph.
+This is just an ArrayIndexOutOfBoundsException in disguise. When you rewrite your code to use an array, you will actually get that one and don't have to roll that yourself.
+It's customary to declare packages as "reverse URLs". I for example use de.vogel612 for all my projects before putting in the project name and then building a package structure.
+Sidenote: Should you decide against using an array, the copy-constructor can be simplified by using putAll like so:
+Eagerly initialize your fields (and mark them final) where possible. Especially for the adjacencyMap that's useful. You can declare:
+You use this exception only when the user tries to remove edges that are not there. That's not an exceptional case. The Java standard library usually ignores requests to remove inexistant elements. The only exceptions to that (that I know off the top of my head) are Iterator and Stack. For an Iterator you'd get an IllegalStateException when you already removed a certain element. A Stack will throw an EmptyStackException when you try to pop or peek off an empty Stack.
+While we're at that Map. Since your graph is undirected you could formally define an Edge as a Tuple of Vertices or written in short notation:
+Same applies here (and for edges as well). Just wrute the name out. Interestingly the comment becomes completely obsolete then.
+~shiver. It's really really really bad to do I/O inside a constructor. There's so incredibly many things that can go wrong. In general you're better off not having the I/O inside the constructor, but doing it somewhere else and then use the results to create the instance of the class.
+You are making it a bit more complicated on yourself by having edges be a property of vertices. That requires maintaining an edge in each direction and is generally considered ... tedious.

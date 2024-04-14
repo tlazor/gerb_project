@@ -1,0 +1,9 @@
+In addition to the methods already suggested here, you could also try creating a BACPAC file and import it into your destination.
+The benefit of it is that it's a combination of exporting schema as well as data, and it's not dependent on the database version, so you could theoretically import databases from any version to any version.
+The downside of it is that before it generates the BACPAC file at the source, it runs some sort of strict validation process which can easily fail if you have references to objects outside your database (be it user or system databases), or if you have encrypted objects. But if you're lucky and it doesn't fail, then it can be a rather easy solution.
+Note: If you are using any new features like new data types, etc then you have to test out as it will throw errors.
+This is similar to how Microsoft recommends migrating your databases from on-prem to Azure cloud databases.
+To start creating a BACPAC file, right-click on a database and select "Export Data-tier Application..." (be sure not to be confused with "Extract Data-tier Application..." which is something different):
+Create a blank database on destination server. Use Redgate's schema compare and data compare to create and load data into the destination server.
+When you're done, you can use "Import Data-tier Application..." in your destination server, which you can see by right-clicking on the "Databases" node (again, don't be confused with "Deploy Data-tier Application..."):
+Note: I have used Redgate's schema and data compare and they are the best tools for such type of task and hence if you are using 3rd party tools, then my recommendation would be Redgate.

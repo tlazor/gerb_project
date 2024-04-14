@@ -1,0 +1,8 @@
+(Those commands should give exactly what you asked for. I'm not convinced it is what you want as it denies ftpuser any access at all to any files even remotely related to public serving...
+if you want ftp user to have access to: /var/www/html/example.com/web/ then run the above commands and then the following:
+The other options involve messing with ftpuser's home folder location, and I'd avoid it for standardisation reasons - suPHP will do the job perfectly, and without messing with your system configuration unduly.
+(and you will probably have to grant ftpuser rx on all parent directories of: /var/www/html/example.com/web/
+It allows you to run PHP scripts as non-web-server users. You can then tell the FTP server to lock users in their $HOME, and move the DocumentRoot into ftpuser's home folder. You haven't mentioned which Linux distribution you're using, but here is a guide for installing in Ubuntu, and here is one for CentOS 6.
+The only important thing to note with suPHP is that the permissions must be 100% correct, or you'll get server errors. I can't post more than 2 links yet, so just Google "fix suphp permissions" and choose the "piyecarane.wordpress.com" pagge (first link for me currently).
+From your posted permissions, I am guess you just need to chown -R apache:root the example.com/ directory then do chmod o-rx to strip access from everyone but the webserver (and root). Your final alternative involves extended attributes (like ntfs permissions).
+You have a few options, but what I would do is install suPHP, if my assumption that you're using Apache is correct; if not, I hope my answer gets you on the right path anyway.

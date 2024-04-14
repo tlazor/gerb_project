@@ -1,0 +1,9 @@
+if you put "external.com" for example in there at the top it will try shipping.external.com first.  
+What you can do is create a CNAME so that an internal name example.internal resolves to another name example.com.
+In the DHCP set up you can set up dns suffixes to append that will be pushed to all the clients on the network.  You can also set this up manually on each box in the nic ipv4 properties. under the DHCP tab.
+You could use a CNAME to resolve one name to another, but that won't get you the full URL.  DNS cannot resolve to complete URLs, just to host/domain names.
+My company runs its own internal URL shortening service for exactly this purpose, using a short version of our corporate domain name.
+In order to do what you are being asked, you will need some type of application that performs an HTTP redirect.  This is essentially how URL shorteners like bit.ly and goog.le work:
+However, you cannot really mess with the path portion of the url that way.  I'd recommend the first part and then use bookmarks.
+I am a de-facto IT Dude at a small company running on a LAN governed by a machine running Windows Server 08 R2. Our web sales and logistics director has asked me if I can create something internal to our company network where if you type in 'shipping' it goes to a Google Docs form that gets submitted back to him. Now, I understand how to 'name' a host, ascribing to an IP a string you can type into the address bar of a browser; I did it for our phone system and the printer at my boss' request. But how can I extend that to also resolve to the URLs of external web pages? Is that even possible?
+You can then type http://example.internal/restofURI to access the external site. Note that this may cause trouble with SSL certificates due to the non matching hostname.

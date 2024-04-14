@@ -1,0 +1,7 @@
+The next candidate, I think, is Ubuntu 11.04 server + KVM + Ganeti + Drbd, unless you can come up with a suggestion for a better solution that we have missed. 
+In addition to the normal networking, they're interconnected via dual 10Gbit NIC's, so networked raid/mirroring shouldn't be a problem.
+The guest VM's are mostly going to be running text mode linux, but of course it wouldn't hurt to be able to spin up a non-mission critical windows guest for running Visual Studio or checking IE compatibility of a web app.
+We have three servers and our plan is to run a number of virtual machines on them in such manner, that if one of the nodes blow up, we can either quickly or seamlessly get a spare running on another node.
+To follow on from David's excellent answer (that's how I'd do a full-blown corporate setup if I had the budget!), you can make up an 'economy' version of the setup he describes as follows:
+We've spent some time trying to get some magical cloud setup running using Stackops and  Crowbar but it started to look like they were offering way too much and were too complicated for our needs.
+For a nice fully open source and robust solution I would recommend the Xen Cloud Platform + CloudStack.

@@ -1,0 +1,5 @@
+I think this depends on the role.  For Domain Controllers, I treat them as a regular DC, and use the normal NTDS rules for Windows time synchronization, and do not use Hyper-V.  
+Done by right clicking the time/date, going to "Adjust Time/Date" - Click on the "Internet Time" tab -> Click on the "Change Settings" button and de-selecting the "Synchronize with an Internet Time Server" checkbox.
+I generally disable the time sync service for non windows VMs and sync them against the firewall. I've found that Windows in Hyper-V with the time sync service on hyper-v works fine but all the 'nix systems seem to drift one way or the other really fast. I've generally got a cron job running on those to sync everywhere from 2 to 5 minutes.
+For AD to function, it's more important that all DC's have the same time than for the time to be accurate.
+I decided since the Hyper-V integration services already provide time synchronization with the host Hyper-V server, and since it is already synchronizing it's time using the Internet Time functions, that it is best to just disable the internet time synchronization on the VM instance. 

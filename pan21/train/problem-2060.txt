@@ -1,0 +1,9 @@
+Is there any better way of doing this, allowing me to have my DNS Zones always pointing to an IP, and allowing me to change only single line to have this IP redirect to IP #1, or IP #2 when I need it ? WOuld I need to manage an "external" Windows Server only dedicated to this role ? (that would be costly).. Or odes any online service allows to do this ? (but at the cost of any latency that I must absolutely avoid) ?
+That isn't to everyone's taste, though, so one alternative would be a pair of dedicated front-ends, with CNAMEs for your domains, to allow round-robin between the two. 
+When My Server #1 (production) will be down (in case of Disaster), I will need to redirect all the the domain names to the Server #2 (emergency). In this case, my plan is to do the following :
+You can generally dump nginx or haproxy on something like that, and be OK (but if this isn't your area, a managed front-end might be better).
+I don't know how long the consensus is this should take, but I generally tend to think 48 hours is a reasonable - not every DNS server will accept your specified TTLs, and there are some fairly deep hierarchies out in the wild, resolvers relying on resolvers relying on more resolvers some distance away from the authoritative servers. 
+Basically, here is my need : Being able to specify an IP address in the DNS Zones of my 60+ domains, and have the ability to redirect this IP to another one (and change it when needed). I'm not the kind of "network guy", so a little help would.. well...help ! ;-)
+Check what OVH offers - this is a common need, and they may well be able to provide you more specific advice.
+Please note that the public IP is used in many of places on the Windows Server : IIS Web Server, Plesk configuration etc.
+This would allow you to specify the load-balancer IP or CDN in DNS, and be able to deal with the backend config separately. 

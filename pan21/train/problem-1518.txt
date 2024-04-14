@@ -1,0 +1,5 @@
+robots.txt also works but as said already, this way actually reveal your site to human when they directly access your robots.txt
+It is unlikely that it will be found, but you can't trust it. If you don't want the world to see it, put some kind of authentication on it so your friend has to at least log in. Even then, once you share it with your friend you can't be sure he hasn't leaked the secret to someone else. If you must do this, take it down once you no longer need to share it.
+If your friends happens to use the Alexa toolbar (by Amazon) or any of a thousand other toolbars or browser helpers/plugins that run within the browser, that toolbar/plugin will know you are visiting the page and can easily send that URL anywhere it wants.  Whether any of them do this or not, I don't know, but I doubt that none of them do this.
+if all you want is to keep search engine from indexing it, just put META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW in your html head section.
+How much information are you trying to share this way? A better bet may be to send it via encrypted email, assuming that this is possible in your case.

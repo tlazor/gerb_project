@@ -1,0 +1,6 @@
+Incidentally enough it has 8 discs on a hardware RAID - the file server section serves files from a 4x500gb RAID 5.
+Your goal is what? Learning - great. Getting usable skills - how do you transfer that to a real windows environment? If you want to learn, rather learn with the stuff your employees / customers will use, you know.
+All that is ONE server. Seriously - using Windows all those are OS roles, there is nothing against installing them on one server. Especially as most are not using any load / memory worth mentioning.
+Now, the question is what you want to learn. Using Linux is great - avoids some overhead, small. But totally useless in pretty much 80% of the real businesses which somehow do rely on windows. I never was so far in a business where I was put in front of a Linux based workstation.
+Hardly. FIrst, a file server in a small office normally has no IO worth mentioning - small office != many people using it, it basically does nothing most of the time.
+No. Too much overhead and work. I am a big fan for virtualization, but I would not isolate my office DHCP / DNS server from a domain controller etc. - simply not worth the effort in the real world, especially office side (something else for internet facing DNS).

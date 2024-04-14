@@ -1,0 +1,9 @@
+You don't need the CSR as it will be used only to generate the certificate, but you need to keep a copy of your SSL key & certificate from your old server and need to copy that to your new server. Otherwise you are going to end up getting errors when you install the certificate in the new server.
+No, SSL certificates have no identifying information that tie them to a particular machine or even IP address.  As long as the DNS name doesn't change relative to the CN/subjectAltNames on the certificate, users won't notice a thing.
+I'm not sure what info is in the CSR and whether it has any server hardware ID's etc or if it is entirely just domain name driven.
+So if you want to keep the same domain name, IP address and keep any clients from complaining, transfer the same certificates, self-signed or otherwise from the old server to new one.
+Now I'll be getting a new server next week so my question is if I generate a CSR and get an ssl certificate and install it on server #1, next week when I move everything over (including IP addresses) will it affect the SSL?
+Also interested if SSL's are bound to specific IP addresses, meaning if I change IP addresses later will it affect the SSL.
+Known hosts information is remembered in $HOME/.ssh/known_hosts and system-wide hosts are remembered in /etc/ssh/known_hosts
+I need to generate an ssl csr for a wildcard certification which I can do using openssl and ssh (I don't use any web based control panels such as cPanel).
+SSH and SSL use the server's private key as the identifier. openssh implementations remember the IP address, corresponding public key for the server, and the DNS name, if given. Default settings usually mean SSH will kick up a fuss when connecting. This can be overwridden in /etc/ssh/ssh_config (See man ssh_configfor details).

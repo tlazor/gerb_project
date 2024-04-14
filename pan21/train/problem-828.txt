@@ -1,0 +1,5 @@
+I was searching for this error for a while and have not found any proper response why this was happening on my machine.
+This is an Oracle Support Article in the topic, which was applicable to my case: Oracle Database/Client Installation 12.1.0.2/12.2.0.1 raises PRVF-3919 ON WINDOWS 10 Build 1703 (Doc ID 2307844.1)
+Thank you all for your answers.  I believe @John Eisbrener had the correct answer.  I placed the installation in a root "C:\Oracle" directory instead of accepting the default User Directory installation.  It installed without issue after that.
+Hope this helps others struggling with this issue on the impacted OS version, trying to tweak the variable etc. etc., all in vain.
+The issue is that the installer cannot access the PATH variable and it is stupid enough to stop the install because of that (unless you force to bypass all checks). A Microsoft bug caused this: https://blogs.msdn.microsoft.com/winsdk/2017/08/24/openservice-fails-on-a-service-marked-for-deletion-on-windows-10-version-1703-os-build-15063/

@@ -1,0 +1,7 @@
+If I had occasion to revisit this project, I'd probably try to update my code to match the approach taken by Dmi7ry in the other answer.
+After these variables were set, I'd check for the existence of my .ini file.  If it existed, I'd overwrite the variables I had just set with the ones stored in the .ini file.
+Note that I ended up storing my arrays of reals as a string.  When I needed to use them again, I split the string by commas and cast them to reals via a function:
+One last note: if you're interested in saving space, you could simply save the number you're seeding the random number generator with.  Then, if you reseed the random number generator with the same number on the next startup, it'll generate the same sequence.  Here's a snippet from the official docs:
+I needed something similar when I was collaborating with a friend on a simple shmup.  I was doing development and he was doing design.  I exposed various game constants in a plain-text .ini file.  He could edit them and modify the feel of the game without having to recompile the code.
+I came to the same conclusion you did: I used ds_map.  Basically, on startup, my game would run scr_readIni.gml, which set a bunch of variables.  Here's an example:
+I scoped options as a global variable so that the appropriate game objects had access to it.  There's probably a more elegant method -- there is in most object-oriented languages -- but this was the approach I settled on.

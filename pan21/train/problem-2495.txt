@@ -1,0 +1,7 @@
+Keep the next few after C: (E:, F:, G:) reserved for physical devices (CD/DVD, removable media, etc).
+Then ask some business questions to the company.  How to people work, what kind of information do they deal with on a shared/group level. Pick a couple of the big ones (departments, clients, projects) and map drives to the top level of each of those directories.
+I would also add that you probably want to implement Access Based Enumeration when you move to Windows.  Novell handles this natively, but this will not let users see any files or folders they don't have access to.
+Keep C: as the system volume.  As much as I can't believe it still happens, it does still happen where software is hardcoded to install to C: (those devs should be shot).
+Beyond that, I try and match things with what they start with (obviously with limited degrees of success as the number of drive mappings increases).
+In my own humble-opinion, if you can get past the concept of "drive-letters"... forget them altogether.  UNC paths can take you a lot further, and you won't run into naming collisions.  You may also want to consolidate your various server names & shares into a single (or a few) DFS roots.  That will provide a single UNC path to turn to in order to find any & all relevant shares for the users... and provide options to setup replication, fail-over, and scalability.
+Don't map a user-specific directory.  Redirect their "My Documents" folder to a network share using a GPO.

@@ -1,0 +1,8 @@
+Basically, in their new API everything that can be time-consuming (disk IO, network IO, etc) is now async. You just can't call it synchronously.
+Sorry, I did not look thoroughly through your code, but regarding "good real world examples of the new Async and Await features":
+Writing simple windows 8 store (ex-"Metro-style") application helped me greatly to understand and get used to async/await pattern.
+This is a really cool way to deal with UI, in contrast to old BackgroundWorkers/ThreadPool and Dispatcher.BeginInvoke hassle.
+We are then using events to add the downloaded files to an observablecollection (new thread safe version in .net 4.5) on the ViewModel.
+For example, you need to download a file and save it to disk, and display busy indicator in UI. In your ViewModel you then say something like:
+I'd say this is a good real world example (my "dictionary" app uses this approach to load translations from disk). 
+I have been looking everywhere to find good real world examples of the new Async and Await features in .net 4.5. I have come up with the following code to download a list of files and limit the number of concurrent downloads. I would appreciate any best practices or ways to improve/optimize this code.

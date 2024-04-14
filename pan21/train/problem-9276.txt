@@ -1,0 +1,12 @@
+You are correct to suspect that your $5 network tester is inadequate to the task.  It's fine for verifying that your wire map is correct and that the you have connectivity, but it won't detect any of the other problems, like the many varieties of crosstalk.
+There are companies that lease test equipment.  If you could get your hands on a good Fluke meter for a day, it would go a long way to identifying any of the more esoteric wiring problems.
+A 'cheap' solution is to swap out your network switches with (used?) managed switches that can monitor packet loss.
+If you have a technical center in town (highschool votec) they might have a highend fluke that could do the work -- call them and see if its something you could use as a teaching exercise for students and borrow gratis.
+There is also the, "if it isn't broken don't mess with it" school of thought.  If you aren't having problems its 'close enough' to working.  I have seen some REALLY badly installed drops that drop ~10% of the packets yet still work.  Stick with your laptop test, copy a 100mb file off another machine, and call it "good enough" for now.
+You can pickup really cheap 100base switches that are fully managed, and use something like Cacti to log all packet errors per port over time.
+After that, as has been said, load-test, beg or borrow some testing tools and definitely look for a managed switch that fits your budget.
+If you are fine with learning about problems as they occur, you're probably fine with the testing process you described.  Another good test would be to push some actual traffic through the wire (iperf on both ends of the wire) and see if any of them run dramatically slower than the rest.  
+If you have a little more money -- consider asking a local wiring company what they would charge to audit your connections.  They have the $1000 fluke that can do the work, and should charge ~$120/h for two people to run the tests for ~05 minutes per drop.
+Invest in a 'real' tool.  They are like $80 aren't they? I think thats what I paid with a 66 block and a 120 block punchdown (are those the right numbers).  It litterally changed my outlook on cabling.  I would implore you to even buy it yourself if you have to.
+Every network guy's first investment should be a decent punchdown tool; you can get a workable unit from your local mega-hardware store, most of them have a low voltage/electronics section these days.
+The downside is that when some weird network issue occurs, you'll never be sure if it's your wiring or something farther up the stack.

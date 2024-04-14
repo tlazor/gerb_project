@@ -1,0 +1,6 @@
+Then I called someone on skype, and my laptop decided that it'd play all the sound over it's own speakers, even if headphones were pluuged in. Though I can fix skype by changing skype's audio options(to play over 3.5mm jack), when I call someone, the rest of my sound still goed over the internal speakers.
+I've got a brand new laptop, and while installing stuff everything was fine. When I'd plug in headphones in the 3.5mm jack, all the sound would just go there instead of at my speakers, which is exactly as I want it.
+This is pretty specific, but may help someone trying to figure this out.  I was having the same issue, probably after installing skype, and on my laptop (HP Elitebook) I couldn't set the default device to "communication Headphones" through the windows interface, but was able to do it through the "Catalyst Control Center" (by right clicking and selecting it as default device).  Now everything works as it did out of the box, playing through the speakers normally, and through headphones when they're connected.
+You have to plug a hand free(headphones) on its place and try these steps again. Eventually, It will work.
+The Sound control panel should appear, on the "Playback Devices" tab - there won't be any playback devices visible.
+I want all the sound to go through my headphones whenever they're plugged in, no matter what I do. What should I do?

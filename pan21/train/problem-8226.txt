@@ -1,0 +1,6 @@
+I don't care about compilation time and the amount of modules that are not built-in. I'm concerned about performance. I don't know how much memory and runtime is wasted on huge kernels with almost everything possible.
+Just use the default kernel for your (server) distribution. It won't matter for dev purposes and for tuning a production system you need an expert anyway (who will look at the kernel compilation options last). 
+could please anybody recommend some kind of kconfig generator that would trim modules and built-in stuff that is not needed according to current hardware ?
+I'm a java developer and I don't know what most of the modules and drivers are for. So there is not much I can disable and be sure that I don't screw it up.
+You could look into genkernel from gentoo linux, it seems to deal with issues you are concerned about.
+Is this for a specific embedded system? In general, changing compile options isn't going to make a big difference. Where performance matters, the modern kernel generally either automatically selects the best option, or else offers run-time tunables. You'd be better off working with those, or tuning your Java environment and your code. 

@@ -1,0 +1,8 @@
+For me the issue was slightly different. For certain accounts the IT Administrators had prevented log on to all Workstations. 
+The server I was setting up was not included in the allowed log on computers, hence it was failing to log on. Adding the server in AD meant the account could now run SQL Server.
+It worked but I am still puzzled why it worked in Services but not in SQL Server Configuration Manager. Active Directory vs WMI? Anyone?
+When I went back to the SQL Server Configuration Manager and opened the SQL Agent configuration, I noticed that it now contains the post-Windows format of the login name (@).
+I'm running Windows Server 2012 and SQL Server 2012 and the older format (\) does not work when using SQL Server Configuration Manager.
+I was also able to get the SQL Agent Service to start using the Services mmc snap-in. I first used the Browse button to reselect the account and noticed that the Service did not return the pre-Windows 2000 Logon on name, the SQL Server Configuration Managers return the pre-Windows 2000 login name.
+I went to the Services mmc snap-in under Control Panel -> Administrative Tools instead of SQL Server Configuration Manager. Changed the password there and started the SQL Server service successfully. Repeated the steps for SQL Agent.
+After doing all of the above, the issue still remained. In the end, it was the action below that resolved it:

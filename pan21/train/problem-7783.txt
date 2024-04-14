@@ -1,0 +1,7 @@
+A nice robust solution I might use is to parse out the date of each file, convert them to datetime objects in either python or perl, and then delete older than X logs.
+I actually wouldn't recommend using modified time because something could mess this up and then you lose logs.
+If you're running on a Unix/Linux platform then you can do this easily with the 'find' command.  See here for a good tutorial.  You could gzip them if needed and then rm the raw logs based on last modified time.
+We're using vlogger to manage our apache logs which keeps everything nice and neat but pretty much breaks the ability to use logrotate from as far as I can see. eg. our virtual access.logs each sit within their own dir and are named similar to:
+A more one off solution might be something like the following in the shell to delete logs from last month (without echo of course):
+I'm presently using the following python script. I don't really recall why I'm using the default date mask, which is definitely awkward. Adjust the RE defined in MASK, change the LOGDIR var and set THRESHOLD as the number of days you want to retain.
+Has anyone created a cleanup script to go through the /var/log/httpd/ sub dirs and remove old logs? We like using vlogger, but cleaning up olds logs after it is a pain!

@@ -1,0 +1,14 @@
+In this case distance starts playing a role for overall throughput. In the office scenario the latency from server to client was <1ms when the link was not saturated. However getting from NY to LA takes longer, lets say the round trip time is 100ms. 
+The server only has 1Gbit of total bandwidth to share between all the users, so if 2 users download files at the same time they would get ~500Mbit each. This case justifies adding another NIC to increase the server total bandwidth.
+Is it possible to use multiple NICs and increase throughput and/or decrease network latency?  If so, what would be the scaling limit?
+Please also note that you may also have to configure the Link aggregation at the Router/Switch side as well.
+This is an interesting but complicated topic and like most things engineering the answer is: It depends! In this case the lack of detail adds ambiguity (I'm not allowed to comment asking for clarification just yet).
+Another common scenario that applies to your question. You have a file server located in New York and a bunch of users in Los Angeles. Everyone is still connected by 1Gbit links.
+In this scenario 2 users would not be able to max out the 1Gbit link on a standard file transfer. This is because link capacity is no longer the limiting factor, rather TCP window scaling starts to play a significant role.
+Yes,The first part of your question is possible.You can very well do the NIC bonding of two NICs connected to a machine and increase the throughput.
+Reference:https://www.cyberciti.biz/tips/linux-bond-or-team-multiple-network-interfaces-nic-into-single-interface.html
+Assuming the users are not saturating the new 2Gbit link, latency to the server will also improve. This is because packets will not have to be queued at either side of the link connecting the switch and server waiting their turn.
+Generally, adding NICs can significantly improve throughput and by extension latency, but it 100% depends on what underlying problem you are dealing with. 
+However,Network Latency cannot be improved simply by NIC bonding.Latency will be a bottleneck due to physical limitations.
+How significant? A rough estimate (throughput = window size / round trip time) shows that a each user download will max out around ~5-6Mbit/s.
+Lets start with a common scenario that applies to your question. You have a file server and 4 users in an office, all connected via Gigabit Ethernet to the same switch.

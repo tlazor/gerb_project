@@ -1,0 +1,7 @@
+Indeed, ssh localhost tty gets me a 'not a tty' (preceded by '.bashrc' indicating that ~/.bashrc gets sourced in nonetheless).
+I've prepended each of my bash config files (~/.bashrc,~/.bash_profile,~/.profile) with echo NAME_OF_FILE, i.e. I get '.bashrc' when I source in ~/.bashrc. 
+I.e. ~/.bashrc will get run when you invoke it via ssh, regardless of whether you have a tty or not.
+I've grepped all my config files for commands sourcing in ~/.bashrc explicitly, and there are none that explain it.
+(I only have tty -s && shopt -q login_shell && [[ -r ~/.bashrc ]] && . ~/.bashrc in my .bash_profile so that I get '.bashrc' even in interactive login shells, but this doesn't explain the ssh issue—I can comment it out and I still get the same behavior with the above ssh examples)
+What baffles me is why I get and indication that ~/.bashrc gets included when I run a command over ssh. E.g., if I do:
+Why is getting ~/.bashrc sourced in in this context? Shouldn't it NOT get sourced in since this should run an non-interactive bash session?

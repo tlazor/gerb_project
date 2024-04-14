@@ -1,0 +1,9 @@
+1) What could be causing the undervolt when P2 is stable at +5? There may be a power issue with the two USB NICs, but with 1.2A available and a total load about 600Ma, .. ??
+Second you claim "rock solid 5.01VDC", however the reading on a DMM is an average - you would need to monitor on a CRO or similar to demonstrate transient voltage does not fall below 4.63±0.07V. It is likely that there are short spikes causing voltage drop.
+I use a 5V 6A supply for my Pi. This works well, but I have to use short thick wires to avoid problems (which are worst with the Pi3B+).
+2) Why would the Pi not like an external PS? During one test it even thew errors with a 60W Anker. What is the Pi complaining about?
+Firstly, the undervoltage you described is extremely unlikely to have caused a crash - the Pi itself will run down to ~4V (although this is not recommended). Provided the red PWR LED remains lit the Pi should run - although peripherals may have problems.
+A common cause of power problems with the Pi is supply cables. The vast bulk of cables (including those built in to official supplies) use wire that is too small, and thus high resistance. These are OK for charging phones (which can handle a drop to 3.6V).
+The system has two USB NICs, .. so first upped the USB current to 1.2A, but still getting undervolt log messages (but NO lightening bolt on the screen).
+PS "Tried a powered USB HUB, no connectivity" - if you mean running your NIC from   the powered hub this means it is not satisfactory. Many hubs do not have proper power circuitry, and are still reliant on a good power supply to the hub.
+This is a weird one - have had 2B in service for three years, but it crashed last week. Rebuilt with a new Pi 2B+, but saw undervolt errors on the rebuilt system that would have gone unnoticed, so this is probably what caused the crash.

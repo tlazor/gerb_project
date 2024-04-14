@@ -1,0 +1,6 @@
+When I try and delete it through powershell I get 'Get-ChildItem : The path is not of a legal form' 
+If I open the '.' folder, it's as if I did 'ls -l ./'.  If I go one deeper I get an error 'This file path refers to a location that is unavailable.'  
+EDIT: but it is very sad, that there is no Windows integrated way to delete this folder... or at least no easy way... maybe someone else has an good idea.
+I'm using UrbanCode Deploy for windows code deployments, and in my folder I've created a folder '.' .  I've tried all the powershell remove-item commands and flags I can think of, I've tried robocopy move / purge copying it somewhere else, and run a chkdsk with no reported errors. 
+At least a colleague tried it with a third party tool named "Long path remover" (from "Thorsten Eggeling"). This tool could also remove folders with not compliant names. But i don't find it on the internet anymore... Maybe you can or you try it with an similar tool that may help you. Maybe an other remover tool could delete it too.
+i had an similar problem some months before. I also tried everything with Powershell / CMD and other Windows standard featueres. Nothing helped.

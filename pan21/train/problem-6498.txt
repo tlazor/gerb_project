@@ -1,0 +1,6 @@
+So find out how the resolution of the hostname to its IP address worked in first place (with dhcp) and continue to look on the machine that is mentioned in /etc/resolv.conf or the answering entity in /etc/nsswitch.conf.
+Your router is probably acting as a DNS server for the local network handing out information about hosts that received an address via DHCP.  Or to put it differently, when a DHCP request is handled out, the router dynamically updates the local DNS database.  DNSMasq, is a common DHCP+DNS server on routers that does this.  
+If possible you should set a DHCP reservation in your router, not set a static address.  If that isn't an option, then you simply are going to need to update your hosts files on all your machines, or run a local DNS server.
+Also, the file /etc/nsswitch.conf defines in which order your hosts file, mdns, DNS and such are tried. It's the line beginning with "hosts".
+By setting a static address, you are basically robbing your router of the information it needs to respond to DNS queries about your host.
+This is not about DHCP but most probably about DNS. You have to have an address in /etc/resolv.conf where the hostname of your server is known so the resolution can work. I think the DHCP offer inserted something here that is missing (or different) when you are assigning the static ip.

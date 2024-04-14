@@ -1,0 +1,10 @@
+You can stream video from the Pi's to anywhere using UPD packet retransmission of the RAW stream from the cameras. This is very easy and basically has very low lag, we talking about 50ms max. Given your Ethernet has a good connection between the Pi's. You can use gstreamer for this (but requires good knowledge of gstreamer)
+If you really want to do this the right way, you should try and use the MIPI interface on the raspberry PI.  Good luck however because it's nearly impossible to get documentation out of Broadcom.  Here is some information:
+The problem is that the receiver then has to render the stream that is coming in and another problem is that the Raspberyy pi h264 encoder on the original Pi does not include time frames (which causes UDP and TCP transmission to fail to synchronise) There are scripts that fix that though. 
+Whatever video I have on raspberry PI  host name  "A", I have exported via NFS and CIFS on the same network.
+I have two Raspberry Pi B+ and one Raspberry Pi 2.  I would like to have the two B+ pis stream video to the model 2 pi.  This is for a realtime computer vision application, so I need the absolute fastest configuration I can manage.
+I have a Raspberry PI B model (host A) and has following services enabled: SAMBA (file share), transmission, etc.
+UDP transmission is faster than TCP but your receiver has to be able to cope with packet loss. But on a local LAN that is practically never.
+Please search this QA for answers about streaming video. You will find a few answers with allot of resources but you may have to go really low level to get what you need.
+The ethernet seems faster than USB, but because there are multiple Pis, I cannot use ethernet.  Some people recommend a serial connection between the GPIOs, but I would think USB would be faster than that.
+I have also read that I should just write to the /dev/tty* file associated with whatever option I use, but that seems too easy to work and I'm confused when data would then be read and written across the cables.

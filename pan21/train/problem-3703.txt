@@ -1,0 +1,8 @@
+Note that, due to the aforementioned free account, both computers must have an active Internet connection, even if you use Splashtop on a private LAN.
+What about Teamviewer? Not as responsive as Remote Desktop, but works without redirecting port through NAT, so it's a bit more secure than RDP...
+After you remote in, however, the computer will be locked and you'll have to enter a password when you return.
+Try the program Splashtop Personal. The freeware edition will allow you to have up to five server computers and as many clients as you want. The program keeps track of which servers belong to you with a free account on the Splashtop website, and you must set a password on that account (which you can save so you don't have to type it in all the time). Furthermore, the Streamer (server) options will let you set a password for each individual computer.
+Everything you are asking for is just not possible with Remote Desktop. There is a third-party solution, though, one that is much less laggy than VNC. 
+When you log in, you will use the currently active user account, and, by default, the screen will not be blanked. There will be a slight lag, but it is low enough that you can even successfully watch video. It accomplishes this by actually rendering the screen to MPEG video, choosing options that maximize speed of compression and minimize bandwidth.
+I believe if you enable the AutoAdminLogon feature, although your account will log on automatically, you will still be prompted to authenticate when you remote in.
+You could try setting up a VNC server with a password, as VNC authentication can be set up independently of Windows authentication.  That wouldn't be remote desktop in the RDP/mstsc sense, but the functionality is similar.

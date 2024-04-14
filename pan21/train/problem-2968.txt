@@ -1,0 +1,6 @@
+I would like to transfer/tunnel full UDP IPv4 packets across a non-standard interface which uses it's own L2 framing (we are not transporting the ethernet frame header). On the receiving side I would like to generate a new ethernet frame header that has appropriately set multicast, unicast, broadcast destination addresses. The embedded devices are running Linux Kernel 4.9 and any embedded software necessary to achieve this.
+Am I doing this all wrong and should instead be doing something with the tuntap driver? Any pointers would be greatly appreciated or if more information would be useful. Thanks.
+It allows a userspace program to receive specific packets from the network interface and one can do any operations on the packets.
+My first idea when seeing your problem description is to create a L2 tunnel between embedded device 0 and embedded device 1. This is quite quick and simple to do with OpenVPN in tap mode.
+The end result is a single Ethernet broadcast domain and the other link being completely invisible to applications.
+This tunnel will relay all Ethernet frames from dev0 to dev1 via the tunnel, and one can bridge the tap interface and ethernet interface in both ends.

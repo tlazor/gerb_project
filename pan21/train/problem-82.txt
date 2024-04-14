@@ -1,0 +1,10 @@
+This causes me grief because they're all different resolutions and despite selecting "Full Screen", that doesn't seem to save for me. If I work at home at one resolution, then come to the office and use a monitor at a different resolution, I'd often have my RDP window end up the "full screen" resolution for the last monitor I was using.  This means that it's either a little too big or little bit too small.
+The solution I found most useful was to set the properties of my local machine's task bar to "auto-hide" (right click on empty part of task bar, choose properties, I un-set the lock taskbar and checked the "auto-hide" property).  The local task bar still appears when I mouse all the way down to the bottom of the screen.  Otherwise, I see and can use the remote system's task bar.  Hope this is helpful.
+Create a "default.rdp" and save it as this thread has described. then combine it with mstsc.exe switches:  
+I have a combination of a "default.rdp" and the switches available with mstsc.exe. I did this because mstsc.exe does not allow complete configuration from the command line. By setting all my preferences in "default.rdp", then including a server name, /v: and display dimensions, /h: and /w:, I get a session the way I like.
+I like starting mstsc.exe from a PowerShell script. My scripts is named, "RDP.PS1" because RDP is easier to type than mstsc :) 
+While you're at it, usually doesn't hurt to go to the Local Resources tab and uncheck Printers and review what else is shared (seriously, who ever prints over RDP?).
+I have a laptop that I connect to different external monitors at different locations, sometimes I connect to my laptop from a desktop machine so I get the benefits of a fullsized keyboard/mouse/monitor..
+Sure, just slide that "Display Configuration" back a notch to whatever resolution you want. Then go back to the "General" tab and click on the "Save" button. 
+I used PowerShell to add in a few other switches if I care to use them. For the most part though, all I type is:
+There are some values that I usually almost always want the same: no printers, no drives and BASIC display settings so that the RDP session runs faster.

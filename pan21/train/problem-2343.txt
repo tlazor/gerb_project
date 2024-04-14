@@ -1,0 +1,9 @@
+You may want to look at building a BartPE disk. (I think it goes under a different name now, and I think the other link is to a similar project.)
+You will need an existing XP disk and licence to create it, but I've used it to successfully rescue some files from a jacked up laptop that my usual Ubuntu Live CD couldn't get to.
+Windows PE itself can do this too, and it's no longer encumbered by licensing restrictions.  Despite being Vista-based, I've used it for deploying a few thousand XP images (and the PCs in question are still up and running over 2 years on).
+Pros: you can load drivers while it's running, extremely good hardware support (USB out of the box), can run Win32 apps, very scriptable, supported by MS.
+You may want to look at using PING to create the images in the future as it will let you make your own "recovery CDs". I've used it in the past for some family work.
+I use UBCD4Win which is better than just the UBCD, this is based on the BartPE as well and it already has a lot of useful tools. What I like about it is that it also has a forum so you can see what other people have done and tried. 
+Last I checked there are some good plugins for BartPE for a lot of common disk imaging/recovery apps.
+Do a search for Windows AIK on www.microsoft.com and you'll be getting started.  Their "Malware Removal Kit" instructions probably provide the best "how to" documentation.
+If you're just looking for a customized Windows CD, look for nLite.  As for a bootable Windows CD, BartPE, mentioned above, is your best bet.

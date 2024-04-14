@@ -1,0 +1,6 @@
+You'll always get password tries and scans of services on your machine, as Mark said, it's the background noise of the Internet.
+Another, albeit security-through-obscurity approach, is that you can run some services on non-standard ports.  But that won't scare too many away. 
+1.) Install up to date software (if possible).  In fact, make sure your OS is also up to date.  Software manufacturers bring out new versions with security fixes all the time, make sure you have them; else your machine would be compromised quickly.
+2.) Enable only the services you need.  If you only want to server webpages and nothing else, make sure you're not running an FTP server, a mail gateway, etc...  Do minimal installations and cut out the fat.
+In addition to @mark's answer, any machine that you put straight on the Internet, make sure it's hardened:
+3.) Block access to ports . Your OS comes with a built in firewall; iptables.  Configure it correctly and only expose the (up to date) services to the Internet.  There are 3rd party programs that will allow you to temporarily ban connections from brute forcing IP addresses. 

@@ -1,0 +1,5 @@
+What I'm trying to do is get my Office 365 software into a Start Menu folder, because I really have no desire to have them cluttering up my Start Menu, particularly as I have the 5 Office programs I use most often set up on my task bar, anyway.
+Here's the rub: It turns out if you remove the default Office shortcuts, MS Office will helpfully re-add them there the next time you start it. So while I now have a subfolder, every time I start office the non-nested shortcuts come back, somewhat defeating the point of the exercise.
+Is there any way to suppress this behaviour? Some setting, registry key, or other workaround? (short of brute removing write permissions from SYSTEM, which would probably create more problems than it solves)
+So I'm new to Windows 10, and I'm using Classic Shell (which latches onto the Windows-native Start Menu infrastructure) in order to be able to have an old-style Start Menu which I find much more usable than Windows 10's default.
+My initial solution was to create a subfolder from within the Start Menu and moving the Start Menu shortcuts there.

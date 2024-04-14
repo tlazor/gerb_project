@@ -1,0 +1,5 @@
+I know that Opera has a good "fast forward" function (which tries to guess the next link), but I don't know how it would do with your particular site, especially if talking about javascript links, and not regular ones. 
+So I can only propose you to try it on your site (fast forward can be activated with gestures to the right, or Space repeatedly, until reaching the end of the page, if I remember good). Try with any Google search to be sure that you are using it good, it works on them easily.
+I would like to be able to, from the keyboard, hit the next button.  I am using windows, but can switch to any browser, if this is only possible is a given browser.  If this can be done with just one keystroke that would be wonderful.  Like just hitting the forward arrow would automatically bring click the button called next and bring me to the next page.
+If you have control over the HTML, try setting an access key for the next button. This article discusses some issues with this underused accessibility feature.
+I have a website for class that is literally 1000's of pages long, with a next button at the bottom like this:

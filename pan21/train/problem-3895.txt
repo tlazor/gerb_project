@@ -1,0 +1,7 @@
+So the best thing to do is to create a new certificate and keep the old one on the server so restores of the server before you change the encryption can be made.
+My concern is regarding backup of Database which was taken before changing Expiry Date. When I drop certificate and create a new one with different expiry date, thumbprint of certificate changes and hence unable to restore the backup which was taken prior to change.
+If you are making multiple changes to the certificate you need to make log backups after each change
+Next you execute ALTER SYMMETRIC KEY in the context of the user database to bind the newly created certificate to the Database Encryption Key (DEK).
+I have been searching through internet on how to change expiry date of TDE certification of a user database at SQL Server 2014 SP2 and got so many articles and most of them are suggesting to drop and create another certificate with a different expiry date. 
+Don't drop the old certificate as you might need to restore older versions of the database  but if you want/need to run DROP CERTIFICATE OldCert; 
+As long as the old certificate exists on the server you can restore the database from old backups and you can copy the cert to your secondary server even if it has expired.

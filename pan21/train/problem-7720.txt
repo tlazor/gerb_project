@@ -1,0 +1,6 @@
+Is there a single Windows command/action that can instruct all off-screen Windows to reposition to the closet desktop real estate that is actually visible?
+This is slower than the other methods, but works when everything else fails or when you don't want to break your desktop arrangement with a resolution change.
+Make your missing window active (from alt-tabbing or from the taskbar), then press alt-space to bring up its menu; it will show up on the edge of your screen even if the window isn't actually on your screen. Select "Move" and bring your window back using the arrow keys. 
+The third monitor has been disabled in the monitor setup for weeks now, but I still have windows that want to appear on the monitor that no longer exists. I know how to right-click on the task bar, select Move (for the programs that actually implement that context menu) and arrow-key the windows into view, but I'm really tired of having to do this for something just about every day it seems.
+Background: I have a three monitor setup, but sadly one of my monitors has died (control board is probably bad). I'm using Windows 7 Home Premium 64-bit with an ATI Radeon HD 5670 card.
+You can also go to Task Manager, find the process, Right click and then click Maximize or Bring to Front 

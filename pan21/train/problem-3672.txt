@@ -1,0 +1,10 @@
+I have created on my EFI partition (inside EFI folder) a folder called tools, and inside it I copied a EFI program that I have download from Intel, usually called EFI Shell 2, the file name is Shell_Full.efi.
+So that's it, here I am writing from my Windows 10 with this damn Nvidia Driver 341.74 that took me 2 entire days rebooting, repairing, reinstalling, updating, until I finally found the complete solution.
+First of all, @kinokijuf worked perfectly, but it was painful for me to understand what's going on under the hood.
+If yes, you currently know that exists an EFI partition and you have already copied all refind files to that place. You can boot and you will see refind taking place of the boot loading process.
+So if you get this repair / restart / loop installing Windows 10 on EFI, this is the way to go. I expect in future to find a way with less intermediate programs to boot my macbook.
+You need to boot your windows but prior to that you need to run this damn commands before, so my recommendation is to first of all INSTALL a better bootloader. I recommend rEFInd, it helped me a lot, and I always use it.
+You should CREATE this file that was passed as a parameter too, and there you will put that damn commands that solve yout life. Mine (startup.nsh) as follows:
+I will not lie, I don't know exactly what this does, but is a program, you put on the tools folder and YOU WILL PASS A SHELL SCRIPT TO BE RUNNED AS A PARAMETER TO THIS PROGRAM.
+Here's the source: https://svn.code.sf.net/p/edk2/code/trunk/edk2/EdkShellBinPkg/FullShell/X64/Shell_Full.efi
+If you are not used about what is an EFI, I will try my explanation: It's a new way to boot systems, you have a partition on disk for that and a bunch of small EFI programs. This partition usually exists on a Mac/Windows (if installed using EFI option), and you don't see it, unless you mount it.

@@ -1,0 +1,7 @@
+Just temporarily move your known hosts out of the way and the try ssh -vvv to the host a couple of times there should be a clue in the log.
+(I connect to dozens of SSH systems daily, and admin some of them.  But this one I really dont understand the behavior.)
+Maybe there is some kind of proxy or weird routing going on?  This is a remote datacenter in europe.  I have the same problem no matter the machine I try to connect from.
+Recently, when connecting to a remote machine via SSH, I'm not able to get a stable SSH connection.  It was working OK before, then the system got updated and its not stable anymore.
+If not, and you say the machine has been upgraded, then perhaps you just need to delete the old key and re-accept the new one (Usually the warning message displays the local key and line number is known_hosts)
+You mentioned that the system got updated. Maybe the SSH keys got re-generated in the process (for example if the system was clean installed). This may be something to consider also, in addition to the other things mentioned.
+Are you sure you are connecting to a single host on the remote side, it could be a round robin with different hosts keys on each host ?

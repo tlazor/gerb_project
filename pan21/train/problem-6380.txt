@@ -1,0 +1,12 @@
+I had a similar problem. For me, it was intermittent errors with *.imgur.com and also, ironically, with *.sstatic.com, the site used to server Super User's static content. Lookups would fail for a while, then work for a while, then fail again.
+The queries that were failing were for Content Delivery Networks. That makes sense, in a way, because CDNs often return complex DNS results to optimise performance.
+So option 2 was a bit better for me. It will mean a bit of maintenance, but I'm happy to use dig and edit /etc/hosts occasionally.
+TL;DR: Set up your computer to ignore your router's DNS proxy and instead use another DNS server. Try your ISP's DNS server or use a public DNS server like Google's.
+Your router has DNS caching issues. I had an older Linksys E1000 Wireless-N router, but I've found the issue also exists with other (cheaper) models.
+I also didn't want to want to use my ISP's DNS servers, since they were flaky when my router was involved, even for direct queries.
+Like me, you might have a problem with your router's DNS, with your ISP's DNS or with some interaction between the two. Here are possible solutions.
+Easiest thing is resetting your router, which usually cleans out the DNS cache. Check that your firmware is up-to-date, and update it if it's not. Another option is getting another router.
+I'm in I'm in New Zealand, and I didn't want to go with a public DNS server in another country. Doing so would mean higher latency for me on every DNS lookup. It would also lessen one of the main benefits of CDNs. CDNs try to serve content from local servers if possible, and they do this based on the location of the DNS server. A US- or Asia-based DNS server would have lessened this benefit.
+So maybe my router was messing up DNS responses from ISPs servers (both proxied and direct). Or maybe the ISPs servers were failing intermittently? It was hard to tell, and I didn't bother working out which was the real problem. :)
+If you only want to use these DNS servers on your home network then create a new Location in the Network control panel.
+Option 1 is the easiest. I recommend it if you're based in a location that has a local public DNS server. Here are the locations of Google's public DNS servers.

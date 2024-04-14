@@ -1,0 +1,9 @@
+It mostly works: when I type np whatever or when a Cygwin program calls for $EDITOR, Notepad++ opens. 
+BUT the bigger issue may be the whole idea of not waiting until Notepad++ exits. Shell commands which use $EDITOR typically are designed to wait until the editor sends back an indication that the editing has completed. This usually means that the editor has exited (e.g. with vi or nano). 
+Now to open a file I just type "npp filename.txt" from the cygwin prompt. I've haven't had to use the & at the end of the command.
+I'm running Cygwin and would like to use Notepad++ as the main shell editor, kind of like what I have on my Mac, where I can type mate whatever to open up an instance of TextMate. In my ~/.bashrc file in Cygwin I have the following alias and environment variable set: 
+Another alternative is to use plain, boring, simple Notepad as your EDITOR and reserve Notepad++ for heavy use (I got the idea from this blog post)
+However, the shell waits until Notepad++ is closed and won't allow any input until then. This may be specific to bash, but how can I open Notepad++ from Cygwin and tell the shell to not wait for an exit code to continue? Adding a & to the end of the alias command doesn't work correctly—it just opens an untitled file and warns filename: command not found instead of opening the file.
+This will also throw a tab into the currently running Notepad++ window rather than opening another one -- AND if the file is already open, it doesn't open it again.
+Emacs has a way to set your EDITOR to emacsclient and then when you're done editing, you hit a magical keystroke (C-x #) to indicate that editing is complete. If Notepad++ had something similar for cygwin users, I can see how this would work.
+There's a specific command in cygwin to accomplish this.   Make sure you download run.exe, and make sure it's in your PATH (or your PATH contains the executable)

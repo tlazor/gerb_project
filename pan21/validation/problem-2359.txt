@@ -1,0 +1,6 @@
+This happened on an old "SONY VAIO" Model: PCG-61112L. This computer was broken and I have fixed it but when I turned it on winload.exe was missing so then I created a windows 7 repair drive and fixed it up. Now I have windows 7 on my computer and when I started it up I was excited. But then the computer ran CHKDSK on startup and I thought I did something wrong. I'm wondering if this is normal after repairing/reinstalling windows.
+You can check the S.M.A.R.T values of the disk via a  software called CrystalDiskInfo which also displays the drives health depending on how many sectors failed etc.
+This could have happened in your case. When the computer was last used it was put into hibernation and the repair caused files to be changed.
+If you have any important data on that computer I would highly recommend to make a backup of any documents, pictures etc., even if the drive is not failing it still very old and especially if used a lot may already have some bad sectors.
+can also be very likely since the computer is very old and hard disk will start to fail at some point.
+According to https://support.microsoft.com/en-gb/help/2854570/check-disk-chkdsk-runs-when-you-start-windows-8-or-windows-7 Windows 7 will run chkdsk on startup when:

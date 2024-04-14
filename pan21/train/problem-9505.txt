@@ -1,0 +1,8 @@
+Several of the files – which were previously reported as corrupt – I randomly checked, and they now "seem" to be OK. (Meaning I was able to copy them and play them – most of our data is video files.)
+At this point, someone on the FreeNAS forums said, "You're screwed, at some point you had 2 disks fail, bye bye data."
+What I'd like to do is COPY everything for which we do not have a backup, and which is not corrupt, to another machine, and then upgrade this one to RAIDZ2.
+I'm using FreeNAS-8.0.4-RELEASE-p2-x64 (11367) on a box with 5x3TB SATA disks configured as a raidz volume.
+I'm thinking maybe what happened is that 2 drives became dislodged. I think the hotswap bay we have is poor quality.
+We don't have a backup for ALL the data ... so we need to figure out which of those files are corrupt, and which are usable.
+Went to console and view disks, it just said "loading" forever *couldn't get to the "Replace" option!
+I clicked the 'scrub' button ... zpool status showed "resilver in progress .... 900h to go" ... which is like a month...

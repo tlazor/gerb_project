@@ -1,0 +1,7 @@
+In your example, you should not add trivial comments. You do not have to write For loop continues for entire length of countOfArray, because this is clear from the loop body. Or // Imports Java random number generator.. This is clearly stated in the code before.
+You should only add comments, if non trivial things are happening. Even more, a huge amount of comments is a sign that this part of code should perhaps be changed to make it more clear.
+Perhaps you want to think about making it more flexible. You should prefer a List instead of an Array. You could use StringBuilder instead of String concatenation with the +. You could use a Map to calculate the occurrences.
+Be careful with code comments. I do not like the "comment as much as possible" way, this way has some serious flaws.
+If you are interested, I have appended a fast typed down implementation (this means, it does not check for all possible problems or caveats). You can scroll around and get some ideas how to handle some things. But be aware, that not everything is necessarily the best way. It mostly reflects my own experience.
+For generateNumberOfOccurences and generateAsteriskPattern I would use print instead of generate as for printNumbers, because this describes what is happening inside.
+If you want to test your methods (as stated in one comment), you should not do a print to sys.out inside it. It is very hard to test this things (You have to redirect sys.out or catch it somewhere else). But well, one can discuss if this is necessary in this small exercise.

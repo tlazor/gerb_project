@@ -1,0 +1,8 @@
+If a corporate network has a proxy server and the clients are configured to use it can you read encrypted web traffic before it goes out the proxy? Can you make traffic before the proxy not encrypt? I'm sure you cannot b/c the traffic is encrypted in the TCP stack on the client.
+In conclusion, you need to install the proxy certificate to every client using the proxy in order to monitor TLS traffic.
+You can read the traffic if you make it a transparent proxy with man-in-the-middle TLS interception.
+Here is the situation. A client is going to a file sharing site. I have captured the traffic with bro logs and pcaps. Can I get anything out of the SSL traffic? Can I use the proxy in anyway to buffer the encryption and allow the client's traffic to be read?
+Regarding your second question on capture. The answer to decrypting the capture is no. The actual TLS payload is encrypted using an encryption algorithm, and with current technology it is impossible to unencrypt it without knowing the key used for encryption.
+This makes sure that the client will connect to the proper server and not any wrong entity. This is one essential point in securing traffic between the two parties.
+Now, one can set up a proxy which will intercept this handshake. However, in case for this to work correctly, one must add the proxy's certificate to the trusted certificates store in the client, so that the client will trust that proxy's certificate is valid for all domains.
+Whenever a TLS connection is negotiated, the client checks that the certificate provided by the remote server matches the domain name and the response is signed properly using server's private key, which also matches the certificate.

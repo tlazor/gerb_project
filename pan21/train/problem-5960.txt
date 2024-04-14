@@ -1,0 +1,8 @@
+Go run a speed test to see what your actual bandwidth is.  Make sure you have all your downloads and stuff TURNED OFF before you do the speed test or your results will be skewed.
+If you are a home user, or even a normal company, most of the time you download way more than you upload.
+Note that having a slower upload connection will limit you using a NAS for example. I've tried a Synology one, the device itself is great, but trying to access it from outside (eg from work) is a pain because the connection is so slow
+I personally have a VDSL connection, when running a test on speedtest.net, I get 18Mbps/sec download and 1.87 Mb/sec upload.
+It is most likely because that is what your ISP has limited you to.  Most end users download much more than they upload, so ISPs give us more DL bandwidth than UL bandwidth.
+This is using somewhat dated ideas of client and server in pre cloud/P2P days, but it's still more or less true that you download more than upload.
+You probably have ADSL.  The A is for Asymmetric, meaning uploads and downloads are different speeds.  You have only so much bandwidth in your pipe, and the thinking is, as a home user not running servers, you're much much more likely to be downloading than uploading, so you bias the split towards the download.  
+If the data can flow faster when downloading, I do not see why it couldn't do the same when uploading. I think it is mostly due to restrictions set by your ISP.

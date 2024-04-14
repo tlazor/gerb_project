@@ -1,0 +1,7 @@
+How can I get those value up. Everything I read seems to tell me that this is possible, but I'm not sure what I am missing.
+I would also read this article about the disk performance of the Azure VMs, you'll notice that you're disk performance is actually within acceptable range: http://blog.ittoby.com/2014/05/cloudy-io-performance-increasing-azure.html
+I wouldn't add 16/100 GB disk into a single Virtual Disk inside Windows and expect it to be fast, try to minimize the number of disks and increase their sizes, create different Virtual Disks for data and logs, and if you have the option to, use the Premium Storage feature. 
+We are in the process of migrating our on-premises sql server to Azure and I am having trouble with the IO performance.
+Finally, I would read about the preview release of the "Premium Storage" feature, which will make the attached disks go up to 50,000 IOPS and run on SSDs: http://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage-preview-portal/ 
+I have created a new D14 instance and attached 16 virtual disks at 100GB in size each. I have created a storage pool in Windows 2012 and subsequently created a volume. When I run crystal disk mark, I am seeing very slow speeds and low IOPS. What am I doing wrong? 28mb/s is not going to cut it for our SQL server. 
+There is no clear cut answer to such question, however I will provide you with some links that should set you on the right path of optimizing the VM setup.

@@ -1,0 +1,6 @@
+Depending on the value of status ("on time", "at risk", "completed"), I want to format the cell background with a different color.
+I've also tried doing this by creating a named reference called "All", which contains a list of column references from each worksheete, but this reference is stripped out when I close the conditional formatting rule manager.
+According to Excel documentation the rule should accept a "cell range", and I've been able to enter disconnected cell ranges from a single worksheet (two columns not side-by-side):  $L:$L,$S:$S.
+However, when I replace $S:$S by a column reference in another worksheet: Marketing!$S:$S, this value is deleted when the conditional rule formatting dialog box closes.  
+But ...  if I do that, and want to change any formatting, I will need to edit all the rules for 10 worksheets.  So instead of a copy per worksheet, I'd like one rule that applies to each column on each sheet.
+So just wondering if there is a way to specify, in the "Applies To" field when creating a rule, a set of columns from different worksheets.

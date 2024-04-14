@@ -1,0 +1,6 @@
+FYI, you might want to point your offline files at a DFS share, even if you don't have a second target.  This way if you need to move to a new FS down the road, it's controlled at the DFS level and won't affect your clients.
+In order to used that API you need get VBScript to make WMI invoke a method.  I found a few Code samples on this MSFT blog, ... especially  this code sample will get you started writing VBScript that renames a file location
+This utility is not supported on Windows Vista and newer, however a COM and WMI interface have been created.  For an overview of what is possible, review this COM overview.
+Windows XP and Windows 2003 have a utility called CSCCMD /MoveShare that can move files from one UNC to another for you:
+Your other option is to create a cname record (guessing here) to point to the new server name, but the path must match verbatim. Eaither way, you'll still want to get that old servername out of the sync list and purging the offline DB is the only way I know how to do it.
+Oy... so i've gone through this before and it's not the most fun.  Basically, you need to go offline for each client computer.  Then copy the offline files to a safe location, and finally purge the offline folder cache (follow the instuctions linked here http://support.microsoft.com/kb/230738).  Then you can copy the file back and everything should be in sync.

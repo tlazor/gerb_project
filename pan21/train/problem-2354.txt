@@ -1,0 +1,18 @@
+So I have changed the ownership of those files to administrators and gave the permission to them and everyone. After this step I could log in and both the folders and registry keys were created.
+I have created a new user and put a password from my normal user (with UAC asking for an admin-password). Tried to switch to newly created user and had this error (in german on my pc):
+I have run this weird problem of not being able to create any users. It began with the idea of creating new user for gaming. Before that I had 2 Admin accounts, 1 normal password protected account, 1 guest accout (not protected for frieds) - and some several hidden services for Xampp Services. And never had such a problem anymore.
+So I had the idea to see what particular error message there is, which is timely overlapping with logging into that account and I have found these 2 errors (translation found on the net):
+"Windows cannot find the local profile and is logging you on with a temporary profile. Changes you make to this profile will be lost when you log off."
+Details - Zugriff verweigert" (did not find any exact translation but it says that the file cannot be copied and access denies)
+This does not work in my case as there NO registry entries in profilelist and there is NO folder for the user. The only trace of this newly created account is that it appears in the login screen of windows.
+I have done some research and found out there is a solution for this but mostly people experienced it with an existing already-in-use account, where they could delete the entry in the registry/transfer files etc.
+So I have started to investigate the security rights of all those files, which could not be copied. All of them were inaccessible by the Administrators!
+I have started to investigate the security rights of all those files, which could not be copied. All of them were inaccessible by the Administrators!
+Have you tried restoring to an earlier time through safemode? "The User Profile Service Failed The Logon"
+"Windows cannot log you on because your profile cannot be loaded. Check that you are connected to the network, and that your network is functioning correctly." (I think this is because it tries to login with TEMP account but does not succeed that too!)
+I had exactly the same problem. In the logs I saw it trying to copy something from default profile's local temporary Internet files. Why would default profile have temporary Internet files, I would think it should only have an empty directory? Checked my other Win7Pro 64 bit computer. Nothing there. I removed those files and that fixed the problem. They were directories called SQM and Content.IE5. 
+When I have started with this text I didn't know the solution so I have decided to keep writing and share. I did not know why suddenly the problem occured so I cannot trace it back to prevent it happening again.
+"Die Datei \?\C:\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\desktop.ini konnte nicht nach \?\C:\Users\Gamer\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\desktop.ini kopiert werden. Mögliche Fehlerursachen sind Netzwerkprobleme oder nicht ausreichende Sicherheitsrechte. 
+So I have changed the ownership of those files to administrators and gave the permission to them and everyone. After this step I could log in and both the folders and registry keys were created.
+When I have started with this text I didn't know the solution so I have decided to keep writing and share. I did not know why suddenly the problem occured so I cannot trace it back to prevent it happening again.
+So therefore I was wondering what the problem was and looking for answers. Finally I have found this about security rights of the folders. (sorry it is in german)

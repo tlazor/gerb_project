@@ -1,0 +1,8 @@
+So, add your child objects to one instance of the prefab in the scene, select the top-level of the prefab (or any object in its hierarchy that is coloured blue), and click the Apply button under the Inspector tab. All instances of the prefab will then be updated with the change.
+Is there a simple way of doing this?  I really don't want to remove them all update the prefab and then place them back.
+If you hadn't already saved your GameObject as a prefab then you probably just have to do it all the hard way.
+I have about 20 game objects placed in certain positions in my scene.  I then realized i need to attach two additional game objects to each one of these as children.
+If you've already saved your GameObjects as a prefab, you can add the GameObjects to one instance of your prefab. When you click on the instance of the prefab, an 'apply' option should show up in the inspector. If you click that it will overwrite the prefab with the properties on that particular instance and then apply that to all the instances of that prefab.
+Is there a way that i can add the two children to the prefab and all 20-something objects in the scene will also be updated?
+Note that this will immediately modify the prefab file in your Project folder, so if you're doing a significant change that you're unsure of, it might pay to back up your project folder first, just to be safe.
+When modifying a prefab in the scene, you can save the changes to be reflected on all instances of the prefab by clicking the Apply button in the Inspector tab - children, component values, everything on and under the prefab will get saved and applied to all.

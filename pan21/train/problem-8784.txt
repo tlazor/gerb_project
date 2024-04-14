@@ -1,0 +1,15 @@
+4.Double-click the DefaultPassword entry, type the password for the user account under the value data box, and then click OK. 
+If DefaultUserName registry value name is not found, create the new String Value (REG_SZ) with value name as DefaultUserName.
+After computer reboots and Windows XP or Vista starts, system can log on automatically to the preset or predefined user in the registry.
+5.In Windows Vista, DefaultDomainName has to be specified as well. To do so, double click on DefaultDomainName, and specify the domain name of the user account. If it’s local user, specify local host name. 
+RPC-HTTP, also known as Outlook Anywhere will definitely provide Exchange functionality without the need for a domain, but I'm not sure you can set it to never prompt for a username and password.
+I've been told by the client that their previous IT company had managed to setup another exchange server without it prompting for usernames and passwords (their words, not mine) but I haven't figured out how this was achieved.
+If the DefaultDomainName does not exist, create a new String Value (REG_SZ) registry key with value name as DefaultDomainName.
+However, I have a few clients who are not thrilled with the idea of joining a domain environment, mainly because of the hassle involved in copying profiles around.
+Note that if no DefaultPassword string is specified, Windows automatically changes the value of the AutoAdminLogon registry key from 1 (true) to 0 (false) to turn off the AutoAdminLogon feature.
+Secondly, the client is adamant about a lack of passwords and password prompts. They'd like ideally for Outlook to open and not prompt for usernames.
+As many have already pointed out, it's no problem to have a non-domain computer use Exchange.  I do so myself.  However, I think it would be more of a problem if the computers in question were XP Home or Vista Home.  These can't remember the logins or domains.
+On my test computer, I've had no luck getting the computer to connect to server.example.local when not joined to the domain. I imagine that there is a security policy setting that is not allowing anonymous clients to connect.
+It's certainly possible to use imap4 or pop access to have the client save the passwords.  I'd also wonder why they have exchange onsite at all if they don't want a domain.  Domain's make file sharing easier (if there is any impact at all).  I'd be interested in the "hassle" copying files around.  Note that if they are using exchange 2007 they already have a domain- so it isn't saving them any less maintenance.  It is also possible to set the domain security policy to allow blank passwords.  This would allow the users to login in the morning by typing in a username only in the morning.  If the users stay at the same workstations they can be joined to the domain and the users will never know it by setting the systems to autologin.  The following steps will turn on autologin:
+If there is no DefaultPassword value, create a new String Value subkey (REG_SZ) with DefaultPassword as the value name.
+If there is no AutoAdminLogon entry, create a new String Value entry (REG_SZ) with AutoAdminLogon as the value name.

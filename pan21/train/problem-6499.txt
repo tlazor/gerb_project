@@ -1,0 +1,9 @@
+If your database has no backups then it is not in full recovery mode. Untill you actually take a backup it will always run in simple, no matter the intented recovery mode (aka 'pseudo simple', see New script: is that database REALLY in the FULL recovery mode?)
+There are third party tools that can analyze the log and recover stuff, but they work only if the log was not recycled, so is back to the discussion whether the recovery model is really full or simple.
+No. The recover process always starts from a full database backup and then it applies the log backups.
+I would say no, even if a database is in full recovery mode, until the first full backup is taken it is actually running in a pseudo full mode and not the true full recovery mode.
+In SQL Server 2005, if you have a database with no backup - but it is running in full recovery mode - is it possible to "roll back" some deletes?
+If your database really is in FULL recovery mode, then a backup was tacken and the recovery can start with that.
+Some 3rd party log analyzer might be able to help to pick out what you want, but you've lost your data most likely.
+For future reference: ApexSQL was actually able to recover the deleted data from the log. Pretty amazing. 
+This causes you a problem since without the first backup to replay the logs upon, you will not be able to replay the log.

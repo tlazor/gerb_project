@@ -1,0 +1,6 @@
+You didn't tell us what your graphics card is, so this answer will have to be fairly generic, but basic OpenGL support is inherent to that graphics card itself. 
+The other aspect to which version of OpenGL is recognised as being supported is provided by your graphics drivers; so the next thing to do is test is whether they are reasonably up to date.
+Some background reading from Wikipedia : OpenGL but you don't need to understand all of that just to check your graphics card & drivers.
+There is a further consideration, specific to Mac so shouldn't be affecting you, which is that Apple dropped native OpenGL support some time ago, but has maintained support of base-level OpenGL 2.1, so that shouldn't be your issue if, again, your machine/card is newer than 2006.
+Any help or suggestion. Im using win7 Dual core 64bit with 4 GB Ram. I want to install the software called Blender and its requirement is 2.1. 
+OpenGL 2.1 is actually considered a base standard that many applications will support. It dates from 2006, so if your graphics card is newer than that it ought to support it.  

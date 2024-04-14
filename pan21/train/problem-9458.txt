@@ -1,0 +1,9 @@
+If one decreases the rotate by to a value of like 50 degrees the anomaly is much smaller, however the points rotate around the center many less times.
+Consider this case: The particle is 0.00000000000001 units from the center. Apparently it should rotate 1000000000 times around the center, given the speed it has, and given your iteration time for this re-calculation.
+I am open to completely changing the method I use even if it means physics, however polar coordinates will not work because of the way the center moves among other simulation reasons.
+Move it a little bit out, to 0.0000001 units from center. Now it should only rotate 10000 times around center during T.
+I am trying to create a simple whirlpool simulation, where particles are constantly compelled to move towards a point in a whirlpool like fashion.
+Just re-calculate a new, smaller radius first (somehow), then see how much distance it consumes along it's path this time (or how much it shall travel, where it ends), and re-position by a polar coordinate or similar.
+Even if it needs to rotate only once, it fails. Your maths work only if it shall rotate 1/10 of a full circle, or maybe the limit is 1/20, ie. and arc of 18 degrees?
+And this works quite nicely, however as the particles get nearer to the center it breaks down causing there to be an area where they just circle around never getting closer to the center. The larger the speed variable is the larger the radius is that they begin to not move closer to the center.
+A re-aim of 70 degrees * speed-model fails at distance D, whatever D may be. It simply aims erratically and will not get closer to the center. Apparently it finds a balance, or then goes to hell, as you say :-).

@@ -1,0 +1,6 @@
+On the other hand you COULD set up the computer as you like it, and use a standard account (disabling what you don't want with autoruns )and use 'guest mode' to prevent changes from happening. You can also remove execute privileges to the folders with the software you want (rightclock, properties, security tab), to this account.
+Unlike messing with things at a low level, should you need to undo these changes, it should be trivial, and a guest moded user account will be able to do almost nothing.
+Open the .exe file in notepad and just add few characters here and there before saving again.  Program busted.
+There's no hard and fast way to totally disable a program  - every program is different, and in any case, reinstalling it probably 'fix' whatever you did to disable it.
+well, you can use security options for that EXE or for its folder and uncheck "read and execute" for all users.
+Rename the executable file, it will be called something.exe, if you rename it to something.bak the operating system will not be able to execute it as an application. It will only be able to be run if it is renamed back to something.exe.

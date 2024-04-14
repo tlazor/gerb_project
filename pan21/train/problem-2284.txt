@@ -1,0 +1,5 @@
+Our openVPN instance tunnels right through our hardware firewalls without issue. The simple test is to connect the server to a client via openVPN, and block all FTP traffic at the firewall level. Ideally a If Destination is myServer:FTP and source is any THEN DROP/Reject type rule. I don't know what format of rules your firewall may take.
+Windows server 2008 R2 - I have setup OpenVPN, how do I give users connected to it access to an FTP server on the account (but no other users).
+If you CANNOT access FTP from the openVPN client, you'll have to open FTP to the server from your openVPN ip range and drop/reject it from all others.
+You might either set your filters to allow this range for FTP or place your OpenVPN gateway behind the firewall appliance, allowing OpenVPN clients unlimited access. I would not recommend the latter as you would be giving up all control, but I have seen installations doing exactly this for the sake of simplicity.
+Obvious alternative depending on the openVPN config and the FTP server software: ONLY listen on the openVPN ip address / adapter

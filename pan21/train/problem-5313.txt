@@ -1,0 +1,8 @@
+Next I booted to the recovery mode only to find out that none of the recovery points work, the automatic repair also didn't help and so I had to perform system reset.
+I reinstalled Cortana, checked indexing options, deleted related registry entry and rebuild index with no results, so I decided to let it go seeing as it was not that much of an issue.
+The windows reinstalled while keeping all my files and settings and everything went to normal. I check hard drive and memory for errors and all tests were passed with no problems, except that the search function ignored icons in Star menu. 
+About a week ago I got Machine check exception when I was starting my Windows 10 machine (HPE-420cs), the progress remained stuck at 0% for several hours and no error code was provided. 
+After waiting cca 3hrs I restarted PC using hardware button, since the PC didn't respond to any other way of commanding it. 
+I have been running tests since then from UBCD, memtest and CPU stress tests came out all clear. Right now I am testing the hard drive again but so far I found no errors and I doubt there will be any.
+I started using the PC again only for the error to return today, again only factory reset option solved the issue and allowed me to enter Windows.
+The windows is, more or less, cleanly installed and looking for help online turned out nothing. And since Windows does not display detailed error message I am left with guess work.

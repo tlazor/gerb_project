@@ -1,0 +1,5 @@
+The more you stick with Codd's rules and sound design principles the better. Relational algebra is the only framework out there with a sound mathematical foundation. This is unlike your Hadoops and MongoDBs which, while useful for ad-hoc niche data analysis, are not on a firm theoretical footing.
+Please make the effort and take the time to have a good framework for analysing/querying your data - you'll only end up with a lot of grief (poor performance, redesigns, complex queries).
+Also, check out this article in The Register for some of the rationale behind Codd's efforts to impose some sort of discipline on data modelling and storage.
+You will of course need an extra field to ensure the uniqueness of every record but this will pay itself back in spades down the road. I would just remark as an aside that the field name "id" is, more or less by convention, used for PRIMARY KEYs in MySQL - it's not an obligation though.
+I've always thought that it was quite insecure but I've recently heard about normalization and I suppose that the table above ought be something like this (correct me if I'm wrong)

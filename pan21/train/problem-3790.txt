@@ -1,0 +1,6 @@
+The Windows agent can monitor a combination of CPU, RAM & TCP connection counts (i.e. for RDP sessions).
+You can use the same or different backend pools for the requests, the idea being that on average all servers are handling the same amount of fast and slow requests. Alternatively you can map them to different backend systems and use more powerful systems for the computationally intensive work of the reports.
+This sounds exactly like what agent-check is meant to be used for. Willy kindly added the patch we use for the Loadbalancer.org appliance and we have open sourced our Windows based server agent. The instructions including a basic Linux server example are here:
+Feedback is always welcome. This reminds me - it would be nice if someone implemented some kind of server response time algorithm, then you wouldn't necessarily need a server based agent.
+You would be better off breaking the HAProxy maps up so that quick requests for static resources go via one round robin map and slower requests via a different RR map.
+https://www.loadbalancer.org/blog/open-source-windows-service-for-reporting-server-load-back-to-haproxy-load-balancer-feedback-agent

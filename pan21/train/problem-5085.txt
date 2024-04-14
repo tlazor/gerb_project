@@ -1,0 +1,7 @@
+If it started a couple of days back, it's most likely a problem caused by the recent Flash update (11.3). See the details here: http://forums.adobe.com/message/4519361.
+The "Voodoo" kind of solution, as mentioned above (that means to connect and disconnect an audio device many times), actually worked for me many times when I had similar problems. You could also try the "Disable front panel jack detection" or something similar whenever it gets stuck, so you can have your built in speakers working back to normal.
+You will need to revert back to Flash 11.2 to solve the problem (meanwhile they fix the problem on 11.3).
+I've already checked in sound, video and controllers driver's status which is showing "This device is working properly.". I tried restart, but that also not worked.
+I had a similar problem with my Macbook once, I solved it by plugging and unplugging the headphones multiple times, fairly rapidly (Of course, be careful not to break the socket or plug). There's a sensor inside which can get stuck, if it thinks there are headphones plugged in at all times then you will never get sound from your speakers.
+It's not a particularly technical answer, but I think it might well be the solution you're looking for.
+I've been facing sound problem on my dell inspiron laptop since yesterday. It only plays sound when I plug in my headphone. I have 64-bit windows 7 installed.

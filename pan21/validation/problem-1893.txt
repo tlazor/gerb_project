@@ -1,0 +1,9 @@
+Then I run npm install supervisor in the directory of my app, and the supervisor folder is there in /node_modules, however the supervisor command does not exist.
+When possible, it is best to avoid compiling packages. In addition to often installing in non-standard locations, software that is compiled from source is much harder to keep up to date. Node.js provides a procedure to install from a repository - which includes npm and some other related components. The repository is kept up to date and is rarely more than a couple of days behind the source code. Moreover, instructions are available for Amazon Linux specifically:
+Then, the weird thing is that I notice that npm is actually installed! Running npm -v shows its version. Hm....
+npm should install to /usr/bin/npm which is a symlink to /usr/lib/nodejs/npm/bin/npm-cli.js. Of course, with some of the modifications made to your PATH, it is possible that npm may not be found. echo $PATH (as root) should resemble:
+I'm running an Amazon Linux AMI and successfully installed node.js by wget'ing the source, untarring the file, and running ./configure and then sudo make install. When I installed npm:
+But node is clearly installed (running node -v shows its version), so it must be that node is not in my path.
+and try to install npm again, only to find that it outputs the same message as last time, which the exact same PATH.
+One of the common problems when previous installs with npm fail is a corrupted cache - clear your npm cache (npm cache clear) and see if you have any success. Of course, installing a package globally, needs to be done as root.
+So to sum up, npm seems to be working fine, although the output when installing it would lead one to believe otherwise, and the supervisor package seems like it's installed, but its command is not working.

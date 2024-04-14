@@ -1,0 +1,6 @@
+In the scenario where you have many keys, you will invariably run into the "Too many Authentication Failures" error.  If you have a password, and want to simply use the password to login, here is how you do it.
+I understand that is because if no identity file is specified, and ssh can find identity files, then it will try all of them.
+I have been putting my ssh identity files inside my ~/.ssh/ folder. I have probably about 30 files in there.
+To use ONLY password authentication and NOT use Public-key, and NOT use the somewhat misleading "keyboard-interactive" (which is a superset including password), you can do this from the command line:
+The accepted solution of using IdentitiesOnly yes means you'll never be able to take advantage of ssh-agent, resulting in repeated prompts for your passphrase when loading your key.
+So, I guess I could move my identity files outside of the ~/.ssh/ directory, or I could specify each host that I want to disable identity-file authentication for in the config file, but is there any way to tell SSH to buy default not search for identity files? Or to specify the ones it will search for?

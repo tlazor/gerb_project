@@ -1,0 +1,5 @@
+Google Analytics does not show any traffic increase. It essentially only counts human users (those with Javascript enabled) so I'm guessing the spike could be from a scraper.
+But I checked the Apache logs and the number of requests does not correlate with the Munin output. I ran a few commands to count the number of requests each hour from the logs and it just shows the regular increase, nothing like the spike shown in Munin.
+I checked both other_vhosts_access.log (which counts the actual websites set up) and access.log (counts hits to the IP address, which seems to be mostly dummy connections or security polls).
+So if I were to create a whole bunch socket connections to your apache server it would cause new apache processes to spawn, which is what you are looking at in your graph, but if I never send a valid http request and disconnect - or apache times out the connection and it disconnects, possibly that is why you see nothing in the logs.
+I noticed in my Munin graphs for Apache that there was a large spike in traffic yesterday. However, I have been unable to correlate this with anything on the site.

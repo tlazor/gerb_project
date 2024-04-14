@@ -1,0 +1,6 @@
+You need to divide the x and y angles of the camera from the x and y angles of the vector, this way you get the angles relative to the camera.
+Here comes the trick: if the relative x and y angles are between the negative xFov and yFov and positove xFov and yFov (add some falloff to it of course), then it's inside the view of the camera.
+However, this has some cons. The biggest and most obvious is that if your object is very big or is very close to the camera, then you can get false results. This can be solved by giving it a bigger falloff, but that won't work if you object likes to get close to the camera and then get far again, then this won't work either.
+Take in mind, I'm not a big Unity user, however I can give you an answer, that works pretty much everywhere.
+Prerequisits: you need to know the x and y FOV angle of the camera (you can calculate the x by taking the y FOV and multiplying it with the aspect ratio of the device), and the euler angles of the camera.
+Create a vector, which points from the camera to the object you want to check against, then you can get the absolute angle of this vector with the following formula:

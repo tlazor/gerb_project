@@ -1,0 +1,11 @@
+Now, having said that, I have moved past that configuration onto an ATI HD 5770 (5xxx series) video card so that I can have three monitors (one DisplayPort, two DVI). This becomes liberating given the number of virtual/remote machines I control simultaneously, or various supplementary document windows (MSDN Library, browser, Acrobat Reader, etc) I can quickly glance over without messing with window layouts.
+Of course, this all boils down to your operating preference. If you do not feel that you can gain any productivity from three screens, then spend that cash on a SSD.
+I'm putting together a new machine and was wondering if I should pay the extra money to get a dedicated video card or just get a motherboard with on-board video...
+The machine will primarily be used for .NET development of web applications and watching movies.  I don't really play any games and when I do they are not that graphics intensive.  I use large dual monitors.
+From what I understand if you use on-board video it will just use your macines RAM for graphics processing (correct?).  If this is true, then my biggest concern would be the theft of memory that could be used for something else.
+What's important about this, is that since this new generation of processors, the GPU is powerful enough to run Full HD (1080p) video's without a problem. Whereas previous Intel's IGPs (Integrated Graphics Processors) were barely capable of this.
+If you get a new computer with a Intel Sandy Bridge processor, there will be a GPU on-die. Which means there's a GPU built into the CPU itself.
+You have to find a motherboard model with an onboard GPU that has two video output ports. Usually they'd be a DVI/DB15 (VGA) combo; I think finding a model with two DVI ports will be extremely difficult, so a separate video card is usually the option to go.
+An Intel GMA or low-end AMD chip which would likely be your on-board chip will be just fine for what you're doing.  Typically these cards won't take more than 256M or so of RAM, and for your purposes it's a better use of your money to just buy an extra stick of RAM.
+As far as i know, there isn't a motherboard that will give you three-monitor freedom. And, DisplayPort monitors are hard to find too.
+Therefore, with the new line of Intel processors almost any model should suffice as long as you don't plan on gaming with it

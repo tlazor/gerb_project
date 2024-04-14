@@ -1,0 +1,6 @@
+Also, a great way to find which application has a file open is by using the Find->Handle or DLL menu option.  Just enter the name of the file you are looking for and hit "Search" to find the processes with a file open matching the search string.
+Process Explorer from Sysinternals is actually pretty useless when it comes to dealing with file handles (as opposed to DLL's, etc.). Use Windows Resource Monitor, click on CPU tab. Next to Associated Handles type the name of the file and you will see who has it open.
+As Dave rightly said, use Process Explorer from SysInternals, apart from that they offer varying set of utils. Checkout: http://technet.microsoft.com/en-us/sysinternals/bb842062.aspx
+You could try Sysinternals Process Explorer instead of Process Monitor.  Process Monitor is design for watching what processes do as they do then.  Process Explorer is more for seeing the current state of processes; it's Task Manager but with about 10x the functionality.
+Sysinternals also have handle.exe which is a command line tool that tells you which files a process has open. 
+To see the open files for a process, select a process from the list, select the View->Lower Panel View->Handles menu option.  All of the handles of type "File" are the open files.

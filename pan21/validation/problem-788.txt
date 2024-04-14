@@ -1,0 +1,6 @@
+Virtual Store is not used if the program is running as Admin.  In the case of Setup Programs, this is all setup programs.
+Compressing it though, does look interesting.  In my case, compressed my Program Files out of curiosity. My most disk intensive programs is the Total War series: Napoleon, Empire, Shogun 2. In particular, switching between Battle map and the Campaign map involves a heavy amount of reads.
+It's very rare to run into a program that isn't UAC aware these days and where VirtualStore takes over. For example, my Virtual Store only lists Foxit Reader.
+I decided to compress the Steam folder and fire it up a few times.  Predictable, since the game loads require heavy sequential reads, it was slower.  My map loading times went from 38 seconds to about 48, although it actually took over two minutes my first time loading. 
+It will depend on your system. Compact command is fast, but not compress files so good. Average read speed is known and average decompression speed also can be calculated. But I don't think that there is possible significant improvements. At least it's not so good for single core processor.
+loading time from ssd is about 150-200mb/sec, decompression speed is about 20mb/sec. So, usual compression raito should be more than 10x and it doesn't looks like a real thing.

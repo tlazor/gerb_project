@@ -1,0 +1,7 @@
+I suggest using 2008 R2 as server - has some nice features for post-image driver install IF the os deployed is R2 / win7... if not, it still is a decent WDS server.
+Also, the "full disk image" from Clonezilla doesn't really care about partitions. As I understand it, it does what is essentially a 'dd' on the source drive and makes a sparse file (I think?) on the storage drive. Then when restoring from that image, it 'dd's the blocks back. 
+I've tried clonezilla, but that doesn't seem to like the lack of partition table, and as far as I can tell, Acronis doesn't work either.
+Other than that, I've heard that people are using Norton Ghost quite a lot for installing windows from images so you could give it a try. I've never used it though and cannot offer any advice.
+I'm looking for something that can drop an image of Windows onto an uninitialized Hard Drive. I have new units that haven't even had the partition table created on them, and I'm trying to come up with a one (or two) step process for getting a disk image onto them. 
+That, plus a Windows 2008 server running WDS and you can actually load a windows image from the network. Works VERY nice.
+Use windows OS tools - IMAGEX (starrts with 2008 or later) can take a file based image and is pretty fast aplpying it. It also works on partitions, so size is not an issue.

@@ -1,0 +1,7 @@
+In fact your hostnames must contain informations that are valuable for you and the people that will work on a computer breakdown.
+I can't believe you guys really have all these long and complicated names. Do you type it all the time? Do you know how much information you are leaking (including location of the physical servers???).
+If your servers are clustered, you may need to identify the others members of the cluster to be able to switch on them.
+At my previous job, I named all of the workstations/servers in a new build after Star Wars planets/moons - Tatooine, Hoth, Endor, Dantooine etc. At my current job, the local servers/workstations were named after Star Wars characters, but are slowly being phased out to more generic names. In our production environment, servers are named after characters in Greek Mythology.
+At home, all of my physical/virtual servers are named after their use - fileserver, mailserver, ftpserver, webserver, mssqlserver etc. However, this is now proving difficult as I'm building additional webservers. I'm contemplating moving over to the naming convention of my previous job, for nostalgic reasons.
+Out of these two conventions, 80% of the techs (including myself) like the City name convention more than the "Loc-Serv-#" one.  
+The approach we use is to give simple names to the servers based on cartoons, movies, etc. Internally we keep a database linking the funny names to their locations, purposes, etc.

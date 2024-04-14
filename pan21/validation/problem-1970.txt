@@ -1,0 +1,5 @@
+The virsh shutdown command (or other implementations of "shutdown" using libvirt, as in virt-manager) instructs the guest OS to shut down cleanly. From the man page:
+In Fedora and RHEL 6, a libvirt-guests init script comes out of the box configured to suspend all guests on system shutdown. It's not particularly magic, though, so one could copy this to CentOS 5 with little modification.
+Instead it's better to shut down guests by hand before doing a reboot. For a while I had a script that replaced shutdown and reboot. That script warned me if there was any running guests (simple lc on the list of virtual machines) and blocked the command if there was running guests.  
+KVM guests are just userspace processes.  you should have some process monitoring in place.  the most common out there seems to be libvirt (it's developed by RedHat, so i guess it should be available on CentOS).
+As far as I know there is no such standard script for CentOS. It is possible to code up, but a little dangerous, as you need to handle guests that take a long time to shut down. Just killing them after a time-out can destroy data, while waiting for them can leave your shutdown hanging. 

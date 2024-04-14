@@ -1,0 +1,9 @@
+Remote reboots can also be done using shutdown -m \\pcname from the command-line of another computer (net rpc shutdown -S pcname from Linux). This also requires Administrator privileges (more precisely, SeRemoteShutdownPrivilege).
+When a workstation is locked (using Win+L or LockWorkStation()), there is no way to unlock it without the password. Winlogon won't allow that, and there is no additional process that could be terminated.
+I am working in a lawyer's firm in Canada. We are 300 lawyers here and we NEVER kill an active session (local). We also had meetings regarding the same question as this thread but even with PsExec (and so many other way to see if we can safely log a user out) showing open processes won't help telling if IT can logout users.
+If it's a serious matter, you could also reset the user's password and log in as them. My favorite way to do this is through the console: 
+If you only want to see what processes are running without dropping the user's session, log in as an Administrator to a command-line console (like with telnet) and run wmic process or wmic process | findstr notepad replacing "notepad" with the executable in question.
+So basically, there's none you can do when a user is logged on except if you have his password or a confirmation you can close the session. 
+It required Administrative access. It used a remote started service firing off a dll to hit winlogin. I have been hunting around for the source and binary myself.
+You can, however, force a logout by entering the credentials of an administrator account (in the Administrators group) to the "Unlock workstation" screen.
+By Example, nothing's open except Outlook.exe. Ho, this sound ok to kill. NO! Maybe the user is writing an important email to someone important and by that, can't, in any conditions log him out.

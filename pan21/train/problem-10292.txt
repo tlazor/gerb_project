@@ -1,0 +1,6 @@
+I've bought a Realtek RTL2832 DBV for my RPI to read 433 mhz data and a transmitter HM-T433. I can successfully receive messages from two 433mhz remotes with the rtl_433 utility, but when I try to send any data I am always getting readings like
+This site says that HM-T433 is a perfect match for HM-R433. The other one is most likely a just a demodulator/TV tuner. Do you have receive modules?
+Most applications in 443MHz use ASK (Amplitude Shift Keying) and of those most use OOK (On/Off Keying). That means they either send a signal with constant amplitude and frequency for "1" and don't send anything at all for 0. 
+Is this normal? Is there something wrong with the transmitter (how can I check that)? Am I not reading the data correctly?
+I've tried sending the data trough the ninjablock utility, RCSwitch, pilight, custom code and a lot more of other possibilities but all readings from rtl_433 are bits of 0.
+RTL2832 is capable of doing both FSK and ASK. But you have to configure it correctly for your application. The rtl_433 utility is fitted for ASK/OOK so your transmitter does not match. You will need to find another utility that uses FSK.

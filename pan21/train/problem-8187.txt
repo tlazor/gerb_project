@@ -1,0 +1,7 @@
+Everytime any (Network/Systems/DBA/App) engineer points fingers at the other team, we have to 'PROVE' our statement, and with Virtualization and Cloud, without ideal test environments, without downtime, it's getting increasingly difficult to provably pinpoint the source of server performance issues, other than maybe Task Manager <excuse the rant>
+There are thousands of counters, articles, products to help monitor these. But is there a simple, instant and accurate script that can pinpoint if any of these 4 need to be scaled up or scaled out ?
+There's no one metric that tells you which of those solutions is the right one. Welcome to performance tuning. Ain't no easy button here.
+I've used sp_whoisactive, sp_blitz, Glenn's DMVs, Spotlight, Idera etc. but am yet to come across a script that will satisfy a CIO's question about where to spend budget money, or that will correctly blame the problems on bad code, or slow SAN, or the ISP.  
+Are these 2 accurate? Does Page Life Expectancy accurately 'PROVE' the need for more memory ? What is your GO-TO script for diagnosing a performance issue ?
+'_' being one of these 4 possible bottelenecks in an IT-stack bottom up (from server-perspective, without going in to the app/code/ui):
+I'm trying to create a fast-food version of performance metrics that can quickly (in 5 minutes) and accurately (provable) answer a question from Management "Does this server need more/faster _ ?"

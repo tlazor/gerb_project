@@ -1,0 +1,5 @@
+In theory, you dont need to modify anything. Just remember the closest point you ever been to. The A* will attempt to find the path and will fail for you example, but that doesnt mean it will not first establish the path you drawn, you only have to remember path to the closest point the A* ever been to.
+The second will typically be Dijkstra or a similar looking algorithm. You can even pre-calculate it (for each unreachable position, search for the closest reachable position and save it before the game starts).
+My problem is that I don't know how to tell A* that the closest tile to the goal is the square near the sea.
+The first step can be pre-calculated so you can cheaply find whether your destination is reachable. Flood-fill (a.k.a. BFS) will suffice.
+Using A* alone (and going to the closest searched point) is ok for small maps, but it will perform badly if the map is larger. If the target is unreachable, A* will search the entire reachable space before figuring out that the target is unreachable. This may involve lots of search points, and can be very slow. In this situation, A* has no advantage over algorithms like Dijkstra.

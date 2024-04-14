@@ -1,0 +1,8 @@
+These are examples of what the weather map plugin can do. When configured correctly you can see minute, hourly, daily, weekly and monthly traffic stats.
+I have used Liveaction and it does a great job of showing a nearly real time weather map of our network.  This can generate a lot of netflow and/or SNMP traffic from the end devices to the server but the information that it provides has enabled us to resolve congestion issues rather quickly.
+You can use tools like Cacti or PRTG. These tools support weathermaps showing you actual bandwidth usage in the network. You can also set thresholds so that when more than 80% on a link is utilized send an e-mail or SNMP trap and so on.
+Cacti is one. It has a weather-map plugin that can be leveraged to produce output such as the following
+You can download Cacti from the website listed above, weather-map here or a nice script hosted by Brent Salisbury here.
+NfSen/nfdump (http://nfsen.sourceforge.net/) are really good for netflow. Stores your data in RRD format, and has a lot of options for displaying and processing.
+These tools are mostly SNMP based. You can also use Netflow to get more visibility into what is using how much bandwidth.
+It is worth reading up on Cacti as there is a lot of features and devices that it can look after. Email alerts based on thresholds, events, lack of information and more can be delivered. This can be utilized via SNMP.

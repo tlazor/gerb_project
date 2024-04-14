@@ -1,0 +1,6 @@
+Have received some reports from a customer (a very large company) they reported issues from clients who are using Facebook.
+Are they using a proxy service on the firewall?  It may be possible that facebook related pages containing session cookies are getting cached.  Depending on the order pages are loaded it could replace the session cookie with someone else's cookie.  
+A proxy could do that, but that would mean that both facebook and the proxy does some rather problematic stuff. afaik facebook only sends out the session cookie string after login on the https site, which means that it shouldn't have been cached.
+There's a known vulnerability that makes Facebook susceptible to cross-site scripting attacks.  It's possible that something like this is going on.
+NAT couldn't be the source of it, however a session is merely a cookiestring and if the same cookie string is sent out to multiple computers, then basically both computers would end up in the same session.
+These clients claim that once in a while when they log in to Facebook they end up in someone else's session.

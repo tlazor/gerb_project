@@ -1,0 +1,5 @@
+Yes you can do an image backup with exchange,(as Mfinni said, just ensure all services are down). Remember that before you do image based backup ensure that the image you are making is from a clean exchange server (e.g. do exchange database maintenance and verify that the filesystem is clean).  I would still have a normal exchange backup on the disk as well as a precaution.
+Let Windows Server come up and spend some time reviewing logs, verifying connectivity and all services operational.
+Windows will want to run a CHKDSK on boot up.  Skip this the first time by pressing a key.  You can run a CHKDSK later.
+I would like to have an disk image backup of Exchange, before doing some significant upgrades and expanding a too-small C-Drive.  Can I use something like Acronis Backup & Recover 10 Server (price on 11/11/2010 $860) and not use Acronis Backup for Exchange which is like 50% more expensive?  Or is there a better alternative to get a disk image backup?
+If you turn off all Exchange services before you start your backup, then an imaging backup should work fine.

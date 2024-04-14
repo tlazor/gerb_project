@@ -1,0 +1,14 @@
+Clubs exist at a school. The high school may have a football club while the elementary schools do not.
+Finally, this database actually needs 2 more tables to handle the many:many relationship of club:school and student:club
+A student can be a member of one or more clubs. Or can a student only be a member of one club? If a student can be in more than one club, than the student's name is repeated for every club, which is redundant data and wrong. There should be separate tables for student, with student_id and name, and club membership, with student_id and club_id. In the unlikely event that a student is only allowed to be in one club, than the design as given is correct.
+There can be many clubs within a club type. Like the sports clubs might include football, baseball, and hockey.
+No, using lookup tables such as School and ClubType does not violate any normalization rules.  This is quite a standard practice to build tables around id values and have easily readable text values in a lookup table.
+So the question: Which teachers supervised the clubs this student was part of? is impossible in the second formulation.
+That means that the two designs cover different relationships but, given 1:1 between (club type,school) and (club) the second one  should be fine.
+The only strange thing about that model is that a Student can only be a member of one Club.  It makes sense, it would just be an unusual rule for a real school.
+There can me many club types. I'm not sure what a club type is, but I'm thinking "sports" vs "academic" vs "cultural", maybe. 
+You can have any number of schools. This makes sense if there are multiple schools in a district, like 3 elementary schools, 2 junior highs, and a high school.
+Connected to this there are a multitude of things which you can not represent or which will be awkward:
+The second design does not support multiple clubs of the same type in the same school, depending on the DB application that may even be two clubs who exist in different points in time (in our school the students journal ceased to exist an was restarted). 
+I feel that the Club table in this example should not have a school id field, and should have a name field, because a club type name and a club name can be two distinct features of a club.  Further, the same club could exist at multiple schools.
+You say this isn't the real database, so we're reduced to guessing about what the real problem may be like. I understand you may not want to give away proprietary information, but couldn't you anonymize the real problem? Anyway, for the sake of discussion, I'll discuss this as if the problem you give is the real problem.

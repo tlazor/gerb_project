@@ -1,0 +1,7 @@
+No, you cannot pass through the original destination IP address after you have done NAT, at least not directly.
+Right now I am listening to a wildcard * for all domains which, I assume, means it's listening to a single LAN address and serving site content based on hostname and not IP address. I'd like to correct this.
+I'll use 192.0.2.0/24 as your outside IP block and 198.51.100.0/24 as your inside one (see RFC5737).
+I have a debian web server (nginx) running behind a firewall using NAT. The web server is hosting several sites that require SSL and their own IP address. I'd like to have the SSL sites listen to only their specific IP address and the shared sites listen only to the shared IP.
+That said, if you don't have any reason to put the web server behind a NAT at all (NAT is not a firewall), just listen on the outside IPs (doing that would require a topology change also).
+If you go with the latter solution, your environment will be simpler and more standards-compliant because you won't be dealing with unusual port numbers and port translation, but you will need to allocate multiple inside IPs to each webserver (I gather you have just one).  Also, if you use the latter solution you can use 1:1 NAT.
+What is the proper course of action? Is it to create a 1:1 NAT for each IP address and add the LAN IPs to the network interface to listen for, then assign the LAN IP's to specific domains? Or is there a better way? Is there any way to pass along the public IP and take action based on that? Thanks.

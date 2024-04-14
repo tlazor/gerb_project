@@ -1,0 +1,9 @@
+On the other hand, you can have scenarios such that one users is performing I/O while another one is doing CPU work; these could be parallelized and you would be using your resources more efficiently.
+Yeah, most people would think that 30 requests per second is a very low number, but most sites would get by with that.
+You should benchmark you own application your self using tools like ab which is provide in standard with apache:
+It seems like a lot to me. I know a lot of people get way better stats out of their servers, but I haven't done much optimization yet.
+Alright, so I'm in development right now and I'd like to understand exactly how good the benchmarks are. I've just been using apache benchmark. Do they include the server sending the files?
+Apache is mostly never used only for static content so benchmark has to include time to generate this content.
+Well, it goes both ways. You might have concurrency issues, typically locks. Write operations typically lock other writers (and sometimes, writers block readers, or even readers block other readers). If you have locking, concurrent users can slow others.
+Also, is "requests per second" literally how many users can visit the page within one second? If it's at 30 requests per second, can literally 30 people be refreshing pages every second and the server will be fine?
+Also, will increasing your ram increase you rps linearly? I have 512mb, so if I upgrade to 1gb, would that mean I'd get about 60 rps?

@@ -1,0 +1,8 @@
+Also you might actually want your IP blacklist to auto-expire. ipset can do this too by specifying a default timeout for any IP added to the set at creation time with: ipset create myset hash:net timeout 86400
+This may not be what you are looking for if you only want to solve the time it takes to restart Varnish - but for reloading configuration, I have the following solution for you;
+Varnish is particularly bad with this, the C code it generates to do this is in effect a linear search -- just as bad as adding individual rules to iptables.
+You can dump the set for later reinitialization (after a reboot for example) with ipset save myset which prints to stdout. You can also of course add more IPs to the set at any time using ipset add.
+The above will also produce very helpful debug information if there's something syntactically wrong with the VCL.  It will not clear your cache, nor interrupt the service at all.  vcl.use basically loads a built .so-file and changes some pointers in memory - making it very easy to do during runtime without having to restart the whole service.
+The default permits up to 65535 hosts in one set, but check the man page, you can create bigger sets using the maxelem parameter.
+Use ipset instead. IPSets are fast hash lookups of ips, it is very fast for finding a ip in a large number of addresses.
+The Varnish configuration is converted to C-source code, and compiled upon loading.  So the time it takes to load the configuration includes compilation time.  This is most likely what's causing the long wait for you.

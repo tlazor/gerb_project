@@ -1,0 +1,10 @@
+Layer3, also known as routing layer, is designed to make two machines in different networks communicate. At this layer, routers, need to be able to give each machine it knows a unique ID. This is the IPAddress. IPs are hierarchial ie. they have a part that tells the router, which network a ip address is in, and the rest specifies the specific machine (mostly).
+typically, the router uses ARP to find the mac that corresponds to a specific IP (if it doesn't know about it), and once it discovers the mac, it keeps a note of it for a specified time (ie. until the ARP cache is deleted, based on router config). 
+I have read an article discuss about this issue. The title of the article is HTML 5 Geolocation API & IP Geolocation provided by IP2Location.com.
+It's like telling somebody how your house looks for him to find it. Rather give him the address, huh?
+This is because IP-Adresses are "routable". Those are divided in networks, those subnetworks relay to different parts in the world, like an address. The Mac Address is completely different for everybody, it can not be located.
+Layer2 uses mac-addresses are to identify a specific networking card within a local network. There could be more than one card for a specific machine, that can then share the same IP. This is called Multihoming (http://en.wikipedia.org/wiki/Multihoming).
+It is very helpful for differentiate the features of Wireless geolocation technique by MAC address and traditional IP address detection.
+From this model you see where things happen. MAC (Media Access Control) is on the 2nd layer from the bottom. IP is on the third. It uses MAC to identify PCs, but only on a very local scale. 
+There are several layers in networking stacks, each designed to address a specific level of abstraction.
+Sometimes we don't want to identify the machine. One machine can have two IP's, IP's can represent things that aren't machines, the list of reasons goes on and on, I'm sure others will come up with some better ones.

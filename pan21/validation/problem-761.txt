@@ -1,0 +1,10 @@
+I suggest to avoid comments. Instead of them, try to write self-describing code. For example, I'd replace:
+If you have a sorted array and want to determine the most frequently-occurring value, use the fact that all repetitions of the same value will be adjacent.
+First improvement: The result of the read operation (operator>>) is a stream (this allows chaining). But when a stream is used in a boolean context (like above) it is converted to a bool like value that can be testes. We can use and change the above loop to this:
+Now you have a print specifically print an array in reverse order: We can use the algorithms to do that for you:
+Next example - code under following comment is so obvious that the comment is unnecessary and just clutters the code:
+Your loop for reading is correct. Which is a bit of a surprise as just testing the stream like that is usually an anti-pattern. But we can make that loop simpler:
+Also it is traditional to reserve names that are all uppercase as MACROS. So you will confuse people that understand normal C++ into thinking these are macros names. So try and use camel case for you variable names (its also a lot nicer to read when code is not shooting at you).
+It's a 1-pass algorithm with linear time and constant space overhead. It's actually related to run-length encoding, if that helps.
+In the other hand //Bubble sort because there's so few elements in the array... and I'm lazy. is an example of good comment because it simply explains something instead of trying to describe code.
+I took Useless' useful advice and instead of populating a secondary array I just iterated through the sorted array and calculated run lengths. Here's the code I came up with for that:

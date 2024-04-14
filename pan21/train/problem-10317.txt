@@ -1,0 +1,9 @@
+I'd like to check Lotus Notes as a replacement for Outlook in stand-alone mode, ie. using local files instead of talking to a remote Domino server.
+Googling for this didn't return much, and the books I found on Amazon usually just show how to use the Lotus Notes client: Does someone know of a good article that gives the big picture of how Notes works?
+You can say a lot of things about the trio Outlook/Exchange/Sharepoint but whatever the problem you have, it will be worst with Lotus Notes.
+To answer your question directly, you cannot use a Lotus Notes Client to manage this in a stand-alone manner.  The synchronisation you speak of is all part of the Domino Server, which the Lotus Notes Client would then connect to.
+The reason, in my view, to use Domino, would be for integration to custom applications as the environment is very customisable.  In your instance, it sounds like this might not be right solution for you.
+If you are looking for a mail only replacement, then I would also recommend a cloud solution - the choice of vendor would be made depending on the size of the organisation etc.  
+You should do like what we did in our company (multinational, thousands of employees), and move to google apps.)
+IOW, I'd like to know where to go from the 8.5.2 trial EXE that I just downloaded, and how to get a runnning PIM application that I can sync with a smartphone, including contacts, calendar, to-do's, and notes.
+I find it strange that this string of posts have made it past the serverfault moderators (purely cause I have been rapped on the knuckles before).  Lots of emotion, little fact in the responses.  I'm now off my soap box.

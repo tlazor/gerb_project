@@ -1,0 +1,6 @@
+Another tip:  Consider dropping the AUTO_INCREMENT and promoting the VARCHAR (or hash) to be the PRIMARY KEY.  In many (not all) situations, performance and space consumption both improve.
+A negative for Hashes:  They are notoriously "random".  That is, caching (the buffer_pool or key_buffer) becomes useless once the data (or index) grows much beyond the cache size.
+That is, a VARCHAR column that averages 20 bytes will take only that much space.  However, if you experiment with this in InnoDB, the numbers will be quite confusing.  Here are some reasons why the sizes you get will be more than (20 * num-rows) in InnoDB:
+Today, Data and indexes are packed VARCHAR, they do not use the max length.  I verified with 5.6 with InnoDB and MyISAM.
+The answer is NO.  Today, Jehad's answer is wrong.  It may have been correct for some older version of MySQL and for some particular Engine (such as MEMORY before Version 8.0).
+If you are going to use an MD5 (or SHA1), pack it into BINARY(16) (or (20)) using HEX(). to save space.  Even doing that is not enough for me to recommend hash over an avg of 20 bytes in a VARCHAR.

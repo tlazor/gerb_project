@@ -1,0 +1,6 @@
+Getting your password or the encryption key is not as hard as it seems to be. (Well, if the attacker gets physical access to your computer.) There are hardware and software keyloggers. There's the cold boot attack, just to name a few.
+If the whole volume is encrypted with TrueCrypt, you do not need to shred anything on the volume, period. Read the TrueCrypt documentation.
+The only way to completely protect data is to destroy all copies of it beyond possibility of recovery. So yes...shred your disks. And if you've memorized any of the data, shred your brain too.
+However, shredding your entire encrypted volume is extremely easy. All you have to do is to shred the encryption key. This is usually a few kilobytes. For example, if you want to "destruct" a TrueCrypt volume just shred the first megabyte of the volume and it's very unlikely that someone will ever get any data back from it.
+Encrypting does not negate the need for file shredding.  There are ways to get around Truecrypt if someone gains physical access to your machine.
+It depends. Using TrueCrypt definitely gives you better security. That's because if someone's looking for your deleted files then s/he have to get your TrueCrypt credentials. Then s/he can decrypt your file system and maybe can get back your deleted data.

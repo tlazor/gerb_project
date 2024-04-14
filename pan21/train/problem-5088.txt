@@ -1,0 +1,8 @@
+Finally, we tell GDB to print the source code of that area. In my Linux system, this results in the following
+In order to determine where we failed, we need to feed in the function name plus an offset into GDB. This is done by de-referencing the address to the function, plus the offset. The stack trace supplies the offset as the first value after the function.
+From here we can tell exactly where we were at the point of the crash. NOTE my kernel is not your kernel, so the offsets are probably off. Based off of the likelihood that both these kernels are nearly the same, I'll hedge a bet that the real panic actually occurs at line 419, not line 422 (as was suggested).
+Reading further up the code slightly indicates it was unable to open the block device specified -- but without a crash dump its not possible to tell why from the information. So its probably:-
+Following on from the link in you're reference, it suggests you are trying to mount with NFS as the root, in which case you should never end up landing in this function at all. In which case:
+Judging from the stack output, we can see prior to the panic the most useful function the kernel was in was mount_block_root.
+So, overall based off of the information in the question I assume you have omitted something or made a typo.
+I.E mount_block_root+0x225 means (I was at "mount_block_root" plus 549 bytes (the hexadecimal translation).

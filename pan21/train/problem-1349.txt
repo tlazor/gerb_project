@@ -1,0 +1,10 @@
+I'm trying to use our LDAP user database, while keeping the home directories on the SSDs of our workstation, but mounting our shared home directory under the same path.
+If you use SSSD, there is an override_homedir option that allows you to replace the value that is provided via LDAP. It supports templates so you can set it to something like /my/new/home/%u, etc.
+For the cluster nodes, everything is peachy, and the home directories are on the shared network drive (via BeeGFS in this case).
+I'm working on a heterogeneous HPC cluster + workstation environment, which share NFS and LDAP. The LDAP configuration includes the homeDirectory attribute, which is correctly read on all machines to be on the NFS share (or BeeGFS on the clusters).
+The ldap server is running openldap, while the workstations are running nscd with the appropriate /etc/pam.d/common-password and /etc/nsswitch.conf changes.
+Is there a way to ignore or alter the LDAP homeDirectory on select Linux clients, i.e. workstations?
+Additionally, I've set up a test workstation with nslcd, in order to alter the homeDirectory value via /etc/nslcd.conf, as described in LDAP Users Home Directories.
+Consider not mangling homeDirectory and mounting both where documented in the directory. /home might be on local disk, then mount /home/cluster  or whatever on top of that.
+For the workstations, I'd like to use the local SSDs for local home directories, but still mount the cluster home directories under their exact paths, since many users use absolute paths. I don't mind the different ~user and $HOME paths.
+Users may be confused if the same path is shared on one box but not on the other. Where you can, be consistent across the network which entire trees ( /home /srv /var  etc.) are mounted shares and which are local.

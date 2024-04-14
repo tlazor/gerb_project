@@ -1,0 +1,5 @@
+If you want the second table to contain the same data as the first table, why not simply wipe the table out and replace it?
+btw the primary key TransactionEntryID is a uniqueidentifier that may slow it down? (I can't change it I'm just wondering if that the issue.  
+The problem is that this operation takes 13 min. to copy just 50K records and I have 16 Million records there, it would take me a week to finish that...
+I have two tables with same structure I need to copy over all tables from table A to table B, the problem is that some records from table A already exist in table B so that made the Import Fail.
+Remove all the rows that are in table B and not in table A. Then you could use DOTNET SQLBulkCopy to copy data from table A to table B. It is pretty fast. For 100,000 records it would take less than 10 seconds. I am writing some pseudo code here. If you want a complete working example you could go to http://technico.qnownow.com/2012/03/27/using-sql-bulk-copy-to-efficiently-load-data-from-source-db-to-destination-db/

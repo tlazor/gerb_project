@@ -1,0 +1,11 @@
+To keep things as simple as possible I want to move the IP address in use by the RHEL 6 server to the RHEL 7 server.  
+If you cannot ping the IP on RHEL7 from another device on the network, you have a layer 2 or layer 3 network problem, and that needs to be resolved before you can even THINK about working on DNS.
+I turned off the RHEL 6 server's interface and brought up the RHEL 7 server's interface.  I assigned it the IP address but I am unable to connect to it.  Traceroute shows no response.  I dropped iptables, tried traceroute again and still got no response.  
+I deleted the ip address from the RHEL 7 server, turned off it's interface, and brought up the RHEL 6 server's interface.  Traceroute now shows a response and the RHEL 6 server resolves names correctly.  
+I am trying to replace an authoritative DNS server running on RHEL 6 with an authoritative DNS server running on RHEL 7.  DNSSEC is enabled.  
+Localhost is usually 127.0.0.1, so test using dig again but using the DNS routable IP ( The IP that external clients will use).
+Remember, your layer2/layer3 problems may not be with your server configuration at all. Are network cables plugged in? Is the RHEL7 server on the same broadcast domain as the RHEL6 server (same physical switch, same VLAN, etc.)?
+I asked our firewall (Sonic Wall) admin if there was anything in the rules that would discriminate based on the server's hostnames (they are different) but he showed me the rule that sends all DNS traffic to the IP address so that would not seem to be the problem.  
+The DNS process probably binds to all IPs and DNS Port on start of the process, new IPs are not taken into consideration after process has been started.
+Check that DNS is listening (binding) on all the interfaces, restart DNS if needed  and check with dig locally again (but using the routable IP) and then from other host on the same network.
+I copied the zone files, keys, etc from the RHEL 6 DNS server to the RHEL 7 DNS server and confirmed named-chroot was resolving names with dig @localhost xxx.xx.xxx.xxxx.

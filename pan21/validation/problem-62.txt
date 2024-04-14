@@ -1,0 +1,7 @@
+With 64-bit Windows, addressing that much memory shouldn't be an issue.  I would think your biggest concern would be I/O, with that many VMs running at once.  I'd suggest investing in SAS drives at the fastest RPMs available to effectively support that many VMs.
+I have a couple of commodity machines running VMware we use for testing, continuous integration, etc.
+If your scenario is about server + clients a multi machine setup would be better for simulation, and cheaper. VMs actually aren't the same as native OSs, threading and profiling are broken so you'll be quite off target, and worse won't actually be able to profile accordingly.
+These machines have a single quad-core processor and 16 GB of RAM each - in our current set-up we have observed that:
+Since each VM "owns" it's own memory in Hyper-V the number of VMs you can actively host is bounded by the available RAM. So can't really have too much.
+Of course the biggest speed bottle neck on a dev machine is the hard drive. With the extra ram you could set yourself up a RAM drive which could have a huge performance benefit.
+As for using your rig for development - key concern for me would be I/O - if you are running that many virtual machines, you will see a negative impact on your disk access times while developing which will slow down compiling, etc.  I would be inclined to shift as many of the virtual machines as possible onto a separate box and leave your developer machine unburdened so compilation and other developer related tasks are lightening fast.

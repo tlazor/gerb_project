@@ -1,0 +1,5 @@
+For pkeyPath Windows setup passes a path to pkeyconfig.xrm-ms. In this file, the product key are defined and in the digitalProductID4 (last parameter), the Edition and Product key type (MSDN, Retail, Trial) is encoded.
+The actual check to see if it is valid and activated happens later when you connect to the internet. If you have no internet, you will simply have an unactivated copy of Windows which will require internet access or a phone call within 30 days of installation.
+If Setup detects which Edition the key belongs to, it checks the Windows you try to install and if the Editions don't match you get an error.
+It is simply an algorithm used by Microsoft to make sure that the key is a "valid" key, not a genuine non hacked/cracked/shared one.
+The key is checked by using a so called sum check. This is comparable with a bank account number. The sum of all individual numbers is divided by a number (usually 97, the highest prime number below 100). The remainder of the division are the last two numbers of the bank account number. The Windows key is checked in a similar way.

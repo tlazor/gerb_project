@@ -1,0 +1,16 @@
+The "trick" is to first "mount bind" the directory to overlay to another one, then use an union file system to combine the unchangeable original with the "changes" directory.
+For a standard (K)Ubuntu installation please ensure that the package "unionfs-fuse" is installed - it may be installed using the command line "sudo apt-get install unionfs-fuse".
+1.3 Use unionfs file system to combine the relocated original contents with the contents of the "changes" dir
+Files created or modified in the "original" directory will be available only in the "changes" directory.
+1.2 Use the mount bind option to mount the directory to the "overlay unwritable" dir (/tmp/home_user1_relocated)
+Here is a use case that was succcessfully tested on a (K)Ubuntu system (Linux step3 3.13.0-63-generic #103-Ubuntu SMP x86_64 x86_64 x86_64 GNU/Linux).
+Please acknowledge that the following is just a sort of proof-of-concept, adjust the arguments to the commands to your individual needs.
+[now all changes to /home/user1 are saved in /tmp/home_user1_changes, but not in "overlaid" /home/user1]
+Files created in the "relocated" directory will be persistent available in the "original" directory, but not in the "changes" directory.
+2.2 Use the mount bind option to mount the directory to the "overlay unwritable" dir (/tmp/home_user1_relocated)
+[now all changes to /home/user1 are saved in /tmp/home_user1_changes, but not in "overlaid" /home/user1]
+For example the following instructions describe how to overlay an existing, non empty (user home) directory "with itself" so that all changes are stored persistent in a directory (case 1.) or 
+2.4 Use unionfs file system to combine the relocated original contents with the contents of the "changes" dir
+1.3.1 unionfs-fuse -o cow -o allow_other -o use_ino -o nonempty /tmp/home_user1_changes=RW:/tmp/home_user1_relocated=RO /home/user1
+Make (non empty) dir (e.g. /home/user1) unwritable so that all changes and all newly created files persist only temporarily (in /tmp/home_user1_changes)
+2.4.1 unionfs-fuse -o cow -o allow_other -o use_ino -o nonempty /tmp/home_user1_changes=RW:/tmp/home_user1_relocated=RO /home/user1

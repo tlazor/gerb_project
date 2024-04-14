@@ -1,0 +1,5 @@
+If you typically move your windows to certain positions and sizes, then try GridMove. You can either define your own grid (window position and sizes) or use the predefined ones. Each of these is called a tile. After that you can snap any active window by pressing Win+2 where 2 is the tile number you want it to snap into. Press Win+G to see the tiles and their numbers in the current grid.
+Now the problem is that the normal "step" when moving is about 20px, and my desktop is quite large, so "walking" all the way across takes quite a long time. This kind of defeats the purpose of using keyboard for these tasks.
+Is it possible to change size of this step so that takes less steps to walk the same distance? (I imagine a hidden setting in Windows registry...?)
+If you feel like completely reworking the windowing paradigms towards dynamic tiling, consider an AutoHotkey script called "bug.n". You'll like it if you prefer manipulating windows via keyboard.
+I like using keyboard shortcuts because it's faster as it does not force me to move my hands off the keyboard.

@@ -1,0 +1,5 @@
+By using the synchronized local account, the Win2003 machine can connect to the Win2008 server via RDC, can read the remote Application Event Log, etc.  
+So somehow the 2008 machine can tell whether I'm impersonating the local account on the 2003 machine.  How can it do this?  How can I get the 2008 machine to let me in when logged in as a domain account but use the local account credentials?
+I have a Win2008 server that is not in a domain.  I have two Win2003 machines, one in the domain, one not.  All of them have a local account named "testAdmin" with the same password on all three.
+If I login to the Win2003 domain-attached machine with a domain account, and then try to connect to the Win2008 machine, no dice (expected -- 2008 isn't part of the domain).  However, if I use the Windows Event Log Viewer, and try to connect to the Win2008 machine, giving the synchronized local account and password, it still doesn't work (access denied).
+The IPC$ attach works -- it shows up in a blank NET USE command.  However, if I try and look at the Win2008 Event Log, I still get access denied.

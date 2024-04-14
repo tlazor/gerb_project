@@ -1,0 +1,8 @@
+The switches allow the different devices in the network to communicate, this include the communication between the devices and the DHCP server.
+https://www.cisco.com/c/en/us/solutions/small-business/resource-center/connect-employees-offices/primer-building-small-office-network.html 
+Either all devices have a statically configured IP address, or you use a DHCP server that will assign the IP automatically. (or a mix of it, generally servers and specific devices like printers have static IP addresses while users computer have DHCP assigned IP)
+How does switch issues IP address for each of the machine plug-in? since switch does not act like router and do not provide DHCP service.
+Many routers include a DHCP server feature, but you don't have to use them. A server, be it Windows, Linux, Netware, Solaris, etc.. can act as the DHCP server.
+Some high-end (read expensive) switches have routing capabilities and even DHCP services but this is really different functions embedded in a single box, and the DHCP service is still unrelated to the switching function.
+I am not that much detailed but even though it is small today you have to think your small network should be able to grow scale, that needs good documentation.
+I intend to setup a small office network. Based on the article below, it mention that I should use switch for all the LAN points for my cubicles, but I am puzzled. 

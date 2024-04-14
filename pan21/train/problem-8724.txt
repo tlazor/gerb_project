@@ -1,0 +1,9 @@
+You can then manually work through that file (/tmp/keepfiles) removing any files you don't want to keep.  You can pretty much remove anything that's not in the /Users directory.  What's left can be copied over to the external with a reasonable amount of confidence that it's not infected.  It's still not guaranteed though.
+1 I haven't tested this command, so you may need to tweak it to get it to work right.  Read the man pages.
+You're on the right track. Copy it to an external hard drive with a Linux boot CD, then scan it with everything you can.
+First off delete any files that could contain a virus - EXE files, VBS, SCR, COM, BAT, CMD - basically anything that can be directly executed.
+If there are any other file types you know you'll not be wanting to copy over you can delete those as well - files such as *.ocx, etc.
+What I'd do is a partial cleanup of the hard drive first to reduce the chance of getting anything infected.
+it will clean your system so you can transfer your files safe. Use it in safe mode with networking  if you can
+Once that is all done you can then remove the external drive and clean your hard drive and install Windows a-fresh.  Once you have done that you should install a good anti-malware program - I recommand [Malware Bytes][1], but there are many other good ones around.  Only when one of these programs has been installed should you even consider plugging in the external drive.
+Install the compromised drive in an external case or conenect to a system with good AV and antimalware tools.  Scan fully.  Copy the files and avoid any exe or other files that could contain malware.  

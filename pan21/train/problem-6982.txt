@@ -1,0 +1,6 @@
+Is possible to configure the JVM to use no more than 1gb of RAM, and use only virtual memory after it has used the first 1gb of RAM? 
+If you really are having memory problems, just go buy more RAM. 4GB go for around $100, just buying it is probably more effective than spending hours on fine-tuning the VM subsystem...
+Counter-question: Why do you feel this is necessary? The virtual memory subsystem of a modern OS has been finely tuned to give you the best performance possible. What makes you believe you can do better?
+Using the system utility ulimit I was able to set the maximum physical memory and many other resource limits for any processes spawned from the shell ulimit was called from.
+I'd like the program to be able to have as much address space as it needs (Several GB), but do not want it using all of the available RAM on the machine.
+No, I am not aware of any solution that would let you do this. I'm not sure this is even possible without major architectural changes; after all, the OS usually decides on a case-by-case basis which data to swap out and which to keep in RAM. It's not clear to me such a restriction would even be practical; at any rate it would probably require deep changes to the OS.

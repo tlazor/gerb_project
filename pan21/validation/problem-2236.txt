@@ -1,0 +1,7 @@
+If I understand this correctly, you want to access the OOB Management interface on a server from a remote location - is that correct?
+And, last but not least, if the policy forbidds the use of site-to-site VPN: You don't have to care because what you want is client-to-site VPN ;)
+As far as I understand the background of your question, you have 3 options to accomplish what you want:
+I do this at a lot of clients sites, and I generally setup a VPN to their network router and then connect to the OOB management via that VPN (either production or management VLAN dependent on their setup). If the server OS is down, I can still get access.
+On one occasion, I had a client where their OOB interface was NATd to a public IP address, and so could be accessed directly from anywhere subject to firewall rules. Not the ideal setup, but it was what they wanted.
+The idea is to allow remote support of a server system (access to its oob interface and os) even though the systems operating system is unable to boot correctly and setup the VPN connection by itself.
+I am looking for a PCI or PCI Express based Network card with builtin VPN possibilities or a network card which allows to flash its firmware vyatta, ipcop , routeros or any similar os.

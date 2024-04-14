@@ -1,0 +1,5 @@
+Because addresses on private networks are pointless for identifying the origin of a mail. The public address of your MTA is the first one a recipient can check for validity.
+I would however recommend you also to add DMARC DNS record with no policy yet (v=DMARC1; p=none) and deploy one of DMARC analyzing tool, e.g. EasyDMARC
+If your mails sent out via Mimecast, then add include:_netblocks.mimecast.com in your existing SPF or, if you do not have SPF yet, create new one for root domain ->
+I am trying to work out which IP to put into an SPF record. I understand that SPF will extract the domain from return-path, So i guess SPF check will then do a DNS lookup to find the SPF record for domain example.com and look for approved senders. 
+Once deployed, after 1-2 days you will start to receive DMARC aggregare reports from which you will know all sending IPs / domains used to send emails on your domain behalf, so that you can identify all your legitimate sending sources and add them to you SPF record.

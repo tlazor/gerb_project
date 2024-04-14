@@ -1,0 +1,5 @@
+My view is that it's still good to keep datafiles, log files, and TempDB's files separate - if one of them bloats, you hopefully get a bit more time to fix it - and it won't take down everything.
+Things changed with the appearance of SANs, as SAN admins typically gave DBAs carved out parts of large chunks of disc - performance differences weren't so apparent.
+The traditional view is that user databases' data files should be on one drive, user databases' log files on another drive (this is the drive that really needs to have fast latencies), and TempDB on a separate drive. Aside from isolating them from each other, logs and datafiles have very different IO characteristics.
+Virtualisation has changed things further, as the DBA might have thought he'd separated his datafiles from his logs from his TempDB, but the VM admin put all those different "drives" on the same physical drive - in a VM world, those drives are just files.
+If you can do it, the best practice is still to keep your datafiles and log files separate - and if you can keep TempDB separate too, then great. Some applications, especially using Read Committed Snapshot Isolation, use TempDB heavily.

@@ -1,0 +1,6 @@
+Normally the image would have all the required drivers and software but would not have been activated with a serial key. This happens after the imaging process manually by a member of IT. If the image was stolen and used, after 30 days the machine enters the not licenced mode if the user does not activate with a key.
+If the image is stored on a separate partition you could bitlocker encrypt the partition with a password that only your company knows.
+Is there a way to protect our image from being copied? Would encrypting the drive prevent someone from doing this?
+Here at the company where I work we have created a custom Windows 7 image for our computers. When we have an issue, or receive a new computer, we just re-image them with our master backup. We have done this for about a decade.
+Recently, however, we have discovered that customers are taking our image through dos-based usb drives and installing it on their own computers.
+It sounds like your image is fully activated, I recommend deregistering the licence from the image template.

@@ -1,0 +1,7 @@
+All of these services should provide a way to stop them from sending you further e-mails. You should move them to your spam folder and report them as spam to services like SpamCop. 
+What is a good way to deal with these?  I can of course junk them using procmail, but is it a better idea to e.g. bounce them, or at least send a reply informing the sender (and "friend") that I am not interested in their service nor their spam.  Any solutions to this?
+(Of course, none of these services provide any way of opting out, except possibly by registering, which they will then take as an invitation to stuff your mailbox with even more crap)
+While traditional UCE (get rich quick, enlarge your body parts, Nigerian barristers) are handled adequately, I'm still receiving a lot of not quite unsolicited spam.  This is typically from commercial services forwarding "invites" from my "friends" and then "reminding" me of their services.  Typical offenders are Facebook, Linkedin, dropbox, bebox, etc etc.
+If you wanted to get advanced you could setup procmail to pipe the mail to a procmail script that hits the unsubscribe link (if one exists).
+If you're using a system like Google Apps for e-mail, then marking something as spam will pretty much force all the following e-mails from that service to land in your junk folder.
+Also have a look at http://sourceforge.net/projects/spamcup/ (discontinued but still works) to automate spamcop reporting.

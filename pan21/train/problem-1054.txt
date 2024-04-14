@@ -1,0 +1,7 @@
+I wouldn't try to block the IP forever as a lot of attempts come from dynamic IPs which could block some legitim users at a later point of time.
+I can't think of an answer out of my head, but IIRC denyhosts parses the log file, so just see if you get a failed entry in the log file after some one tries to log in to root with it disabled
+I currently block all ssh logins using root. But I wanted to go the extra mile and block the ip address of the client who tried to login as root. I currently have denyhosts and fail2ban setup and working, can I use denyhosts and or fail2ban to block the ip addresses of those who try to login as root?
+(Some distributions offer a jail.options file for your modifications. This is the preferred place to put your changes to as it shouldn't be affected by updates overwriting the conf.)
+PLEASE BE AWARE that you may have to edit the failregex to accurately identify failing root login attempts - use:
+Change the parameters as required. It won't specifically block root, but every attempt that fails. Be careful with maxretry and the bantime. If you fail with your own password, while maxtretry set to low, you block yourself for the bantime. Restart fail2ban.
+Obviously you should adjust these values according to your needs. The settings above will drop all incoming packets from the offending IP address after three attempts to log on as root, and will release the IP again after one week.

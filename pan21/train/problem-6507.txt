@@ -1,0 +1,8 @@
+Try FreeNAS. Don't use SAMBA, because it's a very chatty protocol, and it's not good for Internet access.
+I would like to be able to set up and access a NAS securely via an internet connection. I would like to use an existing linux server I own, so essentially I am looking for recommendations for which software would be ideal.
+To automatically load the rules on network up add the following to your network configuration file, after the loopback definition (/etc/network/interfaces on Debian/Ubuntu):
+You could also use a web page based interface which connects over HTTPS. I know my NAS device from THUS has such a capability but dont know what Linux OS equivalents offer.
+Also, with IIS you can traverse directorys, if Apache does the same then slap a HTTPS on it and away you go though that would only aloow downloads not uploads.
+If you can, put it behind a firewall (IPCop is a good choice), enabling only the protocols you need (I'd suggest FTP or SFTP over a non-standard port). If you can't here is an iptables sample config that you can use on the same box (save it to /etc/iptables.up.rules for example):
+Most secure would be an VPN connection (ssh, OpenVPN, poptop...) and tunneled NAS (NFS, samba, iscsi...) protocol. Anything goes here.
+But most easy and secure would be sshfs http://en.wikipedia.org/wiki/Secure_Shell_Filesystem , but it is not very Windows friendly.

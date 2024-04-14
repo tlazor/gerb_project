@@ -1,0 +1,6 @@
+Currently I have the latest version of raspbian on a SD card and when I plug in the pi I ultimately get the message Unable to mount root fs on uknown-block(179,2)
+Once that was complete I ran this command (Which i found on the net trying to trouble shoot this issue)
+I am surprised you did not get an error with the dd command. AFAIK the image is slightly over 4GB - although the latest may have been shrunk to make this possible.
+If that passes, you can always bring up a linux VM under VirtualBox or VMWare (there are free versions of both for the mac), and try to mount the file systems to see what's on them. As @goldilocks pointed out, these are not hfs filesystems, so the mac can't check them (maybe it can check the vfat, but it can definitely not check ext[234]fs. There may also be a standalone ext[234] fsck for the mac, check brew or whatever package manager you are using.
+From my readings on the net it was a bad install on the SD card so I put it in a card reader connected to my mac and ran these commands:
+Even if you did manage to get it to work (which is possible) you would be unable to do anything useful. You need at least a 8GB card.

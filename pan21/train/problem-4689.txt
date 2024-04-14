@@ -1,0 +1,7 @@
+which is puzzling me, as the same update file works on another machine that's reporting the same VS version number.
+(VS2015ProfessionalUpdateVersion <> VS2015UpdateVersion)  AND (VS2015ProfessionalExists) AND (VS2015UpdateVersionExists)
+My installed version is reporting as 14.0.25424.00 Update 3. Given that, I think the portion that must be failing is 
+May not fix the root of the problem (whatever it is), but you can force the installer to skip the version check by using the SKIP_VSU_CHECK argument. 
+I've tried repair installs and uninstall / reinstall. I've also tried both the network installer and the ISO image. All of them fail in this way.
+The installer is completing but fails to install Azure AD Authentication Connected Service or Microsoft Azure Mobile Services Connnected Service - not an imminent problem, I've no present plans to develop against Azure.
+However I do have a need to develop against .Net Core, and the installer for .Net Core 1.0.0 VS 2015 Tooling Preview 2 is erroring consistently saying VS2015 Update 3 isn't fully installed. From the logs:

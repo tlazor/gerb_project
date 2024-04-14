@@ -1,0 +1,6 @@
+initrd is a old format of ramdisk and is not used any more. Some distribution still used the name initrd to denote initramfs. 
+So if you have LVM or RAID configured, then initramfs will have kernel modules that can read LVM and RAID. This is same with cryptographically encrypted disks.
+initramfs is a cpio archive which is compressed mostly by gzip compression. The important functionality of initramfs is to contain drivers, kernel modules and other userland programs that will be used during system boot process.
+initramfs is created with mkinitramfs or dracut command. There are configuration file in /etc/initramfs-tools/initramfs.conf which controls how and what modules needs to be loaded into initramfs during creation.
+The scripts under /etc/initramfs-tools/hooks are executed when initramfs is created or updated and those scripts add modules and libraries that will be required during boot process. For example cryptsetup adds scripts that include decryption/encryption related modules in to the initramfs.
+If the case of live DVD the only option would be that initramfs has to have almost all modules to support variety of filesystem and devices.

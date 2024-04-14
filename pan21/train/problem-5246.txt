@@ -1,0 +1,11 @@
+If a user tries to go to www.ourcompany.com and you haven't defined www.ourcompany.com.local then it will find www.ourcompany.com as it did before.
+Another similar way, is to just define ourcompany.com on your local DNS server and configure all of the records appropriately, then you don't have to get into the DHCP/DNS Suffix situation.
+Sending email works using the default address. But now there is an error message each time we start Outlook.
+That way, when the PC goes to look for autodiscover.ourcompany.com, it will first look for autodiscover.ourcompany.com.local and get the address from your local DNS server with the Exchange server's internal IP address.
+Forcing Autodiscover on every Outlook client to use the local hosts? Or ist there an even better way?
+This way is useful if some of your services are internal and others are not, so you don't want to replace all of the records of ourcompany.com with local addresses.
+One way is by having an ourcompany.com.local zone defined on your DNS server and setup the appropriate addresses to resolve (ie: autodiscover.ourcompany.com.local) and on your DHCP server set the DNS suffix of .local to be given to your clients.
+Now to be able to send emails outside our organisation, I added another SMTP address to the Exchange User:
+If all your workstations are joined to the domain, which I presume they are if you are wanting to use a .local address for auto discover, then you can set the auto discover URL using Service Connection Point (SCP). This article explains the 4 methods of getting auto discover to work, with explanations on how to do it, the SCP instructions are first. 
+Outlook tries to autodiscover using autodiscover.ourcompany.com which doesn't exist. Our autodiscover files are placed on our local server. I think all the servers are discovers, because everything works as expected. Everything except the error message on each Outlook start. (The error message is actually because of an invalid certificate but I don't see why Outlook should contact an external host at all!)
+We have a little Exchange/Outlook installation here that fetches the mails from our provider with POP3.

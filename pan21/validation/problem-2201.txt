@@ -1,0 +1,5 @@
+All in all, I would commend your employer on implementing some good security practices here. At the expense of convenience, of course (security usually comes at the expense of convenience).
+Adding a VPN adds an extra layer of defense that is controlled at the corporate level, instead of at the individual-server level as SSH is.
+Now it is possible to harden SSH servers (the main three mechanisms are requiring an SSH key, denying root access to SSH, and if possible restricting the IP addresses that are even allowed to connect). Still, the best way of hardening an SSH server is to not even have it available on the Internet at all.
+SSH is an extremely popular target for brute-forcing attempts. If you have an SSH server directly on the Internet, within minutes, you will see login attempts with all kinds of user names (and passwords) - often thousands per day even on small insignificant servers.
+Why does it matter? After all, SSH is fundamentally secure, right? Well, yes, but it is only as secure as users make it - and your employer may well be concerned about weak passwords, and SSH keys being stolen.

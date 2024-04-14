@@ -1,0 +1,7 @@
+I deleted the registry entry and both the errors do not show up during backup.  Hopefully it won't crash the system.  If the BSOD appears again, then it wouldn't be related to this issue and I'll research and start another topic if necessary
+http://www.itexperience.net/2011/09/02/vss-error-failed-resolving-account-administrator-with-status-1376/
+Recently, when I perform a backup with "Windows Server Backup", it will crash the system.  I run the backup over the weekend.  When I come in on Monday, it has the screen shows a BSOD. (I will try to get the info from BSOD).
+this link showed how to do it.  it's  registry change.  go to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\VSS\VssAccessControl
+I have to hold the power button to power down the system.  Then power it back on.  It comes back up normally; all features running: Active Directory, DHCP, DNS, WINS, etc.
+I've done some googling.  but most of the responses I've seen involve Small Business System (like this: http://support.microsoft.com/kb/2537096) or SQL server, which this server does not have.  I'm still searching.
+Find the account that is shown (in the event log error) and delete that entry.  I guess I misread or didn't understand what this was asking me to do.  

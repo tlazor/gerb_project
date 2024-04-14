@@ -1,0 +1,7 @@
+In my case the KVM instance in question is node12, so it should have the IP 10.0.0.12. And it should be able to communicate with the other nodes & host.
+The network interface in the KVM node itself seems to be installed properly, did use the virtio drivers and it is looking fine. (The interface itself, not the TCP/IP configuration)
+A bonus-answer would be how to let the KVM instance access the internet through NAT. But I'd bee extremely happy already with internal networking!
+As far as I know the solution would be to ad a bridge e.g. vmbr0 on the host, but how should this exactly be configured? And what are the corresponding settings for the KVM node.
+Each node has a public IP from a /28 subnet, and an internal IP for node<>node & node<>host  networking. This is all working perfectly so far.
+Sorry for asking this eventually trivial question, but I'm fighting with this for more than a day, and was unable to figure this out by myself so far.
+Now I have to add a KVM-based Windows instance, which should should be accessible from the internal network. I'm looking for advice on how the network-settings should be configured (host & KVM)

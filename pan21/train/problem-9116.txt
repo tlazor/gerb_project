@@ -1,0 +1,7 @@
+If you are successful, you will have to convert windows installation partition to extended using same software. There, by logical, they actually mean extended partition.
+Then, create a new logical drive in there for ubuntu and install ubuntu as ubuntu can install on logical drive unlike windows which installs only on primary partition.
+Hence, if you go and create a new partition, it will ask you to convert the disc to dynamic which is what you have done.
+So, had you not converted the disc to dynamic, the solution would have been converting the windows installation partition to extended and creating logical drives.
+Make sure the disk has 4 primary partitions.(Basically revert the disk partition layout to what it was BEFORE you converted it to dynamic)
+Try converting disk to basic as specified here.(I have not tested this part. So you will have to experiment.)
+Normally we have at most 3 primary partitions and an extended partition(which itself is primary). And within this extended partition, you can create 26 logical drives.

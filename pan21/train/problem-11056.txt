@@ -1,0 +1,5 @@
+Your problem description makes me think it is the controller that can't easily handle the parallel writes that the software RAID1 does. Use the command above on the following situations. To check if this hypothesis is true, please do:
+I agree that you're getting a performance disparity between the disks: just look at the disparity in queue sizes. However, we don't yet know whether to blame the disks themselves or something higher up the stack. A couple of experiments:
+Could you please try bonnie++ benchmark tool? You should run it with twice the size of the memory (example for 1GB):
+3) Simultaneous benchmark on different disks. Hypothesis says that it should look more like 2) than 1).
+I would suspect the raid as part of this observation. The drives seem to show almost identical w/s and wsec/s. as the md raid replicates the write to two drives attached to the same controller it might be possible that the transfer of the data over the bus happens only once thus one drive might got to the roof in terms of cpu utilization while the other just transferes the already present block from the controller. have you tried to reproduce the behaviour without an md raid?

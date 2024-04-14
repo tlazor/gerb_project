@@ -1,0 +1,6 @@
+AWT has various layout managers which will do a lot of that hard work automatically. I personally prefer GridBagLayout for most purposes, but it's worth spending time to get to know the options.
+Manual layout with setBounds is acceptable for an application which you are going to use once and then throw away, but it's hard work to lay things out correctly and it's extremely brittle. When you want to change a text, you have to recalculate everything. If you want to support localisation, you're really stuck.
+the question I ask myself is "How can lengthChooser.getValue() ever be zero?" One call to setMinimum and the user is required to give me a sensible value.
+Similarly, I would add some listeners to the checkboxes to enforce that at least one of lower case and upper case letters must be selected at all times.
+I concur with most of what the existing two answers say, but there are some other important issues which I think they missed.
+That's not to say that you shouldn't have sanity checks, but they should be sanity checks rather than intentional interface elements.

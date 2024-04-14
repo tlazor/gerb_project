@@ -1,0 +1,10 @@
+As the code stands right now the background will animate just fine under the inventory layer but the InputController will continue to behave like the layer isn't there and attempt to map clicks etc. to the game world.
+I'm clearly not sure which way round the dependencies should orient. Am I missing a layer of abstraction somewhere? Or am I overcomplicating things?
+An easy solution would be to add simple conditional logic in the controller if (currentState == x) but wondered if I could better utilise my existing game state machine. I have states such as game_loading, in_game, menu etc.
+You aren't over complicating it at all.  This is a great way to think about a game.  It keeps the game flexible for any changes you want to add in the future (say a stats screen).
+Determine what input triggers you would need and add them to an abstract interface.  Then, implement the interface for each game state.  Keep track of what your current state is and forward any of those input triggers to the current state to handle what ever it is you want to handle.
+Alternatively, I could reverse that and get the state to be the entry point and then they call out to specific input classes. So something like inGameState.HandleInput() calls out to inGameInputController likewise with inventoryState. This seems like the better approach.
+I have an InputController which currently handles all user input, so it looks at button states and updates entity intentions according to some simple rules.
+The only ideas I can come up with is either calling out to something like state.HandleInput() from inside the controller, that way the state is in control of what the player can and can't do but the downside is that input specific logic is being handled by a state rather than input specific code, which I'm not comfortable with.
+I 'll try to manage InputController changing its behaviour at runtime (in c# can use some kind of delegates)
+I'm looking to add a new state to the game which essentially means displaying the player's inventory on screen. During this state I want the background to continue animating but want the user input to only interact with the inventory layer.

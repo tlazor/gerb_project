@@ -1,0 +1,5 @@
+Simultaneous failure is possible, even probable, for the reasons others have given. The other possibility is that one of the disks had failed some time earlier, and you weren't actively checking it. 
+To answer "How could two hard drives fail simultaneously like that?" precisely, I'd like to quote from this article:
+Typically when purchasing drives in a lot from a reputable reseller you can request that the drives come from different batches, which is important for reasons stated above.  Next, this is precisely why RAID 1+0 exists.  If you had used 6 drives in RAID 1+0 you would have had 9TB of data with immediate redundancy where no rebuilding of a volume is necessary.
+So, RAID5 was unsafe in 2009. RAID6 will be soon too. As for RAID1, I started making them out of 3 disks. RAID10 with 4 disks is also precarious.
+Make sure your monitoring would pick up a RAID volume running in degraded mode promptly. Maybe you didn't get an option but it's never good to have to learn these things from the BIOS.

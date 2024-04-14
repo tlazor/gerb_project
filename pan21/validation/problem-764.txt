@@ -1,0 +1,7 @@
+As long as you only use files on the single system where you build them, /usr/local is fine, and it is therefore the default base directory for the vast majority of open source software.
+If you plan to redistribute your package, I would recommend using a custom base directory like /opt/myPackage.
+Solaris used /opt a lot. Many modern Linux distros now expect packages in /usr/local/.  The idea is the same - a place to put software that makes this machine do what it does, as opposed to the operating system.  It's roughly analogous to "Program Files" on a Windows system.
+If you add a piece of software from other sources, than your operating system distribution, put it into /opt.
+If you recompile a software provided by your operating system distribution, to leverage several architecture advantages specific to your very own machine, use /usr/local.
+So, I'll install package X.ver to /BASE/stow/X.ver.  GNU stow will then combine all the packages (with symlinks) into /BASE/bin, /BASE/lib, etc.
+/usr/local is for locally built or locally installed files, whether packaged or not that somewhat become part of that instance of the Operating System.

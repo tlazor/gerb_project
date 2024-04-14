@@ -1,0 +1,10 @@
+For Bash you can use Bash Completion feature. Install the bash_completion package from your distro. There are good chances that you will have completion for /etc/init.d scripts already. If not, you can read how to make a completion yourself around the net. Here is one link.
+The other short commands are for convenience: rc-start apache2 will call rc apache2 start and therefore /etc/init.d/apache2 start
+Of course, if typing is too much effort, you could always make desktop icons/shortcuts for the desired actions, then you only need to click... Only options after this would maybe be a service monkey or something. (ha!  service Monkey for services...)
+But there might be already some kind of completion function in your zsh distribution for that job. Just have a look around functions/Completion/Unix/.
+Run/halt aren't used as often, so they may be harder to remember, but ./my_service run and ./my_service halt seem to work well with the normal English meanings of the words.
+It will allow you to type something like restTabsmaTab which will expand to restart smartmontools and call /etc/init.d/smartmontools restart. 
+Just remember that, if you want init to be able to manage your services, the start and stop commands will still need to be supported even if you put in other commands that are more tab-completion-friendly.
+Here you can use the rc command to call the init.d scripts like: rc apache2 start. This will translate to /etc/init.d/apache2 start. The command also have autocompletion for the files in your init.d directory, i.e. when you type: rc apa[TAB] it will autocomplete to rc apache2.
+If the words start and stop are too much to type, why not create aliases which perform one or the other?
+The first thing to mind was begin/end, but ./my_service begin doesn't feel quite right semantically.

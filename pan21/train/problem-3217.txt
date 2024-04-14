@@ -1,0 +1,6 @@
+You need to configure www.mydomain.com to point to your static IP. Do this by going to your registra (The place you purchased it from), and figure out how to add an "A Name Record". This record will contain your static IP.
+It should be done through configuration at the site where you've purchased the domain name, there they would have DNS configuration and you should change the record to point to your IP of your  server.
+This may take a few hours to take affect, so be patient. Test it first by going to the command prompt and pinging wwww.mydomain.com and looking to see if it's returning your static IP.
+If your server connects to the internet through a router, then you need to either add your server to the DMZ (This will direct all traffic to your IP address to the server. This is dangerous!) or forward the specific ports that you need to it. To do this, you'll need to log onto the router itself and find "Port Forwarding"
+NB: Do these in order, and test the first section by using your static IP from outside of your home.
+I can't give you exact details since each domain seller has a different Web interface for the configuration page.

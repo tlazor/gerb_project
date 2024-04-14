@@ -1,0 +1,7 @@
+When the server certificate is accepted by the client an encrypted connection is established and the client can identify itself by sending the correct credentials. 
+Client certificates are typically unique to the client rather than the host the client runs on, i.e. if you deploy an application on a cluster, then frequently all the instances of the application would use the same client certificate. Although you also see that each node in the cluster has its own unique client certificate, which would be shared by all applications running on that node and each instance of that clustered application would identify itself with a different certificate. 
+To be a threat to the confidentiality and integrity of your communications in that scenario an attacker would already have sufficient access to the server to by-pass  such transport security and would directly access the data instead... 
+Almost. Since the certificate is issued for a hostname rather for a specific service on that host you can use the same certificate for multiple services/endpoints running on that host. 
+When you have full control over both (certificate stores on) the client and the server you don't need a CA at all (neither a trusted public one nor an internal one), you can simply copy the public keys around and use those verify the endpoints. 
+A server certificate allows the client to verify the identity of the remote server since the server name is encoded in the certificate.
+One uses encryption to achieve three different goals, confidentiality, integrity and non-repudiation. 

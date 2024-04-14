@@ -1,0 +1,10 @@
+I reiterate: this one-liner will not always give you the correct result, but should work most of the times.
+You can get an approximation with a few basic commands. Probably nstrace is better, but I couldn't find it in my distro.
+I would also have suggested running the program you want inside a network namespace, which is exactly what the nstrace tool does, though I don't understand why they don't simply script the setting up of the namespace.
+I have already tried nethogs, but it is something very interactive, which might be useful if you want to know what is happening on one full unix system, but I'm interested in measuring the network consumption of one command. I'm not looking for an interactive program, but one that will spawn the process for me and wait until it exists to show those statistics.
+Here's a script I use to setup a network namespace and start an xterm "inside" this namespace, if that helps:
+The nsntrace tool requires forwarding and uses iptables to masquerade the veth-pair connection into the main network namespace to the outgoing interface. Very likely that went wrong because what it does is not compatible with your internet setup. Especially name server issues in network namespaces are a bit hairy.
+So I'd suggest you read up on network namespace (ip netns), masquerading, iptables and the DNS resolver (/etc/resolv.conf, /etc/netns/NAME/resolv.conf) to be able to find out what exactly went wrong.
+I have found https://github.com/jonasdn/nsntrace that looks like a good tool, but inside nsntrace, I have no connectivity (see issue https://github.com/jonasdn/nsntrace/issues/22)
+All you need to do is examine system calls used by application. An application which wants to read from network needs to call something from recv family or read. If you want to send something, you use write or send family of syscalls. Our heuristics will skip read and write, since it's too hard for one-liner to analyze. 
+Adapt as required (after you read up on it to understand what it does). You still need to enable forwarding

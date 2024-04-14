@@ -1,0 +1,8 @@
+guessFingers looks exactly how you'd imagine it. It doesn't need to be in Morra, as it does not inspect the state, but let's keep it there for simplicity, again:
+That's easy enough to undestand. We also added some types so that we can change our program in a single line, for example if you want to change the StateT to something else later.
+Otherwise your safeGetLine isn't safe, since isNumber also returns True on Unicode Characters in the 'Number, Other' Category.
+That's not really surprising, since State s a is more or less just an abstraction of s -> (s, a). Since a is () in your case, we can just get rid of it and end up with s -> IO s. We can use State(T) to our advantage if we have several Stateful functions. However, we only have play.
+Your variant of getFingers only tells a person to give the PC to the next player, but it does not tell them who the next player is going to be. That can be fixed by using forM instead of replicateM:
+That's it. We now have several functions that can be used independently but act on the same state. By the way, the single increaseTurnCount hints that the amount of Turns isn't really part of the State, but could be used as the return value of play instead.
+For our getNextPlayer we want to get the next player as well as queue them to the back of the line. A list isn't the perfect data structure here, by the way, but we keep it for simplicity:
+That's a convenient small function and makes it possible to change our Morra later without changing too many functions.

@@ -1,0 +1,6 @@
+4) Conditional formatting - Get the active events highlighted in a color, and inactive events not highlighted. Or something. 
+This is assuming you can get the data to be constantly updating in Excel. If the data is static, you can probably ignore a chunk of the auto-refreshing. 
+2) Turning it all into a pivot table. https://support.office.com/en-us/article/Create-a-PivotTable-to-analyze-worksheet-data-a9a84538-bfe9-40a9-a8e9-f99134456576 - easy how-to guide. You'll want your active event helpers as one of your filters
+I believe you can screw around with a Pivot table enough to make it work, potentially in conjunction with VBA. 
+3) Automatically refreshing the data in the pivot table: http://www.get-digital-help.com/2011/06/13/auto-refresh-a-pivot-table-in-excel/ This is to constantly pull and update the table
+1) Helper columns for your data. You might want to flag active events, duration, anything else you might want to see. Flagging active events is the only one I think you MUST have. 

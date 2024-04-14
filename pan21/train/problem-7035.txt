@@ -1,0 +1,8 @@
+The other process could have a temporary file open or a Port; termination of PuTTY might well close the subroutine but probably not remove any lock on files or ports from subprograms.
+Quite possibly what has happened is that PuTTY has spawned a VPN subroutine in order to tunnel, and that process has a problem; it has not returned to PuTTY and so PuTTY is hung.
+See this Microsoft Support webpage: "Debug Diagnostics Tool v1.2 is now available" where it describes usage of the DebugDiag tool.
+Whatever the problem you can locate the exact point and find out which process is at fault and debug it. If you have a question about the use of those tools feel free to check for and ask a new question.
+I call that a "hang" and not a "crash". Crash means that execution continues either returning an error message (nice) or in the case of severe memory corruption there will be a pause (usually short, sometimes somewhat lengthy, rarely a watchdog) and execution will continue with a BSOD or reboot (not nice).
+Create the dump but you can analyze it yourself, or after searching all the SE sites for a duplicate question ask us: "How do I work with a .DMP file?".
+With a "hang" no amount of time waited will seem to further your progress, though other threads may continue to run normally if your Task Switcher is not affected and can switch to them.
+Reading a Microsoft Community webpage about that error titled: "Windows Explorer 7 is not responding - 'apphangb1 explorer.exe' error" it says:

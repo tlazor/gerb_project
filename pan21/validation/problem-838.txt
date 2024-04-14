@@ -1,0 +1,6 @@
+Also, if I perform a dig axfr @<master ip> domain.com on the slave server, I get a nice zone transfer.
+A slave will first check if it has the most current zone before attempting a transfer, otherwise the notify is ignored. The common practice is to use the form YYYYMMDDxx where xx is a minor revision number (if accidentally set too large, there is a process that must be followed to lower the number again)
+In later versions of nsd where nsd-control replaces nsdc, the command transfer can be used to attempt, or force_transfer to update regardless of serial change.
+However, the zone files don't seem to get updates. After the notify, I perform nsdc patch; nsdc rebuild; nsdc reload; service nsd3 restart on the slave server, just to be sure. But this doesn't change the zone files either.
+The forward file is the same on the slave server, except for the line with "newvalue" (the value I want to transfer).
+I'm trying to create a master/slave setup using NSD. I have NSD installed on two servers. The servers are running great; when I perform normal DNS queries they return the information from the zone files. However, when I try to nsdc notify on the master, the slave doesn't seem to pick up the new zone configuration.

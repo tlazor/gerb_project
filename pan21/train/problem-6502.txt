@@ -1,0 +1,6 @@
+I'm planning a few servers to be run on Rackspace cloud. Aside from using load balancers to control the flow of web traffic, how good is the Windows Firewall? I'm thinking in terms of throughput as well as security.
+The Windows firewall is just fine for most applications. As with running any server, start out with a default deny policy and open up only the ports that you need. 
+No. It would effectively put your server directly on the Internet without any true security barrier. Personally, I feel that is a big drawback for the Rackspace Cloud (and IBM's Cloud). I would suggest looking at using another host (Linux) to function specifically as a firewall. 
+However, the benefits of a hardware firewall should be understood, since relying only on a software firewall isn't a best-case scenario. Even if you can't use one, it will help you understand the pros and cons of each ("Why should I bother having two firewalls???")
+The Windows Firewall is lean, mean, and does its job well. I doubt it would affect your throughput, and I'd trust it over any 3rd party software firewalls. ErikA is right in that you start with a default deny policy (preferably including outbound traffic also) to minimize your attack surface.
+If you are not locked into Rackspace, check out EC2. AWS EC2 offers a significantly more robust security layer, not to mention Virtual Private Cloud.

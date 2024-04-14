@@ -1,0 +1,8 @@
+Comparatively, I had a dual core before, and things would start to crawl with just Visual Studio, Chrome, and Sql Express running.
+You know the OS won't boot (noticeably) faster and the webpages won't download faster (they might draw faster though).
+If you are doing a lot of video encoding, 3d rendering, or distributed source code builds then the more cores the better.  You will see a marked difference in performance for these types of application as you move from 1 to 2 to 4 to 8 cores.
+For everyday use and programs that aren't multi-core optimized a fast dual-core will beat a slower quad-core.
+Its a matter of what you do with the machine.  If you are a power-user that will be video editing, 3-d modelling, or programming with significant resources.. then yes, you will want the quad-core and lots of RAM.
+Otherwise running standard applications really won't benefit from more cores. Even games really won't exploit multiple cores that much.  IMO, you are better off spending the money on a better graphics card.
+When I am programming, and I have Internet Explorer, Chrome, TweetDeck, Visual Studio 2008 (or 2010) and a local Sql Server Express instance...  everything hums along just fine.
+You can easily find a quad-core using only two cores. This partly has to do with the OS and with the design of the software. More so, they still share everything else, particularly the memory, disk, and devices.

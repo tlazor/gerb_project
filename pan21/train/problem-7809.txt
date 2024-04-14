@@ -1,0 +1,8 @@
+I'd prefer just adding a new index that can always contain the sum of created + ttl that PostgreSQL were able to use for this query automatically. Is this possible with high performance?
+Technically this does work but there are around 2M lines in the temporary data and the subselect gets pretty slow because the sum requires doing sequential scan over the table to find all matching rows. This causes extra background load on the database.
+(I'm considering rewriting the application code to save created and expires instead of ttl where expires is created+ttl. Then I compute logical ttl as difference of those values. I think the application does not emit heavy queries on ttl alone.)
+It might take some encouragement to get it to use this index, however, as the statistics system might not provide good enough estimates for it naturally.  Adding an ORDER BY to your subselect should provide this encouragement:
+I think refactoring the table to store the expiration would be a good idea.  If you don't want to do that, then you can make an expression index on temporarydata ((created + ttl)).  
+The 1553755330 in the example is current number of seconds since UNIX epoch and created contains seconds since UNIX epoch the data was added and the ttl contains the number seconds the data should be kept alive.
+(Plus, it just seems to make sense that you would want to delete the most overdue first.  Indeed, I don't know why you want the LIMIT at all.)
+We have a database where one table contains serialized temporary data that needs to be kept for various times (usually between tens of minutes and two weeks). We also have a low priority background process that removes old rows from the table. The background process removes up to 1000 lines during one transaction:

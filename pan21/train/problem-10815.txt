@@ -1,0 +1,6 @@
+Its more related to powerloss. Loss of power somehow causes port forwarding rules to get deleted. Not always but only sometimes.
+The symptoms of a missing default gateway is that your LAN PCs can access the server running inside the guest just fine, but external users from the internet cannot connect.
+Example: If the same machine (one MAC address) boots up different operating systems/hostnames, Fritz gets confused, and that affects port forwarding. Also if you use the "specific IP address" the port forwarding configuration, but then later change/add a machine config with the same IP address, the port forwarding changes to point to that machine "name" instead of the IP.
+In my findings, it's related not to the port forwarding itself, but the Fritz notion and behaviour of the destination machine ("to computer" field in your screenshot).
+In case you landed on this page because you can't reach a server running inside a Xen Guest from the internet (but can connect locally), then read on...
+In summary: try to clean up the machine/MAC list in Fritz (in "Home Network > Home Network Overview > Network Connections"), making sure there's no conflicts, and re-create the forwarding rules. That should fix it.

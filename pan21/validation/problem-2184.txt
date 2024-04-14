@@ -1,0 +1,5 @@
+I want to use a VPN but only when I am requesting for external resources. I mean, I have an IP 10.0.0.5 and I have plenty of internal servers that I want to access. Of course these servers are not accessible if I am connected to the external VPN server. 
+I have seen info about the opposite thing: only using the vpn for some ranges. I want to only use the internal IP for requests to 10.0.0.0/24 range.
+Also on windows you can open a command prompt and type "route print". The 0.0.0.0 0.0.0.0 entry with the lowest metric is the one in use.
+Many Corporate VPNs do not allow local traffic when connected to the VPN. So your first step would be to make sure that your VPN does allow this. A quick test for is would be to connect to your VPN and then attempt to ping the internal address of your default gateway (example 192.168.1.1). If you cant the the VPN is not allowing it. Check the setting in the VPN software you are using.
+So how can I do to route all the traffic using the VPN except the traffic targeted to the range 10.0.0.0/24 for example. 

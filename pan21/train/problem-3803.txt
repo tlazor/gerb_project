@@ -1,0 +1,7 @@
+Ideally, you shouldn't be hitting loads > 2.0. Since small instances have only one CPU, any load above 1.0 means you already have half of your processes waiting for available CPU slices. A medium instance should be enough.
+I am using 2 workers on Ubuntu, with latest nginx (stable), the network throughput is around 2Mbps and system load average is around 2 to 3.
+I want to know because if my nginx is cpu bounded (e.g. due to SSL), I will need to upgrade to a faster instance.
+Be sure to turn off gzip compression and also i suggest to add SPDY patch http://nginx.org/patches/spdy/README.txt (firefox and chrome supports SPDY) which will greatly increase load time of SSL pages.
+If your top shows that nginx is the only process eating CPU and your instance type is m1.small, thats for sure means that nginx is in BAD state. 
+A good article explaining how to measure system load: http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages
+The problem with EC2's small instances is that you don't have 100% CPU time available, only bursts. Once your instance starts keeping the CPU busy consistently, it gets throttled. 

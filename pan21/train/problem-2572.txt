@@ -1,0 +1,6 @@
+Are there any good alternatives to draw text in the worldspace that are a lot more efficient? (I'm targeting mobile, so this is important).
+If you're still having issues, you can use Unity's profiler to find out what exactly is taking too much time.
+I have a Unity project which requires a bunch of Canvases and, surprise surprise, they're creating a lot of lag. I've already turned off the graphics raycaster for every single one, but they still drop so many frames.
+Although I don't have experience with third-party alternatives, if you're experiencing performance issues with canvases there are a couple things you might want to try before deciding on switching to a different UI system:
+One alternative would be to use text meshes. These are texts which are rendered to 3d objects which can then be placed in world space.
+The technical implementation of a text mesh is just a quad with a texture which is generated at runtime when the text-string is set. So the resource cost for a text mesh is just two polygons and one texture.

@@ -1,0 +1,5 @@
+I had Linux installation alongside Windows 10 on my dual booted laptop. I wanted to remove the Linux partition so I followed guides online so I deleted the 3 partitions associated with my Linux Mint installation... (I'm assuming I deleted every one...)
+I then inserted my Windows recovery disk and then entered on the terminal the following commands, bootrec.exe /fixmbr, bootrec.exe /fixboot and bootrec.exe /rebuildbcd. I then rebooted and got a black screen saying "Minimal BASH-like line editing is supported.", along with some more text. 
+Does anyone know what could be causing the problem that the grub screen (Minimal BASH-like line editing..) still appears?
+So I then did more googling and then booted from my Linux installation USB and installed then ran the boot-repair program. This also didn't work and the grub screen still appeared!
+Bootcode is only updated on MBR partitioned disks. A different partitioning scheme is used on this disk'. Bootcode was successfully updated on all targeted volumes.

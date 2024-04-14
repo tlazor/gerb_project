@@ -1,0 +1,8 @@
+I can modify settings on the router (including changing it to dd-wrt if required), configure a server on the network (e.g. to add a squid proxy), and make local changes on individual computers (we have both Macs and PCs). However, any local changes that you suggest should be fairly difficult for a user to bypass or else the solution won't hold.
+That was the case in the past, but is not the case any more with the new unified infrastructure they're moving to. If your Google Apps domain is still using the /a/ location, it will be moving in the next couple of weeks to the new infrastructure.
+To answer your question, though, there is going to be no way to do this. It'll need to be tackled from an HR/policy point of view.
+How can I block computers on my LAN from accessing gmail urls but at the same time permit accessing google apps mail urls?
+Essentially it boils down to having a web proxy that can intercept SSL, then setting it to add an http header X-GoogApps-Allowed-Domains on all requests to google.com
+Unless you set up a proxy to perform a man-in-the-middle attack on HTTPS connections, then there doesn't seem to be a good way to do this.  The reason is that, for every device not part of the transaction, the only information known is that the user is accessing mail.google.com on port 443.
+Google now provide instructions on how to achieve this in their help pages at "Block access to consumer accounts".
+Google app mail loads via http://mail.google.com/a/[domain] and gmail loads via http://mail.google.com/mail.

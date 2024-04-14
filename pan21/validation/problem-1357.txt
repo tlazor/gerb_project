@@ -1,0 +1,5 @@
+Actually you may not want to use TRIM with full drive encryption, as it will indicate which parts of the disk you're not using by TRIMming them! This may make brute-forcing the passkey simpler if the unused regions of the disk are completely emptied.
+That support is only in beta firmware at the moment. So, if both your OS and controller firmware support TRIM, then it will work approximately this way: your OS will send that command to the SSD controller once some file is permanently deleted. Whether it will be actually trimmed at that moment or some other time depends entirely on your drives firmware implementation.
+There is a new article from Anand with more info about SSD magic :) I'd advise you to read it too. TRIM is explained in more detail there. In general, it says that trim is good, but:
+If your drive controller doesn't support TRIM, then maybe you can get an update or some beta version of it's firmware.
+If your OS doesn't support TRIM, then there is a chance that you can get a wiper tool from your drive manufacturer. You can read how that works here.

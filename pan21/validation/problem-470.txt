@@ -1,0 +1,5 @@
+No, generally speaking, it is not always a TLS connection. Many of the EAP methods do not use encryption as there was no need for it with the way they were intended to be applied.
+Depending on the exact EAP method in question, yes it is often very similar to the use of TLS in an HTTPS connection.
+The communication between the EAP supplicant (i.e. client in your question) and the RADIUS server is configured to use one of a number of different EAP methods. These have been developed over decades for a wide variety of applications and uses.
+So one of the first things that needs to be negotiated between the two is which EAP method is to be used.
+If you are talking a specific type of application, using 802.11 authentication as an example, then all the EAP methods I am aware of employed for this function do make use of a TLS tunnel. At least two of the most common (EAP-PEAP and EAP-TTLS) actually tunnel an EAP authentication (which may not use encryption) inside the outer EAP method which is only used to establish the TLS tunnel.

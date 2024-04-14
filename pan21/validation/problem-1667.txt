@@ -1,0 +1,6 @@
+To answer your main question though, just search for the filename without the extension.  There's nothing saying you need to specify an extension in your search terms, and if you start typing a search term, look at the bottom of the dropdown and you will see in blue text "size:".  Click that to specify a size constraint.
+I was facing this issue today on Windows 8 and have noticed it on previously on Windows 7 as well. I finally found a way to do this right and I hope this answer helps the original posters and others who come here via google searches. 
+But, I was wrong and apparently Nir Softer has redesigned his wild card & regular expression engine from scratch; as per this little gem I found posted on the page in "Versions History" section: 
+But, for some reason I was having trouble getting it to find files without any extensions. I figured the same bug was there in this app as well. 
+Typically for normal as well as advanced power searches I used Nirsoft SearchMyFiles and stopped using Windows Search. 
+Windows search is severely lacking in being able to search for text inside any file type.  Here's a good replacement which hooks well into Windows.  http://www.wingrep.com/  of course it's free.  

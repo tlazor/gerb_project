@@ -1,0 +1,6 @@
+Kerb Delegation requires that one principal be used to terminate one Kerberos-authenticated hop, and then perform another, on behalf of the original requesting security principal (the user).
+then, you should have a Delegation tab available for IISApp01, on which you can specify that IISApp01 is trusted for constrained delegation to (Search, pick SqlService, then pick the appropriate SPN registered against SqlService).
+In this scenario, every account must be a domain user account, and for simplicity, you need to disable Kernel Mode Authentication in your Windows Integrated Auth options for the website in question.
+You can authenticate using Kerberos without needing to delegate anything. In fact, out of the box, Windows 2008's IIS 7 and later ship with a default configuration which means that any single domain member box, where its real hostname is used, will be able to perform Kerb authentication. See "Kernel mode authentication", and, spoilers! You'll need to turn that off for your scenario to work as you've described it*.
+You don't want to set up Kerberos Authentication and therefore delegation. These are separate concepts, independent of one another.
+Short version: You set delegation options for a security principal (i.e. user or computer) you've just configured an SPN for on the Delegation tab of that principal in AD Users and Computers.

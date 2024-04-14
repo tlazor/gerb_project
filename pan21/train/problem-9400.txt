@@ -1,0 +1,5 @@
+Start refactoring with this. How many lines of code are actually different here? Outside of a different object name (newStudent vs. student), there are not very many. Looks to me like you can create a method with the Student object as a parameter so that you can populate each of the relevant attributes.
+Sorry folks, I cannot comment on anyone's reply because of my points. But I would refactor Martin York's SetSex() method to look like this: 
+Have the form call a ViewModel/Controller style of object that handles saving student information and contains the repository. Then the form code can focus purely on presentational elements, and the other object can handle validation, modification, etc. Separation of concerns is good, young padawan.
+First of all you have to use separate class for Business Logic (to save information) and then you should use that class object and add ALL text values as parameters in SaveInformation function rather than using textbox value directly.
+One could also argue that you're mixing a lot of presentation code with business logic (creation/modification of data). Don't do that. Separate presentation from content.

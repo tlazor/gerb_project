@@ -1,0 +1,9 @@
+1. Press and hold the CTRL and ALT keys, and then press the DELETE key. The Windows Security window appears.
+4. Now open the Processes tab. For each program you want to close, highlight it/click it once and then click End Process. Donot  close System or EXPLORER.EXE.*
+Closing programs running in the background on your computer can free up system resources for your other programs. This can resolve problems where your system is running slowly or two programs are trying to use the same device. It can also help you determine if there is a conflict with third-party software that's running on your system.
+2. From the Windows Security window, click Task Manager or Start Task Manager. The Windows Task Manager opens.
+Warning: If you use the End Process feature to close a program, you will lose any unsaved data in that program. Avoid ending system processes if possible, and be cautious when terminating system processes: you may disable necessary components of your system. You may need to restart your computer to restore full functionality.
+If you end a required process by mistake, restart your computer, and the system should re-enable it.
+Right-click the program's icon in the system tray (next to the clock), and choose Close, Exit, or Disable.
+3. From the Windows Task Manager, open the Applications tab. From the Applications tab, highlight each application you want to close and then click End Task.
+If you are still having memory or device problems, choose the method for your computer's operating system:

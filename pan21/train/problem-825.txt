@@ -1,0 +1,6 @@
+The wait code is "ASYNC_NETWORK_IO" which I found to be described as exactly whats happening by me, I quote:
+I have an application that often request a big set of rows [about 20K] from a sql view, in the mean time other applications can't update the table from where the data comes from, the update query's gets blocked by the select from the other application.
+My question is why is sql server waiting for the client to finish processing that select job, before allowing updates to occur on the table? is that a setting or a configuration that I could change?
+Generally (but not always), the ASYNC_NETWORK_IO wait is due to application design.  Rather than caching the data and them sending a response to SQL Server almost immediately, it performs some type of RBAR (Row By Agonizing Row) operation on the data it receives.
+SQL Server will send the client application some rows and wait for a response - in your case a request for another batch of rows.
+While data is being read in, a Share lock will be placed on the resource and nothing can update that resource until the S lock has been released.  If the application is performing processing row by row as it is received (rather than processing on the 20k rows when the query is completed), you'll hold S locks for longer and the updates will unfortunately have to wait their turn.

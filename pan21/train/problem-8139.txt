@@ -1,0 +1,5 @@
+You can use "select -expand xxx" to produced a flattened(?) array where you don't need to use the property name for parsing the array.
+Finally, if you don't need to reuse the list of usernames after this step, and you only need to check it for one check value:
+Or say you had an entire array of check values you wanted to loop through named $check_array and you wanted to check every username to see if they were in that array :
+That last method, however, is not exactly best practices if you are writing a script or function that someone else may need to take apart to repair or repurpose in your absence.  If it's just for you and all you need is that one boolean result, though, I'd go with that one, it should run about the same amount of time, and you won't be holding on to that (potentially) huge array of usernames (or even larger array of objects AND the array of user names.)  Again, though, if you're reusing that array of user objects, your way should be fine.
+If you don't need to use $allusers as a collection of user objects multiple times (or if all you need is the names of users,) you can cut down on what you're storing in the shell's memory by doing this:

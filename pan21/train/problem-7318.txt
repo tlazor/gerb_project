@@ -1,0 +1,9 @@
+I'm not sure exactly what solved it. But to the best of what I can determine the problem was caused by NOT ENOUGH HARD DRIVE SPACE. I probably had about 15G free (on a 250G drive) and I thought that was enough. But once I made about 50G available, the problem has gone. 
+Until Apple fixes this one, a workaround is to move the file com.apple.NowPlayingTouchUI.plist out of /System/Library/LaunchAgents/ (after disabling SIP). This command will move the file to your home directory:
+My computer is occasionally freezing and in trying to find out why I've found these errors in my console log. There are a LOT of them. Can anyone tell me why, what it means and if it's related to my computer freezing?
+It is a Bug(I sent to Apple) related to Sierra and the new touch bar designs for recently released McBookPros, It's from Core services trying to implement the "TouchBarUserInterface" that's "non existent" in all Macs that do not have the bar installed. not harmful but constant system non stop log entries that can be quite annoying......unrelated to Freezing computers
+My computer hasn't crashed with errors like these for about 3 weeks now, whereas it was crashing every couple of days before so I'm going to consider the problem solved. 
+Just posting an update to this question. The problem only got worse before it has finally disappeared. 
+Something is causing the job to be relaunched. The default ThrottleInterval is 10 seconds, so relaunching it within 10 seconds causes it to fail to launch to save startup costs.
+I don't know definitively if this is the solution/problem, but it fits enough for me. So if anyone is having similar issues, perhaps this will help. Good luck!
+You can find out why the job was launched using launchctl print and examining the output for the ‘event triggers’ section.

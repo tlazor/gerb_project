@@ -1,0 +1,7 @@
+After a while (in which I was away from this job) I found the following: VMWare upgraded to 7.1, an installation of VirtualBox (dunno if it has something to do with our theme), the settings from V-1, V-2 and W-1 untouched(?) and the following 'weird' situation:
+All of them had a different IP static address, V-1 and V-2 were bridged to the W-1's NIC. V-1, V-2 and W-1 were/are in a domain with DNS servers S-1 and S-2.
+Only the first VM can access the network. IOW, if I start the V-1 I can see (ping, filesharing etc.) W-1, S-1 and the entire LAN. If after this I start V-2 from V-2 I can see only the W-1. Any other ping (including to the S-1) gives an 'Request time out'. 
+Similarily, if I start first the V-2 and after this the V-1, then the V-2 works ok in LAN while V-1 does not (it sees only its host system).
+You might want to check the assigned MAC addresses of both instances to ensure that they are not somehow the same.
+We could open both V-1 and V-2 and see the W-1, S-1, S-2 and all the network (ping, file share etc.).
+On workstation W-1 (WinXP - 64bit) we had two virtual machines (VMWare 6.5) V-1 and V-2 (both with WinXP-32). 

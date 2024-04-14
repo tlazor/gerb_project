@@ -1,0 +1,8 @@
+or from Oracle dbconsole (for now it works from crontab). A recovery procedure is checked and everything is working properly. 
+which is located in a town 20km from the data center. The script for database backup works fine, and is started from crontab Job
+have a failover backup version. We also tried to do the backup over dbconsole but this only works if the node from which to start job was started. 
+Essentially the question is "How to ensure that our backup works, whether or not both nodes are active"
+The problem is that the script runs from the first node in the cluster, and if the node is turned off, backup can't be run. How can we ensure that our script
+Better solution is to have a custom script that performs the backup on the first node always, and on the second node only when it detects via crsstat that first node is OFFLINE.
+We have Oracle 11gR2 RAC database on two nodes. We also have a RMAN backup script that works fine, using a recovery catalog database
+In a simple well-written RMAN script there is nothing that would prevent it from being used on a different instance of the same database, so I guess the question is really about getting rid of a single point of failure (SPOF) of invocation of such RMAN script.

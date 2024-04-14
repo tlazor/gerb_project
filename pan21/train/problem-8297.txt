@@ -1,0 +1,7 @@
+Looking for a Linux script solution that can send alerts to a service such as Twitter, Skype or Google Talk and sends to Android and iPhone clients.
+Found some info about Skype4Py from several years ago that supports Skype Chats. But doesn't look like it is currently supported.
+Whatever is used needs to support Android and iPhone clients. Reason why email is problematic is that Gmail gets very upset when emails start flooding in every minute as a result of alerts.
+Have found twurl for Twitter with previous Bash scripts using curl no longer supported. But twurl looks promising. But haven't seen how to get Android Twitter client to make a distinctive sound when a tweet arrives.
+If you're looking for basic authorization compatibility with older apps (like the ones you mentioned) try http://supertweet.net
+Have tried a few CLI clients for XMPP/Google Talk including xmpp4r-simple and freetalk, but found xmpp4r-simple buggy and freetalk succeeded in sending one chat message, but most never arrived.
+We use sendxmpp (http://sendxmpp.platon.sk/) as a command line XMPP client to send alerts to our Jabber accounts, and Jabiru as a Android client : works great !

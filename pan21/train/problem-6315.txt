@@ -1,0 +1,6 @@
+This is because a 32 bit system has 4 GB address space. Part of that (ideally 512 MB or less) should be used for the RAM. The rest is for PCI address space, virtual memory addresses etc.
+As you can see that is on 32 bit OS's only. Both the server and the consumer versions. I seem to recall that it was later removed from windows 7 SP1, though that is not mentioned on the MS site.
+I guess technically this is possible if the programs manages to insert itself early enough to activate either PAE or 64 bit mode, and then emulate normal operation to the OS before it finishes loading.
+PEA works on a 32 bit OS. It uses 36 bit addressing.  Think of it as 16 (24) windows of 4 GB (232) each. Or think of it as a book with 16 pages. You can not see more than one page at the same time, but you can turn the pages.
+True. If your memory controller or the motherboard is limited to 4 GB then that is that. Game over. 
+However they might work on a motherboard which supports PAE, but not on a motherboard which either lacks the copper traces for it, or whose memory controller does not support it.  (e.g. old CPU's, old chipsets, atom CPU's older than Pineview or Diamondville). 

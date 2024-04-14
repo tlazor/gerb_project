@@ -1,0 +1,8 @@
+I think that you don't need to select 10 millions with one query but if you realy need it, you can do it by batch.
+In a data warehouse star schema design it would be perfectly legitimate to denormalise Color into the Car dimension. I am assuming here that Car would be a dimension, supprting facts such as Journey or CarSale etc.
+We have a table with 500 rows in table "Cars". There is also a table "Colors" which has roughly 20 rows. Table "Cars" has a foreign key reference to table "Colors". To get the color of the car we would need to inner join on table "Colors":
+But lets say you have 10,000,000 rows in Cars and 2,000,000 rows in Colors; the inner join would cause quite a performance hit. It would probably be better to include the column "Color" and "ColorID" in table "Cars" to avoid this inner join. So you query would look like this:
+In an OLTP system, they should be kept as two separate tables with appropriate indexing on the ID columns.
+Is there a rule of thumb to rather include the foreign key value inside your table once your table reaches an x-amount of rows? Or would it be better to remove the foreign key completely and just have a column called "Color" in table "Cars" thus causing table "Colors" to be redundant?
+The denormalisation would be handled by your ETL process during import to the warehouse from your OLTP system. This would usually be done via intermediate staging tables.
+If you have a problem with big tables you can expose it but i am pretty sure that denormalization will be not the solutiuon.

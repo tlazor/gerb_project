@@ -1,0 +1,9 @@
+One poor-man's solution would be to use two HDDs, keeping one off-site and off line (e.g., at a friend's house).
+So, yes they are. Just don't entirely trust the sneaky buggers and have enough backup backups to sleep well at night ;p
+I've had 2 USB HDD's fail on me in the past. Both due to HDD failure (the USB enclosure is still working; verified by plugging the HDD into another computer).
+When you plug in your USB HDD, your entire backup medium is now online and writable, on the same machine which has your primary data.
+100% of my failures have been due to accidently dropping the drive, having it fall off a table, having the cable wrenched out at unexpected times, etc. Basically, my own negligence and stupidity.
+The failure rate of external USB drives can not be compared to internal drives.  USB drives fail all the time.  You can not expect them to last.  They will fail.
+I fixed this problem by taking the HDD out of the USB enclosure and connecting it via the internal SATA interface in my home media PC. There have been zero failures over an equal period of time since I took me out of the equation!
+Nothing is failure proof, you're playing with failure curves. Internal drives fail, external drives fail, every so often entire BUILDINGS AND INFRASTRUCTURES fail. 
+The point of backing up is not to not have failures. Its to not have a failure when you have another failure going on at the same time, and the thing that failed is needed to fix something else thats failed. 

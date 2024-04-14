@@ -1,0 +1,8 @@
+However I did find nice program that backup programs seems to see it. I've not yet tested how backup will work directly to that drive but I do have good feeling about this (at least programs see it). Without further ado FtpUse is your man! :-) 
+It's not quite a mapped drive, but you do have full Windows Explorer copy and paste, which is handy. 
+Well, this isn't quite what you're looking for, but you might find it useful. I used use it for connecting to unix boxes that didn't have Samba installed. If you just type in the Windows Explorer Address bar something like this:
+I'd like to mount an FTP to a drive letter in windows, I've used Novell's NetDrive, but there are two main problems, 1) it tends to slow down computer alot 2) it doesn't seem to work at all under Vista.
+Are there any applications that will allow me to mount a remote FTP to a local Drive letter, or is there a method built into Vista for it?
+All mentioned programs like WebDrive, FtpDrive etc have one single problem. They are usually not visible in backup programs as they do not appear as normal Fixed or Removable drive. So programs like Symantec Exec Backup 2010, Symantec Exec Backup 2010 System Recovery simply don't see it (even thou it is shown in Windows Explorer).
+For example FTP Drive or Web Drive. Of course FTP in general is not very recommended any more because it's so unsecure.
+I've tested those programs and this was the main problem (those programs didn't see it the same way as Windows Explorer does) as i needed the ftp mount letter to have backup moved directly to ftp drive.

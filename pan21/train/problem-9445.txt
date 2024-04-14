@@ -1,0 +1,11 @@
+Some things you can try are to repeatedly close and open your web browser. Or close your web browser switch to some other applications, then come back to the original app.
+The other thing i actually had on my Windows 8.1 Update 1 is that Superfetch service was over-killing my HDD to 100% most of the time
+you can turn off that service by Running the following command in a Command prompt, you can open a command prompt by press  Windows  +  X  and then Clicking on Command Prompt (Admin) , running without administrator permissions won't work :
+This service starts everytime on boot, so if you got the problem fixed, you might wanna disable it permanently, open:
+That all being said, a 5400 RPM laptop disk can be very slow. The performance graphs you have look to be about right on, and don't indicate anything problematic. If you do go for a good SSD, even if you need to swap to disk occasionally, things should all seem and feel much faster.
+also, HDD actually self-die over time, so a Core2Duo Laptop might be used a lot, and also, laptop Drops/similarities may cause a severe HDD damage.
+By the way this service is for ReadyBoost, and if you use ReadyBoost, you must NOT Disabled/Stop it!
+First thing I would check is the Hard Drive's health. (NOTE: if you have a bad drive defragmenting it before checking the SMART status can essentially shred your data). Go to http://www.smartmontools.org/ and download the windows version. Then open a CMD prompt and check the SMART status.
+In a healthy computer with lot's of ram a significant amount of it will be dedicated to a disk cache (thus preventing re-read's of data). Likewise in a "slow" computer, the disk will be devoted to swapping memory to disk or will need to do significant re-read's of data to load applications from disk to memory.
+If you find that you are still loading slowly, your computer is at least partially afflicted by a lack of ram. In general more ram is good, and right now 8GB is a good amount (although 4GB should be OK).
+Move on to other troubleshooting. Since Ubuntu and Windows are experiencing the issue - drivers are not at fault. Check the BIOS for AHCI mode - yes you can change this after the OS is installed. If the drive is in IDE mode things will crawl regardless of drivers installed. 

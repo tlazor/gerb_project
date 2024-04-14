@@ -1,0 +1,7 @@
+Also, note that the above is only for one rarely accessed folder - I will have to add logging for all system folders, etc. as well, which will make the log flooding much worse. 
+OSSEC can log changes to files and registry entries, but it is a poor fit for this requirement since it does not log who made the change.
+Next, I picked a rarely touched data folder as a test: "Properties" > "Security" > "Advanced" > "Auditing" > "Add" 
+I would appreciate advice on how to comply with the above requirement (preferably w/o spending a lot of money on a commercial product).
+PCI DSS 10.2 says, "Implement automated audit trails for all system components to reconstruct the following events:" and 10.2.2 continues, "All actions taken by any individual with root or administrative privileges."
+So I ran secpol.msc, went to "Local Policies" > "Audit Policy" and enabled Success and Failure for all entries.  
+This does log all access to files in the folder, but the problem is that the event log now gets flooded with entries from not only the explicit members of the Administrators group, but also seemingly from any process with admin privileges (such as the Anti Virus processes).

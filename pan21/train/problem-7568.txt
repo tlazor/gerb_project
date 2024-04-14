@@ -1,0 +1,6 @@
+You've not provided enough infomation to suggest something more specific but but that have to be enough for most of the tasks you'll need. Don't think of 2*socket server at start - not very cost efficient
+I'm a student doing internship with a small company with 7-8 employees. Expected growth: Upto 25 employees by next year.
+I need some suggestions on what kind of hardware we should use for a server that we are going to setup at our office. This server will run Windows Server 2008 edition with services as follows:
+Thats all for now. But we want to be future proof and be safe for next 3 years atleast. Any other suggestions welcomed.
+A good general rule these days: invest in RAM, and in a system with capacity to upgrade to more RAM. Your biggest pain point will be I/O throughput, so minimize that with aggressive caching and a tonne of memory to keep static things like configuration available without a disk call.
+Go with plain Core i7 with consuner grade motherboard and 8Gb RAM + 100Gb SSD for OS and some TB for data.

@@ -1,0 +1,8 @@
+Some of the answers are out of date or more complex than they need to be. Presumably Chrome has added some functionality since the question was asked.
+Note: If you have a GMail contact for yourself, any picture attached to that contact may override the picture you see in GMail. It's worth checking to see if you have such a contact, and whether that contact uses the same picture.
+This is probably too simple, but it works: I removed the file "Google Profile Picture.png" from my user directory, and put another file with the desired picture with the same name in the same directory. Worked.
+Note: Changing your picture in GMail affects your entire account. This is just a convenient place to do it.
+Changing your profile icon is possible with the solution given at https://code.google.com/p/chromium/issues/detail?id=91230#c43 with several limitations.
+as of now you cannot do so directly or indirectly through something like resource hacker.  I changed the profile icons (png pictures) in the Chrome.dll which is a file Google Chrome loads.  However, in spite of them changed using resource hacker, my new icons do not show up in the settings section of Google Chrome so don't bother trying.
+First, check that a picture is associated with your Google account. Open GMail and see if a picture appears in the top right. If one shows up, you're good to go.
+Your current account image will be synced. Repeat the steps in the previous section and enjoy your icon.

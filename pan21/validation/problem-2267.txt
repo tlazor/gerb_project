@@ -1,0 +1,9 @@
+the POS vendor installed a router, connected it to the modem, and did not configure it with one of the ISP's static IP's.
+If you do not have access to modify the router's configuration, well then this question is off-topic here and you'll need to deal directly with whomever has administrative rights on that router.
+to ask it another way, is there a way for a device connected to the modem thru the router to bypass (or communicate thru) the router's gateway and communicate directly with the modem?
+By definition, devices inside your router's LAN network need to use your router's LAN interface to communicate with any devices outside their subnet. If you set a device with a public IP address on a NATted network, it's not going to work.
+the device i'm working on, got plugged into this routers network (due to cable path issues, connection directly to the modem is extremely difficult).
+my biggest question is the gateway address.  will my device be able to resolve the gateway address of the modem thru the router?  do i put the routers gateway address in my device or the modem's?
+That doesnt seem to fully encapsulate the question either, but I cant think of another way to ask it, so let me know if I can clarify anything, or if this doesnt make sense at all.  Thanks in advance for any help!
+is it possible to configure my device using the ISP's static ip, and have it route correctly thru the dhcp enabled (and dynamic ip configured) router?
+The best you can do is to configure a 1:1 NAT on the router to NAT traffic to/from that IP address to/from the private IP of the internal device.

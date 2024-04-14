@@ -1,0 +1,5 @@
+So I have a website (I'm using nginx). I can connect to https://example.com just fine. But if I connect to https://www.example.com then it says something about the connection is encrypted but there is resources on the page that are not. There are no resources on the page (and the pages are exactly the same whether they have 'www' or not).
+If your SSL certificate is for www.example.com then it will not work on example.com or vice versa. An SSL certificate will only work for a specific domain (and in this case www.example.com is considered a specific subdomain).
+The only way around this is to get a wildcard SSL certificate which would work on both www.example.com and example.com.
+How can I figure out the problem and how can I solve it (I need to figure out the problem first of course).
+The error you describe shouldn't have anything to do with the hostname that is used to access the site (you would receive a different error stating that the certificate is issued to a different name). To fix the problem, try the solutions listed here: http://www.sslshopper.com/article-stop-the-page-contains-secure-and-nonsecure-items-warning.html

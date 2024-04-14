@@ -1,0 +1,8 @@
+When people want to communicate over long distances with radio, we are forced to use very directional antennas and point-to-point communications, and we spend a lot of time aiming one antenna at the other antenna to get the best signal.
+(3) Connect the wireless mesh to the point-to-point link, with a short "Ethernet cable" between your Point and the nearest WiFi access point.
+Would any of the approaches used by South African wireless community networks or the Seattle Wireless Community Wireless Network work for you?
+If I understand correctly, you want to connect WiFi devices in your village to the Internet, but the closest reasonable-cost Internet access point is over 5 km away.
+So antennas designed to communicate in all directions ("omnidirectional", "broadcast") generally communicate over very short distances.
+(1) Set up each WiFi access point in your village in "wireless mesh network mode", so each WiFi device talks to the closest access point, which relays packets to the next WiFi access point, and so on.
+(2) Install some backhaul point-to-point link from your Internet access point over the 5km to some convenient convenient Point (POP) in or near your village.
+With everything else held equal, the more focused (or "directional") a radio antenna is, the longer the distance one can communicate with it.

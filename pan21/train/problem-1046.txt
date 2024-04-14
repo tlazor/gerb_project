@@ -1,0 +1,13 @@
+We are currently trying to recover from a quasi-crash (it was a normal shutdown, but mysqld won't start up again)
+time or silently fails. We tried waiting for 22 hours, with no visible progress. The process ran with <1% CPU usage
+As a last resort we tried deleting the corrupted database by deleting it's directory from disk (since we can't delete
+then deleting the corrupted database and restoring it from a backup. But we can't get it to start in write-mode without
+and then gets stuck there. Since there are no further log entries from that point it is not clear if it takes more
+skipping the redo log entirely. Unfortunately this also starts with read-only. Thus clearing the log by using
+and are having problems with the redo log of InnoDB during start up. If we start with innodb_force_recovery=0,
+trying and failing with the redo log. Is there a way to clear it by directly manipulating the files?
+it within MySQL as it only starts in read-only) and then starting with innodb_force_recovery=3, but once again
+It seems the best course of action is to somehow start mysqld without performing the redo log or clearing it beforehand,
+What we need now is a way to clear the redo log with mysqld being offline. Simply deleting the log files
+start up, which runs into the same problems as above. We're assuming the data somehow is saved in ibdata1,
+We then tried increasing numbers of innodb_force_recovery and at 6 the server finally starts up again by

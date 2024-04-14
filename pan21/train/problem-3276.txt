@@ -1,0 +1,6 @@
+I crashed a Proxmox 4 server beyond repair and some some of my CTs I don't have a dump file, all I have left is .raw disk image.
+Regarding the .conf files, those are on Proxmox's replicated database backed file system. See Proxmox Cluster file system (pmxcfs)  to read more about pmxcfs. In particular, you might be able to stop pve-cluster on a node with the same name, replace config.db, and reboot.
+Then, recover a cluster to where it is stable. Determine the cause of your last data loss. Crash it and be sure it comes back. fsck file systems to be sure data survives.
+Now you can rebuild. The .raw should contain a filesystem, which yes you can use again. At least you can mount it as is and try to recover data.
+There is not a lot to the .conf though, it contains the options for when you set up the container. Rebuilding the config is always an option. Then stop the CT and replace the .raw with what you have. Note the IP or MAC on the network interface may be different if you didn't recover the previous addresses.
+Although, the web UI doesn't seem to allow editing the disk. If you need to change the path or size, use a text editor on the .conf.

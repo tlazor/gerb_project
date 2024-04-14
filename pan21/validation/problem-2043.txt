@@ -1,0 +1,5 @@
+I think it is better choice to have  of purchase_id as FK in SALE_ITEM table in oppose to product_id, because sell is something related to PURCHASE and PRODUCT both and this option offer you this relation,  you can get the corresponding product_id and information related to PRODUCT by making a join in sql query.
+Suppose there is an item in stock that costs $ 100 (product cost, not the selling price), but there are only 3 pieces to sell, then the customer decides to buy another batch of the same product, but this time the lot comes to a different price, $ 76 for example.
+Don't add restrictions with your design, let them give flexibility to choose the way they want to. Even this part can be handled with sql query incase needed.
+So, should I relate the sale of each product with the identifier of the table PURCHASE instead of the identifier in PRODUCT table?
+The purchase cost is very important, because on it the percentage of profit is calculated, so if the cost is different, the selling price will be different too.

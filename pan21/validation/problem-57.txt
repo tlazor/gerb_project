@@ -1,0 +1,8 @@
+Assuming that you did want to use the \override directive, it would be better to put it in the global variable that I introduced above.
+The code is written using Frescobaldi as IDE and using LilyPond (docs) as format and engraving tool under the hood. The music is engraved to PDF and a MIDI file is generated.
+Note: the chords should be sustained longer than can be heard in the provided audio, an unfortunate conversion artefact unrelated to the code written.
+Assuming that this is the entire piece rather than an excerpt, you should end it with a double bar line:
+It is very good practice to include all bar checks to help you catch rhythm mistakes, and to make the code easier to read:
+I want to share one of the easier pieces. A shortened, simplified piano version of Morning Wood (Morgenstemning) by Edvard Grieg. Specifically, it's a 1:1 translation of the version provided by Flowkey (no affiliation).
+Basically, it works like a charm, the result looks like a charm, but the code itself could use some serious clean-up.
+While learning to play the keyboard, I find it helpful to write down the score of the pieces I play, regardless of whether a score already exists.

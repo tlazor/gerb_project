@@ -1,0 +1,8 @@
+now you have duplicates grouped together .. you can copy them to next excel sheet or remove unique easily 
+you go to the columns selected earlier(the ones you want to analyse and then filter (drop down box of the first raw of each column) and then select filter by color 
+Then click the filter drop-down in the new TRUE/FALSE column and uncheck "FALSE" to show only uniques and click OK.  Then Select the visible rows and delete those rows (right-click any row -> delete row).  
+Then you will want to turn filtering on for the column you just put the formula in. Ctrl+Shift+L in Excel 2013, or under the Data menu.
+One way to delete unique entries will be to utilize a new column, using the formula below, to clearly label each entry as unique or not.  Then you can filter the entire table, viewing only the unique values (as seen with a "TRUE" result from the formula below), and delete only those rows.
+How do I 'Remove Non-Duplicates' keeping only the duplicate records? I know I can highlight duplicate records with a different color, but I'd prefer to remove the non-duplicates instead, as I don't want to scroll though thousands of records looking for the needle in the haystack.
+first you filter the duplicates (select the columns or rows you want to analyse --> home--> conditional formatting --> highlight cell rules --> duplicate values --> highlight red (ex)
+Another easy way to do this would be to have the duplicates highlighted in the column, then turn on the filter option & sort the column by cell color. The duplicates will all be sorted by cell color at the top - everything below that isn't highlighted in the color you picked for duplicates will then be easy to delete. It's a work-around but it's quick and easy.

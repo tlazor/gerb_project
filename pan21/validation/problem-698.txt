@@ -1,0 +1,15 @@
+We can see that one execute thread (3940) is locked to CPU 0, and the others are locked to CPU 1.  3940 is an LQH worker thread (as it has a DBLQH block with a number > 0 (DBLQH(1))).
+Higher values of MaxNoOfExecutionThreads will increase the number of LQH threads, which should each take an equal share of the 'LQH' work, and be balanced relative to each other.  However, the other threads will have different amounts of CPU consumption.
+Note that the mapping of threads to cpus is output in the stdout (ndb_out log) of each ndbmtd process when it starts.  Using similar config, I see the following :
+So depending on the traffic used, the amount of CPU consumed on CPU 0 vs CPU1 will be out of balance.  Note that the 'maintenance' threads are also locked to CPU 0 which, if CPU 0 is saturated, may make things worse.
+I recommend experimenting with the traffic load, checking the ndbmtd output to understand the mapping, and measuring achievable throughput and latency as well as observing the balance and utilisation of the CPU cores.
+thr: 1 tid: 3939 cpu: 1 OK BACKUP(0) DBLQH(0) DBACC(0) DBTUP(0) SUMA(0) DBTUX(0) TSMAN(0) LGMAN(0) PGMAN(0) RESTORE(0) DBINFO(0) PGMAN(5)
+The CMVMI (network IO receiver), DBLQH(0)/SUMA(0), and DBTC(0) threads are all locked to CPU 1 in this exampe.
+According to this : http://dev.mysql.com/doc/refman/5.1/en/mysql-cluster-programs-ndbmtd.html , the MaxNoOfExecutionThreads should be set to 2 for a 2-core host.
+WARNING: Too few CPU's specified with LockExecuteThreadToCPU. Only 2 specified  but 4 was needed, this may cause contention.
+With plain ndbd, all of these functions are in 1 thread, with ndbmtd, and MaxNoOfExecutionThreads = 2, they are split out as shown.  Note that this is a 'functional' split - each thread has a different role, and therefore requires a different amount of CPU to accomplish its part of the work.  For a given throughput, the amount of CPU consumed by each thread type will be different.
+I checked in with MySQL Cluster development team and Frazer Clement provided this detailed response.  Let us know how your testing goes. A good place to ask questions specific to MySQL Cluster is the forum: forums.mysql.com/list.php?25
+If the bottleneck for this traffic type is LQH processing, then increasing the MaxNoOfExecutionThreads to 4 or higher will result in there being 2 LQH 'workers', which will each be assigned a core.  However, the other threads will also be using one of the cores, which will limit the resources of the LQH worker on that core.
+thr: 0 tid: 3938 cpu: 1 OK DBTC(0) DBDIH(0) DBDICT(0) NDBCNTR(0) QMGR(0) NDBFS(0) TRIX(0) DBUTIL(0) DBSPJ(0)
+Finally, the LockExecuteThreadToCpu=0,1 line is used by ndbmtd in a kind of round-robin style.  Unfortunately, there are too many execution threads (4) for the number of CPUs provided to give an even balance.  So what happens is that the single LQH thread is given one CPU, and the other three threads share the other CPU.  This can account for the imbalance seen.
+If LQH workers are not the bottleneck, then having extra LQH workers can reduce the CPU available for other threads, and reduce throughput.

@@ -1,0 +1,8 @@
+I know that last year GlobalSign was updating their certificates as we were updating our code-signing certificates, so I had to add their new chain to those, too.
+Describing CA using the .CRT file format instead of a raw public key .PEM allows to bundle more details in it - e.g. CA name - (yet again, the signature is worthless)
+As a note on this one, SOME CAs have already been updating their root and intermediate certificates to SHA256 anyway.  
+The only case where this matters, is if the root is signed by SHA-1 it can be revoked by SHA-1. That is, somebody who can attack SHA-1 can construct a revocation for the root. And I'm absolutely sure the browser doesn't know how to persist that so the vandal has accomplished no more than dropping SSL connections. How lame.
+For root CA, you give you trust to the public key of the CA -bundled in the CRT -  regardless its self signature.
+At the end of the day, a root certificate is self-signed. It is never signed by another entity except itself. The root certificate gets its trust through out-of-band processes like submitting it to a browsers list of trusted publishers, or getting it accepted by Microsoft for insertion into the default list of Windows trusted publishers.
+You can check which specific certificates got updated and which ones they updated but also left a legacy SHA1 certificate for here => 1
+These certificates (and the companies that self-signed them) are (allegedly, hopefully) thoroughly vetted through other means than just their signatures.

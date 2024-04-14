@@ -1,0 +1,11 @@
+All it does is clicks at the current mouse location, clicks 40 pixels below, and returns the cursor to the original location, repeating 9 more times.
+This method also works for the 'never save passwords for ...' section, but it will error out if any of those are of the chrome-extension:// protocol type, in which case you will need to move the cursor down one manually.
+Please note there's a warning in the console to understand the risk of running anything there. Be advised, read the above carefully to understand what you run.
+The file can be viewed for security purposes on Google Drive or in a text editor (the .kmmacros files are XML formatted) and can easily be modified to delete hundreds at a time.
+For X11 systems, you can load passwords.google.com and on the saved passwords page put the mouse over the top trash-can icon and from a terminal do:
+Based on the answer by @bill-mcgonigle I assume it would also be possible to just use the Chrome Console
+Now, Google seems to sign you out at 5 minutes sharp for each p.g.c session, so this method can only do a hundred at a time (my goodness, 20 years of saved passwords...) but it's less maddening than clicking each one individually.  Google does appear to impose a 3-second delay between each delete event.  I tried fiddling with random delays and mouse wiggles, but those don't affect the 5-minute timeout.
+I did do the Chrome-side tip given above to delete all passwords, but as soon as I turned on an old device it uploaded them all again.  :angry react:
+and keep the mouse over the trash can icon until it's done - the next undeleted password will move up after each previous one has been deleted.
+I've run into this scenario where I only wanted to delete a large number of specific passwords. Finding no suitable alternative, I created a macro with Keyboard Maestro that deletes 10 at a time:
+This worked for me, after the first time you run it, Google will ask for your password again. After that my 200+ passwords were deleted without any issue.

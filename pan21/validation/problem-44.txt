@@ -1,0 +1,6 @@
+Get the current of IP address for downloads.google.com, and add a static entry in you internal DNS.  then you can always use the same IP to access google's service.  Now the IP rotate for load balancing & other reasons, but you should be fine.  You could get a list of a few of their IP's and have the FW admins add a few of them into the rules, then you'd just need to change the IP internally.
+I don't see how it can be that big of a performace load on the firewall (although you haven't stated what make/model firewall you're dealing with).
+I told them (admins) to use the name instead of the IP Address and they said that the performance hit on the firewall would be too big if it had to resolve names before allowing a package to go out.
+However, Google change their IP address for this name from time to time and when they do, obviously the rule stops working. 
+I'm not an infrastructure guy, but I'm pretty sure that there is a way to cache the IP for a name for a certain amount of time to prevent from querying DNS all the time or something like that so: What options do I have to get pass this problem and still make them happy? 
+I have an internal application sitting behind a firewall that has to FTP some files to uploads.google.com. I asked our network/sys admin to create a rule to allow it and they did, based on the IP of uploads.google.com. 

@@ -1,0 +1,5 @@
+If, on the other hand, the files will always be written in one location, and just need to be accessible for read only use in the other location, you're better off doing two one-way syncs using rsync or something similar, and keeping the files separated. 
+We'd like the backup directory on that machine to bidirectionally sync with a machine in our primary data center so the same backups are seen on all the admin machines.
+We're getting ready to light up another data center and we have a local administrative machine that scripts aim backups at.
+This depends on how the files you're syncing are used. If individual files will possibly be updated in both locations,it will be difficult for your process to determine which version is the "correct" one, even if you just go with whichever edit was newer, you could wind up overwriting someone's legit changes. This same situation arises for the deletion of files. In either one of these cases, you would be better of doing proper version control rather than syncing.
+(this assumes timestamps in your original backup to the admin machine preserves timestamps properly)

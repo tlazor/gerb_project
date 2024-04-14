@@ -1,0 +1,7 @@
+thirdly, as mentioned before the USB bus is now shared between your HDD and the ethernet, so the max throughput drops even further (by at least half, so max of ~2.5MB/s)
+there are several things here, although the physical ethernet connection is 100Mbits/s the ethernet chip is hung off of a usb bus that is shared with other devices, so as quoted above the maximum actual throughput is about 60Mbits/s.
+if you really need speed then you need to invest in a different SBC (single board computer) with better interfaces such as sata and/or native ethernet
+all these things slow it down, so tbh in the real world there isn't anything you can do to improve the speed.
+secondly because ethernet uses whats known as 8/10 encoding for error detection/correction the maximum throughput in bytes is 1/10th of that in bits (6MB/s)
+fourth, all the resources of the pi are subject to contention (being fought over) the CPU is less of an issue because of the multiple cores, but samba is not the only thing accessing the ethernet connection, nor is it the only thing using the RAM these can all slow it down further.
+and lastly, no software is perfect, I don't know about the samba source, but the linux kernel copies data multiple times from buffer to buffer in the process of sending it to the physical interface (this is why some big companies (i think the BBC or netflix?) have written their own network code to get past the bottleneck)

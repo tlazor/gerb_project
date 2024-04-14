@@ -1,0 +1,7 @@
+    #"Inserted Day of Week" = Table.AddColumn(#"Inserted Week of Year", "DayOfWeek", each Date.DayOfWeek([Input Date]), type number),
+PQ has built-in date conversion functions that usually just work without any coding. In the PQ Editor, just select the column and set the Data Type to Date.
+    #"Added Day of Week Name" = Table.AddColumn(#"Inserted Day of Week", "Day of Week Name", each Date.ToText([Input Date], "dddd"))
+I have English Excel, but I was able to process an equivalent date string "Thursday, June 05 2014" and add columns to get Week of Year an Week Day (number and text).  
+I would use the Power Query Add-In for this.  From Excel 2016, Power Query is built in to the Data ribbon under "Get and Transform" section.
+You can build this just by clicking around in the PQ UI, or here is a sample PQ script to get you going (assumes your input is in a table called "Table1", with a Column heading of "Input Date").
+    #"Inserted Week of Year" = Table.AddColumn(#"Changed Type", "WeekOfYear", each Date.WeekOfYear([Input Date]), type number),

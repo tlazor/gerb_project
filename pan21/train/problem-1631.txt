@@ -1,0 +1,12 @@
+You also don't mention actually what you uploading, it's size, and level of corruption that is occurring.
+I've never heard of HTTPS being more reliable than HTTP (and not heard of HTTP being unreliable even) - so I wouldn't think it will make a difference. However I may be wrong.
+Can I consider upload to be 100% reliable (or how much more reliable?) if I just switch the protocol to HTTPS?
+As I understood from RFC, HTTPS uses TLS over TCP and uses hash functions while processing. I.e. data integrity is additionally controlled.
+In my experience, it's just as likely the cause is with some other part of the system (application processing the uploaded data, maybe silent format conversion in the database, ...).
+However, do note that this is very, very rare; on the same scale as errors in (non-ECC) ram, sata cables and disk storage (both on server and client side!).
+Today I’ve read an article that says that TCP protocol is not 100% reliable due to weak CRC algorithm and other different things.
+Bit what I would say, is that before you start pointing the finger at the protocol, are you absolutely sure your upload procedure or application isn't causing the problem? For instance I've come across surprising download/upload issues in PHP before, which were confusing but easy to fix in the end.
+For reliability purposes, to switch to https without targetting those other potential problems is silly and will never achieve "100%" reliability.
+It is very rare, but numerous bit flips in the same packet could still result in a valid checksum. If the rest of the packet is still undamaged, those errors could travel all the way into your application. I'm conveniently skipping over error detection/correction in lower layers of the transfer here.
+Generally, encryption algorithms include much stronger checksums, as part of the data security. TLS/SSL (over TCP) certainly does, so you conclusion is technically valid.
+While TCP (the protocol on which http/https is built) has error-detection in the form of a checksum on board (which triggers retransmissions), it's not bulletproof.

@@ -1,0 +1,6 @@
+You don’t have enough information to calculate the distance.  You don’t know the transmitter EIRP (in your direction).
+Remember that this is a two way transmission. So not only do you need to hear the cell tower, but the cell tower needs to hear you. So you need to calculate the path in the other way as well. 
+Is there a way to use a formula to extrapolate the signal strength all else staying the same, given that we use an antenna with 11 dBi gain instead of the existing antenna? Or are there too many variables? Even a ballpark figure would help.
+Let's assume that the EIRP from the cell tower is about 30 dBm, and it's about 2 kms away. Making yet another strong assumption that the path loss can be characterised by just free space - 
+However, this is far from being accurate, since the path loss can much greater than ~95 dBm, and you would have to know the thermal noise at the receiver (and possibly interference) to properly estimate the SNR.
+I work for a large retailer who recently started adding outdoor Yagi antennas to try to boost their LTE signal for their LTE based modems at each store. I wanted to see if there was a way to calculate the maximum distance a cellular tower could be from us and still maintain a usable signal.

@@ -1,0 +1,9 @@
+Just in case it makes a difference, I have been restarting docker each and every time I make a change.
+Please note before marking this as a duplicate, this question HAS been asked elsewhere but the answers provided are not solving my problem.
+I have the same problem here, using docker with snap. A look into the /var/log/syslog showed me issues with apparmor. 
+It's like it is looking in the right place but can't read the file but I can't figure out why.  Permissions look like this:
+I am trying to set up a docker registry on Ubuntu 18.06 that may be accessed from another PC (windows).  The connection is encrypted with an ssl certificate obtained from letsencrypt. 
+Again, I can perform this login on my remote Windows system without any problems whatsoever.  It's only when I try to login on my local docker (in order to pull the image that was pushed up remotely, to run it) that it fails.
+All permissions should be right.  Just in case it was trying to read that location as a file rather than a directory, I also tried a variant on this where I renamed my ca_bundle.crt as a file rather than a directory, at /etc/docker/certs.d/:.crt.  When I do that, I get an error stating that "x509: certificate signed by unknown authority", indicating that it cannot find any cert.
+That's why the certs have to be placed in /var/snap/docker/common/etc/certs.d instead of /etc/docker/certs.d as written in the docker snap documentation.
+The problem is that I cannot reach the repo from the local machine.  Upon attempting to log in, I get the following error:

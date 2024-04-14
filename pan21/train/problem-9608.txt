@@ -1,0 +1,7 @@
+Right-click the host, properties>display settings: uncheck inherit from parent and check scale docked remote desktop to fit window
+On v2.7 build 1406.0, not sure if this was released in an update, just wanted to point it out in case people are still searching.
+A few days ago (no idea what happened), it stopped going to full screen properly. Now it only resizes to the full size of my screen minus the task bar (so I still see that and the RDCman's window is also not behind my local task bar. The blue bar at the top appears for a moment but I cannot get it back when moving the mouse there.
+Otherwise, it seems Windows 10 keeps a bottom bar reserved for the taskbar & doesn't allow the remote desktop to go "all the way" Fullscreen.
+This worked for me http://answers.microsoft.com/en-us/surface/forum/surfpro4-surfnetwork/surface-pro-4-windows-10-remote-desktop-other/d17d4321-0f04-4a64-95b4-1c6dd5de9c91?page=1
+I just resize the RDCMan window to "almost" maximum size, then hit Full Screen in the RemoteDesktop connection (right click-> Full Screen). 
+I'm using the Remote Desktop Connection Manager 2.7 on a Surface Pro 4 with Windows 10. Until recently, it was working fine: It would go to full screen and show this blue full screen connection bar at the top when pointing there with the mouse. I could close the session from there or leave full screen mode.

@@ -1,0 +1,6 @@
+3) It is acceptable to have some downtime during this recovery process.  But is there anything else I should be aware of?
+1)  Do I need to be explicitly including the active directory information in this nightly backup, or will it be there by virtue of the fact that this system is the primary AD server and the Windows backup service knows this?
+I'm sure this question's been asked a dozen times in one form or another, however after much searching, there doesn't appear to be an obvious simple recovery solution for a single Exchange box.
+We're using Exchange 2010 on a single server, the server hosts the AD and nothing else on the network uses the AD.  The intent is to run this server as you would an externally hosted Exchange server - access only via HTTP (RPC mode or OWA) - all other ports blocked.
+2) I understand I can re-install Server 2008 onto my new hardware (in the case of hardware failure) and then run Exchange 2010 setup.exe with a /recover argument, referencing the backup volume.
+I've a daily backup running, using Windows Server 2008 volume shadow service to backup the Exchange data to an external hard disk.

@@ -1,0 +1,5 @@
+I have sniffed packets between a laptop via both wired and wireless connections and Chromecast, and this is what I've found:
+This is apparently not good enough for function, and the lack of UDP packets going in the ath0 --> eth1 (the WLAN and LAN interfaces on the DD-WRT router) direction is suspicious.  Can anyone shed light on what may be happening?  Bridge and route settings on the DD-WRT are all basically default.
+... which is also observable on the wireless interface.  Some packets on the wired ethernet interface are marked as having a bad ipv4 header checksum (0x0000), but I've read this is artifactual due to checksum offloading on the NIC.
+There are IGMP and TCP, but zero UDP packets exchanged between Chromecast and a wired ethernet interface on the same laptop.
+Chromecast is a wireless-only device, for those unfamiliar.  The device has been set up and operates normally using wireless devices associated with the router, but wired ethernet devices cannot communicate with Chromecast.  Specifically, the Chrome plugin says "No Cast Devices Found."

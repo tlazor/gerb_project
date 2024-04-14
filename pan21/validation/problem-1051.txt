@@ -1,0 +1,6 @@
+My post on Securing your Email Reputation with SPF outlines the various SPF records you may want on various servers.  You should protect your domain, web domain, as well as your mail server domain.
+Read the guide thoroughly to understand how it works and do not simply copy/paste the config and then ask "why doesn't it work?" 
+My post on Implementing DKIM with Exim also covers key management and the DNS entries for bind.  You will need these if you want your DKIM signatures to be valid.
+Your problem may well be your DNS configuration. Start with a static DNS address and get reverse DNS working.  DKIM and SPF both have DNS components which need to be configured correctly.  I don't believe either DKIM or SPF will solve your problem, but do get them working.
+http://stevejenkins.com/blog/2010/09/how-to-get-dkim-domainkeys-identified-mail-working-on-centos-5-5-and-postfix-using-opendkim/
+I have posted on Detecting Email Server Forgery.  This is written from the perspective of the recipient.  However, it specifies the DNS entries that your need.  If you are having problems sending to Gmail and Yahoo, it is likely one of the rules in this document that is causing problem.

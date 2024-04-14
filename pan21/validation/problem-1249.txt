@@ -1,0 +1,7 @@
+What I would suggest instead, which may be far simpler than playing around with PXE is to invest in an iOdd which is both a USB hard drive and a virtual USB CD-ROM.  It allows you to boot off ISO images as if they were a USB CD-ROM drive.  I have one with all the major operating systems on as ISO images, as well as a collection of common drivers and utility software and tools, for helping me in the support of my customers.  It's an absolute godsend.
+The only problem I can think of, is that some older cheap laptops may not be able to boot from network.
+As for booting CD or DVD images over the network?  I haven't heard of anything that can reliably do this.
+The router would have to be capable of handing out the PXE information (most small home-style routers can't).
+If you are just installing Windows, I cannot see what the complication would be when using Windows Deployment Services on Windows Server 2003/2008/R2 on a domain.  The domain controller will provide the DHCP service.  It's a lot easier than messing around with TFTP and ethernet crossover cables.
+That will send out the correct DHCP additions and point your PXE booting hosts to your tftpd/PXE server
+Most routers will allow the allocation of a static IP address through DHCP, or if not, just manually assign one that is within the network range and yet outside the DHCP allocation pool.

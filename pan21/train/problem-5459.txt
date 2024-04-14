@@ -1,0 +1,8 @@
+So taken together, the command finds every line which doesn't have an empty line beneath it, and adds one.  And that's all there is to it!  You might like to check the vim wiki's Power of G article for more fancy things you can do with :g (and it's negative sister, :v) -- it's one of those amazingly useful commands which you soon grow to rely on, and then miss terribly in editors which don't have it.
+After the pattern in a :g statement comes the command to run on matching lines.  In this case, I've told it to execute a normal mode command (abbreviated to norm), and the command to run is simply o, which inserts an empty line below the current line.
+Vim's :g command is designed for exactly this sort of task; running a single action on every line which matches a particular pattern.  Here's my answer:
+Then press <F2>. That will search for two consecutive non-blank lines, and then add a line between them, repeatedly.
+So the :g command's regex has now selected every non-empty line which is terminated by a single newline, and which isn't followed by an empty line.
+(Check :h E59 for more information on \@! and similar match specifiers in regular expressions -- there are a couple others, too!)
+Correct me if I am wrong. I believe you use the letter k when in command mode to move down a line. Then enter insert mode and add the next line. Repeat as necessary? Hope this helps!
+When I tested @NeilForester's global search and replace answer, I found that it missed every second intended replacement in consecutive non-blank lines if the lines only had one character in each. This appears to be due to the pattern starting to match on each occasion after the last character that it matched the previous occasion. 

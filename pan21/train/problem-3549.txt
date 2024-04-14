@@ -1,0 +1,5 @@
+If your end point is compatible: https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-about-vpn-devices/ you can follow the Azure documentation. Once you have done the Azure config, you can download the VPN terminating config from within Azure. Load that config document onto your VPN router. I have successfully used this documentation (https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/ ARM or Classic) to successfully setup site to site VPN. 
+Are you asking if you need a VPN device on the other end of the tunnel? because it sounds like you're actually asking if you need a VPN device on the other end of the tunnel :)
+Your local VPN Device will need to be configured with the public ip address of the Virtual Network Gateway. If you did not configure this then it is normal that the connection shows as disconnected.
+https://github.com/Azure/azure-content/blob/master/articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
+Yes, VPN Site-to-Site must have a local VPN device/service that allows the VPN session to be created and for data to be routed in between.

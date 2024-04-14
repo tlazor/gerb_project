@@ -1,0 +1,7 @@
+Now it's pretty clear when what is happening (of course, you have a lot more function calls, but the code clarity should be worth it).
+Still, it takes a while to see when what is happening in your code, because of the nested ifs, the exit, and the check for the trends variable.
+Right now, if you want to change how the cache works, you would need to do that all over the place. And if you want to cache other things, you would again duplicate code. 
+Note that the .data extension limitation does not apply to old PHP versions that are vulnerable to null byte poisoning or path truncation.
+You already noted it yourself, you have some duplication. You could get rid of it by introducing some loadTweetFromCache function, but ideally, you would extract the whole cache handling code to its own class (and maybe have an additional twitter specific cache function or class).
+It really depends. You would still spam twitter with requests if you handled it like that, so it's probably not the best approach.
+Because of this nesting, it's also easy to miss errors. For example: If your cache file doesn't exit, and the rate limit is exceeded, nothing happens. There is no feedback for this at all.

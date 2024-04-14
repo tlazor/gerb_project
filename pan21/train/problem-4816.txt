@@ -1,0 +1,10 @@
+So at this point, using two wired PCs (one connected to Router1's LAN subnet and the other connected to Router2's LAN subnet), I can verify that the following pings work: 
+I appreciate assistance with this (i.e. the iptables commands). If I get to the solution first, I will of course post the iptables commands.
+So I have to come up with the iptables(1) (firewall) commands to implement this. I will be re-reading the Unix man page to recall iptables syntax.
+But it doesn't quite work yet because, next, I need to add "iptable" entries on both Router1 and Router2 to tell each to permit ALL WAN originating traffic to pass on to it's LAN side.
+This, I believe, is because there also needs to be an IPTABLES entry on Router1 and Router2 that permits ALL traffic originating on the WAN side to enter the LAN side — which is almost never a router's default behavior for security reasons. But in this case it is safe to do since the WAN interface of Router1 and Router2 aren't directly connecting to the ISP internet.
+Notice the static routes (pointed to by the arrowed line) that I have configured on each router (Router1 and Router2). Their intent is to allow clients on Router1 LAN subnet to reach clients on Router2 LAN subnet, and vice versa.
+So in summary, the WAN port of Router1 & Router2 each connect to a LAN port of Router0, and both are NAT enabled (i.e. are NATting).
+I have three routers. Router0's WAN interface connects to the ISP, and the WAN interface of Router1 and Router2 connect to Router0's LAN interfaces (i.e. hard wired).
+But perhaps some folks here who are good with iptables already, can suggest what those commands should be. To help, below is the NAT iptables entry for Router1 and Router2. They each need respective iptables rule(s) to allow all WAN originating traffic to reach the LAN network:
+but at this point, neither PC can reach IP-clients inside the opposite router's LAN subnet. As mentioned above, they can ping the WAN IP of the opposite router, and they can ping the default route IP of the opposite LAN subnet, but they cannot ping IP-clients deeper inside the opposite LAN subnet.

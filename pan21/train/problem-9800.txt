@@ -1,0 +1,7 @@
+If you want the NOC to be able to ack everything then add them to the authorised_for_all_service_commands and possibly the host equivalent. This means they'll also be able to disable active checks etc.
+All of this depends on your users logging into the web interface with their own usernames, which must match the contact names. This works well with LDAP authentication, for example.
+I've went through the cgi.cfg file which controls user permissions in Nagios but I couldn't find the directive which talks about alert ack's even though I read the whole file.
+During these times, the NOC team keeps getting alerts regarding the problematic issues but have no access to acknowledge them.
+Users also get alerts for hosts/services for which they are contacts. So, if a user gets an alert, that user can also acknowledge the alert.
+Sometimes there are alerts which are not so urgent and can wait for the next morning until they are taken cared of.
+Unless you override the behavior by adding them to authorized_for_<whatever> options in cgi.cfg, users can only see or interact with hosts/services for which they are contacts.

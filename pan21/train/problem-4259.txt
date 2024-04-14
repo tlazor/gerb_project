@@ -1,0 +1,12 @@
+Then it stop working. Tunnel connection (ping from one end point to the other) from server A to server B still working (can ping), but from the other side, it does not work. After next one minute watchdog realize, that connection is down on the server B and restart tunnel. Then it's working for one minute and this repeats forever...
+I did some research to add/ remove "ping-timer-rem" "mtu-test" and "float" to client and server configuration, but the problem still remains.
+Another strange on server A is that it seems, that server B is connecting from two sockets! I've checked server B and there's only ONE openvpn instance and no others. When I kill it, connection probes from both sockets ends.
+So the server A is sending packets to the 1859 connection (and can ping), but the client change routing to the 1194, which is not initialized and not working (and try to connect from the 1194 socket generate "decryption error" on server A). As I said - there's no other configuration nor instance of openvpn on th client (Server B) than the one i dumped upper.
+I had similar symptoms. My issue was resolved by changing my local subnet to 10.0.0.x, from 192.168.1.x. The office VPN I was connecting to had the latter subnet too, and it conflicted.
+On the server B, there's NO "1194" string in the log, but when I try to tcpdump packets between servers (1.2.3.4 = client, 4.3.2.1 = server):
+I'm using OpenVPN for connect two private networks and now I got a problem, that I'm not able to solve.
+When the VPN starts, client connects to each other and everything works perfectly, but ONLY for first minute.
+For your configuration holds the else branch as you don't have any server in server mode. So your servers may play ping-pong game as there is ping-restart option defined on both sides.
+Server A still logging strange things into log (i think, that it CAN be the source of the problem, but i don't know, how to solve it. Time on both servers is the same):
+Servers are connected with simple UDP configuration with static key. I've already checked iptables for limits or something and there's nothing, also both servers are directly on the public IP - no routers/NAT or something is between. Server A is listening and server B is client.
+It seems, that client sometimes want to reconnect FROM udp 1194 (instead the right 1859) and the other connection, which is already on 1859, left open.

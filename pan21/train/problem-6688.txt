@@ -1,0 +1,5 @@
+I share your dislike of Explorer, but I have forced myself to get used to it because when I go to some random server it's the only file manager that is guaranteed to be there. Given that I usually get called upon to dial into servers when there's a problem they want me to fix, I rarely have time to mess around installing my favourite file manager.
+The ability to copy/move files and folders can't be that bug riddled as millions of people use it without issue daily.
+If you open a directory and move all the files and folders from that directory, that directory will remain.  That is by design.
+For truly improved performance of moving data around, don't use the GUI at all.  Use robocopy (which is included with Windows 2008) to copy/move data around the system.  It's very powerful, and quick.  Much quicker than the GUI will ever be.
+But on my own workstation (W2k8 x64) I use the good old Windows File Manager, as shipped with Windows since Windows NT 3.1. For the simple day to day file management tasks I have yet to find anything faster or more reliable. I have tried many third party file managers and they all seem to be too cluttered and/or too slow.

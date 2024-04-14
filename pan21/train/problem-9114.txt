@@ -1,0 +1,9 @@
+The following paper by Hernando, Houle, and Hurtado introduces a few classes of simple polygons in terms of visibility.
+Also, O'Rourke's book "Art Gallery Theorems and Algorithms" has a section on "spiral polygons", polygons whose concave vertices form a single contiguous subsequence of the boundary.
+introduced sail polygons in his 1985 paper "A simple linear algorithm for intersecting convex polygons":
+If so, here's another one: pseudotriangles, polygons that have only three convex vertices and all the rest concave.
+Branko Grunbaum, "Polygons," In The Geometry of Metric and Linear Spaces, L. M. Kelly, ed. Lecture Notes in Mathematics Number 490, pp. 147 - 184. Springer-Verlag, Berlin-Heidelberg-New York 1975.
+Let $e$ be an edge of a simple polygon $P$.  Then, $P$ is edge-visible from $e$ if for every point $p$ of $P$ there exists a point $q$ on the relative interior of $e$ such that the relative interior of the line segment connecting $p$ and $q$ completely lies outside of $P$.
+A simple polygon is externally visible if for every point $p$ on the boundary of $P$ there exists a ray (half line) $r$ starting at $p$ that intersects $P$ only at $p$.
+Maybe it would make sense to make this question community wiki and solicit answers that describe additional individual classes of polygons, since a proper survey seems to be lacking (although I did run across some references to a manuscript by Toussaint)?
+Another class of polygons is called anthropomorphic: these polygons have exactly two ears and one mouth. 

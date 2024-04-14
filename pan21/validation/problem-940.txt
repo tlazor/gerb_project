@@ -1,0 +1,5 @@
+<op> seems to be too low precidence to be practical - you end up having to (bracket) everything (as demonstrated above).  % at least binds tightly.
+For an interesting test case, implement (std::future<T> %then% [](T)->U)->std::future<U> (where that lambda is a placeholder for a functor)
+N ary infix operators that defer application of f allow s <append> s2 <append> s3 to run as efficiently as possible.  But doing that cleanly might be hard.
+As noted, I allowed arbitrary binary operators (chosen when you make_infix) to bracket the named operator: the precidence of the resulting named operator exactly matches the bracketing operators.  So +append+ has precidence of + and *in* has precidence of *.  Of the 3 first use cases (lin alg, container append, then) for two of them the named operators where variants of existing operators, and matching their precidence seemed useful.
+Forwarding operator() from the operator to the function lets you forget the function behind the operator entirely:  in(3, vec) -- very Haskell.

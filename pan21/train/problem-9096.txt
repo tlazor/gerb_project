@@ -1,0 +1,8 @@
+It has everything you asked for except "if you don't have access to a doc, you don't see the link to that page/doc/folder"
+Probably best to say what platform you're using, but if it's Windows Server then Windows Sharepoint Services will do nearly all of the above. It's also free as a download from Microsoft.
+We use Jive SBS (previously named clearspace) for all of our documenation needs.   I believe it matches every one of your bullet points.  Permissioning being very strong within it.  If you don't have access to something it won't show up in searches, feeds, or anywhere.
+I use http://www.dokuwiki.org/ because it is easy to set up, has a lot of features (my favourite is "Downloadable Code Blocks"), allows the use of ACLs and uses .txt files which don't depend on any Office/Office Version and are easy to back up.
+If you are using single .doc(x) files at the moment, I would say it is totally worth the extra effort to move to dokuwiki.
+There is a full paid version (Microsft Office Sharepoint Services) but we're using WSS here and it fulfils all our needs, and we have a scenario very similar to the one you detail above including versioning (with full check out/check in functionality if you're using MS Office), fairly granular control over permissions and a decent Wiki. I think the only area it wouldn't work for you is the 'if you don't have access to a doc, you don't see the link to that page/doc/folder'.
+My team has a need to publish documentation internally.  At the moment, it's spread all over the place and this means we often have to search everywhere to find something.
+We'd like to publish everything in one place.  The main thing that stops us is access control - the wikis in place don't belong to us and we can't do it.

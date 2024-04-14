@@ -1,0 +1,7 @@
+From what I understand, it is not possible to connect any 1 wire interface type component in other than the GPIO pin 4. I've been looking into this myself and have not found a solution.
+Of course, you won't get simultaneous data from all sensors, but for temperature, you should be fine. 
+Connect the data wire of all sensors to pin 4 (parallel), but the power wires to different GPIOs. Now, you can use software to turn off all power to the sensors but one (by turning off the respective GPIO digital output), then query the data wire. Do that in turn for all sensors connected.
+To your underlying question, you don't "query a GPIO" with onewire, unless you want to write a raw driver.   The benefit of using a protocol like onewire is that the details of the messages on the w1 bus are isolated from your code by the driver and you have a simple filesystem interface.
+You do not need to have different GPIOs, each device in your 1w bus will show up as a separate dir in /sys/bus/w1/devices/.
+But for your solution, if you really don't want to use the 1 wire interface, you should think of another sensor, even if analog, use something like an MCP3008 and you can "talk to the pi" via serial interface and transmit analog readings.
+An idea I once had for a similar problem was the following - I have no idea if it will work in this specific case, though:

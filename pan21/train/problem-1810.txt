@@ -1,0 +1,17 @@
+This works for me because I take an agile approach to my design, I pick up a small chunk of my project at a time and build it, then move on to the next.
+My experience is that this is falling out of favour in all but the most elongated dev processes because of the time taken to plan such a project. 
+I've known so many people that were to create a game, that made super convoluted design documents and "concept art" (for characters that were supposed to be rendered in skin shaders, meaning that they had be rigged and modeled, something they thought was as easy as drawing an picture).
+That's more than can be said about my douchebag friends that were to make revolutionizing games that were supposed to turn the whole game community upside down.
+I don't want to sound like a downer, but don't underestimate how much time it takes to make a game, and it's not the design part that takes time.
+Should I start programming after designing the basic outline of the game or should I have the whole thing written out?
+Depends on development methodology the fast answer is "When you have enough information to begin writing code".
+Overall, my recommendation would be to start coding pretty early, but only for things that are properly designed (which includes understanding the design, especially if you are part of a big team). If you're coding blindly on aspects of the game that haven't yet been properly designed, you will definitely get into trouble.
+You also have to factor in testing time and other process based time allocations (proof of concepts, meetings, design time, delays).
+Waterfall based development means you must have the full details of your project from start to finish before you begin. 
+What principles should I follow or steps should I take in order to keep my code up to date with the design and vice versa?
+Typically waterfall based dev process involves just as pmuch planning time up front as the dev time that follows. 
+Thinking about what cool game you want to do is easy, implementing it is hard, and that is when you discover if you're cut out of it.
+I've made several games, all of them are shit, but at least I've implemented an idea I had from the start, making my own game art and stuff, and I had really fun doing it.
+I see so many people taking on tasks like "build the terrain" ... that's such a wide scoped task that it could take weeks and you have no idea of weather you are wasting your time or not. 
+I'd say as soon as possible, simply because that is when you discover if you're cut out to program a game all by yourself (or in a group or whatever).
+If the plan needs to change you should stop all development work and consider the impact of the change, update your plan then begin again.

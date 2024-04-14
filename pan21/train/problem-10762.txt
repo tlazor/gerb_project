@@ -1,0 +1,8 @@
+I'd suggest keeping the door as a separate model, unless you're certain you never want to be able to open it.
+Windows if they are transparent also want to be separate models so they can be depth sorted appropriately for rendering.
+If you're talking about something like a corridor, it's probably not going to be that intensive for the GPU if you send it in as a door and a floor and some walls. The smaller meshes also allow you to fiddle with positioning more easily.
+Everything else should probably be a single model and texture for best performance, and to eliminate any cracks where they join together.
+p.s. : the first paragraph of this post is correct only about drawing ( not about for example using separate physics models for parts of the corridor )
+if you care about the performance i recommend precomputing the lighting or using some kind of vertex arrays(vertex buffers?) which would actually make a difference. ( if those things are possible in XNA - i dont know a lot about XNA )
+If your level has too much detail you should split it in parts and apply some frustum culling to draw only currently visible meshes.
+in most cases using small parts are worth it because it gives your code reusability and flexibility; and in case of a corridor or something similar that does not include MANY (many would mean a number like at least 40) smaller parts, the performance gain of using a big and solid models is negligible(except if you are drawing the object many times per frame).

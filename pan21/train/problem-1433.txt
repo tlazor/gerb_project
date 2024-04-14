@@ -1,0 +1,7 @@
+That's how the code works, it gives the correct result, however it's really slow, I'm looking forward for any refactoring/optimizations concerning the overall performance of the code also any code style errors should be noted. Here's the full code :
+First we find and store all possible abundant numbers below 28123 because the maximum integer we are going to look for is 28123. It could be a little bit better if we write 28123 - 12 because that's the biggest combination we need to get anyway but I left it with 28123 so it's more readable.
+After we have updated our list of abundant numbers sums we count from how much sums the current integer is different :
+Next we create a List that will hold our valid numbers (numbers that cant be written as sum of 2 abundant numbers)
+It will loop through all possible integers 1 - 28123 and check which one is valid by constantly updating the list allAbundantNumbers with new values, but only the ones that were previously not added, using the method GetAbundantNumbers :
+Next we have our algorithm that will determine whether a number can be written as sum of 2 abundant numbers :
+What we are doing here is we take the current integer as parameter (input) and we check if it's in the allAbundantNumbers list. If it's there we take the index of that, else we return that means we have already checked that number so no need of double checking. If we haven't met that number yet we start looping and add all possible sum's of that number and the previous abundant numbers.

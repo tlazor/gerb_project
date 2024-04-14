@@ -1,0 +1,10 @@
+I'm thinking of tasking a VBS script to modify the registry on login for all users. Is there a more elegant way of doing this?
+In case this changes with future releases of Firefox please set it as default browser manually and run
+My organization uses Windows 10 VirtualBox VMs to test our internal applications. The way we do this is by creating an OVA that is already connected to our domain. Anyone on the domain can log into it. However, our application initiates a single sign on java applet over the web.
+I need to force FireFox as the default for all user profiles. When the VM is exported, setting FireFox as the default only applies to my profile, presumably because the other user profiles don't exist yet.
+Go to Default Programs in Windows and change which ever apps you want as default.  In your case, set Firefox to have all it's defaults.  You can also set other ones that might be convenient for your needs. 
+Please keep that in mind! I only found one hint on https://github.com/MrAlex94/Waterfox/issues/384 about that issue.
+What worked for me was the procedure suggested by @tyelford, which is similar to the one to make Chrome default browser on Windows 10. Unfortunately, Firefox does not have such a great how to, so I decided to copy it here and adapt it for Firefox:
+In MMC go to File --> Add/Remove Snap In and click on Group Policy Object, then click Add >.  It will pre fill in Local Computer and click Finish. Now you can edit the local group policy on that machine.
+I've done this with domain group policy but it may also work with local computer group policy on that one computer.
+Set it to enable and put in the location of the file where the location of the file will be local to the computer, example: C:\temp\Apps.xml

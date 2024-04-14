@@ -1,0 +1,22 @@
+To make it work fast, I've groupped stats by day and stored the output into user_hits table. During this process, also the application_id, client_id and project_id has been added (as columns), and appropriate indexes created. 
+I have implemented data denormalization strategy using postgresql RULEs. I picked rules instead of triggers for performance reasons.
+A much better solution is to just define a stored procedure and have the application call that.  Something like:
+Now here there is no magic bullet.  A trigger isn't going to work much better because, while it gets to avoid scanning every table, it gets fired every row that gets deleted so you basically end up with the same nested loop sequential scans that are currently killing performance.  It will work a bit better because it will delete rows along the way rather than rewriting the query along the way, but it isn't going to perform very well.
+Now, you might think we could skip the scan on client_hits in the first, but that isn't what happens here.  The problem is that you could have days in user_hits and application_hits that are not in client_hits so you really have to scan all tables.
+I want to know how many hits are per user, per project, per client and per application for given day.
+The time it takes seems proportional to number of combinations (users x projects x clients x applications).
+It completes the operation, but it takes couple of minutes to do that (with test data). With real data it takes hours, while running those 3 queries by hand takes couple of milliseconds.
+I want to make sure when I delete the data from user_hits for given day, that the data in project_hits for that same date is also deleted. This process should propagate to last table in chain.
+UPDATE: Transition from user_hits to project_hits (and so forth) is done by worker process in background (since it involves contacting 3rd party services for additional info). It is smart enough to recalculate everything for missing dates. So the only thing i need is a way to DELETE records cascadingly in optimised way.
+The rule system here is working properly.  First, the I want to include my own diagnostic queries (note I did not run EXPLAIN ANALYSE since I was just interested in what query plan was generated):
+One part of the system is storing hits for every user in stats table. Hit is an imaginary metric, it is not really relevant. System can collect many of these metrics. There are a lot of records in stats table (> 1,000,000 per day). 
+If your data is anything like your existing data, neither rules nor triggers will work very well.  Better will be a stored procedure which you pass a value and it deletes everything you want.
+UPDATE: I noticed that the number of affected rows (extracted from explain statement) is exactly equal to the product of affected rows in user_hits, project_hits, client_hits, and application_hits tables (hundreds of millions of rows).
+Next time, please include the EXPLAIN output rather than making us dig for it in your scripts.  There's no guarantee my system is using the same plan as yours (although with your test data it is likely).
+What is the problem here? Am I missing something? Can this be implemented with triggers in an optimised way?
+First let's note that indexes here will get you nowhere because in all cases you are pulling half of the tables (I did add indexes on day on all tables to help the planner but this made no real difference).
+UPDATE: stats table is filled on daily basis. The only possible scenario is to unconditionally delete the data for whole day and then replace it with new values.
+One of the hard things regarding RULEs is remembering what they are and noting that the computer cannot, in fact, read your mind.  This is why I would not consider them a beginner's tool.
+I want to further optimise the process by grouping things by project_id, client_id and finally application_id. The data pipeline is like this:
+Therefore when you delete from user_hits where [criteria], the rules transform this into a set of queries:
+You need to start with what you are doing with RULEs.  RULEs basically rewrite queries and they do so using ways that are as robust as possible.  Your code also doesn't match your example though it matches your question better.  You have rules on tables which cascade to rules on other tables which cascade to rules on other tables

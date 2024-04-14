@@ -1,0 +1,6 @@
+If it's not a DNS problem, the blacklisted IP may be a 3rd party IP and not yours. Check your routing configuration to see if any packets are redirected via another than default normal path. They may explain why your original IP is clean but mails are still blocked with blacklisted IP.
+Ignore or remove Spamrats and use the more reliable lists like Spamhaus, SpamCop, Truncate, UCEprotect.
+There seems to be no way to persuade spamrats to unblock your IP.  Their removal tool simply does nothing, and attempts to contact them go unanswered.  You either need to persuade the people you are emailing not to use spamrats, or get yourself a new IP. 
+RATS-Dyna means an IP range not a single IP address.  It is for spammy neighborhoods.  So check who is in charge of that range.  The provider of the range needs to address the individual users.
+In your case you have everything setup correctly but your IP neighbors aren't.  Doesn't mean all of them are bad just a large number.  Contact your provider and scream at them.
+SpamRats is a very unreliable blacklist. They basically ignore everyone including ISPs, so there are always a good number of innocent sites listed by their system.

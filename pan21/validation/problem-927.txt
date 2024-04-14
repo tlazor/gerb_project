@@ -1,0 +1,6 @@
+It can reach the two networks, but, your modem router, only knows that it wil connect to internet across the serial link or something like this, i´m talking about the link connected with the cloud.
+You ping from your router all IP's addresses beacuse they are all connected to him. The router knows, by default, all the networks it have been directly connected to him.
+YOU MUST ADD some route on your modem router with destination 192.168.1.0/24 across gateway 192.168.1.69/24. This is the way that packets from 192.168.1.0 will be reply to that destination. The problem is this, the REQUEST arrive without problem, but the modem UNKNOWN the location of the network 192.168.1.0/24. 
+Then, the same happens when the modem receive a packet from an equipment located in the network 192.168.10.0/24. The modem knows this network cause it has connected DIRECLTY.
+If you want to ping your modem (192.168.1.1) from your test PC (192.168.10.13), you must to add a route in your modem for the network 192.168.10.0/24 via 192.168.1.69 (your router). By default, your modem doesn't know where is the address of your test PC.
+Your ICMP Echo arrives on your modem but it can't send the reply because it has no route for this network: 192.168.10.0/24 

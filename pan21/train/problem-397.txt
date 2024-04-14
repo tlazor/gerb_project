@@ -1,0 +1,6 @@
+However, you can't non-interactively close the browser. The old javascript tricks don't work with newer IE versions. I think cURL is a better way to go and accomplishes the same task.
+In your scheduled task, call the "wscript.exe" program, and specify the full absolute path to the .vbs file as the argument.
+If you're just looking at making an HTTP request and throwing away the results you may want to look at using a Win32 port of GNU wget rather than Internet Explorer. 
+Basically, it should bypass any weird issues trying to run IE as a scheduled task.  It's also a lot smaller and more efficient for this task because it doesn't actually render the response from the server (though you can save/process the raw html if you want).
+Do you really need a full fledged browser to hit this URL?  Or do you just need something that speaks basic http?  If it's the latter, you should try using something like cURL.  From their website:
+I'm looking for an even better way to do this than I'm using right now. Currently I'm using a simple .vbs script to achieve this.

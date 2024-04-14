@@ -1,0 +1,5 @@
+I really recommend using overlay files as described in https://raid.wiki.kernel.org/index.php/Recovering_a_failed_software_RAID#Making_the_harddisks_read-only_using_an_overlay_file as this allowed me to firstly work with an invalid backup, mount partitions and extract the correct backup, revert all my drive changes by throwing away the overlays and then
+If you still don't have the file, you can simply stop at the first command although some data loss may be possible. However, unless you are very unlucky to lose some important filesystem/volume metadata with it, the damage should be quite minimal.
+I figured it out with the help of Phil Turmel from linux-raid@vger.kernel.org mailing list, in my case
+However, I really recommend to ask for help on the linux-raid@vger.kernel.org when in doubt as things are generally recoverable but wrong moves could really destroy things.
+really did the trick as although you tell mdadm that the backup file is invalid, you must provide another one in order for the operation to continue.

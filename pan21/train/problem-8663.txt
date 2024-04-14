@@ -1,0 +1,9 @@
+`RESTORE HEADERONLY FROM DISK ='C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Data\PhoneBook2.BAK'
+RESTORE FILELISTONLY FROM DISK ='C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Data\PhoneBook2.BAK'`
+MOVE 'Phonebook_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Data\Phonebook_log.ldf', 
+First you need an empty .mdf and .ldf files. The easier way to do that is to create a Web Project in Visual Studio and then In the App_Data folder right click and add new database. That will create an mdf and a .ldf.
+Now copy those files to the data directory of your SQLSERVER Express. If it usually under the C:\Program Files\Microsoft SQL Server. In my case it is in C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Data\
+open a Visual Studio 2008 Command Prompt or other prompt (Remember to right click the Run as Administrator, specially if it is Vista)
+If you have a .bak file, and all you want is to restore that file to a mdf. Then this is what you can do. It's a little hacky but works.
+RedGate software has a product called SQL Virtual Restore which will allow you to attach the backup file to an instance without restoring it and get out the information that you need.  This is your only option without using a hex editor.
+ApexSQL has recently released a tool that can do this. It's ApexSQL Restore. I haven't tested it fully yet, but you have to connect to a SQL Server instance to do this. It attaches database backup file and creates MDF and LDF files for the database. 

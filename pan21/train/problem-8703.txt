@@ -1,0 +1,7 @@
+Are you using the AWS CLI tools?  If so, can you try with --dry-run and let us know if it thinks the difference is ~40k or it is actually all 2M+ files?  
+I am trying to sync a folder with 2M+ files to S3, everything went OK but then 40,000 files were not uploaded (server crashed randomly), when I tried to do a sync command again, it started from 0, even if we have 2M-40K images on S3, it re-uploads the 2M images, having "duplicates".
+You can use Minio client ``mirrorcommand to do the upload. Minio client also hasresume session` command which will upload the object where it was left in last disconnect. 
+Why I say "duplicates"? Because when I did a list before the re-sync on S3, it said that I had a -40K files difference, when I did after some minutes the re-sync it said it has +80K difference, how is it possible that it has +80K files than origin? duplicates/versioning/history
+TL;DR: A broken sync command for 2M files against S3 didn't uploaded 40K files, how can I upload only theese 40k files and not the 2M?
+So I'm trying to upload only the missing 40k files, because thoose files are at the end of the folder, so if it starts over, it must wait another day to upload the same 2M files...
+Your scenario sounds like exactly what the s3 sync tool is supposed to be used for.  I would think "aws s3 sync local_directory s3://your_bucket_location" should work exactly like you're asking.

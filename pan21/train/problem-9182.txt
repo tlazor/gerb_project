@@ -1,0 +1,6 @@
+I get the same error if I try to redeploy and resize the VM.  The virtual machine was setup using the Resource Manager (a non-classic VM).
+I fixed the problem by deleting the Microsoft.OSTCExtensions.LinuxDiagnostic extension.  The steps I took where:
+I have a virtual machine I use for testing.  I last booted it two weeks ago and ran the standard aptitude safe-upgrade on it then shut it down.  I just tied to boot the virtual machine today (July 8th) and I'm getting the following error:
+Try going into the virtual machine settings and then diagnostics, turn diagnostics off. If that doesn't let the machine boot then google how to use powershell or azure cli to login to azure and then remove the extension. Once the extension is removed you can then reboot the machine and turn diagnostics back on. 
+Thanks to Ryan for his tip about removing diagnostics.  That lead me on the correct path of deleting the extension.  GordonB, I thought about having the delete the VM and re-create it but that was my last resort option.
+I didn't install these extensions, I'm assuming they where installed when I created the VM a year or so ago.  Does anyone have any idea why the extensions suddenly stopped working?  Thanks.

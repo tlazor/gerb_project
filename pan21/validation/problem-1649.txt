@@ -1,0 +1,8 @@
+Check under Group Policies and confirm that no Blocked Website Categories, URL patterns or Web Search filtering is applied here.
+I manage a small network, and use Meraki devices to run it. Those of us who resolve www.google.com to 172.217.5.238 are able to access Google, Gmail, etc. However, those of us who resolve www.google.com to 172.217.5.228 are not able to access Google, Gmail, etc. Their access is being blocked by Meraki. I don't want Meraki to block Google.
+So, I'd say you might be experiencing issues with your browsers / endpoints rather than with your network.
+Based on your output above, this specific site is matching blocked category bc_057, so something is triggering it.
+Under Security Appliance > Configure > Content Filtering what is configured?  Check for Web search filtering, Blocked URL patterns and Blocked Website Categories.
+Both of those IP addresses resolve to iad30s07-in-f14.1e100.net (using nslookup).  Also, Why would some machines resolve to one while others to the other (unless you have multiple locations, maybe)?  Either way, they're hitting the same box.
+Curl will misleadingly connect to a RESTful API (a website) while your browser may fail to connect to that same website using the very same method (GET, POST, whatever).  The browser has CORS restrictions that curl doesn't.
+If there is nothing obvious under Content Filtering, this may be being applied via Group Policy instead (which may explain why it's a problem for some users and not others).

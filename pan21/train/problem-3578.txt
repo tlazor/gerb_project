@@ -1,0 +1,5 @@
+CAUTION: This is a n I/O intensive operation, never do it during business hours or outside a maintenance window for production environments.
+Another option that can be used is the creation of a "backup as copy" of the fragmented datafiles and then switch the database to point those "image copies". Then drop the original and redo using the image copy as the original and backing them up "as copy" to the original location. It's a little longer and some more complex, but the "downtime" is just a few seconds while the switch is performed.
+That will remove the fragmentation and shrink the associated datafiles plus it will set the HWM in the "lowest" possible position.
+If not, please add more detail to the question. Like version of the software, maintenance window time, accepted downtime, etc.
+Prior to resizing, you have to remove fragmentation in the datafile. That means every segment (sets of blocks assigned to each object in that tablespace) needs to bring together all rows inside their db blocks.

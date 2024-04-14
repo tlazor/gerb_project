@@ -1,0 +1,6 @@
+Am I on the right track?  How would I set something like that up?  Or is there a simpler way to do this? (i.e. apache proxypass)
+Seems a little bit of a strange request if I'm honest. If you have a second server, you could use Round Robin DNS (easy to set up) to send connections to one server then the other, then the first...etc etc but you need the same content on both servers.
+Catch the 404 and use a script to send a GET request to your other server. If that generates a 404 then you can present a 404 to the user. If it gets a 200 OK (the other server has the page) then you could forward on.
+I have a domain that's hosted on a server. I want to set up another server to sometimes serve up pages instead of the pages on the first server.  How do I set this up?
+I guess it's similar to a failover environment, right?  My server could serve as a 'gateway' server, showing the pages I have, but if the page doesn't exist on my server, it would maybe trigger a failover event that serves the content from the original server.
+If you have your content split between the servers using separate directory paths, then proxying would be appropriate.  If you have pages from the same directory on both servers, use Lewis's solution.

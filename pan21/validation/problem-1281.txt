@@ -1,0 +1,6 @@
+-o ConnectTimeout=2 is a slightly hacky way of getting around not responding to network packets, reporting ssh: connect to host 10.10.0.3 port 22: Operation timed out until it's responsive.  
+Then, when the host responding to network packets, the 1 second sleep with happen in-between ssh: connect to host 10.10.0.3 port 22: Connection refused as we wait for ssh to come up.
+Would nmap, netcat, fping or ping do the job? I tried netcat but it gives up in just a couple of seconds if the host is unreachable.
+The ssh command can be given a command to perform on the remote machine as the last paramater. So call ssh $MACHINE echo in a loop. On success it returns 0 in $?, on failure 255. You must of course use paswordless authentication with certificates.
+First command ping | ... | head -1 waits for server to sent single ping reply and exists. Then ssh comes into play. Be aware that grep can buffer output, so this is what --line-buffered is for.
+It needs to handle the fact that the machine itself is booting and might take some time to respond to network packets.

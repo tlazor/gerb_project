@@ -1,0 +1,6 @@
+Edit: The below assumes you are using OpenVPN, the wording of your post is unclear as to whether you are using OpenVPN or you just have an 'open VPN' (just connected). If you aren't using OpenVPN, please explain how you are connecting to your VPN.
+I'm trying to rsync outside of a VPN connection. I have a CentOS 6.4 machine that has an open VPN connection, that capable of roughly 10Mbps, whereas the WAN connection is 40Mbps. I'm trying to rsync from mirrors.usc.edu, and would obviously prefer to bypass the VPN connection.
+If you aren't using OpenVPN, you should still be able to add an ip route that has higher priority than the VPN connection using your local network interface's gateway.
+This will make the client route around the VPN to the net_gateway (that's a VPN keyword) and go directly.
+IP address is the server's NIC IP, not the VPN IP. It works fine when the VPN isn't connected. When it is connected, I get an error in the log:
+Any suggestions on how this could be done? Specifically, I'm trying to pull with rsync while a VPN is connected, but not have it route down the VPN.

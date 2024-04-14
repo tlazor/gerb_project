@@ -1,0 +1,5 @@
+Your understanding is correct that beyond the default 3 hours, hints are no longer stored. This is to avoid overloading the other alive nodes for prolonged period of time.
+Having said that with consistency ONE it is highly possible to lose data, if you query the node before repair finish it may return stale or null as data was never written to it neither propagated via repairs.
+If you are using default hinted handoff period which is 3 hour and your node was down for more then that than no hints will be stored for that node.
+Suppose it came online after 10 hours as you mentioned then you must run full repair as soon as it come online however if it was down for more than 2-3 days, repairs would have lots of data  to stream and can cause some surprise problems so consider doing rebuilding/bootstrap after removing all data/saved_caches and commit logs file from the down node.
+If any node happens to be down for a longer period than the hint_window, its absolutely necessary to rebuild the node or even remove all the files from its data directory and let it bootstrap as a brand new node. You may have to use replace_address if you are bringing up the same node.

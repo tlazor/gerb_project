@@ -1,0 +1,7 @@
+In addition, the IML log is accessible from within the OS using hplog -v. If that command is not available, it means you're missing the HP tools and health drivers.
+I have a HP Proliant DL380 G8 server that for the past couple of weeks, just suddenly dies. It's happened twice today. The lights on the HDD are just lit instead of blinking, and there is no response from the server. One of the LED is red every time the server dies, but I'm not sure what the LED represents. The LED is circled in the picture below. I have connected both power supply units. 
+The server can also TELL you what's wrong with it. If you watch the machine boot, errors will be presented at POST.
+There are instructions and details about the server on the lid or top access panel of the system chassis.
+On top of that, you can also view the ILO interface and check the IML log to see the details of the system health.
+I'd be very surprised indeed if this wasn't a serious hardware issue - you need HPE to help you, log a case and work with them to replace the faulty parts. At this stage it could be a number of parts by the way, these are complex systems and it's easy to jump to conclusions but just work with them and they'll get it sorted for you.
+Is there any log I can check to find out what is going on with the server right before it dies? I'm using RHEL 6.1.

@@ -1,0 +1,7 @@
+I thought something like this query should be appropriate, but I have no clue how to use the text file.
+The easiest way I know of is creating a table in tempdb with a single column (id for instance), then expand the tempdb node in SSMS and find the table. Right click and select "Edit top 200 rows". 
+You could also use OPENROWSET or other techniques to reference the file directly in your query, but that requires copying the file to the server or messing with permissions: too much hassle for a one-off task.
+A grid will appear. Select the whole first row with the row header on the left, then paste the whole contents of the file.
+Would it be best if I'd create a new table, with the IDs, in order to use this table TableC in the query as WHERE ID IN TableC? If so, whats the easiest way to fill the new table with the IDs from the txt file?
+Working on Microsoft SQL Server Enterprise Edition v9.00.3042.00, i.e. SQL Server 2005 Service Pack 2
+BCP is an alternative way to load the file contents to the destination table. In this case I don't find it any way easier than copying and pasting the file contents in SSMS.

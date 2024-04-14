@@ -1,0 +1,8 @@
+I have done some research on the net regarding the problem. My questions is NOT how to reduce cpu utilization by improving algorithm or improving the performance by using multitasking or limiting CPU per system user.
+I have a website where user logs in does some processing and logout. The site uses linux server, php and apache. The problem is that I cant control the amount of CPU allocated to each user. ie I want give a guarantee that a user will get say atleast 5% of CPU (assume total number of users is less than 20). How can I do this?
+If you use PHP as CGI or FCGI application you could use cpulimit to limit cputime for the PHP process.
+Being fair isn't efficient. Let say my task takes 1s. Splitting ressources between 5 tasks means all 5 will end at the same time after 5s. Meanwhile, taking turns, the 1st task would have ended after 1s, 2nd after 2s... 5th after 5s. Nobody would lose compare to the "fair" solution. But some would win, which is unfair indeed.
+Apache/PHP is designed to create a separate process for each request, and the OS is splitting the CPU time among them.
+You should calculate how much cpu each of your scripts do then store it a database and for everytime a user calls for your php script it keeps adding to the database with their ID saved for later use.
+e.g. 5 requests doing the same amount of work will get 20% of CPU each, and finish in 5x the time it would require for 1 to run alone. I think that's what you expect.
+Then set a cpu limit checker at the start of your php script that querys the database for the current user cpu use. 

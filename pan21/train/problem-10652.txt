@@ -1,0 +1,6 @@
+It might help to offset the target world position to have the same height as the tower, otherwise the tower will look down/up. But that might be valid if the tower has a seperate turret model.
+I have made a grid and placed towers and moving a enemy on it. Now i want to rotate towers face towards enemy when enemy comes in the range of tower.
+Unity provides functions for LERP/SLERP and those would probably work well. Basically create a target point at the same position as the enemy except moved to the tower's height, and then slerp the tower to that location.
+I have a solution that whenever enemy comes to its range ( 2 grids far ) it starts do something, lets say when tower finds enemy is on left side it starts firing like that when enemy moves up/down ( when it finds there is a tower on very next tile) tower starts rotating with enemy position uniti enemy's range that is 2 grids far. So its mean tower has to rotate whenever enemy comes to its range and moves up/down.
+Don't know about the specific functions to use in Unity, but if you want to get the actual angle of the entity relative to the tower's turning point I suggest you look at polar coordinates:
+When you store the angle the tower currently has and calculate the one it needs to be in achieving the rotation becomes a fairly simple process, I'm sure.

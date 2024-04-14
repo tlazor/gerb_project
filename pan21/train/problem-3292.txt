@@ -1,0 +1,7 @@
+... then you probably do not have the correct CA root certificate and you will need to manually download and install the certificates into the Java trusted certificate keystore. Here is a method of doing this: http://mikepilat.com/2011/05/adding-a-certificate-authority-to-the-java-runtime.html
+Obviously, older versions of a given product will not have newer certificates (there is no mechanism to automatically upgrade them).
+To find SHA2 certificates in a bundle, you can't rely on keytool -list. You need to extract all certificates with keytool -exportcert, and then check the details for each one with keytool -printcert: SHA2 certificates will have this line in the output:
+If the provider does not submit a new certificate it will not be included in Java and you will have to manually add newer certificates into the Java trusted certificate repository.
+SHA2 CA certificates have been part of the standard Java cacerts bundle since JRE 1.6.14 (see certificate ttelesecglobalrootclass3ca), if not earlier.
+This is a late reply, but there's an important misconception in the question that should be cleared for future readers. Keytool output can be misleading: it shows a SHA1 fingerprint for all certificates, whether they use SHA1 or SHA2 signing hash function (which is what you're looking for). SHA1 fingerprint is simply a unique ID of the certificate.
+As CA providers upgrade their certificates to SHA-2 they submit the new certificates for inclusion in the various products that use SSL such as browsers and Java.

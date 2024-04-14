@@ -1,0 +1,5 @@
+My router does not - and I like it that way, because it allows me to test firewall settings and port forwarding by making requests to my own external IP address.  I'm using a NETGEAR WNR3500L-100NAS, flashed with DD-WRT.  
+The lowest private ip range is 10.0.0.x.  Have you managed to set machines to  0.0.0.x? See http://tools.ietf.org/html/rfc1918 to see private ip ranges
+I would assume that any router would send an external request outside the network, unless it's been specifically configured to rewrite packet requests to a certain IP (your external IP).
+But i've heard that there are some routers that when you're inside your LAN, you can use the external IP.  Maybe they work by redirecting to the local one. I don't know more about that function, hopefully somebody else does.
+The answer to your question depends on the router. Some routers utilize NAT reflection by default and will route you to their WAN IP just fine from one of the LAN IPs, though some routers do require that you enable that setting in the config, but some routers just won't do it at all.

@@ -1,0 +1,8 @@
+He could access and upload the FTP server using his laptop and his account from our work ext IP, when I tried using my computer with my account and the same ext IP it wouldn't upload.
+A common problem I have had with Windows boxes and FTP access, is that the local account I set up to log in via FTP on the target box does not have the "do not expire" checkbox checked. So basically it has expired the FTP account password, and wants it to be changed - but that can only be done manually, not through FTP.
+That is the default state for new accounts created on the system and it must be changed manually (even the command line option /noexpire does not work on MS Server 2003 and below).
+Windows 7 blocks access to active ftp by default. Please check if these steps take care of the issue. 
+I played about with alot of the settings but I believe that when I changed my network location in Windows 7 to Home as it was set to Public that's when it started working again for me.
+That might be your problem. To fix it, someone with admin access on the FTP target server has to login and check the "do not expire" checkbox for your FTP login account.
+I have experienced a similar problem before like this before, my colleague set me up an account on his FTP server. 
+If it's not working from that specific computer BUT with the cliens, that means, it's related to the computer's settings. Try to check the log of the computer, and make sure the firewall is turned off (check that throuh services.msc for instance)

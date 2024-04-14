@@ -1,0 +1,10 @@
+How hard is it to use sudo poweroff then wait ten seconds for that to complete? You know it's complete when the activity LED blinks ten times.
+Pulling the power may be OK 9 times out of ten, but every time you pull the power you risk corruption of your SDCard.
+No computer system which writes to internal storage can just be powered off without risk of loss. The Pi is no different in this respect.
+The other option is to use a read only filesystem, and store working data in volatile storage (RAM) - it depends on your application if this is applicable.
+I'd suggest just trying out the battery-bank thing, maybe with a relay so the pi can actually turn itself off, and kill its power input properly. If you need the auto-off functionality, you can use a wiring setup like suggested in Prayuktibid's answer, connected to the +5v powering the battery bank.
+If you can find a USB battery bank which is able to charge and supply power at the same time, it functions as a pretty reliable UPS. I do something similar by powering one of my Pis from a laptop's (secondary home server) USB port.
+I'm building a kiosk app for a raspberry pi, and the final intention is that it will sit in a pelicase with all the external hardware, with one power cord in. My program has a quit button which safely shuts down the pi by running sudo halt, but it would make it easier if the pi could automatically shutdown when it detects that it has been unplugged. Could this be done if I had a capacitor on the power rails and when the power was disconnected the pi could measure the power drop and shutdown safely if it detected a loss of power? Thanks.
+What you're asking for is impossible. There's no battery backup on the RPi without additional hardware.
+It is not difficult to provide the same to a Pi (the additional circuitry is likely to cost more than the Pi) and there are many articles on this, and a number of commercial products.
+Even if you move to a HDD or SSD for the root filesystem you risk corruption with a sudden power loss.

@@ -1,0 +1,7 @@
+I have no personally used it, but it often comes up in regards to a nice library for scraping. Here's a blog post on using it to scrape Craigslist http://www.gregreda.com/2014/07/27/scraping-craigslist-for-tickets/
+From the website "Beautiful Soup is a Python library designed for quick turnaround projects like screen-scraping."
+You don't mention what language you're programming in (please consider adding it as a tag), so general help would be to seek out a HTML parser and use that to pull the data. Some web sites can have simply awful HTML code and can be very difficult to scrape, and just when you think you have it...
+Once you've done that the data is just another XML feed and you can write an XSLT transformation (or XQuery) to access and pull out the data you want in the format you want. 
+A HTML parser will parse all the html and allow you to access it in a structured sort of way, whether that's from an array, an object etc.
+That might mean learning  XSLT/XQuery if you don't already know it but you will be learning skills that (unlike scraping tools) have multiple rather than just than one useful application.
+Ruby together with Nokogiri allows to access HTML and XML documents via XPath and CSS selectors. Here is a tutorial.

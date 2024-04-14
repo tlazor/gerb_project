@@ -1,0 +1,5 @@
+Finally, there is the matter of the element id's like person-name, you use them more than once so you should use a constant. Now the question is, should this constant be defined in Model, View or Controller ? I personally define these id's in the View class and then the controller asks the View what the element is, so that it can attach the listener. I dont think the MVC pattern goes into this detail, so it's up to you.
+Also, updateView does not belong in the controller, it should be part of your view class which should contain all view related logic.
+I am assuming you are used to getters/setters because you are experienced in another language, please don't do this. Performance matters, there is no good reason to download all those functions for no good reason, model-person.js should be
+Furthermore, I think in the original pattern, the model actually updates the view, meaning that the controller should not be done the one doing controller.updateView();, that should be handled implicitly by controller.modelPerson.setName(this.textContent);
+Personally, I like your approach better, I think the controller should decide when the UI gets updated.

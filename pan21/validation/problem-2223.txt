@@ -1,0 +1,8 @@
+There might be a much better solutions but this worked for me. I had more than 200 features and a categorical feature like pin code. 
+I am expecting this question is for a supervised learning problem where you have a mixture of continuous and categorical features as independent features and your dependent or target feature is a binary class feature. If that is so please follow the below advice.
+I can reformulate the target into limited number of values like 5, 11, 18, ... which I think would be probably precieved as multiclass by a model or into continues value expressed in DebtAmount after some work at the SQL Server end.
+I also wonder how to treat high-cardninality categorical features like post code because the number of new dummy variables which seems to me too high.
+I have a datset of continues features like LoanAmount, LoanDuration(multiclass?), ... ClientIncome, ClientFreeSources, etc. and a binary target whether a contract was sued or not.
+I hope I answered at least to a certain extent. Again, I used this solution for my issue and it worked pretty well and hope it works for you too.
+As for the problem of having too many categories when using post code, you could omit the last one or two digits, so that one category includes a larger area than just a full digit post code. (That only works if the more digits you add to the post code, the more specific the region gets. IDK whether that works for all post code systems in the world)
+Since you have a binary target, you can use any classification algorithm, for example logistic regression, support vector machine or trees. It is therefore no problem at all if you have a binary target.

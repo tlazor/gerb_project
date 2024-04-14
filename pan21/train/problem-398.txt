@@ -1,0 +1,8 @@
+"IP numbers of nameservers of example.com" lists the IP addresses that the names from the NS records resolve to.
+Try doing the lookups for yourself. You can use host or nslookup to find the IP address and corresponding PTR names.
+While they do not appear to provide any documentation as to what is what, my conclusion after observing the results at robtex.com is that:
+The IP addresses listed should be the IP addresses obtained from the A record for the names servers. 
+It is common for an IP address to have multiple associated names.  PTR records are usually configured with only one name.  Many ISPs by default configure their PTR records to indicate the service type, and some additional information.  The names beginning adsl appear to be of this form.  With the exception of servers sending email to the Internet, there is no requirement to have names on PTR records to match an A record which points to them. 
+When you specify name servers in DNS they are defined by name. These first few names are typically names for name servers, so I believe these records are the names listed in the NS records for the domain.  I am concerned with the number of name servers, as normally there are 2 to 8 name servers for a domain.  It appears the presented list of names also includes the names returned by looking up the addresses of the NS servers.
+"Name servers of example.com" lists the names from the NS records. (Unclear what they show if the delegatory and authoritative records do not match.)
+"Names of the nameservers of example.com" is not as obvious. It appears to be any names that robtex.com have observed that resolve(d) to one of the IP addresses of the nameservers. (Important to note that this may have nothing at all to do with anything!)

@@ -1,0 +1,7 @@
+There is no built in way to do it that I know of, although you could potentially write an agent to do it. 
+Open Lotus Notes address book or your personal address book and search for the recipient. Property that user and you can copy the email address from there.
+As a programmer and a user, I DO NOT understand why Lotus Notes doesn't allow users to copy the email address from "Show name details" screen. In my opinion, Lotus Notes is very poor design and not user friendly. Users will have to use Lotus Notes in case they are FORCED to. Overall, Lotus Notes is a bad product from a user's perspective.
+If nothing shows up, check your status bar to see if there are any connection errors and add the required connection document if needed. 
+If the person is using a personal group list, or intentionally hidden the SendTo however you are not going to be able to see the details. 
+Is there any way to get the full set of email addresses? Example: I receive an email sent to a Lotus group 'all department employees'. I'd like to be able to grab the actual email addresses contained within (not their Lotus user name) so that I could email everyone from a client other than Lotus. Does such an option exist? I believe this was doable in Exchange with a right-click and 'expand nickname' type of action. I'm on a Mac.
+On the Mac and your document in edit mode, click on the group name and right click. Select "Show Name Details...". 

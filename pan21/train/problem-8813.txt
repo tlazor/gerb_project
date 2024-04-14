@@ -1,0 +1,5 @@
+Don't rule out a faulty motherboard, or a faulty device. I once had an LG wireless PCI card, that would cause my system to randomly freeze up.... I only figured out it was the card after replacing RAM and Motherboard...
+I'd have a look in the event log in administrator tools and see if there is a particular event associated with the freezes.  Also it might be worth keeping an eye on the temperature inside your pc and checking out the memory with memcheck86.
+First step I'd take would be to check the device drivers, on the assumption that this didn't start happening suddenly, for example, after the installation of extra RAM.
+I personally find that if it is just frozen - No bluescreen / random restart it is usually a faulty motherboard (can't rule it out, but a quick check is for blown capacitors) or a bad hard drive.
+I am not saying that it isn't anything else as others have said, but I find that ram, drivers and devices, usually produce Blue screens and in my experience, 90+% of the time, if you mean that the machine is completely frozen, then it is one of the above.

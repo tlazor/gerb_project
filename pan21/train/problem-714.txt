@@ -1,0 +1,7 @@
+So the question is, is it a bad idea to run NGINX and NAT on the same server, or should I go for consuming 2 elastic IP addresses?
+To have my servers on the private network I need a NAT server so my servers on the private network can connect to the internet to receive updates and what not.
+You can easily do this without any problems, simply use an nginx conf file like the following for each server
+For point 2 you can just use the configure-pat.sh script from an existing amazon nat. I've pasted it here if this helps.
+The NAT server will consume an elastic IP address, so I'm wondering if I can just have that NAT server run nginx to direct traffic to my internal servers for HTTP.
+I can't comment on if this is a good idea for your application architecture, however, it's technically possible to use your own NAT instance. It's quite simple.
+Obviously you can get more complex, and do ssl, and other such things, but at it's core this will work, then you just open port 80, and go to the named host (or you can open multiple ports, and do this for each port instead of a URL)

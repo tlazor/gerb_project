@@ -1,0 +1,8 @@
+It will require - customer id, transaction date, and amount spent (which you can calculate using quantity and stock price).
+You can use BTYD - Buy till you die models. example - Pareto/NBD, gamma, BG/NBD, PDO, etc you search those for the differences. You can find those in "BTYD" package for R programming and "lifetimes" package for Python.
+I think DMS is probably right you don't have enough customer data to make this actually predict anything, but you could try by reworking what you have.
+You can use the gamma-gamma model for customer value prediction. It is used to estimate the average monetary value of customer transactions.
+That may or may not be enough data for truly predictive modeling. You have order information, but you don't have customer information.
+You might be able to predict things like how many units of product X you are going to sell next you or the average shipping costs of orders for next year. But you won't be able to relate things on an individual customer basis (like your question says) until you have a lot more customer data. 
+You can find out " expected number of purchases up to time " and " probability of n purchases up to time " that will help you for your objective.
+You have a list of orders. You need a dataset of customers. If your data is in a relational DB, you need to make a new query where each row (record or observation) is a customer and each column (variable) is a fact about that customer. In other words, you need to do some feature engineering. I would try to make a table like:

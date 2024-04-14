@@ -1,0 +1,10 @@
+Then, after logging out, you login back again with the credentials you want (the "official ones"). After that, the Onedrive for Business sync client will re-sync your files.
+You will have to use another Office App (say Word) to logout of your current account (even if Word says you are logged into your business Account). Use Start -> Account in that app to find your current login and options regarding your Office Account. 
+Does anyone know how to clear the credentials associated with a user's OneDrive for Business sync app, or at least some kind of work around that doesn't involve having to recreate the user's Windows profile or restore to a previous system state?
+I can't believe Microsoft made something that should be simple so difficult. With Dropbox you can do the same thing very easily.
+As expected, my OneDrive for Business sync app was then unable to authenticate with my Office 365 account and gave me a "unable to sync" error.
+Microsoft's SharePoint support team were also unable to resolve the issue during a remote support session of my PC and I ended up simply restoring my PC to a previous state. This is not acceptable as it may not be an option for a user.
+After realising there was no "log out" option in the sync app itself, I went on to try the following steps:
+We are using the OneDrive for business sync app to synchronize our document libraries in SharePoint with our PCs in the office.
+Recently, I came across a situation when testing where I entered my personal Hotmail credentials instead of the organizational account that had permission to access a document library. I knew it was not going to work but wanted to see what would happen so I could support our users if they ever made a similar error.
+I had the same issue and found two sets of credentials for OneDrive in Credential Manager.  I deleted the incorrect set and rebooted.  My OneDrive now syncs to the correct library.

@@ -1,0 +1,5 @@
+As answered by Raymond Chen in one of the replies to his original File copy progress dialog post (http://blogs.msdn.com/b/oldnewthing/archive/2004/01/06/47937.aspx#47964), one of the things it does is to get the filesizes for the entire copy operation to make a better guesstimate about the time the copy will take.
+"Preparing to copy" is a special feature that allows to delay the whole process by unreasonable amount of time and gives you more time to appreciate a fancy dialogue box created by Microsoft designers.
+What it does though is creating the full list of files and performing some magic number calculations to make wrong assumptions about estimated copy time.
+I believe this fancy feature is to calculate the progress bar percentage when each file is copied, so that you can appreciate the lovely progress bar.
+To my knowledge Windows checks that it Can dó what you ask for ALL files. This means that e.g. locked files are found up front instead of halfway through causing an incomplete result. 

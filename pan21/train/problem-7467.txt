@@ -1,0 +1,5 @@
+Obviously the USB 2.0 lacks these extra pins, when it connects USB 2.0 is defaulted having no register of the 5 extra pins.
+Also, if this system is home-built, make certain to install the drivers that came with the motherboard (if you don't have the disk, just check the manufacturer's website), rather than just let Windows install the default drivers. Those could potentially cause an issue for you.
+If you look into the USB 3.0 Plug, on the back-end roof of the plug head, there are 5 extra data transfer pins. When the pins are engaged, USB 3.0 Protocol is activated.
+Is there a way to disable USB 3.0 and enable legacy USB 2.0 support on Windows 8? I have an old microphone (Blue Snowflake) that only works when plugged into a USB 2.0 port. Is there any way to disable USB 3.0 support, either system-wide or specifically (to a USB drive or to a particular device), and fall back on the old USB 2.0 stack?
+When you plug in a USB 2.0 device into a 3.0 socket, the lack of the other 5 pins signals the control that it is a USB 2.0 device, and uses the slower transfer protocol.

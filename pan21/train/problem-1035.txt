@@ -1,0 +1,6 @@
+Likely you'll have to settle on having one device for a primary connection and use the second device for a connection when the first is unavailable.
+Your issue with a setup like you want is that both devices (mifi and S3) want to be the DHCP server. Overcoming this issue may be the real trick. I don't think either will provide a connection without also providing the IP address.
+So if either of the devices providing the network is around it will hand out an address and act as the default gateway. As long as it is on, it will renew the lease and all is good.
+Something like the Edimax EW-7228APn 150Mbps 11n Wireless Range Extender/Access Point with 5 Port Switch may be what you are looking for to help.
+If the device is turned off and the other device is around too, the second device will hand out a new address once the lease on the NAS/TV expires (which is why the lease time should be short). From then on the second device will be the default gateway and connectivity is restored.
+If it is possible to configure the DHCP server (which I doubt, especially for the Galaxy, but I don't know) I would try the following:

@@ -1,0 +1,8 @@
+I came across a lot of the diagnostic information above while trying to get SSL working, but Im not sure what to make of the information and now I am stuck.
+The website is working fine over normal HTTP so I won't post the configuration for that (I can if you wish to see it!)
+My apache version is: 2.2.14 (running on Ubuntu). The information below seems to show that SSL is configured and running fine, but when I try to access https://website.com the request times out.
+The most likely problem is either with your iptables configuration or an external firewall run by your hosting provider.
+Ok, so I'm trying to configure my server to accept SSL connections and I cannot get it working. I'm aware there are a lot of similar questions on the site, but each one I have come across so far doesn't seem to help. 
+If GoDaddy is also your hoster, I would suggest taking it up with them, as it seems to be a problem on their side.
+In particular the Allow from line. So basically it is only allowing connections from localhost. So connecting to localhost:443 will work fine, but connecting by the external facing IP address won't work.
+When using localhost, everything appears to be normal (can't say I know what normal is, but there is a lot of relevant information output and doesn't appear to be any errors).

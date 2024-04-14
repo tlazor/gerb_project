@@ -1,0 +1,6 @@
+(I suppose you are you talking about WPA? Wap: Wireless Application Protocol / WPA: Wi-Fi Protected Access. The first refers to a standard for mobile phones accessing the net, the second is a crypto standard for WiFi)
+This is commonly know as a MITM (Man in the middle) attack. (See for references : article, wikipedia MitM, wikipedia security of Wireless comms)
+You could do it with a Laptop + a Fon router modified to run Jasager here is an article on it... http://www.hak5.org/w/index.php/Jasager
+Eavesdropping is commonly countered by the use of secure connections such as SSL (HTTPS) and VPNs. (Provided you don't accept unverified certificates). 
+I don't know how the 802.11 standards deals with multiple APs and what would be the behaviour of one connecting from a zone that is covered by both the legal and pirate AP.
+Theoretically if you can get the WiFi password of the Access Point (by sniffing), you can broadcast the same WiFi network name (a.k.a. SSID) with a laptop. Thus anyone connecting to the WiFi broadcast by the pirate laptop would be going through its routing.

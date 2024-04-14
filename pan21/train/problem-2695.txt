@@ -1,0 +1,6 @@
+Pecant's answser ignored frame time, and that makes your physics behavior differently from time to time.
+The code provided by Ilmari Karonen is almost correct, but there is a slight glitch. You actually compute the acceleration 2 times per tick, this does not follow the textbook equations.
+If you are going to make a very simple game, you can make your own little physics engine -- assign mass and all kinds of physics parameters for every moving object, and do collision detection, then update their position and velocity every frame. In order to accelerate this progress, you need to simplify the collision mesh, reduce calls of collision detection, etc. In most cases, that's a pain.
+For even bigger (galactic) scales, gravity alone won't suffice to create "real" motion though. The interaction of star systems is to a significant and very visible extent dictated by Navier-Stokes equations for fluid dynamics, and you'll have to keep the finite speed of light - and thus, gravity - in mind too.
+It's better to use physics engine like physix, ODE and bullet. Any of them will be stable and efficient enough for you.
+If you want to implement gravity on a slightly bigger scale, you can use this kind of calculation each loop:

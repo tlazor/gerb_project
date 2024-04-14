@@ -1,0 +1,10 @@
+If speed and reliability is important, RAID0+1 should give the best performance (no parity to calculate) with up to two drive failure survivability. But not all controllers supports it.
+RAID5 uses ONLY ONE parity drive per stripe and many RAID5 arrays are 5 (if your counts are different adjust the calculations
+If it's a complex database-driven website then I'd still just have a RAID 1 pair for the OS (which is what you actually asked about), but have a different disk configuration for the data(base).
+I operate a Datacenter and am the CTO for a good sized hosting operation.  WE STRONGLY URGE FOLKS NEVER TO USE RAID 5.   
+It depends! If it's a simple, static website then a pair of RAID 1 disks should be fine, as presumably the disk contents would end up cached in RAM anyway.
+Now, as hard drives get bigger, RAID 5 really becomes less ideal, as your likelihood of hitting a URE during a single-drive rebuild is pretty high. 
+I work for a major hosting company, and the most common thing I see in my enterprise segment (not necessarily that I recommend, but what I see), assuming that the server is standalone / using local storage, is a RAID 1 OS array, and a RAID5 data array.  
+But since you seem to be specifically asking about the OS drive, yes, RAID 1 is standard and usually sufficient, unless you're going to be running other apps off that drive.
+The RAID 5 READ-WRITE-PENALTY: Now when a disk block is read from the array the RAID software/firmware
+RAID 5 IS WASTEFUL BUT SO IS RAID 10 and 1:  If you have 10 drives or say 20GB each for 200GB RAID5 will use 20% for parity

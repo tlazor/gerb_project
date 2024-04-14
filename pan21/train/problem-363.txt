@@ -1,0 +1,7 @@
+and it's re-applied. Of course since this is applied to a VLAN, you need to be in the VLAN configuration context, so this is what it looks like in practice (with the prompt):
+If I understand you correctly, you could remove the application of ACL from the interface first, edit or rewrite (copy-paste) your ACL and re-apply to the interface. This is if I got you right.
+This will remove it from the interface, but won't touch the rules. When you're done with testing, give command 
+This issue was resolved by adding a return route on the firewall to the 10.100.68.0 network. Not certain that this was the best solution. But, the vlan no has an Internet connection.
+When you look at the config file, each item (excluding "module") is a configuration command you can give on the CLI. And every command is negated with a preceding "no". So if you want to disable the ACL for a duration, just 
+This will change the running config. If you need the configuration w/o ACL to survive a reboot, you need to give command
+last to save to startup config. Even after this you re-apply the ACL the same way, just don't forget to "write memory" ;-)

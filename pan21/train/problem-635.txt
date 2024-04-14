@@ -1,0 +1,5 @@
+https://forums.unrealengine.com/development-discussion/c-gameplay-programming/25256-how-do-i-enable-disable-controls-in-my-blueprint-details-panel-via-c
+Weapons in my game have different firing modes (semi and auto) and "bullet" modes (projectile and hitscan). Each weapon is it's own blueprint, and there I can select proper one in editor, so for example an Uzi would be auto / histcan, while a rocket launcher would be semi / projectile. (the firing mode actor gets created at spawn from the class selected in editor).
+Can I create / show different variables in the editor, depending on other variables? If I choose projectile type of weapon, can I also select the projectile type, but not show the option if I chose hitscan?
+I want to create a modular weapon system. I already got most of it working, but I wonder how to make an improvement.
+I want to make it easier to edit by giving the weapon some variables, like spread and projectile blueprint. But not all of the variables apply to all the types of weapon...

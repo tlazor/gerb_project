@@ -1,0 +1,8 @@
+and one last way is to use find to get a list of files periodically that's modified time is more recent than the last run and essentially 'synchronise' file sizes to a db structure...
+Obviously there will be a race condition if the directory starts getting very large. (ie du -s starts to take near the 5 minute mark.)
+If you want something a little more in sync, then you're gonna have to start writing something that uses inotify, to find out when the filesystem changes and updates a database, which would probably be something like bdb.
+if this is to use a nagios style check for a directories size, you could do something like the following
+*/5 * * * * root du -s /path/to/some/dir > /tmp/directory_usage.tmp && /bin/mv /tmp/directory_usage.tmp /tmp/directory_usage
+What is the fastest way of computing real directory size? I somehow catch myself needing that a lot.
+Another route is to use find to build a list of file sizes in a directory and store that into either a flat file or a file db (if you plan on doing lots of directories simultaneously) 
+Is too slow. Is there any service I could run which would periodically compute directory sizes and cache them for later reference? (something like a locate database)

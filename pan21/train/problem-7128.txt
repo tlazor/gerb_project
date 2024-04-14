@@ -1,0 +1,12 @@
+The mini-displayport to DVI-D Dual Link is of cause possible as mentioned above, when you have a newer Mac Book and what to attach a hires monitor.
+I wander if you could plug two of these adapters one into the other's USB port, and both in each thunderbolt port.
+I have a 13" MBP with two thunderbolt ports.  I bought two mini display (same profile as thunderbolt) to dvi adaptors at the apple store, and use these for two 23" dell monitors in my office.
+If I were to just buy two of Apple's thunderbolt displays, I would only ever have one thunderbolt cable to connect, and the monitors would act as USB hubs too. But that's $2000 compared to $500.
+Apparently the adapter is an active component, and it needs to be powered. It draws that power from the MBP's USB plug. To avoid losing a USB port on the MBP, the adapter provides another USB port on the other end, where you can connect whichever device was using the USB port. It seems that the adapter piggybacks on the USB port's power line, while just forwarding the others.
+So, I've finally received my MBP and the Dual-link-DVI to Mini DisplayPort adapter (simply adapter from now on).
+No problems at all.  Simply open your system prefs to arrange which display should be "home" (left side or right side in my case) and it works as if I had one giant monitor with a black stripe (the two bezels) down the middle.
+The Korean monitor has been more than worth it, it works superbly absolutely great over the digital link.
+Keep in mind that currently the only Apple computer supporting 4K at 60 Hz is the Mac Pro. For some reason the Late 2013 Mac Book Pro Retina only support 4K at 30 Hz. Running Windows 8.1 on this MBPr, allows it to run at full refresh rate, so many threads thinks it's mainly related to a driver issues in OSX 10.9.
+The adapter doesn't work at all if you don't plug the USB connector in also. If you plug it in, connect the display, then remove the USB plug, it will stop working instantly. So apparently that USB plug is 100% needed.
+Im using a Crossover Gold with my MBP 13" which I connect using a mini DP to DP cable plugged  into the thunderbolt out. No need for a dual DVI cable and Im running at full res 
+I happened to have a VGA to Mini DisplayPort adapter lying around, so I've connected a second external display on the second Thunderbolt port. Everything works fine, my MBP now has 3 displays. I plan to replace this with a HDMI cable, since the MBP also has a HDMI port, it should work.

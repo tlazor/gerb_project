@@ -1,0 +1,6 @@
+Doing this makes everything work again, but in a production setting that is, unfortunately, not a viable option. Why does this happen? Is it a hardware fault? Config issue?
+I've got a cisco 1921 in a lab setting where we've added an extra interface (EHWIC-1GE-SFP-CU) and as long as a network cable is connected it works fine.
+Have you tried spanning-tree portfast? I've used this before in situations when a device wouldn't connect properly without intervention, even with a hard-set port. 
+You must statically set the media-type on the interface.  If you are using SFP port issue the "media-type sfp" command under the interface.  If you are using RJ45 port issue the "media-type rj45" command under the interface.
+However if the network cable is disconnected and then reconnected the inteface doesn't start up again until I log into the router, enter config mode for the interface and issue
+You should be able to hard code speed / duplex and get the interface to go up / down without kicking it.  Unless there is a problem with the cable, or the hub it's connected to, that behavior looks like a bug... 

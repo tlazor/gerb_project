@@ -1,0 +1,10 @@
+If your Ubuntu install is to screwed to get onto the network, you could always load up a liveCD and do it from there.
+If the other computer isn't running Linux, you could copy to and SMB share, or even install an rsync server (deltacopy for Windows is easy).
+Have you got network access and another computer? You could easily copy everything with scp -r /home/ user@othercomputer:/backup/
+There are many online backup services for linux you could try, most of which are of the "set it and forget it" kind:
+I tried upgrading several Ubuntu Hardy packages to versions from a later distribution and boy, did I mess up.  My computer boots but the display doesn't work and there's no internet connection.
+I have /home as a separate partition so I figure I'll just reinstall Ubuntu on the root partition and I shouldn't lose any data.  But I also figure I'd better back up all my data just in case.  The /home partition has 40G space used (mostly pictures).  I figure I can transfer several GB at a time to a usb stick and from there to another computer.  It just sounds extremely tedious.  Is there a better way to do this?
+If you've not got network then your options are external media; or removing the drive and putting it into another PC to do a local copy.
+Put it all into an external drive. 40g is not a lot of data. "several gb at a time" on a USB stick can also be read as "32gb at a time"... 32gb is a common usb stick size today.
+Backing up to thumb drive or any other kind of local storage means exposing yourself to risks (fire, theft, etc.) which offsite backup does not.
+Or use your regular backups.... you do have those, or? (note: this is not an end user site - it is an administrator site. Not doing backups will get you into trouble here).

@@ -1,0 +1,6 @@
+Assign numbers for each day (0->N). Given a data calculate the number for that day. The difference is simply subtracting the two numbers.
+This code looks like it is going to implement the date difference calculation. I would't do that. Instead, I'd use your favorite date library/operating system call to parse the user's input. Then, using the same library, I'd compute the difference for output.
+Or (assuming this is just a school project) you can make the assumption we used the Gregorian all the way back to pre-history.
+Time and date computations are really hard to get right. For example, the year 1900 wasn't a leap year, but both 2000 and 2004 were. Such a library would also--probably--deal with computing the difference both ways. On 1999-12-31, there were -1 days since 2000-1-1.
+There is no year 0 in the Gregorian calender. It goes from -1 (or 1 BC) to 1 (or 1 AD). Also I would not go back that far. Limit your application to years above 1900. Before that it gets very complicated and actually depends on what country you are in.
+(This question smells like a homework assignment, so the follow review comment likely isn't applicable. Anyway...)

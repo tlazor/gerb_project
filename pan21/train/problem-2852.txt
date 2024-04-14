@@ -1,0 +1,6 @@
+From what I've experienced, the Lion installer doesn't work like the Snow Leopard and previous versions did.
+But, to do an upgrade, you just run the app off the DVD while booted into Snow Leopard. It will copy files over to perform the upgrade, then reboot and finish the upgrade.  I've yet to see a way to boot off a Lion DVD and perform an upgrade.
+You can remove the recovery partition after it's created, though I would leave it there just in case.
+Insert the DVD when logged in to your Mac and open the Finder. In the DVD, at top level, you will find an app called something like "Install Lion.app". Run it, and you will be upgrading your mac without losing data.
+Incidentally, even if you upgrade/install via this DVD/USB stick method that many people are talking about (by extracting InstallESD.dmg from the App Store download), it will still create a recovery partition during the install process, which is hidden in Disk Utility (but can, I believe, be removed via diskutil on the command line).
+As long as you have Snow Leopard already installed on the partition you want to upgrade, you can simply run the install DVD or USB stick that you've created, and select your SL partition and it will do an upgrade rather than a fresh install. It doesn't tell you this, but that's what happens. As always, make sure you have a full backup before doing it anyway!

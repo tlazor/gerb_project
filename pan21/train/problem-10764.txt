@@ -1,0 +1,5 @@
+the problem is that the black color appeared as a purple and other colors are also different using it on day , i don't know what is the problem or if i could change some settings to make colors appears more original
+This is typical for a PiNoIR camera (or any camera with the IR filter removed): black appears as purple because although it's black to your eyes, the camera's still seeing a fair amount of red (from near IR, invisible to humans), and a little of blue (from near UV, which IR filters aka hot mirrors also filter).
+So, your regular Pi camera (or any old CCD with an IR filter) will have a response curve limited by the cyan (hot mirror) line in that graph. However, the PiNoIR (or any old CCD without an IR filter) will have a response curve limited by the black line.
+Here's a nice graph of CCD sensitivity, and hot mirror response which should explain the phenomenon far better than I ever could in text:
+If you want it to look "normal" you need to stick an IR filter over it (or get a camera with an IR filter installed in it).

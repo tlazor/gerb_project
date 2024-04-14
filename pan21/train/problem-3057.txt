@@ -1,0 +1,7 @@
+Oracle Sql Developer has one really cool plugin from FourthElephant called Insider.  It is a database monitor.  It is a simple version that is free.  (The advanced one you have to pay for.)
+I agree Oracle SQLDEveloper is pretty good and a great price.  We use it more than Toad now.  Some early gotcha's ...
+OK, I've used TOAD in the past and it's pretty cool, but I don't feel like spending that kind of coin. What other Oracle 10g SQL editors are there? 
+If your'e doing basic sysadmin queries, just use the standard Oracle SQL*Plus client that comes with a standard install.  No additional cost.
+One really odd alternative for you developers reading this are the oracle tools for visual studio.  It has just about everything in it including debugging and is a free add-on for visual studio.  If you are a developer that loves visual studio but is also trying to manage a test database this is a powerful tool.
+One thing I really like about it is how it handle reference cursors.  For some reason it is the best tool I have found for testing my reference cursors.
+The tool that comes with Oracle, Enterprise Manager, is a good approach but doesn't give you the same type of visual cueing.  Give it a try, its free.

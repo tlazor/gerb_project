@@ -1,0 +1,7 @@
+In a way, PDF documents are executable, due to the ability to embed JavaScript into the document. Microsoft Office documents are similar – they allow VBScript macros, which has allowed many "macro viruses" in the past.
+Another possibility is a malformed file that tricks the reader into executing part of the document as code (this was a particularly huge problem with Adobe Reader just last year).
+In theory, such JavaScript or similar code should be "sandboxed", but in practice people find ways to escape it, sometimes by calling functions that were meant to be limited but aren't, sometimes by finding ways to overwrite the JavaScript interpreter's code.
+Getting back to the rest of your question, by simply "downloaidng an MP3" all you will normally get is the MP3 - but that doesn't mean its not infected.  Also, if you download items such as using the "save webpage" features in browsers, you will find the sitesa images etc will also be downloaded - which may in turn contain viruses.
+For example, when choosing 'save link as' on an .mp3 or a .pdf file, is it possible for the download to include more than just the file?
+Files like JPG, MP3 etc all have to be opened and "read" by an executable.  By "mal-forming" or injecting special code or data into these files, it can cause programs to fault or to execute code contained within the files - which can in turn cause other problems and give a gateway for a full on viral attack.
+This example is a link to the sophos website which discusses just such a virus which can be embedded and hidden in a picture file.

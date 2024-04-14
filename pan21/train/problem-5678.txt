@@ -1,0 +1,10 @@
+If you really intend to build your own router, you'll have to write your own scripts to determine the prefix that was delegated, set up static routes, and configure your router advertisement daemon and/or DHCPv6 server on your LAN.
+dhcpcd after 6.4.0 (or fetch the trunk from the repository) will request and disposition a ia-pd prefix.
+will request a prefix with a length of 60 (so four bits, a.k.a. eight networks) and assign the resulting networks to the listed interfaces, with the prefix length of 64 and the lowest four bits of the prefix set to the number between the slashes. (and the root local address of 1.
+For a home office I wouldn't really bother with this, and just use something off the shelf that has proper IPv6 support...like your Airport Extreme.
+So xxxx:xxxx:xxxx:xxx0::/60 will be requested, and if received xxxx:xxxx:xxxx:xxx2::1/64 will be assigned to eth2, and xxxx:xxxx:xxxx:xxx3::1 will be assigned to eth3. etc.
+I currently have an Airport Extreme as my home office firewall. In addition to handling IPv4 NAT, my ISP (Comcast) delegates an IPv6 prefix to the Airport, which in turn assigns the delegated prefix to my LAN interface and sends the appropriate route advertisements. 
+If you want an example, OpenWrt beginning with Barrier Breaker has already done this and you may be able to reuse some of their work.
+Be warned that it won't work correctly with Comcast because comcast requires you to request and receive an ia_pd and an ia_na, and they issue them as separate responses from separate servers, which is a no-no (more or less).
+ISC DHCP certainly will request a prefix delegation from your ISP if you ask it to, but it won't actually do anything with it beyond logging it somewhere. Nor will any other DHCP client.
+I'd like to replace the Airport with a small Linux firewall - the NUC with a second ethernet interface is looking quite intriguing - but I'm having trouble determining whether the IPv6 behavior can be replicated. My basic questions are:

@@ -1,0 +1,9 @@
+One of the things I quickly started using, since the database has absolutely no relationships, is a general Name query for the schema:
+I know this doesn't help much in the redesign part of the question, but it's very helpful in the understanding and deciphering of the bad schema.
+If the database is on a business function or subject you are in general unfamiliar with (say it does flight planning and you have previously only worked on financial applications), then ask the users for some reading material on the subject matter or go to the library yourself or search the Internet about the subject matter. Ask the users if there are legal or regulatory issues you need to be aware of. Again some of this subject matter background may explain what seem to be odd design choices.
+update:  I just read an interesting article "9 Things to Do When You Inherit a Database" with a good checklist.
+First I look up for the "Master Table", then, with pen and paper, I start mapping the relations with other tables, after that, if there's some app code to look at I start making some raw sketches on how the data flows. 
+I deal with a very ugly one for a vendor's software, that aside from making suggestions, I can't do much to change it.  I'm always pushing to get things changed, but since it is outside of my control, I'm stuck with the junk.
+Since some of the tables have too many poorly named columns, and far too many columns to look through to find what I might be able to use to form relationships between table.
+After I get a nice picture on how the db work I just beggin checking for places where to change things. That's it.
+Bill gave an excellent answer. I would add that I would login to the user interface as a test user and try to understand exactly what the users do with the data. It will help you understand the why behind some of the stored procs or design. Understanding what the data means and is used for is critical to understanding a a database.

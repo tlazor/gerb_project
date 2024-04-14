@@ -1,0 +1,9 @@
+As I final note I suspect it far more easier and quicker to get a suitable home router that does exactly that right out of the box, but of close this lacks the lulz and lemming factor. 
+However how can I disallow any access to or from other computers on the LAN but allow internet access?
+However, better would be to separate both home and guest net completely instead of attaching the guest net in the home net. 
+You didn't write whether you're using routing or bridging. With routing I assume also NAT between the guest net and your home net. In this case, add filter rules that drop all packets that come in from your guest net and which are destined to your home net, except for the router. While not always strictly necessary to exempt the router, it might be needed when its DNS proxy and other services need to be used.
+With bridging, things become more difficult, as you need to add IP filter rules that are run inside the bridge; this is possible, as ebtables in Linux support this. 
+I have used the following script (https://github.com/harryallerston/RPI-Wireless-Hotspot) go build a Rasp3 WiFi AP sharing the eth0. 
+Now on your router you must create an ACL that blocks traffic from the 172.16.X.X network to the 192.168.X.X.
+Thus the machines connected to Wi-Fi Pi will no longer have access to your network but just Internet
+I want to use the Raspberry Pi 3 to setup an isolated WiFi AP (guest AP) such as computers that connect to the Rasp WiFi have internet access but cannot connect to anything else on the home LAN. 

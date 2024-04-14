@@ -1,0 +1,5 @@
+Here is an example of how to do this. This is a simplified example with four 'walls' (aka earthworks projects) that each take three 'coats of paint' (aka something that requires curing). Set up the schedule like shown in the picture and set the following:
+To level the resource(s), click Level All from the Resource tab. The task dates will move so that the resource is not over-allocated and the schedule will look like this:
+Once it is all set up the schedule should resemble this image. Note the red person icon on the left side of most tasks. This indicates that the resource is over-allocated.
+Final note: be sure dates are not hard-coded--in other words, tasks should not have constraints such as 'Start No Earlier Than'.
+Now here comes the power of using a scheduling engine like MS Project. Because the tasks are linked together in a way that represents the actual dependencies, we can use the leveling feature to move the tasks such that the resource is not over-allocated (e.g. double-booked to do more than one task at a time).

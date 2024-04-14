@@ -1,0 +1,6 @@
+I have a secondary domain name (MySecondDomain.net) that my Exchange Server allows emails from.  It wasn't a physical domain, just accepted by exchange and setup as the Active Directory user's main smtp and outgoing address.  Its MX records point to MyMainDomain.com's public exchange address.
+I've taken MySecondDomain.net and move the mail boxes to a hosted exchange 2010 environment.  MX records now point to this new exchange system and when I send and email OUTSIDE the MyMainDomain.com environment (say gmail) it works and sends to the hosted exchange setup for MySecondDomain.net.  
+You need to remove it from your email address policy. After you do that make sure that the email address has been removed from all mail enabled objects (users, groups, etc.).
+Is there something I'm missing somewhere in exchange 2007?  Or is it my domain controller/dns?  Sorry if this is confusing. Thank you!
+however when I send an email from a user on MyMainDomain.com, it goes to the old exchange 2007 server I am hosting internally.  I have removed MySecondDomain.net from the allowed domains, removed the DNS zone for MySecondDomain.net, and cleared DNS cache.  I was convinced it was my internal dns server but I've cleared the DNS cache.
+Exchange 2007 on an Server 2003 active directory.  My primary domain (MyMainDomain.com) controller also hosts dns and dhcp.

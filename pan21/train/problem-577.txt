@@ -1,0 +1,6 @@
+Here is Microsoft Documentation of the security event log entries and what to look for. Be aware that if you check the local machines, the administrators might clear the logs.
+You could make a logon script and link it in Group Policy for those computers that echos %date% %time% %username% %computername% to a file on a hidden share somewhere. Then you'll have a centralized log of all logins.
+You could monitor who is logging in and logging out. Should work on Windows 7 and Windows Server 2008 R2:
+Local accounts, or domain? Do you mean their main accounts are administrators or they will get an admin account specifically for changes? If it's central on a domain you can check the security event logs on the domain controllers, and/or the security event logs on the local computers
+http://teusje.wordpress.com/2012/09/11/windows-server-logging-users-logon-and-logoff-via-powershell/ 
+Monitor the event logs on the domain controllers for event 672. It will show all successful logon events for AD users and which computer they logged on from. Filter by computer to get logon events for only those computers that you are interested in.

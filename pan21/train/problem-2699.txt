@@ -1,0 +1,5 @@
+Upgrading to Mavericks, I appear to have broken my Ruby on Rails development environment, which requires ruby 1.9.3 because of various gem dependencies. Within that app directory, I'm trying to reinstall ruby 1.9.3-p547:
+Many solutions mention accepting an XCode license agreement, which I have done, and the problem persists.
+A Stack Overflow user suggested uninstalling gcc through homebrew which I have done to no avail, and another user has suggested reinstalling homebrew itself, which I will try.
+I can see that other people have encountered issues vis-à-vis upgrading to Mavericks and having c compiler issues, but I can't find any referencing this specific library or what I should do (reinstall gcc? is that even a thing I can do?)
+Command Line tools (gcc goodies) do not come installed with Mavericks (insert bad word here). You need to download the latest and great xcode, go into the xcode prefs and install the command line tools (I believe it's under General). You should be right as rain. 

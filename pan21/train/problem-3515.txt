@@ -1,0 +1,5 @@
+The other way is just to allow the wake-on-LAN. Use one "always up" computer (a server, probably) to send the signal. For example each monday at 5 am. So when people come in, the computers are up to date... and already on.
+Automatically poweroff the computers is not a good idea because some users just leave them with web pages open, or unfinished email.  
+To allow automatic sheduled maintenance tasks, you can configure the machines to restart at a given time. This can be done in the BIOS, or with some applications. But you have to do it on every computer.  
+What you can do is to let the machine hibernate after a delay. Even a "full poweroff hibernation" if you can. When the computer will restart, the user will have all of his web pages, unfinished emails, etc, with the exception of some programs requiring permanent connection to a server.  
+i work in a little (biotech) start-up company and noticed that the client pc's are mostly in stand-by mode (user-logged off) during the weekend, where nobody is actually there. So what is the most common way to implement some kind of power off mechanism, that is only (mostly) trigger

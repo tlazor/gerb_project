@@ -1,0 +1,5 @@
+I'm trying to avoid nested virtualization to use Docker on WinServer2019VM (E). I was not able to get Linux Containers on Windows (LCOW) working inside the VM (E), but since LCOW is still experimental I'm passing on it for now.
+I tried enabling the setting "Expose daemon on tcp://localhost:2375 without TLS" on Docker (B) on the host machine, and set DOCKER_HOST="tcp://HOST_NAME:2376" on the VM (E), but that didn't work. How can I do this? Thanks!
+Right now docker command on the host (B) uses Linux Containers using MobyLinuxVM (D). Now I'm trying to make docker command on VM (E) to do exactly the same and act exactly like (B) by attaching to the docker engine on the host (B) and use Linux Containers enabled with MobyLinuxVM (D).
+The setting "Expose daemon on tcp://localhost:2375 without TLS" only allows connections coming from the Host machine (A).  
+How can I get Docker Client on a Windows Server 2019 VM to attach to the Docker Engine on the host machine that is using Linux containers in a Moby VM?

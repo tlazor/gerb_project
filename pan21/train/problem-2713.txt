@@ -1,0 +1,7 @@
+I was not aware of this. While the data is mostly, static/read-only, I would like to set primary/secondary by changing priority according to -
+To be sure where are connected yours clients, you can see the opened files in the "computer management" in the "system tools\shared folders" on each dfs server.
+As both DFS servers are at the same site, I believe I would select "First among targets of equal cost" for the primary. If I set this, should I also set "Last among targets of equal cost" for the secondary?
+When you will modify the prioritization, yours clients will not be discconected and not will change instantly their reference. They will change at the end of the cache duration or at their next login on the dfs service. You can change the cache duration in your dfs management for each shared folder or/and for the server.
+Yes, you can configure the prioritization when you want. But, the modifications will be applied depending of your cache duration of your shared folders.
+According to the following, ""DFS does not like to work well in the same site without prioritization." -
+And finally, can prioritization be configured at any time? Our DFS servers show files open on both at the moment. Will this cause disruption to users?

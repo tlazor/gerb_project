@@ -1,0 +1,11 @@
+You've updated the Nagios installation far beyond the old configuration options. Despite -V showing all flight is fine.
+This needs to be the same as lock_file in your nagios.cfg, or systemd will timeout and stop your nagios service.
+No further error found on the logs (or at least, where I looked, maybe.... most probably I'm missing something here). 
+Running the daemon directly (/usr/sbin/nagios -d /etc/nagios/nagios.cfg) worked perfectly, hinting the problem was something related to SystemD, not Nagios.
+Running the command /sbin/nagios /etc/nagios/nagios.cfgstart the monitoring service and everything run as expected. But this doesn't solve my issue since Nagios isn't started as a daemon here and is link to my shell. This indicate me that the issue is not caused by Nagios but by systemd itself. 
+ make sure you change all your paths in the configuration files, ie nagios.cfg,objects.cfg,commands.cfg, etc . You will probably also have to move around your custom scripts inlibexec`, among other things.
+That is the file Nagios will create when it starts up. Older versions might use nagios.lock, or the path might be something like /usr/local/nagios/
+This answer assumes you are installing using yum from EPEL. If you install from source, the files may be in different locations but the ideas are the same. Make sure the nagios user has permission to these files.
+You have already solved your problem by overriding the default SystemD configuration. I had a similar problem, my Nagios in a Centos 7 machine stopped working after a recent automatic upgrade. The problem was that my /etc/nagios/nagios.cfg configuration defined a PID different than the expected by the SystemD configuration (/var/run/nagios.pid vs /var/run/nagios/nagios.pid) and so SystemD could not detect that the Nagios daemon actually started. The messages I got were similar to this:
+I have a Centos 7 Box on which I have installed Nagios and then migrate all the config files from an old Centos box.
+However, systemd is unable to start the service and give me a timeout. Find below the result of systemctl -l status nagios.service:

@@ -1,0 +1,6 @@
+For a window app, check out popular file sites like www.brothersoft.com for "field processing" or even excel add-ins if the row counts are reasonable.
+Essentially I would like an app that can open log files (no more than 10MB per file) and let the viewer perform some level of filtration, for example date range or column value...
+We pull all the apache access/error, tomcat, windows event logs, etc. from many servers into it and use it for querying, reporting, etc.
+I am looking for a good general log reader that is able to allow users an easy way to extract data from logs. 
+Splunk (www.splunk.com) is the bomb.  Forget simple filtration, you get a simple Google-like search interface with all kinds of advanced features under the covers if you want them.  It's not open source but it's free for up to 500 MB/day of logs processed.  It can consume just about anything, off disk or you cn set up forwarding agents.
+If you're on Windows, LogParser is the do-it-all tool for log file analysis. No GUI though, but its SQL-like syntax for handling just about any type of input (even multi-file inputs) is tough to beat. And it is really fast.

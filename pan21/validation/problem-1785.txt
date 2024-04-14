@@ -1,0 +1,9 @@
+Where a device is connected to both, there is the possibility of signals leaking on the other network. This causes interference.
+Normally mains hum on the phone line would not affect the ADSL since ADSL specifically avoids the mains frequency for this reason. The problem comes from the home plug introducing high frequency mains hum.
+What happens if you plug both powerline devices into the same plug strip AND turn off every circuit breaker in the house except the one powering this circuit? (i.e. Eliminate all possible sources of powerline noise.) If you find this resolves your speed issue then turn breakers back on one at a time until you find which has the noise source (and it may not just be one, but you get the idea).  The difference between protocols I expect is exactly that... other protocols have better error correction than TCP.
+A bit late to the party. But I suspect that your problem is due to radio interference between your ADSL and your home plug.
+Both the home plug and the ADSL work by sending radio signals down wires. The home plug uses your home's electrical mains wiring. The ADSL uses your phone lines.
+If your ADSL modem has poor electrical isolation between the power supply and the phone line, the home plug may interfere with the ADSL connection and cause it to drop.
+Well, I still haven't fixed it, but after flashing my router with DD-WRT firmware (TP-LINK Archer C7) I've got 2 reasonable workarounds.
+The solution is to isolate the ADSL equipment from the home plug signal. I personally used a surge protector myself.
+I'd still love to know why on earth option 2 works, when the 'normal', non-PPPoE encapsulated WAN traffic is half the speed?!

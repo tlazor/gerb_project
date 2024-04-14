@@ -1,0 +1,10 @@
+Forgetting whatever reason you renamed the vg or lv, the action would screw up your mounts and exports.
+I know I can specify mounts in fstab by either putting their path (like /dev/sda1 or /dev/mapper/myvg-logicalVolume1) or by fs label (LABEL=root) or by UUID (UUID=1234-5678-...).
+The same goes for devices handled by device-mapper-multipath either without using friendly names (/dev/mapper/WWID) or using friendly names and a bindings file (/dev/mapper/mpath0).
+It may be good to use UUID for this reason alone, especially if you are responsible for a large number of exports and mounts.
+But using LVM, my guts tell me that the LVM system itself manages the discovery of their disks/partitions and it doesn't matter if some PV is (after playing with partitions/disk) now named different. So there won't be any difference (speaking of reliablity) mounting by UUID or using the path like /dev/mapper/vg-lv, and the latter is more clear.
+device-mapper will persistently name your LVM volumes into /dev/mapper/vg-lv so you can rely on this abstracted name to stay the same, regardless of changes to the underlying storage.
+Mounting by UUID is one way to work around the old issue of partition names like /dev/sda1 changing if you put another drive in.
+I see a clear advantage in terms of reliability using the UUID for "classic" partitions like /dev/sda1, because if you repartition your drive/more partitions around/add more disks it may be that your some of your partitions now it gets recognized with another name, although mounting by UUID is more difficult to tell in which partition/LV your data is being stored.
+In an environment where you use SAN storage, this is a BAD idea..  since UUID are hardware driven if you do a full backup to tape and do a restore on new hardware, the system will not boot since all the UUID are now different. 
+You'd only ever shoot yourself in the foot if you wanted to rename the volume group or logical volume later....(lvrename or vgrename).

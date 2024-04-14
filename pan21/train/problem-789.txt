@@ -1,0 +1,5 @@
+I have now re-created this computer object with it's computer name but still cannot login and get the same error. Shouldn't I be able to login now that the computer exist or would that object have a different SID that doesn't correspond to the machine?
+So the question I have is... why would this machine not be able to authenticate if I have re-created it in Active Directory?
+I don't know if this was deleted but I checked ldp.exe's deleted objects and didn't see it. It must have existed before if it is on the domain. 
+We cannot login as domain admin on one server but can on others. When I looked at Active Directory, I can see that the computer object doesn't exist for the server we can't login to. There is, however a DNS record with the proper computer name.
+Also, I tried adding this server to the server group in Server 2012 but it is not found in Active Directory yet for some reason. I did, however find it by DNS in "add servers" but get a kerberos error of "kerberos target resolution error." The details show "Cannot find the computer xxxxxx.domain.local" even though it found it by DNS when adding.

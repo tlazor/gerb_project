@@ -1,0 +1,5 @@
+3) Create Website 3 consisting of Moodle (Open Source Learning Platform) on Sub-Domain 2 = learning.example.com
+I am searching a web host and was told that I "have to" get a VPS for what I want to do and I wanted to double check with you if that is true (and not that I pay for a service that I don't need).
+Many shared hosts will let you do this.  TotalChoice Hosting is the one I would recommend, but there are many others.
+Do I really need a VPS or can I go just with shared hosting. Was thinking about squirrelhosting or lcn.
+Moodle is really fat though and most shared hosts won't be happy about you running it on their servers, since it will slow everything down with its bloated code and slow database queries.  It might be worth a VPS just for that if you plan to use any of its plugins.  If your issue with a VPS is cost, consider one of the lower cost options like Digital Ocean.  (Full Disclosure: that link as my referral code in it, but I'm suggesting them because they are cheap and solid for most small applications.)  Again with Moodle though, you might need more RAM than 512MB.

@@ -1,0 +1,9 @@
+Finally, it would help if you tell what shelldata.txt contains to figure out how to answer to your question.
+Moreover, shelldata.txt is really a shell script so giving it a .txt extension, while not forbidden, is confusing.
+Could you use the sourced script to set a variable and have the original variable make the change based on the content of the variable rather than making the change directly in the sourced script?
+This is not specific to sourcing a script. You would get exactly the same result with a single script. Try:
+Actions taken within the second script (like cd-ing or setting variables) will persist after the second script ends.
+Placing the dot before the call to the script (I'm talking about the first dot, not the dot that is part of the filepath to the script you want to call) tells the shell "Execute the following script in this process rather than spawning a new process for it."
+If you want a command to drop you in another directory, you should use an alias or a bash function instead:
+The reason for that is that a launched script is executed in a subshell. When the script returns, the subshell is closed and you get back to your original shell, wherever you were in the script.
+There is no point in using the source command if you do it in a subshell like in your second script:

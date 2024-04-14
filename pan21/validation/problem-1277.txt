@@ -1,0 +1,7 @@
+I use back-in-time to backup my Linux installation. It serves as an advanced wrapper for the rsync command.
+You might consider performing a log rotation before the sync. Skip the active files, and just backup the archives. You could even make the rsync an postrotate action after the logs are normally rotated.
+This may not be the answer you're looking for but --checksum is going to be slow. There is no way around it. If I were you I would create a quick bash script to compress all of your logs before you run the backup.
+I did some googling and some experiments with the different rsync options and found --checksum to be the offender. Without the parameter, an incremental backup finishes properly in minutes. With it, the process will stuck when rsync tries to sync a constantly changing log file. This kind of make sense, but it still seems to be a bug to me.
+Today I tried to add /var/log to the list of folders to be backed up and it caused some serious performance problems. The job seems to stuck on a particular file and the CPU usage of the rsync parent process reaches 100%. I then used lsof to see which file caused the problem and it seems to be the /var/log directory.
+Then run your backup. This would save rsync from creating checksums of possibly huge log files anyway.
+Keep in mind that the checksum is only there to verify that the file transfer has completed successfully.. a means to ensure the file is not corrupt if you will.

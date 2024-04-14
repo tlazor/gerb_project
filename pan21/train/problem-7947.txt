@@ -1,0 +1,8 @@
+Then when you want to deploy, when you build your Dockerfile it will copy your code into your image so everything is packaged up nicely and easily moved around.
+We use the same approach for apps on Codemason, my service for building, managing and scaling container-based applications. When you push new code, we automatically build an image from your Dockerfile. Since that image contains everything your app needs to run, it can be easily launched on any server and scaled up/down across multiple servers. 
+The advantage of this approach when you are developing locally, running docker-compose up will mount your code as a volume. 
+When you onboard a new developer, you can just tell them to git clone your repo and to fire up their development environment by running:  
+The docker-compose.yml file will spin up your environment. It will define all the services Docker should start for your application
+Every project/application (if you have multiple) should be able to run separately and each project/application should have it's own codebase. That's a concept from The Twelve-Factor App methodology.
+The onboarding experience should be almost as simple as telling your new developer to just clone the repo and run docker-compose up. Personally I wouldn't bother worrying about IDE integration because people might prefer to use different IDEs.
+The Dockerfile will build your application into an image, installing and dependencies your application needs to run. This image is the image that runs your app.

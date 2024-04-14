@@ -1,0 +1,6 @@
+Then use its output to define each node in the controller's slurm.conf file. When things are set up, start SLURM back up again and send it some test batches to see if they spread out across the nodes properly.
+Before starting, ensure there are no jobs running and drop your nodes. See this answer for more on service vs systemctl for doing so on most linux systems.
+This is obviously specific to one particular node, and yours will differ. But if the node is not configured correctly, SLURM can return errors about resources being unavailable. To get reliable information about your node, try the following on each node:
+We have some fairly fat nodes in our SLURM cluster (e.g. 14 cores). I'm trying to configure it such that multiple batch jobs can be run in parallel, each requesting, for example, 3 cores. However, I can't get that to work. 
+I found quite a few examples where it sais the sbatch -n option is what controls the amount of CPUs or cores per batch job, however, that does not make sense to me since the documentation states: 
+I had the same problem for days with SLURM running only one job per node no matter what I put into the batch files. The following combination of settings finally allowed me to get multiple batches running on a single node.

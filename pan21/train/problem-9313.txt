@@ -1,0 +1,11 @@
+I've also changed the conversion function to work with double as seems natural. The table printing code as it stands only wants int, so that is where the truncation should occur. As others noted, other rounding  might make more sense. 
+To me, I look at the main() and see it doing two things: setting up the parameters of the run and executing the run.
+Why not use a for loop instead of a while loop to make it more readable? Also, you should return a double in your function, because, for example, 33F should return 0.55C, but instead it returns 0 because it is of type int. Also, fahr is a very weird abbreviation for Fahrenheit. I would rather use f(for short programs like these) or just typing out fahrenheit(for longer programs).
+What is really good about your dividing of the task along functional lines allows changes/improvements like this to simply get incorporated without messing up the rest of the code.
+If you do want to display the table for reasons other than testing your conversion function but only once, then either way can work.  I personally have a slight preference for using the function, but that's mainly to make things simpler if you later want to display the table a second time or if you want to do other things as well.  
+Note how I've changed the print.. function to take as a parameter the output FILE*. This again makes it the caller's problem to determine where it wants output. Not that important for a beginner program, but a very useful habit down the track in that it allows much better control of where results go.
+If you are only displaying the table to test your conversion and don't care about the results, then your original program would make sense.  
+Rather than use "rounding" with integer truncation caused by integer division, or using floating point math just to do an integer round, consider a simple int solution.
+For testing purposes, there are a number of interesting values (and results), e.g. 212 (100), 32 (0), -40 (-40).  You may want to test those as a sort of sanity check on your function.  
+You're on the right track. I'd note that anything inside main() itself is not really set up for a unit test. You're thinking of making the inside of the while a function to break things up a little.
+Note: The method rounds half-way cases away from 0, but those do not occur here as the denominator is odd.

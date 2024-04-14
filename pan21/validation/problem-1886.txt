@@ -1,0 +1,7 @@
+I suspect you are more interested in purpose built hardware specifically designed for hosting iSCSI volumes.
+This is certainly what Windows 2008 storage server does. It creates a .vhd file within the NTFS filesystem.
+I'm not able to comment on performance as I've done no comparative testing but hopefully clarifying that not all purpose built iSCSI devices do this is helpful.
+In my experience I've not seen this with these types of devices but not worked with many iSCSI pieces of kit. I know the HP P4000 doesn't create files on its own filesystem and will instead create arrays and volumes on those arrays and share them via iSCSI in the same way that most of the fibre channel SAN's do.
+The internal operation some high-end SAN/NAS devises may be hard to actually determine.  Creating a file to represent an iSCSI target would not necessarily degrade performance in and of itself.  This makes some assumptions that the hardware vendor has done some optimization of the OS kernel, and kind of depends on the actual filesystem that is used to store the files.
+Is it correct that if you create an iSCSI target on a high end hardware storage, then what it does is to create the target as a file on a file system?
+It would be more useful to actually test the performance of the storage device.  Real-world tests are obviously the best, but using IOMeter can certainly work.  Just make sure to understand your IO requirements, so that IOMeter can be tuned correctly for the tests.

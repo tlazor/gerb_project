@@ -1,0 +1,5 @@
+Also tried ELSA, on a different server, and same problem there. It feels like Elastisearch aren't working on any logs, sent or on disk.
+Right now I'm using VM's with Centoos and Ubuntu-server. And a fortigate as log creater, also have old logs tar'ed from a prod linux server running a SQL database. Haven't started with crontab yet and would like to get log manager working first. So I see that I can make custom searches and what not.
+I've been trying to get a new, centralized, log-server up and running for some testing and have run into some problems.
+First part is that I've installed Kibana but can't get anything indexed, tried most of Kibanas own troubleshoot. It seems that it won't read remote log files, can't even index the standard logs as message, audit and so on. Any good pointers for what I'm might be doing wrong? 
+Second part. Does anybody have a good pointer to how you should test log servers and how to handle logs from many different units as firewalls, switch, routers, windows and linux machines. I focused mostly on rsyslog. Is syslog-ng better for this? or should I try something complete different?

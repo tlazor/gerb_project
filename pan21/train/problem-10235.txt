@@ -1,0 +1,6 @@
+If you have a signed certificate and private key, then you have to export them to a PKCS12 keystore and import it to a Java keystore. The signed certificate does not work without the key in the keystore.
+If you run keytool --list -keystore <yourkeystore> then you should get back a PrivateKeyEntry, somthing like that:
+I had set up the keystore for a URL other than localhost (myinitials.company.com), but was trying to access it via https://localhost.  As soon as I ran keytool --list -keystore <yourkeystore>, it showed that the keystore was set up for myinitials.company.com.  I changed to that host name, and got no more ERR_SSL_VERSION_OR_CIPHER_MISMATCH.
+But when I use the cert in the server and connect with a browser I am getting ERR_SSL_VERSION_OR_CIPHER_MISMATCH error in chrome.
+Not sure if suitable for your problem, but perhaps will this get you closer to the solution: If there are problems with the certificate, like ERR_SSL_OBSOLETE_CIPHER you could add this in the SSL Connector in server.xml
+The above answer helped me diagnose the cause of my "ssl or cipher mismatch" after I switched from running Tomcat inside the IntelliJ IDE and got it set up for standalone running.  

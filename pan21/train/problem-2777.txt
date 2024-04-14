@@ -1,0 +1,6 @@
+If that still fails, you need to ensure Memory Exeuction Prevenetion is also disabled in the target XP's box.
+iF THAT still fails, then push the VNC paCkage to an XP FW disabled target and use an IP <==> exe utility to model what is happening such as TCPview.exe (go look it up) to model which ports are being used.
+XP Firewall is fairly unreliable bugger and it's rule / exemption set should still be considered BETA. Combiend with the fact you're using officially unsupported and freely available VNC for remote access is enough ingredients for a heaping bowl of frustration soup.
+Also enable FWQ logging at the target XP system to capture successfula nd failed connection attempts the PUSH VNC client is attempting.
+Assuming this fails after you've also tried enabling 5800 and 5900 UDP, you should next define the names of the executables as part of the target XP's firewall profile.
+Then, create your exemption rule from a the observed ports and used exe's and use that data to create your XP FW exemption ruleset and push it using any method from a regedit or a TELNET session.

@@ -1,0 +1,7 @@
+I didn't have any luck replacing the files suggested by iconoclast. Chrome just went back to the new session for some reason.
+I do not know if restoring all five is necessary but this is the combination that worked for me and there were no ill effects.
+This sort of works but the answer from iconoclast is incomplete. Today I successfully restored my tabs by restoring the following files from the path 
+I found the suggestions here no longer worked, not sure why.  I could restore the Tabs if I restored the entire Default directory though, i.e. 
+(where ~/Library/Application\ Support/Google/Chrome/Default/Current\ Tabs is the version restored from your backup). It seems that these files contain a lot of tabs that were closed as well, so you'll have to weed through them. 
+I found that just restoring the entire default folder was the easiest way to do things as restoring just the tabs didn't get what I wanted. By restoring the default folder entirely, on startup chrome will state it didn't shutdown correctly and ask for a restore giving you back everything. 
+Jeff Burdges suggests restoring the entire Default directory; I previously did this and it did restore my tabs but it also broke some of my extensions which had to be reinstalled. Only restoring the five items above did not affect any of my extensions.

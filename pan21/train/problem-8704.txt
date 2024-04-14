@@ -1,0 +1,7 @@
+I'm not saying what you're planning on doing is a good idea, just that this is the solution you're asking for.
+Something like darkstat might be more useful to identify high traffic hosts, although it won't store the actual traffic (it does record port numbers though).
+That packet trace should contain plenty of information which can be used for analysis. Also, it will not impose too much additional load on your server while everything is fine. You could use the following hacked together bash code as a starting point (could be started in screen, for example):
+So, tcpdump -i eth0 -s 65535 -G 86400 -w /var/log/caps/%F.pcap will write to /var/log/caps/%F.pcap (where %F will be 2012-05-10, 2012-05-11, 2012-05-12, etc). Keep in mind it will rotate 24hrs from the time you start the cap, so it's not technically per-day unless you run it at midnight.
+Another technique I like is to use iptables and ULOG. there are several ulog daemons around  that can send things to ordinary log files. I've also used specter to convert ulog reports to messages.
+Instead of logging all traffic, I would suggest the following: Monitor the number of packets sent to your server. If it exceeds a certain threshold, log a couple of 1000 packets, then wait for a longer time.
+Or you can set complex output format options and redirect stdout. The problem is tshark never discards received packets so it eventually runs out of memory. shorter runs are better.

@@ -1,0 +1,7 @@
+What I'd like to be able to do is quickly (in keystrokes, if not time) get a quick picture of what's happened on a box since creation. Basically that would mean:
+I often seem to be dealing with "almost virgin" Linux installations: VMs that were created for a purpose, used briefly, but after a while we're not sure exactly what's on it.
+But that turns up a lot of uninteresting stuff in /proc. I guess I could narrow the search to just /home and /usr, but that might be too prescriptive. 
+I'm not sure how to do either of these things. Particularly the 2nd one: what would be a good way to distinguish between files created as a normal part of system activity (logs, pid files...) and those that a user had expressly created?
+If you can get a timestamp of when the box was 'finished installing' (maybe from /var/log/dpkg.log?) you could do a find and find files that have been modified since then.
+Note that part of (2) is identifying things that you don't care about (things in /proc, /sys, /dev, /tmp, log files, etc.) -- Expect to spend some time on this.
+You could try using a look like Blueprint to reverse-engineer your systems. By default, it wil pick up package differences and config file changes. It's heavier than a few keystrokes, but is another option.

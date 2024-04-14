@@ -1,0 +1,5 @@
+then I expect to get a steady metronome of audible pings (and do, in some areas), but in the suspect room, instead of getting beep ... beep ... beep ... beep, I get .........beeep......beep...beep.beep.beep........  Looking at the ping times, they go from 3 ms to 82466.303 ms.    (I've also got a 15% packet loss).
+Hold down the option key and click on the wireless icon on the menu bar.  It should show you the SSID, channel, and Hardware address of the access point you are connected to.
+I want to be able to tell when a MacBook (running OS 10.5) switches from one wireless access point to another.
+Is there a log I can tail or any other way to determine when I change wireless access points, so I can determine if it is the computer's wireless card, or something wrong with the access point?
+In the building I am in, with several wireless access points (all Airport Extremes, all with the same SSID), the computer shows that it is connected in a certain room but does not act as though it is.  [I'm still verify that it acts as though it is on the network in other locations.]

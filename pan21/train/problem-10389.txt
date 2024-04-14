@@ -1,0 +1,7 @@
+There is a condition for path segments starting with .... Why is that? The description says that directory names contain only letters of the alphabet.
+It seems that such path segment is illegal, and throwing an IllegalArgumentException would seem appropriate.
+All modern IDE's have an auto-reformat function that will put spaces around operators and make the code much easier to read.
+I strongly recommend to develop test cases and cover as many interesting corner cases as possible, to flush out obscure bugs.
+Your instincts are good. When you know there's a better way, something you can try is start over from scratch using a different algorithm and see where that goes. Another technique is using TDD and let the tests drive your design.
+The cd method effectively normalizes the path, for example a/b/.. becomes correctly a. But the initial path passed to the constructor is never normalized. For example new Path("/a/b/../..").cd("c").getPath() returns /a/b/../../c instead of c.
+I believe it would be much easier to handle if your Path object would not keep the path as String but rather as an array of the path parts (as the directories).

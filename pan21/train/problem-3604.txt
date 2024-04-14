@@ -1,0 +1,9 @@
+Actually what you can do is enable port security on your switch ports for a short time while you pull the MAC address info you need. Then you can turn off port security if you don't need it.
+2) If the device refuses to speak when the link comes up or you don't want to take the link down, figure out what vlan the port is in and ping 255.255.255.255 from a device in the same subnet. This will send a ping to every device in the broadcast domain. If the device is alive, it should respond and thus provide its mac to the switch.
+You could drop the entire MAC table and allow the device to 're-learn' all connected devices (should happen on the first received packet)
+1) If you can take the port down, shutdown the port and wait about a minute then do a no shut. This will usually cause the device to send some DHCP traffic or at least some browser traffic if statically configured.
+If the device connected to port 15 does not send data due to it being "asleep" then bring the port down then back up. The re-detection of the link maybe enough to cause an IP communication to occur.
+The mac-address-table ages out - so if the device (e.g. a pc in standby) is connected, but has not been actively transmitting lately - that's exact the thing to expect to see...
+If this doesn't work, you probably have a PC that is connected but turned off and is therefore not sending any traffic and does not have an IP and will not respond to a broadcast ping. In this case, I don't know of a way to get the device's mac. :-(
+This issue has been around for quite some time. There are only 2 ways I have been able to accomplish this in the past. 
+http://www.cisco.com/en/US/docs/ios/12_3t/lanswitch/command/reference/lan_a1gt_ps5207_TSD_Products_Command_Reference_Chapter.html

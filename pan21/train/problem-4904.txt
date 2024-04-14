@@ -1,0 +1,8 @@
+You can use a pseudo-shell like scponly and set this for the users you don't want to login directly. 
+A more throughout explanation and example is available here: https://www.guyrutenberg.com/2014/01/14/restricting-ssh-access-to-rsync/
+You just need to add something like this to your .authorized_keys file (this example allows read only (-ro) access to /some/directory/:
+Another possible way is to set the login command in the authorized keys file, but that only works if your users login via SSH-keys and not via password.
+If you only need to allow rsync, the developers of rsync provide the rrsync script to solve your problem.
+command="/path/to/rrsync -ro /some/directory/",no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding ssh-rsa AAA...
+I'd like to configure a linux box (probably an Ubuntu server) so that I can setup users, so that it is possible to upload/download files via rsync/scp/sftp, but it should not be possible to ssh to the machine and get an interactive terminal.
+Is this possible? How would I go about configuring that? I know that all I'll need the ssh server to be ON, for rsync/scp/sftp to work, but I guess there should be a way to prevent the direct login.

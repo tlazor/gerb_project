@@ -1,0 +1,9 @@
+Cloning will work obviously but the pc will have additional hardware installed during first boot, so effectively you are polluting the system.
+You are far better off making a windows install cd/dvd that is preconfigured with what you want to be installed, which settings should be on and additional programs that needs to be installed. And this may actually be quicker than deploying an image.
+Here's why: Different pc's can have different hardware. Even if you buy an HP machine with type xxxxx, and you buy the same HP with the same type a half year later, chances are that the hardware in the pc is not exactly the same as the one you bought before.
+I'm sure cloning isn't the Microsoft approved method, but will it actually give issues in the real world?  Sysprepped images take additional time to set up and deploy (Setup is configuring your computer for first use....).  The documentation on sysprep states how it genericises certain attributes of the installation which cloning doesn't do.  In a domain environment I'm sure cloning causes a trust issue with the machine that was cloned, but once you rejoin the domain under your new name everything is fine.
+Windows can handle different hardwares. The problem might be due to applications that are hardware bound like lenovo batteri applikation.
+The reason you need sysprep is because in domains the computer id is used to keep track of computers.
+Cloning should only be done if you are going to replace a HDD and that HDD will end up in the same machine.
+Furthermore, cloning will make an exact copy of the machine, including serial number and pc name. Only if you have a volume licenced serial with such windows version is it allowed to do this, otherwise its illegal and may cause windows to suddenly stop on a windows update because the serial in use is not accepted.
+I've deployed cloned machines before and had no apparent issues with them.  Just wondering if this is "bad" or not

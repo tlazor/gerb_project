@@ -1,0 +1,10 @@
+When it POSTs properly, the CPU heatsink properly feels warm, as well at the HDD and the RAM. When the machine is in its "infinite restart" cycle, the CPU does not run, and neither do the RAM or HDD.
+I've tried a Sparkle 300W PSU, an OKIA 300W PSU and a Delta 500W PSU, and tried different memory combinations with a Apacer 512MB PC3200 DDR400 RAM module. Only sometimes will the computer properly POST and continue on to boot the current installation of XP on the hard drive. Most times, it will be in an "infinite" restarting cycle without any POST or display.
+Edit: The wikipedia page linked-to above has this to say (among other things) which looks relevant in this case:
+Given it sometimes works there is likely a bad connection (reseating everything might help) but it could be a track on the motherboard which sometimes has enough of a connection.
+It's a Gigabyte GA-8S661FXM-F... Intel P4 HT Prescott 3 GHz installed, along with Kingston 1GB PC3200 DDR400 RAM and a Fujitsu 20GB IDE HDD.
+Ideally double check the components on another motherboard to validate you don't have multiple sets of bad RAM (for instance).
+"As the capacitor ages, its capacitance decreases and its (ESR) increases. When this happens, the capacitors no longer adequately serve their purpose of filtering the direct current voltages on the motherboard, and system instability results. Some common symptoms are:
+I would expect a CPU issue to fail to get into POST ever, but there could be a poor connection in the socket that allows it to somewhat work (enough to start POST).
+If this is the case then I'd expect the problem to get worse over time, and your options are to replace the capacitors (soldering skills required) or replace the motherboard.
+Check the capacitors on the motherboard -- if any of them are looking suspiciously "fat" then they could be the cause.  See if they are flat on the top or if they are bulging.  Wikipedia has some information which you can use to compare to anything which looks suspicious : http://en.wikipedia.org/wiki/Capacitor_plague

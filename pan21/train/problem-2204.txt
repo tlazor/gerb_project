@@ -1,0 +1,8 @@
+With, those requisites I have design the following conceptual model (here I call form instead of survey):
+The actual model provide versioning, but, for clarity's sake, I present a stripped down version of it.
+And, for the items of a given questions, there may be defined an external source of data (eg. 'city' question has its options retrieved live from corporate 'city' table).
+For every major entity has been defined the mandatory and unique attribute named 'identification', allowing queries based upon textual codes instead of numerical ids (eg. 'How many children?' question, of id '351', is also identified by 'HOW_MANY_CHILDREN').
+A question may be of single-line or multiple-line textual box or composed by several items. For each item may be assigned a complementary question (eg. 'Country?' - 'Other' - 'Which: ___').
+The 'FormQuestionType' entity has an attribute to identify the ASCX (ASP.net component) responsible of rendering questions of this type.
+The 'type' is associated to the question per-se (not to its items, as stated at the fourth item from the question).
+It's possible to make a question dependent of one or more of the previous ones (eg. 'How many children?' may be made dependent of 'Do you have any children?').

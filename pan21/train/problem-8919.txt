@@ -1,0 +1,7 @@
+I did a best configuration, restore, then a disk check on next startup by right clicking on the C drive.
+If it is stuck likely you have a hard drive issue.  You are not going to harm it further by forcing it to shut down.  So, go for it, that is your only option anyway.
+The next time it started I got a blinking cursor and could only get into the Repair Console using my OS CD and it no longer starts in safemode.
+From the repair console I replaced the hal.dll file (as I had this error) and no joy, then I did a bootcfg etc. no luck, then I did a chkdisk /p and it said no need for scan, disc is fine, so I forced a chkdsk /p /r and its been running about 6 hours, was moving progressively but is now stuck at 74%...
+By using chkdsk /p /r, you are instructing it to perform an extensive check and correct any errors while recovering any readable information.  Which means it is going to check the whole hard drive.
+My question is how long should I let it run??? and is the only way out holding down the power key, and if I do that will my laptop be toast?
+You say you have been using it for years.  So, I would recommend slaving the drive to a working machine and copying any information off of it that you don't want to lose.

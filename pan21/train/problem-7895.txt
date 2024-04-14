@@ -1,0 +1,8 @@
+I know that cronjobs can be used for this, but I am not sure wether it is better to clone the repos or zip/tar all git-related folders into a file.
+Use the gitolite writable command to disable pushes to all repos or a specific repo when using tar/gzip or other native backup tool. That will prevent writes to the repository during backup.  Your backup will be corrupted if you skip that step and someone writes to the repository during backups.
+The Git Server is configured with SSH keys so users need a passphrase and a private key to connect to the server. 
+If you want to do a dry-run add --dry-run. If you want to replicate the server, deleted files need to be deleted at the target system, add -delete for this.
+I want to create a backup of the Git Server including every repository and every single configuration setting.
+You could use rsync to copy the whole server, tar and store it. My advice would be to store it on an external server (BackBlaze B2 for example).
+Run gitolite writable -h for detailed usage.  See gitolite documentation for more information http://gitolite.com/gitolite/gitolite.html
+Better is subjective depending on your environment and goals.  Using git or tar/gzip will produce a backup.

@@ -1,0 +1,9 @@
+This routine is used in a package that calculates tree (as in Christmas tree) volumes for various species codes (spcd) and geographic regions. The equation forms and coefficients vary by species and region, so I have a dataframe of functions along with their respective species and region that calculate the volume based off of the height (ht) of the tree and diameter (dbh).
+This results in the desired output with the new cvts outputs according to each function defined in the dataframe:
+I have a data frame that includes a column of functions, along with some information about "where" to apply those functions in another data frame.
+Then, take the list of dataframes returned from by and bind them with a do.call instead of initalizing an empty dataframe and iteratively expanding it in a loop.
+Note: In my package, this part is taken care of by other functions, this is just to create a reproducible example (please ignore the sloppyness)
+First, I split the tree_df into distinct groups based on spcd and region so I can apply the functions that correspond to these distinct groups.
+Next, (and this is where things get messy) I loop through each group, grab the top left cell that acts as a "key" to get the equation from the func_df and use mapply on each group (with some conditionals to handle NA values).
+Then, I have another frame that has some information, including the spcd and region that should match the values in func_df:
+Consider merging the two dataframes then use by, the method designed to split a dataframe by one or more factors. As the object-oriented wrapper to tapply, by tends to be a more streamlined handler than split...lapply or split ... for since you can attach a function directly to pass subsetted dataframes into it. 

@@ -1,0 +1,8 @@
+This solution is based on hints from the solution posted by @rdhainaut. His "Solution 2" worked for one app, but I did not want to do it for every app individually so I guessed that the global setting must somehow not be taking effect. 
+To fix this issue, please check Start -> after that  Settings => after that System => after that Display tab
+My primary display was on progressive and the secondary on interlaced.  Matching the setting for both displays resolved the blurred/vibrating text.  Full process was
+In case this helps anyone else, I experienced the same symptoms as rdhainaut driving a pair of Dell U2419H monitors from an XPS 15 (9560) laptop through a WD15 dock with single Display Port output and the second monitor chained to the first via DP.
+In my case the point was that windows wasn't properly recognizing mi monitor aspect ratio, that actualy was 16:10 and, for this reason, it was only offering resolutions suitable for 16:9 displays.
+I also noticed that in this case windows wont mark none of the resolution available as the 'recommended'.
+I figured this out setting the resolution to a value higher than the supported one, then  monitor was asking for a 1920*1200 resolution while in the windows settings page there was only the wrong ratio 1920*1080. 
+Solution for me came through the Intel HD Graphics Control Panel which allows the refresh rate to be set for each monitor and importantly offers choices including 60i Hz and 60p Hz corresponding to interlaced and progressive.

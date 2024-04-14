@@ -1,0 +1,5 @@
+I can't think of any reason to not rename it on the Exchange server, but you can always create an OU that excludes Group Policy Inheritance and put the Exchange server in there, or use WMI filtering on the Group Policy to specifically exclude the Exchange server.
+It's named Accounts: Rename administrator account.  (At least at a 2008 R2 FL.  The option exists on a 2003 domain, but might be named slightly differently, but I don't recall off the top of my head.)
+Nothing you've described will crash. Internally, Windows uses the SID, not the display name. That name is just there to be human-readable and friendly. 
+As far as installed software and services running as the Administrator account, that's both very bad, and not a default behavior on anything I'm familiar with.  So, hopefully, you're worrying about nothing... and if not, it might be worth breaking that just so you can find and correct services running as the Administrator - create and use service accounts instead.
+Open Group Policy Management, and the setting is found at Computer Configuration -> Policies -> Windows Settings -> Security Settings -> Local Policies -> Security Options.

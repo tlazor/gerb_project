@@ -1,0 +1,9 @@
+Note: most modern SSD drives achieve 20000 IOPS. A pair of SSD in RAID-1 can put a rack full of spinning rust to shame. SSD changes everything. When facing an IOPS problem, 99% of the time the solution is called "SSD".
+First try benchmarking the raid performance locally, to see if it's really the raid problem. You can even use:
+in another terminal to see the local write speed. If the speed is good enough, then try some other network method (try first with netcat (check the man page for the first command, some distos dont need the '-p' flag)
+Use iostat -mx 5 while your backup is running. If you see a number of read or write operations (third and fourth columns) in the 300 range, you're basically maxing out the heck out of your setup.
+I've had problems with slow speeds with rsync over ssh (12-15MBps on gigabit link, but on relatively slow pc's).
+After you know if the problem is with the disk or with the rsync/ssh speed you can continue debugging.
+BackupPC is very I/O intensive program and can lead to lots and lots of disk seeks. With low-end hardware there's only so much you can do, but try the following:
+Here comes a short small random IO primer: 7200RPM disk drives do roughly 100 IOPS. 15k RPM drives double that, about 200 IOPS. With a RAID-5 array, the best possible attainable IOPS is number of data data drives time single drive performance; as you have 3 data drives, the best possible sustained value you'll get, ever, is 300 IOPS.
+If I were you, first I'd upgrade the server RAM and would also check the BackupPC settings. If those would not help enough, then I would tinker with file system and RAID settings.

@@ -1,0 +1,8 @@
+When IPv6 addresses are configured they aren't available immediately. The system first performs DAD (Duplicate Address Detection) to make sure that its new address doesn't conflict with an existing address on another system. Applications cannot bind (at least not with default settings) to addresses that are still tentative.
+The problem appeared after I had to reboot my VPS. Turns out at boot time, starting lighttpd fails with the following message to the console:
+I added the following to enable IPv6 as per http://redmine.lighttpd.net/projects/lighttpd/wiki/IPv6-Config
+I thought that maybe it didn't have the IPv6 address at boot time, so I made it output ifconfig to a file before attempting to start (in the init script) and it has both IPs assigned to the interface.
+A few days ago I configured lighttpd to listen on my VPS IPv6 address as well. It runs on a Debian 7 Xen VPS (Linode) with a 3.15.4-x86_64-linode45 kernel. The version of lighttpd is 1.4.31-4+deb7u3.
+Recent versions of the Debian ifupdown package contains a script called settle-dad.sh that will pause until the interface has left the tentative state. You might want to add such a script to your boot process between configuring the network interface and starting your servers.
+If I login and run service lighttpd start it starts without a problem, listening on both IPv4 and IPv6.
+    tentative=$(ip -o -6 address list dev "$IFACE" to "${IF_ADDRESS}/${IF_NETMASK}" tentative | wc -l)

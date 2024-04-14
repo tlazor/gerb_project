@@ -1,0 +1,5 @@
+If you are prompted for a password I would go through all the standard network device password lists. Most companies use 'admin' or 'password', or a combination. 
+I must find some documentation for a Surecom EP-824DX-CS (24-Port 100/10M N-Way 19" Rach-Mount Smart Switch) in order to find the capabilities of the device, but the most important is the console port pinout (DB-9 male). Also, the device has some sort of administration method (telnet/http) ?
+http://www.radioamator.ru/publ/ehlektropitanie/remont_blokov_pitanija/remont_impulsnogo_bloka_pitanija_24_portovogo_svitcha_surecom/46-1-0-718 
+Unfortunately it looks like the company no longer exists. If you are just trying to get into the admin mode I suggest you either try HyperTerminal through the serial port or the telnet admin. There is likely a reset button on the switch, hold that for a few moments and then let it 'boot' up. 
+I have something (pdf) but not for this model -not CS but FS. If You steel  need that I can send You on mail that instruction.I have manual for switch and instruction how login to switch ,config conection  etc.Manual is not to good but if you have something its better then nothing:-)

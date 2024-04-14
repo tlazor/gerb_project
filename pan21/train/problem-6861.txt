@@ -1,0 +1,6 @@
+Problem here is in hotkey combination (CTRL+ALT) that you are using. If you willchange hotkey combination (for example to CTRL+ALT+z), your script should work fine. I dont know exact reason why it does not works with (CTRL+ALT) but I think that other application is using that hotkey combination and there is some kind of conflict. Here is example script for notepad that uses CTRL+ALT+z hotkey combination and is working as intended.
+I had AHK set up on my computer, a few files (programmen.ahk and grammatik.ahk for example) in the same folder /ahk-script
+I might have installed some program, because the script does not work as it should, I have noticed that SetTitleMatchMode is definately 
+not working as it should. Sometimes when I hit the hotkey, it works, but most of the times it does not. 
+(In my naïve mind I thought it was because I switched from Aero to Basic, so I'm not a superuser but would need help from someone who are. I think I might be able to follow your instructions, especially since AHK is so important to me.)
+It's a pity since that's how I activate my most used programs: Chrome, notepad++, explorer, evernote, calendar.

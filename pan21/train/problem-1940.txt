@@ -1,0 +1,9 @@
+There is no such thing as "the Windows API" so it is not possible to answer your question directly.  
+Some of these API's are very generic and exist in almost every version of Windows, others exist only in certain versions.
+E.g. There are API interfaces in Windows to communicate with the NIC drivers at the level of individual ethernet packages. That doesn't mean all Windows API's live in the network layer.
+What is generally called "the Windows API" is the total of all API's provided by Microsoft present on a given version of Windows.
+The layers of the 7-layer model can not clearly be isolated in a Windows environment and various Windows subs-systems and API's cross the boundaries between the OSI layers in many places.
+What exactly constitutes "the Windows API" is therefore not really clear. It is a very vague term.  
+As others have already mentioned in the comments: Your question as it stands is way to broad. If you are interested in a specific API on Windows this can probably be answered.
+This is in fact true for most modern Operating Systems. Strict adherence to the OSI layers is VERY difficult to do in a real OS, especially if you want to achieve good networking performance at the same time.
+To further focus on your question regarding the interaction with the OSI model. Windows networking is mainly focused on the TCP/IP model and (roughly) follows the simplified OSI model (4 layers).

@@ -1,0 +1,7 @@
+All above did not work for mee, I also checked the registery but you need a lot of changes do make it work so I skipped that solution.
+Rename-SPServer needs to be run BEFORE the servername is changed. It seems that it is a good idea to use the stsadm -o renameserver command instead, even though Microsoft recommends using the powershell command. 
+I just used the stsadm command successfully when renaming a standalone server, but i did run it before renaming the server. I think that this is generally a good idea. 
+If everything fails, you can probably run the SharePoint 2010 Products Configuration Wizard and then through Central Administration backup and restore your site collections. 
+Furthermore after the rename, if you are not using a Domain, you also should reset your SharePoint registered accounts because they have an other prefix (other server name).
+The problem that I have was that you first need to change the server name in SharePoint before you can change the real server name (what is difficult if you just created a virtual machine from an image).
+The solution was quite easy, just rename the virtual machine to the old name. Run rename-spserver (should be run before you change the name) and change the name back. I found this solution on http://blog.walisystemsinc.com/2012_08_01_archive.html 

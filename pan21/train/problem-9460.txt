@@ -1,0 +1,8 @@
+As a person allergic to anecdotes, I became curious when I recognized that I never investigated this issue.
+Working as tech support for 3+ years, I can tell you that 10 seconds is surely arbitrary, but easy to communicate, and is intended to be a little longer than necessary (probably 5 or 6 would work well) but when you power-cycle, you only need to do it once. Unplug your modem and router, wait 10 seconds (my counting is likely different than the customer's), plug in the modem first, wait till the connect light comes on (or wait 10 seconds more) then plug in the router. If the issue is a frozen modem/router, this works like a charm. Every time. Guaranteed.
+This is related to troubleshooting a misbehaving router. The theory is based on 'things' needing to be cleared from memory, and that this could take a few seconds.
+Modems will "phone home" to the ISP every 30(ish)-seconds to let the ISP know they're still connected.  Some types of failures or settings-updates can only be resolved after the ISP's systems know the modem has been disconnected.  They can't know that until the 30-seconds have passed, which is why they ask you to wait at least 1 minute.
+Is there any quantifiable evidence to support power cycling routers for 10 seconds or any arbitrary amount of time, instead of just unplugging and plugging back in?
+PS- When I have network issues with my ADSL/router/2x Internet TV boxes/NAS + Webserver setup, I still count to 10. :)
+This is also a theory related to electronics from over a decade ago, and I'm sure it was equally as anecdotal then.
+Is there any quantifiable reason to support power cycling routers for 10 seconds or any arbitrary amount of time, instead of just unplugging and plugging back in? Sources welcome

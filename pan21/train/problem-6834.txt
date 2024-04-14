@@ -1,0 +1,7 @@
+If you want something more dropbox -like, BitTorrent Sync Might be the answer.  It doesn't have a central server.
+If you want to handle large repositories and version control including binary files, I wouldn't recommend git but mercurial.
+I'm using Unison since many years now and it works very good: it is a two-ways file synchronizer with GUI and a CLI.
+PS: About SparkleShare: Don't even consider using it. It nearly always fails to resolve conflicts, doesn't handle binary files well, runs out of memory and crashes in low ram environments with big repositories and randomly uses 100% of the CPU until resolving conflicts with the underlying git repository manually.
+Unison (mentioned by Michele Marcionelli) is a really great tool for bidirectional syncing, especially over ssh. It has a batch mode that doesn't ask  questions and therefore resolves conflicts automatically, but I wouldn't recommend that as resolving conflicts manually works really great with the gui. If you want version control with unison, you can make a git  or mercurial repository inside the directory that is synced via unison.
+Once you have a clone of the repo, only updated bits would be downloaded when you git pull, so that would save on time/bandwidth compared to some options. 
+With unison you can synced centralized by using a server you own or directly between devices. I've been using it for normal files and several git repositories with three devices for one year and it is very reliable. (In contrast to ownCloud or SparkleShare)

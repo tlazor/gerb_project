@@ -1,0 +1,11 @@
+The wall I run into is where do I put this functionality? Currently the only system that touches text components is my RenderTextSystem. It wouldn't seem proper to implement that RecieveMessage function wanting those specific messages. That system just draws the text to the screen. I could be over-engineering here though.
+Systems - Functionality code specific to their nature and keeps a list of components it will process.
+Entities - Generic objects that only contains a list of attached components, has a few methods to ask if it has certain components and to retrieve them.
+I've done my research and read as many articles and posts on messaging and ECS's as I could find to help me get mine working. However, I'm at a roadblock on how to get my messag functionality to be handled correctly.
+I am trying to keep things decoupled as possible and have thought about adding a static MessageCenter that I can push messages to which will then either dispatch them immediately or throw them into a queue (depending on the push function call). 
+Since I know that all systems have a recieveMessage method I am quickly  able to encapsulate functionality specific to those types of requests as shown below.
+Example being that a message is created and pushed to the message center. The message center then immediately looks through its map of systems that care about X message and dispatches the message to a "RecieveMessage" method that's inherent to all systems. This approach sounded really good to me, so I started to develop it on paper and ended up running into a wall. 
+Messages are currently created via the MessageInfo class. A message can be created easily using this line of code:
+I have other scenarios similar to this and figured if I could solve this one, I could end up solving 99% of the others. 
+I have a text label entity being used as a % indicator with the position (x/y coords) component and text component (string, font size, etc). I want to alter some data properties of this entity, such as the text displayed and its color. 
+Components - Only holds data specific to their nature and all have a bitMask denoting the component type.

@@ -1,0 +1,6 @@
+The way I manage users and groups is to give each user his/her own private group and set the default umask to 002 (you could do 007 if you want to make sure users cannot read each other's files by default as well).  Then, when users need to be able to write to the same files, put them in a shared group, chgrp the directory to that group, and set the setgid flag on the directory (that will make sure any additional files or subdirectories created will have the same group).
+To add the ville into the admin group, but ville still cannot edit files by admin. Permissions for the primary directory for the ville user are read/write for both owner and group, and the current group for the files is admin:admin ..
+If the admin user should be able to edit many things, then admin should be a member of ville's group, not the other way around.
+So, I can do this the easy way and just chown their domains folder under the ville user and viola, they have permission to do whatever they need be and so forth.
+I'm beginning to deal with more than one user on my system (it's a VPS serving some sites) and I need to make sure I understand how group permissions work.
+However, let's say I want to also give the admin user access to the files (modifying and all) .. how can I put both users into the same group and give them both permission?

@@ -1,0 +1,7 @@
+So I was wondering why the mysql console for example shows about 2 requests/second constantly (in the google dashboard and in the mysql console if you follow the request from the "status" command). 
+Edit: I now notice that the hours and Gb-months are actually the timeperiod, not the "usage" (even though it says "usage" on the bill).
+DB standard Intel N1 1 VCPU running in EUROPEWEST3 (with 30% promotional discount): 672 Hours - 44.08eur
+Neither is used at all if I don't make requests there (no background processes eg.). And the requests and data is miniscule, just a couple of tables and rows. The application is not used at all most of the time.
+I have an evaluation account set up on google app engine. I have a simple java-application (rest endpoint basically) and a mysql database.
+How can I find out what is eating these resources? Mysql seems to be the culprit here. 10Gb of data usage for mysql (which has maybe received 1000 real queries for rows containing maybe 100 characters of data).
+So to recap, I have an application that isn't used deployed, and a mysql database. The bill for a month looks like this:

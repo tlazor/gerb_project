@@ -1,0 +1,6 @@
+While my TV is really a stereo only device it successfully outputs any number of channels via HDMI passthrough and I could have a multichannel sound in case I replace the PC with a media player or a game console.
+I have of course switched Windows Speaker Setup to 7.1 while it was connected to the receiver but it has switched itself back to stereo as soon as I've reconnected it back to TV.
+& 5.1 surround is again live while playing content through PC. Kind of disappointing when Windows recognizes my TV capable of 5.1 passthrough, however, will not.
+I don't think this is doable. I had the similar setup. PC with nVidia GT 710 -->HDMI -->Sony 65" 9000F Series(2018 model) --> ONKYO AVR. I've tried almost every trick that I found through searches and finally returned to previous setup
+The problem is Windows 10 1903 or AMD Radeon RX 540 (I really don't know which one, maybe both) only outputs 2.0 sound when connected to a device that reports stereo only audio support for itself, ignoring its passthrough capabilities.
+For some reason I have to connect my Intel NUC NUC8i3CYSM directly to a TV which is connected to a multichannel AV receiver.

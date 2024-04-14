@@ -1,0 +1,6 @@
+Or even TEXT(DATEVALUE() + TIMEVALUE(), "m-d-yyyy h:mm") to directly format it back to a string, but now with the correct looks.
+Right click on the cell/Column Select Format Cells. In the window that pops up, Select Custom. In the Text Box under the word Type: then replace the word General With 
+I want to transform a bunch of string cells into date (and time) cells, in order to calculate the difference between the current date and time, and the initial date.
+You can just select all the cells in which the values are contained then format the cells, editing the type to show the format you need. For example: [$-409]d/m/yyyy (h)h:mm 
+have you tried =DATEVALUE()+TIMEVALUE(), which transforms a string to a date type. And use cell formatting to get the requested number formatting.
+Not sure what the (h) is for though, In excel it just going to repeat the hour portion of the time inside of the parentheses. there is a [h] format option that displays elapsed time in hours. If you are working with a formula that returns a time in which the number of hours exceeds 24, but That should never happen when working with hours in a day. 

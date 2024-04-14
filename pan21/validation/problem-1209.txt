@@ -1,0 +1,8 @@
+Additionally, to prevent activation of the start menu in the event that the mouse is clicked while the Windows key is down, that event can be blocked too.
+This is how I've managed to get it working properly in Windows 10 1809 (I've only blocked the left Windows key here):
+I'm still trying to figure out the best way to disable ⊞ Win+Tab ↹ and ⊞ Win+L functionality. I'll come back and edit this if/when I do.
+The following AutoHotkey script will disable the ⊞ Win key activating the start menu for both left and right ⊞ Win keys in Windows 10.
+If you also follow the instructions here, you can disable most of the other ⊞ Win key shortcut combinations:
+For some reason, if you assign a letter shortcut (any letter shortcut) to the Win key, it makes all the shortcuts work again, while still permitting the blocking of just the single key itself.
+The reason I want this functionality is that I have a lot of shortcut keys linked to the Windows key and this often results in accidentally opening the start menu.
+I believe you can only unregister a global hotkey if you're the application that registered it, and since explorer.exe registers the global hotkey, you probably would need a modified version of that, which I think would be impossible to find.

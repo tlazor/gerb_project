@@ -1,0 +1,9 @@
+My understanding was pf blocked the packets from reaching the kernel, so if it was configured properly these messages would go away. Is that correct?
+Have I properly interpreted the tcpdump lines? (The carat direction makes it look like it's only outbound packets?) 
+I've tried to use pf to blacklist this IP, block ICMP access to this port (or in general, since it seems like ICMP is not port based?), and tried a custom rule to block:
+After rebooting and watching with tcpdump again traffic appears much more normal (a handful of different IPs looking at various ports over the course of an hour).
+I found the traffic is coming from a single host by running sudo tcpdump -ni en0 "icmp[0]=3 and icmp[1]=3"
+Perhaps all the "udp port 27960 unreachable" messages were due to a previously opened connection that was not closed properly?
+Where 64.......125 is my server's IP and I assume 185.......98 is the requester (that's the only IP seen in 1000's of log lines)
+If it's not correct, do I need to take action based on the requests, or should I just follow the instructions for nullifying the log lines?
+Happy to hear possible explanations of why pf didn't block this activity initially, but it seems fine now.

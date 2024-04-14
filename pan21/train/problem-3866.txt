@@ -1,0 +1,5 @@
+Resource Pools are not simply a cosmetic display mechanism - they will have an effect if your VM's push the system into contention or if you are have set reservations, especially memory reservations, without being totally clear what the effects are. 
+This isn't an issue in vCenter managed systems because you have the option to use folders within both the Hosts & Clusters and VMs & Templates inventory views.
+I am using an ESX server at work, which is serving one purpose. So we can group all the VMs as having one purpose, under one host with that one purpose:
+Problem is, this ESX server is about to have VMs to perform a completely unrelated role to what is currently doing. So I need to be able to define a structure in ESX, like:
+That said you can create nested folder like structures with Resource Pools within Resource Pools on a stand alone ESX\ESXi host which should do what you want if I'm understanding the question correctly. You may even benefit from modifying the default shares and limits values on the pools to control the assignment of resources to the groups of VM's but as I said above be careful that you understand the impact before doing that. 

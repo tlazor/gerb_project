@@ -1,0 +1,8 @@
+If Click-to-Run based then there is an update (or two) released in the last couple of weeks that may resolve this. In order to get the updates you'll need to change the Office 365 update channel to the Monthly Channel and then force an update, both of which can be accomplished with the following commands on each computer:
+However, searching from many Outlook clients fails when using server-side searches.  Outlook will spin for a while, and then error with "It looks like there's a problem with your network connection."  
+OWA works flawlessly, including searching.  So I know the Exchange Fast Search service / subsystem is working correctly.
+Clicking on "Let's look on your computer instead" to use a client-side search works fine from that point.
+You say this is Outlook 2019, but is it MSI based (Retail/OEM/VL) or Click-To-Run based (Office 365)?
+I've tried rebuilding the Windows Search Index on a couple computers, and that didn't fix it.  I can use GPO / registry to force client-side only, but it'd be much better to find the cause of this and get server-side searching working between Outlook & Exchange 2019.
+Internal & external DNS / autodiscovery updated, and clients find the new server and connect to their mailboxes without issue.
+All arbitration, public & user mailboxes transferred successfully, and Exchange 2013 decommissioned/uninstalled.

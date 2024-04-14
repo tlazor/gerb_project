@@ -1,0 +1,7 @@
+Note that it needed to read about 200K rows (of the index) to do the count.  That many rows takes time.
+INDEX(offer_id, created_at) versus INDEX(offer_id, created_at, tx_id) -- Apparently you are using InnoDB and tx_id is the PRIMARY KEY.  The PK is included in every secondary key, so these two index specifications are virtually identical.
+If you did not have offer_id = 5, follow the above pattern and get (1) (empty set), (2) (created_id), and (3) (tx_id) -- That is, INDEX(created_at, tx_id).  Note that neither index works well for the other query.
+You have the best index there is.  It is in the right order, and the EXPLAIN says "Using index", which means that it read the index to get the answer, and did not have to reach into the data.
+No kind of PARTITIONing would help performance at all.  You don't need a 2-dimensional index (as in two ranges); you have "=" and "range", so a 'compound index' works best.
+Order of the columns in an INDEX usually matters.  And it does matter here.  The fields must be in this order:  (1) all the the "=" conditions (offer_id), (2) one range (created_id), and (3) all the other fields to make it "Using index", in any order (tx_id).
+I suspect that "Using MRR" (Multi-Range Read Optimization) effectively replaces "Using temporary" and "Using filesort" would might normally be used for DISTINCT.

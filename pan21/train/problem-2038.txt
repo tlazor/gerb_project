@@ -1,0 +1,5 @@
+P/S: I'm not too familiar with server administration and on the learning curve, please do help me by correcting anything I am wrong. Thank you so much.
+NginxCP, which makes me a little worry because instead of one, I have 2 servers (Apache and nginx) running at the same time; and it surely takes some resources (My VPS has 6GB RAM), but magically, it does reduce the load time.
+I've been trying to optimize my VPS for WordPress performance, and today, I decided to take it to a new level: I'm thinking about installing HHVM.
+Question & concern: From the point of server performance, is it safe and efficient to install HHVM on top of those already-installed softwares on my server? I imagine it to be 3 big processes running and the same time, and I don't know if it does slow down the server somehow, because as I understand, HHVM will have to re-compile the code one more time after it has gone through nginx and Apache.
+Server status: My server runs Apache, and I have already installed and activated PHP-APC for caching and performance. Moreover, I installed nginx as a reversed proxy server for Apache by using 

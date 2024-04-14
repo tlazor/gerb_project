@@ -1,0 +1,6 @@
+I've created a new attribute ("HireDate") on the user object in the Active Directory Schema, per this article. It shows up in the list of editable attributes when I go to edit someone's AD profile. So far so good. 
+I know that custom attributes can be created directly in SharePoint, but for other reasons I need to create the attribute in our local, on premises AD instance. 
+You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. 
+Now I would like to include that attribute along with the other profile information that gets synced to our Azure AD, using the Azure Synchronization Service Manager. 
+I know how to include built-in attributes that are not synced by default (ex, here), but haven't found a way to do that with a custom attribute. 
+Select the attribute what you want to sync in the available attributes under the Directory extensions when you configure the AAD connect in the installation wizard.

@@ -1,0 +1,6 @@
+I'm now stuck at the point where I've got to configure it. The problem being, that I can access some files in the directory, and I cannot access other files.
+I'm getting the strangest problem with Apache installation. I've installed IctFax according to instructions provided here.
+Please check your SeLinux settings, if found enabled then disable it and reboot your system and then try again.
+Just guessing, it's been a long time since I worked seriously with Apache.  The example you're giving of a file that does not open is a php file.  The other files in the ictfax directory that you say open are html and text.  zz.php is in a different directory.  It's dangerous to extrapolate from one data point, but are the "many other" files in that directory also php files?
+The server opens xx.html, zz.php, INSTALL.txt, but it does not open index.php or many other files in the catalog.
+If I remember correctly, Apache configuration for a directory tree does not necessarily apply past symlinks. So it's a possibility that /usr/ictfax/wwwroot does not have php enabled even though your main wwwroot directory does.  In that case, another <Directory> section in your config, enabling php for the /usr/ictfax/wwwroot directory, might help.

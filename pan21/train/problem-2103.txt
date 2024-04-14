@@ -1,0 +1,6 @@
+Are you sure that the server was actually restarted? Maybe it the shutdown process hanged for some reason. Have you looked at the event log and seen the startup events?
+Not sure how that answers your RDP question - but as far as RDP goes you should check the server log. Either Terminal Services (RDP) server is down, there could be a firewall issue, or there could be a licensing issue that would cause that error.
+may be you are not connecting to remote session through administrator account. if it is so , please add your accout to remote session option in my computer/property
+Does anybody knows How to bound TCP to only one NIC ? could you please give me the path or command? Is there any command line I could use to do it?
+We restarted our Windows 2003 server R2 last night (09/27) and since that day we can not connect through RDP. 
+I'm not sure if I understand your question, but to only use TCP/IP on one NIC you would uncheck "Internet Protocol (TCP/IP)" in the network settings for any other NIC other than the one you want to have connected.

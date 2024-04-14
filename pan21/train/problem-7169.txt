@@ -1,0 +1,8 @@
+I'd like a tool/script that I can run that will take the input of a path, and user and tell me how that user has permissions.
+You should be able to use Chris' NTFS Permissions Reporter to do what you need.  I've been using it for a while now.
+Then after the report runs, you can click on one of the users in the results pane to see how they got their effective permissions and from what Group.
+User MathewC is a memeber of "Group humans" which is a member of "Group 42" which has Read/Write access.
+Here's the situation. Often I need to tell how a user is getting access to a specific folder. I can see in "Effective permissions" that they have read/write/etc, but because of nested groups I can't immediately tell why.
+I'm on Server01 and I browse to c:\folder and I see that user MathewC has effective permissions to write, but when I look at the permissions for the folder, I can see that many groups have access to write, but I don't know which of those groups MathewC is a memeber of.
+For instance, you can ask about a specific folder like: "\server01\share\folder\subfolder" and set the options as below:
+Technically this question (and this answer) are Off-Topic as "shopping" but I'll try and help you out.

@@ -1,0 +1,8 @@
+I'm running the latest version of Ubuntu 09.10 (syphyllitic sphinx or whatever the heck the codename is) and I'm trying to figure out how to block a package from installing as the result of a dependency.  For this example, let's say that I would like to make it so bc is never installed, even though ubuntu-desktop claims to require it.  Is there an easy way to make it so when I do an update and there is a new version of ubuntu-desktop it will never again try to install bc?
+Check out the "equivs" package.  You can fake up a package that pretends to offer whatever the real package you're installing needs.
+This page from the Ubuntu wiki should fix your problem. It explains how to create a new metapackage without the uninstalled application.
+I'm also aware that doing something like this could cause a tear in the fabric of spacetime, but I'm willing to deal with that.
+I'm not aware of any simple way of doing this, and I doubt there is one. Dependencies are there for a reason after all, and the tools offer very little support for ignoring them.
+As a matter of fact, even forcibly uninstalling a dependency (dpkg -r --force-depends <package>)  will cause aptitude & friends to stop working until you fix the damage. So I'm afraid what you're asking is not possible, at least not with a simple command.
+I think that this make be possible using some custom dummy packages and dpkg-divert or some such magic, but I just can't find some good docs on how to do it.
+The simplest way to accomplish this is probably to create an empty package with a high version number, but even that might break when package dependencies change.

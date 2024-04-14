@@ -1,0 +1,7 @@
+Try this: Open cmd (As Administrtor). Type in this command: "sfc /scannow" without the quotes. Reboot, tell me if IE starts up again properly.....
+Also you may want to check your start up programs using msconfig. Check for unusual non-Microsoft services and start up programs. 
+Have you tired uninstalling Windows Internet Explorer via Add Remove Programs and then reinstalling?
+@Bob has encouraged me to turn my comment of 2010-11-12 into an answer. I still do not know what caused IE 8 to start without a visible window, but after a thorough uninstall of VMWare Player, the problem went away. 
+VMWare Player installs a lot of devices and services and the VMWare knowledge base has very detailed instructions, which I am not going to copy-paste here. Please see their article "Cleaning up after an incomplete deinstallation on a Windows host" if you have similar issues.
+ I had a smiilar problem recently on one of our staff machines, albeit with IE7. Rolling it back to IE6 (The horror) and then reinstalling worked fine for me.
+This is often an indicator of Malware. I've seen bot nets display this behavior frequently. I would scan with the free versions of Malware Bytes, Super Anti Spyware(careful this likes to install a toolbar so unchecked it) and TDSS Killer. Start with TDSS Killer. If you really want to be deep use GMER after TDSS Killer. This most often resolves this issue if you've reinstalled IE. 

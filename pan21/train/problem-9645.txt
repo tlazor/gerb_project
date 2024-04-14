@@ -1,0 +1,15 @@
+In the past, I set up a single mac pro as follows (with the intention that other devs don't even need machines):                                                                                
+USB devices were easy enough to assign to specific VMs, but occasionally caused confusion at initial startup (e.g. same named keyboard...which one is it?).
+I was also considering the solution using one very powerful machine for 2-4 users. But professionally I came away from that solution because of the following reasons:
+then I ran Parallels, which now allows you to virtualize OSX. I created a VM for each user.                                
+I think what you're really after is source version control. Work on the project from your local machines, commit changes to your central server and pull back other people's changes.
+I had to log in, start up the VM's, move them to the correct monitor, and make that VM full-screen on that monitor.        
+Multiple mice                                                                                                              
+1) If one user experiences problems and reboots, everyone will be affected - and wait for the reboot. Also those reboots will probably be more often required, when 4 users are working at the same time - compared with only 1 user.
+Therefore: Everyone gets his own machine and outsourcing source code management and build server seems to be the professional way.
+We were doing both Android and iOS development, and this was workable. However, given the price of a mac mini vs a mac pro (and the need to buy OSX and parallels for each user), one is hard-pressed to not just buy a clump of minis. I guess if you wanted to "share" the horsepower of a beefy machine, it works out. 
+I assigned specific keyboard and mice to each VM. The monitors all went with the main OS...so, it had the following limitations:
+If I accidentally (as the main user of the real machine) moved my mouse "off screen" then my mouse would appear over someone else's.
+Once that's set I can reliably connect as any other user and get a virtual (per-user) screen sharing session.
+They would be able to access the same VNC session but that would only have one cursor (3 people would be fighting for it!).
+I've been looking for a solution to this problem for a while and the best option I have found is to enable the Guest user and set it to automatically log in.

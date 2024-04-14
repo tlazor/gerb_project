@@ -1,0 +1,11 @@
+If there are only MyISAM databases, the backup and restoration is possible by simply copying pasting the data folder, regardless of the versions?
+However, as has already been pointed out, that is a poor way to go. It's no big deal to create a script and tell the person who needs to run it what command to type. Assuming that person is clever enough to be able to log on to the machine I would expect him/her to have no trouble running one command.
+But if there are INNODB databases, and we are sure that the source and target versions will be identical, is this copy-and-paste method possible?
+If you are talking about a live database in production, the values could be in flux, so it would be unreliable to do backups of a database, in any database type, by simply copying a bunch of files.
+If you absolutely must use copy and paste the MySQL services at both ends must be stopped, you must have the same configurations and you must copy all the log files as well as the data folders.
+It'd be better to avoid typing any command to do the backup because the person who is going to do this never used command-line before.
+Another option is to create a master-slave replica and have it keep itself up to date without the user needing to do anything. Of course you will still need to monitor the system to ensure it's working properly but you should be doing that anyway.
+If we had to avoid the command line always, we would never have made it to the moon.  Either get another astronaut or train harder.
+For either of these commands you may need -u for the username having admin rights, and -p to specify the password.
+If this is for a non-technical users you really should take the time to build a script that calls mysqldump to properly creates a backup for them.
+I wouldn't recommend copying and pasting files at all.  If the person isn't technical how will you be sure the mysql daemon is properly stopped?

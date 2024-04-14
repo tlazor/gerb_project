@@ -1,0 +1,5 @@
+So...we create a page w/ a Search Core Results web part - and then set the Fixed Keyword Query to use ContentClass:STS_Site.  Gives us a nice list which we can then configure to display what we want.  Its updated when the team sites are indexed so it's dynamic and personalized for the user.
+What we wanted to do, is create a webpage that shows users a list of the 10 or 20 out of 200+ teamsites that they have permissions to get to.  
+We are doing something kind of similar - I can describe it - and see if it gets you any closer.  It's definitely a "think outside the box" solution.
+That list is going to be different for each person - and changes as they move from team to team as well as when new teams are created or disbanded.
+Now - as I said - this is NOT to straight solution to your request - however, you could borrow from this idea to create a page w/ a search results page and fixed query that returns the sites you are trying to steer them toward.  They'd still need to click to get there - but at least the link would be there and it would be customized.

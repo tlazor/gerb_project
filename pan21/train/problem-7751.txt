@@ -1,0 +1,9 @@
+I've been using TerraCopy to move the files over. I started a transfer last night, but it got about 5% in. When I checked it this morning it said it was still transferring at 25 MB/s but I could see that it wasn't moving.
+I use TeraCopy myself because you can easily resume your copy if it fails. But if you need something that works great and is also robust, use Windows' built in copy function called Robocopy. Its a commandline tool that will copy everything you need.
+I use Delta Copy for my backup needs. It's basically rsync for Windows and can be configured to run periodically. Since it uses rsync, it's smart enough to only backup changes in files, and not everything all the time.
+Also, if a file exists at destination and at source, it will skip the file, and thus its great to resume a failed copy.
+Short story: one of my computers died (boot partition is corrupt I think), so I ripped out out the C: drive, plugged it into my other PC, and now I'm trying to get the files off before I reformat it.
+Also note that if the destination is a subdirectory, only the files in that subdirectory would be an exact mirror so your other files will be left in tact.
+I can't do a full harddrive mirror ('sector copy' I think it's called?) because my destination SSD has some other files on it too.
+I need a robust way to copy the remaining files, skipping already successfully copied files, that won't crap out on me part way through. There's tons and tons of little files, but the total amount of data is relatively small (25 GB).
+This will make an exact copy at the destination of the source, including removing files at destination that source does not have. (great for automated backup scripts too)

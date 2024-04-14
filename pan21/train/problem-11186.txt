@@ -1,0 +1,8 @@
+Suggested syntax: rsync --compress --times --progress main.swf server.com:/path/to/final/directory/on/the/webserver
+If you use ssh -c to choose a less expensive cipher, your problem should be resolved. I'd suggest starting by looking at what cipher the XP machine is using, presuming both machines have comparable processor performance.
+Following xenny's suggestion of a different cipher, I'd suggest the blowfish-cbc cipher. It's the least computationally-expensive cipher available in OpenSSH, and while it's not the most secure cipher available it's much faster. I often see massive (2-10x) increases in speed from changing to blowfish, so I'd recommend giving it a shot.
+The MacBook is using a more computationally 'expensive' cipher than WinSCP on the PC, and this is causing the slowdown.
+If it's not a local config problem, or is unfixable, you can use scp -C for compression to speed up large transfers. Or you can use rsync, if you're uploading new versions of the same swf over and over; if it's mostly identical the speedup can be quite large. 
+You can also try to use rsync instead of scp for updating. This will allow to only transfer the changed data of the new version when directly replacing your .swf file.
+If the MacBook is currently CPU bound, adding to the load by compressing the data stream may well make things worse.
+The main thing you should check out is how fast you can possibly expect it to go. If your internet upload is 300Kbps, neither wifi nor wired connections to the router should be the bottleneck here. Use some simple math to verify or disprove this; if it's a megabyte in size you should expect it to take 3 seconds (-ish). 

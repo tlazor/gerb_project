@@ -1,0 +1,5 @@
+(by the way, autocomplete=off has been a feature in various browsers for ages... it may only have been made formally part of HTML as of HTML5, but it's been in use for a very long time, so I wouldn't consider it 'new')
+The addon Auto-Complete On enables autocomplete only for login-related fields, so that credit card numbers and the like still won't be saved (at least in theory).
+The whole point of autocomplete=off is to provide some level of security for fields which require it. If a site designer has deemed that a field requires autocomplete=off, then there's a good chance that he means it. Why do you want to turn it off?
+If you have Firefox you can install Greasemonkey and install this addon which re-enables autocomplete for the form. It's not perfect, but generally it works. For the sites that it does not entirely work for, you can craft a custom grease monekey script
+Given that this add-on is always on, that seems like a good idea. It is a no-restart addon, so in theory you could turn it on only when you need to with relatively easily.

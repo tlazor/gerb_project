@@ -1,0 +1,9 @@
+I think the first line makes a big vector of "0" values, just as long as the input, so in this case it should be 133 entries long.
+I have heard that some patterns in R code are really anti-patterns and thus I am trying to imitate superior examples of R code.
+The third line might be putting an extra "0" at the front and back of the vector.  I think it's in there to make the "diff" work correctly, so that the first winning streak shows up as a "1" value.
+The following function is referred to as "calc_streak" but apparently that name doesn't show up in the code listing.
+I think the object "wz" is a vector of integers. (I suspect this is a short vector, just containing the indices of the entries in x that satisfy the test.)
+The "1 0 2" of the answer indicates the streak of 1, the streak of 0, the streak of 2 mentioned above.
+But my primary question is - Should I regard the example R code as a good example of control flow and imitate it in my other programs?
+One of the very early examples deals with counting "hit" or "miss" streaks within a vector of "H" and "M" characters.  We consider a winning streak to be at least one H, and each streak ends in M.  So H M M H H M counts as a streak of 1, a streak of 0, a streak of 2, etc.
+I think the second line goes through that vector and rewrites the "0" value to "1" if the input has an "H."  

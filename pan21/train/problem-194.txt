@@ -1,0 +1,7 @@
+To be fair to your question, monitoring SQL Server Agent jobs is not as straightforward as one might think, though the human readable time is suspect from the queries' author.
+Notice how readable this output is. You can not only see which job is failing, but the step_id that it failed on! The LogOutput will return the error, all of this actionable.
+Ever wanted to see the sessions that a job is running under and their requests? well now you can easily check this via a few scripts
+I stumbled upon an excellent script that lets me find every failed job, the step it failed, and any logs/messages that are reported across our 200+ servers. 
+Since the aim is the health of the server, try to focus one the jobs that are actually failing. Focusing on averages is nice, but not very helpful unless you are the app owner and you needed to know these minute details. But even then, challenge the request to find out why.
+Just parse through the column Program_Name to retrieve the Job_ID, and make sure you conver it to VARBINARY form. Also note you need to specify the conversion type to 1!
+I followed this Microsoft Guide and I was able to have what I wanted: I can now filter job by date, time and even duration. 

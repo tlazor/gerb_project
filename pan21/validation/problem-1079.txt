@@ -1,0 +1,6 @@
+I think it cannot pick up the index because of the substr expression. It isn't smart enough to get, that this would exactly match the indexed keys. You'll have the same problems with a temporary table. The problem is not, that you're self joining civicrm_contact.
+However one question is: Is this a one-off thing or do you plan to run this query frequently? If it's just a one-off, the effort might outweigh the gain. Maybe just running the query and letting it take it's time, is the overall more "efficient" way (in terms of human work) in such a case.
+Then, for further improvement I'd try to move contact_type to the end of the index as I guess it's selectivity is comparatively low.
+For 5.7 to support generated columns you'd need to use NDB Cluster (but I don't think, that's the case). Versions below 5.7 don't support it at all. However, as a general workaround for lower versions than 8.0, you could also add regular columns and fill them with the substrings initially with an UPDATE and subsequently with a trigger.
+Stored generated columns can be indexed and you can then use these columns instead of the original ones in the substr().
+Possibly also try to include id at the very end as this is a ranged condition rather than a pointed one.

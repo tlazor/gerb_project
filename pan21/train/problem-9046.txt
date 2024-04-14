@@ -1,0 +1,7 @@
+The out of the box Remote Desktop and Remote Assistance within XP and 7 are more than adequate to control and share all the facility from the connecting machine to the recipeint machine.  
+DameWare allows you to connect to the interactive session kind of like VNC, but extra features including the ability to remotely install the client on a remote machine.
+Basically, what you need is to replace termsrv.dll with an older version (2055, from WinXP SP1) and apply a few changes to the registry and settings.
+The complete step-by-step instruction (including the registry hacking and dll replacing) is available here - http://www.freetutorialssubmit.com/concurrent-remote-desktop-without-log-off-other-users/801
+AT the company I work for we use DameWare Mini Remote Control. Not a free product, but they do have a fully functional trial version.
+Is it possible to use Windows remote desktop connection to connect to a Windows XP machine with a user already logged in and just view that users screen without logging them off?
+The features as well as the overhead used by a computer to keep most of the third party remote desktop/assistance sessions waste facility, waste bandwidth when they constantly collect information about who is connected even when not being used.  They are also a point of security issue when they constantly run.  

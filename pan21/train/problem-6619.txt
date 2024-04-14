@@ -1,0 +1,10 @@
+In the future, better educate your family to use Firefox rather than IE, together with some add-ons such as NoScript.
+If this fails, use a rescue live-CD virus scanner which could work without interference from the virus. I like best Avira AntiVir Rescue System because it gets updated several times a day and so the download CD is up-to-date. As a boot CD it doesn't use Windows, so your virus can't block it.
+Your system certainly is acting funny, and if rootkit revealer is turning up discrepancies I'd fear the worst.
+That said, I would throw as many antiviruses as possible at the infected computers, in the hope that one of them will at least detect the virus, so that you can maybe search for removal instruction on the web.
+Second remark is that virus infections normally happen because of carelessness or lack of knowledge of the user. Windows is really not to blame.
+First remark is that all major antivirus products nowadays also check for rootkits as a matter of course.
+Some that I like are Trend Micro House Call and Kaspersky Labs Free Virus Scan. ESET gets excellent reviews. 
+if you don't want to frag and reinstall then pull the drive out and take it to a known good system (or bootable cd with av software on it) and scan the drive.  
+Google for "antivirus online scan" and use a couple of the best-known antiviruses to scan the computer (each takes some hours to complete). Be careful with all those fake antiviruses currently floating around.
+If you did indeed get a rootkit, the only way to be entirely sure it's gone is to completely format and reinstall windows. Rootkits can hide themselves from any method of scanning, depending on  how thoroughly they were coded.

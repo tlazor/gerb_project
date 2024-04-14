@@ -1,0 +1,7 @@
+How can I get 1 & 2 on the same network, or to at least be able to use a JDBC connection from my Java Web App to my MySQL, without using a public IP.
+Then you achieve what you want but through a feature in Beta launch stage, namely Serverless VPC Access.
+Don't see anywhere in the console(s), eclipse plugin or docs on how to do this.  Is Google Cloud really making everyone use public IP's to connect from App Engine standard to Google Cloud SQL? If so, is this because both are fully managed PaaS's?
+Go to the Cloud SQL MySQL Connecting from App Engine docs and follow what's said on the note (including link). 
+2 - Have a Java Web App deployed to Google App Engine, with internal IP 10.140.etc (no external/public IP)
+If you use the app engine flexible environment, it gets hosted on an instance in your private network, giving you access to internal IPs.
+I'm assuming you're on the standard environment. Here's a decent link I've found telling you the differences between the two -> https://cloud.google.com/appengine/docs/flexible/java/migrating

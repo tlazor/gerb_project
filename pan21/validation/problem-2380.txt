@@ -1,0 +1,9 @@
+But in programming languages we also have if-conditions and loops (for, while), which leads to non-linear situations. Thus we need a tree which shows us how stuff is related.
+One the whole you could search for how programming languages are designed, because creating a new syntax for spells is nothing different. Maybe start with finding out how brainfuck works and search for how compilers or interpreters for brainfuck are programmed. As far as I know it's usually a few steps:
+Later you will have to check it for semantics (meaning), e.g. if somebody uses a fire spell and then a water spell, it would reduce the overall power of the spell (Baten Kaitos uses this system). So big fire, small water would reduce the power of this spell, because water stops fire.
+Then you could define rules for which spells might follow which other spells or which modifiers. This is checked on syntax (correctness according to the rules) first.
+But illegal would be something like big short water. Or also angry fire, because there is no word angry in our set.
+In your situation one could think of spells like 4($!) which might mean: Do the spell $! four times.
+Grammars look like this (I will not make it as formal as it is usually, because it might frighten you)
+To me it seems you want to deal with the rules of grammars (contextfree, context-sensitive, whatever) which are e.g. also used for designing programming languages. 
+Depending on how difficult your syntax shall be, you can leave out some of the commands. E.g. my upper example was totally linear. You only had to check if the spell is valid and if it was, combine adjectives and nouns and then execute all commands in a row.

@@ -1,0 +1,7 @@
+Is there a way out there, whether through configuration of windows server 2008 or third party software to monitor a computer?
+PSTools, specifically PSLoggedOn can do this on a machine by machine basis.  Wrap it around some more code in a language you know and you will be off to the races.
+It's also possible to easily script something like this for Active Directory, which keeps all the information you've asked for stored in it.
+I am guessing there will be something installed on each machine and relays status back to a centralized location. But would be great if its all web base, where i can log in and see all that.
+You could turn on the SNMP client software. Then monitor it through one of them many free or pay products available. 
+Say, I have a computer on my network named WORKSATION01. I want to have a status that tells me its currently on/off, if someone has logged on to that computer and who, if the account is idle, locked, etc.
+In short, yes, there are ways to get that information, and some applications can provide web-based insight into it, but the configuration of your network (AD, OSes, etc) weighs heavily on possible configurations.

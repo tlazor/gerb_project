@@ -1,0 +1,9 @@
+With LWJGL as it's core, LibGDX provides a framework. It provides a gameloop,a rendering system, an audio system as well as other features. LibGDX abstracts the basic LWJGL interface from you. It provides an Object-Oriented package to make games.
+If you want to make a game as quickly as possible then go with the JmonkeyEngine. The engine lets you go low level if you need to(the LWJGL route) or the Libgdx way but with a GUI engine included.
+2- Build and run the generated project and you have example code that loads an image and displays it.
+If your goal is to learn java without the game development quirks then just use JavaFx or the Java Canvas and push out your games. This will be easiest route to take and you will be working with Java APIs more than dealing with game development specific details.
+LWJGL is a low level framework that includes window creation, input handling and other low level features.
+For beginners I would suggest using LibGDX, because it is easier to understand and LWJGL is very complicated for beginners.
+LWJGL is simply a wrapper for the C libraries OpenGL, OpenAL and OpenCL. It provides access to the raw functions that the C libraries provide.
+In Libgdx all the low level stuff is handled for you and you just have to worry about designing and developing your game.
+LibGDX is based on LWGL and its advantage are that a lot of the base stuff is already written and you don't need to write it. Some people prefer to write it themselves though. LibGDX is generally used in mobile game development, but can also be used on Windows, Mac and Html.

@@ -1,0 +1,10 @@
+The answer is to use DirSync: https://support.microsoft.com/en-us/help/891995/how-to-poll-for-object-attribute-changes-in-active-directory-on-window
+Here's the syntax to dump the two attributes for the user objects in an OU called Phoenix in a domain called Company.com to the console for viewing (the entire entry should typed as a single line):
+Here is a java implementation of this: https://docs.ldap.com/ldap-sdk/docs/javadoc/com/unboundid/ldap/sdk/experimental/ActiveDirectoryDirSyncControl.html
+USRSTAT is slow, and the report you get has to be merged with the LDIFDE dump. So, I put together a script that searches for user objects at each domain controller, then lists the local logon time and the creation time. The user logon timestamp requires conversion from a long integer. I borrowed the conversion code comes from Richard L. Mueller (www.rlmueller.net/Programs). Richard's full script also takes the local time zone from the Registry and converts the time from UCT to local time. Nifty
+The last logon timestamp uses this format: YYYYMMDDHHMMSS, with the hour shown in Universal Coordinated Time. A time stamp of 20040115182937.0Z corresponds to Jan 15 2004 18:29:37 UCT.
+For posterity, dsquery is designed for this kind of search. AD does keep a 'whenCreated' field, which makes it easy to search with your tool of choice.
+You can get the creation date for each account from Active Directory. Every AD object has a WhenCreated and WhenChanged attribute. You can dump these attributes into a flat file using the LDIFDE utility, or you can dump them into a comma-delimited file using CSVDE (both utilities come with Windows 2000).
+ldifde -d ou=phoenix,dc=company,dc=com -l whencreated, whenchanged -p onelevel -r "(ObjectCategory=user)" 
+will give you output to the console or wherever you redirect of all users created in the last 90 days.
+Using PowerShell and the Quest ActiveRoles Tools for AD (found here - http://www.quest.com/powershell/activeroles-server.aspx) ,

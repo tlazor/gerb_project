@@ -1,0 +1,7 @@
+Consider adding Line into your existing index. It will not change working of it and will give you chance of querying data by Line number. Storage overhead will not be that big.
+Including message to the index on the other hand will not be that useful. Unless you have really lot of queries over that table.
+I will leave aside the poor choice of GUID as PK as it is not important for this case but you might profit from changing that in the future.
+Without seeing execution plan I can't tell for sure but by adding column Line to the query optimizer decided to ditch index altogether and go with table scan. You should see it in the execution plan.
+If it will not help, then you might try to force use of index. But it should be only last resort as it might burn you later when you remove index or rename it for some reason. The query will not work then.
+Reason for this might be distribution of data, so first stop would be updating statistics on the table. 
+This is just how SQL Server is telling you to have index that sorts by OperationID and Line and has Message in INCLUDE part. It is because then you will create full coverage index, which means all data you need will be pulled out of the index and nothing else will have to be touched.

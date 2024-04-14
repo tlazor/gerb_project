@@ -1,0 +1,6 @@
+We do not have any servers with the edge transport role installed and we won't be getting into installing a whole new server role here.
+I am trying to make a rule for an exchange hub transport server to block based on external address. This is mainly to kill the mail loops that have appeared when, for instance, our ticketing system gets into a looped discussion with some external ticket system.
+I really could not think of a better way to express the Any|All distinction I am trying to make there. If you can, please go right ahead.
+I have only just started to take on the role of server admin and I am grossly unqualified. I just happen to be the developer remaining in the IT department when the Sysadmin left. So please excuse any derpiness on my part.
+but in making this I noticed that the parameter for the predicate is multivalued - that is, I can put as many 'words' as I want in to match against the From address. What I can't find any info on is - how will this be evaluated? I know I could get something I know works the way I want it using text patterns but it will be messy with multiple addresses.
+Right now I have just one address I want to block, but I am sure I will want more, and I do not want a rule-per blocked address situation. So far what I have is:

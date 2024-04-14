@@ -1,0 +1,7 @@
+If you are doing deferred rendering, instead of selecting only a single cubemap for each pixel, you can use a formula that combines all the cubemaps that are close enough to a pixel.  
+Here is a solution that prioritizes visual quality ; it is slightly more complex than the object-based solution you are referring to.
+(If you highly prioritize performance, or do not require detailed reflections, you should probably stick to the object-based solution though).
+However even with forward rendering you can still select the closest cubemap on a per-pixel basis, although without the "averaging" formula the transitions between the boundaries of two cubemap influence zones will be very visible and reflections will not look realistic.
+That's because you need to have pixel positions already available before shading ; you might think it could be possible to do it if you had a kind of depth pre-pass buffer for that purpose, however for transparent objects you usually do not want to write their depth in that buffer, because this leads to artifacts when transparent objects are overlapping.
+If you are doing forward rendering for transparent objects for example, I think it might be a bit trickier to compute the average of cubemaps.
+A trick sometimes used to achieve this is to add a pass that computes the number of cubemaps that affect a single pixel (so you can do averages in the final shading pass).

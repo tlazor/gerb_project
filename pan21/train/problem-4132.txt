@@ -1,0 +1,9 @@
+I do not recommend trying to transcode the video because then the Pi's CPU's go working on overtime.
+Could it be something as simple as the camera being recognized as something other than /dev/video0? Does ls /dev/video* yield anything else?
+I have to transcode the raw audio and I found it tricky to get vlc 2.2.1 built for Raspbian to be tricky -- I end up using mp2a audio.
+The C920's H.264 encoder is good but its rate seems only works at 3 Mb/s average bit rate no matter what the resolution. However, I tend to use 720p, that is 1280x720 because a 16:9 aspect ratio makes sense for the application.
+to get the device names. Now, I found the name "plughw:CARD=C920,DEV=0" which arecord described as "Hardware device with all software conversions"
+VLC's rtp server seemed lousy. VLC's Transport Stream (ts) is decent. These steps are for using the camera's internal H.264 encoder (pixelformat=1):
+It's been many months since I used a C920 on my Raspberry Pi, but at the time, everything "just worked" so long as I used the right device.
+I spent a number of hours recently with my C920 and a Raspberry Pi 3 recently to make a babyCam that I could stream within my home network. I may be able to shed some light but also provide documentation and experience to other users.
+My guess is that there are no drivers installed for the Logitech c920 on my pi, but I'm not sure.  How would I download drivers or what should I do to be able to use my webcam?   The c920 is on the list of approved webcams, I have nothing else being powered by my pi so I should have enough power output to take  a simple picture.  

@@ -1,0 +1,5 @@
+An error occured during email account validation.  Please check your information and try again. If the error persists please contact your System Administrator.
+Outlook Web Access URL: http://mail.domain.com/exchange (I've also tried just using the IP address http://000.000.000.000/exchange with no effect).
+No matter what I do, I get the same error message. At this point, I'm basically just trying things, because I don't really know how this service is supposed to work. Does anyone know what causes this particularly vague error message, and what I can change either in my email settings or on our exchange server to resolve this?
+Mailbox Name: This one confused me a little bit, but it seems it should be the same as the domain username (eg. JohnDoe).  I've also tried DOMAIN\JohnDoe, and a number of other things.
+I'm trying to set up Blackberry Internet Service to connect to our Windows SBS2003 outlook web access.  I've tried every possible combination of credentials by I always get the same error:

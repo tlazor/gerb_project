@@ -1,0 +1,9 @@
+I have had someone copy a file onto a flash drive and immediately hand it to me once the copy finished on his screen--the file was corrupt.
+When a drive is being written to I have seen corruption when it was dismounted too early.  While the OS doesn't hold data unwritten normally XP at least will accept write requests that back up.
+I'd certainly would make sure to unmount, safely remove or whatever terminology is used to make sure that any USB device with data on it is safe to remove.
+Anecdotal evidence, not proof, but I have had data corruption due to USB disconnection, but it has only occurred to me with Blackberry phones.
+If the system is performing file operations on the disk, there's a chance it'll corrupt data. Since it never happened to you, you're lucky. Use common sense to decide whether or not there's a chance your OS is performing operations. (Are there programs/files from the drive open/in use? Do I have caching on the drive on? Is it being indexed? Does my OS store temporary files on it?)
+I have seen the write light flicker for some seconds after something supposedly has finished copying to a flash drive also.
+In a corporate environment data loss could cost millions and personally you may lose something irreplaceable.
+I work in a casino and a lot of slot machine manufacturers now use USB thumbdrives to install the bin files (games and OS) onto the slot machine.
+A slot machine that has corrupt firmware may or may not award thousands if not tens of thousands of dollars is great incentive to make sure the integrity of the data on that USB drive is not corrupt. Compliance/Regulator checks it anyway but it still saves work to do it right the first time.

@@ -1,0 +1,8 @@
+In order to get back your Windows 7 boot loader on your MBR, to allow you to boot into Windows 7, follow these steps:
+GRUB works in stages. First part of it is loaded from MBR (Master Boot Record), which points to secondary data located on your Linux partition that is required to proceed with next step of grub. From your description of the problem, apparently you have deleted the second stage of your grub installation and grub isn't able to find it.
+This is not only for that but even if windows shows error of unknown on C: drive and all the reserved space is empty than also select this it will restore your windows.
+If u had finally removed any other OS and do have windows(OS) then you can select c:\windows after booting from cd in cmd and type the following command
+Since you don't have the installation disk, reinstall Ubuntu.  This will fix GRUB and you'll back up and running.
+3- On next screen, you will be presented with three choices. Click on "Repair Your Computer", to enter recovery window. Now select "Command Prompt". At the command prompt, first change your directory to boot (cd boot), and then type "bootsect /nt60 C:\". This will restore your windows boot loader onto your MBR.
+After you have done this, you can make a recovery disk in Windows, from which you should be able to reinstall the Windows MBR (Master Boot Record).  Don't delete the Ubuntu partition until you can boot directly into Windows without going through GRUB.
+If you are no longer using ubuntu, why don't you use Windows Install CD and use fixboot and fixmbr commands. more info here: http://support.microsoft.com/kb/927392 or google

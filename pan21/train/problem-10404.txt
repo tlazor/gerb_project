@@ -1,0 +1,8 @@
+Does running dns-sd -B on your Mac list your other devices? Does dns-sd -F show local as a browsing domain?
+I had originally set up the router as an access point, basically extending an existing LAN with additional WiFi.
+On the router, try enabling Network > WAN > Advanced > Enable IGMP Proxy and IPv6 WAN > Advanced > Enable MLD Proxy – it shouldn't affect multicast packets on the LAN, but you never know. :)
+So far (since 2 days) it seems working fine, so if you have similar problem, you only have to update your router.
+Try disabling anything firewall-related (Security > Basic Security > Firewall > Enable SPI Firewall and all the options under Security > Advanced Security), and if this solves the problem, re-enable them one by one.
+What solved the problem for me was configuring the router as a router, that is, selecting this option:
+Before enabling it, you will have to plug in something into the WAN port. Then, after enabling it, unplug the cable, wait for the router to restart. Now connect your PC again, navigate to 192.168.0.1 (the router's default address), and change the Network » LAN address of the router to something other than your existing router's IP. Restart, then go to DHCP and disable the built-in server. Restart once more and the router should work.
+I've contacted TP-Link's user support. In the result of this, they have improved the Bonjour support of the router in the 11/17/2014 software update:

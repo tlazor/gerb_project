@@ -1,0 +1,6 @@
+I think I would do it by creating a pivot with AD Group as the rows and any old thing as the "data" - which will give you a count of something you don't care about. Then you can double click on an AD Group entry and the table will offer to expand another "level", choose SP Group for that. Then just hide or ignore the count column. Reformat the table as desired.
+Drag AD Group and SP Group into the Rows area and format the pivot table to use Tabular form (via pivot table Design ribbon)
+I need to be able to display a summary of this data which shows the values in the "SP Group" column for each unique value in the "AD Group" column. This is a rough mock-up of the results I'd like to see. 
+I tried to do it using counts, with one type of group as the rows and the other type as columns. However, there are over 100 AD Groups and over 400 SP Groups. This does not create a usable summary. 
+You may try re-order the whole file according to their AD group, after which the file will be displayed as one after one Ad group, then what you need to do is to delete the repeat AD group name. Finally, you will be there. 
+The size of the data set means I can't just do it via sorting. My instinct is that there has to be a way to make this work with a pivot table. The challenge seems to be that I want to display text values. 

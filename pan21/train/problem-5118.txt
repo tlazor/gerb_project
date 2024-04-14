@@ -1,0 +1,6 @@
+As mentioned in another answer, iterating with indices in Python in most cases is a bad idea. Python has many methods and modules to avoid it. For your problem Python has powerful decimal module to work with decimal numbers. Here is how it can solve your problem:
+I'm looking for any feedback on my implementation, and how to make this code more efficient. It seems weird that I have to cast the num to a string, then look at each char, convert it to int, then determine if it's even. Having to cast (int => string => analyzing as char => int) seems unnecessary to me.
+Using either of these approaches have the advantage that you only do the conversion from int => str, rather than (implicit for decimal) int => str => int.
+P.S. This solution doesn't use the length of the number, it doesn't need it. decimal module do the whole work.
+This creates a lambda(inline) function that takes two inputs x and y and performs a list comprehension that extracts digits from the input number(x) if they are even and then returns the length of this list which is the number of even digits.
+Since you are dealing with digits, you at some point must pick a base (in this case base 10). So converting the number to a string is not a bad way of getting the digits. I would keep it simple, and just check each digit and see if it is one of the digits you want.

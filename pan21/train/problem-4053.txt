@@ -1,0 +1,5 @@
+You can now use the free and open source iTuneService (formerly JTunes) to wrap iTunes in a windows service.
+These are the best ways to do, but if for any reason they does not work, You may try any of these guides: 
+Check out a link here that was originally meant for Windows Home Server, but looks like it could apply nicely to your situation.
+I'd like to run iTunes as a Windows service on my home dev server which runs Windows 2008 so that I can stream my collection to my AppleTV over my home network. Currently I have to log in to Windows and open iTunes before the AppleTV can see the library. I have tried setting iTunes up as a Windows service so that it'll start at boot time. Not successfully, though, while it appears in the process list it isn't contactable via another instance of iTunes.
+You can basically do this on Windows with FireDaemon, This lets you run any program as a service, so this may help you. For specifically iTunes there is a software called iHomeServer (Paid), You may check out that.

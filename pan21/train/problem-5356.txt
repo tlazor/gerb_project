@@ -1,0 +1,8 @@
+With regards to math, I'm also a little shaky on my foundations. A good resource for these general subject areas is Khan Academy.
+Real-time Rendering by Tomas Moller and Eric Haines for a similarly in-depth treatment of rendering.
+Game Engine Architecture by Jason Gregory (Naughty Dog) for general game engine overview at a reasonably detailed level.
+http://www.courseptr.com/Courses.aspx?MenuId=8&MenuSubId=0 - they're the publishers of the Game Programming Gems series.
+Have you looked at Game Programming Gems series?  It might give you the specifics you seem to be asking for.  There are not many books out on HTML5/canvas as it is quite new, especially ones talking about game programming.
+Real-time Collision Detection by Christer Ericson (God of War) for an in-depth and comprehensive overview of collision detection systems.
+You're probably at the stage where you'll get the most information by looking at various tutorial postings for specific engines online. There's also a decent enough number of open source games you can check out.
+What aspect of game programming are you curious about? There's quite a few books that discuss specific aspects of game programming. Getting a game up and running is not difficult, and any game logic is just like how you'd manage data for any other application, perhaps a little more concerned with speed of execution. Getting into stuff like graphics programming though, can be something else entirely. Start with a basic framework of a game, then focus on one area you're interested in, like designing a robust combat system, or synchronizing animation, or shaders.

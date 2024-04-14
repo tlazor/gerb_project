@@ -1,0 +1,16 @@
+Assuming your domain registrar only host your dns servers, you can find secondary dns services at many places. Also keep in mind that you are not usually forced to use the dns servers of your domain registrar.
+Here's a funny but relevant tangent: in ~2004 some tiny site (fido.net?) with its own ASN broadcast a bad BGP prefix that cascaded to take down most of the internet core routing. Cisco and the major players fixed the bug, and we've never seen an internet wide outage due to a bad BGP prefix being broadcast again.
+Remember that having resilient dns servers don't help at all if the target of the DDoS is your web servers and your web servers are hosted at a single provider.
+You can go for it and many others, But I would like to point some things which you should be looking for when you choose your DNS provider.
+For those secondary dns services to work efficiently, the management interface of your (primary) dns service provider should allow you to:
+This is not cheap or easy to mitigate from your end without owning your own infrastructure (which I can assure you is not cheap if Dyn's didn't stand up). The point of the DNS system is it is just supposed to work.
+Which is my long way of saying you have an extremely valid fear that's so improbable and unlikely to ever happen again that you should just move on and not worry about it. Not because you're not right to worry and there's a 0% chance of this ever happening again (it might!), but because you have far more real and salient things that will affect your business in the near future that are better uses of your time, money, and effort than attempting to mitigate this.
+And also point out that every DNS provider on earth is focused on hardening themselves to DDoS right now.
+As Gaurav Kansal said Google public DNS is a caching(recursive) DNS and wouldn't be much of your help.
+As the customer you can't really do anything to prevent outages of a supplier, although as long as you're not the actual target of the DDOS you can mitigate some of the effect of outages from a single supplier either by having multiple suppliers (at the risk that such additional complexity will increase the risk of operator error by you/your team), or by switching to better supplier with fewer outages.
+So, this is a tricky question. Most people answering this are giving technically excellent answers - distribute your zones across multiple nameservers, use high TTLs, invest in anycast, etc. - but I want to give you a contrarian viewpoint.
+What I'm trying to say is - the entire internet relies on DNS. This DDoS against Dyn last week was extraordinary - in its magnitude, severity, and improbability.
+Pure for DNS a zero cost mitigating measure you can easily take is to simply increase the TTL value of your DNS records.
+DNS is critical to the functioning of the internet. Everyone is on edge right now because of the recent DDoS against Dyn but this fear will fade.
+A TTL of 5 minutes means that an outage of all authoritative DNS servers (at the same time) with a duration longer than 5 minutes will probably effect 100% of your users, while with a TTL of 1 week an outage of 24 hours will still roughly effect only 1/7 or 15% of your users. 
+Secondary dns servers will periodically download a copy of your dns records from the primary servers.

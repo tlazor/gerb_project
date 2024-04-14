@@ -1,0 +1,13 @@
+For non-whitelisted domains you should see the message being removed in the maillog but with no connection taking place before hand, and relay showing as none (there may be no sign of a connection, but if relay != none there's a very good chance the mail was sent).
+Job done! You should now find that emails sent to domains not specified are silently discarded, whilst those for whitelisted domains go through as normal. Be sure to check that the change has worked though, mailq and the maillog are your friends!
+Now we need to update the transport maps (if you didn't need to add a line, subsitute the relevant file path here)
+Now we need to add a line specifying which domain to allow sending to (I'm going to allow to bentasker.co.uk). To do so, insert the following lines
+This will simply discard messages to any email address not of the domain bentasker.co.uk. If you wanted to reject with an error you'd use (set the error text to suit your needs)
+Now search for transport_maps (Ctrl-W, transport_maps -> Enter). You shouldn't find anything (if you do, skip the next step, but make note of which file is listed)
+Source: http://www.bentasker.co.uk/documentation/linux/161-configuring-postfix-to-block-outgoing-mail-to-all-but-one-domain 
+But I am having only one domain in that server, So I need to block fake Id and give permission only for my example.com domain. 
+Using this method, we can tell Postfix to either reject the mail, or disregard it. The latter is generally the preferred method as we want the sending application to believe the mail has been sent.
+We are having postfix mail server in centos webserver. In that server users able to send from fake email id like admin@gmail.com and all. 
+After i had the same problem, and a quick search, i found the following (ripped off http://www.bentasker.co.uk/documentation/linux/161-configuring-postfix-to-block-outgoing-mail-to-all-but-one-domain)
+Note: Depending on the version of Postfix you're running, you could use texthash which would avoid needing to run postmap on the file. It's up to the reader to work out which route they'd prefer, but if your postfix version is < 2.8 you can't use texthash.
+To force that users use email address like something@example.lan for mail sended  from  inside the server, you can use this configuration

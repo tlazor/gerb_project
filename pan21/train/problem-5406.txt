@@ -1,0 +1,10 @@
+Other thoughts, perhaps your system messes with the completion functions, and a new dump is forcefully generated each time? Try setting compinit in your .zshrc with -C (after generating the dump at least once).
+After using that, the first time you start a shell it will be slow (as it will generate the dump, but the next ones will not).
+What's more likely is that something along the way in your startup sequence is waiting for the network.  An example would be a path directory that's on a network drive that isn't ready or perhaps isn't powered up at all.  Network timeouts are often many seconds.
+It's unlikely that having a few extra alias definitions in your startup files are responsible for noticeable startup delays.  Even if you had so many it actually mattered, the delay wouldn't be sporadic, it'd be the same every time.
+For those who use oh-my-zsh it worth to know that it sets a different name to the .zcompudump file, it is: $ZSH_COMPDUMP.
+Sometimes my shell (zsh) takes longer to start than usual (I open the terminal, and it hangs a bit until I can input commands).
+If that does happen, wouldn't it just be more effective to have those aliases as shell scripts and put them somewhere in my PATH?
+If you make an alias with the shell open, it remains valid only through the current session, so I started to wonder if all this source and alias actually harm the shell's startup performance (I'm assuming it has to go through a lengthy process of running all those commands on start).
+Perhaps you are NOT doing a 'dump' of your completion system when calling compinit? (that could slow down zsh at start up...). If you are using compinit, make sure you are just calling
+I have a few aliases on my .zshrc (well, actually they're in a different file that .zshrc does a source on).

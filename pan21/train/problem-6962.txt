@@ -1,0 +1,7 @@
+You can see these aws ec2 'Key pair name' values in the EC2 'Network & Security -> Key Pairs' screen.
+If you are using AWS CLI, you can also look at the "KeyName" values when running aws ec2 describe-key-pairs
+I am playing with Amazon EC2 to create instance. I was reading here: here in the knife documenation for EC2, that I would need to set:
+is due to a missing SSH Keypair in your knife ec2 server create command. You need to specify an SSH Keypair whenever you launch an Amazon EC2 instance. This SSH public key is added to a newly launched instance to enable a passwordless SSH login. Keypairs can either be created or imported. Keypairs (for US-East region) can be found at EC2 -> Keypairs section of your Amazon AWS console.
+I'm assuming that you are receiving this error while creating a new node and not when you try to set the security credentials in your knife.rb.
+Note: This will launch an EC2 instance out of the specified ami-id and with the SSH keypair. Knife will proceed towards knife bootstrap once the instance is launched. To do so, you need to make sure the SSH keypair's private key is added to your ssh-agent session before initiating a knife ec2 server create. You might also want to specify your Chef server URL with --server-url option of knife ec2 server create.
+In addition to the other answers. The aws_ssh_key_id must be one of the 'key pair names' registered with your AWS account. This usually corresponds with your ssh key file name, but it can differ.

@@ -1,0 +1,6 @@
+Just my own take on the code, it may not be what you were thinking, but it too gracefully handles if there are multiple or no instances of hero-action.
+Note: I'm not just checking for the entire string because the CMS is generating the <p>...</p> block with some weird amount of whitespace and I was struggling to match spaces, newlines, etc.
+Like I said, it works it just feels dumb. I know I could make an anonymous self calling function, but I'm more interested in how to improve the if check if there is a way.
+This replaces sequence of 2 or more whitespaces (possible mixture spaces, tabs, newlines) with a single space, so that the indexOf will match regardless of the number of spaces in the original text.
+I have a page that is part of a CMS and I cannot alter any existing HTML or CSS, but I can add additional custom JavaScript and CSS. There is some text on this page I want to hide and I found a solution but it feels kludgey. I can't be sure other pages won't have similar content on them, which is why I'm being so specific in my check.
+although you asked for it but in the end you didn't need to handle strings with strange number of spaces like office    is  closed,

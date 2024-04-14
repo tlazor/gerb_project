@@ -1,0 +1,6 @@
+Having used unix shell scripts in a previous career, then moving to windows server administration, I can say that I really, really appreciate powershell--I don't have time nor ability to learn too much arcane syntax and was pleasantly surprised that a lot of powershell scripts can be written with very straightforward language...take that what its worth as I was used to ksh!!  
+I'd recommend Scott Hanselman's Podcast #162. It seems like all the Microsoft server teams are "forced" to provide PowerShell cmdlets, and also to follow a single, consistent syntax.
+I was looking at poweshell to replace our client batch scripts - running programs, logon scripts etc.
+But found that it added at least 10 seconds to logon time - thats with all the "tweaks" in place.  So ended up staying with what we were using.
+In short, I believe that PowerShell starting with 2.0 is seriously in the business of replacing batch files for all but the most trivial tasks.
+How can I not use it? All Microsoft server applications coming out/being upgraded are now managed using Powershell. Some more or less annoying UI/Management Console are then provided built on-top of this core which often is dog slow and as someone pointed out, lacks features that are available... so I can't say we have much choice actually ^^

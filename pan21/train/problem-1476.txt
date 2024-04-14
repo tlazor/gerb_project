@@ -1,0 +1,10 @@
+With this I was able to write a Postgres script to convert my data set over from MSSQL.  Also included it in a script I wrote to import the AdventureWorks database into Postgres:
+The biggest problem I've seen with it is that we are iterating through the levels in a looping fashion instead of being more set-based.  In that area it doesn't perform real well for us, but I'm not sure if that is a problem with the type or our implementation of it.
+Just search for "hierarchyid" in the install.sql file there and you'll soon find references to converting it.
+Our team has implemented it in production, at first the performance is good, after 2 years, the table now contains 430,000 rows and getroot and getdecendent takes 3 seconds, both of them are required for calculating the next Id value for inserting record. Now a single subtree insertion takes about 16 seconds which is not acceptable at all.
+The reason is simple: quoting from Microsoft comment on Connect, "The problem is that CLR calls, including hierarchyID's methods, are opaque to the query optimizer. This is by design. However, it means that the cardinality estimate for them can sometimes be quite wrong."
+On the other hand, implementing materialized path is very easy the first time we need to do it, and next time it is essentially a copy-and-paste task. So, we get a more versatile and better performing solution with very little effort.
+One problem with hierarchyid is you get vendor lock-in.  But I did find a great article by Adam Milazzo about how everything works internally:
+As compared to materialized path, in some important cases HierarchyId seems to be both less performant and less convenient to work with. 
+So I completely agree with Paul Nielsen, who wrote in his excellent book entitled "Microsoft® SQL Server® 2008 Bible" as follows: "The new HierarchyID is not without controversy. It’s new and gets plenty of press and demo time,
+My company uses HeirachyID in direct sales, multi-level marketing software.  It works.  I haven't really done any work with it I just know we are using it.

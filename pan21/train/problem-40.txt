@@ -1,0 +1,8 @@
+With that, the error was gone and I was able to run my application on a staging/production environment. 
+or whatever the path is on your distro and release. Then restart nginx which will re-create these folders with the appropriate permissions.
+You probably started with user root, then changed it. Now the problem is that the cache folders, i.e.
+This needed to avoid nginx trying to put the files into the default proxy_temp_path.  From the nginx docs:
+In my case, nginx was running as www-data and two of the directories in my proxy directory belonged to root.
+So I did all of the above and unfortunately for me it was giving me the same error. I am running a rails app packaged into a jar file with torquebox on a centos 6.7 machine with nginx. I battled this for about 3 hours until I found another solution and I hope it helps someone else. 
+According to this article nginx may run on enforcing mode. I just simply changed nginx to permissive mode with 
+are already owned by root, so your nginx (or whatever you're trying to switch to) user can't access them coz they have a permission of 700.

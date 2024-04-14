@@ -1,0 +1,8 @@
+I agree with what Jesse said in that a grouping of your repositories into one related is one approach and may be the one best suited in your case.  However I'd like to offer another approach and that would be use composition in your ViewModel and have it contain lots of smaller ViewModels.
+Aside from this I would consider having another object that was responsible for building up your viewmodels.  Of course it depends on the design and requirements of the system but I would be asking.  
+If yes then having the viewModel build itself is really limiting it to the knowledge of where and what data to obtain, even if the where of that data is abstracted out view interfaces.  There are existing mapping frameworks out there already that may offer assistance if you were worried about the class explosion this might cause?
+So if I was to continue on with the IFooRepositoriesContext approach I might consider something like this:
+or if you wanted to make it explict that the ProductViewModel always needs parameters then create the constructor to take the IFooRepositoriesContext:
+I assume this was a grammatical error and you don't actually call dialogs from within the viewModel itself?  If so I seriously think you should reconsider your approach to using the ViewModels.
+I don't think that splitting the ViewModels up into smaller ones will break this statement .  However I also don't necessarily agree with it either.  Why should the ViewModel depend on anything?  
+However what I do think splitting your ViewModels up (where possible of course) is allow you to potentially re-use any Viewmodel while also making each view model specific to a particular part of the design/functional requirement.

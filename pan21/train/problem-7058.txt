@@ -1,0 +1,5 @@
+Assuming that NFS is not "good enough" for you (I'd imagine FreeNAS supports NFS), how about using NBD (network Block Device) - that should allow the harddrives / software raid setup on the remote box to work as a raw block device across Ethernet ?
+Looking into some storage solutions for a small server. I've got a Mac mini running OS X server providing open directory accounts for all my machines (which are 98% OS X save two Windows machines). 
+I've got 5 x 2TB HDs lying around and want a rackmount enclosure that I can fire the harddrives into, set them up as RAID (software via OS X or hardware- don't care) and connect that to the server (lightning, USB- etc). From there obviously mount that to the server and dish out space to users. Problem is when searching for these boxes, they all seem to be around the £1500 mark which is quite a bit of expense just for a rackmount removable drive!
+Why not just get a second hand 2u server, throw the disks in it and Linux on it and share it using a protocol that will work for you 
+Any help or guidance on how to proceed? Before someone mentions it - I don't want to use FreeNAS, tried it and it doesn't work with my setup. 

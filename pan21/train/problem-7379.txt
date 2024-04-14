@@ -1,0 +1,5 @@
+Why don't you simply set your CentOS server to use the Windows dns server instead of the local one? Edit your network configuration (either through system-config-network or directly edit /etc/resolv.conf) and set the nameservers as the windows one.
+You should have at least two DNS servers but they really need to be on separate machines. Ideally they will also be on separate Internet connections. Having them all on one machine defeats the idea of redundancy somewhat.
+Regardless of that, creating a backup server (on a different machine) is always a good idea so you might want to use womble's answer anyway.
+Are ns1.domain.com and ns2.domain.com virtual machines running on the Windows box? If so, you'll have no DNS servers when the Windows machine goes down unless you do as suggested by Womble. Your customers may get annoyed if your site is unreachable due to a failure in DNS resolution.
+Yes.  Tell the CentOS machine to be a slave, and transfer zones from the Windows server, then tell the Windows server to notify the CentOS server on changes, and allow zone transfers from the CentOS box.

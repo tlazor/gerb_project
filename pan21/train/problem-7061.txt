@@ -1,0 +1,12 @@
+This will not work 100% of the time but for my application it was a simple and great solution.   Hope this helps somebody
+I was going do upgrade my servers to Percona server anyway so this bounding is not an issue for me. Managing hundreds of triggers and adding fields to tables is a major pain for this application, because it's very late in development.
+Percona server introduces many new INFORMATION_SCHEMA tables like INNODB_TABLE_STATS, which isn't available in standard MySQL server.
+if you are using web based gui, you should look into APE http://ape-project.org/ or other similar projects. 
+This returns a number that increases with each table update, keeping track of it will allow to to detect change.
+other then that, the ideal solution would be if your client wasn't polling for result's constantly, but instead you where pushing new and changed data when and if it was available. It would be faster and less load would be on the server.
+Important note: the value is changed immediately after an UPDATE, not after COMMIT. So you may not see the changes if the modifications were made inside another transaction that didn't finish.
+You get actual row count and a counter. The Official documentation says the following about this field:
+This is the PHP function I've come up with to make sure that tables can be checksummed whatever engine and server is used:
+So this counter wraps every once in a while, but you can make a checksum of the number of rows and the counter, and then with every modification of the table you get a unique checksum. E.g.:
+This answer has nothing to do with mysql database versions or types, I wanted to know if update statements were making changes AND to do this in my php code..  
+I think I've found the solution. For some time I was looking at Percona Server to replace my MySQL servers, and now i think there is a good reason for this.

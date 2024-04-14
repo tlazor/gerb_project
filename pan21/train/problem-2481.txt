@@ -1,0 +1,7 @@
+I've seen some suggestions indicating I could set gpgcheck=0 in /etc/yum/pluginconf.d/rhnplugin.conf, but that will disable checks on all channels, and I'd rather just disable it for the internal packages, for which I don't have the keys.
+In the /etc/yum/pluginconf.d/rhnplugin.conf file simply create a section corresposnding to the channel name for which you want to disable checks.
+For patching of my servers, I've converted from using local yum repositories on the clients under /etc/yum.repos.d, to registering the client with a spacewalk server.
+Actually this is very easy, simply poorly documented. (I know, I spent a long time looking for this answer).
+However, we have an internal yum repository, and I don't have the GPG keys which were used to sign the packages.  This isn't an problem when using local yum repos, as I can just disable gpg on the repository using gpgcheck=0.  However, it doesn't appear that I can do something similar with spacewalk.  Even though I don't have a key associated with the channel, installing from the command line gives GPG errors (ie: yum install -y somepackage).
+From the CLI, I can get around this using the --nogpgcheck option to yum. However, we're using puppet in our environment to install some of these packages, and there doesn't appear to be a simple way to pass in optional parameters to yum through puppet.
+The man page doesn't even mention that this can be done. But there are comments in the file that demo it.

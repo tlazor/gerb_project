@@ -1,0 +1,5 @@
+I want to collect these logs at a central server (in nearly realtime) and present them to other users via a web interface after authentication.
+So I'd need a sync mechanism (perferably running as client on all servers) which pushes the log changes to a central server which collects these logs and makes them available via web interface.
+I got several windows servers which run multiple instances of a software that produces logfiles. We are talking about 5-10MB per hour per server.
+You might also consider logstash. If you go this route, Kibana is a much better web interface than the one Logstash ships with.
+In my environment, I just set up Graylog2 as an aggregation point/browser interface, and nxlog as a forwarding agent to read in from log files and the system event log and forward them in GELF format to the Graylog2 server. nxlog can be a little finicky, but generally works pretty well. It's also available for Linux. Graylog2 does some nifty things like indexing logs into streams based on configurable search criteria and providing basic alerting on certain kinds of log messages.

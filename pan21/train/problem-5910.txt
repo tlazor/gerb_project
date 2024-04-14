@@ -1,0 +1,7 @@
+I want to know which is less used or which DB has less no of transactions or less active through out the day
+Unless you have Systems Centre Operations Manager with the SQL Server Management Pack, a good way is to set up some sort of data collector that queries the appropriate DMV's.
+Another good way is by the disk IO but this can be misleading too as a lot can show up and be caused by backups/maintenance.
+Then run it again at the end of the day. Subtract one set of values from the other. That will give you the most transactions.
+Assuming you are running SQL Server 2008 + you can set up a Management Data Warehouse on the instance using SQL Server Management Studio. The result is a graphical user interface in the style of a performance dashboard.
+You can look for a similar counter for logins/sec but it may be misleading depending on how the app connects to the database and if it keeps the connection open or not.
+Set up out of the box is easy and informative, and when you get bored of the default measures, it can be easily extended.

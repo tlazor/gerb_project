@@ -1,0 +1,5 @@
+After running ssh-keygen on the new box (lets call it Server A), and copying the public key over to Server B, I try to SSH from A into B. I ran into some permissions issues, so made a couple of chmod's (tried changing id_rsa.pub to 0600 from 644, and then later chmod'd the .ssh dir to 0600).
+As background information, I was able to successfully ssh (with rsync -e "ssh -i...") last night from Server A into Server B. No changes were made between 7 hours ago then and when I began to have problems this morning. 
+What in the world is going on? What am I missing? As this is a fresh install, I have to believe that this is user error, but I'm absolutely stumped.
+But when I try to do an ls -la as dwhite, I get a permission denied. So I sudoed into root and did a chmod of the .ssh directory back to 644. I get back into dwhite's account, and run ls -la:
+I just finished installing CentOS 6 last night (netinstall from georgia tech repository), and have been running into some weird SSH issues when I try to SSH from the CentOS box (behind my home network) to one of my public-facing web servers.

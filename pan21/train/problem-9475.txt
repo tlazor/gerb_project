@@ -1,0 +1,7 @@
+You would need to forward port 80 to your web server, and port 25 to your mail server on your router.
+Is this possible?  If I have only one ip address then changing the MX record shouldn't matter as it's the same as the www.  But my email is on a different machine altogether.
+If you only have one public server, then there's nothing you can do: only one server can be using a given public IP at the same time.
+Do you have a single server sitting directly on the Internet with its public IP address, or do you have a private network with a router connecting it to the outside?
+Of course, if you are in the first scenario, you can always move to the second one by putting a router between your server(s) and the rest of the world.
+If you have a LAN behind a router, then this router handles the public IP address for you and usually (99% of the times) can be configured to forward specific connetions to internal servers; in this case, you'd need to configure it to forward TCP port 80 (HTTP) to your web server's internal IP address and TCP port 25 (SMTP) to your mail server's one.
+I believe you can also forward requests to port 25 on your web server to mail server. The reverse can be done, too (mail server forwards port 80 requests to web server).

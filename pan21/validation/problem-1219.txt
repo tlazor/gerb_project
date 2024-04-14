@@ -1,0 +1,6 @@
+However, if your workload instead consists of many parallel file accesses---such as would occur in a file server being hit by multiple users at once---then RAID1 will be faster than a single disk because the concurrent read requests are allocated across multiple disk spindles.
+Are you currently using a Linux software RAID5? If so, a "sucking" read performance would not be normal, there must be a reason for it. 
+The "far" layout may give you better read performance (see http://neil.brown.name/blog/20040827225440). Apart of that RAID1 with md gives redundancy, but no speed boost.
+RAID1 is mirroring, so you can't expect any speed increases. RAID0 (striping) does indeed increase the speed, up to the factor 2, but less in reality. 
+Single-threaded application performance on mdadm RAID1 is indeed no better than using a single disk. That's because mdadm chooses one of the disks in the array to satisfy a given read request. So if your workload consists of a single process reading sequentially from a single file, then mdadm RAID1 will not outperform a single disk.
+In summary, whether or not mdadm RAID1 will be faster than a single disk depends a lot on your particular mix of workloads.

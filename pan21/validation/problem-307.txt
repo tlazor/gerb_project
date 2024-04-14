@@ -1,0 +1,7 @@
+Since you already know the infected viruses you may use the removal tools dedicated for the each virus/Trojan. Since they are targeting just the infected one they may be more effective than a virus guard (Not sure though).
+The file name A0027132.exe is a generic name used by windows restore when it backs up current executable files. In other words when windows is backing up your files it's also backing up viruses.
+I don't know this is applicable but I think you can use Kaspersky antivirus for remove the virus. I think you can download a Beta from it's web site. Apparently It is very effective antivirus program than most of the other programs.
+I deal with virus infection on a daily basis as an IT professional i would recommended the first step would be to Clear your system restore as this is where the viruses are located (or copying themselves to) this can be done by following these steps
+(And yes, those two were real threats. PC virus loves to use System restore folder for example because a single user can't even go there.)
+Then i would suggest you download Malwarebytes and scan ASAP if this is not possible in normal Windows mode i would reboot holding the F8 key down and select "Safe Mode" and running a full scan. 
+Try installing Avast! Free, update it, schedule a boot-time scan. After that is done, try MalwareBytes' Anti-malware. These two should really clean your PC.  

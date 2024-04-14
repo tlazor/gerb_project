@@ -1,0 +1,5 @@
+You need to link your particle system with a force field around a line or cylinder while the force should point inside to the cylinder; Then spawm particles around the center (1.5 character width aprox.) perpendicular to the force field. 
+I'm not familiar with Minecraft Forge, but Every 3D game engine particle system should have a set of objects or helpers that interact with your particle systems affecting them by forces. For example gravity can be a linear force field given a vector or radial force field given a position. 
+Spawn a bunch of particle system around a circle on the base or your character then rotate these positions where the particles are spawn (posX, posY, posZ). The effect is like a fountain, with spirals. 
+If your game engine doesn't support those type of force field try following trick with similar effect: 
+Last option, because I think this will slow down performance, if you have access to modify particles velocity in real time implement the solution given by @Alex:Taking a normalized vector from particle position to character position vertical axis, multiply it by acceleration, then add it to current particle velocity vector.  

@@ -1,0 +1,6 @@
+IE9 does not show the Content-Encoding: gzip header even though the request is gzip-compressed, so don't trust MSIE when checking whether gzip compression is enabled.
+Deflate and GZip are almost the same thing, gzip is technically slower, though on modern computers the difference can be safely ignored at the client end, and on the server end if you're caching the responses (not possible with dynamically generated pages).
+This is approximately the correct file size reported in firebug. But is half the file size reported in IE develolper tools. So it seems that not only is IE worse at gzip but it's developer tool reports incorrectly that it is even worse than it is.
+Ithink I have worked out what is happening here. I downloaded Wireshark and checked network traffic through that. Istruggled with it a but but I think I've got it now - would be great if someone can confirm I have done this correctly. 
+And also, beware of MSIE + TLS + gzip + chunked transfer encoding combination, there are some bugs like: https://support.microsoft.com/kb/871205
+Looking at the file all.js as an example I followed the tcp stream for the request in firefox and IE9. Both said they were using gzip encyption. Interestingly the total size of the conversation was different. Ie9 – 268471 bytes FF-120812 bytes (both smaller than the uncompressed file).

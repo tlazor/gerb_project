@@ -1,0 +1,7 @@
+We have a dozen meeting rooms, are looking to get rid of some of them, if we can prove that the remaining meeting rooms will cover our needs.
+The version of Exchange might matter, because it will define what APIs are available either through Powershell or EWS. Or you could just use Outlook to connect with an account that has read-access to all the calendars and put them in single view or export.
+Note: Meeting rooms are registered as users on our Exchange server, and they are added as "Resources" when booking meeting. This may be a non-standard way to do this, but that's how it is at the moment.
+I think what will matter more is the high-water mark (and how often/for how long) for simultaneous meetings, and only then can you figure out how many rooms to get rid of.
+However, I think this is going to have to be a manual exercise. "Percent of single room capacity occupied" is only a meaningful comparison characteristic if you have rooms that are all identical size.
+We use an Exchange server. Is there any way I can query Exchange, with SQL or by other means, for how many percent occupied each room is during a period of time?
+And it might not help you anyway. What if you find out that you have 6 rooms and all of them are only 50% full, 100% of the time? That doesn't mean you can collapse all 6 meetings into 3 rooms. Might be some fights over who gets the mic and laser pointer.

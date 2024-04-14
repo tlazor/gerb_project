@@ -1,0 +1,8 @@
+If you want more details, I wrote a detailed blog post at: https://www.collabora.com/news-and-blog/blog/2018/07/04/docker-io-debian-package-back-to-life/
+Technically, these packages are built differently: for docker.io the build dependencies are fetched from Debian packages, while for docker, the build dependencies are in-tree, in the vendor directory.
+Talking about Debian packages: docker.io is the name of the package provided by Debian/Ubuntu, while docker is the name of the package provided by docker.com.
+Trying to learn docker here but I am a bit confused on what the difference is between docker.io and docker. Is docker.io the daemon server and docker the client? Why does the daemon need to run all the time?
+Probably you want docker-engine because the Ubuntu one is too old and buggy to be used. As of today Ubuntu has 1.6.2 and Docker registry has 1.12.0 !
+So we can assume that docker.io is both the daemon and the client process, just invoked with different flags I assume?!
+In terms of how it works, the Docker Engine consists of two parts: a daemon, a server process that manages all the containers, and a client, which acts as a remote control for the daemon.
+Docker is the name of the open platform for developers and sysadmins to build, ship, and run distributed applications. Docker.io on the other hand is the name of the package that you install in your Linux OS (i.e. Ubuntu). See this link here.

@@ -1,0 +1,8 @@
+I assumed in all these solutions, that the client will always use two consecutive ports - is this true?
+If after reading the RFCs you still have specific implementation questions related to solving an actual, practical problem please ask new questions with specific detail. 
+And why is Passive FTP using an arbitrary port on server site for the data connection? Why not port 21?
+Server is behind Router - from where does the router know, that the packet receiving on an arbitrary port is for the FTP Server? (and therefore, how does the router know not to drop this packet)
+Use a modern alternative like SFTP which adds security to the connection (sending your password in plaintext is generally considered a Bad Thing these days), and also doesn't do the deranged port-dance that FTP does.  That way you don't have to worry about the arcana of how FTP works.
+You will probably also want to read Firewall-Friendly FTP, and The big list of security considerations if you're going to use FTP. 
+The absolute best possible advice I can give you about FTP and NAT in practice is Just don't do it.  
+Server:21 connects to 1.2.3.5:(ARBITRARY+1) - from where does the router knows to whom this packet belongs to?

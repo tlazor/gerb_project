@@ -1,0 +1,6 @@
+You can use Valentina Studio (free) application to manager this DB Server, as well as mySQL, postgreSQL, SQLite, MS SQL. It also works as native C++ made application on 3 OS.
+As stated before sqlite is not a client-server application and it is not built for highly concurrent operations.
+No, SQLite doesn't present a network endpoint - it is only accessible via the filesystem. It does support concurrent access from multiple processes on the same machine but at a very coarse-grained level (DML locks an entire table). So you could have a dozen Apache httpd processes all with a SQLite database on the local disk open, all doing SELECTs and it would work just fine. But really, it's the wrong tool for the job - I'd use Postgres in this scenario. 
+You can use a service similar to dropbox. There self-hosted solutions. However, SQLite3 was not created for a client-server model. You'd be better of with other solutions which were developed ground-up by client-server model.
+Right now access to this server can be done from C++, Xojo and LiveCode. Soon will be added PHP, Java, .NET. 
+SQLite Server contains such features as: SSL, ACL, Backups, REST API, Notification Channels, JSON, XML.  

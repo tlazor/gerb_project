@@ -1,0 +1,6 @@
+If you want to move your Downloads (a System folder) to another location where Windows recognise it as the preferred destination (e.g. for Edge downloads). Open This PC folder and spot the Downloads folder (it might be collapsed under the 'Folders' group above the 'Devices and drives' group). 
+Right click on Downloads folder, pick 'Properties'. From the dialogue box, pick the tab 'Location' and there you can set it to D:\Downloads. Confirm your changes.
+I was searching for this and the acceptable answer didn't work so, but after more research I found this one:
+https://answers.microsoft.com/en-us/windows/forum/windows8_1-files/accidentally-moved-my-download-folder-to-d-how-to/8d226529-4da4-4275-b515-2df17b9fdf48
+Double-click "{374DE290-123F-4565-9164-39C4925E467B}" and its value data to "%USERPROFILE%\Downloads". Also ensure the value is of type REG_EXPAND_SZ if you're inputting an expandable/environment string in there.
+You'll need to edit the registry in this case, as you've moved it to the drive's root folder. In this case you can't restore it back using the Location tab.

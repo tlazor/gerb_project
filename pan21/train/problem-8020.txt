@@ -1,0 +1,6 @@
+As I said earlier, this works if you have only 1 table. I have not tested this, so it is just a theoretical approach but I have experienced the speed of partition dropping and it is amazingly quick.
+To enhance your selects, use proper indexing and to enhance inserts minimize row size and number of indexes (this statement is very generic...)
+Key value 1123234441 is for active rows and key value: 9123234441 is for inactive rows (first digit in this example is used as follows: 1=active, 9=inactive).
+Assuming that you have a very high volume of rows and high volume of deletes, you can enhance the delete performance by creating 2 partitions on your table. The partitions would differ by the first digit of the key. Example: 
+Here is a crazy idea. It involves assumptions and not always recommended practices (like updating a key) - I will get lots of negatives for suggesting this but here it goes...
+Now when the user deletes a row, you don't physically delete the row, you update the key (Ouch!), this would automatically move the row to the inactive rows partition.

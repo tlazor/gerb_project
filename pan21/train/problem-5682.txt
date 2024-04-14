@@ -1,0 +1,6 @@
+While a linear algorithm solves the original problem with ease, it is not efficient enough to solve the extended version where the input \$n\$ can go up to \$10^{18}\$. To speed up computation using the linear recurrence, we define a length-\$(m+1)\$ column vector
+Since the power operation can be computed in \$\Theta(\log(n-m+1))\$ matrix multiplications and the multiplication time complexity is \$O(m^3)\$, the entire algorithm is \$O(m^3\log(n-m))\$ which is sufficient to solve the extended problem.
+Since any length-\$(n-1)\$ cover can be extended with a black unit to yield a length \$n\$ cover, we have
+The sequence \$\{c(i, m)\}_{i=0}^n\$ can now be generated from the linear recurrence (\ref{f4}) with initial values \$c(-1,m)=c(0,m)=\ldots=c(m-1,m)=1\$.
+Let \$c(n, m)\$ be the number of ways to cover \$n\$ units with red blocks of minimum length \$m\$. Let \$c_r(n, m)\$ and \$c_b(n, m)\$ be the respective number of covers that ends with a red or black unit. We have
+For any length-\$n\$ cover that ends with a red unit, it either extends a red-ending, length-\$(n-1)\$ cover, or adds a length-\$m\$ red block to a black-ending, length-\$(n-m)\$ cover. Therefore

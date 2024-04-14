@@ -1,0 +1,8 @@
+For completeness, I found the instructions here: http://wavded.tumblr.com/post/258713913/installing-tomcat-6-on-centos-5
+The instructions say to install the RPM-based JDK download from Sun, so I did that. Then the instructions say to install the appropriate -compat library from JPackage. At this point I get the following error:
+I would suggestion uninstalling the 1.6.0_18 jdk, and installing the 1.6.0_03 jdk. That should get you where you need to go.
+I'm looking to get Tomcat6 on CentOS 5 in an entirely RPM-based way. JPackage seems to be a great option for this, so I've added the repo and now I'm trying to get it to work.
+What confuses me in particular is that it seems to be looking for the fedora version of the Sun JVM. The JPAckage instructions do warn that it is vital to use the RPM-based download, so I have been sure to do this.
+You are trying to install a compat library for a different version of the JDK than you have install from Sun. 
+The key is this 3rd party compat library that fixes what ever strange issue CentOS 5 has with JPackage: http://plone.lucidsolutions.co.nz/linux/centos/jpackage-jpackage-utils-compatibility-for-centos-5.x
+I just love irony. Having given up on JPackage I went to look for good instructions to install Tomcat6 manually and have it run as an unprivileged user and have good startup scripts. What did I find instead? The solution to getting Tomcat6 to install on Centos5 with JPackage!

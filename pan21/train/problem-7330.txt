@@ -1,0 +1,6 @@
+Must we resort to something like change tracking, or require every application to save the last (batch*writers*x) IDs and re-read them to make sure they didn't miss any?
+We're currently using MSSQL 2012 if there's a hack specific to that system, but I'm more interested in general.
+The simple suggestion of having each app record the last ID doesn't seem safe. Suppose 3 connections (2 writers and 1 readers) do this:
+We have a table that is append+read only. We'd like to have multiple applications consume all new rows that show up in that database, in a cheap and easy way (without change tracking).
+In this case, the reader would get records 1001-2000 and save 2000 as the highest ID. Obviously that's not correct. Assuming the various writers are running at varying speeds (so we can never assume they'll commit in order, due to latency or perf), what options are there?
+Rollback and other gaps in the sequence (MSSQL can jump the IDs by 1000; pretty sure other DBs do that under certain situations) make it complicated to try to guess if rows were skipped. Plus the batch inserts might not be a proper batch; they could consist of multiple INSERT statements, meaning each tx might not even have a contiguous block of IDs assigned.

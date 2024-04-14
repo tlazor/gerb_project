@@ -1,0 +1,5 @@
+Thinking about setting-up as distributed RAID array over iSCSI.  Has anyone else tried this, if so what was your experience.
+This has many drawbacks and not a single advantage I can see, so I don't understand why you would want to do this.
+One of my concerns is the rebuild time if one of those servers is offline for a short amount of time.  Would it then be necessary to rebuild the entire array from scratch or is software RAID clever enough to only rewrite sectors that have changed?  My concern being that a small network glitch could otherwise potentially cause a long rebuild process.
+I wouldn't do it this way.  There are lots of manufactured NAS devices with multiple disk arrays both for home use and business use that have ISCSI built in.  These devices are designed with this purpose in mind and will outrun the software configuration that you are thinking about at a comparable or cheaper cost. 
+To be more specific I am thinking of a couple of CentOS servers each with say four drives, all published as iSCSI targets.  Then one Windows Server accessing all of these via iSCSI and connecting those targets together to create a software RAID array.

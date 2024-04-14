@@ -1,0 +1,8 @@
+However, is it also possible to directly embed an image into the document to share the Markdown document with the image file directly contained inside it?
+1) the referenced base64 block stops being parsed right at the point where 'a new chunk of image' starts, the green part ... So4Z4wxkXa7KukmKul2dDvd ...
+This was tested with http://tmpvar.com/markdown.html. I don't know how it behaves on github. The issue has been already well discussed.
+This is a screenshot of two base64 blocks inserted by using 1) an internal reference and 2) a common image insertion (see the code below).
+Whether this will work of course depends on whatever you’re using to (pre)view the document. It has to support and allow data: URIs.
+There are methods like MIME and base64 to encode binary data into a text file in a sense, but most text editors and Markdown-renderers wouldn't know what to do with a MIME encoded document that contains a Markdown text part and a base64 encoded image part. 
+I did some tests and embedding usually works with online markdown editors like dillinger.io, jbt.github.io, stackedit.io, so this topic isn't so black and white as @Spiff wrote above.
+No, a Markdown document is just a text file, and text editors (even Markdown-savvy ones) wouldn't know what to do with a blob of binary image data in the middle of a text file. 

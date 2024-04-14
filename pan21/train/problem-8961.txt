@@ -1,0 +1,7 @@
+We use Draytek 2910s all over the place, typically with one WAN port connected to an ADSL (NoNAT) router and the other to a leased line or similar connection. The router will detect a link failure on the WAN ports using a ping to an address you specify, and disables a failed port in about ten seconds. From inside traffic flows out through whichever WAN port is less loaded. You can also specify load balancing rules to direct outbound traffic through a specific WAN port based on source and/or destination ip address and/or port.
+If I understand your requirements correctly, a Draytek 2910 router will do exactly what you want, and unless your time is free it will be a lot cheaper than rolling your own.
+I'd say buy one of these routers from a place you can return it if it doesn't work and give it a try.
+Vyatta may also be an option.  I haven't used it in awhile and have read their latest is much easier to set up.
+The Linksys RV042 router might do the trick for you (BTW, this is now Cisco Small Business), the router was about $200 last time I checked.
+From outside you use port mapping rules separately on each WAN port, and if, for example, you port map 80 to an internal server on both WAN ports the router accepts connections on either WAN port and directs it to the server.
+You should be able to forward both WAN's to the same internal IP & Port.  I'm guessing here the reply packets will go out over the port they came in on in the router.

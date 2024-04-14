@@ -1,0 +1,6 @@
+Built-in Windows drivers only report their build date as 2006, this is done so that if an driver is supplied by a manufacturer and listed to support the device you have then it will be preferred over the built-in driver supplied with Windows.
+You should use the driver that is provided by your manufacturer out of preference. If they don't supply a driver then you can assume the Windows built-in driver is "safe".
+For more read the Microsoft Engineer blog Why are all Windows drivers dated June 21, 2006? Don’t you ever update drivers? by Raymond Chen.
+It works this way under the assumption that if you install a specific device driver then you will always use that driver instead under the assumption that you knew what you were doing.
+That doesn't necessarily mean that the driver you install is "better".  The ones supplied with Windows may actually be newer or more complete.
+Just because they are dated 2006 doesn't mean that that was when they were designed or built. They could have had an update last week, but been given a date of 2006.

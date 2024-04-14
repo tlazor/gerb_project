@@ -1,0 +1,12 @@
+You have the certname set as master. For the way you are setting it up, either get it working with puppet, or use the host file to set the ip address of master instead of puppet.
+So after some investigation I figured this one out.  Puppet 2.7.6 doesn't set subjectAltNames on the server certificate when it generates that cert for the master (it really doesn't know that it's a master at any point).
+add dns_alt_names = puppet to the master (and the master only) before you run puppet master or puppet (causing the certs to be generated)
+I'd like to avoid setting server = 'x' and use dns/hosts to control what 'puppet' resolves to in order to decide which server (plays easier with availability zones, etc)
+The other error related to plugins is a bug about having pluginsync enabled but no plugins available to sync.
+You may also want to use a FQDN such as master.example.com or puppet.example.com so you can use dns entries without requiring search domain entries.
+One tip for using puppet in EC2 is to assign an ElasticIP to your puppetmaster, and then create a DNS entry for the ElasticIP CNAME and not an A record for the IP. 
+Which is success of a sort, that source error will bite me later when I'm applying manifests.  I've tried a couple of other variations with using the ec2 private hostname and gotten mixed results.
+You should use the CNAME in DNS so that when EC2 puppet clients query the AWS DNS servers for the IP of the Puppetmaster, they will receive a response that directs them to the internal IP of the puppetmaster, and not the external IP. 
+I have an /etc/hosts entry on the box to point the 'puppet' hostname to localhost so that I don't have to change the 'server' option.
+I'm setting up a puppetmaster (2.7.6) in ec2 via gems (on rhel6) and I'm running into problems with the cert names and getting the master able to talk to itself.  
+AWS DNS servers vary their response based on if the query came from within the same EC2 region, or exterior. If the CNAME request comes from within a EC2 region, the AWS DNS servers will respond with the internal IP of the CNAME.

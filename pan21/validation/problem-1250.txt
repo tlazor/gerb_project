@@ -1,0 +1,6 @@
+Regarding your first answer I am always wondering this myself. I would test this very specific scenrio in your lab!
+Thus you either need to renew the root CA with the same keys and a shorter validity period OR you need to setup a second CA.
+we have an existing internal root CA standalone that issue certificate for our domain mycompany.com. We have multiple certificate installed all over the company from this CA. The problem we're facing is that we have a cisco VPN that need to trust this CA for mobile device VPN but return an error as the expiration date of the root CA goes beyond year 2038 and doesn't accept it. Now question is how to go around this? If I renew the root CA with the same private/public key and expiration date before year 2038, will I need to renew the certificate already issued by this CA ? 
+Regarding the issuing (online) CA. Your cisco VPN should verify the trust chain up to the root CA and then again complain about the validity period of the root CA.
+I think it should be possible to renew the certificate with the same keys but another expiration date.
+Second option we are looking at is to install a subordinate issuing CA, in this case the question is will this CA be able to issue cert for the domain name mycompany.com ? 

@@ -1,0 +1,8 @@
+Since they are SATA, I have done this by actually hooking the drives up in my desktop PC.  You should be able to remove the proprietary connectors, put both drives in your desktop, and use whatever cloning/imaging software you would like to take care of it.
+I've done something very similar with diskparted and gparted from sysresccd. Sole spoiler is that it backs up/restores only partitions one by one. But the MBR can be saved as well, so no problems. Bonus: very easily "scriptable" by commandline, in case you need to do that more often, or want to make an "unattended" or "businesstrip" rescue cd.
+1) Boot off the Acronis bootable CD (it lets you make one) with both drives plugged in (old on SATA and new on USB). 
+2) Tell it to clone the main drive to the new drive. As long as the used space on the old drive fits in the new drive, it'll automatically handle all the partition resizing for you.
+3) When the clone is complete, shut down the computer. Replace the old drive with the new one and boot up. Presto, everything will exactly the same under the new drive.  
+You can use gparted on a LiveCD like systemrescuecd to shrink the partition and then copy it over to the other drive.  Although you may run in to issues booting Windows if the drive interface is substantially different from one to the other.
+Attention: gparted has a "round to cylinders" checkbox (checked by default) when creating the empty partition. In my install, I had to uncheck this and let the first (Vista's) partition start at 1 instead of 0 (if I recall correctly, but you will see).
+If you forget to uncheck that, you will not have the possibility to uncheck it when you try to resize/relocate the partition afterwards. To have the partition start at 1 was mandatory for Vista.

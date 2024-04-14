@@ -1,0 +1,6 @@
+In short, forget the matrix stack idea and find some tutorials that lead you through GLES2. It's quite difficult to understand, so find as many different tutorials as you can (include ones related to iOS OpenGL ES, it's the same GL).
+The gradual multiplication of these matrices through the tree builds the modelview matrices for each object automatically. No messy pushing or popping required.
+Every object's position and orientation will be defined in relation to its parent object (so make children as appropriate).
+Make a simple tree so that objects can have children. Give each one a way to pass its object matrix into its children. Have a 'head' node that defines the overall transformation.
+Then, consider splitting your world/whatever into objects and give each object its own matrix. This will define the object's local transformations.
+Don't try to replicate stacks of matrices, you're wasting 10 hours on debugging a matrix stack class rather than learning the 'new' way ;-) Find a decent matrix & vector library that supports useful functions (dot product, cross product, translation, rotation, etc) - the Internet is full of them, Google will give you loads.

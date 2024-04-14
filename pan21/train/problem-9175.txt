@@ -1,0 +1,5 @@
+Did you try to use other memory slots? If you're a bit lucky you damaged just some lines to some slots.
+If memtest gave you errors you don't need to do any more testing, you have a problem.  If you are 100% sure the problem is your motherboard I would attempt repairs, but it would be very risky because you could damage other stuff in the process.  Make sure your solder does not bleed between the exposed tracers (this is going to be hard to do).  If it does bleed over, depending on what those tracers are, you could junk your processor and/or memory, or some other component that isn't broken.
+If you don't attempt repairs and you are still 100% sure your motherboard is the problem I would just get a new motherboard and chalk the incident up to experience, because your motherboard is junk.
+Try a single ram stick, or the other one, and make sure memtest86 doesn't give you any more grief. If that doesn't work, throw away the mainboard.
+I would try memtest with one memory in all slots (at one at a time) and asset which are broken and which are not.

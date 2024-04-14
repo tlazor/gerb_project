@@ -1,0 +1,5 @@
+I'm not sure that the statement you want is known to hold in full generality (if you look at O'Donnell's website, he remarks that what he stated in that survey is not in fact known to be true in full generality). That said, it does hold for $q\geq 2\geq p\geq 1$. Let's suppose the Hypercontractivity Theorem holds as you have stated, i.e. for $q\geq p\geq 1$, suppose for $\rho=\sqrt{\frac{p-1}{q-1}}$, we have
+According to O'Donnell's website, this paper gives the state of the art on this problem (though I haven't looked through it).
+where $W_k(f)$ is the level-k Fourier weight of $f$, and we use Parseval and the degree assumption. Taking squareroots yields $\|f\|_q\leq \sqrt{q-1}^d\|f\|_2$ in this simple case.
+where we use Holder's inequality and then the case we just proved with $q=p'=p/(p-1)$. Putting this together with the previous case, we conclude for all $q\geq 2\geq p\geq 1$, that
+To use this statement to get this revised version (or almost, you forgot to take the reciprocal of $\rho$), suppose $q\geq 2$ and first take $p=2$, so $\rho^{-1}=\sqrt{q-1}$. As you seem to have figured out, hypercontractivity gives

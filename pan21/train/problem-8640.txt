@@ -1,0 +1,5 @@
+That error means you are drawing too many amps for one of your USB hubs (motherboards usually have multiple USB root hubs).
+You want to be using less mA than are available.  Also, devices will use more when being used then when sitting idle, so try and leave 'extra' mA on each hub.  
+For example, if you have a USB scanner and you start scanning, it draws more mA. Suddenly your USB mouse and USB HDD stop working because you overloaded the hub they all share by drawing too many mA, exhausting what was available for that hub.
+If you go into Window's Device Manager you can find the USB 'root hubs' in there, and if you check each hub's properties it should tell you the maximum mA (milliamperes) available for that hub (or it's ports) and how many mA your devices are currently drawing (probably under a 'power' tab, it's been a while since I used XP ;) ).
+Try unplugging a couple devices and see how it goes.  Or rearrange them to keep ones that draw a lot of power in different 'sets' of USB ports.

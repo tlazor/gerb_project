@@ -1,0 +1,9 @@
+ReadyBoost had no positive impact when playing games or running applications that are CPU or GPU intensive.
+I have a class 10 50mb/s 16gb SD card the card reader in my laptop is usb3 driven. Even with 4gb of ram, the performance is outstanding... That being said, a USB 2 or class 4 SD card won't do a thing. I tested using a random class 4 SD card I had lying around and the performance was negligible. I will upgrade to ssd later. Gotta remember it's cache not ram and not storage. I have windows 8.1.
+Most laptop hard drives spin at 5400 rpm and have access times of about 10 to 15 ms for random reads and writes.  By comparison flash memory has access times of 4 to 6 ms for equivalent random reads and writes.
+The bigger the size the better. I saw the biggest performance when copying files while using applications. Basically it allows me to install and copy things while working on other stuff without hitting a wall. Windows will also page to it if need be like when using the hard drive, it will cache paging parses. 
+What ReadyBoost was designed to do was place the most often or recently used 2 to 8 GB of data on the flash memory where accessing it would be at least twice as fast as reading it from the hard drive.
+The improvements we measured when enabling ReadyBoost on a system with low amounts of RAM, are the following:
+Make sure you're using USB 3. SD or otherwise. I chose SD because it's a  laptop and I don't use the SD port. USB 3 USB stick in my desktop.
+Format to exFAT and not NTFS, use the whole device, the more the better. exFAT does less sequential checking therefore faster. You don't need a journaled file system for 1 big file. There's nothing to journal lmao. Oooo 1 file... Performance exFAT wins.
+You can find the detailed testing procedure plus all the results, here: Does ReadyBoost Work? Does It Improve Performance for Slower PCs?.

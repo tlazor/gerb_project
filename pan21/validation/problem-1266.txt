@@ -1,0 +1,10 @@
+The idea behind this is reducing the amount of calculations required to get to your goal, by not having to look at each and every element (essentially narrowing down the selection; which usually happens based on location/size).
+So, we've got the "spatial" portion, but what about hashing? Hashing is essentially transforming some complex collection of data (like different rectangles or coordinates) into some shorter/more simple representation allowing faster comparison (e.g. rather than compare 4 values only compare 1).
+- Store the "parents" for every object and only remove/add them just-in-time when required (e.g. moving over a boundary).
+Just some random assumptions to make this more clear, why it is important (this is intentionally naive):
+The next logical step would be creating categories for your objects (not always feasible). For example, you don't check an object for collisions unless it is explicitly defined as being some "collideable":
+- Create another set for dynamic content that is updated/recreated once every frame (might be too ineffective based on the number of elements moving).
+But what happens if you've indeed got lots of collideables? For example, your whole map could be made of collision shapes, or maybe even some shown textures that require pixel perfect collision. Introduce some organisational grouping to allow smaller sub groups of elements:
+What would be the best way to implement gravity if I have a list of different "surfaces" which if the player is on top of acceleration will stop? Would there be a better way than to loop through all of the surfaces on the map and see if the player is colliding with it?
+However, there is one downside to this: Moving elements will give you quite some trouble, because you'll have to update the lists they're in, if they move around. To solve this there are different approaches:
+As for the actual implementation, that's really up to you, because it might as well depend on whether your game world is 2D or 3D.

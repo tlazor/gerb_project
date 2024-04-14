@@ -1,0 +1,7 @@
+Everything works fine. I am able to connect to the VPN and browse webpages from different devices (macbook and android phone).
+I would start by validating your premises, and as other have suggested, then start obsessing about routing tables and firewalls at work.
+My second suggestion, having a HTTP proxy such as Squid running on the same server with the OpenVPN and configure it to listen on port 443. Make sure secure that server. With proxy, you can make your Openvpn server listening on the local IP and default port as only proxy service running on the localhost will actually connect to it. No need to change the default server config :
+If so, I am not sure how this is working at all, considering the server has tls-auth ta.key 0 - you would need this configured on both ends (with the client end using a 1 instead of 0) to be able to actually connect. 
+I have OpenVPN configured on an Ubuntu 16.04 server. I am able to use this VPN service from one network but not from others and would appreciate any help.
+I suggest trying port 443 with TCP protocol. Since this is the HTTPS port most firewalls don't probe the packets over TCP 443 as they are expected to be encrypted. So this makes VPN data packets to have better chance to survive through the firewall:
+I have also experimented by changing the DNS push configuration and using Google DNS servers but this does not make any difference.

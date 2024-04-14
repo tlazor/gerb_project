@@ -1,0 +1,10 @@
+To see actual rights you need to query sys.database_permissions. For example, GRANT ALTER SCHEMA is separate the fixed database roles (ALTER ANY SCHEMA is ddl_admin of course).
+It seems to me that there's some per-database and per-login setting/permission that allows Intellisense, but so far I've been unable to track it down.
+We have a server on which SQL Server 2008 is running. When we connect to it with SSMS with some logins (from SSMS 2008), Intellisense is available. For others it isn't. The logins in question connect to the same database, and nothing else is changed between SSMS sessions apart from the login used to connect.
+If I connect as a login which is not in db_owner, but which has 'View Definition' privileges, Intellisense works.
+FYI: You do get useful things like GRANT ALTER TRACE which allows profiler without sysadmin sorry CONTROL SERVER
+So I tried granting the third login 'View Definition' privileges to that database, thinking they'd get Intellisense. No luck.
+It's both permission and" View Definition". You can't view the definition of something you don't have permissions on because of metadata visibility. So, for permissions...
+The third login has access to two other databases. In all three databases, this login is a member of the db_datareader role but no other roles (and no 'View Definition' privilege either). In those two other databases, this login gets Intellisense. In the main database, it doesn't.
+db_owner is also a wrapper for CONTROL permissions, similar to the ddl_admin and other rights. In addition
+If I connect as a login which is neither in db_owner or has 'View Definition' privileges, Intellisense does not work.

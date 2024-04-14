@@ -1,0 +1,5 @@
+I have aNetgear WNDR4300 router.  I was curious if there was an option to see all websites that are accessed from any device hitting the router.  I have set-up an OpenDNS affiliation, but it seems to be missing a few sites that are accessed.  Are there alternatives or more descriptive ways of logging such info?
+This allows a web interface where you can keep track and export data. All you need is the router flashed and a usb drive setup with the script. 
+Throw DD-Wrt onto the router, add Wireshark to a box on your network and redirect traffic to it.  Alternatively, use TCPDump on the router itself to monitor traffc in-depth.
+This was done with the keyword/domain blocking feature. If you turn it on but dont actually block anything then it just logs all that its doing. You'll then want to email logs when full as they'll fill up fast. 
+Throw DDWRt on it "as explained in one of the other answers". and you can add Yamon Network monitor. This is for in depth and real time tracking you can see what bandwidth is used per device. I use it in my home and it helps a lot with keeping up with the data usage each month or finding certain ips im looking for. 

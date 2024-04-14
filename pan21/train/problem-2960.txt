@@ -1,0 +1,6 @@
+I've been very happy with the performance of the device up until recently when either the number of files has cross a threshold of the capacity of the disk has cross a threshold (I'm not sure which)
+as an experiment, I dismounted the disk (flushing caches, verified with free). Then from a command prompt I navigated deep into the directory structure.  All told this directory (and its children) had only about 3200 files contained beneath it, and at this point 'free' showed >117MB of free memory
+I understand the balances of cache vs free memory, and how the kernel considers an empty page a bad page - however 115MB of cached content from a directory of 3000 files points to a serious gap in my understanding.  I'm hoping someone will help me understand whats happening
+My assumption is that the organizational structure I've chosen on disk for my files has somehow hurt the inode caches ability to remain zippy.
+I'm hoping to get a lead on something to investigate.  The disk performance has dropped significantly,  the device was zipping along quite well and then all of a sudden performance dropped like a rock.  
+on the disk are many small files,  due to the nature of the writing application files are organized in a very balanced way - no leaf node directory has more than 200 files and there are just over 800,000 files.

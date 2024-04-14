@@ -1,0 +1,6 @@
+2 - In your example you WILL have a performance decrease, because by default a PK is also a clustered index.  A non-clustered index on your FK field will speed the JOIN but you will still need to pay the cost for a bookmark lookup since the other fields aren't at the leaf level of the index.  If you INCLUDE(otherdata) in your NC index then it should work fine (assuming that ID is your clustered index.
+Assuming you explicitly choose the clustered index for the table and have ensured the columns do not accept nulls (and I strongly suggest that you do both), there is no performance implications of a foreign key referencing a UNIQUE constraint rather than the PRIMARY KEY.
+Something perhaps to consider is that some software (ORM, query builder, etc) will assume that "FK references PK" is the only possibility. Ditto users :)
+Declaring a FK that references a PRIMARY KEY allows you to omit the PK columns in the declaration (no big deal).
+PRIMARY KEY implies the cluster index but doing so complicates matters by mixing logical and physical considerations e.g. PRIMARY KEY (c1, c2) may performance worse than PRIMARY KEY (c2, c1).
+Is there any performance problem / difference if I have one Foreign Key that points to another table Indexed Fields that is NOT the PK ?

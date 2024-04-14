@@ -1,0 +1,5 @@
+Is this the right way to do this? Or how to save two different public ssh keys on a server? (...and on a single user account)
+You could use ssh-copy-id <remoteHost> from your laptop and/or desktop. Saves you the extra step of copying your public key across to cat it into the authorized-keys file. This is my personal preference, but directly inserting the public key works too :)
+Assuming you mean authorized_keys then yes, that should work. Check that the file has exactly two lines and that there aren't any extra spaces or anything in the key line for the second key. Also check that you have added the correct lines for each desired key.
+I have a CentOS-running server and I want to add ssh authentication for my laptop and desktop-computers. Both PCs are running Ubuntu. I managed to get it work with one computer. I added id_rsa.pub to my /home/$USER/.ssh/autheticated_keys-file. Then I disabled password protection so I can log in only if I have that ssh key on my computer.
+I tried to add that second id_rsa.pub-key to that authenticated_keys-file on my server, but it didn't work. Like this:

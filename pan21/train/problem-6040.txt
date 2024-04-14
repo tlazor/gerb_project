@@ -1,0 +1,6 @@
+You could try adapting Aaron's SP by getting rid of its dynamic part. The dynamic part is supposed to build a query reading just the database names from sys.databases based on the arguments supplied. The dynamic SQL is chosen to make the query most efficient – as well as maintainable. Taking into account your specific needs, some sacrifices might be in order.
+The method of rewriting is as follows. Aaron's procedure is building the query using a repeating pattern where a parameter value is checked and, based on the result, an additional query is added to the dynamic query, i.e. like this:
+I would argue, though, that the performance might not suffer much from the rewriting I am offering below, as the sys.databases system view usually does not have very many rows, but in any event you could add OPTION (RECOMPILE) at the end. However slow it may be, though, it is likely to end up rather ugly, that I can promise.
+One last note concerns the specific script you are planning to run against each database. Instead of
+For instance, the @system_only controls whether the database_id IN (1,2,3,4) filter should be included, like this:
+As can be seen, the final touch would need to go to the SELECT part, where the simple SELECT name of the new query would be replaced with

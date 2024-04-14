@@ -1,0 +1,8 @@
+In Red Hat Enterprise Linux 4 most targeted daemons do not interact with user data and are not affected by NFS-mounted home directories. One exception is Apache HTTP. For example, CGI scripts that are on the mounted file system have the nfs_t type, which is not a type httpd_t is allowed to execute. 
+In addition to Matt's suggestion, also check that Apache is permitted to serve files from where your NFS mount point exists. For security purposes a lot Apache distributions come with a restrictive directive like so:
+I'm unfamiliar with how RHEL5 distributes it's Apache config files. But you may need to create an additional Directory directive to permit files being served from your mount point.
+This prevents any files being served from / and above. Typically you will then have a less restrictive rule to allow another directory, which contains your DocumentRoots, to serve up files a little more freely.
+It's most likely a permission issue. If apache isn't writing to the directory, it doesn't care if the files it's reading are on NFS or anything else. 
+Assuming that your webserver is running as user "apache", make sure that the permissions on the file are such that they're world-readable. 
+somebody mentionned changing the group of the dir to www-data, but i just chmodded it back to 777 after the mount. I need to read up on nfs mounts to do that automatically
+http://www.redhat.com/docs/manuals/enterprise/RHEL-4-Manual/selinux-guide/rhlcommon-section-0068.html

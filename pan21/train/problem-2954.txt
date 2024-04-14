@@ -1,0 +1,7 @@
+I've installed Cygwin on a Windows 7 machine. The other day, I used the Cygwin installer to update and install a new package. After that, the Cygwin icon on my taskbar opens some other terminal that doesn't have any of the commands that it should. However, the Cygwin icon in the Start menu does open up the correct terminal.
+There was a package update yesterday or today for mintty, and that seems to have fixed my issue. Can you update and see if that fixes yours?
+You can delete the shortcut to cygwin.bat from the taskbar and then pin the Cygwin terminal mintty icon to the taskbar instead:
+That icon matches what I'm seeing in my taskbar. If I don't have Cygwin open, I have the "standard" terminal image in the taskbar:
+This is a shortcut the runs the Cygwin terminal mintty and then logs in to your default shell (this is usually bash but could be another shell).
+I was having a similar issue this week; the icon was missing entirely when I opened it, and when I had it pinned to the taskbar, it just spawned off to another area of the taskbar.
+The icon in the start menu is a shortcut to the cygwin terminal mintty that is running the following command:

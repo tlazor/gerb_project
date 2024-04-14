@@ -1,0 +1,6 @@
+If you're sending large data volumes, you'd better use tar-over-ssh, instead of scp. Is really much faster.
+Assuming you have the same public key present in ~/.ssh/authorized_keys on both servers, and that you are running some kind of ssh agent locally, then you can use Agent forwarding.
+That way, when you from server.one run your scp session against server.two the authentication will transparently be handled in the background by your local computer . Just note the following warning, taken from ssh_config(5)
+The only way to send files would be to get them to my computer first (too slow), send private key to one of the servers (probably won't explode in this case, but I really really hate such solutions), or create extra accounts just for that or one of the servers.
+The problem is that I cannot use that key to scp files from one such server to another - server One doesn't have the private key which server Two expects (only the public part), so Two won't allow access from One.
+I have a large amount of data to send from one server to another. I access servers via ssh using a private key.

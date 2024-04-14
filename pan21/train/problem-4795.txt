@@ -1,0 +1,7 @@
+My favorite offering dejour is scoutapp.  It is not open source and it will cost money, but it lets you monitor all of your servers, will page you if things go down and will allow you to post arbitrary key/value pairs to track anything in your system (including business metrics).
+Does anyone know if there are any solid opensource alternatives to RightScale for EC2 deployment+maintenance management?
+I've had good luck rolling my own management scripts with python and boto.  The nice thing about python is that it's reasonably portable to windows as well.
+For deployments, you could use either chef or puppet.  Neither one is clearly better than the other.  I have found that chef-solo serves my needs
+For network health, amazon offers cloudwatch (expensive and not that powerful and not open source, imho).  You could set up a zenoss box and use the ec2 "egg" to automatically monitor you servers over snmp, but its a pain to configure and is another server you need to maintain,
+For deployments I prefer the straight forward approach adopted at www.practicalclouds.com.  They can load different "profiles" at EC2 startup that load software and configure it according to arguments you enter in user-data and files stored in S3.  There doesn't look like there's very many profiles yet, but there are some useful ones.  It's written in shell script so should be fairly easy to create more.
+For monitoring, I've been happy with the AWS Console so far but I'd probably play with something like Nagios if I need more detail.

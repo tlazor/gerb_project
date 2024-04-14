@@ -1,0 +1,5 @@
+I have a custom Linux device running a DHCP server. My DHCP negotiation is always very long (over a minute).
+If, for some reason, the server isn't checking if an address is available (typically by doing a ping) before handing out new addresses then you will be in trouble anyway because it will hand out addresses that are already in use to any client that asks.
+The problem is, the device does not have storage and the leases are flushed everytime the device reboots. When Windows try to obtain an ip address based on old leases, the server cannot simply give back the ip because he has no memory of previously giving it.
+I'd like windows 7 to ignore any leases it previously had and ALWAYS initiate with a DHCP Discover instead of a DHCP Request
+The client should always ask for a renewal of its old address, that is part of the protocol so I can't see how you could configure Windows to not do it. Why is it a problem though? If the address isn't available then the server will refuse the renewal request.

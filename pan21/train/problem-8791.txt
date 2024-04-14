@@ -1,0 +1,8 @@
+You should then be able to run all of the docker commands without requiring sudo. After running the 4th command I did need to logout and log back in for the change to take effect.
+The difference between the approach I had done previously vs the approach I am presently doing with the terraform module is to utilize the AWS provided Docker packages.  This does not include the full docker-compose and what not, but you don't require those packages normally in a server.
+I also relied on the AWS security groups rather than explicitly setting up firewalld and used the SELinux setting that is defaulted in the AMI image.
+Because I am using the one Amazon had provided, it is no longer the latest 18.09 version but the 18.06 version.  However, the set up is simpler and I don't have to play catch up to container-selinux.
+The only external dependency I use is EPEL to get haveged because you still need a good random source for some applications.
+You can see the history at https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-ami-versions.html
+In addition to my previous answer.  If you use Terraform, I have also created a Terraform module that can be used to create a Docker Swarm
+To get Docker running on the AWS AMI you should follow the steps below (these are all assuming you have ssh'd on to the EC2 instance).

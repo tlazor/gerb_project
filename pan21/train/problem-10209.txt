@@ -1,0 +1,11 @@
+Just one thing to consider - beware of the failback. Moving services to a backup machine is one thing, moving them back once you've corrected the failure can get hairy, pay close attention to the databases.
+This setup means that ssh, rsync and all other tools can continue running on the real IPs without being confused by a changing IP address.
+For file based services (a web server etc.) rsync can effectively keep the second server up to date - (users, configs etc) - when it comes to databases things get a bit more complex (I've used MySQL and a slave server for this and it was very effective, I've also used PostgreSQL in a few HA/standby configurations but it was way more clumsy)
+I believe heartbeat will do this for you, but if you don't use it, I recommend manually setting up a virtual IP for the web server.
+The details depend on which virtualisation software you use (I've done this with linux-vserver before), but some important points are:
+Each web server will have its own real IP and also a virtual IP. The virtual IP is only assigned to a machine when it is the active web server.
+Then you can do regular rsyncs from the live virtual server to the backup virtual server. If the live server goes down, you just need to start the backup virtual server.
+heartbeat2 is a good solution for managing the IP addresses and provides tools for automatic or manual failover - and takes into consideration arp cache flushing and other things that I wouldn't have thought of.
+This, combined with a bit of IP theft (a quick script to assign the IP of the failed machine to the interface of the backup machine) can make for a relatively straighforward setup but allow quick recovery.
+You can use rsync or drbd to keep your backup server in sync, or mount your data via nfs from a 3rd server.  If you want to keep it simple, I would back up to the same directory locations on the backup server as the source server.
+Virtualisation can help here. You can have 2 servers running as host servers, both with a single virtual server ready to go. The live server has the virtual server running, while the backup server has it's virtual server "turned off" but can still access the file system of that server.

@@ -1,0 +1,7 @@
+Synergy is good, but if you want an effective software KVM try InputDirector. I've found it to a lot more stable and bug free. Even more plug and play is Mouse without Borders from Microsoft.
+You should be able to see the log file if you use the 'test' button to run a test on the server instead of running it as a service.  This will run it as normal but pop up a window with the log messages in it.
+You should be able to telnet to the server on port 24800 from the client and get a connection.  If not, either a firewall is blocking the connection or the Synergy server isn't running.
+Not being content with leaving my firewall off all the time on my Windows 7 machine, I added the server executable to the list of applications the firewall lets through and turned it back on. To do this (on Windows 7, at least):
+If the Synergy server is 'quitting with errors' then it won't be running so the clients will have nothing to connect to.
+I was having the same problem, where I was able to get the client to connect initially, but then it just stopped working. It turns out that I had rebooted my host machine, which re-enabled the firewall. As soon as I disabled the firewall on the server, the client connected immediately.
+After hitting OK, my client connected immediately. I didn't even have to restart the client or the server. I hope this helps someone get connected. Synergy is a beautiful thing when it works!

@@ -1,0 +1,7 @@
+So I wanted to use Hydra via debian wheezy to crack it but it won't take the parameters to bruteforce with http-get as it generates over 4 billion passwords.
+When you get to the point in the Hydra command where you need to enter the dictionary file, instead of a filename use "-". It will create and transfer the password strings in memory, no storage needed.
+I am locked out of my admin portal on my wifi home modem+router (Dlink 3782) and the default password has been lost to time on the back of the router and I wanted to have a bit of fun instead of calling my provider about this.
+It should be noted, depending on the system resources and how much memory is available, you may be limited to a certain total of characters when crunching from memory.  The numbers specified in "crunch 1 8".
+Crunch wants to generate terabytes worth of data for a wordlist via crunch 8 8 AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz -o passwords.txt
+There are easier much more time efficient ways of recovering the administrative access to a router. But if your just doing it for fun, or to see how long it actually would take.
+I was wondering if theres a way to either pipe the stdout of crunch (so I wouldn't have to get 500TB worth storage) to either hydra or something that could crack it.

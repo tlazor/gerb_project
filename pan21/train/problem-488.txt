@@ -1,0 +1,6 @@
+Googling for an SVG validator was not successful. Suggestions for validating SVG files invariably seem to point to Xml validators that merely validate that the SVG files are well-formed Xml and conform to the SVG schema. I could not find any validator that validates SVG files in such a way to determine whether graphics processors can actually handle them (which, I think, goes somewhat beyond what can be defined in DTDs, Xml Schema, or similar Xml declaration languages).
+Unfortunately, the only thing that remotely looks like a logfile in my %AppData%\inkscape is named extension-errors.log and it appears to contain only information on plugins, not on regular operations such as loading files.
+I am taking an Inkscape SVG file to perform some minor modifications on the SVG source (programmatically, via .NET's XmlDocument class).
+Hence, I am looking for Inkscape's log files to find out some details about what happens when Inkscape fails to open the file.
+The resulting file is well-formed Xml and I cannot spot any obvious errors. When I try to open it with Inkscape, a message box with the message
+Googling for Inkscape logfiles brings up various results, but they either focus on debugging Inkscape or they refer to unfinished features.

@@ -1,0 +1,10 @@
+You might want to consider using a toolkit geared towards this sort of thing so you don't have to re-do it yourself.  With Dojo it's really easy to create custom widgets, they cache the html, etc (using templates).  I heard JQuery was going to implement the AMD define/require standard so you could probably mix the toolkits if you wanted to without too much hassle.  If not though it'd be worth looking at how they did it.
+This means I don't have the template inline, which is good, but it also means using the Widget is a bit more involved as you need the  tag in the HTML, which is bad, and it is a bit of a horrid hack.
+The simplest thing is to insert the template on the page as HTML. Can you include the  template on your page, not as Javascript, but as HTML? As in,
+I have several big snippets of HTML and I'm using jQuery templating for this. My question is on the best way to include these templates. Currently I'm using two different ways, and none of them are obviously better than any other.
+I agree, the string literal in JS is unwieldy. And requesting the HTML via Ajax is more than you need. 
+This is neat and simple, but the result is a lot of HTML inline. One of the templates is 219 lines long... :-)
+You can either use this as a template, and insert the results of the evaluation into the DOM elsewhere. Or, in some cases, insert it back where it was on the page (and don't use the display: none).
+The idea of using a <script>-tag with a non-standard type is also applied in this example from the YUI 3 documentation. Your idea to use AJAX to load it is, in my opinion, a much cleaner solution to this dirty problem.
+I have a couple of specific questions, and it seems best to put them as separate posts, and here is the second one:
+I'm doing my first major jQuery development. It's a Widget for recurring events, and is as such a fairly complex beast. The full code is available at https://github.com/collective/jquery.recurrenceinput.js for those who want to check it out. I appreciate any kind of feedback about any part of the code, so anyone who wants to take a look at it, that would be awesome.

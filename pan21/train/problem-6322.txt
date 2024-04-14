@@ -1,0 +1,6 @@
+How do you know when a task/instance need to be started, what's the trigger for that?  Whatever it is, you could use it to directly trigger the Lambada function.  Or if its a CloudWatch metric, then skip the CW Event and Lambda function and have a CW alarm directly increase the ASG and ECS desired capacity (or example, if the initiating factor is something in an SQS queue)
+Because I have so few of these EC2 powered tasks, it seems silly having these EC2 instances sitting around.
+I have various Fargate tasks. They work fine. I then have a few additional tasks that require more disc space than silly old Fargate will allow. These have to run on EC2 instances that I have assigned to their respective cluster.
+Use AWS Batch. It is a service specifically designed for your situation, and can be triggered by CloudWatch Events
+Is this feasible? Is there a pattern or better way to do this? Perhaps the Lambda function is unnecessary if there's a way to trigger the autoscale straight from the cloudwatch event?
+That should work fine.  You could also have the ECS service desired capacity raised at the same time as the EC2 ASG desired capacity is to remove a step, unless you're launching standalone tasks.  The ECS service will just keep trying to launch the task until the instance gets registered to the cluster.

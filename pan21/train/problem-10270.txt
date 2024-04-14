@@ -1,0 +1,7 @@
+fail2ban has pre-built packages for most distribution, or you can grab the source; being Python, you don't even need to compile it! :D
+Consider installing a rate limiting software, it will help you to defend not only against lawful bots.
+fail2ban actively monitors various logs for different patterns (we have ours set to just monitor Apache hits), and if it determines that there are too many hits in a certain amount of time from a specific IP, it will ban that IP for a period you determine (we use a 20 minute ban window)
+Changing the crawl-delay to a number in seconds between requests. "Good" bots should listen to this, and wait between requests. The "bad" robots don't listen to any robots.txt rules however..
+I highly recommend the tool fail2ban (http://www.fail2ban.org/); we use it on our own servers and it is amazingly useful for limiting DoS floods for more than just Apache.
+You can use mod_evasive for Apache, or you can install Nginx as a frontend and use its HttpLimitZoneModule, it is built in.
+robots.txt and redirecting the bots to static sites. Generally it's a good thing to have bots (search engines) crawling (indexing) your site. The suggested methods help you control how they index it though.

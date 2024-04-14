@@ -1,0 +1,6 @@
+OpenSolaris is really the cutting-edge version of Solaris.  It's definitely got some rough edges.  I tend to stick to the real Solaris to avoid those issues.  Even there, the x86 version of Solaris doesn't feel quite as polished as the SPARC version.
+I've never tried to setup colors for the terminal (and haven't encountered keyboard weirdness anywhere other than the system console), so I'm only commenting on general items/feel.
+adding the following to /etc/profile does the trick with HOME, END, DEL keys (and maybe more things):
+I guess temporarily setting the TERM to screen sets some additional things that aren't overridden when setting back the original term (at least for me. I'm connecting using xterm (putty's default)). even though i consider this luck, i actually like this solution as it means not messing with inputrc file(s).
+(btw: thx for the answers suggesting screen, it's what led me to testing around until i got to this)
+I ran into the same frustrations when I started using OpenSolaris.  I was able to fix most of the terminal problems by installing screen.  

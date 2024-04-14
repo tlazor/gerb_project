@@ -1,0 +1,6 @@
+The first thing that ghci warned me about was: "The import Text.Read is redundant, [..]". Let's get rid of that, we won't need it
+Loading this into ghci gets me a few warnings about non-exhaustive patterns, but that shouldn't be a problem as long as the logfiles adhere to the given spec :)
+Last but not least you could try to extract the duplication around (read t) (unwords r), but I'd say that's not necessary
+What you're doing here is pattern matching over and over and over. You throw away most of the patterns you match. Repeat after me: Patterns are power
+All the functions you declared here (or almost all that is) use one or multiple Maybes. Maybe makes you have to jump through hoops to get to your data when it's not necessary, especially since the assignment guarantees a specific log format, that doesn't have room for any Maybe. After removing all the Maybes I got following code:
+First of all let me stress that I am only doing basic stuff in haskell right now. This means you should take my advice with more than just a grain of salt.

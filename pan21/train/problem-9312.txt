@@ -1,0 +1,8 @@
+http://www.diydrones.com/profiles/blogs/arduimu-quadcopter http://www.diydrones.com/profiles/blogs/arduimu-quadcopter-part-ii http://www.diydrones.com/profiles/blogs/arduimu-quadcopter-part-iii
+Here are three links to one that has fairly detailed instructions and parts lists. You should be able to get ideas from this and other projects to help you develop your project.
+One challenge you may have is that the Raspberry Pi GPIO pins are strictly 3.3 v while many of the sensors and relays may not support.
+One comment, since you say that your electronics experience is limited you may want to consider following some more simple Arduino or Pi interfacing projects such as interfacing to distance sensors.
+I am having trouble with powering my raspberry pi drone. I cant seem to find a battery small enough to let the drone fly but large enough to sustain flight for a decent amount of time. Any suggestions?
+You may also want to consider using a Raspberry Pi and Arduino in combination, with the Arduino handling all of the interfacing and the Pi doing all the CPU intensive work. There is a GertDuino board design by Gert van Loo to be an Arduino board designed specifically to interface with a Raspberry Pi.
+Since its a drone, you're probably already using lithium-polymer (li-poly) batteries, and there's really nowhere you can go from there. The raspberrypi consumes quite a lot of power, and so do drones. You may have to go for a bigger drone to be able to carry bigger batteries. 
+There are many remote control quadcopter, drone, etc, projects that use the Arduino family of single board computers.

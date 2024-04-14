@@ -1,0 +1,10 @@
+2.5: Make sure the windows loader is the first selected boot device. (most likely is). Disable the Ubuntu option. Continue boot. 
+1.5: Restart and boot into windows (if you can't boot to Windows, then live boot to linux from the CD or USB and run the following in a console: 
+Zuljin is right in that the Windows boot loader can only boot Windows, but you can change the OS that Grub boots by default quite easily. I don't know exactly where it is in Linux Mint, but it's usually in /etc/grub.conf, /boot/grub/grub.cfg, or someplace similar.
+This worked for me when nothing else did, I ran bootrec.exe. Nothing worked. This saved my computers life. Hope it saves yours!
+3: If you've done everything right up to this point you should see (depending on your computer) your splash screen for a second and then it will turn into an error screen saying that there was an error with the boot. ("Winload.exe is missing or corrupted" most likly). 
+2g: After your done, reboot. You should see the grub menu, even though you can boot to Windows from here, this is not what we want yet... But find the option that boots into Windows.
+It's easy .If the command in main article doesn't work , then try the modified command by the user 'toolate'  in Comments section . Hope this helps...
+2: Once your booted into Windows, run your disk partition editor and delete All partitions related to Linux / grub. Especially make sure the small grub partition is removed. Reboot
+You can also change the time it takes to boot the default OS, whether you want to see the menu, etc.
+5: Once booted, run boot repair commands from above again. This time when running it. It will act differently, there is no grub bootloader detected to reinstall and should run faster than before. 

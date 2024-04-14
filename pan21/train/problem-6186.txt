@@ -1,0 +1,5 @@
+I've just been hit by the same problem, and my server definitely wasn't running an open proxy - the requests were all hitting the default site, and this was overwhelming the database server. Looks like a badly written click-fraud botnet - it's trying to use open proxies but not checking if it's successful or not. I've seen requests from ~1,500 IP addresses, so blocking them isn't practical.
+That doesn't look like a Virus, but really it's kind of hard for us to tell you much as we don't know what's "normal" traffic looks like... but either case if you think this is bad traffic then you should block it using build-in apache mechanism or there is always a firewall)
+Looks like you've accidentally configured an open proxy server, and the Internet found out about it.
+So everyone and their mother is now using your server to proxy their web connections and hide what they're doing. In this particular case, your server is being used to abuse an ad network. You will be blamed for this.
+Shut down your server as soon as possible, and reconfigure it to deny proxy access, or allow it only where it's absolutely necessary.

@@ -1,0 +1,6 @@
+In Outlook 2007 I click Tools > Account Settings and then go to the Data Files tab. The current Default mail box is Personal Folders. Above it is my IMAP mail box. I want to switch the Default mail file from Personal to the IMAP one but when the IMAP one is selected the "Set as Default" option is disabled.
+This is because the IMAP protocol is only designed for the storage of e-mails. Outlook needs to store other types of objects like contacts, notes, appointments etc. which (officially) are not supported by the IMAP protocol.
+After trying everything else, I resorted to making a NTFS link to force the folder into another drive. This seems to be the only way to define location of IMAP email datafile freely, which is unbelievable.
+AFIK only .PST files, Microsoft Exchange accounts and a couple of third-party groupware accounts (via add-ons) can be be used as the default "Message Store" (that's how the data file is called internally).
+The original Outlook folder contents should be moved to F:\Emails and then deleted, before making the link.
+You need to be raised to administrator privileges to run the command, but afterwards the emails will appear into F:\Email (or whatever you choose as the target).

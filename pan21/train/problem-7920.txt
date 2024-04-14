@@ -1,0 +1,7 @@
+Open a new and blank '.xls' file and copy everything from the corrupt Excel file to this new file. Save this file and try to open it again.
+It turns out that Excel has a hard limit on the number of "Hyperlinks in a worksheet" of 66,530 (see https://support.office.com/en-us/article/excel-specifications-and-limits-1672b34d-7043-467e-8e27-269d656771c3?ui=en-US&rs=en-US&ad=US).
+On reducing the number of hyperlinks below this threshold, the workbook opened fine. (For the record, OpenOffice Calc was able to open the original, bad, file too, although it was very slow to do so.)
+1.Click on the ‘Office button’ and select save for new document or save as for previously saved document.
+I faced the same issue, and after drillling into the issue, i realised that the name of the sheet in the excel had special charaters which is not allowed.
+Cause: The most probable cause of encountering this error message is the corruption of complete Excel file or corruption of one or more object in this file.
+You may be trying to open a file that has connections to other files. Security settings prevent automatic update of those connections, and therefore Excel is left confused with regards to whether the links are viable or not. Besides the links to actual files, you may have links to the Data Model, which also depend on external files and fail to update upon file opening.

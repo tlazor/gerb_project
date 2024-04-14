@@ -1,0 +1,9 @@
+This is clearly limiting and very inflexible, so I want to know is there's a way of creating directory agnostic mod_rewrite rules so that it doesn't matter where the application has been installed? I realise it's probably never going to be perfect as it depends on the server configuration but there must be a better way of doing what I'd like than the above?
+Whilst the application is in development I'm working on it in my public_html folder. At the moment I have an index.php which provides access to other PHP files like customers.php which takes an ID and looks for that customer's details in a DB and displays them.
+For the use cases that you're talking about, having no explicit RewriteBase (and just letting it use current directory context, as is the default) should work just fine.
+(PS: I try to avoid RewriteBase because (believe my experience) you may get into trouble if yo have a lot of rules and you edit them many months later (= you don't remember there's a RewriteBase))
+I'm in the process of developing a PHP application but I have limited working knowledge of mod_rewrite which I plan to use to create "pretty URLs".
+I've written the following mod_rewrite rule which works to rewrite the webapp/customers.php to webapp/customers/
+After digging around I was able to answer my own question. When the webapp is installed it asks for a web address and a local file path for the app and uses that in the .htaccess as it's RewriteBase.
+The unprettified URL looks like http://server.domain.com/~user/webapp/customers.php?ID=1 which I want to transform to http://server.domain.com/~user/webapp/customers/1. 
+There is an obvious drawback to this (I'll worry about catering for the ID in the URI later for now). This is placed in a .htaccess and assumes that the application lives in /home/user/webapp/ on the server. 

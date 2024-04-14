@@ -1,0 +1,10 @@
+Due to the US site being a .internal namespace is making the site join troublesome, I’ve investigated renaming the domain or creating a new domain and migrating over but this requires a lot of administrative input and the US site has little IT staff resource.
+This isn't for the faint of heart overall though. You have to really make sure you do it right, because Exchange is finicky. Take for instance a single contact you already have on the other forest. Now delete it and recreate it and watch what happens when someone tries to reply to an existing email from the original "contact". It will bounce because it is looking for that original Exchange object, not the smtp address. So be careful and go slow. Even with the above options, it took me a few months of planning and testing to make sure go live would go smoothly.
+Are you referring to free/busy information or actual calendar sharing?  Your best route is to use the federation for free/busy information.  You'll need galsync (FIM 2010 R2) for the GAL setup.  Or, use one of the powershell scripts that will create the contacts for you without utilizing FIM.
+Looking for advice on joining two existing Exchange 2010 sites. Main driver being to share calendar information and a common GAL.
+User@domain.com is forwarded to a cloud based MTA content filter, then rules on the MTA forward the mails to the relevant Exchange site:
+As a result it seems that creating an Exchange federation trust seems to be the only viable option (unless there’s other solutions?)
+As there’s a private IPSEC tunnel between the two sites I wondered if it was possible to create the autodiscovery rules on the internal DNS servers then use the VPN tunnel for the federation.
+I have done a setup just like you are asking. It will handle distro lists, etc. Be cautious about having the same ones cross-forest though...like helpdesk or sales or whatever.
+Looking at the federated trust it seems that DNS needs to be amended, autodiscovery entries changed etc.
+Due to complexities with internal domain names and shared (non existent) root domain joining the two sites within Exchange is looking complex.

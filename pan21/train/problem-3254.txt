@@ -1,0 +1,6 @@
+In my case I had a few versions of mysqld running locally that made mysql_upgrade fail with Error: Failed while fetching Server version! Could be due to unauthorized access.
+ps aux | grep mysql and make sure mysqld is all shut down. Then brew uninstall all version, reinstall the right version. And after that mysql_upgrade started to work.
+I just ran into this as well after upgrading my system from Mint 12 to Mint 15.  I had archived /var/lib/mysql and put it back in place post-upgrade.  I ran the first mysqlcheck from user16081's comment, and it complained about mysql.sock.
+A lot of the other answers on this question are problems I had to work through to get mysql_upgrade to run initially, but for whatever reason - it failed as it was trying to run some automated queries, and I couldn't find the documentation on which queries it was running so I could fix them.
+Briefly: the error is misleading! run mysql_upgrade -u root -p with the DB on-line and provide the root password.
+I couldn't find a direct cause and solution to the problem I was having, so I resorted to re-installing MySQL to see if that would work. Turns out, re-installing did the trick. That was a lame way to fix it, but it was the only option I had left.

@@ -1,0 +1,7 @@
+Our current backbone is 4 x L2 dell switches connected by LAGs to effectively create 168 port backbone
+Static devices are going to be a problem.  Take a good audit of what devices are configured manually well in advance, and consider scripting the change for the servers that you can do this to.  Other devices (printers, etc.) seldom provide you with a good way to remotely change the IP, unfortunately.
+Above all, I recommend a meticulous plan of steps that you are going to take when it's "go-time".  Not having to think about "what's next" is a huge time-saver.
+We have remote site2site vpns connecting into our network from 192.168.102.0,192.168.103.0 etc. They will need access to all the internal networks 
+I would manage this change via DHCP, but in the weeks before you make the change, decrease the lease length.  By default on many DHCP providers, the lease is 7 days.  A couple of weeks before you make the cutover, shorten the lease to no more than a day (even 4 or 8 hours.)  Be aware that your DHCP server will see increased load.
+Why not jump to 10.x.x.x? For example 10.3.0.10. In the format 10.a.b.x have each site have its own 'a' value, then each group at that site could have a 'b' value. Each device would get an 'x' value. That's is our structure and we have close to 5K 
+I agree that you should consider avoiding 192.168.x.0, especially 0 or 1 for the third octet.  Consider the other reserved/private ranges.  Using a different subnet is sound; 255.255.252 is fine.

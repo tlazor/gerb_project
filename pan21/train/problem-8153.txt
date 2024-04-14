@@ -1,0 +1,5 @@
+It is not known whether f(k) is computable, although relatively tight bounds are known for it (see H. Gebauer, R. Moser, D. Scheder, and E. Welzl. The Lov ́asz Local Lemma and Satisfiability. Efficient Algorithms, pages 30–54, 2009.).
+Let f(k) be the maximal integer r such that every k-SAT forumula in which each variable occurs at most r times, is satisfiable.
+(k,s)-SAT is the problem k-SAT restricted to the forumlas in which each variable occurs at most s times. 
+Kratochvil et al. proved that (k,f(k)+1)-SAT is NP-complete. Note that (k,f(k))-SAT problems are always satisfiable (by definition). The reduction itself is non-constructive: note that the reduction outputs a formula in which each variable occurs at most f(k)+1 times, even though f(k) is not known to be computable. The main non-constructive idea is that even though the value f(k) is unknown, there exists a (k,f(k)+1)-SAT formula which is non-satisfiable, and they manipulate that formula according to their needs.
+Jan Kratochvil, Petr Savicky, and Zsolt Tuza. One more occurrence of variables makes satisfiability jump from trivial to np-complete. SIAM Journal on Computing, 22(1):203–210, 1993.

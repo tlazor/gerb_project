@@ -1,0 +1,6 @@
+Route traffic from app servers through pfsense and anything destined for site B enc domain will be routed over ipsec!
+I have setup a app servers default route to be the PFSense box and I can see the app server connecting to external services in the firewall log but no ipsec related stuff?
+The third party has required us to use subnet 172.31.168.0/24 but this conflicts with our internal addressing (AWS VPC) of 10.0.11.0/24. I added a 1:1 NAT for
+but doing a traceroute from the pfsense machine to an ip in the encryption domain range sends the traffic out over the internet.
+Okay, the solution to this was to remove all the NAT rules from PFSense and put the actual local subnet as the local domain in pfsense phase 2 entry on site A, then put the encryption domain as the "address to translate". 
+We are integrating with a third party and they require the use of a L2L IPSec VPN for communication. I have successfully configured the IPSEC vpn and the tunel is up but now I cannot seem to have traffic pass through it because the source IP address is not correct (I assume). I am a software guy not a network guy so 

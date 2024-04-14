@@ -1,0 +1,6 @@
+Though it is character-building to transform a recursive algorithm into an iterative form (and vice versa) I would not worry too much about iterative vs recursive.
+(There is a bug in your implementation: stuck if both i and j index an element equal to the pivot value (num).)
+(Getting late: the following code is work in progress; posting this to save the above, mainly (not quite trusting SE's autosave)(Never used C# - give me a break on documentation comments, const-correctness, commendable use of static or some such.))
+This is quicksort, using Hoare's partition scheme with a twist (use two reads and two writes to resolve one inversion wrt. pivot instead of a swap (/"exchange" - making it the counterexample to labelling quicksort "partition-exchange sort": a direct exchange is not essential (partition is)), conventionally taken to be equivalent to three reads&writes, each. With today's memory hierarchies, don't expect it to be any faster because of this).
+Of the Implementation issues mentioned in the wikipedia article, two reduce the likelihood and severity of worst case behaviour:
+For readability, you can and should separate the concerns of picking a pivot index, partition, and sort.

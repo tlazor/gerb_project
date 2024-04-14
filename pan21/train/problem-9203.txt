@@ -1,0 +1,7 @@
+and click "login",  it still displays the "untrusted connection" page which asks me to manually trust the connection.
+Your browser compares what you entered in the address bar with the certificate.  The certificate has the full domain name of your site.  The browser compares the IP address with this, and since that fails, the warning is shown.
+Ideally, when clicking the "login" button, it should use the https scheme without any warnings/errors.
+Try accessing the site from an external location using the full domain name, and see if you still get the message.
+The command above was executed on all web servers. I also edit my server.xml file under the Tomcat conf/ directory.
+If you obtain the IP of something like a bank site, and use the IP address to access directly, in most browsers, you'll get the same message.
+I have a website which was deployed with three real web servers and a load balancer with a virtual IP. I have applied an SSL certificate from a CA and imported to Tomcat using OpenSSL using the command like below:

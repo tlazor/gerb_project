@@ -1,0 +1,9 @@
+There are a number of other flags in relation to this property, but some are not valid despite appearances otherwise. 512 = active and 514 = disabled is reliable for a standard user account, however.
+All user accounts are "normal" accounts (512) - non-normal accounts are things like accounts for domain trusts (2048) etc.
+A useful list of these flags is compiled at SelfADSI.org:http://www.selfadsi.org/ads-attributes/user-userAccountControl.htm
+When employees quit, their Active Directory user account gets deactivated and moved to a deactivated users OU.
+This flag is binary data expressed as decimals, so you need to ensure the correct decimal value is calculated and checked
+I would like to programatically remove staff folders for employees who have left, but can't find a tool that will distinguish between active and deactivated employees.  I have tried: "wbinfo --verbose -i" and "id" commands.
+You should stick to the openldap ldapsearch utility, which will give you the information you want. The switches that you launch it with and the additional parameters depend on your AD configuration, like the domain name, OU coordinates inside the LDAP root, and so on.
+Does anyone know a Linux command that I can use to determine whether an employee is active or deactivated, or alternative state the OU a user account is located in.
+Alternatively, in your situation, a simpler LDAP method may be to see if the account path is in the "inactive" OU. If you set your search root to the Inactive OU and then grab the list of accounts present in there, you'd be able to compare those to the list of existing user home drives you'd have.

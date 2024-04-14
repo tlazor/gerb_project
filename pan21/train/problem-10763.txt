@@ -1,0 +1,5 @@
+Curious: does your site use SSL? Browsers would refuse to connect due to invalid certificate if someone attempted a crafted domain attack.
+Also as an experiment, get an old domain you no longer use and point it to the same IP. Visit the domain.
+Without a vhost it would be trivial to proxy to your raw IP, making it easy for the aforementioned crafting. Here's a Wikipedia article on that.
+I am trying to figure out the cons of a current setup and discovered a potential anomaly. There's a webpage hosted at (say) webpage.com. If I point my domain (say) mydomain.com to the raw IP of webpage.com, the actual webpage.com web page is returned on a web request for mydomain.com. But is this a good practice? Should VirtualHost (or SNI) filter queries with 'host' param in the HTTP header, which are not present on the server?
+Ideally, a virtualhost is good practice. It's a simple way to protect against various domain crafting attacks (facebok.com, aple.com, micro-soft.com), as Apache will only serve requests from webpage.com.

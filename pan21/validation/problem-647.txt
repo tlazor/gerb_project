@@ -1,0 +1,6 @@
+IN/OUTBOUND traffic (as suggested by voretaq7) , CPU, memory, disk usage, and disk IO are of the keys to achieve this. How to do it may vary according to the hosting solution you're using..
+Note that this only addresses OUTBOUND attacks - As you noted there are other things you need to consider to adequately protect your server itself. That would be an interesting follow-up question.
+Proper isolation between clients along with some restrict resources limitations would be the answer.
+This may frustrate legitimate users, but it will also prevent malicious users from launching attacks from your server.
+Beyond that you can restrict outbound network access (either with PHP settings or through a firewall - the latter being preferable).
+If you let people execute arbitrary code in an unrestricted environment there is very little you can do to make it "secure" -- When I worked for an ISP that provided shared hosting with PHP we mitigated this by only selling to companies/individuals we had vetted to some extent to ensure they weren't J. Random. Haxor looking for a platform to launch attacks from, and honestly that's the best solution to this problem.

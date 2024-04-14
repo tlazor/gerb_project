@@ -1,0 +1,10 @@
+Even if I moved it to the same box without hyperthreading it would get 2 full cores instead of 2 vCPU.
+However, I cannot see the real issue from what you have described unless you can provide your actual "CPU Ready" value.  
+The business system VM is configured with 2 vCPU's and 24 GB of RAM. The OS is Windows Server 2008 R2. 
+One is really doing very little right now and will likely be turned off in the very near future. It has 2 vCPU and 8 GB of RAM.
+You are correct in your assumptions. For your particular case stacking Mhz's instead of vCores is a right way to go. Take a look at this processor: (features 4x 3,5-3,7 Ghz physical cores + HT).
+We had a DBA look at it and he does not feel that it is the cause of our issues, at least not from the database performance side.
+We purchased the 2 core license and are currently running it on VMWare. It is quite expensive to move to the next license level.
+The 3rd VM is running our public website. It averages less than 25 percent on CPU. It has 3 vCPU and 16 GB of RAM.
+Does it make sense to build a server specifically to gain the best Single Thread performance for an application like this?
+Since I am limited to two cores I would select the fastest "Single Thread Performance" cpu I could get, likely 4 cores.

@@ -1,0 +1,8 @@
+Out-of-the-box, using a spinning drive, 100/second is a safer Rule of Thumb for how many simple actions MySQL can handle.
+I need to aggregate all the inserted records into another main server after doing some mapping processing to the aggregated records. so this new server should receive around 16 million records per day.
+Yes, MySQL will be able to do 20 million inserts per day, no problem. My calculator says 20 million per day translates to roughly 231 inserts per second. See e.g. this blog post from Percona's Database Performance Blog from 2010 which talks about more than 36 thousand writes per second. With the optimisations that have gone into MySQL since then as well as the hardware improvements, this number will obviously be even higher today.
+Note that you can increase write throughput by combining multiple inserts together in a single transaction.
+And from a skills perspective, since you're already using MySQL, it might make sense to use that for this aggregation database as well.
+As the data comes in to each of the 4 servers, aggregate the data.  Then have the combining of the 4 subtotals can be done via 4 connections and a little arithmetic -- fast enough so that it can be done while the user is waiting at his browser.
+I also need to make this operation as real time as possible, so I was thinking of a script running every minute or so that do the sync. or perhapse some other sync tool or mechanism you can suggest.
+Details?  Well, there are so many different ways that all this could be done, I can't give any practical details without seeing details of the data and the processing.  Meanwhile, here are some generic discussions of how to do these with MySQL:

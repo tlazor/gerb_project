@@ -1,0 +1,8 @@
+In your main function, what exceptions are you expecting exactly? Not even talking about the bare except that will handles exceptions that you are expecting as well as those you are not, but Scanner already performs exception management so why expect anything else to happen?
+Use proper case to differentiate between purpose of variables. TitleCase is usually for classes: use lowercase or lower_snake_case for function names. Use UPPERCASE for constants.
+You are also checking if cartX == cartidX way too many times. Check it once and if it fails there is no need to perform other checks.
+You’re iterating over IP addresses but not using them to get any content. Instead, you’re always getting content from link. You probably want to define
+Also, you have a while True: in main and something that is pretty close in Scanner. This seems all too confusing. I’d rather have Scanner perform only one iteration over the IP addresses and let the while loop in the main.
+But you also happen to have all your targetXXX being the same without modifying them at any point. Why not use only one, then?
+by the way, where does cookie_value come from? It is used all around your code but never set anywhere.
+The amount of variables in Scanner has already been discussed by @MaximGalushka. It’s approach to reduce the amount of copy pasting is pretty good, you can put all your second try .. except .. logic into his Parsed object constructor for maximum efficiency.

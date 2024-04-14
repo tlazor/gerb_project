@@ -1,0 +1,6 @@
+In what way was your PostgreSQL unreliable? There are a lot of people who use it reliably on Windows.
+Most of our systems are in MS SQL and this replication is rock solid.  We have not had any issues related to MS SQL failing replication.  When there are issues, the alert/notification system lets you know immediately.
+We played a bit with postgresql and slony for a master-slave-slave replication setup on windows. But we hit a wall with failover/switchover which is very unreliable. How about MySQL? How reliable is the replication itself and failover/switchover?
+As for running on Windows, in my last role I ran a three way multi-master configuration with one on Linux and the other two on Windows, each in different parts of the country. In a bit over two years I never had a replication issue. Any one of those server could be off-line, relative to each other, at times for various reasons but would re-synchronise when they re-established contact with their peers.
+You might consider using a multi-master arrangement rather than your current one, as it can solve most failover issues.
+We use MySQL replication in part of our system and it seems to fail about 2-3 times a month.  I'm not sure if it's a network issue or MySQL issue.  I can say that it is quite annoying...

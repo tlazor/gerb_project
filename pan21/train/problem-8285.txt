@@ -1,0 +1,7 @@
+It's 5% reserved blocks for superuser, which is used to avoid fragmentation. You can adjust it to 1% by mkfs.ext4 -m 1.
+The only good reason to use NTFS on Linux is to share files with Windows.  It will work okay for media, but lacks various UNIX features, so is not suitable for general purpose on Linux.  Don't compile on it!
+I can't promise that this happen to you but at least for the files I had ext4 was a real space saver tough! :)
+Each file / dir needs 1 inode.  You can't change the number of inodes after creating an ext filesystem.  Even 1000000 inodes would be plenty for that partition, if you will use it only for movies and music.
+I had a (full) ntfs filesystem containg about 1000 GB of data with only a few hundred megabytes free. Even if ext4's formatted capacity was far less than ntfs I remember that when I copied everything over I still had about 70GB free on ext4 even if the formatted capacity was less. (Remember the ntfs was full).
+You can specify a usage option to mkfs.ext4, e.g., mkfs.ext4 -T large_file, this will let mkfs.ext4 to decide parameters for partitions containing large files.
+The NTFS Master File Table (MFT) is slightly more flexible, so NTFS can cram in more data by default.

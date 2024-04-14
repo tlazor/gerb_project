@@ -1,0 +1,8 @@
+I prefer to define the bridge using the host tools.  This ensures things aren't changed there and allows me to manage the networking with one set of tools.  
+Alternatively, you can delete the external bridge definition, but that may cause issues for applications running on the host. 
+Remove the autostart from the network definition.  It is being started by the network manager.  The two configurations may be conflicting.   virsh may report the interace as inactive even if it is up.  Whatever you define your bridge as, it neeeds to be declared to libvirt. You will need to ensure the network configuration is complete.  
+Any idea why might be happening or any miss configuration that has occurred? I have the following interface scripts
+Once the virtual bridge (default) is active, I completely loose internet connectivity on my KVM host. Cannot ping www.google.com
+Someone has created a manual configuration for the virbr0 virtual bridge interface, which is supposed to be managed by libvirt. The instructions you linked to state that it should instead be created for the br0 bridge interface.
+You should change all occurrences of virbr0 in those ifcfg- files to br0. The name actually does not matter, but it must not be virbr0, which is the libvirt-managed interface.
+I have set up a virtual networking on my CentOS 7 Workstation and the primary physical network interface is bridged as per this RHEL article. 

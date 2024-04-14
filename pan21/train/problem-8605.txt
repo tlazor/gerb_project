@@ -1,0 +1,6 @@
+I am trying to restore an individual folder from an Exchange 2007 GRT backup, and the restore is failing with error code E000848C.
+If it helps, I've posted a copy of the backup log below. I have anonymised the server names, account names and DNS names for security.
+All servers have the "Domain Admins" group as members of the local Administrators group, and I have also added the BACKUPEXEC account as a local Administrator explicitly, on both the Exchange and Backup Exec servers.
+I have had a read through the Debug log from Backup Exec and the only thing that looks important, to me, is "ERROR: 10 Error: Invalid device". I've been through the Backup Exec site and not found any solution that has worked for me.
+The interesting thing is that when I run the "Symantec Help" utility, it claims that the Backup Exec account is not a member of the Local Admin group, not a member of the Domain Admin group and not a member of the Exchange Organization Admins group. However, when I query against AD, I am told the opposite:
+The setup is a Windows Server 2008 Standard x64 machine running Exchange 2007 SP3, and a Windows Server 2008 Standard x64 machine running Backup Exec 12.5.

@@ -1,0 +1,6 @@
+Try running a virtual machine with the correct OS installed? Something like Oracle's virtualbox. This allows you to run a machine within a machine, and you can get a free trial copy of Windows 2008R2 or 2012R2 and then install SQL 2016.
+The other option is to upgrade your OS? It's free to upgrade to windows 10 from Windows 7 permitting you have the correct requirements?
+It appears the requirements for SQL 2016 you need windows 8 or greater. The reason may be because windows 7 is on extended support. This means that if you are not on service pack 1 it's already not supported by Microsoft.
+OK so enough of the limitations. Now to get around your issue, if you truly need SQL 2016 rather than installing SQL 2014 or SQL 2012, both of which are supported by Windows 7.
+You also need to look at if your OS is 64bit. This is also another requirement for SQL 2016. I might have missed the version of SQL 2016 you're trying to install but since the developer edition is free I am going to assume that is the one.
+https://www.microsoft.com/en-us/accessibility/windows10upgrade?tduid=(14c348e893a91089cb2980533c6ee123)(256380)(2459594)(TnL5HPStwNw-0FBZfNm6YPFXNhiu3o52rA)()

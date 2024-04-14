@@ -1,0 +1,5 @@
+Your LDAP database only holds metadata about your users. The path name of the user's home directory will be in there (because that's metadata), but the home directory itself will not (because that's data). Shared/non-shared home directories is a problem entirely orthogonal from where user metadata is stored. You can have shared home directories (via NFS, AFS or something else) entirely independent of how you store and distribute the user information. Or you can have a home directory per machine. It's totally your choice.
+How is LDAP acls talk to client acls? If I have www:www on some of the client machines, how do I allow certain users to access them?
+I have been goolging around LDAP these days. And I'm trying to deploy a central authentication server for quite a few ubuntu servers.
+If not, are they stored on client machines? When user logs into different servers, they have different homes?
+Are they stored in the LDAP server (the central one who manages all?).If so, what if we have a huge expansion, and the original server does not meet the needs more. Should we migrate it to another machine? Or is there a way to cluster it?

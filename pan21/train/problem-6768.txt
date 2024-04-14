@@ -1,0 +1,5 @@
+Finally a directory permission of 0777 is never needed. 1777 possibly, but if you need  the permissions set to 0777 in order to get it to work, something else is wrong.
+Next, check the path you are trying to write to is traversable by the user (in this case www-data). The namei command can help here:
+Permission denied is invariably an OS level issue. First make sure the user you think the process is running as really is the relevant user. You seem to have done that, but also verify you are not running something like suexec, mpm_itk or mod_ruid which can change the UID indvidual requests run as.
+You can execute chown -R www-data:yourgroup /var/www/html/pluto-php, where yourgroup is the group name of your user (avoid root for security reasons). If you don't specify your groupname, you won't be able to write and read in the data directory.
+Next verify if some OS level security software such as SELinux or Apparmor is running and if it is, determine if it is interfering with your process writing to that directory.

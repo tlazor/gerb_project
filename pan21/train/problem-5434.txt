@@ -1,0 +1,6 @@
+In the case you've described, the mails did not originate at your mail server, so they will not affect your mail server's reputation.
+The big providers like Gmail, Hotmail, etc., do check SPF records and use the results, so this is helping you to not receive a lot of bounces you would otherwise get. Not to mention killing a lot of this spam.
+The SPF record allows any mail server which is configured to check them to reject such messages or mark them as spam, but not all mail servers check SPF records, and some which do check them don't actually do anything with the results.
+Recently I opened my server's webmaster email inbox and found 32 "Delivery status notification failed" emails reporting the failure of the delivery of 32 emails I did not send.
+My Question: Do these spammers attempting to impersonate my mail server impact my mail server's reputation? Will I get added to some blacklists and then be unable to send emails to certain domains?
+After some investigation I have determined that several IP addresses are attempting to impersonate my web server by sending emails from random email addresses (that don't exist) using their own mail servers.

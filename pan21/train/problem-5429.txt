@@ -1,0 +1,7 @@
+Output of the above command:Line2 indicates that your mod_wsgi is now using Python2.7 libraries. YAY!
+I restarted the server but this reports "internal server error".  Error logs show that on start-up the server is reporting usage of Python 2.5.2 -- the same version as previously.
+Reading one of the articles I realized there was no need to un-install my current mod_wsgi and I could just go ahead and re-install mod_wsgi3.4 (earlier i had v3.2) with the settings to use Python2.7 (seems like the installation process re-writes everything without any errors/conflicts).
+as you may need to set LD_RUN_PATH to /usr/local/lib when building mod_wsgi so that it knows where to find the Python library at runtime, if /usr/local/lib is not listed in system ld.cache.
+I happened to face this same issue. And I was looking at the option on uninstalling mod_wsgi and re-installing it with appropriate configs.
+The below two commands are very important. Replace /usr/local/lib with the folder where you have installed libpython2.7.so.1.0 if it is not in /usr/local/lib.
+You have a system package for mod_wsgi installed which is conflicting. If you don't need them, uninstall the system package for mod_wsgi.

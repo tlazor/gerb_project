@@ -1,0 +1,6 @@
+The claim that a disk should be overwritten multiple times stems from the times of tape drives. So this may well be applicable to your backup tapes, still.
+The easiest way to use it is to make a Live CD/USB of your favourite Linux distro and then run hdparm. It is quite easy. You can follow this guide:
+To my knowledge there is no "best" algorithm. Simply overwrite with random bytes once should be sufficient for hard drives (not necessarily SSD). Even overwriting it several times has not been proven to be any more useful than doing it once. In particular also check out the Criticism article under Gutmann method.
+Old drives used to have common faults which is why many legacy security HDD erasing programs include options like 'multiple passes', etc. Drives of today are not prone to this issue and a single pass of zero/random bytes should be sufficient.
+There are a lot of secure erasing algorithms in erasing softwares. What's the best of these algorithms?
+You should check out "The Great Zero Challenge" via your favorite search machine. Basically it is true that there is a chance to guess the original contents of a single bit right. But if you are even slightly familiar with probability you know what that means if we're talking about eight bits (i.e. one Byte), let alone Gibibytes of data.

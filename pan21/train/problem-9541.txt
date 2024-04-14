@@ -1,0 +1,5 @@
+It really isn't that much work to slice an image up or stitch a few images together, especially if you're not concerned with writing the CSS (which takes more work than either of those tasks). The real work is designing the graphics themselves. And if you're laying down guides and organizing your document with layer comps, smart objects, slices, symbols, etc. then any work you need to do with the sprite map or individual images is really easy to do, and there's not much use for a specialized sprite map tool.
+Is there something I can use to divide an image sprite up into individual images, combine images into the composite, etc?
+The tool doesn't have to do editing itself. Ideally a plugin for Paint.NET, or even the Gimp would be great.
+If you already have a webpage and you want to convert it to using CSS sprites, one option is to use SpriteMe. You use it as a bookmarklet in your page, and it figures out the best way to combine the images, writes the CSS, etc.
+There are online tools like Project Fondue, but I find any decent image editor like Paint.net/Gimp/Photoshop/Fireworks/etc. works fine.

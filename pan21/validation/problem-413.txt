@@ -1,0 +1,8 @@
+This is also wrong technically. The system will only access disks which announce a capacity of up to 120 GB to the bios. It will take any ata100 disk.
+Modern drives can be limited in capacity for such cases. This is done by jumper and affects the identification of the drive against the bios as well as actually accessible storage space. You effectively loose storage space as long as the drive is used in that laptop.
+Take sub 120 GB drive or try bigger drive with capacity limit capability (Most drives can, ask vendor, also for remaining capacity)
+The amount of remaining storage differs from disk and manufacturer wise, sometimes it's 32GB, sometimes 64 GB or 80GB.
+Every ATA100/66 capable disk can be connected. Even most older drives over say 20GB should work. Might try spare if available. Otherwise:
+ATA100 is an IDE flavour with improved speed. The capability has been in general use a long time before Your laptop.
+I would try big drive as support info on old computers is often outdated. If big disk is not  recognized by bios, jumper for cap limit. The benefit of better performance in contemporary hdds remains.
+According to Dell the other answers are wrong. Dell says that the system takes only disks up to 120 GB.

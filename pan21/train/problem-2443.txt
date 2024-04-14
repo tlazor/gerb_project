@@ -1,0 +1,6 @@
+3rd party method is this software. Does loads of stuff which may be useful but will "Disable automatic restart after Windows Updating".
+I have the RC of Windows 7 and I have a lot of really important stuff pen on my pc, it says it installed new updates and it needs to reboot, it lets me post-pone the reboot by 10 min - up to 4 hours but that is it,  not option to reboot when I want to, is there anyway at all to make it not reboot within the next 4 hours without manually clicking the buttons to keep extending it by 4 hours?
+Or you can avoid that problem altogether by disabling automatic updates and updating manually when you are ready.
+As Col said, stop the update service. This can also be done through the action center/ windows update method. Only check manually and when you can restart straight away.
+This stops the windows update service, you can achieve the same thing by doing start run services.msc finding the automatic update service and stopping it.
+Just select "Check for updates but let me choose whether to download and install them" in Control Panel/Windows Update. That way you will always know about new updates and (hopefully) won't forget to install them :]

@@ -1,0 +1,5 @@
+When you install this, the installer should try to walk you through a basic configuration.  If it doesn't, there may be a preexisting configuration file.  You can force a reconfigure by running:
+http://www.notesbit.com/index.php/scripts-unix/sendmail-introduction-and-configuration-a-step-by-step-guide-for-those-of-you-configuring-your-first-e-mail-server/
+Incidentally the same problems are occurring on the physical server and my test virtual machine, installed at different times but both Ubuntu 10.
+If you need a plain and simple mail program to run from command line, you could install alpine. It should be in apt. 
+I am a college lecturer to whom the task of supporting the students' Linux Server has fallen. My students just need to use the mail command to communicate with me and each other. I thought mail would be there by default but it wasn't. I have tried all the advice I found on the Internet and tried to install mailutils, sendmail, mailx, exim4 and postfix. There were more but I can't remember them all now.  After installing (if it works - some of them don't), when I try to send a message they all  give me:

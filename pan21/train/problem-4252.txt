@@ -1,0 +1,7 @@
+If you want this to persist through reboots, update the /etc/fstab file so that the volume is mounted at boot.
+A root volume in Amazon EC2 is not the same as a root volume anywhere else, so assuming that you can manipulate it in the same way as a root volume on server in a rack in your Comms Room will get you into trouble
+People seem to think EC2 is something magical and different, but it's fundamentally Amazon giving you an Ubuntu VM. Don't overthink it!
+If you want to separate volumes in your server instance, add an EBS volume to it, create a partition on it using fdisk, create a file system on it using mkfs.ext4, then mount it on whatever mount point you wish.
+It makes more sense to add new EBS volumes, and mount them in the locations you want as opposed to partitioning a small root drive. Remember that the ephemeral storage you get (/mnt) is ephemeral, meaning it is not persistent if there is a reboot for whatever reason. 
+An Ubuntu server on EC2 is essentially the same as an Ubuntu server anywhere else. Yes, you can partition, in the exact same way you would on any other Ubuntu install, and yes, it makes sense for all the same reasons.
+I'd like to know if it's possible to create a partioned volume and if it even makes sense to do that on an Amazon EC2 server. 

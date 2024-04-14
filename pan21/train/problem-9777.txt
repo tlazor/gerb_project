@@ -1,0 +1,7 @@
+You should also always use prepared statements. Yes, $file is currently controlled by you, but who knows, that may change in the future.
+This website is located in /www/sitename, while I upload the files to /gstorage/sitename, which can't be accessed from the web.
+Your extension check is pretty much useless, as I can still upload a variety of files with extensions that can gain me code execution, such as php4 or .htaccess. If possible, use a whitelist approach instead.
+I have found a lot of html files in /www/sitename and it seems like they somehow came through the upload.php file, as I've found a POST from a specific ip to this file in the logs before the files appeared and then that IP started sending post to those files.
+I have written a basic PHP upload script a few years ago and recently I discovered some phishing html pages in the website's root. 
+But in your case, it doesn't really matter, as you are not using the extension anyways, the filename is just a random 5 character string without extension.
+Apart from this, I don't see any vulnerabilities in your script. My guess is that the vulnerability is somewhere else (seeing the logged request that you suspect would still be interesting).

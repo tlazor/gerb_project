@@ -1,0 +1,7 @@
+Not sure if the lower power state of C1E is messing with the driver, or that there's an oops in the driver when the processor is in this state.
+I have noticed that in my kern.log file it keeps hanging then resting. This is happening often. This happens every few second then maybe it will be ok for a few minutes then back to every few seconds.   
+I have a Dell 1U Server with Intel(R) Xeon(R) CPU L5420 @ 2.50GHz, 8 cores running Ubuntu Server Kernel Version 3.13.0-32-generic on x86_64. It has dual 1000baseT networking cards. I have it set up to forward packets from eth0 to eth1. 
+Try update your driver.  Don't know where it is for Ubuntu or what version recommended but for CentOS or EL 6 it is:
+What could be causing this? Is this just a bug in the software or a actual hardware issue?  I have seen many other having similar issues but no real solution and this also leads me to believe that its a software issue? 
+http://mirror.symnds.com/distributions/elrepo/elrepo/el6/x86_64/RPMS/kmod-e1000e-3.1.0.2-1.el6.elrepo.x86_64.rpm
+I had the issue (triggering same kernel error as you and userspace SSH errors like "Corrupted MAC on 

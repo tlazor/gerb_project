@@ -1,0 +1,7 @@
+(I am a linux newbie, just read over file ownership and permissions, and what to get some real life stores of when things go wrong')
+It's important to know that if you want people to be able access a directory, the  execute bit must be set on all of the parent directories for that particular user. For instance: 
+Removing the executable permissions from the dynamic linker (/lib/ld*.so) is a "fun" way to shoot yourself in the foot.
+This mostly comes into play in things like web servers, where a user will want to present files to the populace in general (typically in ~/public_html for instance) but wants to keep the parent directory secure. There is no need or reason to set the read bit, unless you want your user to be able to execute a directory listing. 
+Basically what I am looking for, is experienced linux admins to share some permission 'mishaps' that newbie admins might overlook.
+I was once at a place where the sysadmin (not me, I was a programmer) decided to do a "chown -R" on our source directory tree (this was back in the days of SCCS, so everybody looked at the same directory) and managed to chown the SCCS directories, making it so nobody could check anything out or in.
+As a general rule, don't make files or directories world-writable. (temporary directories count as an exception, but be sure to set the "sticky" bit.)

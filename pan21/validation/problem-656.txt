@@ -1,0 +1,5 @@
+The index.php redirect works fine, as does the "directory" name -> php file redirect. However, I can't figure out how to do several things: Implement the trailing-slash fix, and externally redirecting .php files so that I don't have any duplicate files. I want all pages to look clean, like /help, /about, etc. The real pages on the server are /about.php format. Also, I can't get the rewrite rule for the images working. I want anything that's not a real file or directory (-e flag) and not a rewritable file (like /about) to redirect to generation/etc...
+You're going about it wrong. Nginx loves location blocks, for instance to redirect /index.php to / you'd do.
+You'll also want to look into try_files. In general, if you're using an if in Nginx then chances are you're doing it wrong.
+I'm new to nginx's rewrite engine. I'm trying to convert my old htaccess file over to nginx's format but I'm running into some trouble.
+I recommend reading this for a basic introduction on how Nginx uses server blocks and location blocks: http://blog.martinfjordvald.com/2010/07/nginx-primer/

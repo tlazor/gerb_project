@@ -1,0 +1,6 @@
+You could always default back to classic recommendations on specs based on nature of workload, size, etc. People were spec'ing VMs long before DTUs :)
+100 DTU is equivalent to 1 core. It should require less than 150 IOPS in terms of storage performance.
+At the end of the day, you'll probably have to do some tuning either way, so I'd start small and work my way up in a test environment. You know your application(s) and workload(s) best so you need to figure out what features and specs are going to get you to your desired state. 
+Although the definition of DTU states that DTU is a blended measure of CPU, memory, and data I/O, however none of the performance counters used by the DTU Calculator take memory into account. This does not help us to give you the memory requirements for that 100 DTU tier.
+This answer from SO seems to indicate it may intentionally be clouded in mystery... which makes perfect sense if you're Microsoft and very much want people to move into the cloud instead of hosting their own architecture. The cloud is where they get a much bigger slice of the $ pie, after all!
+Brent Ozar also offers training in this area if you really need to hit the nail on the head with this server transition (I am not affiliated with Brent Ozar Unlimited in any way). 

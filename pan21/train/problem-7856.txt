@@ -1,0 +1,6 @@
+In theory this feels possible to me. Is it possible for md to act like one of the disks is empty, and change the raid type from 1 to 0?
+I can maybe figure out how to make this happen by jugglying disks around, (and reinstalling is an option), but is there an easy way to turn a raid1 into a raid0?
+Finally, you can do it the right way, and just backup the data, reconfigure the RAID array offline, and then restore the backup onto the new array.
+So, going from RAID1 to RAID0 doesn't appear to be possible.  If you had a third disk, you could perhaps go from RAID1 to RAID5 to RAID0, but that seems like a rather roundabout way to do it.
+The manpage does, however, say that you can "increase or decrease the "raid-devices" attribute of RAID0, RAID1, RAID4, RAID5, and RAID6", so you could break the RAID1, turn one of the disks into a new one-disk RAID0 array, copy the data across, then nuke the other half of the RAID1 and add that now available disk into the RAID0.
+I have a linux server (3.19.0) which has raid setup with md (v3.2.5). / is a raid1 device with 2 disks. There was a mistake when installing this machine, instead we need those 2 disks to be in raid0 configuration. Is there an easy way to change the md device like this?

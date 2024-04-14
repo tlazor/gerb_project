@@ -1,0 +1,13 @@
+Later, if you find a good case for using an interface in place of a specific class, refactor it then.
+Also, if you did want to add more than one item, FetchProducts() is not set up to return multiple of the same instance of Product.   With your current code, it would seem natural to just add a new Book as:
+Generate() only prints out each item, one at a time.   You even have the hard-coded output of 1 item:
+When you run your code, TotalTaxes prints as 1.5 instead of 1.50  If using Console.WriteLine, there are several numeric format strings to choose from.  Given the format they have, this would work:
+Your Generate() function has logic that seems specific to a Product, which contradicts the object-oriented nature of C#.  The specific code I'm referring to is:
+Even though Janos mentioned this, I feel it should be reiterated.   The ProductList class is not necessary, at least in its current state.  It's a static list that doesn't take any input from the user, nor does it implement any interfaces that might suggest it could be attached to any sort of datastore containing an inventory of products.
+You can also refactor my function above so that it doesn't keep creating a new Tax object every time you try to calculate the tax.  I was just using it as an example.
+It would be a lot clearer to isolate the product logic into the class itself.  For example, I would suggest initially refactoring the Generate() code to:
+Also, if you're adding interfaces just for the sake of adding interfaces, often I've found that makes the code confusing to read.  There's nothing wrong with keeping it simple. 
+I'm not sure if this is part of the requirements or not.   That said, your code does not handle multiple items.
+My recommendation might have been some method to mimic an inventory database listing with a way to search for a specific item.
+The problem with this is it increases the memory used and allows for different properties for the same item.  Did you notice the 0.10 more for the second book?
+Janos has some great pointers.  There are other issues that stuck out quite a bit, from my experience, so I'll add mine:

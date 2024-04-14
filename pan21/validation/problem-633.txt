@@ -1,0 +1,7 @@
+But if I press UP_ARROW player don't move one pixel, but move 5, 8, or 10 or more or less pixels. How to do if I press UP_ARROW player move 1 pixel?
+I am using RequestAnimationFrame( http://paulirish.com/2011/requestanimationframe-for-smart-animating/ )
+If you read this article you'll understand how to implement delta time steps. Now, with this in mind you'll have what you need to ACTUALLY move the player correctly. If you want the player to move 32 pixels per SECOND, you would do something like....
+This will move the player 32 pixels every second, regardless of the frame-rate in the browser. This is ideal as you are now guaranteed 32 pixels on every browser, machine and configuration available. If you don't do this, you are subject to frame-rate fluctuation. 
+The player is moving 1 pixel, but because you are constantly polling for input, you get the 'isdown' response every frame.  So in the space of 1 second, you have moved 60 pixels, assuming frame rate holds and you held down the key for the whole second.
+I suggest altering your input class so that it would be handled for you, but the code is pretty much identical.
+What you would need to do is only perform the movement code, as soon as the key was pressed, that way the player will need to release the key to be able to move again.  Something like this should do the trick. 

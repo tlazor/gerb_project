@@ -1,0 +1,10 @@
+Also, if you pass the coords as the topleft argument it doesn't jitter so much: text.get_rect(topleft=(HW-100, HH)). Or you could just blit the text at these coordinates:  screen.blit(text, (HW-100, HH)).
+If you want to keep the player sprite separate, just blit it in the while loop: screen.blit(player.image, player.rect).
+The while loop and the corresponding variables could be put into a main function or a class to clean up the global namespace.
+You don't need to remove the hit meteor from the meteor_hit_list because you'll create a new list in the next frame anyway:
+I'm not sure if your images already have transparent backgrounds, if yes, you can just call convert_alpha() and omit this line:
+You've got a lot of comments in your example which make the code a bit more difficult to read. Add comments only if something could be unclear (explain why the code is needed). Some comments are even wrong or outdated.
+Separate the game logic from the drawing/blitting code. That will make your main loop cleaner and the code will probably be easier to extend. So don't blit the sprite images in their update methods.
+Sprites in a sprite group can be blitted by calling the draw method of the group: meteor_group.draw(screen).
+You're loading the background image twice. Just replace background_size with background. And don't forget to convert the surfaces/images, because unconverted surfaces can slow the game down a lot: background = pygame.image.load("background.png").convert().
+Load the images globally or in a separate module, because it's inefficient to load them repeatedly from the hard disk in the main loop. The self.meteor_list can also be a global list:

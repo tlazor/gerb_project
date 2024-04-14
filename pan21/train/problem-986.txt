@@ -1,0 +1,7 @@
+Open your windows Explorer and search again for any left file or folder containing ask search or ask toolbar in their name.
+if there is anyone else using a computer (other user account), it could be the configuration or registry or something got corrupted. Had a same problem, this worked for me.
+µTorrent has actually always been portable! It's only one executable. The setup has been added later. It launches when you first execute utorrent.exe, but you can just skip it, and µTorrent will (should) be launched. I still have one of the first versions which is only 100K or something in my tool archive somewhere (when I heard they were bought by another company first thing I did was thoroughly backup that executable).
+The above command should tell you if there are any command line switches if you run it from the command prompt in the correct directory.
+Search for anything that is related to ask toolbar (and also any other suspicions file name) and remove it.
+I suggest you also read this step-by-step ask toolbar removal guide:http://www.virus-delete.com/en/guides/browser-hijacker-removal/20130814-how-to-remove-ask-search-toolbar-through-isafe-virus-removal-tool.html
+I would check to see if the installer has any command line switches.  I would look for a "continue on error" mode and also I would look for a install mode that leaves out the toolbar.  

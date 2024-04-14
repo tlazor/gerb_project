@@ -1,0 +1,6 @@
+Another thing you can do is make an entry in your HOSTS file for your domain. That will avoid querying your DNS server, and that can be used as a temporary fix until it is updated.
+I recently transferred my domain to GoDaddy (garrypettet.com). Everything seemed to go smoothly. I have a server with DigitalOcean, managed by ServerPilot. The website was fine until a few moments ago.
+That is what I get on my machine. Is it possible to change your DNS settings to use Google DNS servers (8.8.8.8, 8.8.4.4)?
+I have no idea how to debug this problem. Is it an oddity with DNS? I have restarted my server to no avail.
+What DNS server are you using on the computer you are trying to visit the website with? Perhaps you are using a server that doesn't have the updated DNS record for your domain.
+Now when I visit garrypettet.com, I am shown an error page saying that the site is in maintenance mode. The odd thing is that the title of the page says "Vapor Hub International" which, from what I can see, is a totally unrelated website to me. The page that is being displayed I don't think is being served up by my server.

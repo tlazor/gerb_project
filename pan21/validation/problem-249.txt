@@ -1,0 +1,6 @@
+I recently transferred my domain to a new registrar, and after the transfer was complete, updated my nameservers to point to completely different ones.
+3) My laptop fails when doing a ping of my website. HOWEVER, dig works fine - sometimes! If I run dig www.mywebsite.com it fails, but if I do dig http://www.mywebsite.com it works! (something similar happens with nslookup: it only works with a http://)
+1) Using Ubuntu on my laptop connected to my home Wifi, I cannot access my website. Chrome shows DNS lookup failure: error: -105 (ERR_NAME_NOT_RESOLVED)
+This was about 12 hours ago. Since then, I've had all kinds of strange issues trying to access my website, most of which I assume have to do with DNS propogation delays because of DNS caching. I understand that you usually have to wait for 24 hours to be sure that the DNS records change has fully propogated, BUT I'm not sure why this is happening:
+2) Using my phone's Wifi, I cannot access my website (DNS lookup fails, chrome gives same result on my phone). However, using my 4G data I can view the website perfectly fine.
+Now those two make sense to me: Maybe my ISP is caching the DNS lookup (although I'm not sure why it would do this if the lookup is failing). 

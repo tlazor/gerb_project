@@ -1,0 +1,9 @@
+After the result from functional testing is confirmed okay then we will do cut over to Target Data Center with maximum 4 hours downtime allowed.
+Once database has been copied to target Data Center, we will do functional testing on target Data Center. 
+Need advise on what is the best possible solution for this situation? FYI, Oracle Golden Gate solutions is out of question since we currently do not have allocated budget to purchase additional tools.
+After checking with Red Hat, it is also not possible to downgrade to RHEL 5.7 and upgrade later to RHEL 6.8 as Red Hat said that it is major upgrade and should be performed with fresh install then migrate the OS settings.
+3) Streams does not require any license. You can just simply replicate the database, and start using the new database whenever you want to. This requires the least downtime, but the configuration and administration is cumbersome compared to other methods.
+1) impdp with network link doest not need the production database to be stopped. This is the slowest method, as this needs to build everything from scratch, I am not sure this would finish in 4 hours.
+Tried to install same Oracle release on target Data Center but the prerequisites from oracle said that we should downgrade the OS first to RHEL 5.7 (latest supported OS to run Oracle 11.2.0.1) and then upgrade to RHEL 6.8 after data migration. 
+2) RMAN duplicate fails between different versions because it tries to automatically open the database, and that will fail. But you can manually restore the database on the new host from the RMAN backups, then open it with alter database open resetlogs upgrade; and run the upgrade scripts immediately. With this method, you need downtime only to upgrade the database on the new host, should not take more than 30-60 minutes.
+We want to copy the database to Target Data Center without stopping production application on Source Data Center (online copy). 

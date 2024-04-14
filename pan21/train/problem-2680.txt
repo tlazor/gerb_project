@@ -1,0 +1,13 @@
+Is there a way to setup the routing table such that a request for x.x.x.10 that comes in from eth0 gets sent out eth1, and requests for x.x.x.5 that arrive via eth1 get sent out eth0?
+This way, you get to use different addresses internally to identify the interfaces of your middle box, but they don't appear in the outside. The process will look like:
+The way I would try to set it up, would be first to chose two new addresses for the middle box, splitting one side into a separate subnet. for instance x.x.x.6/30 (that blocks .4 and .7 as network addresses, from the middle box, and allows .5 for the remote side) and x.x.x.11 for the other side.
+for eth1. You can also use all instead of the interface name, if there are no other interfaces on the box. This will have the effect that your middle box will now respond with its own MAC address to arp requests directed at known routable addresses on the other side.
+If you want just packet inspection, like an IDS, you can use for example snort. See: http://sublimerobots.com/2016/02/snort-ips-inline-mode-on-ubuntu/
+Maybe you can configure a bridge using bridge-utils. That way you don't even need to configure those IP addresses on the middle box.
+One valid use case if you want traffic from either end to be directed to an application running locally on the middle box, optionally generating a new application request on the other side, going up and down the full network stack (for instance, say, a userland HTTP proxy). If this is what you want, keep reading.
+It is not clear why you want to give these specific addresses to your middle box. If you just need to pass packets to the other end, there is no need for that, you can use bridging (or optionally proxy-arp).
+Another way to do it is with MPLS tunnel. See: http://blog.ine.com/2010/08/26/mpls-tunnels-explained/
+Next, enable proxy-ARP for the two relevant interfaces, by adding the following to your interface startup scripts:
+We need a way to insert a device between a target device and the network, ideally without needing to change any IP addresses.
+You cannot configure the middle box like this as-is, because the middle box will not be able to distinguish its local interface on one side, from the remote interface on the other side.
+What we are trying to do is insert a device with two network interfaces, and what we'd LIKE to do is arrange the IPs so each side thinks it's talking to the orignal device.  We'll take care of moving the data from one interface to the other.

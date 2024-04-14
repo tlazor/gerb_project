@@ -1,0 +1,7 @@
+PasswordAuthentication No makes very sure that any attempts to brute force the password will be in vain. Also, a compromised sshd is not able to sniff the private key when connecting to it; with password authentication it is still tunneled clear text so anybody breaking the server and installing a modified sshd or pam stack now has the password you used to logon, which might be valid on more than just that single server he/she was able to compromise.
+My question is, what advantage does PPK provide in addition to SSH? I thought SSH was already secure? Hence Secure Shell? Perhaps I may have misunderstood, that SSH is only as secure as FTP unless you also configure the SSH to use PPK?
+http://www.recital.com/index.php?option=com_content&view=article&id=296:howto-restrict-ssh-access-by-ip-address-andor-username&catid=66:linux&Itemid=101
+In addition, I have followed the steps here to restrict outside access to the IP of my blackberry device:
+I also disabled root login (though I may re-enable so I can more easily add/remove/edit files using WinSCP as root - especially if I can restrict root login to 192.168.1.105 address???)
+I'm opening my SSH to the world on my home based server. I changed the default port. I made the passwords for root and the only manually added user (done at install time) to totally random 64 character passwords which I store on a USB thumb drive.
+which when changed to 'no' seems to stop login to the SSH server if I don't have a public key. I've tried setting that up before but always had problems with putty on Windows.

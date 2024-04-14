@@ -1,0 +1,6 @@
+Looking at your Min implementation, I'd get rid of the isFirstTry Boolean, and replace it with a IsEmpty(result) check within the loop:
+When objects don't have a default property, you're basically stumped here - you're left with no reliable way of comparing two objects. The .net framework solved that with the IComparable interface, which is pretty easy to imitate in VBA:
+And then you can write custom classes that implement IComparable to specify how instances should be compared to each others.
+For Min and Max, it's not about equality - it's about comparability. Comparing objects by their default property value actually makes sense.
+I explained in another answer my concerns about how your implementation of Contains deals with object variables, and that had to do with what's considered equal when talking about objects.
+I really, really like this Enumerable "static" class. So much I'm seriously considering moving a lot of the List logic into that Enumerable class. With IEquatable and IComparable interfaces in the mix, I find it adds quite a bit of useful tooling to the language.

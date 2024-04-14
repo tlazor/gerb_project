@@ -1,0 +1,7 @@
+Everytime i open a file with text mate and it is by default in new window, is it possible to open in new tab so I don't need to mess with the windows?
+This will open both files in the same window, since you are telling Textmate that your project is the ~/Sites directory.
+If you are using TextMate without the internal project functionality you can set your home directory or / as project folder. 
+A hacky and possibly not very extendable way would be to open a folder higher in the hierarchy every time you open an ad-hoc file in your filesystem like so:
+This will afaik only work if you are opening files that are in the same directory. Currently, Textmate 2 couples directories with projects.
+For what it's worth - if all you're trying to do is just open some files in the same window instead of in different windows, you can just do:
+Go to the Project folder (Shift + CMD + P) drop down the list and choose your home directory. Then drop down again and choose Use "MyName" as Project Folder. As @Tony has stated in his answer, all files udner the project dir are opened in tabs by default.

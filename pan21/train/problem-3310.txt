@@ -1,0 +1,10 @@
+If the updates require a reboot, some registry keys (under the WindowsUpdate reg key) are set with value 0x1. 
+This shows up high on the "Install and Restart not Install and Shutdown" Google search. Hence, I thought I should add a solution that I ended up writing for this exact annoying problem (people tell me that Win10 has this by default, but I am not on Win10).
+Yes. You can install all of the updates available - via either Windows Update in your Control Panel, or the yellow WU shield in the system tray near the clock. Then, when that's done, you can do a reboot from the Start Menu (or calling shutdown /r from the command line.)
+There is no way to initate a "Install Updates and Restart" manually.  You could set a time for the updates to install, and then specify that the machine can reboot after Automatic Updates, either via the Automatic Updates (or Windows Update) control panel, directly via the registry, or via Group Policy:
+The second bat creates a scheduled task (or updates an existing task to run 5 min before midnight) and this scheduled task executes the first bat.
+The only other ways to automate it all in one step is via writing your own code (not just a simple script), or using add-on tools, free or commercial, from either MS or 3rd parties.
+Additionally, you can set the 'Wake machine to execute task' from the Task Scheduler GUI as well as check the execution return code to see what happened last time.
+When Windows nags you to "Install Updates", let it start installing updates. While it installs updates, run "scheduleRebootAfterUpdates.bat".
+So... while not the most elegant solution, in two steps (1. trigger 'Install Updates' and 2. run the second bat file), your machine will reboot near midnight assuming that installation of updates succeeded. 
+I have a Windows box I would like to manage remotely.  When I logged in this morning, the Start menu shows a ! next to the Shutdown button, notifying me there are updates to install.  But the only option it gives me to install the updates is to then shutdown.  Is there not a way to tell it to "install updates and restart" ?

@@ -1,0 +1,12 @@
+Hopefully, if you followed the steps correctly, you should now have the file streaming from VLC to Kodi. If it doesn't work, close VLC and follow the steps again. It works for me and does so each and every time.
+:sout=#transcode{vcodec=h264,acodec=mpga,ab=128,channels=2,samplerate=44100}:rtp{sdp=rtsp://:8554/} :sout-keep
+Also I think its good to know that this approach is not turning the kodi into a listening rtsp player (a la chromcast).
+8: In the 'Destination Setup' window, click on the 'File' dropdown menu and choose 'HTTP', then click on 'Add'.
+Streaming from VLC to Kodi is pretty simple and I can walk you through the steps. The only thing I don't think you can do is make VLC initiate the playback... that has to come from Kodi itself, I'm afraid. Since you are connecting to VLC from Kodi, if you pause the stream on VLC's side, Kodi will drop the connection. I have yet to see a way of making VLC initiate the playback like the 'Send to Kodi' add-on for Firefox/Chrome does.
+15: What you have to do now is select the .strm file you saved to your Kodi folder, or to your server, and you should now see the streaming video playing in Kodi. (I'm guessing you already know how to link to a specific folder/server so I don't need to go over that)
+You might not know this: VLC can grab your Screen and stream it, so basically you would have to open the stream, fullscreen it, start VLC via commandline and then open the shortcut in Kodi.
+3: You now need to copy 'VLCStream.strm' to a folder on your Kodi player or, if you have an online server/personal webspace, etc, copy it there instead. This is because you need to play that .strm file from Kodi.
+I hope this has been of some help to you and if you find out a way to make VLC initiate playback, do let us know.
+Anyway, if you are still interested, here's a way to stream a file from VLC on your PC to any Kodi player you have...
+9: Leave the path as it is (should just be a forward slash) but in the 'Port' section, change '8080' to '10803' and click on 'Next'
+However, for some content no transcoding is required. In this case the following config is sufficient and works much smoother ONLY if the player understands the codec of the source!

@@ -1,0 +1,5 @@
+After this, for good measure, do sudo partprobe /dev/sdb to force the system to reread the partition table and create the appropriate /dev/sdbN devices. Perhaps this is the step you originally missed and were misled by the lack of /dev/sdbN?
+If you've already formatted /dev/sdb without actually creating a partition then you made a minor mistake there (still usable but weird) and you'd want to rebuild the MBR with gparted before partitioning and formatting if necessary.
+First be sure the 2TB device has valid, formatted partitions on it to receive the data (skip this step if you've already formatted the drive and just made a typo when mounting):
+Alternatively you can just use gparted to copy the partition directly from the source drive to the destination drive, then increase the destination drive partition size to the full 2TB -- this is what I would do.
+It appears that you inadvertently mounted the 2TB device itself rather than one of the partitions on it, as evidenced by /dev/sdb rather than e.g. /dev/sdb1. 

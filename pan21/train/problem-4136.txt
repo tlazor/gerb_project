@@ -1,0 +1,9 @@
+If you need to use BMP because of dependencies from legacy systems, you can try using the output compression methods available in your webserver, e.g. see mod_deflate for Apache. Wireshark can be especially helpful in testing/debugging such setups.
+If you do not want to host original files, normally apache will answer with 404 for a .bmp request. (You do not have that file do you?). But with the help of apache mod_rewrite you can add some rewrite rules to serve gzipped bmp instead of returning a 404 Error. 
+I think it basically compresses everything it sends with the exception of anything which is already compressed, such as JPGs or GIFs, etc. I think it is often enabled in default Apache installations, but you can Google for docs.
+I can see possible issues zipping bmps - might not compress well, or fast, for example. Certainly conversion to a.n.other format is more browser-compatible. As suggested, PNG will support everything you need, jpeg might do if you can hack lossy compression in your application.
+Don't quote me on this but i am fairly sure you could automate this and convert on-the-fly. I would be inclined to run a (nightly?) job that converts bmps (use "convert" if you're on unix) and rewrites links.
+If possible, use PNG as image format. It's the defacto standard for lossless image compression and will probably surpass the compression level achieved by merely gziping bitmaps.
+"mod_gzip is an Internet Content Acceleration module for the popular Apache Web Server. It compresses the contents delivered to the client. There is no need to install any additional software on the client!"
+With using apache and mod_gzip or mod_deflate, if the client accepts gzipped content, apache will serve gzipped file. Even you can add a file.gz in pair with the original file helping out apache with gzipping.
+Hmm, interestingly ziproxy http://ziproxy.sourceforge.net/ seems to gzip "text likes" and convert images to jpeg.

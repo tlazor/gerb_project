@@ -1,0 +1,7 @@
+If you use sshfs or any network mount, it's only hiding the fact that it has to copy the entire dataset across the network from the remote host in order to calculate the checksums locally, and then transmit the differences on top of that.  It would be quicker and cheaper to delete everything locally and 'scp -r' the lot.
+Assuming rsync does exist on the remote box, it is not in the default search path for your ssh logged in shell.  Depending on your preferences and permissions on the remote box, you can try
+You need to have rsync on the remote host -- not necessarily an rsync server (which, I believe, won't handle the ssl connection anyway), but rsync on the local box needs to talk to an rsync on the remote box.  You're using ssh to link the two.
+There is not much point using rsync without running an rsync daemon on the remote host, in spite of the creative sshfs solution proposed above. The whole idea of efficiency in rsync is to have the two instances compare their local copies of the dataset by calcuating checksums locally, comparing them over the network, and only transmitting the actual data for those parts of those files which actually differ.  
+or something similar.  If rsync as an executable (vice server) does not exist on the remote host, it would have to be added.
+Get an rsync binary that works on the server, put it somewhere in your home, and add this flag to your command line: --rsync-path=/home/user/path/to/rsync .
+Try SCP. As you've already got ssh access you don't need to install anything else on the remote host :)

@@ -1,0 +1,7 @@
+To create this illusion, I need to render the scene from below, and then ignore all geometry below the water line.
+Unfortunately, I have so far failed to achieve this. Calling the glRotatef() function obviously just rotates the entire scene, so I am struggling to just simulate the camera rotation.
+Its really one of the simplest way to achieve reflections and because you have to render your scene twice you can expect performance drop. 
+The water is at a height of 300. I believe I may be moving the camera down correctly by calling glTranslatef(0, -(2 * (camera.y() - 300))), but it has been impossible for me to get them to both work.
+Using fixed pipeline all you need is to make water transparent (using GL_BLEND) and then render the scene upside down (using glScale(1,-1,1)). To prevent rendering objects above the water you can use glClipPlane.
+I have one problem: My entire framework is based on the fixed-function pipeline. Basically, I need to call the correct glTranslatef() calls and glRotatef() calls to be able to simulate the camera being in the new position, and then render the scene.
+I am not sure if this will be helpful for you but there is a really simple way how to achieve a reflection in water.

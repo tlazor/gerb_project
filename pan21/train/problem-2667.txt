@@ -1,0 +1,6 @@
+In my TLS enabled OpenVPN configuration I would like to use the additional security offered by using tls-auth. The good news is, is that it works as expected. However, I have a question about the optional key-direction parameter (either as a second parameter to the tls-auth option or as key-direction option).
+Note that I am not using static key encryption mode, but only showing the --secret manpage snippet because it is suggested by the --tls-auth description.
+(This answer is specific to the use of key-direction for tls-auth keys. For static key mode, please always use key-direction.)
+The configuration parameter is described in the manpage as follows (version 2.3.x, relevant snippets):
+The advantage of using different keys for each direction is that packets originating from one peer can never be replayed back to that peer by a man-in-the-middle attacker. Of course the underlying TLS and OpenVPN protocols should never accept such packets, but the goal of tls-auth is to offer (some) protection against bugs in the protocol or implementation that cause the underlying mechanisms to fail.
+I fail to understand the explanations here. Is security improved when specifying a direction (0 for server, 1 for client) or not if omitted?

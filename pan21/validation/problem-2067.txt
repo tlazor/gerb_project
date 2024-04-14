@@ -1,0 +1,5 @@
+I read some good reviews about this network printer/scanner, and noticed that it can scan to email or FTP. So I made the flawed(?) assumption that the printer would work independently without a software suite / drivers from Brother.
+I tried to install it with the kde "Print Settings" front-end to cups. "Print Settings" finds the printer and lists several interfaces - however, I am unable to print anything no matter what configuration (combination of network protocol / printer driver) I use.
+I know that I can download a bash script from Brother.com and run it as root - and then the printer is supposed to work with several x86 Linux distributions. However, I'm not comfortable doing that. Actually, I'll rather scrap the printer and get another one that support lpd/ps natively than risk compromising / messing up my system.
+I'm using both Debian Testing and Debian Stable on different machines right now. I also want to get the printer to work from a Rasberry Pi - just for the fun of it :)
+So my question is really if anyone have experience with recent Brother network printers and know a cups configuration that works with one of the standard Linux drivers.

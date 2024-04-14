@@ -1,0 +1,7 @@
+Support mentioned that I should disabled suPHP and Euexec to make it work. This did not change the outcome.
+From what I can tell all the domains are accessing the same tmp space where the session date is being stored.
+Some places have mentioned it may be a permissions error. I have access the httpd.conf file and adjusted the user and group permissions to be the same but still the data is not passed.
+Recently I have purchased a VDH package and need to be able to communicate between sub domain with the $_SESSION array. The system has been build with this is mind. I clarified that it was possible with the VDH service provide before purchase but they have not provided much help in accessing the situation.
+I cannot find the solution to my problem anywhere on the net. I have tried all possible solutions I can fine from variations in the PHP code to adjusting permissions.
+I have a basic testing setup where one page will set the sessions variable and on another sub domain will output the session. The current result is that the session data is missing but the session ID is the same on bot test pages.
+I have tried some of the shell commands that people mentioned but they have not worked. CMD in the shell is not something that I'm familiar with. I have Putty set up and have tired a few thing via that.

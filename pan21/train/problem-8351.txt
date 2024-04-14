@@ -1,0 +1,6 @@
+For the stuff that you used to host on your PC with a no-IP and port forwarding setup before, maybe consider to rent some cheap hosting somewhere, and host it there instead? 
+If your landlord gives your a LAN connection. you can simply add that LAN line to your WAN port on your router, and set that port up to use DHCP, and get an ip from the router. then you can add your PC and other hosts on the LAN side of  your router, and you have your own network.
+If you get only WIFI from your landlord, things get even more messy, and you need to setup a wifibridge, but I really would not recommend it. too buggy and too much trouble.
+1) this what is called a double NAT, which can cause several problems, and make troubleshooting difficult. 
+Resolved. I was able to resolve my issue by flashing my router. I used the custom firmware from dd wrt, and configured my router as a bridged repeater for my landlords internet connection. This allowed me to have physical connections to my router in my apartment, as well as wireless connections. Minus occasional connections dropping, I haven't experienced any issues thus far. Thanks to everyone for contributing.
+2) if you want port forwarding and such, you need to get access to your landlord router to set that up there (assuming that he has a router), then you have to set it up again on your router.. things could get messy.

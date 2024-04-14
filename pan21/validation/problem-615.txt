@@ -1,0 +1,5 @@
+If your system has only 2 HDDs and you still see 2 HDDs after setting up the RAID1 array, you didn't get it right. After the RAID config is done, you should only see one 500GB HDD. What kind of HP server have you got? Is the RAID controller HPs own (some sort of Smart Array) or aftermarket?
+You should create a RAID 1 array using your hardware raid controller. It will them present that array to the OS as a single disk. You should then install your OS onto that disk using LVM if you want.
+In the gen7 it do work, so I guess it's matter of time that it can work. In the meantime focus on configuring LVM to work as a RAID 1.
+HP ProLiant gen8 is quite new and a year ago I couldn't configure any raid because the kernel that was the latest at that moment didn't have the RAID driver required. 
+I have a Server (HP ProLiant) with a Hardware Raid (RocketRaid 2710). Given two HHDs (500 GB) I wanted to setup RAID 1 (Mirroring). When installing Ubuntu I made the one 500 GB HDD use LVM, the other HDD I left untouched.  

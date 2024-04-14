@@ -1,0 +1,6 @@
+2) Recovery partition may be formatted improperly, meaning you would have to wipe it before loading Windows on it
+3) If you do reformat your recovery partition to install Windows, you will no longer be able to boot to it, although the option may still be present in your BIOS. 
+If you are not planning on using the pre-installed Windows 8 any longer, I would recommend formatting that partition (not drive!) and installing your new OS on that. This way, you will be able to utilize your recovery partition and have your new version of Windows. 
+Nothing will happen to the recovery partition unless you wipe it. The F9 key behavior at boot time should be due to the BIOS, not a bootloader in the recovery partition.
+Nothing will happen, go ahead, the only thing is that when u factory reset your Laptop, all of your current OS, files, folders settings & secondary OS gets wiped down...and the laptop resets to the stage as if u have just unboxed it right now !
+If you have 2 partitions, one for the OS and one for Recovery, that could mean several things. There are a few issues you might run into given your setup:

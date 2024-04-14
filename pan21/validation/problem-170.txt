@@ -1,0 +1,12 @@
+When I ran psql, it detected a running postmaster and an initted postgres DB, but did not detect the main DB--the one we care about restoring via the WAL script. 
+In general if you are seeing problems of this sort, it may be best to take them up on the pgsql-bugs list.  People there can help figure out what information to gather to help determine what the scope of this misbehavior is and help fix it for you.
+The only thing that worked to resume the stuck WAL restore was a killall -s 3 -r '.*postmaster.*' (Signal 3 is SIGQUIT), and then a /etc/init.d/postgresql start. 
+Running /etc/init.d/postgresql stop reported "OK", and killed the archiver/watcher processes, but the postmaster stayed running. 
+It usually works fine, and restores hundreds of times faster than an SQL-based restore of a pg_dump'ed file. 
+We run postgresql 8.4, on CentOS 6, using the PGDG packages. We have a script for use on developer test environments that restores a nightly backup of our production server's data directory (created between calls to pg_start_backup and pg_stop_backup). The script decompresses the file, and uses restore_command to reapply any WALs that were generated during the time that the backup was taken on production. 
+When I ran /etc/init.d/postgresql status during the indefinite hang, the init script reports dead but pid file exists. 
+TL;DR: Un-stoppable, unusable postmaster is being spawned when Postgres is started right after restoring its data directory from a WAL base backup. Why?
+If this is only occasionally happening, I don't think your explanations get there.  It sounds like something that really could use additional troubleshooting by people who can determine if a code fix is required.
+I checked pg_startup.log and the daily files in pg_log during the unmanageable state, and everything looked fine. pg_startup.log registered a successful start as the last entry.
+Then I ran ps -ef | grep post. Oddly, the postmaster process and archivers etc were running. All of the invocation parameters were correct (right datadir etc etc). 
+Sometimes, after it unzips the data dir, the script starts postgres by running /etc/init.d/postgresql start (which is a symlink to /etc/init.d/postgresql-8.4. This makes it a predictable init script for when we eventually upgrade to 9.*). It reports "OK", as in: it started correctly. Then WALs don't restore; it hangs indefinitely waiting for a recovery.done file to appear. 

@@ -1,0 +1,5 @@
+From previous Sieves, I think that you may want to write ((MAXIMUM_PRIME as f64).sqrt() as u32) + 1 as (MAXIMUM_PRIME as f64).sqrt().ceil() as u32. I think that's more correct in more cases, and probably communicates intent better.
+I actually took a long time to write a review because there didn't seem to be much to say! After a bit, there were some small things:
+Instead of passing the maximum prime when printing, it can be based on the size of the BitVec. It's a little odd as you have to subtract one, so maybe you might want to create a type for the primes that abstracts that away...
+To start, let me heartily compliment you on your code! You have clearly put effort into learning what idiomatic Rust code looks like. Spacing of operators seems to be accurate, and using code like Vec<_> is top-notch.
+Generally, I'd recommend avoiding array indexing due to performance concerns — indexing has slight overhead due to bounds checking. I'm not sure if that applies for a BitVec though. I still like the enumerate solution better.

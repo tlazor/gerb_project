@@ -1,0 +1,7 @@
+Does the event viewer even record such events? Does it record it both on success and failure? I looked through the Application, Security, Setup and System logs, but couldn't find anything in there. I even checked the Powershell section of Event Viewer, but again, it returned nothing.
+Once logging has been activated, you will find related logs in Microsoft-Windows-PowerShell/Operational event logs folder.
+Alternatively, you can use any third-party internet activity tracker or enable logging in Windows firewall. But they commonly log all events (not only from Powershell).
+I am just getting started with using Windows Event Viewer to view logs. I am not sure where to look for logs related to activities like:
+But if it's your own Powershell script, you can simply log these events yourself (into EventLog - see Write-EventLog or just into a file).
+Before activating audit features, ensure to be aware of the 3 different logging existing features (details in table below):
+In addition to Michel's great response, take a look at this blog article, it explains PowerShell event logging in great detail, including ways to mitigate.

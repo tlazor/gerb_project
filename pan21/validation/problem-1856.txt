@@ -1,0 +1,8 @@
+First of all, it is best to work strictly in a 2D environment by disregarding any form of 3D entity such as cubes. I recommend importing in sprites and re-configuring your Unity project so that all the scripts are working in accordance to them.
+Also, in order to make your RigidBody2D be able to recognize impact with a Collider2D, your RigidBody2D must have a Collider2D (BoxCollider2D, etc) assigned as well.
+Objects which have Rigidbody2D components will interact with Collider2D components automatically (unless they've specifically been told not to through some other method).
+A trigger Collider2D does not invoke physics on a Rigidbody2D. They can be triggered by other Collider2Ds and are pushed through the OnTriggerEnter2D/Stay2D/Exit2D methods.
+"... Adding a Rigidbody2D component to a sprite puts in under the control of the physics engine. By itself, this means that the sprite will be affected by gravity and can be controlled from scripts using forces. By adding the appropriate collider component, the sprite will also respond to collisions with other sprites."
+Rigidbody2D controls the physics, but your character needs a Collider2D as well otherwise no collision will occur.
+A non-trigger Collider2D will invoke physics on a Rigidbody2D. This typically means the Rigidbody2D item will apply various forces if its Collider2D hits another Collider2D.
+The reason for this is because the RigidBody2D simply handles the physics of its assigned entity. However, in order for the entity to even be able to collide and interact with the environment, you must define its boundaries/collision area through assigning a Collider2D.

@@ -1,0 +1,9 @@
+I used @Anderson Zardo answer but I had to add several lines to preseeding so partman won't prompt user to "Finish partitioning and write changes to disk" and also included some possible caveats.
+I believe the line you will need to add to your preseed file to answer "no" to that particular question is:
+Following kickstart partitioning configuration works on both EFI and MBR configurations, it detects everything automatically and even creates /swapfile with recommended size an activates it for installed system.
+So, I was messing with "part" kickstart options for so long without any success, and I realized that many redhat options are not supported. And if you make just 1 simple mistake in 1 option then Ubuntu installer switches to Guided partitioning. Moreover it fails to do Guided partitioning in this case: it can't install grub on MBR partitions at the end of installation and can't proceed to installation cause it can't detect EFI boot partition that it proposed in Guided partitioning screen.
+For partitioning you can see an example in the linked example-preseed.txt, you will need to adapt it for your EFI partition.
+Do not use kickstart with debian based distributions. Kickstart will be converted to preseed, so its better to use preseed (http://en.wikipedia.org/wiki/Preseed) directly.
+Then boot with preseed url and DEBCONF_DEBUG=5 into the installer. Every time the installer asks a question, you will see the config option logged on console 4. Then you can use this name to set the correct value.
+As recommended start with an example preseed: https://help.ubuntu.com/14.04/installation-guide/example-preseed.txt
+And I noticed that it installs grub during EFI install. I don't know why that's needed but it seems that grub is just not used and everything works fine. Hope I saved much time for anybody.

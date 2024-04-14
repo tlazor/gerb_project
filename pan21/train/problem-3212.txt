@@ -1,0 +1,6 @@
+I'm having an odd problem with our Remote Desktop Session Host that's running on Windows Server 2019 (version 1809, build 17763.805). I am connecting to this server from my PC (running Windows 10, version 1903, build 18362.418) using mstsc.exe (shell/control version 10.0.18362).
+This problem has occured for us with multiple Windows Server 2019 servers in different environments, and has occurred with multiple client operating systems as well. We've of course tried rebooting the affected machines, this has not cleared anything up.
+I have a bunch of printers on my computer, and I have selected in mstsc.exe to redirect all printers. This is a screenshot of the Devices and Printers control panel on my PC:
+However, when looking in the corresponding control panel on the Remote Desktop Session Host, I don't see my redirected printers:
+Even though the printers are not showing up in Devices and Printers or the Settings app, the printers are available to programs within the Remote Desktop Session Host, and do show up in Print Management.
+The machine I'm connecting from also does not have a long hostname. There is an issue going around from research where machines that have 15 character long hostnames can have this issue, that is however not the case for my test machine. Neither the client or the host machine has a hostname longer than 9 characters.

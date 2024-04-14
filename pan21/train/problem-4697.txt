@@ -1,0 +1,6 @@
+Squid tries to query each peer via ICP, measures response times and then decides which parent to use. There is common problems:
+I want Squid to try to find http://www.example.com/mypage/ in it's local cache, and if it's not query the siblings until it finds it. If it can't find it, THEN it should hit Apache.
+Each server has similar cache_peer settings except each is its own parent and uses the other two servers as siblings. My goal is to improve hit rate as much as possible, but I don't know if I'm understanding the cache peer logic correctly. 
+So in this example, do you have squid listening to your external IP on port 80, and apache bound to localhost:80 on each server? 
+One thing to check is to make sure you have icp_port 3130 if you're running squid 3.0 or above; in 2.x versions 3130 it was the default but in 3.x it's now 0 (disabled).
+I have 3 nodes in a web server cluster. Each node is running Squid on the LAN interface and Apache on the localhost interface. Squid caches properly for each server individually, but I don't believe I setup cache peers correctly.

@@ -1,0 +1,7 @@
+if it didn't start, i.e. ps ax | grep mysql   doesn't show safe_mysqld and mysqld running, take a look at /var/lib/mysql/hostname.err  (where hostname is your machine's hostname) and it has a somewhat detailed log.  restart in the default package does a stop, start, but, I wonder if mysqld isn't actually stopping.
+it hang. But displaying processes by "top" command in another terminal indicated that MySQL server was running with root user. But my.cnf clearly sets 
+/etc/init.d/xxxx start is used to start services using SysV init scripts. Ubuntu uses upstart instead of SysV init and the init scripts are getting converted to native upstart jobs. Usually the init scripts for converted jobs display a warning and call upstart.
+now, if you are looking at the processes, safe_mysqld runs as root, the mysqld process runs as mysql.  If mysqld crashes, safe_mysqld loops and tries to restart mysql.  Is safe_mysqld or mysqld the process you saw running as root?
+The installation automatically added a user called mysql (it didn't exist in /etc/passwd file at the beginning and it exists there after the installation.) and started MySQL server. 
+In short, it turned out the problem was setting bind-address to the IP address of the server in my.cnf. 
+The default my.cnf says port = 3306 and bind-address = 127.0.0.1. If you don't have a loopback interface configured, this binding will fail. 

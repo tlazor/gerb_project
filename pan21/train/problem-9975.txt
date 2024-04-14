@@ -1,0 +1,9 @@
+tmp is used when mysql/mariadb engine can't use ENGINE=MEMORY for temporary tables. That happens for many reasons:
+Initially the tmpdir was 15GB we have been increasing it over time with hope that more space will prevent MariaDB filling up the tmpdir but we realize it's not ending. We could still expand tmpdir but we don't have unlimited RAM and are not sure how much will be enough.
+If a query is filling up /tmp, the probably it need to be looked at.  A typical problem that leads to such is this pattern:
+Anyway as far as disk-based temp-tables are significantly slower than in-memory ones, queries that fill up the mysql/tmp dir are listed in the slow queries log along with short diagnosis.
+We're running MariaDB version 10. To speed up queries we have set up tmpdir to be RAMDISK with size of 35GB.
+How much RAM do you have?  I see 16GB already in use for the buffer_pool, so I hope you have considerably more than that.
+I call it "explode-implode".  And usually the aggregate values are bot slow in coming and wrong.  And, as you are finding out, it takes a lot of disk space.
+At this time we're wondering whether there's a way to prevent MariaDB from filling up tmpdir? The alternative is to move tmpdir to disk but this is a route we're avoiding since it would present a performance nightmare.
+The challenge we have is that from time to time (like once or twice a week) MariaDB fills the tmpdir, after which the whole system freezes up till we have to stop MariaDB, unmount the tmpdir and remount.

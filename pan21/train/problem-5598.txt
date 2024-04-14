@@ -1,0 +1,6 @@
+I would then calculate random heights for the eight vertices of the cube, and propagate them into the six squares of the cube map, so that each vertex shows up three times.
+At runtime I would probably render a quad that covers the projection of the planet to the screen, and do a single ray-sphere intersection test in the pixel shader to find whether I hit the planet and where. Sure beats rasterizing a highly-tessellated sphere model, and gets a nice smooth edge too.
+As I recursively generate fractal heights for the midpoints of the edges, I would make sure to propagate face edge vertices to the other face that shares them.
+If I were OP, I would forget the large scale planet geometry at first. I would make a cubemap where each face is 2**N+1 pixels (2,3,5,9,17,33...) and each texel encodes a height [0..N) where 0 is the altitude of the expected lowest trench and N is the altitude of the expected highest mountain on the planet.
+Once I'm done, I have a cube map where all the edge texels are doubled and all the corner texels are tripled. No need to convert it to a normal map - I'd use the algorithm in Morten Mikkelsen's paper to render normals directly from the heightmap at runtime.
+OP is good to model the planet surface as a cubemap, because any flat map (e.g. mercator projection) is going to have distortions that are ugly and complicated, mathwise.

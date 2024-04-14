@@ -1,0 +1,6 @@
+Maybe  are there any way to resolve the problem. Is it possible to give this privilege for ala users?
+It sounds like what you want is authbind.  I've linked the Wikipedia page here instead of the homepage, as the homepage is just a gitweb page for the official repository, and therefore is kind of useless for end users.  In short, authbind uses LD_PRELOAD to indirect the bind() call through a SUID helper program, thus allowing programs to bind reserved ports.  Make sure you restrict access to authbind to accounts you trust, and keep in mind that it will let any user who can access it bind to any priveleged port.
+But this way is inappropriate for me, becouse setcap breaks 'RPATH', so I can't launch 'my_program'.
+Make sure you're extremely careful doing this however.  A lot of the low numbered ports are used for core networking infrastructure, and ths access to them by unprivileged users is an easy way to allow for abuse.  Especially be careful if you go with the sysctl method, as that will allow anyone to bind to any port.
+Alternatively, if you don't care at all about security, you can add this line to your sysctl configuration on the system in question:
+That will remove the whole concept of privileged ports from the system starting the next time you reboot.

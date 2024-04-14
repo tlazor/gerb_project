@@ -1,0 +1,6 @@
+So it appears that wireshark was intercepting traffic destined for other customers who's servers are attached to the same part of the network as mine.
+Once I ran wireshark and filtered for HTTP I noticed a load of traffic, but most of it was not for stuff that was hosted on my server and had a destination IP address that was not mine, there were various source IP addresses. My immediate reaction was to think that somebody was tunnelling their HTTP traffic through my server somehow.
+I rent a dedicated server from a hosting provider. I ran wireshark on my server so that I could see incoming HTTP traffic that was destined to my server.
+I assume in this case that other customers would also be able to see data going to my server. As well as potential privacy concerns, this would surely make ARP poising easy and allow others to steal IP addresses (and therefor domains and websites)?
+However when I looked closer I noticed that all of this traffic was going to hosts on the same subnet and all of these IP addresses belonged to the same hosting provider that I was using.
+Now I always assumed that on a switch based network that this should not happen as the switch will only send data to the required host and not to every box attached.

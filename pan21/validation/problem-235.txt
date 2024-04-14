@@ -1,0 +1,8 @@
+The above config will make 11.22.33.44 the primary address, and the DHCP address will show up as secondary in ip -4 addr
+The main difference with your solution is that it doesn't need an alias interface. For various reasons, they are annoying. This also means that ifconfig won't show both the addresses, but ifconfig is (somewhat) deprecated, and you should use ip -4 addr instead.
+Then we create two additional interfaces, both are statically configured, one on the 192.168.254.0 network and the other on the 10.0.0.0 network.
+What is allow-hotplug?https://unix.stackexchange.com/questions/192671/what-is-a-hotplug-event-from-the-interface
+Whenever you specify the interface name, ensure you also specify the index number of the new virtual interface (the secondary ip address).
+Based upon the explanation given by another user at the unix site (see link below), you really do not need it unless you are hooking into the network system with your application via the hotplug event.
+In the above example we have the loopback adaptor created normally and the standard dhcp configuration for the normal interface.
+I'm assuming you have Ubuntu, and therefore probably also Netplan (a replacement for if-up-down that you're using now). I'll let you research Netplan on your own, and how Cloud-init may also be there in the mix, but just to show you a simple Netplan config I use to do the same:

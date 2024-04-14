@@ -1,0 +1,5 @@
+I've tried stopping and starting mysql. I'm assuming this is a mysql problem and not a trac problem since "$ mysql -u -root -p" returns the same problem. I'd like to reemphasize that this was working before so my config files should be fine. Any thoughts?
+If your socket is not located in /var/run/mysqld/mysqld.sock, which is the location that was specified for the client when MySQL was compiled, you can specify an alternate location with the -S flag.
+The location where the MySQL named pipe is created can be specified in the my.cnf with socket= or via the --socket flag on server start up.
+I am having trouble with the server I'm running my trac on. I accidentally had the nightly back up going to the internal hard drive instead of the external. So it filled up, I erased the new files, deleted everything, and rebooted. I'm still getting this error when I try to connect to trac:
+Otherwise, if skip-networking is not specified in your my.cnf, you can connect using TCP/IP instead of the named pipe by using the -h flag and then the IP address with the MySQL client.

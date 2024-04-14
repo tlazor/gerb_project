@@ -1,0 +1,6 @@
+Check your BIOS settings for boot sector virus protection features, then shut those features off before you update your volume header.
+These virus protection features included in the BIOS are a good idea, but can interfere with software that operates on boot sectors and partition tables (as some boot-based viruses from the DOS days did so) because the changes are prevented from actually being written to disk.
+Since I reinstalled Windows and the problems are gone now, I can only assume that a preinstalled application like "Dell DataSafe Local Backup" caused the problems.
+Btw, the application crashed sometimes without being used by me at all - and the uninstaller failed as well. If anyone else experiences this problem I recommend to install a clean Windows and manually install the required drivers.
+I suspect that you might have such a feature enabled in your BIOS, and that it's preventing your desired changes from taking effect.
+The mentioned application is able to recover the system "without erasing personal files and data" an as such has to access the recovery partiton from time to time - maybe there is a bug that writes into the header of another partition as well.

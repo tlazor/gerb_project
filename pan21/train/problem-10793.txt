@@ -1,0 +1,5 @@
+The lookups from the internal server must be timing out -- then the DNS server has to go out to the internet to ultimately get a response.  How can I confirm this?  What is the typical way to handle this issue if this is the problem?!
+Run wireshark on the reverse proxy and see what's slowing it down. That will show network traffic and the DNS requests.
+Problem is -- we're seeing a 5 second delay introduced on pretty much ALL requests.  Without the reverse proxy -- the same request direct to the internal web application work fine (testing from internal clients).
+We have a reverse proxy server setup (IIS + URLRewrite) that forwards external requests to an internal web application.  The reverse proxy simply rewrites the external request and forwards it to the internal server which does its work -- rewrites the response and sends the response back to the client.
+If that won't show it, if you need more internals, then run the Windows Performance Analyzer Toolkit on the reverse proxy and run your test.

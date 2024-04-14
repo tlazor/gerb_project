@@ -1,0 +1,8 @@
+I have a laptop which has a 465GB HDD. This is paritioned into a 451GB partition and a 15GB recovery partition.
+You then can shrink your 451 GB partition to a 150GB partition and create a new 300GB partition with the remaining space. Click Apply, and reboot (taking out the disc of course).
+Yes. It depends on the filesystems you use, but there are some tools which are capable of resizing partitions. I've got good experiences with gparted, which uses gnu libparted. You should backup your data before.
+If you don't have a linux live cd, consider using the gparted livecd, which is build to do such things.
+You can shrink the existing partition of 451 GB down to 300 GB. Then create a new partition in the free space.
+And as always, there's always the possibility of losing data, so backup even with this nondestructive method.
+It depends a lot on your OS. Without knowing your OS, the easiest way would to get Parted Magic, burn that onto a CD, and boot from it.
+There is currently 80GB of data on this partition. I wish to partition the 451GB into 150GB and 300GB or so. Is this possible, obviously without formatting?

@@ -1,0 +1,5 @@
+I am using Thunderbird 15.0.1 on two different Windows computers (Vista and Win 7). I maintain the email list for a local club, and often need to send out emails to all members from my home and office Pc's. 
+Add-on that syncs the contacts to local or online directories. Syncs the photos, but not the groups (because the contacts are exported as .vcf cards)
+Similar to Thundersync, except that the address books are synced in the native thunderbird format - i.e. .mab. The groups are therefore synced. Photos are not (to my knowledge).
+You can use a online sync service - like DropBox, SpiderOak, etc - to sync the address books with the help of symbolic links. To do so, copy the address books you want to sync to your synced folder, and create a symbolic link to your profile folder.
+I use a Thunderbird Address Book to maintain a list of club members and would like any changes made to that list to synchronise to both machines. Can anyone recommend a good way of doing this? I've found a couple of extensions that claim to do this, but both seem to have review that suggest they no longer function correctly since they are quite old extensions.

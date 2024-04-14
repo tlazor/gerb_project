@@ -1,0 +1,6 @@
+I adjusted my sites-enabled directory to have two config files, one for each subdomain. The config file for the first, and working, subdomain looks like this (changing actual domain, to "mydomain", obviously):
+I have a subdomain that has an SSL certificate that is working nicely. The web address for it is, lets say, like this: sd1.mydomain.com (sd1=sub-domain 1). Now I want to add a second subdomain, but it doesn't need to have the certificate encrypting the data. Thus, I want: sd2.mydomain.com 
+Now I want to set up a second website, a WIKI actually, that does NOT need to be secure, and so I created this config file for sd2.mydomain.com :
+I don't have NameVirtualHost in there, because I am trying to get each site working on its own, before getting them both running at the same time. (I only activate one at a time)
+What am I doing wrong here? I feel like all the config stuff is accurate since there are no errors. What am I missing?
+My problem is that when I open a browser and try to go to http://sd2.mydomain.com the site simply will not load and there is nothing in the error log to tell me that something is going wrong. However, if I add all the same SSL stuff to my sd2.mydomain.com config file, the second site does work, but I have to navigate to https://sd2.mydomain.com for it to work, and, obviously, the SSL cert fails.

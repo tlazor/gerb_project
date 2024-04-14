@@ -1,0 +1,5 @@
+Windows will use/see you pagefile.sys also as 'memory'. You page file is probably 4.80GB, so 4.80 + 3.25 = 8GB memory in total. It is not real memory of course, but it is used as memory.
+RAM and pagefile appears to the Windows as Virtual memory, so in your case, total amount of usable virtual memory would be 3GB(since 32x bit XP recognizes only ~3GB) + pagefile size (recommended size of PF is 1.5*RAM).
+I'm currently running in windows XP 32bit mode with the PAE feature turned on. I have 8GB of Ram installed, but Windows only recognizes 3GB (which is to be expected). I am currently rendering some video, and Windows Task Manager is telling me that I am using 4.75GB of RAM (PF Usage). What is the explanation for this? I would expect the RAM usage to stop somewhere just above 3GB (I have two video cards (512 & 256).
+Here is an interesting quote about Page files, which seems to make sense considering the size of your pagefile and that your running Windows XP 32-bit;
+Video cards are irrelevant to how much RAM you have installed.  Irrespective of the size of any page file, if you have 8GB installed; 

@@ -1,0 +1,6 @@
+I'm not sure what you mean by that. BGP neighbors only exchange information in a specific format. BGP has a protocol (a set of rules for how to communicate), and the BGP neighbors follow the protocol.
+BGP must be configured for a particular neighbor. You cannot arbitrarily connect your router to another BGP router without configuring the other router to form a neighbor with your router.
+Still, a BGP router will not talk BGP (tcp/179) nor divulge any routing information via BGP to "someone else" (and much less "anyone else") unless (mis)configured explicitely to do so. 
+Ripe invite participants to peer with a (set of) their "RIS Collectors" and announce all of their prefixes to RIPE (without announcing any prefixes from their collectors to participants, essentially being listening-only BGP speakers): See https://www.ripe.net/analyse/internet-measurements/routing-information-service-ris/ris-peering-policy 
+If you're talking about something like RIPE does in their RIS Project, then yes, it becomes possibe to gather information from others via BGP using tcp/179.
+A router may offer other means to access current internal information (like the BGP table or the routing table, list of configured BGP neighbors and their state as seen by the given router), for example via SNMP, but that's a different story.

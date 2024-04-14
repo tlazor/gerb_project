@@ -1,0 +1,7 @@
+After the entry is confirmed as created and viewable in the API, I am trying to resolve it using nslookup, but I get:
+Because the first lookup is after it's been created, I'd expect it not to miss (And therefore have no miss to cache). Is there anything I can do to make the lookup succeed sooner?
+If you want know more about DNS work, you could read this article or check this comics, for example. 
+If you do the query just before creating the record you pollute the cache with a NXDOMAIN return code for the record for a delay called the negative TTL which is specified in the SOA record (last item).
+Also, you should not use nslookup for DNS diagnostics, but dig and you should always specify the nameserver your query, to make sure to separate results coming from the authoritative nameservers with those being cached somewhere in a recursive nameserver.
+You create A Record via the Google Cloud API and start to resolve it. But you don't know how often Google update it's DNS configuration, may be it take few minutes to update zone configuration, that's why it not resolving for few minutes.
+This means any sub domain we create is resolvable immediately as the DNS already exists. We then route internally based on the host header.

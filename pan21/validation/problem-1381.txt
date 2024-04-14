@@ -1,0 +1,12 @@
+IF(ISNA(MATCH(MAX('Day 1'!A2:H2)+4,Sheet1!2:2,0)),"No Match for previous date +1 to +4",MAX('Day 1'!A2:H2)+4)
+The formula for the [Day 2] sheet, cells B2:H2 is exactly the same as we used for those cells on the [Day 1] sheet.
+I've uploaded a sample file with 10 [Day #] sheets in it that you should be able to download from here: http://www.mediafire.com/view/k6qx3hahv8zl0o8/AircraftLegsLog001.xlsx
+You could repeat this process to give you really long breaks at the expense of a really long, very ugly formula.
+For each subsequent [Day #] sheet, you take the long formula above and plug it into cell A2 on that sheet, and use Edit-->Replace to change the 'Day 1' references in it to the previous day's sheet name.
+Second change the +4 occurrences to +5:  there are 3 of them all together.  Now take the revised section and select the
+=IF(ISNA(MATCH(MAX('Day 1'!A2:H2)+1,Sheet1!2:2,0)),IF(ISNA(MATCH(MAX('Day 1'!A2:H2)+2,Sheet1!2:2,0)),IF(ISNA(MATCH(MAX('Day 1'!A2:H2)+3,Sheet1!2:2,0)),IF(ISNA(MATCH(MAX('Day 1'!A2:H2)+4,Sheet1!2:2,0)),"No Match for previous date +1 to +4",MAX('Day 1'!A2:H2)+4),MAX('Day 1'!A2:H2)+3),MAX('Day 1'!A2:H2)+2),MAX('Day 1'!A2:H2)+1)
+Want to allow for longer than a 4-day break?  Best probably to work with a text editor and Excel for this exercise.  Take this formula segment:
+The Column()-1 part of that formula is based on the first formula being in column B, for column B it will return 1, for column c, it will return 2, etc. for the rest of the columns.  This is what tells it whether or not to echo the date in A2 on the sheet.  
+So that should take care of the [Day 1] sheet's dates.  Now for [Day 2].  The formula for cell A2 is a bit complex, but what this is doing is testing to see if the date on the previous Day # sheet +1, +2, +3 or +4 is on [Sheet1].  The first one matching that is placed into cell A2.  Now, if it shows the text "No Match for previous date +1 to +4" instead of a date, it means 1 of 2 things: either you took longer than a 4-day break between legs, or the last date on [Sheet1] was found on the previous [Day #] sheet.  Hope that makes sense.  Here's the formula for [Day 2], cell A2:
+This will replicate the date in 'Day 1'!A2 as many times as it appears on [Sheet1] which should correspond with Legs.
+Put this formula into [Day 1] sheet at B2 and fill to the right as far as you want to go -- column H?

@@ -1,0 +1,5 @@
+I want to only access the C drive of my laptop from my Lab Desktop like a Network Drive and not involve remote desktop in between, but I am unable to do so as the hostel computers do no show up on the "Entire Windows Network" list (maybe because they have a different subnet mask?). Although, I am able to add the Lab's NAS like a regular network drive.
+You mention that these two computer have different subnet masks, so are you aware that they are on different subnets? There may be a firewall preventing access to Windows shares between the subnets.
+You can test the access by using the UNC path to the Windows 8 computer by browsing to the following file path in Explorer:
+Replacing <computer_name> with the hostname of the Windows 8 computer. You should be prompted for a username and password to access the hidden administrative share of the computer, for which you can use the credentials of a local administrator.
+Both computers are connected via LAN and remote desktop access is working perfectly in either direction.

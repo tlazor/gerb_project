@@ -1,0 +1,6 @@
+I changed the for-next routine a Little bit, the cause is that it easier for a front end user to change the "alternativetext" by right mouse button:
+A workaround is to use custom properties that you can easily "Go To" (no need to wade through slides).
+The easiest way to do this in Powerpoint (at least for values that will appear on every slide) is to edit the slide master. Put the author name there.
+The "Go To" dialog presents you a list of bookmarks you can double-click, and goes to your favorite textboxes, ready to be edited / pasted to.
+While Word can do this, PowerPoint can't. AFAIK, you can have document properties in PPT, but you cannot insert them on a slide. The only updating field available for PowerPoint is the date and slide number. Anyway, there could be some workaround in VBA to achieve this. You can ask this on Stackoverflow to take your chance.
+(A possible reason that Word lets you, and none of the others do, is that the various teams at Microsoft rarely talk to each other...)

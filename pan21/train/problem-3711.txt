@@ -1,0 +1,14 @@
+Why they chose to not recommend using their Alias feature for www.example.com as well is not entirely obvious.
+To see what they configure for you, try to resolve your domain name (both your root zone -- example.com -- and your so called alias --www.example.com-- ) with appropriate tools (dig or nslookup):
+I think in terms of understanding how DNS itself works, it's important to note that there is no such thing as this Alias record that they recommend for example.com, that is entirely a Route53 feature where they behind the scenes resolve the specified name and expose a standard A record in DNS (whatever record type you chose when you created it, but in their example it's an A record).
+Is there any benefit to using CNAME here, considering that Route 53 has the ability to alias directly to buckets?
+I have been going through Amazon's docs on using Route 53 in conjunction with S3 to serve static websites.
+I don't know the amazon stuff, but in there doc, they speak of alias record and CNAME record. both are the same. A CNAME maps a FQDN to another FQDN. For me, this is the definition of an alias (another name for the same thing). A A record only maps to an IPv4 adress (cf RFC1035)
+example.com bucket is set to host static content, and www.example.com bucket is set to do a permanent redirect to example.com.
+Wouldn't it help reduce one extra DNS resolution step (A lookup for www.example.com.s3-website-eu-west-1.amazonaws.com)?
+The opposite, using CNAME in both cases is not an option, however. As CNAME records cannot coexist with other data it's never possible to have a CNAME at the zone apex as there is always at least SOA and NS records there.
+note that www.example.com and example.com are 2 distinct FQDN and there is a priori no reason they are mapped with the same IP adresse(s). (e.g. fdn.fr does not have a A record nor a CNAME whereas www.fdn.fr has a CNAME)
+That's fine and it works, but because I am trying to learn and understand how DNS works in detail, I don't understand why they don't simply do:
+Maybe there are other records than A at www.example.com.s3-website-eu-west-1.amazonaws.com that ideally should exist but that they don't feel they can ask you to add one by one as aliases (CNAME makes the name an alias of the other, regardless of requested record type)?
+To be clear, using CNAME works, but I am trying to academically understand why they don't suggest using an A alias.
+this complicated stuff is only required "if you want to serve content from your root domain". this way, both example.com and www.example.com must maps to the same IP adress(es). A convinient way to do this is to configure one (e.g. example.com) as desired and to put a CNAME record for the other (www.example.com IN CNAME example.com).

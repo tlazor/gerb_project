@@ -1,0 +1,6 @@
+In general, there are very few architectures that are bit-addressable nowadays (though anything is possible). x86 for example is byte addressable (every byte has an address).
+It would make more sense for it to be the second, as this would make it easier to get data across the bus (you only have to specify one address rather than 32).
+The question then arises, what are you addressing. I.e. if you say "I want address #5" what are you getting.
+I'm having a difficult time distinguishing address and address space in semiconductor memory such as RAM. As an example, I have a 32-bit address bus which can address 2^32 bits of memory to RAM memory. Now the RAM has memory cells, each of which are 1-bit. But these cells are grouped to form a word, which is 32-bits (since the bus length is 32 bits). Now I assume that that word is considered the "address". But if that's the case what is the "address space"?
+Address space is the number or range of possible addresses in RAM. Its close cousin is the Virtual Address Space which is the the amount of addressable space, only some of which will be in RAM at any given time.
+In your case, you are rather ambiguous. It either that every bit has an address, or that the entire memory space of 2^32 bits is addressable.

@@ -1,0 +1,5 @@
+I decided to use the iOS Speech Recognition library so I could use basic voice commands to control it.  The majority of the iOS SDK that comes with the drone is written in pure C, so it has to be used in Objective-C (Something I have little previous experience in using).  Any advice on how to clean this up, or if I'm using best practices are appreciated.
+Generally All library of Speech recognize will take few seconds (around 1 to 5 seconds) to respond on any recognition so its normal time for your response.
+Always practice proper commenting in your code so any one can recognize code for what purpose and its increase your code readability and code clean ness.
+Right now it works and the drone responds when I speak to it, but the app itself seems really slow in registering my voice, maybe 3-5 seconds to register just the one word commands.  I'm not sure if this is something in my code running slow of its the standard time for the framework to respond.
+I removed other references to the SDK to avoid confusion just leaving in the basic drone commands I need, i.e. [_miniDrone takeOff]; and [_miniDrone land];

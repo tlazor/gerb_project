@@ -1,0 +1,7 @@
+See if you can install SIP server on you existing wifi network, that should save you from buying all the APs and you will have more users online. 
+Any hints/clues on how to make this happen? Basically it should allow students in our hostel to do voice communication with each other without being connected to internet, just to my/university router.
+Lastly you will need QoS provisioning for you VoIP packets, it will ensure voice packets are prioritized over normal internet traffic and calls are not dropped. QoS provisioning will get messy because most APs in the market wont let you do it, so I will suggest not thinking about it initially.
+Not sure if we can use existing wifi-routers installed in our hostel ( 2000 sq ft * 3 floors ) ? University imposes a lot of restrictions on usage, so in other case I could by my own router(s) to set up this up because I want to.
+First thing first you will need about 6-15 APs. Exact number will depend on the make and width of the walls in your hostel and the kind of APs you use. 
+You will need a SIP server (lookup http://www.asterisk.org/) to authenticate and manage users and then VoIP clients on the phone and laptop for the users to place call. An important thing to remember is that if you are not providing internet access on the same wifi network users will probably not be connected to it all the time. Which will mean users will show up offline on SIP server and no calls will be places. 
+I'm interested in setting up a system which would allow students in my university dorm to communicate to each other freely. 

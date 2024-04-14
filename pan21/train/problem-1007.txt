@@ -1,0 +1,18 @@
+( bulk_insert_buffer_size / _ram ) = 8M / 65536M = 0.01% -- Buffer for multi-row INSERTs and LOAD DATA
+( (Com_insert + Com_update + Com_delete + Com_replace) / Com_commit ) = (20260 + 69883 + 2901 + 0) / 62678 = 1.48 -- Statements per Commit (assuming all InnoDB)
+( Innodb_buffer_pool_bytes_data / innodb_buffer_pool_size ) = 4,475,404,288 / 15360M = 27.8% -- Percent of buffer pool taken up by data
+( Innodb_buffer_pool_pages_free / Innodb_buffer_pool_pages_total ) = 705,616 / 983040 = 71.8% -- Pct of buffer_pool currently not in use
+( join_buffer_size / _ram ) = 1M / 65536M = 0.00% -- 0-N per thread. May speed up JOINs (better to fix queries/indexes) (all engines) Used for index scan, range index scan, full table scan, each full JOIN, etc.
+( sync_binlog ) = 0 -- Use 1 for added security, at some cost of I/O =1 may lead to lots of "query end"; =0 may lead to "binlog at impossible position" and lose transactions in a crash, but is faster.
+-- If large, decrease join_buffer_size to avoid memory pressure. Suggest less than 1% of RAM. If small, increase to 0.01% of RAM to improve some queries.
+( binlog_format ) = binlog_format = MIXED -- STATEMENT/ROW/MIXED. ROW is preferred; it may become the default.
+Tips on the slow queries.  This is a wimpy list of suggestions, CREATE TABLE and the table sizes might help.
+( Select_scan / Com_select ) = 448,754 / 871456 = 51.5% -- % of selects doing full table scan. (May be fooled by Stored Routines.)
+( Innodb_buffer_pool_pages_free * 16384 / innodb_buffer_pool_size ) = 705,616 * 16384 / 15360M = 71.8% -- buffer pool free
+( ( Binlog_commits - Binlog_group_commits ) / Binlog_group_commits ) = ( 74938 - 74938 ) / 74938 = 0 -- Pct of COMMITs that could have been performed in parallel
+( innodb_buffer_pool_size / _ram ) = 15360M / 65536M = 23.4% -- % of RAM used for InnoDB buffer_pool
+( Uptime / 60 * innodb_log_file_size / Innodb_os_log_written ) = 74,340 / 60 * 1024M / 465657856 = 2,856 -- Minutes between InnoDB log rotations Beginning with 5.6.8, this can be changed dynamically; be sure to also change my.cnf.
+( wsrep_log_conflicts ) = wsrep_log_conflicts = OFF -- If you get deadlock conflicts during COMMIT, this flag can be helpful.
+( innodb_io_capacity ) = 200 -- I/O ops per second capable on disk . 100 for slow drives; 200 for spinning drives; 1000-2000 for SSDs; multiply by RAID factor.
+-- If you are plagued with Deadlocks, turn this on. Caution: If you have lots of deadlocks, this may write a lot to disk.
+-- (The recommendation of 60 minutes between rotations is somewhat arbitrary.) Adjust innodb_log_file_size. (Cannot change in AWS.)

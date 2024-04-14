@@ -1,0 +1,5 @@
+Read the man page for logorotate, that should give you enough information to either modify an existing configuration or create a new one.
+I think ideally it should move to another log file name every week or so, in order to give me time to download it.
+If you don't already have archived logs check /etc/logrotate.d/httpd (or /etc/logrotate.d/apache2) to see how your logs are being rotated. If you have the parameter rotate set to 0 then your old logs will be deleted rather than archived. Check the man page for logrotate for more information.
+Assuming that this apache instance runs on some sort of Linux server, you would need to look at either /etc/logrotate.conf or /etc/logrotate.d/. The latter is a folder that usually contains files named after the daemons for which they hold logrotation configuration. In the case of Debian based systems, the file name would apache or apache2, on redhat based systems it would be httpd. 
+Are you sure that you're not just seeing the last 3 days logs because the others have been archived by logrotate ? Have a look and see if yo have any access_log.1 .2 or access_log.1.gz .2.gz etc files which will be older ones.

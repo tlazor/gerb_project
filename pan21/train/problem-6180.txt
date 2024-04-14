@@ -1,0 +1,6 @@
+Now... what happens if I define the default as being a function of the previous values - which may or may not be defined?
+Also, just because ruby is awesome, here is an iterator that generates a sequence of Fibonacci numbers for additional functional programming tricks.
+Basically, the function is not recursive per se but uses defaults to generate a recursive solution ;) 
+Note that pure recursive functions in ruby have to be used carefully as ruby has a limited stack.  Recursing more than a few thousand times tends to cause a stack overflow.  Also note that this implementation does not include support for memoization, so it does a lot of redundant work.  It is, however, a pure function.
+As I did the same exercise some time ago, I used a different approach, using hashes. It takes advantage of the ability to define a default for hashes when accessing a not present element.
+Just because you mentioned recursion it in your post, here is an example, and also an example of implementing this as an infinite sequence.

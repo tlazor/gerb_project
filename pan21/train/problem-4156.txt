@@ -1,0 +1,10 @@
+Having more space available means that the OS can "leave" more applications in a state that allows them to resume faster and having to write less data to the hard disk.
+Those are very general statements, but as you didn't mention your specific needs, your hardware configuration or what you wanted to buy exactly, I can only say that upgrading RAM will definitely increase performance and $90 are most certainly worth it.
+Upgrading from 2Gib to 4Gib makes a world of difference because you can have a lot more apps open at the same time.
+If you want to run RAM-hungry applications like video or audio editing, then the change will be even more drastic.
+Upgrading your RAM is one of the cheapest ways to get a performance boost from a middle-aged system.
+However, upgrading from something like 8Gib to 16Gib is not going to make a whole lot of difference unless you run Photoshop, a video editor, and a whole bunch of other apps at the same time.
+Windows has a feature called "Windows User Experience" that tells you the "experience score" of each component of your machine - RAM, graphics, processor, etc. This is a great feature and you should create the same picture mentally.
+From command line you can use vm_stat. Pageouts and Pageins are the most interesting statistic. It tells you how often you had to write/load a page to/from swap. Ideally with enough RAM it should be zero. 
+So, if you have a "normal" (non-SSD) hard disk, you are most probably going to notice increased performance, especially when you switch application context a lot – or like to keep many applications open at the same time.
+Upgrading from 2 GB RAM to 4 GB is a good upgrade, but anything more than 4 will do nothing on a 32-bit processor. If you have the weakest processor, it will also be worthless. Bear things like this in mind. Compare with the rest of your specs. 

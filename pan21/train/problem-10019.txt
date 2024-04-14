@@ -1,0 +1,6 @@
+Linux has more interesting kernel features -- if I want to use openmosix or vmware server, for instance, the linux kernel is the only game in town.  BSD has pf and it has zfs, but those aren't as universally interesting.
+These days? More things go to the effort to support the linux than the BSDs. Also, the BSDs have only recently started to put some effort into being friendly to new users. And they're still behind in some technical aspects (note, for example the poor SMP support on OpenBSD).
+Linux has a more forgiving userland.  The BSDs tend to have a userland that is entirely consistent but without the wacky gnuisms like a version of /bin/false that takes --help as a flag.  The GNU stuff is more novice friendly but tends to get in the way of someone who knows exactly what they want.  
+But personally, in my somewhat limited experience with Debian, Ubuntu, Redhat and FreeBSD, Linux always seems easier to use and get setup with...
+Also, to a large extent, market forces come into play.  Jobs are mostly for linux, not for bsd.  Embedded platforms mostly use linux.  Fancy new software gets written on linux first, then maybe ported to BSD.  Etc...
+On the other hand, Apple OS X is built off a BSD base, so you might say that BSD is more popular than Linux!

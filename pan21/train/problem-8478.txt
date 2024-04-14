@@ -1,0 +1,13 @@
+However, I am unable to access these archives with programs like Winrar Archiver which implies that they have some level of protection.
+As for the issue of protection itself, I don't think it matters a lick if you are just putting a game out there. Why make it hard for people to mod whatever dumb stuff they want in there? Sometimes the mods can really help a game look better for that matter.
+(I am aware that competent individuals are able to use the GPU to gain access to the data but that's not preventable)
+I'm not particularly knowledgeable in the field of encryption and data storage, so I may be overlooking something obvious but I would like to know how exactly I could achieve something similar.
+I would make it so that you do not do this by default though, it is a serious drag for people working on your engine. Just allow for a deploy batch job that protects all the files for you before shipping.
+As others have said, there is no real protection for your assets. That doesn't mean you have to push them out there totally unprotected, though.
+This is fine, but not preferable. Ideally I would like to protect these assets without too much of a performance hit.
+I looked at other games that I own, both Indie and AAA and found that the majority of them archive the data.
+Yet you are probably going to need it eventually if you expect to have third party customers using things. Especially if you want people making various art packs for your engine. There's nothing that can really stop a determined thief but they won't make a pack for your engine at all unless you have some sort of provision to protect their work.
+I'm writing a game in C++ (with OpenGL) and am getting quite far into development. Currently I'm loading the data directly from different directories.
+You can do the same as well for image formats. I mean do you really want to store 80 types of files in a shipping game anyway? You can have an internal variable or encoding of some kind if you really want additional protection - or if you want to have the ability to have some files protected and others not.
+A package is nice too so people can't even see file names, but it is pretty pathetic as a security measure, it just means you have put every file together and hidden the directory structure, really. So you make it harder on modders but don't really provide any security.
+Having your own internal format for your assets is pretty useful or even necessary in the long run anyway. If you have your own file format that is not easy to open in content creation tools then it serves just as much for security as any kind of archive system.

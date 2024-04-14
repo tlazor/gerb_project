@@ -1,0 +1,5 @@
+If you do want to go ahead and install it a second time, that should be perfectly possible, but it is very unlikely to make any difference.
+There might be a way to install Firefox so that it doesn't affect the registry, but the only information I've found on Portable Firefox just states that it won't leave any personal information on the computer, not that it doesn't write to the registry.
+Installing it again will not help as it will still use the same profile. Instead, try creating a new profile as documented here.
+While you could install the second time into a different folder than the default, you'd have problems with any registry settings that Firefox uses. The second install would change all of these to the new location so you wouldn't be able to run the first installation any more.
+Alternatively, you may want to start your profile in Safe mode, which will disable all your extensions and plugins. You can then determine if the slowness persists. If it does, then it must be one of your extensions/plugins, so you can simply try disabling a few at a time until you find the responsible one.

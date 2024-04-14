@@ -1,0 +1,8 @@
+Host OS is Debian 9. Guests I will run in HVM mode (also Debian). Planned servers are: MySql, email (postfix,curys,spam filters and all related to email), web server (nginx+php), web proxy (SSL terminator)
+I already tried masquerading booth bridges and also interfaces but I cannot access internet from guest OS.
+It's time to replace old server with new one. In old server all was setup on bare metal. With new server I try to set up virtual server for specific task. 
+But question is about networking. I do not want that guests are visible from outside and they do not have public IP. But each guest must see other guests. 
+I created two bridges. hostbr0 and xenbr0. In hostbr0 I added physical interface eno1 witch has one static IP (public). In xenbr0 I added vdum1 interface.
+I also want to control guest access to internet. For example, mysql guest do not need internet at all (in general). 
+How I can configure iptables, so that guests have internet access? I am not asking for exact commands but for directions. Do I need to setup masquerading? Then witch interface must masquerade? Is it possible to set forwarding between bridges? 
+vdum1 is virtual interface with dummy module, IP = 192.168.1.1. For all guests IP address is from 192.168.1.0 subnet. So all guests are in one network. 

@@ -1,0 +1,9 @@
+The installation wizard failed to connect to the NETLOGON shared folder on domain controller SERVER.network.local. This is because another user or process is holding open a connection which is causing a credential conflict.
+At first I though it was because everyone was logged on so I waited until everyone had gone home and tried again.  Same error.  I then tried closing down every other server and network device that we had accept the old domain controller and the new management server same thing again.
+We are taking the route of joining EBS to the current domain and then decommisioning the old DC.  This seemed to be the simplest way to complete the migration.
+Whilst running the Progress of Environment Check, one of the checks is SYSVOL and NETLOGON health check, which brings back the following error:-
+Just in case anyone else has this issue, it was resolved by a simple restart of the Workstation service on the management server.
+I have recently started a migration from Windows Small Business Server 2003 to Windows Essential Business Server 2008.
+The strange thing is that I can see the old DC from the new server and I can navigate to the NETLOGON shared folder without issue.  I can ping each machine from the other.
+I have run the preperation and planning wizards with no errors and everything seemed to be progressing smoothly.
+To continue the installation, wait for all connections to close and then click check again. If the problem persists, contact Microsoft support for assistence.

@@ -1,0 +1,7 @@
+My internet connection is also very slow and so I download at night videos from my favorite channels and watch them later.
+Newer Versions of Kodi have the possibility to use MPEG-DASH. If activated, it will override the General settings. There you can achive 1080p with 60fps 
+I'm running on slow internet connection hence cannot stream 720p videos and buffering takes more time than playing the video.
+Yes, you can set the quality for all YouTube videos. Because you use the Add-on called YouTube, there is the possibility to configure some settings. Open the settings in the Add-on, just where you open your subcriptions, playlists, login/logout and so on.
+Configuration for quality selection is described here: https://github.com/rg3/youtube-dl/blob/master/README.md#format-selection
+I can provide a complete bash script with configuration for youtube-dl if somebody needs one. With downloading thumbnails, delete old videos and embedding informations about the video from youtube in the video file, so Plex can parse them.
+In the general tab, you can set the highest video quality used (if an uploaded video has only lower quality available, the lower quality will be used):

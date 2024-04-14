@@ -1,0 +1,8 @@
+(2)  We previously tried that, and as we approached the specified limit we started getting Error 9002 (log file full) here, there, and everywhere.  So now we are afraid of applying a size limit.
+Maybe someone is going to suggest that we set a limit to log file growth.  However, that leaves two issues:
+The problem is the log file.  Naturally, the log file grows and grows with so much data manipulation.  Our log file currently stands at about 1 TB.  We have a good amount of disk space, but it is not infinite.
+We also understand that there are many wrong things not to do (detaching, shrinking, etc.).  We just don't know the right thing to do.
+Our work is mostly focused on crafting the SQL logic to calculate the results that we need.  We're not running a real-time call center.  We apply a few indexes as needed, and we're pretty happy with the performance.
+We set the database recovery mode to Simple, naively thinking that this meant "no recovery mode", but we were quickly cured of those illusions.
+From what we read on the Internet, we understand that the log file is necessary for transaction integrity, rollbacks, and recovery.  But for our specific purposes, we don't care about any of that.  We will probably never perform a rollback, nor would we ever attempt a recovery.  Worse comes to worse, we would simply download the data files again and create a new database from scratch.
+We have a large database in SQL Server 2012.  It has more than 2 TB of data (hundreds of tables, each with millions of rows and hundreds of columns wide).  Each month, we receive a bundle of additions and revisions to the data, requiring us to perform extensive updates to our database by deleting, replacing, or updating most or all of the tables.

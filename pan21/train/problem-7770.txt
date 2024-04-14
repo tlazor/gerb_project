@@ -1,0 +1,6 @@
+However: on some unmanaged switches I have seen instances where the switch will completely ignore the Ethertype (indicating a tagged frame) and simply forward based on Destination MAC, passing the frame through the switch  and maintaining the 802.1Q header (essentially acting as a hub with MAC learning).  
+In a perfect world, the switch should only pass Ethernet frames that are tagged if it is specifically configured with those VLAN IDs trunked on that interface, or if a VLAN with a matching VLAN ID is the native/access VLAN on that interface.
+Suppose I have a switch that receives some incoming packets which are tagged with different VLANs. The packets' destinations are to the router which is connected to the switch also:
+The reason why the host send out the packets with different kind of VLAN is that the Host has a lot of VMs inside and the VM are connected with different sub-interfaces internally
+My question is that how does the switch treats the incoming packet if they are tagged with VLAN? Will the switch drops the packets or will the switch forward it to the router?
+In this case, your router should then drop the tagged frame if is not configured to receive one, even if the frame was destined for a local MAC address.

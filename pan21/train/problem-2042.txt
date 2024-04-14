@@ -1,0 +1,5 @@
+SysTracer is a system utility tool that can scan and analyze your computer to find changed (added, modified or deleted) data into registry and files.
+There will be a lot of information presented, but you can filter by application (you'll need to know the application being run during install which might be something like setup.exe or msiexec).
+I would like to know if there is a way to detect which registry settings an installer affects. Are there other options than running a full-size VM and then somehow comparing snapshots of the registry hives? If these is the best approach, please share your experiences. 
+The objective here is to figure out where in the registry a certain program stores settings. During installation and otherwise. It might seem like a good idea to just ask the developers, but I've faced this situation before (not knowing where in the registry a program stores settings) and would like to find a general approach to this problem. 
+You could try running Process Explorer (a free tool from Microsoft), which you could use to show you all the files and keys being accessed during the installation.

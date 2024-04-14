@@ -1,0 +1,5 @@
+Replay should be very straight-forward -just deserialize the file and loop through the objects, showing and moving them whenever the keyframe timestamps passes the current cut scene time. Increase the current cut scene time using the game time. This way the cut scene can easily be scrubbed back and fourth, automatically paused and it's very easy to implement various kick-ass interpolation algorithms between keyframes.
+I would create a class with multiple stages  the progression to the next stage would dependant on a number of events occurring 
+With such a basic setup, multiple cut scenes could be played back at any time and also made to overlap. There are of course several ways to attach keyframes to in-game objects/classes... 
+An easy way would be to keyframe objects in the scene using a basic keyframe data structure which can then be serialized to file (xml just a few lines of C#) and opened in a custom scene editor or edited by hand.
+I have never used Lua so do not know if that option would be better, but this is how i would do it in pure C#.

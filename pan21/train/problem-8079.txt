@@ -1,0 +1,7 @@
+If the restore breaks it again, then you will need to start over from Internet Recovery & this time pull the Time Machine backup, a bit at a time, manually.
+I'm not denying the other [currently two] answers may be correct, but there's a [tedious but] simple set of tests which needs little expertise to run...
+That would mean the hard drive is having a physical read error and would need replacing and makes sense that you can't continue boot. 
+If it works in Safe Mode, first suspect would be 'something you installed' - which I know is hugely broad, but...
+During your next boot up, hold command-v, that will try to boot in verbose (text) mode. A lot of stuff will scroll by but wherever it's getting held up in the boot process may become obvious doing this. 
+If no joy [because that would not uninstall anything you may have added that broke it], AND you have a solid Time Machine backup, use Internet Recovery to a reformatted drive, then restore from TM once you have tested it works when clean.  
+In my experience as an Apple certified technician, this problem is either related to a failing hard-drive or a bad logic board.

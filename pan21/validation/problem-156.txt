@@ -1,0 +1,10 @@
+After a succesful pcntl_fork(), the running process is cloned, complete with its current state (all variables, including process counter). So two identical processes continue from that point in code.
+Note: after the fcntl_fork() both processes work independently. So one may go faster than the other; they may run on different processes, etc.
+Depending on this value, both processes go their separate ways, and continue until the hit an exit().
+So without exec is always better ? No. For example: if your co-worker changes his child-code, his typo's will make the compiler stop compiling your code if is is included.
+A new process in a clean memory also forces the child code to be compiled in the second process. So the compiler has to be started again; this to is overhead.
+But executing the other code will clearly show where the typo's are made. Programs are insulated much better this way. At some cost. Depends on how often you want the fork to be executed.
+This was my attempt to give an explanation. Now the answer to your question, wich one is faster or better:
+Output: of the script above. The $mypid at the beginning of the line is the process id of the printing process. The $pid on the right is the return-value of the fcntl_fork().
+If parent- and child-code are not individually terminated by exit(), then both may continue executing the common code at the end, resulting both processes printing "I am both"!.
+An exec cleans all process variables and starts a new program, just as you do from the command line. So this is overhead. And no information is shared from the parent to the child. (unless you  ... well, there are possibilities).

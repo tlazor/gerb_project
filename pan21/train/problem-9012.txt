@@ -1,0 +1,5 @@
+I want to buy a KVM and I don't know if the video cables are required to be connected in order for the KVM Switch to work. For my current setup I only need mouse and keyboard switching. 
+I tried an old KVM and failed. Must the video cables be connected in order for the KVM switch to work properly?
+I have a ~10 year old 4 port Belkin I use which requires no external power and "comes alive" after I power in any PS/2 keyboard from a pc.
+Again, there is just no way to know! If you have one in particular you are thinking of buying, I would email the manufacturer and ask. That is what pre sale support is about and unless someone has personal experience with the same model, it is doubtful anyone will know
+From some things I'm reading after searching Google for "kvm without video", it sounds like that will work. However, if you only want keyboard/mouse switching, you might try Synergy, which connects computers over the network and lets you simply move the mouse from one screen to another to switch where your input goes. (For Macs, a similar program called teleport is better than the Mac version of Synergy).

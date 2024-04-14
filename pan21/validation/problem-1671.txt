@@ -1,0 +1,6 @@
+Usually you'll just have a single quad tree. Often times this would be better as the different layers of collisions can be quite complex and numerous. Also I don't think a bottleneck has ever been that too many potential pairs are culled by layering instead of being implicitly culled by separating data structures.
+On top of that, creating sparse or imbalanced trees also wipes out their efficiency.  The point is that each branch of the tree reduces the required checks by half.  You gain no benefit if all items reside in a single branch.  So having trees with fewer items does not make them faster; it makes them slower.
+Make a single tree for all item types.  This is important enough to edit your code architecture to make it possible.
+If you make separate binary trees for different objects, you will destroy the whole purpose of the tree: logarithmic complexity.
+Say you sort your objects into different trees.  Each tree's contents and ordering will have no bearing on collisions with items in other trees.  You will be back to testing each item from one tree against each item from another.  That puts you right back at O² complexity.
+It's hard to make something faster and simpler than a bitwise and as far as layer overlap checking goes.

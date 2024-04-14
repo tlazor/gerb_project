@@ -1,0 +1,7 @@
+I am designing a network consisting of close 60 ports, via a managed switch.  I intend to deploy multiple VLANs: one for servers, one for desktops, one for guests, etc.
+Sufficient bandwidth allocation includes the firewall. It needs to be able to forward with the required speed.
+Make sure you provide sufficient bandwidth for the trunk. It may be necessary to set up multiple, aggregated ports (e.g. using LACP) or run multiple trunks with grouped VLANs. The latter in combination with spanning tree requires MSTP and proper instance configuration.
+I intend to use the firewall to route between VLANs.  (Yes, that's expensive, but in our case, we want to do it).
+Usually, all nodes in a VLAN can talk to each other. Separating them requires a feature like private VLAN or source port filtering on the connecting switch. It's also possible to set up ACLs to filter unwanted IP traffic.
+If both sides support 802.1Q VLAN tagging you can set up a single VLAN trunk (or aggregated ports) for all VLANs. One of the VLANs may be untagged (sometimes called the native VLAN), all the others must be tagged on both side in the same manner.
+Does each VLAN need its own dedicated uplink port on the switch and firewall (acting as a router)? That is, if I want 6 VLANs, do I need to configure one port on the switch for each VLAN, and connect each to a different port on the firewall?  Or should I use trunking, and send them all to the firewall on the same port?  How do I enforce different security for those VLANs (ideally, I'd like physically distinct ports, not just VLAN tagging).

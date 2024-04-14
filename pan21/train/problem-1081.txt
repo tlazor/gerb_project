@@ -1,0 +1,8 @@
+When you run this setup with a dell equalogic you can add what ever you need more, as the system scales. Need more disc storage, add another equalogic, need more processing power add another server. nedd more disc throughput add an faster equalogic (or fastr disks) and the data is moved arround.
+That's not a lot in terms of throughput, but in IOPS (which is what counts), it only depends on the storage backend, which could be 16 disks in RAID-10.
+I hacce a 24 disc system (right now 22 in use) which I will upgrade to a 72 disc case later his year.
+A good double gigabit ethernet link to your storage server could supply a total of 200MB/sec sustained to any number of virtual machine hosts (with no one host exceeding the capacity of one gigabit link, of course.)
+Oh, and Velociraptors in Raid 10. Pretty much a cnodition the moment you hid 20- vm's. WHich is what I do.
+Check MicroStrategy- 2U case - 24 hard discs.... 4u rack case, 72 (!) hard disc slots. That, plus an Adaptec 6805Q and 2-4 SSD as read & writre cache and the system SCREAMS.
+I've seen a couple of setups using iSCSI as a protocol. The setup would be a iSCSI Storage Solution (not a cheap nas), a dedicated switch and a server.
+Using ethernet for disk I/O (=iSCSI) is quite feasible, since, as you already indicated, disk access is much more important than throughput or capacity.

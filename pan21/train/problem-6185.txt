@@ -1,0 +1,8 @@
+First of all, you should be using return rather than print to get a value out of a function, otherwise you'll have problems when you try to expand the program.
+You assume some format of input data, while it's not spelled-out explicitly. While you could handle that with naming/documentation, you can change your algorithm to convert MACs from several formats to CISCO one - simply remove separators from strings (multiple str.replace-s will do) and then slice the result as you wish.
+If I was writing this, however, I would probably do it in just a couple of lines, as you know exactly how the input and output strings are going to be formatted:
+You print the result instead of return-ing it. If you wanted to do something else with MAC in that format (like printing it as a part of some string), what would you do?
+There may be other formats for MAC addresses. If someone had successfully guessed that mac_conv converts MAC address, they'd still have to guess the format. mac_to_cisco_format is long, mac_to_cisco may be alright.
+If this was going into a product, I would probably add some error handling too, to allow for input that isn't a mac address - too short, too long, wrong separators, alternate groupings (a cisco-formatted address is still a valid mac address, but this function won't handle it.)
+separator instead of sep may help a little bit to someone who only sees function's signature (as in many IDEs).
+I would also avoid reusing variables, especially if its a function argument (mac).  You can actually eliminate that usage of the variable all together:

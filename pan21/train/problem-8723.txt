@@ -1,0 +1,7 @@
+else make sure the folder has permissions - you can change the login credentials in the Account tab .
+Make sure you don't have any special characters or spaces in the backup folder path .. in this case (sql dump) has a space in it, I removed the space character and it should work 
+Does the account you are using to run the backup also have full control (or at least write) on the file system folder that is shared (i.e. both share and folder permissions allow writing)?
+Try monitoring the destination with Process Monitor to see if it is a failure in SQL Server (i.e. fails before any file create/write) or in writing.
+Remember that the account creating the job isn't necessarily the account running it (this might not apply as, IIRC, Power Toys backup doesn't use SQL Agent).
+I had the same problem and noticed that your share name "sql dump" has a space in it, just like mine. I removed the space character and it worked fine!!
+Not related to this specific special character problem, but I had exactly the same error when trying a least-privilege approach. I had to add the account used for the backup to the Backup Operator local Windows group. Hope it helps other people reading this thread.

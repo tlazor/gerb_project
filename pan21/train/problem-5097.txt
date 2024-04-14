@@ -1,0 +1,5 @@
+My question is - is it possible to set up a scheduled task or similar to pre-load the profile of the user?  Clearly it would breach security to log the machine in and leave it unlocked when the user is not present.  But is it possible to log in but keep the machine locked (so the user will have to enter their login details, but startup will be instant when they do) ?
+You can make logon faster by switching logon script processing to "asynchronous" (by default they run synchronously)
+(we have a mixture of Windows XP and Windows 7 machines, so I'm interested in techniques for either)
+You should run the Windows SDK Performance Analyzer to determine where the machine is spending its time during login. There could be a timeout that you could fix or at least decrease. 10 minutes is too long.
+My workstation at work takes around 10 minutes to log in to Windows (running scripts, group policy / security tasks etc).  As a result, users tend to lock / unlock machines without completely logging out, during day to day use. However, all machines are restarted over the weekend, so on Monday morning every user has a delay of 10 minutes while their machine starts up.

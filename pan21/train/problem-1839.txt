@@ -1,0 +1,6 @@
+If your tags don't sort 'naturally' (if you follow semantic versioning, 1.10.0 will be listed after 1.1.0 not after 1.9.0 in svn ls output), you can use the guaranteed-to-sort revision ID of your tags directory:
+If your project's tag structure is not so strict, the result of svn ls will need to be passed the -v (verbose) option and sorted based on the date in the output.
+If you get the error "Broken Pipe" (I get it on Ubuntu and Mac), just try to surround the command like the following:
+If your tags are listed sequentially when sorted, you could grab the name of the latest with something along the lines of:
+This will simply suppress the error message. I checked some mailing lists and obviously nobody knows why this error occurs.
+For an application I've deployed the client needs to have another server that they can access in case the live server goes down.  There is already an automated system to copy the database to the backup server.  The application code is in a subversion repository and I would like to write a script that copies the code from subversion to the backup server automatically.  I have a script that does this, however, I need to manually tell it what tag to retrieve.  Is there a way to make this totally automated.

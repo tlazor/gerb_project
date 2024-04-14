@@ -1,0 +1,6 @@
+I also ran in to the same issue winbindd simply would not start.  The entry was already in /etc/hosts but I needed to change /etc/nsswitch.conf and changed to order so that 'files' came first.
+A couple items of note that some may find useful we experienced with this upgrade from samba 3 to samba 4: 
+I'm attempting to join a Ubuntu 12.04 server to Active Directory. I installed samba, and kb5-user, created a machine account in AD, and did: 
+Ran into this error during our production Solaris samba upgrade AND moving to a different AD domain at the same time. We had deleted the object in the old domain but had not told samba to leave the old domain. The solution was trying a "net ads leave" even though it said  "Failed to leave domain: failed to connect to AD: Cannot contact any KDC for requested realm".   However, it must have cleared something up in samba and we were able to then join the new domain.
+I do not have access to modify anything on the Active Directory server as I'm not admin. Is there any way around this error?
+So the first entry needs to be the IP, the 2nd must be the fully qualified domain name for the domain you are joining, and the rest can be in any order. 

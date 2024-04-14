@@ -1,0 +1,8 @@
+ScreenRecycler lets you use an old Windows laptop as an external monitor for OS X.  It works using VNC so it's a little slow.
+As far as the "application bar" I assume you mean the menu bar. While you can't get a menu bar on both monitors the application DejaMenu will pop up a menu bar as a contextual menu with a keyboard shortcut that you assign to it. You could also trigger DejaMenu by clicking or hovering in a screen corner with CornerClick or via a right click with FinderPop. To use CornerClick or FinderPop you will want this little app to trigger DejaMenu.
+I'm not aware of anything like Ultramon for the Mac.  However, here are two products I've used on Mac OS X to improve my multiple monitor setup:
+Gefen USB DVI Adapter lets you connect a 2nd display to a Mac via USB.  I use it with a MacBook Pro so that I have 2 external displays in addition to the MacBook's display.  It works great.
+If they're on different physical computers, I'd make use of Synergy, which is a cross-platform KVM solution. (without the "V")
+MercuryMover is extremely flexible, it's intended to allow you to do all sorts of moving and resizing using the keyboard.  It has presets, like SizeUp, but they user-configurable -- and there is a heads up display for letting you do custom actions.
+There are quite a few applications to modify the dock, but none that I know of that let you have two docks. Take a look at macupdate.com and perhaps you'll find something.
+SizeUp is focused on tiling windows.  There are shortcuts for resizing windows to the various half- and quarter- screen sizes and positions.  It also shortcuts to move windows to the "next" and "previous" displays.

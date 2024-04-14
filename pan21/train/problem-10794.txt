@@ -1,0 +1,8 @@
+For instance, straight north is degenerate because it represents the case where northwest and northeast join and produce the same result.
+If you need to do something more spacially "fluid", like a path-finding algorithm, just abstract the coordinates so your path finding algorithm doesn't even realize the world is made of repeating tiles. The path-finding algorithm could go infinitely in any direction theoretically (ok well you'll be limited by numeric limits, but you get the point).
+Thanks for all the answers in the end I used Toomai  edited by Scott Chamberlain. I had too make a few changes due to the fact that my coordinate system starts with y at the top left and increases as you move down (basically inverted compared to normal graph coordinates for y).
+Don't bother with the "9 directions". The reason is that there are 5 degenerate cases amongst those 9: "straight north", "straigt west", "straight south", "straight east" and "identical".
+Here's an illustration of 2 cases for finding dx. Case 1, where T is in the same tile as S, dx is just S.x - T.x. For the tiles to the right, dx will be calculated as TileWidth - S.x + T.x.
+For each of the surrounding tiles though, they are permutations of different calculations for the X or Y distance component. Because it's a finite number of cases, you can just hard-code how to calculate them, and find the shortest distance between all of them.
+As a small optimization, find the minimum distance before you take a square root. Then you save yourself up to 7 sqrt calls.
+Compute one possible direction vector, even if it's not the shortest, then wrap its X coordinate so that it is in the [-MapX/2,MapX/2] range, and same for Y:

@@ -1,0 +1,6 @@
+Close Unity and open explorer. Now search all the .meta files from your project. Delete them all and open Unity again. It will create new meta files. And issue would be resolved. 
+I'm using Unity 5 and I'm getting an error in a YAML file. The error is "Unable to parse YAML file: [mapping values are not allowed in this context] at line 1"  This comes up every time I open the engine.
+The project was created using Unity 5.21. I tried to open the project with Unity 5.40 and it worked. Now there were no "Broken YAML file" error nor "Missing Prefab" and it worked fine for me.
+Try to check every scene to find out which one has corrupted, if you do have a backup then restore the scene files.
+I've seen some say to open the YAML file and change some stuff in it. But I can't even find the YAML files. I've also seen that it's caused by meta file issues and version control. The project is local but I don't know if it matters if it's local or cloud based.
+I had the problem of "Broken YAML file" when I tried to open one of my old projects. With the above error, all the game objects in the scene turned to "Missing Prefab". 

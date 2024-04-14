@@ -1,0 +1,5 @@
+With this approach, there is no drift on the client side, or if there is, it's very brief as it's only happening on the between-update frames.
+The server, as you probably know, is the one source of the truth in a game architecture like you're creating.  The server is calculating "the truth" of position based on input to the clients, then communicating that data back to each client.  
+Then to keep things looking smooth on each client between server updates, the simulation on the client side should only be there to keep movement rendering smooth.  So if the server were providing updates every 10 frames, it's up to the client to simulate the anticipated movement for the frames between each update.  
+Every time the server sends an update, each client should set positions of objects to what the server has shown.  In other words, the server's new position data should completely overwrite the client's position data. 
+It's not exactly an answer, but you might find this post somewhat relates to your question -> Lag compensation with networked 2D games

@@ -1,0 +1,8 @@
+    using (var file = new System.IO.StreamWriter(@"C:\Users\Hosch250\Documents\Visual Studio 2013\Projects\ConsoleApplication14\ConsoleApplication14\TestFile.cs", true))
+                                    "The Text Block Menu", "The Table Menu", "The Table Cells Menu",
+        using (var file = new System.IO.StreamWriter(@"C:\Users\Hosch250\Documents\Visual Studio 2013\Projects\ConsoleApplication14\ConsoleApplication14\TestFile.cs", true))
+Has just become a possible reason for your test to fail that has nothing to do with your test. For example, if this was part of a test suite in a repo on GitHub, I couldn't run this test successfully. It's important that tests be portable and deal only with the code under test. 
+One way of writing unit tests is called arrange-act-assert. Following that method and using the above recommendations, the code would look like this
+I write to the file in the test method so I can see where/how it failed.  How did I do?  Should I be doing anything different?  Should I have more tests?  I most certainly cannot run every possible combination of search terms.
+If you really want to know exactly which item caused your test to fail, use the overload that takes a message string. 
+    System.IO.File.WriteAllText(@"C:\Users\Hosch250\Documents\Visual Studio 2013\Projects\ConsoleApplication14\ConsoleApplication14\TestFile.cs", string.Empty);

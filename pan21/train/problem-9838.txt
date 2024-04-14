@@ -1,0 +1,5 @@
+I've come across a predicament recently where when WSUS requires IIS and MS Web Publishing Service. At the same time my anti-virus McAfee ePO requires Apache and some other web services to run in order to access the web console for management of that.
+The trick would be to run the Apache and IIS on different ports (only one service can bind to one port at a time), though there's far from any guarantee that WSUS or ePO would work properly on non-standard ports.
+McAfee's support was correct in recommending not running the two things on the same server, though both pieces of software do have options for changing their various communication ports from the standard value, if you're feeling adventurous, or have no other choice.
+I spoke with a McAfee support individual and they were unaware of any means of running these services at the same time. They only could recommend running WSUS on a different server.
+Is there a hack or trick to allowing Apache and IIS to run simultaneously on the same server at the same time without causing issues between each other?

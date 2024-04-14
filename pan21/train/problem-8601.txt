@@ -1,0 +1,6 @@
+Basically an underlying P2P. Then I would absolutely run a routing protocol and in this case I'd probably go with eigrp. 
+If the sites have local internet breakout, you could use something like DMVPN, and just advertise a default route to the branch. Your spokes would then just build dynamic vpn tunnels between them via the internet.
+Then at each remote you would have your various voice, data and misc vlan / subnet that would be specific to that site. 
+It's really not clear what your design goal is or how your QinQ tunnels are setup. You should ask yourself these questions and then give us the answers
+I'd do something along the approach Arima mentioned with the sub int per vlan but for IPs I'd probably use /30 or /31 if I could. 
+If you are using a hub and spoke setup, which would effectively be a VLAN per tunnel, then you should just route via the tunnel everywhere. You could run something like OSPF on the hub, and an area per tunnel. Then just advertise sumamry default route to the branch so it goes via the hub. This is providing you want the routing VIA the hub.

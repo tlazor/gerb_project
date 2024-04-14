@@ -1,0 +1,7 @@
+The permissions being stated as an octal number, the proper convention to represent them is to prepend a 0. This is just like when 0x is used to distinguish an hexadecimal number.
+There is no reason for a sensible professor to insist setting the setuid/gid and sticky bits so perhaps are you confusing 7777 and 0777.
+I have a professor who insists on always typing chmod 7777, but I was taught that chmod 777 was the proper convention. 
+Note that chmod doesn't expect the permissions to be expressed in decimal or hexadecimal so this octal prefix is optional.
+The sticky bit is used to tell the operating system to keep the file in RAM as much as possible to reduce reads from disk and reduce latency. This is applied to files that are sued often and needed with high immediacy. Some OS's and software systems ignore it or use other methods to accomplish the same thing. But that is where the sticky name comes from (keep it stuck in memory whenever possible)
+Which changes the executable fields to s, s and t. I understand 777 because it's 111 111 111 in binary, so its just turning on all the fields, but why would I use 7777 and what does it do differently? 
+The leftmost digit is the setuid, setgid, and stickybit digit.  The first two set the effective user and group ids of the user opening the file.  I don't know what stickybit is.

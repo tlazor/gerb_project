@@ -1,0 +1,5 @@
+The article describes some VBA code that can be implemented to achieve what is needed, but if like me, you are looking for a quick and simple solution then a work-around is also provided.  For convenience, here is the process:
+When add a property, for example Insert > {Text} Quick Parts > Document Property > Title, it displays in the document inside a rounded rectangle with a grip displaying the property name and does not look like a normal field.  I can edit any of the references to this quick part in the document and all other reference automatically change.
+Unfortunately, it looks like this is currently not yet available (in Microsoft 2010).  The closest solution I have found is described in this article, see section 7 - Content Controls.
+Note that this will update the Table of Contents, links, etc. as well. If you want to just update a single field, select it and press F9.
+I think, like the OP, I am looking for a way to add Quick Part Document Properties in a way that allows direct editing from the document itself without needing to go through all the dialog boxes associated with changing the value of a document field.

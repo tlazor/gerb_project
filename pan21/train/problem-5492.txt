@@ -1,0 +1,8 @@
+Now, from any of your other machines, you can try accessing your work machine via \computername or \ip.address and logon using home and you should be able to access and use the shared files.
+Next, turn off simple file sharing, then right click on any directory and make sure that the user home has got full control file permissions over the directory and it is also shared with the same user.
+I would not recommend joining your home workgroup as making changes like that to your work machine could be worse than the problems it solves.
+I recommend just using normal windows sharing - if you are on DHCP and able to connect to your home network without making any changes... create a new user on your work laptop called home (or whatever you want) and add a password.
+The work laptop connects to a work domain, the remaining computers are on a home workgroup for sharing files/printer.
+Is there an easy way to have my work laptop connect to a home workgroup for file sharing with my other PCs, but then easily switch back to connecting to my work domain when I'm at work?
+I've tried Live Mesh, but my 2 home laptops are very slow and don't work well with it. I also use Dropbox, but I'd like to be able to share larger files. I may be missing a simple solution here...
+That being said, you said your problem with dropbox was the slowness - the latest version supports "lansync" which copies over the local network instead of going via the internet, so you may want to try that.

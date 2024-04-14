@@ -1,0 +1,5 @@
+This will leave the modem as the equivalent of a "dumb pipe" to your ISP, and will give your router a WAN ip address.
+Windows Firewall can block the connectivity. You may need to add an exception for that port. To do a quick test, just temporarily disable the Windows Firewall and see if this helps.
+Before attempting this, make sure to write/type down what the original IP address of the modem and the address it gave out to the route. You will have to assign yourself this address again if you want to reconfigure the modem, by connecting directly to it, and giving yourself a manual DHCP address in the modem's subnet, usually something like:
+This disables the routing capabilities and often times you will also want to turn the DHCP server off.
+I am unfamiliar with that modem in particular, but some modems will not port forward despite any settings. From what I have observed this is usually the case when the modem's firmware is modified by the ISP providing it (if one is). The only way I managed to by pass this was by changing the modem from a "routed bridge" to plain "bridge".

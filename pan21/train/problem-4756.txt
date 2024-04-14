@@ -1,0 +1,8 @@
+"First" doesn't mean much. Older Linux libc versions used to always choose the first configured server, but later it was changed to shuffle the list for better load balancing, under the assumption that all servers will work the same way.
+The dns servers used are here: (the first one is the dnsmasq server, the 1.1.1.1, 8.8.8.8, 208.67.222.222 and the first come from the dhcp server)
+So when the OS decides to query e.g. Google DNS for your local name, it receives a negative response and that's the end – it won't keep asking other servers.
+Every OS expects all configured DNS servers to provide identical data. If one server responds with "No such domain", that response is final – the OS will not retry with another server unless it has received no response at all.
+(Or if your hosts support it, they could use systemd-resolved which understands domain-specific nameservers, and can direct queries to either dnsmasq or to public DNS according to the domain name... but that's redundant since dnsmasq can already do that centrally, and it'll just be a headache to configure.)
+What you should do is configure hosts to only use dnsmasq, and configure dnsmasq itself to use whatever public upstream servers you need. That way you get predictable results from all different operating systems, and you also get the advantage of local caching.
+When I try dig host on my local network that should be serviced by the dnsmasq server, then I get no result.
+My network at home uses dnsmasq for dns and for dhcp. The server is called router and serves ip addresses with the required options for the dhcp clients, including the dns server addresses, of which the dnsmasq server is the first. This all works well for all devices connected to the network.

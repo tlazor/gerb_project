@@ -1,0 +1,6 @@
+You don't see any phpmyadmin folder when accessing your hosting via FTP because it's an alias, some kind of virtual folder.
+I've found that many distributions would rather install an application's web files within /usr/lib or /usr/share as a convention. As such, you may want to verify your apache configuration files to determine the exact path. 
+In this case, most likely you'll have the phpmyadmin apache directives within a file located within /etc/apache2/conf.d or /etc/httpd/conf.d or the like. The configuration file will have a  statement which will detail the location of your files. 
+If you have an SSH access to your hosting, phpMyAdmin is usually located in /usr/share/phpmyadmin. If you don't find it there, try to locate it :
+i have www doc in html folder. i go to 192.168.1.1/phpmyadmin to pull it up. but when i ftp there i dont see any phpmyadmin folder under html folder. how can i find where phpmyadmin folder is? i am using centos
+It's probably in /var/www/html/phpmyadmin, but take a look at your Apache configuration files to make sure (try grepping for phpmyadmin in all your Apache config directories).

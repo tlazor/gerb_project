@@ -1,0 +1,9 @@
+Essentially do wireless routers engage in a primitive form of TDMA (time-division multiple access) or similar?
+will the routers share the channel 6 frequency proactively, and therefore less likely to have collisions,
+If you put bldg A on channel 6, then it will compete with bldg B for channel time, reducing throughput for both buildings.  If the signal from the adjacent building is low enough, it won't cause channel contention, but it can still lower your SNR (signal to noise ratio) and lower your throughput due to errors and retransmissions.
+In a few words, the more APs you have in the same channel, the less throughput you will have available and the error rate will be higher. 
+Gotta add that 802.11n standard employs 40 Mhz width channels, that means that the AP using the channel 1, could also be using the channel 5.
+If those are your only two choices, building A should be on 11 for best performance.   Access points use CSMA/CA, not TDMA.  The CA stands for collision avoidance, so they listen first before transmitting.  If they hear someone else talking (over a certain threshold), they will wait until the channel is clear before transmitting.
+If you use Ch 11, then you will not have any channel contention, since the other AP signal (bldg C) will be very low (I am assuming no other APs than what you've described).
+In the scenario of 802.11n 2.4GHz routers, and assuming a very simplified example of only channels 6 and 11:
+Since Wi-Fi uses CSMA/CA, the bandwidth in every channel is shared, mostly with the same but also with the adjacent overlapping ones, that's why you should stick to channels 1, 6 and 11 as possible. You can easily see the impact in performance by setting up a wireless network and enabling WDS bridge in it, since it's a shared medium, max throughput will be cut in half (Theoretically, could be less).

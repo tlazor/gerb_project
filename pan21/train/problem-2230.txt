@@ -1,0 +1,9 @@
+In my case the only thing that worked is to drop user and re-add user. Note you have to check and remove ownership from SQL jobs as well DBO from any database.
+The reason I ask is because if the user has a login on the server of domain\olduser when you change the name in AD to domain\newuser you have to go into SQL and change the login to domain\newuser.  I've done this and it works perfectly fine and you don't have to do anything as drastic as restart SQL.  I do not know if the account name will eventually change to the new one over time but my guess would be no.  
+Background:  a user had her name changed in Active Directory from Domain\oldname to Domain\newname and successfully logged into the network with Domain\newname and yet  Domain\oldname appears in columns LoginName and NTUserName in Profiler.
+I guess I can't comment on your question since this is the first time I've used stack exchange but is this an AD group that the user is in?  Sometimes people say group when they mean SQL role so I just wanted to get some clarification.  
+The question:  Has anyone observed this behavior and know why SQL Server is still picking up Domain\oldname (sp_who2 shows same information)?
+BTW, have spent considerable time researching before posting question here and it appears to me that is no real issue with Profiler/SQL 2008 R2.
+I do not know, however, what happens when the user is just part of an AD group that has permissions and doesn't actually have a login on the server.  Hence the need for clarification so I can look into that.  
+The AD changes will take some time to propagate. Also, the authentication token in cached and that is what is providing access, while still showing the older login name.
+Or try forcing the AD credentials to update: control userpasswords2 at the command line. Then go to the 'Advanced' tab and select "Manage Passwords", this will let you modify saved network passwords.

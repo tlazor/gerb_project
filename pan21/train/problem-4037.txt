@@ -1,0 +1,8 @@
+I also noticed another interesting thing. When I start vsftpd from SSH console, it takes about a minute to go live. Actually the process starts and is listed in netstat, but it takes a while for it to accept incoming connections from my client.
+When a client connects to FTP, it tries to enter Passive Mode but doesn't succeed. Further analyses conducted using tcpdump. Several analyses
+The analysis above suggests me that there is a considerable delay between the accept() syscall done by the FTP server and the concrete possibility for Azure to route TCP SYN packets from public IP/port to private IP/port, thus causing timeout.
+By reducing the range of PASV ports to only one, I discovered that after a few attempts it eventually connects to the PASV port and displays directory listing
+I run FTP services on my virtual server with vsftpd. Both active and passive. For passive FTP I chose ports 25003-25014 as range. I have set them in my vsftpd.conf file and I have mapped all endpoints in Azure control panel.
+I tried to check if firewall is disabled. I ran yast firewall but discovered that another firewall is active on the machine: I configured none of them!
+So I tried to run an instance of Webmin and immediately tried to connect with my browser: it took a dozen of seconds to the daemon to start, but after started it looked like responding immediately, so that doesn't necessarily seem to be the cause
+I had my machine not booting anymore so I recreated it fresh new from my disk image, which is supposed to work fine having worked fine so far.

@@ -1,0 +1,6 @@
+Assuming you want a CLI interface over a web browser you can install ajaxterm or webshell for web based ssh access (but what you really should do is to use a proper ssh client on OS X)
+Yes - you can access the server desktop using vnc if you want. Another option is running the the vm as a headless instance. This means you could ssh into it but not have it running in a window. In some casese like if you were running your instance on a headless sever this is quite handy. You can still access the headless instance via VNC too.
+You could also get a java based vnc client which you can run on your browser for gui, but a smarter option would be to use your VM software... the way most people do. Virtualbox also has an RDP option, which is nice sometimes. On the other hand, you don't want gui on a server.
+Set up, and install your linux system, check the ip address (with ipconfig) and connect using that not localhost
+As for configuration, if you don't want the system accessed from the outside world, go host only. If you are on a wireless connection, you must use the nat option. Bridged is the best if you want it usable elsehwere, and unless you need the other two conditions met, go for it.
+VMware server works like this by default - it runs headless, and you manage VMs over a web browser session. It hasn't been updated as of late, so virtualbox is a good choice

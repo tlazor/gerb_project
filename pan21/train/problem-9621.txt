@@ -1,0 +1,5 @@
+You can use a program like Strings to examine the text contained in the crash dump (this particular one can extract both ASCII and Unicode text).
+You can also use Nirsoft’s BlueScreenView to examine the decoded contents of the crash dump files. You’ll need to either save the dump to the default mini-dump folder (%SystemRoot%\MiniDump), or else tell BlueScreenView where to find your Chrome dumps in the advanced options (Ctrl+O):
+Then use a proper session-management extension like Session Buddy. That way, you can control every aspect of your session, including removing items from a saved session.
+Those files have no bearing on the profile itself and only include a list of the open tabs and windows, and the contents of the web forms you have open. Chrome will be able to use any session/tab files, including those from a different profile (at least from the same version).
+Instead of going through the built-in bug-reporting mechanism, try filing a bug report instead, and then let them tell you what they want or need. You may find out that they don’t need your files at all.

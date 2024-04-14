@@ -1,0 +1,8 @@
+SQL is designed so if the power goes out during a change (no matter how small) it will be able to recover. To meet this it creates entries in the ldf file.  If the system is in FULL recover, all off those entries are saved, if the system is in SIMPLE recovery, those entries are deleted when the change is completed or COMMITTED.  To accomplish this, before any changes are made they are entered in the .ldf.
+After you dig yourself out of this hole, please, read this and learn from it. Logs are an essential part of how SQL Server works. You can't just get rid of them. But you can manage them appropriately. You're probably working off the default settings, which create all databases in Full Recovery mode, meaning, the logs are going to grow. Change this after you create the database. Other than that, @gbn up there has the answer.
+You should not delete LDF files until you successfully raised up the DB on the side without LDF (and sql server surely recreates them). Or at least - tested this behavior.
+No matter how controlled your environment, there will be changes inside of your SQL database; failed logins, restarts from patching, plan updates with queries, many things create changes that you may not be aware of.   
+In the event of a power outage, everything in the .ldf that has not committed will be rolled back.  
+If you drop the ldf's for just not to transfer them to the other server - copy data files, try to attach them and only if you succeed - delete old files, even with data files together.
+TL:DR the ldf file is required, because SQL documents everything (including allowing you to query) before it actually does anything. 
+To maintain ACID transactions in SQL server, the SQL server architecture relies on the use of data files and log files.

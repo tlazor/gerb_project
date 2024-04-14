@@ -1,0 +1,10 @@
+So what would you suggest? Should I make all possible 7 features combinations? Should I evaluate each feature alone with an association model and then pick only the best ones for a final model?
+According to the "rule if ten" I need at least 10 events for each feature to be included. Though, I have an imbalanced dataset, with 20% o positive class and 80% of negative class.
+So what should you do?  You should do what you'd do anyway: use regularization, and use cross-validation to select the regularization hyper-parameters.  Also, it's important to have a hold-out test set that you don't touch until you've finalized everything about the classifier, to avoid overfitting and biased accuracy estimates.
+That's not what the Rule of 10 means.  It's not some rule that specifies how many features you are permitted to use.  The Rule of 10 is descriptive, not prescriptive, and it's an approximate guideline: if the number of instances is much fewer than 10 times the number of features, you're at especially high risk of overfitting, and you might get poor results.
+That gives me only 70 events, allowing approximately only 7/8 features to be included in the Logistic model.
+Finally, since you have imbalanced classes, you might consider reading about class imbalance and methods for dealing with it.
+I have a dataset with 330 samples and 27 features for each sample, with a binary class problem for Logistic Regression.
+You're taking the "Rule of 10" too seriously.  It's a very rough rule of thumb.  It's not intended to be used like you are using it.
+I'm also curious about the handling of categorical and continuous features, can I mix them? If I have a categorical [0-1] and a continuous [0-100], should I normalize?
+It sounds like you are thinking: "I have only 70 positive instances, so by the Rule of 10, I'm only allowed to use 7 features; how do I choose which 7 features to use?"

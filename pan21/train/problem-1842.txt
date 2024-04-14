@@ -1,0 +1,7 @@
+I am using Raspberry Pi for the first time. I did the conventional setup that most people mentioned. This includes
+I am not sure what the error could be. Something interesting I noticed is that the ssh file keeps disappearing after I boot up the raspberry pi. Is this normal?
+Here the tutorial https://cdn-learn.adafruit.com/downloads/pdf/turning-your-raspberry-pi-zero-into-a-usb-gadget.pdf
+You may wanna read this Raspberry Pi Zero W Headless setup – Windows 10 RNDIS Driver issue resolved tutorial and pay attention in the section on RNDIS Driver from MOD (Musical Operating Devices). Most Rpi0/W installation on a Windows OS 9particularly v10) runs into some sort of problem and can be simply resolved with the RNDIS Driver from MOD (Musical Operating Devices). I hope this helps.
+I also had other issues that made it difficult to find the raspberry pi's ip address (which I would rather ssh to) and may have contributed to the connectivity issues. This includes that ipconfig shows that the port which the raspberry pi is connected to is disconnected 
+The result is the error that the connection does not exist. I tried pinging from cmd but I got the same result. 
+It just worked after one point. I cannot remember what exactly changed but looking back the post my assumption is that I stupidly tried to ssh into raspberry.local not raspberrypi.local.

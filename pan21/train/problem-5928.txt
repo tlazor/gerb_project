@@ -1,0 +1,10 @@
+If your clocksource is set to jiffies certain processors do not stay in sync with one another, leading to a situation where the time on one processor differs from the time on another processor. It can be out be a difference of only 1 second for this to cause a problem in mysql.
+Be sure that the address is correct and that you have the necessary privileges, or try increasing the connection timeout (currently 10 seconds).
+Looks like you're having issues connecting through SSH or maintaining the SSH tunnel, these errors are usually reported to /var/log/auth.log. Probably SequelPRO tries to use a connection that is no longer available, stalled.
+The bug I came across here was that one processor was 1 second out from the other processor. This lead to a condition where mysql would ask for the time, then compare the time again with the next new request (which was -1 second away). Given this is unexpected it would underflow and mysql thought the connection was four billion seconds older than what it was.
+Each line should report the same result, certainly not a second out. You should try it a few times to make sure you just didnt cross a 1 second threshold during the test.
+If this is the problem, you should change the clocksource on the host from jiffies to tsc, hpet or acpi and the problem should go away.
+I often experience I am unable to connect to the MySQL server through SequelPRO. If I ssh into the server, I can use mysql fine, see processes, etc. My web app works fine too.
+ONLY solution is to reboot the server. Sometimes I’d reboot the server, and it still won’t work. After a few reboots it works. But usually it works every time.
+MySQL said: Lost connection to MySQL server at 'reading initial communication packet', system error: 0
+You may also try to manually set the SSH tunnel: http://www.sequelpro.com/docs/Set_up_an_SSH_Tunnel — if this works, then it's surely a bug/problem with SequelPro SSH connection.

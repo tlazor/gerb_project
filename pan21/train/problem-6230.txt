@@ -1,0 +1,7 @@
+I know the client and the server have to agree on which algorithm to use. But does the list need to be ordered from most preferred -> least preferred? Or The other way around?  The lists in the man page appear to be ordered first by algorithm group, with preferred groups first, but within each group, the algorithms seem to be ordered from least preferred to most.
+How can I tell which algorithms are negotiated for a given connection?  I have run ssh with -v -v -v and I see a lot of spew from kex_parse_kexinit. But I can't tell which algorithm is settled upon from that spew.
+You can see more precise details of how the various algorithms are negotiated in RFC 4253, Section 7.1, but basically:
+Basically, my question boils down to, will the client and server negotiate the "strongest" algorithm they both support (where "strongest" is defined internally to OpenSSH), or will it pick the first/latest algorithm in both (server and client) supported algorithms lists?
+In my set up, I have selected a subset of these algorithms for use (i.e. I don't want to allow old or weak algorithms).
+Looking at the man page for sshd_config I see the default list of algorithms for Ciphers, Key Exchange (KEX) and MACs.
+Last I checked, OpenSSH does not say what exact Kex algorithm it chooses though. Maybe this will change in the future.

@@ -1,0 +1,5 @@
+Essentially, somewhere in there, there should be a section of Binds which shows which values were bound to that :1 variable.  The article doesn't do a good job of explaining how to tell which binds went to which queries since the example had only one query (and I can't figure it out from looking at it).  Ignore the sort|uniq bit they used at the end to show that it was always the same query over and over, and you should get results like
+Here is the complete list of available commands to start the trace with bind variables recording (source: SQL trace, 10046, trcsess and tkprof in Oracle 10g):
+To record bind variable values there are other, alternative ways, to start the trace depending on your Database version and loaded packages.
+I think it would help to isolate the problem if I could determine the specific value of :1, however the 4.7M file doesn't seem to offer that information.
+If the trace (.trc) file is missing Bind Variable values (or Parameter values in a OracleCommand in ODP.NET for example) this is due to the way the trace has been started.

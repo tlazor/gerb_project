@@ -1,0 +1,7 @@
+So, you can either keep using the SSD in SATA-II mode, or take your chances with flashing the 8560p's BIOS.
+I have an HP Probook 6560b with updated BIOS version F.60 Rev.A (31 Mar 2015) and a Transcend SSD370 256GB SATA 3 SSD. On that I run Debian 8.1 with grub2 (not grub-efi).
+One owner claimed that he could get his SSD working with his 6560b after flashing the 8560p's F.20 BIOS, which is of course very risky.
+Strangely, the error is different every time I try to boot. Sometimes it is something about video mode not found. Other times I get the grub-rescue> prompt.
+How can this be fixed, so that both the laptop and the SSD use SATA III, without reinstalling my distro?
+The default setting in BIOS for "Max SATA Speed" is 3.0 Gbps, which is the speed of SATA 2. Both my laptop and the drive supports SATA 3. However, when I change the maximum speed to 6.0 Gbps, I get all sorts of errors when trying to boot into Linux. Changing that setting back fixes the problem, allowing me to write this question on the same laptop.
+Unfortunately, your particular laptop model is notorious for being incompatible with SATA-III SSD's. There are at least a couple of threads about this problem on HP's support forum: this and this.

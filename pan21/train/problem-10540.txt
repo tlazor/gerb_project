@@ -1,0 +1,6 @@
+Let us know what your hypervisor (and potentially host OS is) so folks can speak more directly to your situation.
+FWIW I have several SQL2005 (Standard and Workgroup) servers running on Hyper-V VMs and they work just fine, so there's no inherent problem.
+If there is anything that slows down SQL it is slow disks, or not aligning the partitions correctly. I run a SQL 2008 instance inside a VM with an Equallogic SAN for disk and it out-performs any of our physical SQL boxes hands down. 
+If the virtual server doesnt indicate any problems at all it's probably the host server having problems. These problems are often seen where people put way too many virtual cpu's on each virtual server, it increases the chance of blocking the physical hosts cpu.
+Well the slowdown must be either CPU or disk bottlenecked, or some kind of timeout like waiting on an unavailable network resource. You mention CPU is fine, have you checked the PerfMon Average Disk Queue Length and Disk Bytes/sec? Are there any related errors in the event log?
+Tell us a bit more about the storage supporting your host / sql vm (local,  iscsi(hw/sw), nfs, san, sas, sata, vendor, etc)?  From your most recent comment that sounds like a good path to examine more closely.

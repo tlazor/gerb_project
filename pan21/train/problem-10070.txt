@@ -1,0 +1,6 @@
+There was a bug in Update Rollup 5, prior to SP1 that was causing this issue to occur. After applying SP1 and subsequent updates to Exchange, the issue went away, and has not cropped up again.
+I ended up creating the profile manually through Control Panel/Mail, and chose to specify server settings manually.
+Even though the hotfix description mentions Outlook 2010 connecting to Exchange 2003, I had the exact same issue a few weeks ago on a brand new Windows 7 install, with Office 2010 Home & Business installed - connecting to a SBS2011 server (Exchange 2010). The profile setup wizard at first-run would just bomb out with an error. 
+Things to check ((Assuming you're already discarded connectivity issues: access to exchange, test port with telnet)):
+Don't you love it when similarly (or identically) configured machines, that are supposed to work the same, somehow don't?... Well, the nice thing is that you have a known working configuration, and this box's issue just happens to be an anomaly.  Remember to reboot a few times after forcing a gpupdate, if you're needing to fix GP settings, or repairing the software... or try a new user in case this user's profile is corrupt somehow.
+My comments aside, this definitely appears to be a workstation problem. Any chance of wiping this workstation and starting from scratch?

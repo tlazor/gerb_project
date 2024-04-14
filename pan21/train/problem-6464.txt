@@ -1,0 +1,7 @@
+I was told to edit the .htaccess file, to redirect the main domain to a subdirectory. This seemed to work great, and my site works fine on it's home/index page.
+One of your problems is your Regex: You are not escaping your dot. That means it will be taken as "any character" instead of just a dot. Instead of
+Does this htaccess file look correct? I just need to make it so my main domain behaves like an addon domain, and it's subdirectories adhere to the redirect rules.
+The problem I'm having is that if I try to navigate my browser to say the images folder (just for example) of my main site, like this: 
+This keeps my sites nice and tidy. The only issue was getting my "main domain" to fit into this system. It seems my main domain, is somehow tied to my account (or to Apache, or something), so I can't change the "document root" of this domain. I can define the document roots for any other domains ("Addon Domains") that I add in cPanel no problem. But the main domain is different.
+I am having a problem making a sub directory act as the public_html for my main domain, and getting a solution that works with that domains sub directories too.
+My hosting allows me to host multiple sites, which are all working great. I have set up a subfolder under my ~/public_html/ directory called /domains/, where I create a folder for each separate website. e.g.

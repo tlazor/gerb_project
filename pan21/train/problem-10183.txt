@@ -1,0 +1,23 @@
+That doesn't seem to make sense. Not only that, your function potentially clobbered the rest of my string, by writing \0 over the s in the word is.
+Now, if you still want to have a length parameter (or are asked to extend the simple answer I wrote above), a couple suggestions:
+Of course, it could be better to use a RAII container over a C string, but since it's part of the question...
+This is rather interesting, because it can reverse a vector or a list as well, or anything that has a bidirectional iterator interface actually. It will soon be possible to constrain the argument type with a concept (voted for C++20):
+Note also that I slightly changed the loop-terminating logic, by checking i < j. This makes the logic a bit easier to read, making it obvious that when the indexes i and j pass each other, there's no more replacement to be done.
+Also note that I have changed size to length. The reason for that is that size usually refers to the size of the character buffer (255 in your example), not the length of the string it contains. Also the length of a string usually doesn't count the null-character at the end, so I took the liberty to change that as well. That's important because the size you calculate in main does include the null-character.
+The function seems to take an array as its first argument, but it's actually completely equivalent to:
+Outside of <iostream>, your code looks like C rather than C++. That isn't necessarily bad, since you're dealing with C style strings, but you could also consider alternatives.
+Considering the three points above, and the fact that size can be used as if it was a local variable to your function, you could write the function like this:
+But the size parameter to inPlaceReverseString() breaks that expectation. I think you're overthinking the C-style string's terminating \0 character.
+You only use it once. Instead you can write str[size - 1 - i]. This saves you two lines of code, and the less code you have, the easier it usually is to focus on what a function does and to reason about it.
+If you wanted to keep your j, you could change that second line of the loop to --j. This isn't a major speed improvement, but if you're preparing for an interview, it's probably a good way to show that you know what you're doing. This article does a fairly good job at explaining why this is, but don't bother too much trying to understand the messy details. Just know that it's a thing.
+As you can see, you can decrement the size variable in place as you only ever need size-1. That's one operation we've taken out of the loop. If you want to take this one step further, you can save size/2 into its own variable to avoid having to divide it by 2 in every loop, but that'd make the code more complex and you'd only want to do that if speed is really crytical. In an interview, you could possibly mention this as an option if future benchmarks show that the function acts as a bottleneck.
+You should look at using the strlen() function.  Use sizeof(str) so you don't have constants in two places.
+So you don't need to use array indexing and may as well manipulate pointers directly, which is more traditional, concise and readable:
+Because this is an attempt to answer an interview question, let's assume a hypothetical interviewer then asked you,
+Now, the original hypothetical question asked by the hypothetical interviewer at the start of this answer would work:
+strlen() returns the number of characters, not including the terminating \0 character, in the string passed to it. C and C++ string handling functions that take a count parameter generally expect that count refers to the number of characters to work on.
+Since you use std::swap, you could as well use other small C++ language or library features (conventions included):
+Reversing a string does not change its length, so the null-character will be at the same byte it was before, thus you can just leave it be.
+Since std::swap(*first++, *last) can be replaced by std::iter_swap(first++, last), you could have chosen the latter, which is arguably more readable. That substitution is possible because pointers are iterators in C++. Which also leads us to what an in place reversing function  would look like in C++:
+For interview questions (as well as coding in general), start with the simplest thing that can work and meets the specifications
+Note that the interview question you quoted said, "write code to reverse a C-Style String", not "write code to reverse a specified number of characters in a C-Style String". For an interview-type question like this, rather than pass the length of the string as a parameter, just discover the length of the string within your function:

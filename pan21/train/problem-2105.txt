@@ -1,0 +1,8 @@
+I can open another instance of the server and that shows it is running but still has the old columns listed in the Schema. (I have have refrained from querying the db through that instance)
+There is around 4 KB/s Traffic but no read or writes, InnoBuffer usage is at 99.9% which should be around 30GB, CPU is between 1.5 and 2.
+It has been running for close to 20 hours now. It's a large table 30GB / 8560000 rows, large for what i have experience with anyway, local instance on an old desktop computer.
+Open another connection to the same server (just click the home screen tile again, which you used to open the current connection). It will tell you if the server is available or not. Maybe the UI got stuck somehow and did not update properly when the operation ended. Don't forget the connection could also have timed out and you need to re-connect (which usually happens automatically, but somethings things just go wrong).
+More detailed instruction, including how to manage indexes and other considerations, can be found here as was linked in James's comment below my original question above. 
+When I check the Server Status on the Administration panel it is telling me that the Server has 'Stopped'. However in the Action/Respose window at the bottom of the Query window that row is showing 'Running..' and the icon is that spinning/thinking animation you expect.
+The alter table command was taking days before getting hung up/breaking the connection with my db. Using code like the following I was able to achieve what I needed in a little over two hours.
+The best approach I have found was to create a new table omitting the column's I was trying to drop.

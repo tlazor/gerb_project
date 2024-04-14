@@ -1,0 +1,8 @@
+another thing you can look into setting up is port-knocking, which is a pain, but would lock down ssh to only people issuing the proper "knock", http://en.wikipedia.org/wiki/Port_knocking
+You will need to get public key authorization figured out before turning off passwords, if you haven't done this already. 
+if you are using public/private key pairs you have almost nothing to worry about, with the brute force login attempts. if you have password authentication disabled, that is.
+I also use fail2ban, and it has worked fine. (But most of the time, I get hit by all different hosts, so it doesn't help too much)
+What you're seeing is normal - it has been happening on the open Internet for years now and will never stop. 
+Disable password authentication and root logins by adding/changing the following lines in your sshd_config file (typically located at /etc/ssh/sshd_config)
+you can run ssh on a non-standard port, like 2222 but you will, in short time, start seeing attempts on those ports, too, as a lot of the botnets run port scanners as well.
+I get those all the time, they never end. The best thing is just to make sure you arent using generic accounts that have generic passwords. 

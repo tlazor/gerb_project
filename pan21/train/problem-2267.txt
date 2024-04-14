@@ -1,0 +1,6 @@
+I normally don't support using 3rd party software, but sometimes you have no choice. In my cases it worked like a charm :)
+I have been struggling with this for a while.  You can delete everything else on a slide and save your background as a picture file and when you Format Background, import that File.  Now the background will show up in the .pdf file.
+Try printing to a PDFCreator "Printer", then it will output from the RAW .prn file a PDF, which should containt your Resolution settings.
+If you're using Powerpoint 2007 or 2010 then the max DPI it will save a PDF at is 220, even if image compression is turned off.
+It seems Powerpoint is compressing the images in my slides (each slide in my powerpoint is 1 large image). I have turned off image compression in the advanced settings.
+You could install PDF printer software like PDFCreator then "print" your presentation, make sure to check the High Quality checkbox. In PDFCreator click Options then Formats -> Compression and change the compression from Automatic to the level of compression you want e.g. JPEG-Minimum. I wouldn't recommend completely turning off compression as this will create a huge PDF document.

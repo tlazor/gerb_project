@@ -1,0 +1,7 @@
+Some of the changes included deletion of some images and insertion of new ones to replace them. Accepting the changes went fine, but upon saving, duplicates of the inserted images got inserted in front of them.
+So the solution is: remove BOTH images, save the file, make sure no image is there, insert one image again and save.
+Every time I delete the image, once I save, the image returns. So I am effectively unable to edit the document. Other changes to the document work just fine - it is just the deletion of images that is not working.
+I have a large manual written in Word (.docx). Some changes were suggested with "track changes" and have all been consolidated. No suggested changes remain.
+I don't know why it happens, but if the deleted image reappears, then the problem may be related to the second image (which is the same - and somehow gets replicated).
+Found the problem: Somehow the fake picture was linked in the text. I copied all text to notepad, deleted it from the document, and copied it back in again. problem solved.
+In my case the issue was that there was a reference linked to a bit of text.  Highlight your text and see if any of the text has a different (darker) shading when highlighted.  If you right click and select "update field" and the deleted content appears, right click again and select "toggle field codes" and it will give you an line of text in {}.  Delete it and it should be fixed.

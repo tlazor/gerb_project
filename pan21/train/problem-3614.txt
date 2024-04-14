@@ -1,0 +1,7 @@
+I have been using the wrt54gl for a few years now, and would like to upgrade to a 802.11n-capable router. 
+I prefer Tomato as I could not get QoS working on DD-WRT.  Tomato also has just about evrything I would want and has nice bandwidth graphs.  The only things I miss is VLAN sections in the web-interface and Dual-SSID.
+It shouldn't be too expensive, and have a similar support in the hacking community as the wrt-series routers did. 
+I have a Netgear WNR3500L, which can run Tomato as well as DD-WRT and OpenWRT, and has 802.11n wireless (not dual band though - I don't think there are any that have that).
+You can see on this page that there are many Linksys models that have 802.11n and are supported by DD-WRT, but not Tomato.  I'm not sure if they have OpenWRT support.
+You can also look at the Asus RT-N16, which has more memory.  I cannot remember the reason why I went for the Netgear instead.
+I got a re certified Linksys WRT160NL straight from Cisco, installed DD-WRT, and it's been rock-solid ever since.

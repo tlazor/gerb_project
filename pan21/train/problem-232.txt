@@ -1,0 +1,10 @@
+Let's assume that my connection-specific suffix is "ss" and I want to create a web server on "pos" and "dev.pos". So a ping to "pos" will be automatically changed to "pos.ss" whereas a ping to "dev.pos" will stay as "dev.pos" and not be converted to "dev.pos.ss" before querying the dns server. Here are the screenshots I made to best illustrate the proper layout:
+You need to pull the CruiseControl suffix via DHCP too, and using just site1 or site2 will work. and yes in Win2k3 a child domain is a folder on DNS view.
+So now you have unqualified dns requests automatically referring to the connection-specific dns primary zone "ss" wherein you have the CNAMEs pointing to their respective A records in their respective primary zones. FQDN requests like "dev.pos" are automatically reffering to the primary zone "pos" and finding it's associated CNAME record "dev".
+If you have a Windows 2003 domain, then you'll probably want to configure the DNS search list via group policy so that you don't have to configure it manually on every machine.
+This screenshot shows that you should have a primary zone called "ss". You should have CNAMEs that point to their respective primary zones. So "pos" should point to the "pos" primary zone's A record.
+I know this is an old question but I want to provide an actual solution for others having the same problem.
+Now when your computer tries to resolve a "short" name like mysite, first it will try mysite.example.com (since that's the first domain in the search list), and if it can't resolve that, it will try mysite.subdomain.example.com. Of course, you can order the domains any way you want.
+This screenshot shows that you can put in your subdomain as a CNAME that points to the A record in the primary zone (in this case, "pos").
+I've just gone through this issue. I've decided just to post screenshots as they would be the quickest explanation. Basically when there's a dot in the DNS query, it's not considered an unqualified dns and so the connection-specific suffix is not applied.
+If you just want to resolve names without having to type the domain, i'd make it look like this (i.e. list all of your domains here):

@@ -1,0 +1,7 @@
+Go to the Member’s Overview page and click on Reverse DNS Configuration Manager (look near the “Network Information” button — there is a link to it).
+What I don't know is how to accomplish this.  I don't understand DNS very well, and while Linode seems to have facilities for managing a DNS slave zone, I'm worried about screwing up the DNS on Dreamhost.  I still want the domain registered there for unrelated reasons.
+I currently have a domain, call it example.com, hosted on Dreamhost, and also a Linode VPS.  The Linode lives in a subdomain of the Dreamhost domain, foo.example.com. What I want is to configure reverse DNS so that it will report itself as being at foo.example.com.
+Just make sure a corresponding A record exists for the PTR record (i.e. make sure you have an A record for foo.example.com first).
+You do not need to worry about this conflicting with Dreamhost's DNS management. The IP is handled by Linode, which rDNS technically has nothing to do with your actual domain.
+Hit "Look up" and it will check that foo.example.com points to your Linode's IP address, if it does they will set that domain for your rDNS. It may take 1-24 hours for the rDNS to update across everyone's ISP.
+You will not mess up the Dreamhost DNS by setting a PTR record for your linode. Your forward zone for example.com and the reverse zone for your IP address are two completely separate things, hosted on different systems, and in this case, have no interaction with each other.

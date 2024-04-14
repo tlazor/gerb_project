@@ -1,0 +1,6 @@
+Here's a very simple script which is divided into two parts, code which always runs, and code which runs when called with "start" or "stop".
+These are just examples.  Just generate your own script to mount the volume and supply the password if you want.  Of course if you do that then your password is stored in plaintext on your hdd.  You can alter the script to prompt for a password of course.
+Debian uses a Sys-V like init system for executing commands when the system runlevel changes - for example at bootup and shutdown time. 
+Once you've saved your file into the correct location make sure that it's executable by running "chmod 755 /etc/init.d/blah". 
+If you wish to add a new service to start when the machine boots you should add the necessary script to the directory /etc/init.d/. Many of the scripts already present in that directory will give you an example of the kind of things that you can do. 
+Then you need to add the appropriate symbolic links to cause the script to be executed when the system goes down, or comes up. 

@@ -1,0 +1,9 @@
+it should print a list of switches.  On windows 10 its showing me -l (lower case L) is for size and -f for "don't fragment"
+It sounds like either something is interrupting the connection on BSNL.  Another possibility would be TCP Windowing and packet sizes.
+A good test would be regardless of connection, try to ping google's DNS server with "ping -f -l 1300 8.8.8.8"
+You can test the size difference with PING in a command line and also with the "don't fragment" flag set
+You would manually set the MTU for that VPN connector/connection. It would probably effect both (since its the same cisco client) so you'd have to go with the lower value that allows both to work.
+you'll probably have to play with the commands a little or re-google with your specific windows version.
+FYI, TPLink has a good page demonstrating the above, and also notes that this is a common problem with VPN connections.
+with your remote server host name or ip after the 1420.  If both fail, back it off to 1380 .. if both pass, increase by 5 .. like 1425 ... 1430 etc.. until you start getting a failure.
+At home on comcast ... I'm getting 1272 with "dont fragment" as a working value, and 1273 I get "packet needs to be fragmented but DF set"

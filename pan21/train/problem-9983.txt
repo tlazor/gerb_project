@@ -1,0 +1,8 @@
+6) In case you find that one database is on a wrong location but sql expects it on some other location, you have to use trace flag again and alter the location of the file to point it to new directory.
+2) After you restore master, you should make sure that the new dev server has same structure of folders like old server. for example. if mdf files need to go to 'e:\data'
+If the above steps are easier for you to grasp, please go ahead and post any issues else use a backup and restore method(long but easy).
+make sure that you set this folder on the new server. Make sure to note down paths of each database in advance so that you can place mdf and ldf files on identical locations on the new server
+Since you are going to restore to the same version of SQL Server, I did the following in my environment when this task came up:
+1) Restore the master database backup from source to destination by keeping that server in master-only mode through T-3608 flag.
+4) Once you paste the files on identical location on the new server,remove the tace flag and start sql service normally.
+3) Now, shut down the old dev server. Copy and paste mdf and ldf for all databases including model and msdb(tempdb will be recreated).

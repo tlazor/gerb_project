@@ -1,0 +1,9 @@
+"This update may compress files in your user profile directory to help free up enough disk space to install important updates."
+My 64GB windows partition can't keep up. I already moved the paging file and documents folder to another drive and disabled hibernation.
+Selecting properties in the usual way, I selected the General tab, and clicked 'Change Icon'. I selected another icon and changed to it (Apply). The arrows were no longer there, then I changed it back to the original icon. Problem solved.
+They run out of space with all the crap they keep adding each time. So they decided it would be a good idea to just compress the user files to make room for more crap.
+I had this problem, the annoying arrows were removed from most of the desktop shortcut icons using the method described but wouldn't delete from the icon for Google.
+https://support.microsoft.com/en-us/help/4023057/update-to-windows-10-versions-1507-1511-1607-1703-1709-and-1803-for-up
+The arrows are an icon overlay, used to indicate that the file in question is stored using transparent compression at the filesystem level.  This feature got added a while back, around about the same time they decided to move away from indicating the same thing by displaying the file name in a different color.
+As to why this just suddenly appeared, I have no idea why something would have persistently applied transparent compression to your files.  You can revert it by right clicking on the files, selecting 'Properties', clicking the 'Advanced' button near the bottom in the 'Attributes section, and then unchecking the 'Compress contents to save disk space' checkbox.
+You can check if a folder is compressed by looking in the folder properties and pressing Advanced. "Compress contents to save disk space" will be enabled for some of the folders in your user profile like AppData, Desktop, Documents...

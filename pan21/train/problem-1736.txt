@@ -1,0 +1,8 @@
+I have mybackups.service and mybackups.timer. I'd like mybackups.service to only ever have one running instance. That is, I want the following to happen:
+Obviously I'd hopefully fix such clobbering, but if for some reason a mybackups.service was running really long, I'd hope the next kick-off by mybackups.timer would get the same treatement as case #2 (ie: I'd hope it wouldn't start *another* service run)
+That's already the default behavior. There is always at most one instance of the same unit, and systemd quietly refuses to queue a start job for a unit that's already starting or active.
+tl;dr I could (and I have) change the underlying program that mybackups.service starts to just exit when it finds an old PID file and a still-alive PID somewhere. However this such a general problem that I'm expecting[2] & hoping systemd has options for this.
+If I run backups manually for some reason, $ systemctl start mybackups.service I want systemctl to say "skipping, already running"
+[2]: eg: systemd already tracks the whole PID tree of its services, it seems like the perfect candidate to do this correctly for you.
+(In fact, to achieve the opposite you would need template units, e.g. foo@.service can be started several times with different parameters. However, each such unit still remains unique; e.g. systemd won't start two copies of foo@bar.service either.)
+When mybackups.timer tries to start its service, on schedule, I'd like it to get stopped by systemd with, with some logged error, eg: mybackups.service was already in progress

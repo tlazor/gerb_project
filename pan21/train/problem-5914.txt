@@ -1,0 +1,9 @@
+Unfortunately I just discovered that when using the "?auto" format, most of the additional information provided by the ExtendedStatus directive are not displayed! This means that with the "?auto" option, you haven't access to the processlist.
+I enabled the Apache Status page by mod_status module. The process list is very long, and most of them are OPTIONS * HTTP/1.0, which I want to filter away.
+As you can see, what you need is in the "else" part of the last "if". Hence, it's not included in the "?auto" format, as in this case we fall in the "short_report" case.
+So, after all of the above and getting back to your question: "Is there any tweak, option or flag to hide those OPTIONS processes?", my answer is that your only option is to "tweak" a little application that:
+(BTW: I found both interesting and curious to read "?notable - Returns page for browsers without table support" as I'm so old/ancient to remember the early days of the web, where table support was a new feature of available browsers!)
+As it sounded a little strange, I checked the source code of the mod_status module. Apart for an additional and not-documented "?notable" option, source code in "apache2-2.2.22/modules/generators/mod_status.c" (of my Ubuntu 12.04 LTS notebook) includes:
+So to capture the output of mod_status is as simple as including a call to wget, curl or any other http client library than can be launched/included in your application, to suite your need.
+Please note that above application lacks basic error-handling so.... don't blame me if something will go wrong :-)
+Apart from recompiling mod_status to suite your need (that could sound a bit an overkill but.... it's still feasible), mod_status provide an option specifically designed for machine-readable processing. According to official documentation:

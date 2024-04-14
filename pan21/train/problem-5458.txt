@@ -1,0 +1,5 @@
+No.  However, if you want devices in a VLAN to communicate with one another they will likely need some L3 protocol.
+3.I am aware that a VLAN can exist within a subnet but my understanding is that you would have to assign the VLAN an IP address of that subnet. How can it be isolated from the rest of the subnet?
+5.I keep coming across the point that Virtual local area networks (VLANs) allow us to create different logical and physical networks; whereas IP subnetting simply allows us to create logical networks through the same physical network. however am unsure what this exactly means when it reads same physical network.
+1.If I have multiple subnets I assume that you would need a router to communicate between each subnet. Only devices within each subnet would be in the local broadcast domain for that subnet. Is that right?
+IP Networks (subnets) are a layer 3 concept.  If two PC's are attached to the same L2 switch without VLAN's they will be in the same L2 broadcast domain, but not L3 broadcast domain.

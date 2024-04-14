@@ -1,0 +1,9 @@
+That way, if the framerate drops you don't get input lag (I'm looking at you, Just Cause 2), and if the framerate becomes too high (think games from the 90's) the game doesn't become unplayable.
+It sounds like you've got at least two threads of execution, with your rendering on its own thread. If that's the case, then you actually have two frame rates to worry about. You'll want both to be as fast as possible. However, it also depends on the kind of game you're building. 
+If you really had to say one or the other, I'd go with consistency.  If you can guarantee a frame rate, then you can focus on moving that guaranteed framerate higher.
+Both.  I'd say ideally, consistently over 60 frames per second.  Realistically, consistently over 30 frames per second.  Under 30 frames per second and it starts affecting how well the player can perform (I'm thinking of FPS/twitch-based games by the way, strategy games can probably get by on lower).
+So, the short answer would probably be: optimize whatever makes the biggest improvement to the user experience first.
+Are you building a first-person shooter, where small drops in frame rate could give an opponent an advantage? If so, then you'll want to make sure your average fps is high enough, but also worry about your worst-case frame times. Are you building a board game? If so, the occasional frame time spike isn't going to kill the user experience.
+If you're at 30 fps most of the time, but you spike to 200ms every 10 seconds, that's going to cause problems. But if you're averaging 15 fps, bring your average fps up first.
+You basically collect a "stack" of frames to do logic for and you can interpolate between them perfectly.
+If you want to prevent tearing, you should use V-sync which will lock the FPS to the refresh rate of the monitor, or lower (if you go higher it won't be visible, so it'd be a waste).

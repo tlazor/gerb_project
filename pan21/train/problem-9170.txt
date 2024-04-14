@@ -1,0 +1,7 @@
+That way you can append more rules (before the COMMIT if you are editing the files) instead of having to insert extra rules before the reject.
+Also, the basic, default firewall rules have some extra features (I think) like syn flood protection, etc, that your rule set is missing. You can always see what the rules are. 
+Rather than having a REJECT half way through your list, I would have a policy of REJECT on the INPUT and FORWARD chains. So 
+You do not need to bother with iptables at this level on Fedora if all you need are simple changes. It comes locked down but it has a simple firewall tool that will allow you to open ports (as simple as clicking on a button). You should use that while you are still learning.
+To fix it, just move that rule to the end of the file. That way, IPTables will encounter the rules saying to ACCEPT packets on ports 80 and 3306 first.
+On a slightly related note, I've written an IPTables tutorial on my website that might have some useful information for you.
+That tells IPTables to reject everything coming in on the INPUT chain, i.e. all incoming packets. And since IPTables reads (and applies) its rules in order from top to bottom, for NEW packets coming in on ports 80 and 3306, that's the first rule that matches. So they all get rejected. The only packets that wouldn't be rejected by that rule are the ones coming into port 22, since the rule right above it says to accept them.

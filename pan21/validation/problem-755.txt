@@ -1,0 +1,8 @@
+I use lsd to list only folders, lsf to list only files, lat to list ordered by last write time, and latr to list by time in the opposite direction.
+I agree with the suggestion to use powershell.  In addition I find it incredibly useful to set up functions and aliases to reduce common tasks to fewer letters typed.
+Something I use constantly while using command prompt is the up arrow (and down arrow) to scroll through recently used commands. Especially when I've entered a long command and only wish to edit some part of it without retyping it.
+And then want to ping another similar address, you can simply press the up arrow. The command appears on the prompt with the cursor at the end. This makes it easy to backspace once and change the address to 192.168.1.2 or something similar.
+Something else that I've found useful is to stop using the windows default paths for everything. They are just too hard to remember and the spaces can become a problem. Using something more like linux' directory structure can be a real time saver. My directories look something like this (by way of examples):
+If you're using XP (don't know about Vista) you can download a powertoy that adds an "Open command window here" menu entry to your explorer folder context menu.
+For example, instead of typing c:\documents and settings\username you can simply use %userprofile%.  For a list of standard environment variables, type SET and press enter on a command prompt.
+fi was set up as a simple substitute for the unix find command, just recursively look for a file name.

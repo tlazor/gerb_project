@@ -1,0 +1,8 @@
+Now I have the problem, that DNS Names are not resolved locally. So I cannot open google.com or microsoft.com nor anything else.
+I have a server named WIN-FOOBAR and a domain named foo.bar.com, so there are two entries _msdcs.foo.bar.com and foo.bar.com.
+If the DNS server is both used by internal clients and hosts your public DNS zone then you're doing it wrong and you should separate the two.
+I have a Windows Server 2008 R2 server which is hosting a public website. I recently deactivated "DNS Recursion" for security options trough the following method:
+In the properties of my DNS server in the "Advanced" tab under server options I check the option: Disable recursion.
+In addition, the presence of the _msdcs zone tells me this server is the DNS server for your AD domain, in which case I would strongly suggest that you not use this server to host your public DNS zone and that you don't make this server accessible to the outside.
+If the DNS server is for your public domain name/zone and is not used by internal clients then you can disable recursion altogether and you don't need to do anything more than create a zone for your public domain name and make sure that you have the proper NS records registered at your Registrar.
+If the DNS server is only accessible to and only used by internal clients then you can leave recursion enabled.

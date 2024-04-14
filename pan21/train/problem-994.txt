@@ -1,0 +1,7 @@
+It seems like such an easy problem but after spending about 40+hours on it rewriting it many times I think I'm at a point where I just can't think clearly anymore...
+Basically I've been confusing myself heavily on what I feel should be a pretty simple problem... so here I am asking for some help!
+Any help would be appreciated. It would be great if someone can provide some very basic pseudo code on keeping the player in the middle when your projection is mapped to screen coordinates and only rendering basically the tiles that you would be any be see.
+What I have at the moment is a series of data structures I'm using, and I would like to render the world onto the screen (just the visible parts).
+What I think is heavily confusing me is using a 2d orthogonal projection in opengl which maps (0,0) to the top left of the screen and (SCREEN_SIZE_X, SCREEN_SIZE_Y) to the bottom right of the screen.
+I've actually already done this several times (lots of rewrites), but it's a bit buggy (rounding seems to make the screen jump ever so slightly every x tiles the player walks past).
+What I've been doing so far is trying to render 1-2 tiles more all around what would be displayed on the screen so that I don't have to worry about figuring out rendering half a tile from the top left, depending where the player is.

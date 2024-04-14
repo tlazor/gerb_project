@@ -1,0 +1,5 @@
+recently i installed windows 7 along with mac OS X Yosemite(using bootcamp).Now i have two partitions one for mac and one for windows.
+iPartition is really the only app that could do it, but has major limitations if you are using Core Storage.
+Disk Utility will not let you add a new Partition either. 4 is your max without some very tricky Terminal juggling. I'd leave it alone unless you are very confident in Terminal. 
+There may be other tools that can perform one or both of these tasks, but I'm not familiar with them. Tetsujin is quite correct to warn against using the standard Windows partitioning tool for the job; it will act on the MBR side and ignore the GPT site, which is likely to lead to disaster.
+In sum, you should be able to use GParted and either gptsync or gdisk to do what you want. Be VERY cautious, though. Read up on the subject (start with my page on hybrid MBRs) and back up all your important data before you begin. If you have any doubts about the process, don't do it! Resizing partitions on a hybrid MBR disk is possible, but it's also extremely dangerous, so a mistaken understanding of how it's working is likely to lead to disaster.

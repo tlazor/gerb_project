@@ -1,0 +1,7 @@
+Sometimes, my Windows XP does not load correctly. It shows the login screen, and when I click my username, it load the desktop background, but the Explorer does not show up. So, I cannot see the icons on the desktop, the start menu, etc.
+A possibility - for which I can offer no evidence - is that you have a virus that is hanging on start up. Virus scanners don't detect all viruses. You could try some other of the free scanners to see if they detect something. If they don't, then they are simple enough to remove afterwards.
+I used Sysinternals Process Explorer to see if there were any odd process or odd behavior, but nothing was fishy.
+If I press Ctrl+Alt+Del to show Task Manager, I can run programs (like media player or browser) from File-->New Task (Run...).
+PS: I can easily use the Safe Mode. It does not seem to suffer from this problem. Hence, I suspect there's some process (service) for which Explorer is waiting, but that process runs into trouble (say a race ondition, or an infinite loop) and so Explorer stalls as well.
+Also, in the Task Manager, I see Explorer.exe running. I tried to kill and re-run it, but nothing happens.
+After several restarts, the system finally worked as expected. But this is not permanent: Sometimes, when I restart the system, it works just as described above (Explorer does not show up). But sometimes it works normally.

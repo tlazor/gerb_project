@@ -1,0 +1,6 @@
+The 10/100/1000 ports merely mean that if you plug in an old 100baseT card, the switch port will pretend to autonegotiate the port speed, before randomly dropping packets on the floor.
+If you don't need the higher speed (& lower latency) uplinks and simply require a layer2 switch, the 2960 is a decent switch.
+The SFP ports are for fibre transceivers and other eye-wateringly expensive add-ons.  If you don't know what they are, you don't need 'em.
+Also 3750 includes the ability to stack switches, the 3650 is a bit cheaper if you wont need stacking.
+SFP's are described here in more detail, but essentially, this is what a lot of network admins call "GBICs" or Gigabit NIC's on the switches. These are removable / swappable and different types from different vendors even work (I've used Cisco SFP's on Juniper kit for example). See cisco.com article on GBIC / SFP's
+Typically, if you're using this switch like an access switch, you'll plug all of your devices into the 48-ports and then use the 4 SFP based ports as uplinks. You need to purchase the SFP's separately and the options can be confusing here as well (single mode fibre versus multimode, LX vs SX etc.). You can ignore all of that and simply use two of the ports from the 48 as uplinks, but it depends completely on your needs. 

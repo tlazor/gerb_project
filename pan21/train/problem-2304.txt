@@ -1,0 +1,7 @@
+To enable this feature copy the below text and use it to create a text file, name it what you wish, though with a .reg extension. Save it double click on it, afirm all popups, and bam you can now record your desktop:
+For whatever reason nVidia cripples shadowplay on laptops and does not allow the recording of your desktop. 
+Open up GeForce Experience, go to Settings and check the Share feature in the General tab. Make sure it's turned on and note the keybinding to access settings. Press this keybinding to start up the Share overlay.
+Once in the Share overlay, click the settings icon and scroll down to Privacy Control. This is actually the desktop capture setting. Set it to Yes and it should work.
+Is there a way to enable shadowplay desktop capture, or this feature is toast and I should switch back to Geforce experience 2.0?
+I went with Ketho's answer, but for those want to try something else, registry hacking has worked for some. Many thanks to joshindaphils who posted the answer here; I've simply copy-pasted his answer below.
+I have updated Geforce experience to version 3.0.7.34 and now am unable to stream quite a few of my games. I was using desktop capture feature for those, but now it seems to be gone.

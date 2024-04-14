@@ -1,0 +1,7 @@
+styling here (one table, not three like your image) is minimal and gets the job done, except for older versions of IE in regards to the translate property declaration. but thats just the icing on the cake, and to prove my points:  the really important part is the markup, which is Accessible, as well as valid html5.
+you can use thead for each table, although i do not think that markup will work in this case; however, you should be using thead in your tables for semantics, but more importantly accessibility. 
+the example needs a header, so lets add that along with thead and tbody to the markup. the header spans two columns, so we're going to use the colspan attribute to stretch the th across both.
+If you have a td that you're giving a class that indicates that it is some sort of heading, you should be using a th instead.  The th element is allowed to appear in a tbody, it isn't restricted to thead.
+When validated, this table will generate warnings regarding different numbers of cells in each row.  The correct structure should look like this:
+the class names are blatant for the example's sake, and i would give the tbody th a class instead of targeting it how it is, but i prefer classes to document element chains, typically providing better performance in doing such.
+in the same fashion, the table body header spans the four rows of the table body's content, so lets add rowspan="4" to it and force it to stretch across all four rows of content.

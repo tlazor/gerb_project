@@ -1,0 +1,10 @@
+You do not have to worry about these warning messages, they are not about the actual installation or configuration but about the presentation of messages to you (and very rarely anything serious in that department either).
+I want to do apt-get install locales, I've done this a couple times and I know this sets up the locales, but it would also start to throw warnings despite configuring itself to work, hence every package thereafter will not complain with something like:
+But should I do something like edit /etc/environment and manually set environment variables like LC_ALL to en_US.UTF-8 to make sure the installation of locales goes fine? Or does it not even matter because I'll only install it one time and despite it throwing warnings when trying to install itself, since it will work after that, not worry about it?
+I personally have yet to see an error when having an unset locale, but I don't deal with unicode or multilingual systems much, so I'm not certain if I work as a good sample for its urgency.
+you can tell which one you have by checking if the directory /var/lib/locales/supported.d/ exists or not.
+I noticed on some VPS's, locales is not installed by default so dpkg-reconfigure locales will only throw an error saying that locales is not installed.
+first just try to run dpkg-reconfigure locales. this should set it up on some debian distros. but I stumbled at some that don't. this probably means that you need to reconfigure smth else there but I din't find it so I figured out a more manual way to do the same:
+As for setting the locale, the guaranteed way to set it on your system is to edit /etc/locale.gen so that the locales you're presently in are uncommented, and then running 
+older debian/ubuntu stored the supported locales in /etc/locale.gen, newer store it in /var/lib/locales/supported.d/local
+now you need to configure your shell to set the locales. just edit /etc/default/locale and put the following there: LANG=en_US.UTF-8

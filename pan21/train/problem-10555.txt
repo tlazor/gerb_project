@@ -1,0 +1,6 @@
+You can't have a server which is "too optimized".  With load average of 0.8, it means some of your server is idle.
+I have a linux 4gb Quad core server w/ apache that is used for this website. I notice when I go to SSH and type TOP to see load averages, they are usually around 0.80. 
+Incorrect, load averages is how long it takes each process to get a slot at the CPU (It's a bit more complicated than that, it actually involves the CPU 'queue' but saying time is a lot easier than trying to explain that). As a highly simplistic example, when running Apache, the load average is the approximate time each request has to wait before being seen too.
+A server can never be too optimized, if Apache was causing a bottle-neck most likely the load average would be a lot higher.
+For a quad core your load isn't "usually around 4.0".  However with a quad core, you usually don't have to worry about performance if your load is under 4.
+We have a 32 core server running LAMP stack, if the load average is above about 3 we start to see a noticeable performance decrease.

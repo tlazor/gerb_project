@@ -1,0 +1,16 @@
+Now this works but it won’t persist across reboots. So if you want to never worry about this again, just open up your user’s ~/.bash_profile file like this:
+UPDATE: Apple has now added a UseKeychain option to the open SSH config options and considers ssh-add -A a solution as well.
+Long story short, I ended up being locked out of a remote server due to too many failed tries based on SSH keys/identities since the server access was based on a password and SSH keys/identities are SSH keys/identities. So the SSH agent tried all of my SSH keys, failed and I couldn’t even get to the password prompt.
+The problem is that ssh-add -A will just arbitrarily add every single SSH key/identity you have to the agent even if it’s not necessary to do so; such as in the case of Vagrant boxes.
+As of macOS Sierra 10.12.2, Apple (I assume) has added a UseKeychain config option for SSH configs. Checking the man page (via man ssh_config) shows the following info:
+So while the ssh-add -A option should work for most basic cases, I ran into an issue recently where I had 6-7 Vagrant boxes (which uses SSH keys/identities for access) setup on a machine on top of the more common id_rsa.pub in place.
+Which boils down to Apple seeing the solution as either adding ssh-add -A to your .bash_profile as explained in this Open Radar ticket or adding UseKeychain as one of the options in a per user ~/.ssh/config.
+Now, it gets weird and I am not too sure why. In some cases you can specifically add the ~/.ssh/id_rsa.pub key/identity to the agent like so:
+I had this issue as well when attempting to deploy some code using Capistrano. Very frustrating. Here are two methods I know of to deal with this issue.
+I only had to enter the correct passphrase once and it started working. The problem was that I didn't remember my original SSH passphrase, but I recovered it by following these steps from Github:
+None of the above solutions worked after installing Sierra over El Capitan on a new MacBook Pro.  Sierra by design does not save SSH keys in the keychain.
+A more complicated but slightly slicker solution is to create a plist with the command that is executed every time the OS is booted as suggested in Saving SSH keys in macOS Sierra keychain.  This involves using Xcode to create the file. 
+So one solution I found is to run ssh-add with the -A option—which adds all known identities to the SSH agent using any passphrases stored in your keychain—like this:
+This morning, I had the same problem as you after updating to Sierra. In my case, the id_rsa file was encrypted and after decrypting it was working like a charm.
+First, if you have more SSH keys/identities added to your agent than you need—as shown with ssh-add -l then purge them all from the agent like so:
+Two solutions worked for me.  One is to add the command ssh-add -A &> /dev/null to ~/.bash_profile.  Every time you open the terminal, this command will be executed (the &> /dev/null part sends the output of the command the file /dev/null).

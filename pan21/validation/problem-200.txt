@@ -1,0 +1,6 @@
+There are many other parts-of-speech that you will be able to use to be more specific or match other use cases - check out the relevant spaCy docs.
+Here is an example of grammatically walking down the parse tree. I say semantically because we are using the grammar parts-of-speech to conditionally navigate (using e.g. nouns):
+I would reommend parsing the sentences using something like spaCy, which will be able to build such relationships for you.
+It will then be a matter of extracting the realtionships and deciding how you want to label them. Let's work through a small example. Imagine your big block of text contains many sentence. We first parse the big block, then could (optionally) extract just the sentence that we care about:
+I believe this snippet would extract the pairs in your given example, so the output would hopefully indeed be:
+How to actually encode the relationships between your target words will depend on their final purpose, i.e. what you eventually want to do with the encodings. You now have the noun pairs. If you want to retain the knowledge of where they actually came from (from which sentences), you could indeed build a hierarchy, that keeps a code for the origin sentence and then a code for each pair of words.

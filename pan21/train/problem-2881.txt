@@ -1,0 +1,6 @@
+Is there such a thing (presumably as an extension) out there somewhere? If not, what should I be looking for to program such a thing — can something be done with an extension, and where would I find the relevant documentation?
+Here's an example user experience that would provide what I'm after. I'm not hung on the specifics, this is just one possible way among many. First, I configure a list of email regexes and associated colors, like this:
+Coloring the recipient names in the recipient tables wouldn't be enough, because the list of recipients scrolls, so at a point in time while I'm writing the mail I might only have internal recipients shown even though the mail would be sent externally.
+and then the title bar of the Compose window changes from something like Write: Re: fuzzy widgets to
+In Thunderbird, when I'm composing a mail, I would like some visual feedback regarding who I'm sending email to, in broad terms. A typical use case is to clearly distinguish whether my mail is being sent only inside my organization or not.
+ I've never seen a feature that in an email client. If you know of one, preferably one that runs on Linux, please mention this in a comment — but this question is about Thunderbird. 

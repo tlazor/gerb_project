@@ -1,0 +1,7 @@
+There is a regular standalone portable Don'tSleep utility from softwareok.com which allows to define which applications would be barred from forcing your PC or screen from sleeping.
+If you want to blank just one display, without disabling or "sleeping" it you can use this VB6 program that simply loads a black background HTML file in full screen without any boarders:
+I created this because I needed a way to blank my tablet's screen (primary display) while I had a YouTube or other video playing full-screen elsewhere (secondary display)
+Fn+F2 does it quickly and simply for me (while NOT running PowerPoint or any other program, or hooked up to any other screen or device). Repeat the step to unblank.
+I am surprised that this simple yet important function is not built in to Windows 10. I am currently using ScreenOff to accomplish this screen blanking effect. Not good.
+I just need a blank screen so I can output a messsage, which would otherwise appears on regular desktop and not be quite legible, prompting the user to do something. I think "viewit" solution should work for me. 
+If you don't like that this loads on the primary display only, I would suggest you open fillblack.htm in a browser, put that browser on the display you want, then press F11 to enable full-screen/kiosk mode - that will do it too.

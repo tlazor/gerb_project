@@ -1,0 +1,7 @@
+Quickest solution you could test is place tinfoil on your wifi routers antenna(s) to work as a dish.
+If you have a wired connection already, setting up another wireless network is trivial: Get a router or access point, turn off its DHCP server (if any) and make sure its IP address doesn’t collide with the existing router. Then, set up the wireless network to your liking. You might want to use the “original” network’s configuration to enable roaming (of sorts).
+After configuring the router, set it up at the desired location and connect one of its LAN (not WAN!) ports to the existing wired network.
+Other choice would be to connect a second wifi router to the cable where currently your switch is connected. 
+For placed that are covered badly by my wifi router I use a repeater plugged to the wall which extends the routers signal. There are drawbacks but depending on the repeater they are fairly cheap and easy to setup. 
+I want to get wi-fi internet access on a smartphone in a certain place. I have a switch there, it is connected by a 20 meters long network cable to a wi-fi router, the router is connected to the internet. The signal of the router is not strong enough to cover the area where I want to receive the wi-fi signal.
+What is the easiest way to get wi-fi connection at that place, where I only have a network cable and a switch?

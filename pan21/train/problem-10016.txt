@@ -1,0 +1,5 @@
+Alternatively you can use no partitioning but place your tables on different FG. This way you can restore only a subset of original tables.
+If for example, your tables are partitioned by date and every month resides on its own FG, you can restore only PRIMARY and FG201901 and you'll get only the data regarding 2019-01. Other files will not be created at all even if restored database will still aware of other filegroups that will remain offline, but your tables will be queryable unless you try to access data regarding prior periods of time.
+This is possible only when your db is organized in special mode: it should use partitioned tables and different partitions should reside in different filegroups. 
+No, it is not possible to only restore n number of rows from a given table.  The restore process does not even know about the tables, let alone how many rows are in each table, as it works on the database page level.
+To accomplish your goal of only getting n number of rows from production to non-production without doing a full restore you'll probably want to set up an ETL process.

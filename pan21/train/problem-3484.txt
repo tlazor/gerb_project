@@ -1,0 +1,7 @@
+My question is: What is the cleanest and easiest way to clone a machine under each hypervisor without using any centralized management tool.
+This is essentially what I do with ESX4 (I have about 100 Windows VMs across 4 servers and 2 SANs). Except on step 3 I convert the VM to a template, and deploy all new machines from the template.
+You can also consider differencing disks.  Switch your master to read-only and then create differencing disks that point to the master disk.  Create a new machine that uses the differencing disk and you'll be set.
+This is more of a process than a technology. But if you want something simple, this should be sufficient. Later when you feel that you need to start scaling, look into puppet or other automation tools that may help.
+However, there are a few things to consider.  Snapshots will mean that there will be more than 1 file that consider.  You'll need to copy the whole file tree and then merge the copies back into a single image.
+If your goal is without tools, just copy and paste the vhd and vmdk files and then create a new virtual machine that points to the new disks.  If you want to clone all aspects of the machine, that's possible too, but more work.
+Additionally, a clone can result in identical information on different machines.  For example, IP, machine specific info, machine name, etc.  If it's using Windows, you can use sysprep to generalize your machines after they are cloned.  At the very minimum, make sure to change the IP and guest computer name.

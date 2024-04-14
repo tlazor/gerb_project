@@ -1,0 +1,9 @@
+I have used the GOOGLEFINANCE function on market data points for the Dow (ticker .DJI), S&P (.INX), and NASDAQ(.IXIC). Specifically, I have successfully gotten the close points from GOOGLEFINANCE using:
+In Google Sheets, I can use the GOOGLEFINANCE function to get a number of stock data points including:
+What I have done is do an ImportXML from a website.  I am looking up stocks from the Toronto Stock exchange so I have been using the TMXMoney website for the EPS.  For Example:
+Is it possible to get the eps data point for a market in Google Sheets? Ultimately, I want to get the Shiller PE or CAPE ratio. In order to do that, I need EPS.
+I am not a financial mathematician, so I couldn't tell you how this is done — and it's somewhat outside the scope of this forum. I suggest taking this to either the Math or Quantitative Finance StackExchanges.
+No, it is not. Indices like the Dow or the NASDAQ are just that: Indices. EPS (earnings per share) isn't a measurement that makes sense for those, as an index itself doesn't have any earnings — nor indeed any shares.
+=Index(Split(Index(IMPORTXML("https://web.tmxmoney.com/quote.php?qm_symbol=T", "//*[@class='tmx-panel-body']/div"),6,14)," "),1,2)
+If you want to calculate the Shiller PE or CAPE ratio for an index, you need to calculate it individually for each company listed on that index and then aggregate the data.
+Markets thus don't have an EPS data point for Google Sheets to get. This is why Google Sheets gives you a tool tip saying that "eps" is not a valid attribute for the ticker symbol specified.

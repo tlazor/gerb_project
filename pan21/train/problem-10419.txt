@@ -1,0 +1,8 @@
+Wow, so it turns out that (and I still don't know why) you have to play a test sound at 100% volume before you can use any tool which would otherwise control that volume (such as alsamixer or amixer).
+All of the tutorials I can find from 2 hours of searching seem to assume that if you can see a device in aplay you should be able to see it in amixer.
+I'm using the speaker bonnet / following instructions from adafruit: https://learn.adafruit.com/adafruit-speaker-bonnet-for-raspberry-pi/raspberry-pi-usage.
+What could be wrong? Is it because I'm using Raspbian stretch? Adafruit seems to imply they don't support it: https://forums.adafruit.com/viewtopic.php?f=19&t=122904
+I followed all of the steps (skipping the sound tests because on a previous install I hurt my ears!) and after both reboots alsamixer still doesn't have volume controls.
+That's the only answer I have right now. I really hope I'm wrong (i.e. there is some way to turn down the volume before playing sound) but this is what fixed my problem.
+I've seen other threads where people say it started "mysteriously" working and it's possible that they for some reason actually got a sound through the device.
+But amixer is totally unresponsive (amixer -h gives the commands but amixer and amixer scontrols and amixer -c 0 and so on all give no output whatsover!

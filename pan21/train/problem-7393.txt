@@ -1,0 +1,8 @@
+After reconfigure RAID, you have another problem: the s.o. (Windows) must see and use the "new" space available. If your local disks (C and D) are Virtual Disks, you can expand them while Windows is running. But if your local disks are Basic Disks, its more complicated.
+Since every disk can work independently you could use one of the disk for the C: and D: and mount the other disk in E: (Of course you 'll have no redundancy ).
+If you have OMSA (Open Manage System Administator) installed you can reconfigure you RAID leve (but it depends by controller). Without OMSA, you have to do reconfigure from BIOS controller.
+You can't break the RAID array without losing the data. If I'm not mistaken you can set the raid controller from RAID mode to SCSI mode which will leave you with two independent disks, but you'll lose the data in the process. Also, since you only have two disks it's not possible to create a RAID array only for the C: drive.
+Is it possible to split the discs back into 2 seperate hards discs that the OS can see, without losing all the data on the drives? Even better, would it be possible to split the D: drive, leaving the OS C: drive in RAID1 configuration?
+We have a Dell Power-edge T110 server, with either a PERC S100 or S300 raid controller (I suspect S100), and 2 x 500GB SATA hard discs.
+These discs are running in RAID-1 configuration, (either 1 or 2 virtual discs), and on top of this, we have the C and D drives.
+As we are running low on disc space, we are looking at dropping the RAID to get some disc space back.

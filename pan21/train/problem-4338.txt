@@ -1,0 +1,7 @@
+You may need third party software to extend your C partition without having to delete the other partitions first.
+(Partitions are solid blocks of disk space, you can't take free space at the end and use it for partition that is not adjacent. ... But maybe converting this 'logical disk' into 'dynamic disk' is a solution – further research needed)
+With any free space I have, I try to "Extend" COMPAQ C, and the "Extend" option in the right click menu is shaded, so I'm not sure how to go about giving the space back to COMPAQ C.
+Maybe I'm wrong about this but to my mind you can't extend your C partition because there is no free space right behind this partition. If I'm right, you should be able to extend your G partition only. Unfortunately, Windows 7 Disk Management can't move partitions so you're only able to extend the partition immediately preceding the free space.
+Then, I "shrunk" the C partition (COMPAQ C) and with the free space, I created new partitions on disk 0, for example now it's:
+The operating system I'm running is Windows 7, and all of the disk management was done by using the disk management tool in Windows 7.
+Booting from Ubuntu Live CD will give you a way to run GPartED, and you'll be able to move partitions.

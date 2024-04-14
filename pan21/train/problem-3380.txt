@@ -1,0 +1,6 @@
+VPN will give statistics on amount of data transfer and uptime, so yes, it's most probable that if anyone monitors the VPN they will detect you.
+If I copy files from my company server, through a VPN to my work laptop at home and save it on the hard drive, will this be detectable by my employer? If so, will subsequently copying the files from my hard drive to a usb stick be detectable by my employer? If both questions can be answered by 'yes', is there a way to copy files from the company server through a VPN to a usb stick without leaving a trace (maybe for the second step through an app such as Droid Over Wifi: https://play.google.com/store/apps/details?id=com.dmitril.droidoverwifi)?
+I'm aware of possible confidentiality and copyright issues so you can leave such comments out of your answer.
+If your company has explicitly installed software that monitors server file reads, the first step (copying to your work laptop) will be detected, subsequent actions on your laptop won't.
+Copying files to HDD is only obvious if you have special monitoring tools installed; otherwise any decent file manager can x-fer files without a Windows OS logging anything.
+If network share is *nix running Samba then I would guess by default the act of you logging in will be noted is the syslog or auth.log. Samba can be configured to log all user activity, so it's a possiblity.

@@ -1,0 +1,6 @@
+He said that it worked right out of the box for his VPN connection and that their support team is very responsive and well-informed when it comes to configuring VPN on a router. Once you order, they ask you what VPN service you are using and how you planon using the router in your network and then they configure the device before shipping. 
+My cousin in the military had a similar desire for his battalion and told me he didn't want to go through the trouble so he a Netgear WNDR4000 with DD-WRT already installed from a company called FlashRouters. 
+They seem to support a lot of different providers as well and while their prices are above standard device pricing the piece-of-mind and ease of use was worth it for him.
+The prime issue is getting a build where all these services work and on which router which can take some digging, testing and frustration. I am running two router with the second being a VPN-dedicated E4200 V1 with DD-WRT big that I connect to HMA VPN.
+Personally, I can't wait when the RT-N66U gets supported fully by DD-WRT then I will be making an upgrade myself.
+Yes, most DD-WRT routers support VPN connections through PPTP, OpenVPN, & L2TP through WAN connection type or as a VPN Client. You can see the option available on the DD-WRT Demo.

@@ -1,0 +1,9 @@
+Note: change $v[8]=3 to $v[8]=2 in the commands above to undo this change (if you want the taskbar to be always visible).
+Normally from cmd, it's enough to use a reg add command to modify the registry, but we use powershell because it makes it easy to preserve the other settings stored under the same registry key.
+Yes you can download this great tool called " Hide Taskbar" , which gives you a shortcut " Ctrl+Esc" (by default, you can change it) to hide/unhide the taskbar 
+powershell -command "&{$p='HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StuckRects2';$v=(Get-ItemProperty -Path $p).Settings;$v[8]=3;&Set-ItemProperty -Path $p -Name Settings -Value $v;&Stop-Process -f -ProcessName explorer}"
+powershell -command "&{$p='HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StuckRects3';$v=(Get-ItemProperty -Path $p).Settings;$v[8]=3;&Set-ItemProperty -Path $p -Name Settings -Value $v;&Stop-Process -f -ProcessName explorer}"
+Try this little program that I found a while ago. 'Tis amazing. It toggles the taskbar shown or hidden with Alt-T, and you can set it to start up with windows as well.
+Explorer also needs to be restarted to pick up the change. We use Stop-Process because Windows automatically restarts Explorer when it is stopped.
+This taskbar hiding application lets me choose the hotkey to hide the taskbar. I mapped the AutoHotKey-hotkey to Win+A and the TaskBar Hider to Win+Y. So now when I press Win+Y, Win+A the taskbar toggles without popping up again when I accidentally the bottom pixel; when I press Win+Y, Win+A again it comes back and stays there no matter where I put the mouse cursor and it's just great. A one-key solution would be even better though with the two hotkeys so close together it's really manageable.
+The registry key which stores this value also stores a number of other settings. Since we only want to change position 9 ($v[8] in the cmd) of that registry setting, we need to preserve the other settings.

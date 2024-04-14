@@ -1,0 +1,5 @@
+This causes all files and folders under the '/shared/dir' directory to inherit the permissions of the top directory, in this case 777.
+(E.g. in my case, regardless of smb.conf everything was created by root, with 777 – as per the fstab defaults for the NTFS fuse mount...)
+Remember this when plugging your desktop disk to a NAS for sharing your family albums: fs mount params for user, group, create modes etc. override whatever is configured for Samba! ;)
+From the comments of the accepted answer, it actually didn't solve OP's problem, and neither did the other answers, if OP happened to have the same problem as I did:
+This ensures that users have to be in the "it_nfs" security group in AD, all files will be written with group "it_nfs," and all files will be written with at least 0660 and at most 0770 perms.  Forcing the group ID ensures that anybody in that group can read/write the files on the share.  Otherwise you end up with situations where a file written as bob:bob can't be written by charlie:charlie, even though both of them are in "it_nfs".

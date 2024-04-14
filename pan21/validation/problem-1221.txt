@@ -1,0 +1,9 @@
+This is not a question about Apache and how it reads file, but general *NIX administration and chmod usage.
+An exception to this is CGI scripts which are run under the suEXEC Apache module, in which case the process runs under the UID and GID of the program being executed.  In this case, the CGI programs do not need to be world readable, they only need to be user readable and executable.
+Apache requests are handled by a process running under the UID and GID defined in the User and Group directives in httpd.conf.  The same permissions rules that apply to user processes apply to the Apache processes.
+I would think that if they are owned buy the Apache user or group. And the files are readable and executable that would allow Apache to server the files.  
+Check your process list and see what user apache runs with. Also check your httpd.conf file and see the directives for User and Group.
+Files/directories on *nix systems have a owner and a group associated to it (chown). They also have security bits attached to them, which defines the following attributes:
+So if the files being served by Apache are not owned by or readable by the UID (or GID) which Apache is being run as then access is denied unless the world readable bit is set.  If the files are owned by and readable by the UID (or GID) which Apache is being run as then the world readable bit does not need to be set.  In addition, the Apache UID (or GID) must have execute permissions for all parent directories of the files being served.
+Any documentation, other then the basic how to change user groups and permission would be nice. My problem is not changing permission but understanding how requests are handled and why the files need to be world readable. 
+How are request to Apache handled. Are they assigned user guest or nobody, or does Apache own the requests. 

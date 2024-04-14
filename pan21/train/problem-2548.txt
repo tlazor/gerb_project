@@ -1,0 +1,5 @@
+Update the space labeled IPTABLES_MODULES="" to the following: IPTABLES_MODULES="ip_conntrack_ftp". It is possible to load these modules as part of a rule using the -m conntrack flag, doing it that way can lead to the module being flushed when the rule is restarted. This would be consistent with the behavior you described in your post. Configuring the modules in the way I have outlined above would load the modules with iptables, instead of a specific rule. After updating /etc/sysconfig/iptables-config you will need to restart the iptables service.
+Looking at your iptables rules, I am assuming that it is your intention to forward your FTP traffic to host 65.118.148.196 - I am also assuming that 65.118.148.196 is not the host where your iptables are running.
+For iptables to successfully forward PASV FTP traffic in this way, the iptables conntrack module must be loaded. 
+To do so, modify your /etc/sysconfig/iptables-config file. The first few lines should look like this:
+To provide you with exactly the correct iptables rules, we would need to know the exact port range your FTP server is configured to use for PASV.

@@ -1,0 +1,6 @@
+You didn't indicate whether the year is part of the candidate key or not, but I'm not sure it matters, because in either case 2NF would be satisfied as far as the year is concerned.  
+Then I would try to persuade you that the latter is much better for performance (assuming dt is indexed) and storage. If the coding simplicity is paramount then I would say a persisted computed column would be better than another table.
+But year alone? Nah, I don't see any benefit at all... And as others have pointed out, ask them why they think that's more normalized? Or what they gain? If you're trying to write queries like
+I dislike the argument against the separate table because of its size or that it will have unused rows. Even if you put 1000 years into this table, the size will be negligible.
+The argument can be different for a calendar table, where each row represents a day and can have other attributes (day of week, UTC offset, whether it's a holiday, etc).
+That said, I don't think the table is needed at all. What's the point of having a separate table for the year? This data is already in the main table and you save absolutely nothing by creating a second table.

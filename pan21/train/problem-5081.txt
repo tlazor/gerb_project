@@ -1,0 +1,11 @@
+Plugging it into a merge is simple ... first, add rowid to the query to make it easier to pick out the row .. and then plug into a simple MERGE :
+By doing an outer join, we'll include ALL rows in REQUEST, even if we don't find them in VMI_DIMCUSTOMER.
+viola .. 1 sql, and it'll set the flags depending on if it found them in the other table or not..  ;)
+If it doesn't quite work as you need, please clarify in more detail your requirements .. it shouldn't be hard to modify the merge to fit your needs.
+And use CASE to pull/set whatever value you want/need for each row, depending on if you find it in VMI_DIMCUSTOMER or not.
+Once you have that "final result set" query ironed out (and it's easy to test run to verify .. ;)  )
+If I understand what you're doing there (which I may not be 100% .. ) .. it appears you're trying to update REQUEST table, using the other VMI_DIMCUSTOMER table as "input" .. but only if records exist.
+This can be done in a single sql .. I've used this method before.  The basic idea is, forget the update, merge, etc .. and just write a SELECT statement that returns the END STATE that you really want.
+If you find the record, instead the names are populated, is_checked is set to 1, and error code is set to 0.
+we check if the CUST_FIRST_NAME in VMI_DIMCUSTOMER is null (you can instead check for a CUST_NO column if you have one .. but you showed the table structure for something different than what you're using .. so wasn't sure).
+If there are not records in VMI_DIMCUSTOMER table, for a given record in REQUEST, you want to flag the record in REQUEST with your "customer not found" message, and set first/last names to '--' and error code to 2 and is_checked to 0.

@@ -1,0 +1,8 @@
+Instead of setting fields, your getNumbers function should just return the numbers (and make it singular, which makes it easier to use and also to reuse).
+pick is also a bit generic. Sure, the user picked something, but what did they pick? chosenOperation might be clearer.
+Ideally, functions should do one thing. Your functions do quite a bit more: They calculate, but they also print, get input, and resume calculator operations. For such a small project it may not matter that much, but generally, such a structure severely impacts testabiliy and reusability.
+The result of an addition has nothing to do with the result or input of a previous multiplication, so they should be variables of those functions.
+You should move getNumbers and calculator into the main calculator function. This also removes some duplication and thus makes your code shorter. Then, your calculation functions should just return the result, which can then also be printed in the main calculator function.
+firstNumber, secondNumber, and answer should not be fields. Fields are supposed to hold the state of an object across operations. But in your case, they are not actually used outside of the functions. And they shouldn't be either. 
+Objects are things, while functions are actions, and this should be reflected in their names. For example, instead of a functions called subtraction, you would call it subtract, because it isn't a subtraction, but it subtracts something. Same with calculator which may be startCalculator or calculate.
+You keep calling calculator instead of allowing the functions to return. .. eventually your program would crash with a "stack overflow" error. (OK it will take a while from human input but it's bad practice).

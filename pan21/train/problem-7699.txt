@@ -1,0 +1,7 @@
+I have an obstacle line segment AB and incoming moving PC. If I'm coming from one side C¹D¹ and angle ⍺ < π/2 (i.e. right side) then PC will turn left. On the other hand if ⍺ > π/2 then PC will turn right. But if PC will come from the other side C²D² it should work as well for angle β as per picture.
+I would like to calculate angle between two 2D vectors. Here's a picture of what I'm trying to achieve:
+If I understand what you're asking, the vector CD is just a vector, not a ray, so only the direction matters, not location. However, AB is a line segment, not just a vector, so its location matters.
+So what I need is to determine whether the angle between AB and CD is larger to the left or right basically.
+Your tests have one 'if' test to make two cases, but I think you actually have four cases. Let's look at the diagram in AB's reference frame:
+If you can calculate the angle between normal1 and vector CD, then from 0-π/2 it's “turn right”, π/2-π it's “turn left”, π-3π/2 it's “turn right”, and 3π/2-2π it's “turn left”.
+2) To use normals somehow. This works a bit better but only from one side I think. (1/2 of cases, better but not there)

@@ -1,0 +1,6 @@
+My 1Password vault synched via Dropbox must still work on my other devices (Android phone + gaming laptop).
+The same applies to your Dropbox files: they don't change. Only the low level representation of the file will be changed, but for your applications, they are still the same.
+Your games will still run with almost the same performance. You will incur on a very small increment on load times, because the back-end will have to decrypt the data before your game reads it, but the penalty will be almost negligible. Unless you have a program to measure the timings a couple of times, you will not notice it.
+I'm considering encrypting my gaming machine SSD (A Samsung 850 EVO, 1 TB) and HDD (1 TB classic HDD) with Veracrypt for the added security (although it's unlikely i'll need it). However, I have some concerns:
+So encrypt your disk. Your files will be there, untouched, but remember the password. If you forget the password, your data is lost.
+The encryption is on a layer bellow the files, so from your games' point of view, nothing changed. It's almost like cloning your Samsung HDD to a Hitachi one, with exactly the same size, and putting it back.

@@ -1,0 +1,11 @@
+Are you sure it's actually malware?  There has been a rash of ads themselves causing redirects, etc. and since they're able to run quite a bit of JavaScript, they could do it with a delay.  The fact that your request debugging shows what I believe is an ad delivery platform suggests that may be somewhere to look.
+The easier, but in your case, lengthy method is deactivating one by one the extensions until by elimination you identify the culprit.
+This seems to be obvious. Check the chrome extension page for changelogs, compare when the extensions were last updated with when the behavior started. This is a good pointer in case you want to accurately identify the extension at fault.
+This is the most advanced but it won't pinpoint an extension but is a way to gather information, the only drawback is that chrome/ium may remove events when memory get exhausted and it introduces a bit of overhead.
+You could try moving/deleting the ~/.wine directory and restarting the machine. I had the same problem a few months ago and that's how I solved it. 
+In hindsight, I wish I'd kept a copy of the directory in order to determine the specifics of the infection. At the time I didn't know this method would work, nor how extensive the infection was, so I opted to just delete the whole thing.
+These scripts are normally run all the time while the extension is active and is the most common attack vector. Parsing the text for:
+If two people has the same problem and there's only one extension in common, they can safely presume that the extension is the culprit and disable it. If that doesn't work, then the extension is clean and they can compare with others.
+and the domain names (like adnxs) is a good approach. This won't work if the files are in some way obfuscated which is also a pointer that something fishy is undercover.
+If you have the Wine Windows Emulator installed, it may be infected, and Chrome is opening because the malware is opening the default browser.
+If you sort the reviews by date (by clicking Recent), you'll see that almost all new reviews have a one-star rating and complain about underhanded ads:

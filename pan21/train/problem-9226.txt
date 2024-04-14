@@ -1,0 +1,8 @@
+And if using Python 2.x you should use xrange(n) as it doesn't generate the list, but uses a generator, which in turn will save you some memory and gain a little performance for large \$n\$'s.
+You're calculating the diagonal value every time even though it's always the same. Just calculate it once before the loop.
+One of the main features of NumPy is that you can work with matrices without explicit looping.  To get the diagonal, use np.identity().  To set everything else, use broadcasting.
+param and N don't mean anything to me.  I suggest value and dim.  The function name should preferably be make_matrix, according to PEP 8.
+It's a little bit faster to make a list comprehension than loop and append to a list, even if you still need to loop over the list afterwards to set the values
+You don't need a list comprehension to initialise all the off-diagonals values, you simply multiply it. With new variable names, and a docstring your function could look like:
+From a style point of view, you are violating PEP8, and should name your variables somewhat differently. Maybe something like:
+It's using a ternary expression, in simpler terms those look like a if test else b, where the value is set as a if test evaluates as True, and b if it evaluates as False. So this means that you just set the value as param when it's not a diagonal, and it's set as diagonal on the diagonals.

@@ -1,0 +1,7 @@
+On the surface, everything seemed fine and we know that the database was not corrupted, but the new server is unable to return accurate searches. For example, some topics do not show up in the search results, even though the pages show up in the All Pages list.
+Then rebuild the index as suggested above. The default for this is 4 on recent installs of MySQL, so the smaller terms don't get indexed at all. (This will have the effect of increasing your index size, naturally.)
+We migrated our existing mediawiki installation to a new server. In addition, we want to upgrade from MediaWiki 1.10.4 to 1.15.1. Both servers are running CentOS. On the new server, we installed the Wiki stack (Apache, MySQL, PHP) and MediaWiki. We then proceeded to migrate our image files and database. Next, we ran the necessary upgrade scripts. Finally, we skinned the wiki and installed the latest versions of our extentions.
+I would advise anyway installing Lucene which is used by Wikipedia. It will also search for abbreviations without a performance hit (which you will get if you make the change SmallClanger suggests).
+After migrating from MediaWiki 1.10.4 to 1.15.1, we are unable to get accurate search results on the new server.
+Assume you are using to the standard search features and not an extension like sphinx have you tried running the rebuildall maintenance srcript (MediaWiki Manual) ? There is also a  text index rebuild tool MediaWiki Manual
+If, like me, many of your common search terms are three letter acronyms, you might find it helps to add the following to my.cnf: 

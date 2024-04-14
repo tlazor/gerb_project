@@ -1,0 +1,7 @@
+For all answers i found about this topic, the solution was to create, in a certain computer A where i need to install the package, a file containing all dependencies it needs and then downloading it in another computer, let's call it B.
+I REALLY DON'T CARE about having a lot of redundant .deb files in my computer, and I REALLY DON'T CARE if i'm going to store 1gb of files to install a 10mb software.
+There are several services that you can install that act as an APT proxy/cache.  You point APT at your local cache,  it will download from the Internet, and keep a locally cached copy of all the packages.  This can be very useful if you have lots of computers on your network with an identical selection of packages.
+The thing is, i want to have a storage of certain critical software i need to work to be able to install them offline later on in case i have to format my desktop.
+Is this a one-time thing, or something you want to keep updated?  Are you mostly working online, and just want a local backup of all your packages, just in case?
+I always use the minimal netinst installers to build my Debian based systems, which means my apt cache usually has almost all the packages to fully build my systems.
+My prefered apt cache is approx, but there is also apt-cacher-ng, and a few others.  Each has minor differences about how caching can be configured.

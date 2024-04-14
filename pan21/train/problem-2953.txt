@@ -1,0 +1,6 @@
+There are a number of ways to handle this. Personally I found the 'Install' verb / action for the font file was the most reliable. This can be done in Powershell or VBS pretty easily with a SYSTEM scheduled task. 
+Users will need to log off/on twice. Once to install fonts, but the fonts cache does not get refreshed until login.
+I have a Windows Server 2012-R2 AD with mostly Windows 7 clients. I have a GPO that does the following:
+It is important to use user account S-1-5-18 here, this is NT-Authority/SYSTEM, but if you use literal NT-Authority/SYSTEM, the user mapping will not work.
+First off, create a network share domain computers have read access to. Since you will call a script with system privileges from this share, it is important they can only read.
+When I do gpupdate, the registry changes get deployed, but the fonts never arrive in the fonts folder. It is not an access problem, because when I change the destination to my Desktop all the fonts appear. I can also install them manually from there. 

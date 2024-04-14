@@ -1,0 +1,6 @@
+I had the same issue after switching email service from one host to another (new one is Office 365). After lots of trial and error, it finally started working by doing this:
+IISRESET fixed this for me. I believe it is similar to the solution of resetting the SMTP service since this service depends on IIS. After it restarted the mail inside C:\inetpub\mailroot\Queue started to disappear!
+The first place to look is the server log files.  This will tell you if your server is having problems sending to specific hosts.  The majority of the time this happens (in my experiences) it's usually DNS (either on your end or remotely) that is the culprit.
+Office 365: Add a "connector" under Admin > Exchange to allow your local static IP. Microsoft provides those instructions online. 
+Firewall: I've read that you need to open port 587 for outbound. (I didn't because this is a VOIP server that needs its firewall off.)
+I had the same issue.  As others stated it was DNS related.  I have a forward lookup zone on our internal DNS servers for our public domain name (which is different than our internal domain name).  I had to add the MX records on this internal forward lookup zone to match the MX records on our public domain DNS records.  This resolved the issue.

@@ -1,0 +1,7 @@
+I would like to allow a command to be run under sudo with or without arguements.  For example, both of these should work:
+It looks like you are trying to restrict the users from being only able to remove entries in /etc/stuff. What about entries in their home directories?
+I know that one approach is to wrap this in a script.  I don't want to do that.  I have dozens of these entries and I need all of them to work with and without knowing the arguements in advance.
+For what it's worth, remember that everyone by default has access to the "rm" command, so you don't need to grant them explicit access to that. However, they would only be able to act on objects for which the ownership and permissions align. You may want to approach your problem from that angle, instead. (group ownership and membership, along with umask settings).
+I also accept that I'm asking for something that is a bit of a security risk.  No value in reminding me of that.  I'm going for some security, not tight security.  I need to keep peole from causing too much harm to the server, but we have a killer firewall and this server is not accessible from it, so the tight security is at the corporate level.
+My experience is that you can't do that with only one statement. In fact, Cmnd_Alias is designed for exactly that purpose.
+Which I then assign to a group.  This works.  But it makes me double-up on every command.  I would like a way to have only one entry that does both:

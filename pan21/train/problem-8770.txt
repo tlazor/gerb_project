@@ -1,0 +1,7 @@
+According to this bug report, google will never allow this to be turned off. At all. The hate is palpable. 
+Check out chrome://predictors to see which URLs Chrome is going to complete based on what you type. As a bonus, this page also offers insight into what you have previously typed in the Omnibox to navigate to a certain address. Pretty cool, in my opinion.
+Only downside to this, it does disable suggestions, which are helpful sometimes. It is, however, a simple fix to a huge annoyance.
+As other have pointed out, I don't think it's possible to turn off address completion from your history. The only way to stop Chrome from completing URLs is to remove the specific URLs from your history. You can do this at chrome://history or in the Omnibox by typing the beginning of the address and then highlighting the one you want to delete and pressing shift+delete.
+https://www.google.com/#q=%s - This disables autocompletion while still using google as a search engine. You must clear search history before using this, otherwise it will still autocomplete to old searches.
+This has long since been an annoyance for me, and just recently figured out a slight workaround. The problem resides in using google as a search engine, changing this fixes the problem OR using an alternate google search url:
+Theoretically, if you just type reddit.com and press Enter (erasing any additional autocompletion), it should start autocompleting to that.  In practice, however, you might have to clear your history to make it go away.

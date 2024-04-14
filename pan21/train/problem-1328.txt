@@ -1,0 +1,12 @@
+Does the application store information about the server (servername, etc.) in the registry/database/configuration files?  If so, you'll probably need to edit the registry/database/configuration files.  
+Oh, and I would not copy \program files\your application wholesale, unless that's the only place it stores config files/user data.  Even so, I'd leave the binaries alone.
+I'm interested to know how likely it is that the following steps will result in the application running on my new machine will mirror the application on my production machine.
+For VMware, there is the AWS Management Portal for vCenter and in general you could look at the AWS Migration Service and VM Import.
+Since we know no much about your application, I would suggest you ask your developers about app's PATHs and registry keys and data. 
+That doesn't guarantee it'll work, because the application might have some other anti-tampering coding in it (I used to work with a license server that stored the MAC address in a hidden file to prevent you from moving it to a new server without proper licensing, for example).  
+Where does the application store data and configuration information?  Does it store it in a database?  The registry?  Files on the hard drive?  All of the above?  You need to understand this in order to migrate all the user and configuration information.
+Rather than hacking your application into a new installation, I would personally recommend migrating the server OS wholesale into AWS, and then cleaning up the OS and removing unwanted applications.
+Once you would have the required information, deploy fresh AMI and install your application in AWS. By the way to relocate/migrate your application simply zip application data from PATHs on-prem VM and unzip them to corresponding PATHs on AWS AMI.
+We don't really have enough information about your application to answer this question completely, IMHO, but....
+Background: I have Windows application running in a Windows 2008 R2 VM in my on-prem datacenter. I need to migrate this server application to the cloud (AWS). I want the server application to retain all of the user information and configuration information. Due to security restrictions I am unable to image the on-prem VM and export it to AWS.
+Will the directory paths stay the same (they should, otherwise you might end up editing the registry/database/configuration files/etc.).

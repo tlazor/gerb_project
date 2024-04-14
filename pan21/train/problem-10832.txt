@@ -1,0 +1,6 @@
+to run these two scripts when the interfaces are being setup or torn down. In your case, up is irrelevant, but you may use down to bring down all network interfaces when the OpenVPN is brought down, so as to make sure that no traffic is leaked via unencrypted channels. Please notice that, if OpenVPN hangs or is disconnected, so long as your client thinks it is connected there will be no leaks, because the traffic is still being sent encrypted (and possibly compressed) to the OpenVPN server. Thus it is impossible to intercept it. 
+Imo it should work just fine. But I can't connect to the internet, while local traffic goes through. Do you see a problem in this configuration?
+I need a kill switch which kills the outgoing connections if OpenVPN isn't running, because otherwise a VPN wouldn't make any sense - if it disconnects, and there is a connection, my real IP is released.
+Let's say 1.2.3.4 is my VPN server address, and this are my iptables after I executed my kill switch script:
+It is assembled with the following sources: https://github.com/qbwaggle/vpnkillswitch/blob/master/vpnkillswitch.sh, https://www.reddit.com/r/VPN/comments/43djk3/generic_kill_switch_script_for_openvpn_linux/
+My computer is a Raspberry Pi 3 in this situation, and I'm using OpenVPN over TCP and I've a Fritz.Box connected to WAN.

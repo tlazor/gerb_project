@@ -1,0 +1,8 @@
+The critical point, IMO is to know what the input string represents and seems like you've already taken care of that (if I understood it correctly). Everything else should be pretty easy.
+Here is a JavaScript sample. Take a look at out3 variable in processAll method and how I cascade call multiple regexp methods.
+PS: I know you are using java, but it's not hard to transform it to equivalent java code. I put it as a Javascript because it is faster to code and to understand.
+and set the 2 and 3 as fields/variables (they seem kind of magic numbers now). Basically, the refactoring just reduces the depth of the code, but that's just personal taste.
+I'd use a strategy pattern for your problem: make all the Fix... methods classes that implements a FixStrategy interface. Than make an array of strategies.
+You said there is a lot of same stuff and just a small bit of difference. Isn't that a sure sign that you need inheritance? The abstract super class can give you the generalization that you need while still preserving modularity. 
+In every case take a look at the strategy pattern, as it is one of the fundamentals for OO programming.
+In this way you can also have more complex strategies: for instance you can make your strategies return a score and then apply the strategy with the best score.

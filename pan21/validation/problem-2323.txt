@@ -1,0 +1,18 @@
+I'm guessing that you might have similar logic for things outside of towns.  In that case, you probably don't want to restrict the patternMatches method to TownTileType.  There are two things you might do.
+You could decide that patternMatches() should take anything that extends a common base tile.  In that case, the signature would look like
+Magic numbers are a bad idea.  You can usually identify magic numbers by the fact that you never actually use them as numbers (would you ever add a wall to an optional?), and if you are lucky they are accompanied by a comment explaining that they mean something else.
+Introducing TileSpecification is going to make the WallPattern code more verbose, but I believe it will help clarify your intent.  Onward....
+You still need to map the assignments, but you've got options for how to do that (static initializers, fluent builders, whatever you think makes sense).
+Well, I suppose that's clearer, but it's wordy wordy wordy.  Is there anything we can do about that?  One answer might be to create a constructor that accepts a pre-populated map
+This refactoring added more magic numbers, which isn't what we want.  But it is maybe getting easier to see that they are there, and should be addressed.  Effective Java tells us that we should use EnumMap instead of ordinal indexing -- a fancy way of saying we shouldn't be using numbers as keys to our map.
+Here, we are temporarily taking advantage of the fact that Java can autobox int to Integer via Integer.valueOf.
+This might be better named a WallSpecification - it's a description of how to choose what kind of wall piece you need, right?  WallPattern isn't wrong, but I think the word "Pattern" can get a bit overloaded.
+Isn't this just a Map<WallPattern,TownTileType>, which an EMPTY value if the map doesn't contain the key?
+Based on how you are using it here, I suspect that use EnumMap instead of ordinal mapping works here too....
+Notice the logic - we return true if every one of the TileSpecifications in the pattern is satisfied.  This implies that we only need to test the positions where that question is in doubt.  In other words, since TileSpecification.UNSPECIFIED always passes, we don't need to check it... so we don't need to put those in the pattern map, which in turn means that we don't necessarily need that specification at all.
+Magic numbers again -- this time appearing as argument names.  The names of the arguments kind of match up with the index into the list that they will appear in, but that's not telling us what's really going on.  Let's look at how it is being used....
+If you look at this code for a moment, we aren't really using the List as a List; we don't care about the order of the checks at all.  It's just being used as a Collection, with the index being used as the key to match up the two tile patterns.
+Aha - we get a lucky break.  You formatted the original code to make it easier to see what was going on, and from this we can determine that meaning encoded into the position in your list is the relative position of this tile in relation to the home tile.  Since we can enumerate the relative positions, that suggests we should again implement an enum
+You might also want to look into the BuilderPattern from the Gang of Four Book  As I recall, the examples there feature maze building, which includes choosing the right type of wall for the circumstances....
+Unrelated: you may be interested in this presentation from the folks at Grinding Gear Games, where they discuss random level generation
+Another possibility is to use a matching Policy (or Strategy) that knows how to match lots of different things.

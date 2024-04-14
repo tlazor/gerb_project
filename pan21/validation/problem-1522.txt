@@ -1,0 +1,7 @@
+WOL magic packets are subnet only as you have noticed. You can use Unicast or Subnet-Directed Broadcast depending on what you can enable in your network / router configuration:
+This is a fundamental problem: WOL only works inside a subnet, because a WOL magic packet isn't a valid IP packet and therefore is not routable beyound the local LAN. 
+Your Default Gateway from the machine you're trying to do the WOL from must explicity know how to get to those other subnets, or else it sends your packet out onto the internet, where it will be immediately dropped by your ISP.
+The wikipedia entry outlines a solution for this problem (subnet directed broadcasts), but I've never seen this in action. Another way around the problem might be to create a WOL proxy agent that forwards WOL packets into other subnets (i.e. as a UDP packet). 
+Drawbacks to this are that directed broadcasts are commonly unsupported by default due to security and performance concerns. While Unicast is commonly dependant on MAC address table memory kept in router configurations which are purged, usually in about four hours.
+I assume that you can wake up computers on their individual IP? IF you can't do that either, I would say that your firewall blocks wake on lan traffic completely.
+It's probably a network problem. You are sending a broadcast message that probably is blocked in your firewall/router, because you rarely allow broadcast traffic to cross nets.

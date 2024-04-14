@@ -1,0 +1,10 @@
+That being said - the most common way of doing this is to just stripe it (RAID 0) at the VM level. If you make sure that the SAN admin puts the LUNs on different controllers (if it's a active/active setup) you'll actually benefit from it, instead of having one big LUN on 1 controller.
+When using different LUNs with ZFS, it will make implicit assumptions that the LUNs are separate physical devices, distributing reads and writes among them to optimize performance. You do not have to add more redundancy to the setup (i.e. you could just add your LUNs as simple vdevs) but it might interfere with your SAN array's optimization logics resulting in subpar performance.
+ZFS' added data integrity features are not available with LVM or mdraid, so if you need them ZFS would be your only choice, regardless of the performance implications.
+A 2TB limit is not that uncommon, so you should stop thinking that you're being penalized more than most other setups in the world..
+I am going to deploy an Ubuntu 12.04-based archiving system. Due to limitations of the SAN Storage, it can only present me with 2TB LUNs. So, I have to merge multiple 2TB LUNs to achieve the desired space (4.5TB with expected growth of up to 1TB per year).
+It makes no difference if you use ZFS or built-in tools to do the striping, they all do it the same way.
+The SAN Storage has its own RAID protection (yes, not a replacement for backup, I know), so I don't need a software-based RAID protection.
+Note: Yeah, maybe I should use a better SAN Storage, but the 'Management' had decided to use this particular SAN Storage, and my hands are tied.
+(All I can find on the Internet assume that the ZFS/LVM will be built on top of individual disks with RAID provided by RAIDZ/MDRAID, so really not suitable for my situation).
+Combining the LUNs in an LVM VG would just assign a part of the logical address space to each of the LUNs so the access characteristics would very much match the "single LUN" scenario unless you activate the striping mode.

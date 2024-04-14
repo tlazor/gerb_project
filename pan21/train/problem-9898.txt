@@ -1,0 +1,6 @@
+Currently I only use sleep on my Windows 7 pc. To save some power I would like to start using hibernate mode.
+I have confirmed Media Center in Windows 7 does wake-up to record shows from hibernate (S4) if your motherboard supports it. My motherboard doesn't support S3 (suspend-to-RAM) so got stuck using hibernate instead. The system wakes from hibernate up to record shows, execute scheduled tasks and performs backups just as my other hosts which use standby instead.
+Whether it works or not seems to be a function of the motherboard, but in general it should wake up.
+Does Windows 7 wake up from hibernate mode, to record tv shows I have programmed to record with Media Center?
+Besides, the extra power saved between standby and hibernate would be negligible, likely no more than 2 Watts difference. You'd be doing just as well using standby, and your machine will resume faster as well. (2 Watt can amount to something over a year, but consider if it's worth it to you.)
+My reasoning is that under hibernation, the essential hardware (CPU and RAM, but also expansions such as network and TV tuners) are actually powered off, so there is no way to trigger a power-on. 

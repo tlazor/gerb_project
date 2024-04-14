@@ -1,0 +1,5 @@
+I have tried many things in the exchange connection setting on the clients, trying using NTLM auth, disabling connecting over http, installed sp3 for exchange, tried enabling kernel mode authentication for the windows auth in the authentication section of each of the IIS exchange folders, i've set all the SSL settings to accept the certificates as well for each sub-site.
+I got a godaddy UCC certificate installed on the SBS. The issue started to appear since i've installed that certificate. I've tried installing the certificate on the clients by right clicking the certificate and choosing install, but it didn't change much. 
+On client side, ive tried re-creating the profiles, deleting that windows protect folder that keeps credentials in appdata..
+Setup is SBS 2008, latest updates, with Exchange 2007 SP3. The problem is that my domain local users are getting prompted for credentials non-stop using outlook 2007.
+What the credential popup asks for, is for remote.domain.com login (Welcome to mail.domain.com). It seems to be a base authentication login prompt. 

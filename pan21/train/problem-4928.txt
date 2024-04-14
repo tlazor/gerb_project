@@ -1,0 +1,8 @@
+Don't pass by pointer. There is no ownership associated with it (and it can be NULL and thus you need to test for that).
+If the answer is yes (you take ownership and thus control lifespan). Then you should pass the object using a smart pointer that allows transfer of ownership.
+I'd like a code review on my design, more particularly on the degree of coupling between my Observer and Publisher classes. I feel that the add_observer() function may be coupled too strongly with the Observer object and that there may be a way to do this with looser coupling.
+If the answer is sort of. We are taking shared ownership (ie there might be other objects that are also using it). Then you pass using a smart pointer indicating shared ownership.
+I'm reading on design patterns for a software engineering class. I am doing small implementations of some I find the most interesting / applicable to better understand them.
+If you do take ownership you need to do some work in the destructor of your publisher to make sure that you correctly relinquish ownership when the publisher dies.
+If the answer is NO then you pass a reference (as a reference can not be NULL) and also indicates that you don't have onership. 
+If you don't have an ownership claim. This also means that the lifespan of the object may not live as longer as the publisher so you also need a way for the object to remove itself if it dies first and for the publisher to notify the observer that it has dies so it does not de-register itself from a dead object.

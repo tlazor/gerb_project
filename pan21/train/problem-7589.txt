@@ -1,0 +1,11 @@
+Is this possible? The only reason I want to do it is to make setting up mail clients easier for my website's users, and to stop confusion when asking why I am asking them to connect to a seemingly random domain to get emails. I understand this may cause some problems with DKIM etc.
+Preferably, I want one subdomain (mail.example.com), pointing to both smtp.mailhost.com and imap.mailhost.com, differentiating between the two using ports. [mail.example.com:993 -> imap.mailhost.com:993, smtp.example.com:587 -> smtp.mailhost.com:587]
+You should note though that you might experience issues with mail deliverability unless you are able to make any SPF, SSL, and DKIM configuration match what's upstream.
+Is it possible to reverse proxy a remote (managed by another company, think Google Apps or Office 365) SMTP/IMAP server through NGINX? Example:
+In my opinion the NGINX mail proxy server guide lacks of one very important information that was necessary for me to get something similar working: 
+I spent some weeks to find a working solution as mocking the auth service was not working properly for me. After disabling all SSL features and adding the auth php script I was finally able to receive emails with IMAP via the NGINX proxy.
+I host example.com, and use mailhost.com to host my mail. I tried adding 2 CNAME records on example.com to accomplish this, but it didn't work. [smtp.example.com -> smtp.mailhost.com, etc]
+One Problem that still exists for SMTP is: NGINX doesn't forward the auth command to the server: https://forum.nginx.org/read.php?2,58181,58186#msg-58186.
+This is pretty well covered in the Configuring NGINX as a Mail Proxy Server guide in the official docs.
+Is this task easy, more hassle than it is worth or impossible? I'm capable of setting up a mail server, but would rather use a ready solution.
+Therefore disabling auth for SMTP is necessary to make use of NGINX mail proxy. If someone finds a workaround please post the solution here: https://stackoverflow.com/questions/56031592/nginx-forwarding-smtp-auth-credentials-to-next-server/56583571#56583571

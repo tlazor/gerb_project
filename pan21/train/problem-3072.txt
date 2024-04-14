@@ -1,0 +1,8 @@
+Note that the number of response types can vary, for example there could be a line for "Error Recv", but that is not returned if there weren't any.
+That is repeated (with no specific delimiters) for every backend there is. Each line is a string in a List<string> of all lines in the response.
+I am parsing the responses from our Varnish load balancers in order to monitor the status of various nodes. One of the responses we get is text consisting of multiple blocks of data, one for each server in the load balancer.
+Each Node represents a Varnish server, to which I have added the ability to pull back the above health status message.
+It feels a bit crude. I'm basically looping until I find the start of a block, then consuming line-by-line until the last line I'm interested in for that block.
+The test program is not part of the code review - I've just lifted some relevant parts from my unit tests to hopefully add some clarity, and to make it easy to reproduce.
+The parser accepts a List<Backend> that will be populated or updated with all the found backends, and a List<string> containing all the lines received from the server. Backend is a POCO
+Here is are the two classes required to test. Following that is a small sample program that will test it. No external libraries are required and I have removed all the actual remote network calls and connection processes, as these are not pertinent to my text-parsing code. The test program contains a sample of the response from the production services.

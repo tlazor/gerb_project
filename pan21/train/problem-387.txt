@@ -1,0 +1,6 @@
+the EventViewer is alomst good enought. The Security view show Logon/Logoff events.  I just need to know the Lock/Unlock events also.
+If you authenticate to a domain controller, you can check the successful audits in the security log file. Every time you successfully log in, it will be recorded (unsuccessful log ins will be recorded also). 
+The easiest way to do what you want would be to run a user-land program that you interacted with to keep time records.
+For anyone who likes to know how to do this in Windows 7 (like me): Open Local Security Policy (can be found by pressing the Windows key once and typing "Local Security Policy") => Advanced Audit Policy Configuration => ... => Logon/Logoff => Audit Other Logon/Logoff Events => double click and mark all the check boxes => save
+There is a "logon type" for "Unlock Workstation" (type 7) that will get logged into the event log. I'm not sure this going to give you want you want, though.
+You could develop a GINA library that log your own events when a lock workstation or unlock workstation occured, since both of those events have callbacks into the GINA. (In Vista, GINA was replaced with Credential Providers and it's not immediately clear to me if they get a callback when a lock workstation occurs or not.)

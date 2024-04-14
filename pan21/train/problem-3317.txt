@@ -1,0 +1,5 @@
+Do I need to create a large static body with the size of the world that can't collide with anything?
+In this case it means that the joint anchor points on a body need not be inside any of the fixtures of the body. They can be miles away if you want.
+Will it slow down simulation speed if I have around 300 bodies moving on the surface of this static body?
+Make a small b2body somewhere well outside the gameplay area, make it a b2_staticBody, and make the fixture a sensor body so that any collisions that do happen to occur don't affect the simulation. Then use this body whenever you want to join something to the ground.
+Yes. The reason you want to make a small body is precisely because of what you mentioned. Any collisions with this body are meaningless, and box2d creates a contact object and stores it on the world for every contact between fixtures. It also iterates through this list every time the step function is called. So by keeping it small and out of the way you can conserve memory and cpu time.

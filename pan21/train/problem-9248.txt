@@ -1,0 +1,8 @@
+Reminder: having rsync installed on the remote machine (the one with the authorized_keys file) is a prerequisite here.
+By giving that directory (you can use -ro for read-only and -wo for write-only) you can leave off the directory on the rsync invocation.
+So your command line would become rsync [...] / username@remotemachine: (mind the missing path after the :).
+Once that's done you can simply prepend a command= in front of a line with a public key, invoking rrsync.
+Ensure that you have rsync installed and in the PATH on both ends (client and server). The rsync client uses SSH to execute rsync on the remote (server) end. That's just how rsync works.
+The error you're receiving is rsync: command not found.  This typically implies that your $PATH environment variable is not set correctly.  Using your first test, explicitly set PATH to include the directory where the rsync command is installed.  For example:
+Usually you would include some restrictive SSH options along with the command=, so it might look like this:
+A better method than writing a homebrew script would be to use rrsync, which on Debian-based distros you should already have installed alongside rsync in /usr/share/doc/rsync/scripts/rrsync.gz. In that case simply run the following command to unpack the gzipped script into /usr/bin/rrsync:

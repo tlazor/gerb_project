@@ -1,0 +1,9 @@
+As those who run sa-learn inside a cron know this is very annoying as we get a failure email even from a successful run.  Just google the error config: path "/root/.spamassassin" is inaccessible: Permission denied and see how many people this affects (and the insecure fixes they suggest).  The only safe solution for cron was to ignroe it and pipe stdout and stderr to /dev/null, but that's a bit extreme.
+The solution, that worked for me, is to call sa-learn and pass a temporary $HOME environment variable pointing to a location where the non-root user running spamassassin can write, in my case this is /var/cache/spampd:
+This happens even if the config option allow_user_rules is set to 0 (IMO this is probably a bug and it's been round a long time).
+Shouldn't you use the spamassassin daemon spamd instead? Then you'd use the spamc command instead of spamassassin. Basically, run spamd from its startup script, and use spamc from your mailscanner.
+It does this regardless of what -C or -p or --dbpath options are passed, so you can't fix it either in the command line options or the global config.
+The real fix is to disable "per-user" config in spamassassin and globally set the Baysean DB, but a quick patch would be to add the "-H" option to sudo to use postfix's home directory where it should have permission to write as postfix.
+The cause is that spamassassin (which is called by sa-learn, spamc, spamd, spampd etc), tries to read a per-user config file from $HOME.
+The bayes tokens are learned correctly, however this error is a minor annoyance and I'd like to fix it... Either by forcing SpamAssassin to not check the /root/.spamassassin/ directory for the config & prefs, or to fix MailWatch so it calls sa-learn correctly & doesn't throw this error.
+I have mail gateway servers configured to use MailScanner + Postfix + SpamAssassin as described here, along with MailWatch as a web front end.

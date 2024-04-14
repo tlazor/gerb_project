@@ -1,0 +1,5 @@
+I had a similar problem on my laptop on XP Home SP3 with my USB mouse stalling. After some investigations with process explorer it turned out to be a process called hotkey.exe. This came with my Toshiba laptop. Killing it  fixed the annoying problem for me. I did not really manage to find out how to uninstall it, but you can disable it starting up in msconfig.
+Try eventually to plug it directly on a ps2 port (if you have one), to see if the problem wouldn't be from this. I have memories of some Logitech mouse jumping, blocking this way, when it was plugged on usb and not ps2.
+In general, give as well a try on another computer, if you have the occasion. If the problem is the same, then probably it's a hardware issue, and it will be hard to fix in another way than sending to mouse back to manufacturer (or seller).
+Otherwise, start task manager and sort on CPU usage. You can see if any application has a CPU spike just after your mouse ´pause´.
+This probably isn't going to help you much but there are some shockingly bad mice out there. I'm rather picky with mine and I've come across things like this. I tend to just not use stuff that does that.

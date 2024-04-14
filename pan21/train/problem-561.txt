@@ -1,0 +1,8 @@
+You shouldn't have individual functions for each role, and a user probably shouldn't be assigned more than one role. Especially seeing as you can't be all three
+I do not have much experience with Laravel, so I will comment on your code as it is presented, but keep in mind that I may miss something which is already handled by the framework.
+The first thing which strikes my mind is the getRoles() method. To me it seems you are doing the work of the native function array_column(). This means the method can be reduced to:
+I even think you could extract only the role names into a property. I am not familiar with how Laravel deals with databases, but I am sure you can extract only the role names associated with the user directly from the database. If you then extract the roles during instantiation of the class, you can remove the getRoles() method altogether.
+This would reduce the number of methods inside your class and make it so you wouldn't have to edit your exiting code just to add a new role. This follows the open-closed principle which states that a class should be open for extension, but closed for modification. 
+I would also remove the methods player, coach and referee and replace them with a generic method. This is to make it easier in the future if you add/remove new roles. Consider the following method.
+Now you can also pass the role name as variable (if you ever need to) without the fear of an undefined method error as the method would simply return false.
+In another function you use a $this-> style item as a parameter, so I would suggest removing $roles_collection and staying consistent.

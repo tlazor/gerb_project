@@ -1,0 +1,7 @@
+This may require a couple of more steps to position your picture properly but it seems to be simpler than changing the DPI and saving the image.
+After five years of having this issue, I can gladly say I have finally figured out which key was causing the problem, greatly reducing my blood pressure.
+What about using Insert File and attaching it that way.  It won't put it in the actual message, and outlook won't try to resize it.
+Don't mean to be a necromancer on this question but none of the above solutions solved this issue for me.  The only way I was able to solve the issue was by deleting the following key:
+The default wrapping mode can be set in tools, options, mail format, editor options, advanced, insert/paste picture as.
+After inserting the picture set the text wrapping mode to In Front of Text instead of Inline with Text.
+If you do need it in the bottom, you can right-click the picture and go to Format Picture.  From there go to the Crop tab, and you can adjust the size of the picture there.

@@ -1,0 +1,8 @@
+I used the wizard to create a time dimension.  Part of that configuration is selecting a date range.
+Take a look at the Time Dimension properties dialog. Expand the Source node and change the CalendarStartDate or CalendarEndDate to suit your needs. Then Reprocess the Dimension.
+and it looks like in your case you dont have a table for it in the datasource, i mean you chose a server time dimension which creates a dimension in Analysis server itself.
+I did find that I could open the dimension, go to properties, and redefine the date range there.  I saved and reprocessed the dimension, but the actual date range in the table is not growing to include the newly-added dates.
+Is your Time dimension connected to a source or is it a Server time dimension which has no table for it in the Data source
+http://www.sqlservergeeks.com/blogs/AmitK/sql-server-bi/385/sql-server-ssas-considerations-for-time-dimension-part-2
+but if you chose the other option "Generate a time table in the data source" This option creates a time dimension table in the underlying data source and populates the same with data based on the inputs provided.
+http://www.sqlservergeeks.com/blogs/AmitK/sql-server-bi/383/ssas-considerations-for-time-dimension-part1

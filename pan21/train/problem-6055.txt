@@ -1,0 +1,9 @@
+Also, this question gives some more insight into Apache - GitLab - Nginx dilemma.(and the first mention is that Apache and GitLab contradicts on port 80 :])
+The above result kind of confuses me since I don't have Nginx installed on my system and which nginx also returns nothing.
+Also from the error it is clear that you are trying to start httpd on 0.0.0.0:80. Try to use an ip address in httpd.conf file instead for getting more specific error.
+My configuration is working fine, my sites are broadcasted as I wanted; moreover, when I execute the command sudo apachectl configtest, I get back Syntax OK.
+I get that something else is working in place of httpd when I restart it. Therefore I execute netstat -tulpn | grep :80.
+httpd was conflicting with gitlab. Once I executed sudo gitlab-ctl stop and then tried restarting httpd, everything was business as usual.
+Also if postfix is not required for your configuraton, you can stop it from restarting when the server reboots, by the following command
+Executing ps -Af | grep $pid gave me some more insight and highlighted GitLab to my attention.(I knew there was something fishy about it but couldn't get to the root cause of the issue and identify it properly)
+After that you can find more information about the running service with the command systemctl status  servicename

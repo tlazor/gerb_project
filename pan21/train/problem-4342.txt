@@ -1,0 +1,5 @@
+I am running a High Memory Double XL Amazon EC2 Instance.  It has 34GB of RAM.  I am not very familiar with MySQL tuning and the system is running with the default install on Linux CentOS.
+Does the current machine have enough memory to deal with this table efficiently?  What other configurations do I need to worry about?  The largest system available to me has 68GB of memory.  What exactly is MySQL loading into memory when it loads a table?  I'd like to get a better sense for what is going on.
+Download  mysql tuner and run it after you tried the import. It will tell you which settings to adjust in /etc/my.cnf 32GB of RAM should be enough if you have set your indexes right.
+I've got a MySQL table with a .MYD file of 44GB, and a .MYI file of 34GB.  I'm running scripts from the command line that analyze the data in this table.  MySQL is not maxing out the CPU, my memory IS maxed, and VMSTAT is reporting that data is being swapped to disk ... but I'm not terribly familiar with this utility and it's reports.
+The MyISAM Key Cache (as sized by key_buffer_size) has a max size of 4GB in 32-bit systems. You can make MyISAM Key Caches bigger in 64-bit systems.

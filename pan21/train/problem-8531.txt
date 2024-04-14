@@ -1,0 +1,8 @@
+This works instantly, but will create issues with allowing guest accounts to logon on certain workstations ( Il basicly be required to have different policies override one another).
+Put all of the computers that you would like to deny access to in the same OU, OU tree, or  use security filtering. However you choose to do it, just make sure that this GPO that you're about to configure applies to the machines that you want to deny logon to and doesn't apply to the exceptions.
+You need to create a security group. Call it something like Deny Logon to Workstations. You'll put these guest user accounts in here after you create them.
+But their stilla ble to logon to any station ( Even if i remove the Authenticed users from local users group on the machine).
+I asssume this has been done many times before, but i failed to find a good article and best practice on it. And im wondering if the community has experience
+Im wondering whats the best practice, we currently have a singel domain. And what we need is Guest accounts that should be able to logon course room and randndom work stations at time ( If they need to logon to a work station that will require work from IT department).
+Then, in Group Policy, configure Computer Configuration / Windows Settings / Security Settings / Local Policies / User Rights Assignments / Deny Logon Locally to deny access to the Deny Logon to Workstations group that you created earlier.
+Then, just add these guest accounts to this group. They will not be able to log on to the workstations that this policy applies to. It's simple, scalable, and you don't need to fiddle with anything else on the local machines.

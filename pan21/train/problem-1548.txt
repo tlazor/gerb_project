@@ -1,0 +1,6 @@
+A better idea would be to copy $VIMRUNTIME/vimrc_example.vim as a starting point fro your own vimrc file.  Personally, I start my vimrc file with
+Only if you intend to share the same .vimrc across multiple systems (which may have different global settings), it would be best to add those settings to your personal file, or to turn off / undo the global settings (should you not like them).
+The system-wide /etc/vim/vimrc is usually sourced in addition to your user's ~/.vimrc, so you should just put your own customizations into it. Start with a blank file and add any custom settings and mappings.
+although there are arguments against this practice.  If you already have an idea about what you want to customize, then you probably know enough to copy selected parts from the example vimrc file.
+Should I copy /etc/vim/vimrc to $HOME/.vimrc, and then make my modifications, or should I just create an empty file? Which is the right way?
+I want to make modifications to $HOME/.vimrc, but the file does not exist yet, so I need to create it.

@@ -1,0 +1,5 @@
+To make AHK work with Microsoft's Terminal Server client in fullscreen, AHK has to reload after the Remote Desktop window is activated.
+The following works by suspending the local script when full screen RDP is active instead of trying to kill and restart the separate script version everytime focus is moved. This is lighter, and also avoids littering the notification tray with lots of zombie AHK icons for the killed scripts. This also means you can just add this to your existing script instead of having to run both of them separately!
+Can't add comment to top answer, but I have modified the suggested script that Tahir linked to his blog in the top answer to make it cleaner and easier to use. 
+Basically, I now have two scripts running, one which contains my hotkeys and hotstrings "script.ahk" and another which will reload this script if RDP is maximised "controller.ahk".  
+You also need to set "Apply windows key combinations" on the "Local resources" tab of remote desktop connection 'mstsc.exe' to "ON THIS COMPUTER"

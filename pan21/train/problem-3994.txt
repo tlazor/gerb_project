@@ -1,0 +1,8 @@
+This is a brand new Thinkpad T410. It came with Win 7, which I kept and now have it dual booting with Ubuntu 10.04.
+I am generally stumped with this Ubuntu crash I am having. The machine freezes, mouse does not move. Cant escape to a terminal, cannot quit X, Apport reports nothing.
+I seemed to have fixed the problem. Since installing the new Ubuntu (10.10), I have not experienced a crash yet. It has been 2 weeks. It is using kernel 2.6.35-22 64 bit.
+I realize this does not answer my general question about how to debug very deep crashes, but it solves my issue.
+I have been googling and checking all the system logs looking for something suspicious and have found nothing. The logs are kind of poluted with info about my wifi card, but there are no errors.
+In ubuntu I have tried several kernals: 2.6.32.(21-23) and in recovery mode and they all suffer from this problem.
+I am have been trying for weeks to reliably reproduce the crash, but I cant determine any patterns. Sometimes it will work for days. But usually when it crashes, it does so again after the next several boots in about 5-10 minutes.
+I have tried running Win 7 to see if it crashes there, because I thought it might be a hardware defect, but it has not crashed there. I am not ruling this possibility out though since the crash happens so sporadically.

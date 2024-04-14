@@ -1,0 +1,6 @@
+Vim ships with the :help cfilter-plugin that lets you remove quickfix entries you don't want any longer, so it works the other way around.
+You could bind that to a key by prepending nnoremap <LocalLeader>ql, and putting the mapping definition in ~/.vim/after/ftplugin/qf.vim.
+So you could cleverly use the location-list instead; it works just like quickfix, but is local to a window (here: the quickfix window).
+Here's a complete plugin that also support count, repeat via ., visual mode, and collecting location list entries into the quickfix list. It requires my ingo-library plugin, 1.040 or higher, currently only available as a dev snapshot on GitHub. It can also be copied into ~/.vim/after/ftplugin/qf.vim:
+Alternatively, you could either create a new quickfix list based on the current one, as Vim maintains a stack of those (cp. :help :colder). However, if you want to interactively select multiple entries, that back and forth, creation of a new list the first time and recall of that newer list the following times is cumbersome.
+To copy the whole current entry without re-parsing it, the low-level getqflist() and setloclist() can be used:

@@ -1,0 +1,6 @@
+Your application can look at the host headers, and see the site1.. site2.. site3.. and apply the necessary branding.
+I don't actually know how to do this in IIS (or even if it is possible), but I thought I should note that you are going to need separate IP addresses for each of your domains if this is going to work.  This is because the SSL handshake happens before header information is passed, so you can only have one certificate installed on a given IP address.
+Thinking about it, if you do use a wildcard SSL certificate, you don't even need to have multiple sites, assuming your website code knows how to figure out which HOST it is showing the end user (read the HOST header from the request).
+If you can get multiple IP addresses, this is not a problem whatsoever. Just set it up ^^ All you need to make sure of is that the SSL bindings are set to the specific IP and not "all IP" as the default is.
+IIS 6 does allow you to do multiple SSL hosts on a single IP address, but requires the use of wildcard SSL certificates. Microsoft has a technet article here on how to set it up.  Keeping this in mind, you could get a *.securedomain.com SSL certificate, and use:
+Cause the SSL handshake is done before any header information (domain names...), you can only get one https website per IP.

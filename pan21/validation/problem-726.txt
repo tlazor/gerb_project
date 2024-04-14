@@ -1,0 +1,13 @@
+When making requests from the outside world you don see any traffic on the private side, then you should double check:
+First of all, I assume that the sign # before each rule is not present on the configuration files (it comments that line, making it useless).
+Shorewall seems to be doing well and my apache logs are informative (they don't just say that all requests are coming from the debian machine)
+This additional rule changes originating IP to the IP of the proxying box itself, so it should help. Anyway, probably it's not what you want because Apache on Ubuntu will record the Debian IP as a client IP to access logs for every request.
+Try monitoring you network traffic on the proxy server on both interfaces, public and private. On the public side:
+Basically, the problem here is that DNAT rule does not alter a source IP adress in forwarded packets, so your Ubuntu server tries to answer directly to a request originator, which is outside your LAN. It uses a default gateway to perform the communication, so the answer never gets to the Debian box.
+The alternative, when making requests from an external location, and you see it on the private side, that would mean that something else is wrong (check the linksys router forwarding policy, routes, etc).
+What host is set as a default gateway on your Ubuntu server? If it is not your proxying Debian server, you should add another rule to /etc/shorewal/masq:
+If default policy is REJECT / DROP, look for a rule on the FORWARD chain that allows to forward traffic onto the HTTP Server:
+Now I just go Debian proxy -> Ubuntu server (no more linksys router). I decided not to use the router anyway because that is what we are using for our office wireless. Having what is supposed to be a secure server hooked up to the office's router seems like a not-so-smart move on my part anyway.
+If this doesn't return a line (and policy is REJECT / DROP) then you are missing the rule  that allows you to forward traffic ... double check shorewall configuration. Set the loc log to info on the policy configuration file, force a rule:
+I wouldn't do what @Alex recomends as it is risked. You loose every trace of who is accessing you service therefore you loose statistics. If there is any attack on your site, it is impossible to determine where is it comming from by just looking at your webserver logs, and lots of other reasons. Usually SNAT from public networks to private destinations is highly discouraged.
+Thanks everyone for the help, I used everything that was posted here to arrive at what I hope is an acceptable solution.

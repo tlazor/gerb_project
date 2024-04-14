@@ -1,0 +1,5 @@
+It's very easy to use. I simply create an account and they show me how to install and configure Git in place(s) where I will be developing from. In my opinion, Git is one of the few best and simplest version control systems out there.
+I don't mind reveling the source code of my projects so I host my version control off-site on http://github.com for free. Private repositories cost $7 / 0.60GB / month. They now host 1.5 million projects.
+Independent the size of your project I think you can benefit from having a versioning system like SVN, you don't need to use all of its features just the ones you really need, also Trac is a very lightweight/interesting frontend/ticketing system that you can locally run.
+I use Redmine a lot, but another possibility is just using plain github. It's free for open-source projects, and private repositories are also available for a fee. It has a very robust control system, incidences, and other things like wiki pages (also version-protected!). The only thing you need to set up is your local computer's ssh configuration.
+TiddlyWiki can be useful for your situation. I guess it needs to be changed a bit to match your needs.

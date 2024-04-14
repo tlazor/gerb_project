@@ -1,0 +1,7 @@
+Some web servers return 404 for any error (e.g. 500 internal server error etc). However, this still means you have connectivity to the web server.
+Obviously, not. A 404 error is a a response from the server to the request made by the client, which means that there is connectivity.
+When the interviewer mentioned ping, either they didn't know what they were talking about, or they were double bluffing!
+Few days ago I faced an interview and one of the questions was what would I do if I get a 404 error from a webserver. My answer was check the logs. The interviewer said that first I have to ping and check whether I have connectivity to the server .I don't regularly work with web servers at my current work place. My question is will we get a 404 error if we do not have connectivity to a web server?   
+Another exception could be a load balancer or proxy returning 404 when they can't see the web server they are trying to refer you to.
+Regardless of the wording of the question, 404 means that the resource could not be found by the web server. It is an HTTP error code sent from the web server to the browser. So if you receive a 404 error from the web server, you already have proven connectivity to it. It often means you have the correct hostname/domain name, but the wrong directory name/page name.
+The question said "a 404 error from a webserver". If it actually said that then the fact you got the error from the server implies that you have connectivity to it.

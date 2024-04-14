@@ -1,0 +1,13 @@
+I don't know about the work time involved, for example, in a WoW dungeon level, or other beautiful city-like, future environment, jungles, fantasy, etc, but this kind of work is made from scratch by artists.
+In Infinity, the galaxy and everything within it is generated with a seed value that then creates all the other variables used to generate everything contained in the galaxy (planets, suns etc) The link talks about how this works in greater detail.
+For example if we take a recent GTA game, 100's of artists were used to make the city and to personalise it. Procedural generation could be used here, but it would be used as an artists tool rather than something running on the game engine as we don't particularly want a different city layout with each game.
+Fuel procedurally generates a zone so bast that it would not fit on the DVD the game comes in. I particularly enjoyed reading Shamus Young's series on it.
+Roguelikes have been doing this kind of thing since they were invented, and they are the "seed" Torchlight (and Diablo) got their ideas from.
+What are the techniques involved in the TorchLight level randomizer, and does other titles have similarities with this ? Is there a family name for such techniques ?
+I don't know about Torchlight's specifically, but in general, what you are looking for is called "Procedural Level Generation".
+This tool is used by the artist to create a city whilst allowing control over different aspects if they require it. The city generation is similar to L-systems as seen by Pascal Mueller's work: [2]
+For more games/middleware, check out the Procedural Generation Wikipedia page and the Procedural Generation Wiki.
+Speaking about procedurally generated cities, there's also some middleware around - check out http://www.procedural.com/.
+The city zoning works as an image map taking probabilities of zones (commercial, residential, industrial) from the pixel rgb data. It would be possible to automate the generation if you wanted to, but to make cities look believable the algorithm would have to be far more complex using population AI mechanics rather than L-System and noise algorithms.
+Another interesting example of procedurally generated content is Introversion's not-yet-release game, called Subversion. Have a look at Part 12 on that page; it's specially juicy.
+Minecraft uses 2D Perlin noise to generate outdoor terrain. It can have practically infinite levels (you'd die of old age before you got to the edge) that are generated as players explore. It (probably) also uses 3D Perlin noise to generate underground caves.

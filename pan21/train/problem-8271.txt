@@ -1,0 +1,7 @@
+For Firefox, there is Auto Save Document addon which can store the currently shown document in a separate directory automatically when browsing a certain site. Unfortunately, it has some limitations. The documents are stored as html-text only (no embedded objects like pictures etc.), and there's 100 pages limit. So I'm not sure if it can meet your needs. 
+You will need a web server that can support PHP (XAMPP or other), and chrome, and it will probably take a little fiddling, but with some work, does what you want, and is very customizable.
+I'm the author of SingleFile. This Web Extension has been rewritten to be compatible with Chrome and Firefox (desktop and mobile). It has an "Auto-save" mode than allows you to save all the pages you visit in the current tab, or all the unpinned tabs, or all the tabs.
+For Chrome, you might be able to use the extension Read Later Fast, which adds "Read Later" in the right-click menu to save page or link to the RLF app, then find RLF as a new tab of the browser.
+It is decently involved, as it means setting up some kind of local server, but this page describes, and has the code to create an extension that will do what you want exactly.
+Another Firefox addon is Read It Later. It can save pages to a reading list with just one click. It's not full automatic, so you need to click on the small arrow next to the location bar whenever you want to save a page.
+You can find more info and download links on the GitHub page: https://github.com/gildas-lormeau/SingleFile.

@@ -1,0 +1,13 @@
+What I end up doing in this situation is navigating down to the node_modules folder or whatever directory has the deepest levels and just start selecting and deleting about a dozen or so directories at a time. If I get multiple deletes going, this forces the Recycle Bin to work in parallel processes rather than the single thread I believe it uses, dramatically speeds up the process.
+With many cloud backup solutions files will get locked while they are being backed up and then you have to wait for them to be backed up.
+Once my deepest directory is empty, I go up a few levels and do the same thing. This has cut down deletes that have taken me over an hour to just a few minutes.
+However, if you know the paths to all the files you wish to delete, then you can save on calls that list the directory contents and call remove directly, saving some overhead. Still proportional to the number of files though.
+It's pretty radical, but if you anticipate doing this frequently for a specific folder, it might be worthwhile creating a separate partition for it.
+Personally, I like some from of progress report to ensure myself that the program didn't die. So I like to delete stuff via python. For example, if all the files are in one directory without sub-directories:
+all large file operations in GUIs are slow - mostly because visual feedback (progress bar) has to be repainted many times
+If that's too radical, the other answers are your only hope. There is a good explanation why on serverfault. It's for linux and XFS filesystems, but the same logic applies here. You can't improve much on build-in OS functions.
+I've found that folders with several layers of directories tend to really slow down Window's ability to remove them quickly. I was working on a project where it took 5 levels to get to the node_modules folder, which is always a beast to delete, even with 
+Its a very manual process and could likely be scripted with some success, but its what's worked for me
+However, at this point it's just micro-optimization, so won't do very much unless you have millions of files in one directory. (like me, lol, what have I done D:)
+This deletes about 250 files/s on my 12 year old SEAGATE ST3250620NS. I'd assume it will be much faster on your drive.
+If you're having this issue with say a temp directory (or something that doesn't need backing up) make sure that temp directory isn't selected in your backup set.

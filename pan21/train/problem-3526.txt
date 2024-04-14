@@ -1,0 +1,6 @@
+Download the specific RPM versions you want.  Create your own local repository containing only those packages you want.  Point your clients to your new local repository.  Stop using the public ones that do not behave how you want.
+My question is: do you know of any "proxy tool" to a Yum repo server so that every agent downloads packages from there and the repo server downloads packages from the external, original sources then caches them locally? (In case they disappear from the original repo)
+It is a problem in configuration management. We want to make sure we provision a new machine with the same software the old ones have (we use Puppet).
+An analogy from Java world would be Archiva, which is a Maven repo server, but also can be used to proxy requests to public repos and cache them locally.
+Our software stack requires some specific versions of RPM packages. Unfortunately some of these packages become deprecated over time and get removed from their repos since their maintainers don't keep archives (EPEL, Percona, ...).
+I guess the standard solution is hosting these packages in a private YUM repo we set up for our own. This is beneficial for packages we need to compile from source, too.

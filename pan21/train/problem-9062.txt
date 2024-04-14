@@ -1,0 +1,6 @@
+I wonder how do I findout the IP address of this controller, so I can configure the IP of my adapter to one on the same subnet and try to see if there is a webserver on this.
+Assuming the device would be dhcp, you could make sure a dhcp server is configured for the said vlan. If not, hook the device in the same vlan as other machines. Once it gets an IP, you will be able to configure it via the web interface. Depending it's hirschmann or Schneider, usually they are dhcp at the beginning.
+If you physically have access to the device and assuming you are the network admin, you can trace down where it is connected. Find out which switch it's connected in. If you have access to the switch, like chintu said, connect your laptop to the same vlan and fire up wireshark. Good old console cable would provide access to the switch in worst case. You could've previously check for the mac address on the device physically if possible.
+A switch or computer on the same LAN/VLAN should receive ARP announcements from the device. Find out its MAC address and look for it in the switch or computer ARP table.
+I have an industrial machine controller with an ethernet connection. the Controller is DTU-1000x for a Testing Machine.
+Those devices weither it's NOE card or PLC sometimes runs under 57600 baud rate. You can try to telnet directly in those with a rs232-usb cable.

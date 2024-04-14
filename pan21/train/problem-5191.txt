@@ -1,0 +1,8 @@
+One solution I typically do, if replication / slaves are not an option is this and you're trying to avoid long running report queries;
+In this case your boss would be getting the data a lot quicker in the new report table(s). You probably have a good solution figured out already, but this could still be useful. :)
+A simple solution is to use Percona Toolkit's pt-kill option. It has several options and in use by several people.
+- Reduce unnecessary work through improved server-side statement timeout support. This allows the server to proactively cancel queries that run longer than a millisecond-granularity timeout.
+A more trivial solution is to run a cronjob every X minutes which searches for queries by your boss and kill them if they run longer than Y seconds.
+However the Twitter team has released their work on MySQL which exactly implements this (from http://engineering.twitter.com/2012/04/mysql-at-twitter.html):
+I would recommend to use slave server but it requires additional resources (server/instance). In this approach, your production server will be isolated and no damage will be done to the business even if your boss writes a worst query.
+If your boss is executing only select statement, you can consider installing and running mysql replication and grant him access to the slave database server. This way your production (master) server will not be affected if he typed a very complicated and time-consuming query.

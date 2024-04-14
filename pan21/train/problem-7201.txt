@@ -1,0 +1,7 @@
+in either cygwin environment inside windows or a linux virtual machine inside windows with windows drives mounted (e.g. with virtualbox)  
+... or you can just make a zip archive (with compression method set to just "Store"), and then unpack the files where you wanted to copy them.
+My own issue was that files have the correct time but directories did not. rsync has sorted out the dates on the directories as well as the dates on the files. 
+RoboCopy can preserve the mtime for directories with the /DCOPY:T switch, but this only works in Vista and newer.  It can also preserve ACLs.  Alternatively, FastCopy can be configured to preserve directory mtimes, ACLs, and ADSes.
+NB cygwin and virtualbox are both free and enable you to have to a lesser or greater extent linux functionality on windows - they both require a bit of setting up - particularly virtualbox, but have many benenfits....
+RoboCopy should be able to do it with the COPYALL switch.  You can grab the GUI version from Microsoft Technet.
+(this is really used as a syncing tool from one directory to another mirror and the timewindow option is to prevent issues when windows systems move clocks 1 hour for daylight savings etc. compared to linux systems)

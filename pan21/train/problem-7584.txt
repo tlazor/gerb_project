@@ -1,0 +1,7 @@
+QA. For a project this size QA is definitely worth mentioning, since this is the size of project where it's going to make a very large difference. Also I, personally, would probably break Game-play Design up into several jobs. You are definitely right that it is certainly a big one, but it's definitely large enough that you're going to want separate people doing combat and systems and story scripting, things like that. 
+Some stuff off the top of my head. Note that in real game development with large teams, people will often cross roles, so that more than one person does a task and a person does more than one task.
+I would split "server engine design" into several chunks. The person who designs the back-end data models is probably not the person who focuses on managing the massive data replication and distribution issues with real-time MMOs.
+I would really appreciate it if there aren't any answers like "Making MMOs is too expensive", "Don't even try making an MMO!" etc.
+Like Aerathis said, Gameplay Design needs to be split up. Your User Experience person will not be your story writer will not be your low-level gameplay designer will not be your economist (and so on for the mapper, the person who designs and balances classes, and so on).
+Management. Someone needs to coordinate between the different groups and make sure they are able to do their jobs.
+Graphics programming. Distinct from programming the core features of the client application and drawing/modelling the art. Someone needs to develop shaders and special graphical techniques.

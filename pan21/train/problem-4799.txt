@@ -1,0 +1,10 @@
+I was immediately suspect about that because of the nomenclature of the usernames.  And sure enough, it doesn't do diddly squat to SERVER02 (to be more exact, it does NOT change the password on SAP.. I've never tested logging in to the SERVER02 account itself since the change, but again, there's no need to).
+Before I go all ape-sh*t crazy on the IT team, I need to know: Can you link two different server user id's and have a change on one affect the other? AND, have that change also trickle down to an SAP login (I have no idea how they do that, TBH.  I would GUESS LDAP??)?
+Sorry for the long story.  But as an old IT guy, the more knowledge, the less troubleshooting/probing questions the expert needs :)
+The new site has a dropdown for the domain you wish to fix your password for, but that dropdown only showed SERVER01.
+Then our company made an announcement that there was a NEW portal site that would change both of them for us, and promptly deep-sixed the PORTAL.SERVER02.COM site.
+Forgive me in advance:  I USED to be a network admin many moons ago, but moved to management and my skills have weakened over time.  So I might use wrong terms... background first, then question:
+Our company also has SERVER02 which uses a firstinital.lastname (F.Last) which also ties into our SAP logins (and it seems we only use it to login to SAP).
+We had no self-help portal for SERVER01.  We had to call IT and wait on hold forever (Because passwords would expire in waves), to have them change it to something like SPRING17, and then when we logged in, it would force us to change it.  We used to be able to go to PORTAL.SERVER02.COM and login with the old password (Even if expired), and then click a little key icon and change the password.
+My company uses a standard windows AD login for the network on Server SERVER01 and uses firstname.middleinital.lastname for the usernames.
+So NOW, we have to call IT for that password reset, but the bigger security risk there is that YOU CAN'T change the password they give you!  So you're stuck with a simple-to-brute-force password for the next 90 days.

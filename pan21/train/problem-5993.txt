@@ -1,0 +1,5 @@
+It's not necessary to rebuild AD completely (since you didn't have backups of it) because you can create an LDF file (using ldifde.exe I believe), which subsequently creates the AD account using the Recovery Center in Exchange 2003.  This will match the mailboxes to their corresponding AD account.
+In the absence of extreme tricks by wiser minds than mine, you're definitely going to have to recreate that domain in some way in order to convince Exchange that you're legit.
+Imagine the havoc if there were a quick & easy way for someone to pull the HDD(s) from a functioning Exchange server and just pluck whatever's desired from the mailboxes?  :)
+You are going to have to rebuild an AD domain and reinstall Exchange for the purposes of recovering these mailboxes to export them.  
+Since you don't have the original hardware (and presumably don't want to purchase matching HW), I'd create a virtual machine and go through the restore procedure as if it were a clean server.  Pulling the mailboxes out of Exchange by somehow bypassing Active Directory or any kind of authentication would be a drastic departure from the purpose of AD.

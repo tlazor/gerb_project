@@ -1,0 +1,5 @@
+Just merge the tables, then create a synonym for the old table names that points to the newly merged table.
+The DBA can union both tables into one but unfortunate there are alot of legacy code (which is being constantly updated with new features) that explicitly specify the table name.
+I have two legacy tables, lets call them TableA and TableB. Both of them fall under the same schema design with identical columns, in other words you can union them directly as one table. The only difference is based on code column and you need to manipulate a specific table based on that code. So if the code falls under (1001, 1002,..) then it goes to TableA else goes to TableB. The reason they were partitioned intially was to reduce the cost in space and cpu but now these costs can be ignored (hardware is cheap)
+The answer is simple, as long as you can guarantee that self-joining the merged table will not affect all queries that hit the table.
+Is there anyway to in Oracle to solve this issue by merging the tables under one table for better administration? and bare in mind the developers can still query against the old tables and the new ones as well?

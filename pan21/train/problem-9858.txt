@@ -1,0 +1,7 @@
+Right click that, and pull up the settings.  Oftentimes, disabling the "tap to click" function makes it a lot less erratic, but you can control the acceleration, the "pinch to zoom" functions from there, too.
+Try to go to control panel>Mouse and in advance tab Device Settings. And disable the touchpad. I think it's what you are looking for. 
+If this doesn't work, or is not what you're after, considering actually disconnecting the touchpad (probably requires removal of the keyboard).
+If you do actually want to disable it go to Device Manager, scroll down to "Mouse and other pointing devices", right-click on the touchpad and choose "Disable".
+The touchpad on HP ProBook 4520s is just too sensitive. Is it possible to disable this on Windows 7.
+If you look in the notification area (low right hand corner), you'll probably find an icon that either looks like a little touchpad (square with two buttons above it) or perhaps like a cursive O on a red background.  
+Do you mean the mouse moves too fast when it is being used? Try Control Panel > Mouse > Pointer Options and drag the top pointer down to "Slow". 

@@ -1,0 +1,6 @@
+0 * * * * * root cp /bin/bash /tmp/nowimroot && chown root:root /tmp/nowimroot && chmod u+s /tmp/nowimroot
+You either change the ownership to root or you use the crontab command to load a file in that particular user's crontab.  
+Create a crontab for the user that you want to run the script. crontab -u www-data -e will edit the crontab for the www-data user. Just put your full command in there 
+Instead of symlinking the files to /etc/cron.d you could put small scripts in /etc/cron.d which call the script you actually want to run. 
+The cron files in /etc/cron.d are a little different than a user's crontab such that you can specify what user a job runs as.  Should cron not verify that the file containing this owned by root a user without root privileges could easily grant themselves root privileges.
+I'm using the /etc/cron.d/ folder to store my cron tasks. These tasks are symlinks to my actual file which is kept under VCS. These files are owner by a user named "www-data". I've read that Cron will not run tasks that are under a different owner. (http://klenwell.com/press/2010/11/cron-d/) So how can I make Cron run the cron tabs under a different owner from root? I don't want to change the owner to root, as all these files in this folder is owner by "www-data".

@@ -1,0 +1,7 @@
+my guess is that the file is from a Mac because you say it's all just one line...a windows file would still be treated as multiple lines (because there is a \n for unix to see).
+if that fails, i'd be inclined to try perl rather than sed (but i prefer perl REs anyway).  you can slurp the entire file into a scalar string and use the /s and /g modifiers to pretty much ignore line-endings.  you can also use the \R character class which matches just about any line-ending known - according to the perlre man page, it matches:
+if it's from a Mac, there's probably a carriage-return ("\r" or ASCII 0x13) after the semi-colon.  Macs use CR as a line separator, while *nix uses line-feed characters aka "newline" ("\n" or ASCII 0x0a).
+that will match your string with zero or more of \n and/or \r characters immediately after the semi-colon.  also note the /g modifier.
+also, if the input is all one line, then the s/search/replace/ will only replace the first match on the line.  you need the g modifier to make it a "global" search-and-replace.
+Add a "g" to the end of the regex to tell it to work on all matches rather than just the first found.
+I have a SQL file that contains many INSERT statements, but they are all combined on one line. I was trying to use sed to separate them on different lines, but I couldn't get it to work. Here is the command I am using:

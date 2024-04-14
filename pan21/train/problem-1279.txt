@@ -1,0 +1,8 @@
+Now, all best practice guides out there tell me that having a second AD domain controller (a "backup DC") is highly recommended.
+In your situation AD requires very little resources, so something with 4GB of RAM and a 120GB SATA HDD would work.  I'd like to see 2 cores at a minimum.  Maybe look for a used server on an auction site.
+I don't like the idea.  On the workstation, you would be running some kind of free Hypervisor with Server 20xx and the AD role.  
+You must own a unique Windows Server 20xx license that you would install on that machine and if you are going that far, I'd recommend buing a dedicated machine or scavenging up something.  
+Putting it on the same physical machine as the primary DC seems pretty pointless, so I thought of putting it as a VM on one of the stronger workstations which usually runs 24-7 anyways. Since it's just a backup DC, I'd give it very little CPU/RAM resources, so it should not affect the user too much.
+As a small shop (~10 PCs), we have only one physical server machine. This physical server machine runs the following two virtual machines:
+It is  recommend to run DC on physical server not in virtual host. You can keep ADC on virtual host 
+In case of any issues or required restart on vm host server. Might be get issues with domain authentication 

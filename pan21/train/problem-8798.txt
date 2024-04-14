@@ -1,0 +1,6 @@
+The easy answer comes by reading the file. It's a text file, not binary, so you should be able to glean what it is by just opening it up in Wordpad (Notepad can't open such large files).
+As far as your transaction log being full - I would copy off the dump file somewhere else as it sounds like it's messing up your log management. Don't do anything like deleting the log file or anything like that, or you're guaranteed to cause corruption.
+One of our Windows 2003 servers that has WSUS is full on hdd space. Doing a search for files I find this SQLDump10000.txt file that is over 25gigs. I have done some googling and it says it's read write errors plus the query or what was in memory. Can someone give me a straight explaination of what is going on here?
+Can you look in the SQL error log to see an indication of something going wrong, with a timestamp in the error log around the same time as the creation time of the dump file?
+More than likely it's a complete dump of all the data in the database, in one big SQL query. It's as large as it is because it's in text format, which doesn't use any compression at all.
+Of course, the real problem comes when attempting to open a 25 Gig text file... I highly doubt you've got enough memory on that machine. I don't know if there's a windows version of head or tail, but they would come in mighty handy in this case.

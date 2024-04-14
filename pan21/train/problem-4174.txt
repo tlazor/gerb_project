@@ -1,0 +1,7 @@
+I have the idea to set wildcard subdomain *.example.com pointing to SERVER_2, and then, on SERVER_2 to have virtual hosts which will examine which website to show according to a subdomain. 
+I have a platform/program running on SERVER_1 with registered domain e.g. example.com. Registered user can add some data and program will generate HTML pages (static website) according to that data. A user also defines the NAME of the website.
+Firebase google - good API and docs but I haven't seen virtual hosts, also they have limits on number of projects per account
+GOAL is to upload these generated static websites on SERVER_2, so they have subdomain [NAME].example.com. So, every new website should have its one subdomain. 
+Upload html files either via scp or sftp protocols. Amend that upload with a config file for nginx (separate file per each domain is standard for nginx). Then ssh to server and issue sudo systemctl reload nginx
+Does somebody know what is the best and most practical way to do all of this fully automatically (back-end Spring-boot java)? Thank You!
+Problem is that I need to programmatically do everything of this (generate the site, upload to SERVER_2, setup subdomain ...) and I need a practical way to do this using an API or do it using SSH, but I'm failing to find a solution that will fit my needs 100%.  

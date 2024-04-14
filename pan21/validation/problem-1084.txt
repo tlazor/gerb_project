@@ -1,0 +1,6 @@
+Sadly I only have permission on SQL and not on the server or file share, making this hard to check. Communication also goes a bit slow, me being in Belgium and the head office of their company being in America, that's why I'd like to get as much information as possible so I could ask everything at the same time.
+This kind of made me believe that the folders are somehow locked and the lock gets released after the job has run, but failed. The next time the job runs, it can continue with the next folder until they are all unlocked?
+We are facing an issue with our replication server. We are currently setting up a new environment to replace the old replication server and we keep getting the following error.
+When we run the snapshot job X+1 times, it succeeds, with X being the number of subscriptions we have.
+Sometimes when we run the job to generate a new snapshot, it fails and sometimes it succeeds. Since it sometimes succeeds, I'm sure it's not an issue with access or permissions, else it would always fail.
+My second thought was that something is locking some of the files, not allowing SQL to delete anything from the folders. 

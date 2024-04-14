@@ -1,0 +1,8 @@
+We use Runit for all non-system-installed packages, such as Rails applications, so we don't have to manage init scripts; we just pop the startup command in the appropriate 'run' script, and let it go. This simplifies deployment of arbitrary new programs that need to start at boot time, and is a very robust and reliable system, eschewing the need to manage PID and lockfiles, since Runit handles that.
+Normally I hand make a new init script for each new process but I don't normally deploy 4 or 5 scripts at once like that. Maybe think about how they are structured and put them under one init script which is the service that they provide. 
+If your programs are running in the foreground, I suggest Runit, which is a replacement for the previously-mentioned daemontools, and is also a replacement for Sys-V style init. On Ubuntu, Runit is available as a package and has the necessary scripts to be started at system boot by Upstart.
+You can also simply add them to the /etc/inittab . Many will (perhaps rightly) say this is evil because no-one will think to look there, I have seen production systems that use this technique and the truth is it works well.
+daemonize : www.clapper.org/software/daemonize/ can handle this by wrapping your code in a C wrapper that daemonizes before executing. 
+Maybe you could look into monit as well, it can make sure processes are running and restart them if necessary. It was built with the Linux-HA environment in mind though. 
+You can use xinetd for this, if the process is network based. Otherwise, upstart and sysvinit are your tools.
+I've got a couple of servers on my Ubuntu that need to be restart-proof daemonized. How can I do that with generic init first process? Should I swap to upstart or some other replacement?

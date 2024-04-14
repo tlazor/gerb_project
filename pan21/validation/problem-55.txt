@@ -1,0 +1,8 @@
+Here's that Wikipedia link; the interesting bit is in the Signaling section.  As others have noted, there is no difference in the connectors.  
+USB functionality is provided by a controller chip of some sort.  There is no physical difference between USB 1.1 and 2.0 sockets that I've ever encountered.
+The only other potential source of the problem (that I can think of) is that the front sockets may be part of a small PCB which includes a USB 1.1 controller.  If that's the case you should be able to remove it without much trouble, and install USB sockets that wire directly to the motherboard.
+Now, the problem you're having could be due to a few things; possible corrosion on the old connectors seems most likely, though cheap wiring between the case's connectors and the motherboard could be picking up interference and not allowing the USB2 handshake to succeed.  If you're up for the case modding, replacing the case's front sockets and interior cabling should fix both possibilities.
+In other words, you are only limited by the USB controller physically mounted either on your motherboard, or in a peripheral slot.
+ALL USB 1.1 connectors and full-speed cables are capable of connecting to, and running at, USB 2.0 specifications. 
+So, yes, those ports on the front of your case WILL convert to USB 2.0 ports as long as they are connected to a USB 2.0 controller.
+What sort of case do you have?  Most cases that I've seen that have front USB ports connect them to the motherboard via a cable.  Do you have some sort of case where the front ports are hardwired to your motherboard?

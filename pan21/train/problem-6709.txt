@@ -1,0 +1,6 @@
+There are some valid arguments both for and against using your existing domain @example.com for campaigns.   
+Typically your existing email infrastructure is also not designed to handle the additional volume of traffic that a big email survey/campaign could generate. 
+Typically the first and the second should have a preference as that creates sufficient separation from your existing email. 
+From a technical perspective a big risk with surveys/campaigns is that recipients will consider such a survey as spam (even though they are otherwise quite willing to receive other email from your company). If your existing domain is used and too many recipients consider the survey spam that will result in the loss of reputation and potentially threaten the reliability of the delivery of all your email and not only the survey/campaign emails. 
+Although I can also imagine that non-technical people assign more value to @example.com as an email address and closely associate that with your online example.com brand.
+The email survey/campaign may also be on your side. Typically they are required achieve a certain conversion rate that they can best guarantee if they can use their own tried and trusted infrastructure and depend as little as possible on you. A separate domain or a subdomain that gets delegated towards them will work much better for them than 

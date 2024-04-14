@@ -1,0 +1,6 @@
+Maybe I just check if the hourly job is running when I'm going to turn xp_cmdshell off in the hourly job.  I'll probably go with that, but what would you do?
+We've got a backup script which needs xp_cmdshell to run.  I decided that on new servers, we are not going to enable xp_cmdshell.  I enabled xp_cmdshell when the job starts and turn it off at the end.  The problem is that if a full backup starts and the hourly log backup runs and finishes, it will turn xp_cmdshell off and the hourly backup will fail.
+Maybe a powershell script would do the trick?  That could be scripted into a job step and conditionally executed on success...but then it all happens at the end leaving backups if we fail half way through - the backup drive would then need to be manually cleaned up if we're tight on space.
+This lead me down the path of trying to detect if a job is running, etc.  But is there perhaps a better way to cleanup?  
+I add a job step to my backup job after the backup step and run a version of the code below.  This would remove any BAK files that are over 1 day old.
+The best scenario would let it execute from within the backup script, so it would delete backup files after a successful backup is made.  If there is an error in a backup for any reason, this lets the backup continue for other databases.

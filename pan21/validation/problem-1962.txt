@@ -1,0 +1,8 @@
+I'm trying to pull a git (github) repo via Puppet. I've used the official vcsrepo documentation and borrowed from the Fiesta post to come up with the following config:
+The problem is, when I run this, I get the following output. I've chopped most of the logging related to the Package and Sshkey, as they appear to be fine:
+Looks like the problem is that you're giving it a path of "/tmp/" - the error is saying that something already exists at the path which is supposed to be the repository (the /tmp directory), and that it's not going to proceed because of that.
+This appears to be the same as in this bug, though the pull request is either a 404 or inaccessible, so I don't know what version contains the fix. (it says "pending release", admittedly) There's also the following discussion, but it links to an invalid bug ID too.
+So, is the answer that git-via-ssh doesn't work? How do I pull a private repo from github? I'm loath to use exec if I can avoid it, but maybe that's the answer.
+If the answer is "use https instead", how does that work for authenticated repos on github? Simply saying "you can't use git-via-ssh with the current version of vcsrepo" is not a sufficient answer.
+There's also a postscript on the vcsrepo doc that says "use require" and "see /examples/", but there aren't any substantial examples. Sigh.
+For what it's worth, I tried "ensure bare" instead. Doesn't work (same error). Note that neither "ensure bare" or "ensure latest" give the command that is being run in the logs. I don't know if that is a problem.

@@ -1,0 +1,6 @@
+CHANGE MASTER TO MASTER_HOST = '192.168.0.12', MASTER_USER = '$master_username', MASTER_PASSWORD = '$master_password', 
+If anyone has an idea of what could be going on or what I do wrong, then it would be quite helpful ! 
+When I first started, I managed to get a Master/Slave replication working about after a week ( even though it was the slave which could write on the master ) so I decided to set it up the other way around to transform it into a master/master replication, and it's "broken" since then (not working on either M/M or M/S ).
+( and others I've found on various websites which I though could help me make it more precise and maybe work )
+So for 2 weeks, I've been trying to set a Master/Master replication ( with apache2 web server and mariadb database ) on two Raspberry pi using different methods I've found all over the web ( french tutorials as well ). Many of these methods were quite alike, but I still can't get my replication to work and now I'm stuck because I don't get what I'm doing wrong. 
+CHANGE MASTER TO MASTER_HOST = '192.168.0.15', MASTER_USER = '$master_username', MASTER_PASSWORD = '$master_password', MASTER_LOG_FILE =mariadb-bin.xxxxxxxx;, MASTER_LOG_POS = xxx;

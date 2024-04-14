@@ -1,0 +1,6 @@
+It's really simple to setup and works very well. You can put in transparently on your network by putting it in network bridge.
+Also, hosts3d (formerly homestead) if you're running *NIX / *BSD.  It is IMHO the most underrated network utility that currently exists.
+if you have netflow capable devices use it. although it originated at cisco many hardware vendors support it. if it´s too taxing on your hardware use sampled netflow.
+I'm going to advocate Pfsense again. PFsense can by default graph outgoing / ingoing bandwidth. If you add the Bandwithd plugin, you can graph the traffic coming out of each node of your network on a per-IP basis. It even displays the type of traffic.
+I'm looking for a router & firewall device that will provide built-in bandwidth monitoring; meaning, I go to the web control panel for the device and I can see a real-time breakdown of how much traffic each IP is using (and even better, identify the MAC of each machine so I can exclude them from the network if necessary). I know there's third party solutions that can analyze syslogs in real time, but really what I want is a simple, plug-and-play device that offers this kind of real-time analysis out of the box.
+but most of all get a netflow agregator like http://nfsen.sourceforge.net/ for accumulating and visualizing the data.

@@ -1,0 +1,6 @@
+Last it can sometimes be the SQL service that creates the backups and that would be difficult to limit without breaking the service
+Also another common mistake when creating a SQL backup is to forget to add the ".bak" extension as it is not added automatically.
+In this specific situation I would change the default backup location using SQL management studio to put the backup files in the correct place.
+This is where I would build a custom DB Backup/Restore tool that uses paths from a configuration file so the right paths are selected by default. You can only screw that up intentionally.
+Since these users are members of Administrators, this means (wait for it) that they are administrators and can fill the disk if they want to. It sounds to me like the real problem is that you have people that are members of Administrators that shouldn't be. You say they are administrators for "a variety of reasons". If these reasons are  political rather than technical, then there's not going to be a viable technical solution, because you are asking, "How do I restrict administrators?" (The answer is that administrators can bypass all restrictions.)
+After the installation, enter the 'File Resource Server Manager' mmc console, and follow these steps:  

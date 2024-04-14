@@ -1,0 +1,6 @@
+I must have made a mistake when setting up certbot and ran it with 2 domains. I presume my cwd was /etc/apache2/sites-available/ and so certbot put a certbot.log file there. Which then broke further runs of certbot.
+What's interesting is that it can't renew site3.ie, but the error message is about site1.org. It looks like it somehow has both domains (site1.org wwww.site1.org) in a string where it expects just one domain??
+I have 3 websites on this machine (site1.org, www.site2.com, site3.ie) with lets encrypt and only one of them is broken?
+This is a bug in certbot-auto because any non-apache config file in /etc/apache2/sites-available/ will break certbot.
+If you look carefully, you'll see that certbot-auto is complaining about the file /etc/apache2/sites-available/certbot.log. Why is there a certbot.log file in /etc/apache2/sites-available/? I don't know. But it shouldn't be there. I think certbot is trying to parse that file as an apache config file, and failing (hence the SyntaxError message). I moved that file out of the way, and certbot auto is able to work fine.
+I have an Ubuntu 14.04 Trust server, with a Django app served with Apache 2.4. I have set up Let's Encrypt with a SSL Cert. The cert is installed, but will expire in 17 days. /root/certbot-auto renew --apache gives the following error, and the cert isn't renewed:

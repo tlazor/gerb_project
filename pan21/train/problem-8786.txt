@@ -1,0 +1,8 @@
+Any tips or pointers as to how to, once I've found the string "-Dmysql.host=" in the file, show everything to the next white space would be appreciated.
+From the information given, I would go about this by first splitting everything based on whitespace, and then split those tokens based on the = sign.  Pure bash solution would be something like what follows. 
+Perhaps there is a better method.  I plan on running this on a dozen machines or so eventually to return a list of which application machines are configured to talk to which db machine at a glance.
+I realize there's a grep in there that sed could handle but this is just easier to write, sed can be awkward.
+We have an application that grabs it's setup parameters from a file. I want to extract one or two statements from the startup string and present them as a nice table.
+You should end up with a value that is the value of mysql.host.  You can put the -D in the match also if you want, but I have left it out because it is a parameter to grep and you need to escape it.
+Since IFS is probably whitespace, the shell takes care of splitting based on the whitespace.  You can then use Parameter (Variable) Expansion to handle spiting into key / value pairs  based on the equals sign.
+An example string would be -Dmysql.host=mysql1.company.com  but it might also be an ipaddress or a machine name and not an fqdn.

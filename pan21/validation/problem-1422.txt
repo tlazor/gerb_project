@@ -1,0 +1,8 @@
+This either means that your router is misconfigured or that you are behind another NAT of some sort.
+You could have added information about your way of connecting to the internet and your ISP on your question, that might have helped..
+Your ISP may block traffic on port 80 to stop you from running a web server, try a high port like 48928
+The suggestion that was posed earlier about the router not happily relinquishing port 80 is a valid concern.  I have dealt with problems like this before with good success so I will share my experience with you.  
+If shields up tells you that the port is "stealth", it means that a firewall on the way silently drops the packets.
+This port is always my first choice. Your ISP cannot lock this port down without breaking every website that allows you to buy something online.  
+The second point is very unlikely - firewalls usually just drop unwanted packets, as a reply would mean sending just more unecessary traffic through the pipes, an attacker might gain knowledge from the reply, or the source IP may be spoofed (that could even mean somebody is using you to attack someone else..).
+Not quite a victory, however, because the client's http proxy does not support CONNECT, which means I can't ssh in. 

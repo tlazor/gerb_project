@@ -1,0 +1,6 @@
+So is there a way to enable write access to that windows shared folder only for my backup program and not my actual user account? currently my user account is admin since I tried (back in the vista day) to run separate admin and user accounts and it was too much of a hassle.
+Since your user is an Administrator, any program ran by this user, can have it's permissions elevated.  If you are worried about malware infecting your network share, then you shouldn't use an Administrator account, unless you actually need the elevated permissions. 
+A user must have write permissions to a network share, in order to perform any backup to the network share.  If a user is granted write permissions to a network, then malware ran as the user, would also have access to the share.
+I would like to backup to a network drive. However I don't want viruses, trojans, etc. on my PC to be able to delete data on that network drive.
+Since the user is an Administrator, any malware you are infected with would have the capability to have elevated permissions.  This means won't be able to prevent malware from accessing the network share.
+You could configure your backup program, to run as another user, and only grant that user permission to the network share.

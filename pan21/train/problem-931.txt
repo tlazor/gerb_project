@@ -1,0 +1,7 @@
+Depends entirely on what the content is that you're backing up and whether RoboCopy is likely to be blocked from accessing open files etc.
+Other options to move the data include imaging, Windows Replication, and others. But usually I use robocopy, because it makes a very good log. 
+Robocopy is an excellent tool to copy the data. You may want to do a diff afterwards, maybe with Beyond Compare.
+Any backup strategy is only as good as the test restore process you put in place to verify that your backups are working, complete & can be restored from to the extend that you were anticipating.
+seeing how it does not do a write verify unless scripted (or is it needed?) is it a decent option to dump a few folders to another server? i am just worried about whether the data, after being copied, might be corrupted but you would not be aware of it being buggy?
+i have used it in the past without issue but am seeking feedback in case i missed something obvious.
+I've worked in plenty of places that have been running backup jobs reporting success & verify every day for ages only to find when they needed to do a restore that whilst the job had worked it didn't actually pick up all the data needed to recover the failed system.

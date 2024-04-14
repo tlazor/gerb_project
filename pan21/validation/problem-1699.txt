@@ -1,0 +1,6 @@
+The ideal approach in the troubleshooting world has to be isolate-and-conquer. Hope I made some sense.
+In the following example event it is clear that the gateway resolution fails for the network location awareness service, but it is not clear what the cause of this event is, nor what error code 0x43 stands for.
+I must say that this is one of those times when we'll have to sit and analyze the issue for a good time. I'd probably do the following in this case:
+i'd start by searching for key words, NlaSvc for example. Then possibly identifying the interface - maybe going to search for other log messages. All in all its a hunt the thimble game and you'll get better at it as you do more. 
+The 0x43 in windows networking world means "The network name cannot be found" 0x43 = Decimal 67. So if you look up windows error code 67, you'll get this up.
+I don't know of any sites offering this info and wait to be corrected. However answering your in a general way is say - this is where your skills as fault finder come into play.

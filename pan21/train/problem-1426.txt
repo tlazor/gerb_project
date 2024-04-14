@@ -1,0 +1,10 @@
+Windows firewall don't block DHCP by default, but, as you're using McAfee antivirus, it includes a firewall, which can be configured by your organization' admins to block DHCP, or can just be broken.
+Uninstall everything to do with McAfee and Norton. I've seen many networking issues caused by these "antivirus" programs.
+– then it's not the problem), or will be started (then try to connect wi-fi again), or some error. If that's error, then you need to follow path of fixing you dhcp client.
+McAfee staff considered that using Windows Firewall instead of theirs is valid resolution and closed one.
+One strange thing I notice is under Device Manager, Network Adapters I have 4 "Unknown Devices" and three "Remote NDIS based Internet Sharing Device". My guess is that this belongs to McAfee. Not sure if this is related or not, anyways to try to fix this I tried downloading the NetLUIDfix.exe utility from McAfee but it didn't work. 
+So, you can leave McAfee antivirus running, but turn off its firewall (if your org admins allow): http://download.mcafee.com/products/webhelp/4/4105/GUID-6E2C3F81-4334-490A-A0C0-EABE466A5400.html
+If your org admins won't allow and won't fix the issue by themselves, I guess you should complain to them.
+You must be using some of the virtual adapters, which might be causing the problem, go to Network and Sharing Center, and try disabling the connections which are not required by you.
+I have tried downloading the latest drivers for my wireless adapter, resetting the TCP Stack and still have this issue.
+I keep getting an invalid IP via DHCP (169.254.x.x), this happens for ALL wifi connections (home, office, etc).

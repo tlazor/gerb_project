@@ -1,0 +1,6 @@
+If there are several developers you'll have to all unify on a single directory structure so that IT only have one extra rule to worry about.
+Process Explorer is a nice tool to look and see what programs or services are running and their resource utilization, including child processes.
+Talk to IT (through your manager if necessary) about getting your project directories excluded from the on access scans. You'd still need to do weekly(?) scans to be on the safe side.
+Have you tried a registry cleaner? Also try turning off unused start up processes. And you can run a Disk defrag.
+Given that it's the IT department pushing out McAfee, one possibility is that it's checking all files for viruses - including the files you're working on - and as you're making (relatively) lots of small changes to lots of small files this could be triggering lots of on access scans.
+If your system works slow try to remove all the temporary files from your computer. Run disk clean up and disk defragmenter on your computer. Type Msconfig in RUN go to stsrt up tab and uncheck all the non microsoft services. Reboot your computer.

@@ -1,0 +1,12 @@
+2) Browse to /Applications/VLC (or /Applications/VLC.app) and select it. Press cmd+I (or right click -> Get Info). Click on the icon in the Info window which opens up. Press cmd-c to copy the icon. 
+Select a file of the desired file type, say video.avi. Press cmd+I to open the Info window. Go to Open With, and select the VLC - new instance.app (or whatever you called it) file there. Next, click Change all to enable all files of this extension open in the same way.
+1) First, follow the steps given here: http://wiki.videolan.org/How_to_play_multiple_instances_of_VLC
+a) Open the desired media files/file types in a new VLC instance by default. (i.e. when you double click a file in Finder, or play it using a launcher app like Spotlight/Alfred)
+If it's just a few instances you need, you can use the rather inelegant solution of duplicating the app a few times and launching all the copies.
+c) Allow the drag-n-drop to open the selected file in a new VLC instance. (This might be useful if don't want to change the default "open with" action).
+4) Save a shortcut to the newly created VLC - new instance.app in a convenient location (like the desktop, or any other location on the Finder sidebar), so that you can drag and drop files to it, even if you don't want their default "open with" action changed.
+Compared to the other solutions mentioned here (which might work for you as well, depending on your needs), I explain below a more "complete" solution to this problem. This will:
+Now browse to /Applications/VLC - new instance.app (or wherever you created it). Select it. Open the Info window by pressing cmd+I. Click the icon on the Info window that opens up. Press cmd-v to paste the previously copied icon. Voila, your app wrapper now has the VLC icon!
+3) Now repeat this step for all file types (e.g: .avi, .mgp, .mkv, etc) you wish to be opened in a new VLC instance by default:
+-> I would suggest calling the file VLC - new instance (or VLC - new instance.app if you have set the ".app" extension to be shown after application names) and saving it in the standard Applications folder located at /Applications
+That's it! Hopefully, now you'll never lose a currently playing/paused video, when you want to open a new one without quitting the current one. :)

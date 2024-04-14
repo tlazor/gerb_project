@@ -1,0 +1,8 @@
+EC2 does not know what type of file system, if any, is on the EBS volume, much less the amount of space used by files in the file system on the EBS volume.
+[Ignoring the second, unrelated question about Mac browsers, Java, etc. Probably best if you remove it and post it as a separate question.]
+EC2 has no visibility into what is stored on the EBS volume at a conceptual level (though it obviously moves bits back and forth).
+This means that Amazon EC2 cannot provide an API (how they make available all information) that tells you how much disk is used, so you must log in to the instance to find out.
+Explanation: EBS volumes are block devices. Amazon EC2 provides this block device attached over the network and it is the responsibility of the operating system and software running on your instance to add a file system on top of the block device.
+Short answer: No, you need to connect to the instance to see the disk usage in a file system on an attached EBS volume.
+If you elaborate on exactly what you are trying to do with some background on the situation, it's possible somebody might be able to provide an even better solution.
+Now on to some ideas of how it is possible to find out how much of the disk is used without logging in to the instance:

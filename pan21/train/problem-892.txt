@@ -1,0 +1,13 @@
+Also, in looking at your question closer....why not just put that rsync code into a bash script...and stick it in /usr/bin/..... Then you could just chmod+x that file....and simplify your .plist to fire that script whenever you like ....
+Lingon is a good GUI tool to manage launchd. The project appears to be unsupported now... but it definitely still works on 10.5.x. 
+The documentation for this is in launchd.plist(5).  Note that that manpage stresses that the value of the ProgramArguments key is passed to execvp(3).  It's the execvp manpage that explains about the PATH searching.
+You don't have to include the path to rsync, but in this sort of context, it's probably prudent to do so, to avoid having to rely on the PATH being set appropriately.
+I can't find documentation that this is actually standard behavior, but it seems that launchd requires absolute paths in plist files. So try /usr/bin/rsync instead. Works for me!
+– Nothing happened. Manually executing the rsync command in the terminal yields the expected result.
+You have one wrong thing in your .plist file, and one dodgy thing (each of these points has been touched upon in earlier answers; I'm bringing them together here).
+Whenever I see a '1' it's usually because I've put the script in the wrong place, made a typo or have set permissions incorrectly.
+I’m unable to schedule a periodic launch with launchctl/launchd on OS  X (Leopard). Basically, I’m unable to find a step-by-step list of instructions on the web and the intuitive approach doesn’t work.
+I’m fairly sure that the job was registered correctly because if I try to start a non-existing job, I get an error message (which I didn’t get in the above command).
+This will tell you if the .plist is firing correctly. It'll return 1 if the daemon is not lauching , and a '0' if it is successful. Maybe look for that. 
+Because you omitted this first argument, your .plist will have invoked rsync (through being named in Program), but rsync's 'first argument' would have been /path/to/folder, and not -ar (the running program will have been very briefly visible in ps output, before it exited with an error, but named as -ar, which is the content of the zeroth argument).
+The first argument in the ProgramArguments array is the program to be executed – you'd omitted this.  If the Program key is omitted, then it defaults to the first argument of ProgramArguments; it's probably wise to specify this only once.

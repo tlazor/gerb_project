@@ -1,0 +1,9 @@
+However, before the three files could be renamed on the Windows 10 box, the ownership for each directory below was changed from the TrustedInstaller to an administrator account.
+In order to use the W2K12 built-in RDP client on the Windows 10 64-bit computer, the three files below were copied from a Windows 2012 R2 Server to the Windows 10 64-bit computer after renaming the original files on the Windows 10 workstation.
+Click on the mstsc tile to run Terminal Service Client, enter Windows 2000 name and select resolution you like, hit Connect and enjoy!
+After extensive experimentation, a workaround was finally discovered for an incompatibility problem (scrambled text) between a Windows 10 64-bit Remote Desktop client and a Windows 2000 Advance Terminal Server with SP4.
+I have problem with connection to remote machine by RDP in windows 10. Remote machine is windows 2010 and I'm using build in client: mstsc.exe
+If you don't want to install, you can just simply copy Disk2 folder onto Windows 10 local drive, create a tile by right-click on the file mstsc.exe and select Pin to Start.
+In addition, the W2K12 Server R2 Remote Desktop client running on the Windows 10 computer had to have its Experience Tab\Persistent bitmap caching setting disabled before the text would be displayed in a clear fashion.
+Graphics on desktop is blurred, like on screen. After logging some icons and text are also blurred. 
+I installed Terminal Services Client from the Disk1/Disk2 Client creation during installation of Windows 2000 Terminal service.

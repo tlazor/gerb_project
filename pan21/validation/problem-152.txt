@@ -1,0 +1,7 @@
+Many physical devices have natural PPI characteristics. Screens are often 72 PPI, 100 PPI, or about 300 PPI for "Retina" devices. Laser printers start at 300 PPI and higher.
+Scanners are another area where PPI is important. If you scan a 1" image at 300 PPI, you get a 300x300 pixel image. Set your scanner to 1200 DPI and you get a 1200x1200 pixel image, that is much finer detail. 
+So if you show a 256x256 image on a 100 PPI screen as a direct mapping of one image pixel to one screen pixel, you'll get an image 2.56" across.
+In summary, PPI is irrelevant to CV or ML algorithms because they only care about the number of pixels. 
+If you zoom into the image you can make it bigger on the screen, and it will now cover more than 256 pixels of the screen. The underlying image data will still be an array of 256x256 values
+PPI is only relevant for physical objects, like representations on screen or paper. It is pixels per inch, and defines how big an image X by Y pixels appears on that object. So if you have a 256x256 pixel image, and you show it at 256 PPI on a screen it will be 1 inch square if you put a ruler up to it.
+For computer vision tasks using deep learning, should I worry about image size (e.g. 256 x 256) or PPI (pixels per inch)?

@@ -1,0 +1,9 @@
+On the other hand, you can utilize multiple AWS accounts. For example, one for each of your clients.
+I'm a freelancer with multiple clients. It would be nice if I could log in using my own email and access all customer's resources, but that they can only access their own.
+If you are willing to pay the bill, and collect from your clients, then you can make use of AWS "Organizations". All the separated AWS accounts can be collected under an umbrella AWS account.
+This way I can give admin permission of project A to user A, and admin permission of project B to user B, but user A nor user B can modify nor access the other one. This is pretty straightforward in Google Cloud Platform and was wondering if it's the same in AWS.
+Multiple accounts per clients, a Master billing account that also has your IAM Account in it that you switch roles between. And set up an org to manage the IAM users in the other accounts.
+Also, there is no way for a bill to actually be split. You can see a breakdown of the bill using resource tagging, but there will only be one bill. You will be responsible for paying that bill, and recouping the appropriate costs from your clients.
+It's possible to have these types of permissions, however, there's no way to "hide" resources belonging to one client from another client.
+So while client A can sign-in and only interact with their resources, they will still "see" resources from client B.
+Is it possible to separate resources (EC2 instances, S3 buckets, etc) by project, and have separate permissions per project?

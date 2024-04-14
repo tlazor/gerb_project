@@ -1,0 +1,10 @@
+This must not be Automatic (DHCP). As this includes whatever your DHCP server sets. Including a local network DNS server, from ther routers IP 192.168.8.1.
+I put in two of the best open DNS resolvers on the internet googles public dns and cloudflares public dns
+What is causing this error? This issue seems to be on my computer only. Running the same query from other computers on the same network does not give this error.
+I need to disable this being set via DHCP in network manager. nameserver 192.168.8.1. And force it to use the open DNS resolvers from google / Cloudflare.
+The first time I run a DNS query such as dig google.com, I get a nice answer. However, subsequent queries returns 
+I saw intermittent success DNS query resolution with numerous failures. Giving one of the following errors. 
+I had a combination of problems. First, my Huawei wifi / LTE router was set as the default resolv.conf via DHCP. 
+Trying switching it off and on again. In my case, they had hardcoded it to use the ISP networks name servers which were also not resolving IP address correctly. 
+In my case, it was a bad resolver in my resolv.conf. I actually saw a number of issues with my dig. This was a miss configured resolver on my local wifi router. 
+My second issues were that I had included a search domain of search one.one.one.one google-public-dns-a.google.com. I had not used this wifi connection on this laptop in a long time and the setting I had put there was from so experimenting I was doing. Which added to the problems I was seeing. bad label type

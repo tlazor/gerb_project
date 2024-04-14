@@ -1,0 +1,7 @@
+Usually to resolve this problem it's only needed to set stricter permissions for ~/.ssh. But in this case it's not possible, since it's a shared folder.
+The proper solution is to stop using root to check out a git repository.  Give each user their own account and keep the permissions tight enough that security isn't compromised.
+I'm using a VirtualBox VM with Debian as guest OS. In order to share SSH keys between the Windows host and the Linux guest system, I've defined the folder ~/.ssh as a shared folder. Bun now I'm getting an error:
+Disclaimer: I now believe this is a permissions check by the git client, not the ssh server. That would make this answer incorrect. I am leaving my answer here so that we don't have to go over the topic again.
+The answer is in man sshd_config, you're looking for StrictModes. It cannot be configured on a per-user basis; that's very deliberate.
+I really don't want to answer this, but someone is going to post the answer you're looking for eventually and it may as well be with the appropriate disclaimers.
+A different solution would be to use one of the web-based git servers rather than an SSH-based one.  I've never used any of those so I can't give you much advice there.

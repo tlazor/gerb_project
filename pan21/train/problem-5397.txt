@@ -1,0 +1,6 @@
+Wait... I figured it out, after realizing that you can use regular expressions. I ended up doing this as my single server section:
+However I feel that it's a little bit fragile the way it's set up right now. What if the IP address changes? Or what if the DNS entry changes? I would prefer if it would simply respond to all requests on port 80, regardless of the hostname.
+I've also got an upstream section for thumbor, based on this guide. And this works; I can access it via http://ec2-52-1-2-3.compute-1.amazonaws.com/... or via http://52.1.2.3/...
+As you can see all I did there was pare it down to a single server section instead of two, and I removed the server_name variable from that section. But rather than responding to all requests like I hoped, it no longer responded to any. It would 404 on everything.
+This is a part of my /etc/nginx/nginx.conf file. (I've modified it here slightly as to not disclose the actual IP address or DNS entry, but you get the idea.)
+No need for regular expressions. You can do it by appending default_server to your listen directive, like so: listen 80 default_server;. This points to the configuration which is to be applied if a request is directed at server IP but no hostname is matching.

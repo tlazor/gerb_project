@@ -1,0 +1,5 @@
+So how should this be handled? Do I flag certain packet types as resend. Do I send send a field in all dependent packets saying they depend on packet number x? Neither seem very elegant. 
+My issue is, some packets need to be re-sent until they are received, such as a packet stating that an entity has been created in the world. Others, such as updating the location of an entity don't need to be re-sent if a newer packet containing location data has already been sent. 
+All of this is per-client, so the actual game code should know nothing about it, only the networking code. 
+Like most people on this exchange concerned with UDP client server connections, I've gone through the Gaffer on Games article about implementing reliability. I understand how the ordering and acks and what not works (I think).
+What if, say, an entity is created and destroyed within a second. Say the create packet is lost but the destroy packet is received. The client has been told to destroy a non existent entity. If it just ignores this, when the create packet is re-sent, the entity will never be destroyed causing inconsistency.

@@ -1,0 +1,7 @@
+To give an example about the DRBD issue with mdadm see here (difference of 512 blocks smaller in f2 layout):
+I would prefer to make the change non-destructively to save time copying the data over again, but the data is backed up, so destructive changes would be ok too.
+I too wanted to try this, now a few caveats about doing this.  As Pawel said, it cannot be done without recreating.  There is no shortcut, what I did was simply disable the array, recreate with the same partitions and then tried to mount hoping by some miracle things would magically work (they did not).  If you do try, you will get a kernel panic (yes I tried and this is what happened).   So very bad idea if you have a remote server and no KVM remote/reboot (fortunately I do have it but many do not).
+The only method is to destroy and re-create the array with new parameters. Neil Brown have written in his recently published road map for md:
+I created the array during installation (with Ubuntu Server disc), but the layout is near and the chunk size is 64.
+One other caveat is that I was shocked to see that the same partitions in --layout=f2 are slightly smaller by hundreds of blocks.  Why is this a problem?  If you are using something like DRBD where the size MUST be exactly the same it is a predicament.
+I actually wish mdadm would default to --layout=f2 in RAID10.  Essentially to get real RAID1 performance, you need to do a two-disk RAID10 in f2 layout (very silly) but at least it is an option.

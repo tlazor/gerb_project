@@ -1,0 +1,7 @@
+I had a few builds failing for "no space left on device" so I suspect this is where all images end up going. 
+Daniel's answer is right but I found an easier solution. In my case, I think I did migrate from docker-toolbox back in the days which locked by database to ~17G. I found it easier to follow these instructions:
+And did a df -h. It says I have a /dev/sda1 mounted on /var/lib/docker/overlay2 with 64 GB of disk space. 
+Docker Desktop 2.0 on MacOSX allows you to change the size of the disc in the GUI. Go to Preferences->Disk and increase the disc image size.
+1) This is a VM disk image stored in the same directory as the tty socket you mentioned: ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/Docker.qcow2
+It seemed to work on my side. The github issue comment above mentions docker save and docker load commands that let you backup your containers before nuking your Docker.qcow2. I didn't use them since I didn't really care about my containers.
+2) AFAIK it's not possible to resize this existing disk, you'll need to recreate a blank VM disk with a larger size:

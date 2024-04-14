@@ -1,0 +1,6 @@
+Copy and paste them, then replace "###" with "=" in the original and "###correl(" with "=slope(" in the target.
+I have a bunch of formulas in a column that I wish to duplicate exactly into another column, where I will go through and tweak them so that a different function is run on the same parameters.  When I do a copy/paste, the cell addresses are all altered to be one higher, which is not desired.  The only way that I have found is to move the cells using cut/paste, but then I destroy the source cells, leaving me without the duplicate cells.
+Alternative is to find/replace "=correl(" with "###correl(" so these are no longer valid formulas, so they don't update when copied or moved around.
+If you want more detail, I have a column full of CORREL() calculations, and I want to duplicate them to another column where I will do SLOPE() calculations.
+Say you have a formula which references cell B3 and you copy it and paste it one cell down - as you know it changes it to be B4.  if you copy it one cell to the right it changes it to C3.  Right and down becomes C4.  It keeps the distance relative to where you paste it.
+Excel has a handy little coordinate locking facility.  It involves prefixing the coordinate you want to lock with a $

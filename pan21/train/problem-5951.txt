@@ -1,0 +1,6 @@
+Unfortunately, the module formats (family which XM format is part of) are not perfectly specified, and various replay routines play them slightly differently.
+Some of the music I've made for my game have note bends in them (1xx Portamento up)...The problem is that when they play in my game, the note bends and then goes right back to original note instead of staying at the new tone it bends into.
+I believe this to be an issue with SDL_Mixer and not with the XM file itself since it plays just fine in any tracker program I load it into.  Is there anything in the SDL_Mixer loading/playing functions that I could do to fix this?
+MikMod is, for lack of better words, often horrible. It is likely the root cause for your misrendering. The mixing in SDL_mixer doesn't know anything about notes or effects, it just mixes together one or more streams of audio.
+I asked some friends of mine with extensive experience in module quirks and they recommend using a more sane module rendering library, like DUMB (no affiliation), which I've used in the past in my software.
+There's really nothing you can do, apart from "fixing" the replay routine (to which you probably have no source) or modifying the XM itself (so it plays "wrong" in the XM editor, but "right" with your replay routine of choise).

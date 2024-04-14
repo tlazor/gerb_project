@@ -1,0 +1,6 @@
+Like a teacher who has too many tests to grade, I get a report back: My answers are wrong. I get an F. That's not good. Now I have to study the material again. I wish I knew what to study. Studying the whole material means I'll be busy all night.
+I think you should either wrap a new NullPointerException() in your IllegalArgumentExceptions, or alter the message to contain "Null is not allowed!". Alternatively, take a look at Objects.requireNotNull(T object, String errorMessage): It validates for not null and allows you to pass a specific message.
+I don't know that I passed you null. I gave you some sort of variable, and it comes from my pretty badly written code. And you say Illegal Argument!. I look through my code and I see nothing wrong.
+I don't like validateArguments. I can't give you a definitive reason; I understand why it's there. It's certainly better than having all sorts of != null in all your other functions.
+If you said Illegal Argument! Null is not allowed! I'd have said "Oh yeah, that's right!" and been on my way.
+I like the rest of the code. I read it thoroughly; All I'm wondering about is whether "over-riding" should be "overriding" instead.

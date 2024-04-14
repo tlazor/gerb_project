@@ -1,0 +1,8 @@
+(I am using Python as an example language as the semantics are independent of the optional type annotations, but any language would do)
+The use would be to add additional checkable constraints to a program (for example physical dimensions, uniqueness types, reference frames, nulled memory etc.).
+The annotated AST and the typing rules would be processed by a constraint solver to issue type errors and warnings for insufficiently typed expressions.
+Providing the physical dimensions as a typing library instead of a language internal would allow the user to fix this problem and add other dimensional systems, like directional units or Siano's orientational dimensions.
+With extensible I mean that the typing rules are specified externally and can be changed by the user without rewriting the typechecking code.
+For example, the only mainstream language that I am aware of that provides physical dimensions is F#, but unfortunately it is broken as it does not support fractional exponents https://stackoverflow.com/questions/11333135/fractional-power-of-units-of-measures-in-f/11334159#11334159 
+In the units type library, we would provide typing rules of the following form (assuming that the rules for float are defined elesewhere):
+While for example physical dimensions can be dealt with through a runtime library somewhat unsatisfactorily, doing dimensional analysis with the tools of types is much more elegant, doesn't incur any runtime overhead and proves dimensional correctness.

@@ -1,0 +1,9 @@
+As for access to the shares, what are the share permissions set to in smb.conf? I'm not familiar with the TurnKey appliance but presumably there is an interface (webmin?) that manages the Samba shares? Can you show us what the share definitions look like from that interface? If not, can you post the relevant section of smb.conf?
+I have installed it native on my new fileserver machine (an OLD Dell 670 Workstation 2GB RAM and 2TB x 4 SATA)
+My Scenario is, that I want to have the following Groups of users, namely (HR, EXEC, IT, Marketing, Sales, Production) ... I will then create users individually and add them to there respective groups.
+for a test, i created a HR group and add our HR person to it, they can see the share listed when they connect from a windows machine but they can't create anything inside it.
+Also, I have active directory, what is the real benefit of binding my file server to our Active Directory and how reliable is that ?
+I can't speak to the reliability of winbind (the component necessary to "bind" your Linux file server to AD) but I know that it's been used for many, many years and it very well should be reliable by now. See the SambaWiki for more information on winbind and AD.
+I clicked on the option "synchronize UNIX user and samba user" and synchronize UNIX group and samba group as well.
+Now, it is my first time with Linux and a SAMBA File server. I am using the TurnKey Linux File Server Appliance.
+Binding your file server to AD means that you don't have to independently manage two user directories and authentication sources. It means that AD will serve as The One True Source™ for all that information. It means users who want to keep the file server password and their other password (AD) in sync won't have to change it twice via different interfaces to do it.

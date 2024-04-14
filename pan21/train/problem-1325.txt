@@ -1,0 +1,7 @@
+I have enough memory (IntelliJ runs fine), and my anti-virus software doesn't show any activity related to closing eclipse.
+And it started. Then, however, one of my projects (a simple test project) did not resolve java.lang.String and java.lang.System. I changed the JRE to JDK/JRE, and it worked.
+Just for completeness: Try starting Eclipse with -clean (which re-scans the installed plugins and rebuilds the caches in $ECLIPSE_HOME/configuration).
+Look at the error stack (in .metadata/.log) to find out which plugin is making problems, and try to remove its prefs.
+There's a .log file in the .metadata directory inside each workspace, which often contains a number of stack traces from the Eclipse internals. Startup crashes are usually found here. I'm assuming you have Eclipse configured to start up in a specific workspace automatically, without prompting you to pick one at startup.
+I know it's strange recommending to not show the splash screen, but it occasionally causes issues on some machines / Java configurations.
+An easy way to try all this is to create a new workspace (start eclipse with -data if you don't get the dialog) and to manually copy the projects over.

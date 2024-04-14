@@ -1,0 +1,6 @@
+I think, a reasonable compromise to replicate the Start button functionality is to build tiles corresponding to the features offered through the Start button & group them together.
+The shortcut is actually to C:\Windows\explorer.exe and then takes the path to the VBS as a param. You can also add an icon for your button here by hitting "Change Icon..." - I threw in a nice pink one.
+Scott Hanselman has a nice article on how you can customize Start menu options as shortcuts and then make them accessible through Tiles.
+For instance, to Shutdown the PC with a single click, create a shortcut on the desktop with the Target set to c:\Windows\System32\Shutdown.exe -s -t 00. To make this shortcut appear as a Tile on the Metro Home screen, right click on the desktop shortcut and select Pin to Start from context menu. 
+Not sure at all if this is what you want, but I was frustrated by the lack of mouse support for activating the Win8 Start Screen (which imo is grand for getting at apps once you have it open).
+The hotspots are slow and fiddly with a mouse, so I pinned my own makeshift "Start" button to the taskbar which simply opens the existing Win8 Start Screen - no need for any apps to be installed.

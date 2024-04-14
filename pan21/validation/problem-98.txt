@@ -1,0 +1,5 @@
+I logged into my development server today to find that PHP was failing to include some files with this E_WARNING message:
+Our include_path is set to .:/usr/lib/php. Nothing about the server environment been changed in the last 24 hours (no updates, no new software, no changes to the includes, no changes to the Apache or PHP configurations), myself and the sysadmin were the only people who accessed the server in the last 24 hours, and the includes were working just fine yesterday. We've exhausted our list of possible causes. Any clue what might cause this to happen?
+Now, hold on a second... I know what you're thinking! "Oh, their include_path is just FUBAR." Well, not exactly.
+I did some digging around with our sysadmin and we discovered that PHP only fails when it tries to include file paths with a '../' or './' in the path.
+Warning: include_once(../file2.php) [function.include-once]: failed to open stream: No such file or directory in /var/www/web/some_directory_1/file1.php on line whatever

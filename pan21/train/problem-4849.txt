@@ -1,0 +1,7 @@
+Firstly, i want to create a DMZ so the company's smartphones can be managed remotely.We have an ESET ERA server installed, so we want to install the Mobile Device Connector on a DMZ environment.
+The host has 2 NIC's, one for the LAN and one that i use for the DMZ. I created a virtual switch for the 2nd NIC, and used it as External for the DMZ machine. The DMZ machine must connect to a virtual server that has the ESET Remote Administrator installed.At least with the SQL.  
+I have various policies in mind, but seeing as the DMZ server has connection with the LAN, i dont see how it will work. 
+My question is : Can you see what i did wrong, and/or could you show me a good practice doing something similar ? 
+What i had in mind was to create the DMZ environment, the server on the DMZ to be isolated, and control the connections with the firewall. 
+We have a Watchguard XTM 26 firewall, i created an optional ( since watchguard doesn't use the term DMZ) interface and connected the 2nd NIC to the optional interface directly. Now, the machine shouldn't have any contact with the rest of the LAN, yet i can ping it from any PC, except from the other virtual servers we have.  
+It seems that Watchguard allows communication between Optional and Trusted Interfaces. That was the problem. I thought that by default it doesnt allow communication between Optional and Trusted. All i had to do is create the policity Deny All from Trusted to DMZ. 

@@ -1,0 +1,5 @@
+It looks like there is not going to be a straightforward answer for this. It is going to require investigation and debugging of your system. Fortunately most of us here love doing exactly that, so let’s start. :)
+To fix this problem I changed the keyboard button allocation from 'Default Task' (IE: Calculator) to 'Launch Program', then browse to the calculator application (often located in 'C:\Windows\System32\calc.exe') then clicked Apply.
+One was this could happen is if that key is mapped to a shortcut with Run set to Minimized.  What kind of MS keyboard?
+Try mapping it to something else, say Notepad for example. What happens? Try mapping a different extended button to the Calculator. What happens then? The goal of this step is to see if it is the calculator that is the problem or the specific button.
+Whilst my keyboard is not a MS keyboard but a Logitech keyboard, I had the same problem. It would either start minimised or out of focus. It was very annoying especially as I use it a lot.

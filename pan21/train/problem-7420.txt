@@ -1,0 +1,6 @@
+I think that a better solution, if you don't want to be able to receive emails from outside, is to tell postfix that exactly, in the master.cf file replacing :
+but I can still telnet to port 25 and type SMTP commands from another computer. What am I doing wrong? Also, is there a better way to achieve what I want? To clarify: what I want is a machine that can send emails (via SMTP), but only ones that originate from scripts running on the machine. And any configuration must "live" through re-boots.
+which is usually the first non comment line, but your mileage may vary depending on wether the postfix you have is modified by your vendor, with :
+I believe you don't want the -s 0.0.0.0 clause.  You're only denying access from the 0.0.0.0 address.
+This will accept any incoming connection from the localhost (i.e. from the loopback range - 127.0.0.1-127.255.255.255) and drop all others.
+I have a web site which needs to send email to confirm orders and alert subscribed users of certain events. I do not need to send email through the server for any other reason, so I would like to prevent anyone outside of localhost from even connecting to port 25 for SMTP. I've tried to do this like so:

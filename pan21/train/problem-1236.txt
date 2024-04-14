@@ -1,0 +1,5 @@
+Split-brain resolution can be found either here. In case is would not help much, the manual how-to here should do the job. For the case, I see the article also helpful. 
+For both, Heartbeat network is used to serve/monitoring the communication between nodes and quorum. In order to avoid a split-brain, I see it’s mandatory to go with redundant Heartbeat channels. 
+StarWind Virtual SAN runs in just 2-node setup using Microsoft Failover Cluster service, that also contains quorum voting mechanism to avoid the split-brain issue. Source
+Protection against network partitions is done through a quorum voting algorithm. In case a host fails, or there is a split-brain scenario where the nodes continue to run but can no longer communicate to each other, the remaining node or nodes in the cluster race to place a SCSI reservation on the witness drive. In the case of a split-brain, the witness will help to decide which of the hosts who is holding a copy of the data should take over control.
+VMware VSAN allows running 2-node cluster with the witness drive running on a 3rd host or in the cloud. Source

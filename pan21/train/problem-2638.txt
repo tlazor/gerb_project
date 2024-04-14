@@ -1,0 +1,9 @@
+MTU is typically the issue across VPNs. Fragment might help, but you might try lowering the MTU on a test machine and doing a test SCP.
+The problem was that timeouts on the inner TCP stream occured because of dropped UDP packets of the crypted stream (congestion being the primary source). Somehow the window scaling in the inner TCP channel did not help as expected (it should scale down to basically a send-waitack-cycle).
+Also try to reduce tun-mtu to something innocent like 1300. This will hurt top speed but not in the region you are having problems in.
+As for diagnosis: Install wireshark and capture the openvpn traffic and the lan traffic and watch out for excessive TCP retransmissions. These are signs of dropped packets. Also see if there is some routing problem with packets appearing on the wrong interface or with the wrong IP (as noted by JakeRobinson).
+Figured it out: It was a problem, either hardware or the drivers, with the network card on the server. The "server" is a hacked-up first generation Apple TV running Linux, and for some reason the built-in ethernet wasn't performing very well at all when doing masquerading. I've plugged in a USB gigabit ethernet dongle, and all is well!
+If I understand your configuration well, I think, that you have a bad this line in the server's configuration:
+The other thing you might look at is NATing. Do TCPdumps on the internal interfaces (the unencrypted traffic) and make sure you are seeing the IPs you would expect. I've seen some misconfigured NATs and routing that completely tanked performance.
+Well it's a shot in the dark: Contrary to conventional wisdom, I had a situation over an easily congested connection (ADSL 6/0,6Mbit/s) that worked better (should I say only?) if the OpenVPN traffic is encapsulated in a TCP stream as opposed to UDP datagrams.
+This line is directive for server to send to client, that route to subnet 172.16.1.0/24 is via VPN server, which is not right, isn't it?

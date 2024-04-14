@@ -1,0 +1,5 @@
+Other than that, you code seems OK. There are a ton of other approaches you could take, of course, but without some external metric to judge by, yours is as good as any other.
+This code doesn't even need a separate function or prototype extension, and doesn't mutate the input (source and target) strings. It also doesn't need an extra console.log to show the original; everything happens in the loop, which runs from 0 characters replaced to source.length (inclusive) characters replaced.
+while doing a code clash on codingames, in which we had to replace a character in a string one by one to transform it into a target string, printing out every itteration of the new string, resulting in something like this:
+This also points to an alternative approach: Instead of replacing characters, create a new string by glueing parts of the two others together.
+However, there's one issue which irks me a little: source is mutated. With your current code, you can't print the original string after the loop has run, because you've "lost" it - source just becomes equal to target. I'd keep source and target unaltered, and generate a third "result" string for each step instead.

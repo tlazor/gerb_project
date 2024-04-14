@@ -1,0 +1,6 @@
+The reason for changing the home directory and/or data directorys would obviously be space. one 'best practice' is to keep the /var directory rather small on a *nix server however sql databases tend to grow big, easiest thing to do then is move them on another partition.
+2. Where does the 'mysql' owner and group come from? Does the installation of MySQL on a Linux machine automatically create the 'mysql' user and group? or People need to manually create a mysql account for the linux machine?
+1. Why would one run the above command?  If I create a table in my_db database, by default, there will be .frm, .MYD, and .MYI files (data files) be created automatically by MySQL under /var/lib/mysql/my_db/ . So, does the above command changes the default MySQL data directory to /data/tmp/ instead of /var/lib/mysql/my_db/?
+on top of that you can change datadir= under [mysqld] in the mysql config file "my.cnf" which will be the place the actual data files are stored
+On Ubuntu (which you tagged this), MySQL is usually installed by apt-get. The MySQL APT package includes script that automatically create the MySQL user when the software is installed.
+I get confused, I know the meaning of the above command, which is to change the owner of /data/tmp to user 'mysql' and change the group of it to 'mysql' group.

@@ -1,0 +1,8 @@
+When I follow tutorials and start using a VAO, I get a function not available exception on glGenVertexArrays().
+VAOs were introduced in OpenGL 3.0, so if your computer doesn't support OpenGL 3.0 then you're probably out of luck.
+But then I changed my lwjgl libraries to the latest version, and now I'm using GLFW for creating my display.
+Is it possible to create VAO's while my computer doesn't support openGL 3.0 or higher? I managed to create a vertex buffer object and draw a rectangle.
+You could just try leaving VAO calls out of your code and bind VBOs etc. where VAOs are bound in the tutorials.
+After searching on Google, a came to the conclusion that some devices do not support openGl 3.0 or higher. And I also tried a few configuration things, but I can't get to work with VAO's. Is there another way of using them in a lower version?
+If your hardware is below a needed version of OpenGL but still supports the extension that has the capability you need then you can use them, otherwise there is really no way. With LWJGL you can check if the extension is available by getting an instance of GLCapabilities and then the value of the field named after the extension. If it is true (it's just a boolean) then you can use it, but have to use the right class for it.
+However, they were available as an extension slightly before that - called ARB_vertex_array_object. If your card supports ARB_vertex_array_object then you should be able to use that extension instead.

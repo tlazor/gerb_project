@@ -1,0 +1,8 @@
+I've also read about building your own NAS with freeNAS but those setups dont allow you to run XBMC.
+I currently own a WD Sharespace and I am not too happy about it. It will freeze constantly and its rather slow. I've been thinking of replacing it. 
+I run XBMC on a couple of Zotac mini-ITX ION PCs as clients to a Linux server that stores the files in my basement.  Instead of trying to bundle everything into one HTPC, I think it is much better if you run a separate NAS box in your closet or basement and then a quiet client.  I'm upgrading my Linux server to a Synology DS1511+, but their two-bay DS211j (about $200) would take a couple of identical disks and do a great job for you.  Depends on how much you want to store.
+I got a Drobo 5N and installed Plex on it. I'm actually quite happy with both the Drobo and Plex on it.
+Even though this question is pretty old it is still getting quite a lot of views so I'll contribute what I actually ended up doing.
+FreeNAS is also very cool.  I'm just not certain how it performs network-wise and your power consumption for an old PC is going to be higher than a specialized NAS, so you may pay more in the long-run.  The primary reasons I'm moving from my homebrew Linux fileserver to Synology are power consumption and speed.
+I also own a WD HD Live, and it works like it is supposed to, but recently I've seen XBMC in action and I was quite impressed. 
+I've been wondering lately about the possibility of replacing both products with one new device: a fast reliable nas which I can install XBMC on and is capable of rendering video and has an HDMI out. 

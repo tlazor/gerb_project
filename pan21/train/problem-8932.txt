@@ -1,0 +1,16 @@
+So with a slight tweak to ensure the LDAP filter matches on userPrincipalName rather than the default (if query filter is left blank) samAccountName, this is now working perfectly!
+Is there some way that I can tell my hosted ADFS to look for a user in it's own AD forest which matches the incoming Email Address Claim from the Corporate ADFS, and then inject the Role claim from the hosted forest with said email claim?
+Essentially, this will see that if an email address claim is defined in the incoming claim set it will query AD with the email address and find a userPrincipalName which matches the email address. Then it simply returns the upn and tokenGroups attributes as the upn and role claims which I need.
+After inspecting the default claims code when using the Send AD Attributes template, it will only actually run if the rule receives a windowsaccountname claim (this claim is only ever passed to the Relying Party if a user signs in without a third party ADFS).
+So I have a situation here where if a user is signing in without a third party ADFS, it will ignore my custom rule since the Active Directory attribute store does not send an email address claim. Additionally, if a user is signing in WITH a third party ADFS, it will ignore the Send LDAP Attributes rule since there is no windowsaccountname claim set!
+What I want to achieve is some form of claim injection from the Hosted AD Forest as part of logging on with a Corporate AD account.
+There are two separate AD forests, one as part of the Hosted SharePoint/ADFS and one onsite corporate forest.
+I ended up getting this working, and it actually wasn't as bad as I thought it would be - I just needed to code a custom Issuance Transform Rule on my SharePoint Relying Party.
+So, all users will actually have an AD account in both forests. Single Sign On provided by entering their Corporate credentials as part of the sign in process.
+However, good news to me is that the username portion of the domain\username is actually ignored! https://technet.microsoft.com/en-us/library/adfs2-help-attribute-stores%28WS.10%29.aspx
+Specifically, users will be members of security groups to determine SharePoint licencing. For security reasons I do not want to get this claim information from the Corporate AD as this means users will be able to change their licencing status.
+Please see the picture below for what I'm trying to achieve (Sorry for the quick MS Paint drawing!):
+I've inserted this as rule number 1 in my Relying Party. Because some users will not have a third party ADFS to auth against I believe this should give it the most compatibility.
+As part of implementing a SharePoint 2013 installation, I have configured SSO with ADFS on Windows Server 2012R2.
+Lastly, on my first attempt I initially thought I was stuck since I'm only using UPNs and not traditional domain\username accounts in the hosted AD because I was getting an error message in the event logs:
+Currently, I have the corporate AD set up as a Claims Provider Trust in the SharePoint ADFS. I am able to successfully pass through the email attribute from the corporate AD to SharePoint.

@@ -1,0 +1,8 @@
+On a modern Ubuntu Server machine we need to host about twenty web-applications. (More apps would be added later.)
+We would like to isolate web-applications from each other, to minimize chances that problems in one web-app would affect others. 
+CPU and memory resources are the main concerns. It would be nice to other control things like IO throughput etc., but I've got a feeling that if we would get too pedantic on that, it is better to use Xen anyway, memory costs would be negligible when compared to system management work costs. In practice, in our specific case, we consider other things than CPU and memory starvation to be low-risk problems, and if that will happen, we'll accept that other web-apps will initially suffer.
+The question is: what is the proper way to limit CPU and memory consumption for a group of processes in our case?
+Each application is a nginx virtual host, which talks to a group of identical long-living FCGI processes (written inhouse), via Unix Domain Socket.
+However, there is a slight chance that due to some unforeseen bug a FCGI process would go rogue and eat all CPU and / or memory on the machine, affecting other web-applications.
+FCGI processes are different for each web-application, but still pretty similar to each other (just some minor business logic differences).
+Normally, we would allocate one Xen virtual machine for each web-application. But in this case, the memory overhead is too great — the processes are lightweight and normally would not affect each other or compete for resources. We would like to host all this stuff in a single Xen VM.

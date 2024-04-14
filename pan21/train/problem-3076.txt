@@ -1,0 +1,9 @@
+Step 7: In Start a Program, enter C:\Windows\System32\shutdown.exe as the program/script name, input -s as argument and tap Next.
+If you want to make the computer automatically turn off in 30 minutes, you can type "shutdown –s –t 1800" or "shutdown.exe –s –t 1800" (without double quotation marks) in the box and click OK.
+Step 4: In Trigger, choose when do you want the task to start from Daily, Weekly, Monthly, One time, When the computer starts, When I log on and When a specific event is logged. After that, click Next.
+I know how to do that in Windows 7 but I guess that is almost the same process like in Windows 8. Basically all what you need to do is to enter in Control Panel / System and Security / Administrative Tools and then click on Task Scheduler where you can menage all the things not only for shutdown but also and for other actions. Here you can see how it works step by step just follow text in this blog : 
+Press Windows key+X to open the Quick Access Menu, and choose Run in it. BTW, you can also press Windows key and R key at the same time to directly open Run dialog box.
+The command inputted is a little dissimilar according to different time you want to set up to automatically shut down your computer. For more info, please refer to the following example.
+the shutdown.exe command, built into Windows, will do the trick.  Here is an article explaining how to use it.
+Tips: The number, 1800, in the command stands for 1800 seconds. That is to say, the computer will turn off after 1800 seconds (30 minutes). Moreover, you can decide the time to make the computer automatically shut down by changing the number in the form of seconds in this command.
+Step 2: Click Task Scheduler on the left list to open it, and choose Create Basic Task on the right side.

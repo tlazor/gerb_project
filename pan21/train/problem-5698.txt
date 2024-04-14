@@ -1,0 +1,7 @@
+In the Advanced tab, add a new filter: [Changed by] [is (exactly)] [Email account you want shown]. Click Add to list when done.
+The first query tells that you only want to show tasks not set to finished. The second part of the query is the Changed by filter mentioned in the postings above. But neither email nor name showed me all results, I had to use a OR statement to get all entries changed by my name (John Doe) or by my email (john.doe@mail.tld).
+The other two default entries (date completed- does not exist, and flag completed date- does not exist) can be left as-is.
+Since none of the above did work correctly for me, I post my solution here. I used the following SQL query
+In the Filter dialog window go to Advanced tab, click Field button, select All Mail Fields > E-mail Account in the menu.
+This task list on the right is called Outlook To-Do Bar. You can try to right-click it, select View Settings there, after that click Filter button.
+What worked for me is selecting a different field in the Advanced settings as mentioned in the solution above - Organizer [contains] [part of your email address].

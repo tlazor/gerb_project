@@ -1,0 +1,6 @@
+Now an obvious thought is to share the cache between all these machines. However, my cached items are small (10kb). Therefore I need - above all - low latency on access to cache items.
+I have a server application that uses an on-disk cache for certain data (100GB-1TB of it). Now I want to use multiple instances (10, 100) of the server application (each on a separate server), and all of them will pretty much generate the same cache contents. 
+Network-FS stack latency for whatever method you're serving this up (CIFS, NFS, OpenSwift, Gluster, whatever)
+If it helps, you can assume that all my servers are VMs on the same host system, so if nifty VMware features exist (or similar stuff), I'm all ears.
+All in all, your biggest sources of latency are going to be the actual performance of the storage subsystem and your choice of protocol. I'd go with a connection-oriented storage protocol. Considering you're looking at "100's" for concurrent connections, I'd go with something that the kernel of whatever you're using handles in-kernel if at all possible.
+What is the fastest way of providing such a shared cache in terms of latency? Obviously, CIFS over Ethernet doesn't really cut it.

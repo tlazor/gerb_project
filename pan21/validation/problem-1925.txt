@@ -1,0 +1,14 @@
+Make a list of blocked characters rather then duplicating your logic so much here. And I suspect that "()" in word wasn't what you wanted.
+Once you actually start logic, its best to do it inside a function except for really simply scripts.
+Don't use single letter variable names, it results in difficult to follow code. Also, you should open a file using the with statement, to make sure it closes in all circumstances.
+This has an advantage that it will cause an exception to be raised if the input is not in the expected format instead of ignoring lines with more than two fields.
+Add from __future__ import division so that all division produce floats. Then you don't have to cast to float. I also suggest calling the variable: probaility_high for greater clarity.
+There is some duplication here. You should be able to write a function that returns the words from the url.
+Why are you passing the " " to slit instead of trusting the default. This approach is a little wasteful because you split the input twice.
+The main difference is that the second piece of code has well-named functions, and that concepts on the same level of abstraction are grouped, while concepts at a lower level of abstraction are hidden (in functions).
+If you find yourself counting with a float (e.g. f = 0.0; for w in ws: f += 1.0), you're doing something wrong. Count with an integer, and convert to float later if necessary.
+You may want to look into numpy. It'll allow much more efficient operations on large amounts of data like this.
+At a high level, it's hard to get a good idea of what's going on your program. Compare these two pieces of code:
+I try to almost always avoid continue. I suggest rewriting the logic so the following line in the if block.
+In the end, I suspect the classifier isn't very useful because it's being dominated by (Phi/Plow)^n, where n is the number of words in the profile that aren't in the training set. Try ignoring words that are in 0 (or perhaps <= 1) of your training profiles.
+Similarly, it's a bit hard to see what's going on in classify because so many things are going on at once: you're downloading a file, splitting it into words, looking up some things, multiplying some things, etc.

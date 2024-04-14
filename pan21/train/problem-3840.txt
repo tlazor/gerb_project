@@ -1,0 +1,7 @@
+Older batteries discharge faster when they are almost empty. When the battery is low enough that the PC needs to sleep, it is also ready to shutdown, so it just does that instead.
+The system could hibernate when power gets low, but if your battery is draining really quickly, it's probably deemed that not to be safe.
+This obviously won't fix a broken battery, but if your battery still has enough power to allow your pc to safely hibernate, it might be enough for you!
+On windows, the level when the pc hibernates is 5%, so if you use windows and your battery goes to 0%, the setting was changed!
+If you use Windows, it is in the control panel > Power Options > Change Plan Settings > Change Advanced Power Settings. The default "critical battery level" is 5%. If your battery is weak, increase it to 10% or even more to allow the pc to hibernate.
+It is impossible for the laptop to "go to sleep" when it has run out of power. Sleep requires power; just less than non-sleep.
+Laptops doesn't go shutdown when battery level is below 5%.when if reaches its lowest point it goes to sleep mode to protect your data. Mean while in sleep mode it consumes some energy. If it is beyond the extreme level, it does shutdown and you may loose your unsaved data. There are multiple ways to recover your unsaved data depends on type of applications.

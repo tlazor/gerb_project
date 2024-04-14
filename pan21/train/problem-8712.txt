@@ -1,0 +1,8 @@
+Third, would connecting the laptop to a non-switched power feed on the forklift be an option?  Be sure to consider safety regulations (the environment may require everything off with the forklift key), and how long the forklift sits between uses (esp. over weekends and holidays) to avoid draining the machine battery.
+First, try getting the SQL off the forklift if at all possible.  Think recovering from a power loss is bad, try doing it after the laptop got ran over by 7,000+ lbs.  With hours of warehouse activity on it, not backed up...
+Assuming you have a local DB on the forklift rather than a server because of spotty wireless connections?  Obviously getting SQL off the forklift would be the preferable solution.
+Failing that, a small UPS that can initiate a normal shutdown is probably going to be your best bet in that case.  Relying on users for things like that is asking to fail.
+Second, a mechanism for the laptop to do an auto-shutdown after x time on battery should be in place anyway.
+The underlying os has to guarantee either a successful write or an error is returned. The os in turn relies on drivers which in turn rely on firmware which relies on the hardware  If either the drivers,firmware oe hardware lie there is nothing windows or sql server can do about that.
+Anyway, like Brent suggested, set the tablet to power down on its own after x minutes on battery power or some similar criteria.
+Even battery backed caches can fail eg during New York storms some data centres were not accessible for days and batteries would have run out, potentially losing commuted writes 

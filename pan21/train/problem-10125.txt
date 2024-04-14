@@ -1,0 +1,6 @@
+In our case, the only fix was to power-cycle to wake up the RAID card, then reboot from rescue media and fsck the file system.
+I'm afraid this is due to corruption on the filesystem or problems on the underlying hardware, since it's the root filesystem my recommendation is to boot the server again with a rescue disc (or in single user mode) and try to repair the disk through fsck.
+I solved this problem in Arch Linux by installing "NTFS filesystem driver and utilities" using this:
+I've seen this before when a RAID card went bad, and the ext3 journal file couldn't be written to.  At that point, the kernel marked the root FS read-only and wouldn't allow it to go back.
+Nothing was logged about this, because of course the /var FS was on the same disc, and also RO.  dmesg, however, was pleased to tell us about the problem.  So, can you do a dmesg and tell us about the output?
+Em temo que aixo es un sintoma de corrupcio al sistema de fitxers o de problemes del hardware subjacent, com es el / lo que et recomano es de rebotar el servidor amb un CD de rescat e intentar reparar el disc amb fsck.

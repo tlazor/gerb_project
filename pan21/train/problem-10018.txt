@@ -1,0 +1,5 @@
+Yesterday I installed a Windows SBS 2008, and I was recommended to use that one as DHCP-server instead and heard that it was pre-configured as DHCP-server. This server has IP: 192.168.1.2.
+Then I tried from a Windows XP client to renew the IP-address but that failed. The DHCP service on SBS 2008 was stopped, but I started it again, and now is it "Started", but I can still not renew the IP-address from the Windows XP client.
+Until yesterday, we had no server at our network, so we used our router, D-Link DFL 200 as DHCP server. The router has IP: 192.168.1.1 and all clients has IP in the range: 192.168.1.10 - 192.168.1.20.
+Now I would like to turn off the DHCP-server in the router and use the SBS 2008 as DHCP-server. In the router I has changed from Use built-in DHCP Server to Relay DHCP request to other DHCP server: 192.168.1.2.
+You don't want to relay DHCP. You want to completely disable DHCP on the router. Once that's done, see if it works. If it doesn't, re-run the "connect to the internet" wizard is SBS.

@@ -1,0 +1,8 @@
+Step 2: Extract it into a separate folder. Initially there would be two folders , one would be Source and the other one I barely remember.
+I have tried to install OpenCv onto my Raspberry pi many times and some of the times it has worked and some of the times it hasn't worked. When it works I try to do a simple program with my raspi-cam and the window that displays the camera's view is so small that you can't see anything and if you try to drag the window out it doesn't do anything.
+Step 4: Go to terminal and type sudo apt-get cmake-gui. This a software used to build up the libraries of OpenCv.
+Step 6: Then click the configure button.It will ask for build type select the Linux archi.  First time once the configuration finished the list view will be red. Again click the configure button. This time the list view will white.. Then click the generate button.
+Step 1: Go openCv site opencv.org and download the latest version for Linux arch. You could possibly get a package downloaded.
+Step 7: Once the generate finished. Go to terminal, navigate to release folder in the OpenCv installation directory. Type make and press enter. It take quite some time to build the libraries of OpenCv..once the 100% completed.. type make install or make-install and press enter. Once it done  , OpenCv is successfully installed. 
+There is no easiest way or the shortest way in installing OpenCv in raspberry.. You have to do it with the conventional method only.. 
+Step 5: Cmake-gui application will be present on the start command. So once it opened, it will ask for the directories.. For the source directory select the source folder in the OpenCv installation directory. For the build , select the release folder that you have created  in the OpenCv installation directory.

@@ -1,0 +1,5 @@
+I've got a couple of Pis running my Ham Radio repeater and irrigation system - realistically, I'm rebooting them maybe once every 6 months for security updates or some other "maintenance" reason; but I've not seen issues where a reboot was REQUIRED to "keep things running"
+I agree with the things written before.  In a theoretical situation with excellently written software with perfect error handling, no memory leaks..., a reboot won't be neccesary.
+Almost all of the PI's are used in kiosk mode, either playing videos, displaying a website, running scripts,...  User expercience is important to me and I can't afford to have a PI failing.  I have a watchdog installed on all of them.
+I realize this is not giving a direct answer to your question, but I just wanted to share some personal experience so you can -together with the other answers- judge what the best approach for your project would be.
+On my site, I'm using the following approach (this is only using my own experience, no scientific background :-))

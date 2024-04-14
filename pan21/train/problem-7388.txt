@@ -1,0 +1,7 @@
+First, I choose a good long password that I will use everywhere. For example qwerty (don’t use that, just an example). Now for every site, your password will be the md5 (or sha1) of qwerty + site name. For example:
+I don't like password managers, but I like crypto, so I take advantage of one-way hashes (md5, sha1, etc) and generate passwords using them.
+Both long and secure. If someone steals my twitter password he has no way to reverse back to figure out the other passwords. Plus, doing that you don’t need any password software stored (just the md5/sha1 binaries which come by default on Linux and are easy to find on Windows).
+I have not used these, but I recommend finding reviews and user experience stories as this could be a potential major security hazard.
+Something like Keepass on a USB drive that you always have available might be a workable solution as well.
+That way my password for facebook is 9d7d9b30592fd43dd6629ef5c12c6e9a and for twitter is: cdf0e74e19836efb20f29120884b988d
+If you are already using a password manager, you could combine that with a cloud service like dropbox, or mesh. Just make sure that you can save the profile of your password manager inside a folder that is synced by the cloud service and all your other connected computers will get the updates!

@@ -1,0 +1,5 @@
+I would go for replication - it works well when it works. You can hang more slaves of each master for reporting and point-in-time backups with no downtime.
+I use a lookup table of available dbs indexed by a modulus of the decimalised ip address of the user, so that user always sees one database and is not affected by replication lag caused by db hopping, as mysql-proxy used to do.
+Inserting another db into the ring is straightforward, but if there is any replication lag, removing one runs a risk of an expensive loop, potentially inserting or updating records millions of times before being noticed!
+I've used multiple masters for a few years, and the issues I have encountered are mainly caused by triggers which are really difficult to debug. For that reason, I would make the transactions as atomic and deterministic as possible, and to lock the user or session to the most local db.
+If you understand your data and the reasons why replication fails you shouldn't need to reload slaves, though this is often the easiest way as it can be tedious fixing the slave so that replication can continue.

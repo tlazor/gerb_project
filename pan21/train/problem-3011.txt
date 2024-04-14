@@ -1,0 +1,5 @@
+When I tried to use ForceBindIP and opened Firefox without forcing it to use one of the connections, it used the last one that an app was forced to use.
+I believe Windows makes the last used network connection to default for apps to use when not being forced to use a specific one, at least that's what happened to me.
+IP routes have "metrics", which can be used as an order value for otherwise equivalent routes. Most operating systems try to assign those intelligently – for example, if you can access the Internet over both wired Ethernet and wireless WiFi, you will have two "default" routes, but the wired one will have a lower metric and will be preferred.
+(This is not a very good example, since both eth0 and wlan0 are connected to the same network, with the same default gateway. With multiple ISPs, you would see two default routes.)
+Hosts have a single default route. Generally it will use only one. A router can be configured for failover, but still any connection will use only one path.

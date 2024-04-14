@@ -1,0 +1,5 @@
+I have an Amazon EC2 Windows Server 2012 instance set up with IIS 8.5 and I'm trying to setup multiple sites, each with a unique port binding. The problem comes when trying to access these sites from outside the instance.
+The only ports I have found to work are 80 and 10000. (Likely irrelevant, but the FTP site is working correctly.)
+Am I missing something? Other troubleshooting ideas? Let me know if I can provide more information. Thanks.
+I don't think this should be a complicated problem, but I've spent a long time trying to figure it out and find answers online, and I haven't come across anything relevant. Most of the search results say to open the ports in one firewall or another, which I've done to my knowledge.
+I know my answer is quite late, but the only other item I can think of is that you EC2 instance is within a VPN subnet that has a Network ACL that's only allowing inbound on port 80.  Where security groups can control instance-specific in/out rules, the Network ACLs site around this and operate in the same way, but at an entire subnet level.

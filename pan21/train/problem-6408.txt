@@ -1,0 +1,7 @@
+There is a lot of data being pulled down. It's not a 'streaming' effect. It's a section-by-section loading effect. You'll never be able to simulate running down the street, at least the way it currently runs.
+This is not something that can be easily fixed, because you basically have the whole world as your 'map' in street view, and there is no way that is going to be downloadable to your harddisk in the near future.
+A side issue with using Google Street View for a 3D first person shooter is that some places will have lots of people in them... and those people will effectively be "art work".
+Street View is a heavy ajax site, which have lots of javascript code, so javascript execution time of your browser is very important(assuming your connection is fast enough). try benchmarking your browser with sunspider and choose another browser if necessary
+As an alternative suggestion, would it be possible to use something more like the 3d Buildings of Google Earth (but using the Textured ones, rather than the Gray ones)?  Doing this would remove the issues of other people and objects already in the scene, and allow for better loading ahead (but then I'm not completely sure of what your game is meant to do)
+Keep in mind that 3D games have all the textures and assets already loaded locally on your harddisk. In the case of street view, each section is loaded as you 'move into it'.
+As others have said the issue will be with pulling down the data, as it's not using texturised 3D models.

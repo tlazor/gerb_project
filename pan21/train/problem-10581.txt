@@ -1,0 +1,7 @@
+You don't want additional NICs. Just add virtual IPs on WAN for each additional IP. If it's cable service, you often have to power cycle the cable modem after doing so before the IPs will work. 
+pfSense documentation implies that an interface can't have multiple IP addresses and that wouldn't in this case anyhow, since the port 443 traffic needs to be separated out and redirected to different servers.
+I would recomment to use nginx as a reverse proxy for your http(s) services - nginx is a very powerful piece of software and can be used for much more purposes in future. 
+I'm using pfSense as our office firewall and am attempting to setup a second HTTPS server that needs to be visible to the outside.  Because they are HTTPS servers, they need separate IP addresses.  How do I configure pfSense to accept the other static IP addresses I've gotten from our ISP?
+A virtual ip is not a "native" ip address on an interface, so you may just not be able to ping the address (except you map this also to another host).
+I've tried adding more NIC ports to the firewall, but pfSense doesn't like multiple interfaces using the same gateway.
+You can surely provide multiple HTTPS servers on the same IP address - you just need a server that supports SNI. 

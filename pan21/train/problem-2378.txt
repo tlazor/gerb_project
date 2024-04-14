@@ -1,0 +1,5 @@
+But i can access my Window partition through my other Linux OS's, so maybe there is a possibility to install a new Bootloader via wine or to repair the old one.
+At first i installed Windows which means that have the msdos partition table which makes Windows bootable but doesn't allow the two other Linux OS to install. Since i don't have a UEFI-Mainboard i cant install Windows with gpt directly.
+I bought i new hard disk with 3 tb of space where i wanted to install 3 different OS(1 Windows and 2 Linux). Since i had a 3 tb hard disk i needed to use gpt which made it not possible for me to get the Windows OS working. Here is what i did trying to make it work:
+So I changed to msdos partition table to gpt with gdisk and the Linux Mint Live-CD which of course destroyed the windows bootloader.
+The error message I get when trying to load Windows tells me to fix Windows with the Recovery-CD which is not possible because there I get the error message: not compatible version... because of the use of gpt, so i can't fix it with the CD.

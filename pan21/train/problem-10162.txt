@@ -1,0 +1,7 @@
+This file is very much present in the setup folder. It gives me an option to choose the correct path of this file, but when I browse and navigate to the folder containing this file, it doesn't show me the CAB file for selection.
+While running Office 2007 Ultimate Setup on Windows 7 box, I get this error message - "Setup cannot find PowerPoint.en-us\PptLR.cab".
+This is often caused by a trial version of Office 2007 being pre-installed on your machine. Check control panel, Programs, Uninstall a program and then uninstall everything with Office in it's name. After this you should be able to install both from the DVD and the HDD.
+FYI, for comparison - on my Ultimate disk, the file has a creation date/time of 30/10/2006 02:33 and the size is 13,422,356  and has a CRC of 0xA98A52BE
+Check the media for any scratches or problems. Next, try to open the CAB file yourself and see if it is readable.
+What worked for me: I installed MS Office 13 (365) and uninstalled it after and installed MS Office 2010 again (without rebooting) and it worked as "charm"...
+So if nothing helped you just try to install and uninstall MSO 13 (365) again and after install MSO 2010.

@@ -1,0 +1,6 @@
+More background and motivation for why 'create new - copy - switch' is inefficient can be found in a blogpost I wrote on this topic: https://www.moxio.com/blog/28/moving-individual-mysql-tables-on-disk.
+I have dealt with this problem myself, and eventually found a more elegant solution than 'create new - copy - switch': detaching, moving and re-importing the underlying tablespace files. This is much more efficient on large and/or heavily indexed tables as MySQL does not have to redo work it has already done.
+According to this it is impossible to use alter table for moving tables. So if I understand correctlly - to move table it is neccessary to do:
+Now back in MySQL release the lock, drop the table, re-create it with the correct DATA DIRECTORY and discard its tablespace:
+If this is InnoDB, you must have innodb_file_per_table ON before step 3.  Was it ON when the old real was created?  If not, ibdata1 will not free up any space on the old disk.  Resolving this takes several more steps.
+Step 5 is the main added "elegance".  It is atomic and instantaneous; it won't interrupt the live system.  Also, it give you a chance to test the new real before DROP TABLE old.

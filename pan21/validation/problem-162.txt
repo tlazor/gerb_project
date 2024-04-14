@@ -1,0 +1,7 @@
+So now I'm trying to run Visual Studio and SSMS under my NETWORK user credentials. So i left-click-hold the shift button, right-click the application icon under the 'start' button, and then left click the Run As A Different User.
+Why do you need to run VS as a domain account? Is it so that VS has access to domain resources? If so just run VS as normal, but map a network drive (any network drive) first, and VS should be able to use domain resources.
+When you map a domain resource like a network share you need to authenticate to the domain controller, hence you put in your domain username and password as you describe.
+My development pc at the office is NOT on the Active Directory. It's a normal install, no domain. Everything works fine.
+But the Visual Studio installed on your PC is a local resource and if your PC does not belong to the domain no domain accounts will have access to it. To run VS you would need to authenticate locally to the SAM on your PC, and obviously this requires a local account. You won't be able to run VS as a domain account unless you have in some way granted domain accounts access to your PC i.e. joined your PC to the domain.
+When you map a drive, you supply the foreign resource fileserver with your foreign credentials, the fileserver authenticates with the domain, which works fine because the fileserver is a member of the domain. 
+When you RunAs a local application with foreign credentials, it doesnt work because your workstation cant authenticate with the foreign domain. 

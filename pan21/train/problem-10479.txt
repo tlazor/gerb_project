@@ -1,0 +1,7 @@
+Can the .vhd file it outputs be used by dd to write the resulting image to a device without any prior conversion?
+PS: For those who wonder why Rufus doesn't compress the VHD images it saves this is primarily due to the compression algorithm being used by Microsoft being very poor (IMO) and therefore not worth spending time implementing support for. This is also part of the reason why save as DD image is only available when clicking the advanced options.
+I've noticed that the latest version of Rufus comes with a potentially useful extra option: Create a disk image of the selected device. However, in the resulting dialogue I get this:
+Rufus developer here. This is because the save option is only for uncompressed VHD images, and uncompressed VHD images are just the same as DD images with an extra 512 byte footer added.
+Rufus seems to be calling a .vhd file a DD Image, despite my own research indicating that there are differences and that it wouldn't be possible to use dd to write a .vhd image to a disk without some prior conversion. 
+Ergo, what Rufus creates when you click the save button is essentially a DD image since it can very much be used as such.
+So, for all purposes, you can use DD to write the VHD image created by Rufus, and it will work just fine (with either the extra 512 byte footer being ignored as random data, if you use a larger sized disk, or being dropped, if using same exact same size disk).

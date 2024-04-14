@@ -1,0 +1,5 @@
+I may be wrong here, but do you think that export data removes the data from the table? It doesn't, it copies the data to file. So if you don't want to use replication. or create a databaselink and use SQL to copy data, then this export/import job  can do it.
+You should use Export data and choose data source as SQL server native client (Version) as source and select your source SQL server instance and You should select the same for the destination with your Destination server name. On the next window select table, you want to copy and Run the wizard. This will copy all the data from your source table to destination table.
+Also the copy database wizard is used to create a copy of your database not for copying data from table to table. Also if you can't see this option most probably you are using express edition here
+then you can import data from the file created with the previous command in the destination database: 
+If you just need to import/export data from/to a table you can do it with command line utility bcp (more info here).

@@ -1,0 +1,8 @@
+Every trunk port/port-group on a Cisco switch can have a default vlan, it's this vlan that is added to untagged traffic that needs further trunking, or if it's a L3 switch can be used for routing internally. As Chris suggests though it a ONE default vlan, as there'd be nothing to define which non-existant vlan untagged traffic was supposed to go on. Ultimately try to tag all traffic in a mixed vlan environment if you can.
+Also I'm not sure there's such a concept as 'no PVID setup', I think that the PVID is already set on all ports, but you can change the value.
+On HP switches, I can't speak for Cisco, a port may belong to zero or one untagged VLAN and any number of tagged ones. As soon as you assign that port as belonging, untagged, to another VLAN it is taken out of the original VLAN. Having traffic from two VLANs arrive in an untagged state would be an error condition worthy of firmware fixes.
+My question is what happens when an untagged frame is sent to port g2? Because no PVID is setup, how will the switch manage that frame?
+Let's say I set up port g2 on a 10-port Cisco switch as a general port (thus can be part of multiple tagged/untagged VLANs). Furthermore, g2 is setup to be 1U,2U,3U,4T (VLAN 1,2,3,4 with 1,2,3 untagged and 4 tagged). No PVID is setup.
+However, if it DID happen, it would look just like any other packet to the device(es) on the other end of the port. It would presumably have completely different IP information on it and would thus get ignored for the most part, but it would look normal.
+I am totally new to the concept of VLAN and just read about it today. So sorry if my question sounds stupid.
+You can't send more than one untagged VLAN to a port. As soon as you start sending more than one VLAN you HAVE to use tagging.

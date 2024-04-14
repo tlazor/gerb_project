@@ -1,0 +1,7 @@
+Change the global shortcut for "Preferences" to "⌘ + p" (the "-g" option means "Global", and "@\" translates to "⌘"):
+Limit it to the relevant app, enter Hide <yourappname> (e.g. Hide kitty in my case), and pick an obscure key combination. I use the section symbol because it's not in my default layout so I won't type it by mistake.
+If you use the Karabiner app (extremely useful in its own right -- for example, you can add VIM-style navigation with Ctrl+h/j/k/l, or map the Escape key to Caps Lock), there is a "Complex Modification" that disables command-h window hiding. Install the app and see the listing: Prevent unintended command-h hide window on this page.
+Do not paste this into your Terminal window if you don't feel comfortable with altering the default settings of macOS apps, or if you don't fully understand what it means. 
+Now when you click on the Application's menu, you should see your new shortcut has been set, and ⌘-h will no longer hide that application.
+In this example, I change the "Open Viewer" menu option in Apple Photos to "Space", like it used to be pre-2017:
+The (very non-ideal, but functional) way that I solved this problem is to use Alfred to define a global hotkey mapping CommandH to nothing. You could use any app capable of defining global hotkeys to do this (ex. BetterTouchTool or KeyboardMaestro).

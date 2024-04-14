@@ -1,0 +1,10 @@
+i am using window 8 now as my default window ,i have also two operating system window 7 and window 8.1 but they won't work . I also don't know where other two are installed[7,8.1] i want to delete them because my laptop is working very slow but how to delete them
+Note Because there are several versions of Microsoft Windows, the following steps may be different on your computer. 
+2.To determine the Windows folder that you want to keep, click Start, click Run, type %windir%, and then click OK. Remember the folder that is opened. For example, the folder may be C:\Windows.
+PLEASE USE SIMPLE LANGUAGE I AM STUDENT AND TELL THE METHOD WHICH IS USE IN WINDOW 8 TO DELETE OTHER OS
+7.On the Advanced tab, under Startup and Recovery, click Settings. The Startup and Recovery dialog box appears.
+When you have determined that a second Windows folder exists on the same partition as your "working" Windows folder, follow these steps to remove the folder from the partition and to remove the startup selection when you start your computer.
+11.In the Startup and Recovery dialog box, under System startup, click Edit to reopen the Boot.ini file.
+9.On the File menu in Notepad, click Save As, and then save a backup copy of the Boot.ini file that is named Boot.old.
+12.In the [boot loader] section of the Boot.ini file, identify and then delete the line of text for the Windows operating system that you want to remove. For example, if the Windows folder that you removed in step 4 was for the Microsoft Windows XP Home Edition operating system, remove the following line of text from the Boot.ini file:
+Important Make sure that this folder is not the folder that you identified as your "working" Windows folder in step 2.

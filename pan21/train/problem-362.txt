@@ -1,0 +1,9 @@
+I use iptables and DHCP server to share Internet connection. When I enable VPN, both Local1 and Local2 traffic goes through VPN, without VPN both local networks go directly to Internet.
+ex.commands: iptables -I FORWARD -i eth0 -o tun0 -s 192.168.0.0/24 -m conntrack --ctstate NEW -j ACCEPT
+First you have to change VPN configuration to not setup itself as a default gateway. What VPN is this? 
+I have CentOS Linux 6 based software router. I have 2 local networks, lets say Local1 and Local2. I have one Internet connection, and I have VPN connection that I run via this Internet one.
+My question follows: how to set up CentOS based software router to forward one local network via VPN and another one directly?
+Then you can add the static route which will forward traffic to the local1 subnet to the VPN gateway.
+I also believe priority matters. Be sure the route for the VPN Network has a higher priority than your default route.
+Most likely, your VPN consists of only a specific network (or set of networks).  You would want to set up Split Tunneling to say in Pseudo: "Any traffic destined for 'VPN network,' go through VPN Connection."  Then your 0.0.0.0 default route would be all set up to go out through the internet connection.
+You need to use VPN without default gateway defined, so all your traffic will goes through old default gateway.

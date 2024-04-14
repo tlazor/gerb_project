@@ -1,0 +1,7 @@
+Store quantities, not instances.  There is zero value in having 99 instantiated torches in an inventory.  All you need to know is that you have torches and how many of them.
+or should I just store the quantity of items instead of storing objects in list? in this case, is using tuple going to be ok? like HashMap>
+HashMap> inventory // where Integer -> item id, ArrayList -> there are same items stored in the list
+but I thought Is this a good way to store items even if the number of items in each list becomes larger (x99 items) ? 
+The advantage of the array is that since the list is ordered, you can generate an index of items in the inventory (items with quantity > 0) quite easily, which will mesh well with the UI in most of these kinds of games.
+Many games have an inventory that stores different items with its quantity. For example, [ "Herbs" x5, "Torch" x2, ..].
+A HashMap works, but it's not ideal; if it's the easiest thing for you, though, I would go with that for now.  Another option that might be even easier to just keep a single array of quantities, where each item has a unique small integer ID.  For instance, torch might be #17.  Then you can just set array index 17 to 0 if you have no torches, and a positive number when you have some quantity.

@@ -1,0 +1,6 @@
+Please note, you used the same AS for your network and the upstream network in your example. This is not really a common configuration because normally your ISP is one AS, and you have another. This configuration is a more common scenario. 
+There's a sample BGP configuration generator at http://www.oriontechnologysolutions.com/administration/basic-bgp-config-generator/ Fill out the form and it gives you this:
+It isn't pretty and you really should add some prefix lists etc before you start looking at adding multiple upstreams just so you don't accidently advertise the entire global table between two ISPs. That being said, if the gentoo box is only being used as a router and nothing else go get a copy of vyatta community edition and use that instead. 
+Please note in both cases, I did pull configuration information from peer 2 as that's not really required for what you're doing.
+If both routers have the same AS you'll be doing iBGP and so won't be exchanging all routes, only best routes, and things won't behave as you expect if in fact the different routers aren't part of the same interior network / autonomous system.
+Here's another example, with basic filtering (no RFC1918 inbound routes, only advertise your local prefix:

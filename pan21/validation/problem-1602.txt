@@ -1,0 +1,6 @@
+I created a hosted zone for blabla.com in route53, and I was thinking to create a CNAME from the registrar but I don't know where to point it to. I can't point it to the ELBs because they don't have a fixed domain name. Somehow I need a way to say "redirect everything to AWS" so that AWS uses my route53 rules to redirect the traffic.
+I have a domain "blabla.com" with some registrar. I have a number of ELBs to serve the traffic but their domain names change constantly.
+I would like to route the blabla.com traffic to the ELBs from within AWS route53 to benefit from the advanced routing (weigthed routing, etc).
+You want to route traffic for the domain "blabla.com" to your ELB.  Because "blabla.com" is the top node in the DNS namespace, aka zone apex, you can't use a CNAME record.  You can't use an A record that points to the IP address of the ELB because the IP changes.
+The solution is to use an Alias Record, an extension of Route53.  An Alias Record points to an AWS resource.  Route53 automatically detects changes in the resource and updates the DNS record.
+See this documention from AWS on Alias Records and how to use them. https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html

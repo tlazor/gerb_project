@@ -1,0 +1,11 @@
+I'm using a modified SciTE (windows) which make use of Scintilla (portable from source code) and have switched to proportionnal font after many years as monospace fan.
+The blogpost talks about how for TrueType fonts, the letters aren't drawn in nice little grids. Some purposely hang out of the grid while others don't.  To programatically make the font fit into a nice neat grid requires you to not use TrueType fonts. Hence we have come full circle.
+The Terminal programs lets me set any typeface, not just monospaced. I think I could get used to this!
+It is possible to do many thing with variable spaced fonts, but history has shown, as well is the general opinion that it is a bad idea. Most editors aimed at programmers therefore don't allow you to use them, and rightly so.
+Say you were to "draw a box" out of a smallest characters in the given font. And somehow managed to get it to line up.  
+No idea how OSX renders its fonts, but there is the obligatory Old New Thing blog post about all things quirky and historic among computing.
+Put a space in front of one row ... since space is relatively wide, ruins the whole thing. Now you have to either space it several times, ... until widths again match, or ... it's a bad idea. There isn't even a discussion on this one.
+But this is on the Windows side.  No idea how OSX renders TrueType fonts, but I am willing to bet this is the reason why all fonts aren't available, besides the whole "Does it support every character?" thing.
+The vertical line-up is maintained with tab, which I defined as number of pixels. Adding a 'tabify' routine and using small tab-width (about 3 spaces) you can line up any block code neatly: not only at begining of line but multi-column struct or multi-line #define
+The text is more compact (and eye pleasing especially for long class name) so rarely needs line wrap.
+I am sure you have seen the lists of other styles of Monospaced fonts too... Some free ones and the Wikipedia page

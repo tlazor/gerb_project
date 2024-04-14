@@ -1,0 +1,14 @@
+An "A Record" is just one type of record which is exists within DNS. It's all a matter of context. See this list:
+Those are all the things that you COULD configure within your DNS server. In other words, you've never been configuring DNS as such - someone else has done that - you're just configuring a field within their servers.
+You may have also come across a "CNAME" which lets you point to another DNS name, rather than an IP address.
+This leaves control of DNS for the domain with your registrar, you have to set up any DNS records yourself.  They've given you the details for the record to set up the website, but you may also want to set up records for FTP and mail - this is main difference you'll see between the two approaches.
+Ultimately, both end up with an A record (as you can tell from the other answers, a type of DNS record) for your website pointing to your host's web server, which results in your website being accessible from your domain name.
+Two good answers already, although I don't think either of them answer the question particularly clearly.
+Version 2) You use your registrars DNS servers, and configure an A record pointing to your host's web server
+But yes, generally, when you're configuring Y's DNS servers, you're probably setting up an "A Record".
+I hope that make some sense - it's a little hard to explain from scratch. This Wiki page explains more of the fundementals of DNS:
+You're getting confused with terminology, which isn't helped by hosting providers using unclear "friendly" language.
+Whether that is a sensible thing to do depends on the registrar as you lose a bit of flexibility for creating subdomains and some registrars charge extra for the service and/or changes to the zone data.
+When you are with a provider that offers DNS service as well as hosting, the registrar points at their DNS server (NS), which points at their hosting (A). If your new provider does not provide a DNS server, your options are to get that service separately and have the registrar point their NS there, or to ask the registrar to configure an A record directly, removing the need for a separate DNS server for your domain.
+The registrar's technical service typically consists of running a DNS server that hands out an NS record pointing at your DNS server, which you then configure to give out A records for the names that should be resolvable.
+This hands control of DNS for the domain to the host; the host's DNS servers will already be set up with all of the records you need (eg, A records) for your domain so you don't need to worry about setting up individual records.  www.yourdomain.com will point to your website, ftp.youdomain.com will probably point to the address for ftp, the mail will already be set up etc.

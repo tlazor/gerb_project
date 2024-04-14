@@ -1,0 +1,6 @@
+vmchange -res -multi_eject -ml T00036 -rn 0 -rt TLD -rh hpstmed001 # Eject tape T00036 from DLT robot 0 on host hpstmed001
+This used to be an expensive kludge in older versions of NetBackup, but works pretty well in 6.5. It does require a separate license though. 
+Kyle, it sounds like your are trying to replicate the "Vault" functionality of NetBackup, which can be setup to detect tapes which have been used and manually eject them on a daily, weekly, or whatever basis. 
+This is designed behaviour on the part of NetBackup. Why do you want to remove the tapes from the pool? 
+It is possible to script this activity yourself, but it is not the Volume Pool which you are changing (which refers to a logical grouping of tapes, often by purpose or retention) but the Volume Group (which refers to the physical location of tapes. 000_00000_TLD is the rather imaginatively named Volume Group name for "in our first DLT library", and "VAULT-PRIMARIES-HMED1" is our first off site location).
+Once the data on it has expired, you can remove the tape from the pool by clicking on it in the media manager, selecting "Change", then change the pool (presumably to your scratch pool so it will get selected and used as needed).

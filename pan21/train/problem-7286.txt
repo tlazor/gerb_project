@@ -1,0 +1,5 @@
+PasswordMaker generates unique, reproducible passwords locally using a single master password and the website url. All you have to remember is your master password; no syncing required. There is a firefox plugin, or you can use it standalone.
+Try 1Password, there's a Mac and iPhone app available. Not cross platform, but if you have an iPhone then that will always be with you... 
+It uses the same file format as (Password Safe)[http://passwordsafe.sourceforge.net/], which has Bruce Scheier's fingerprints all over it (a good thing).
+What I recommend instead is choosing among the many formats and systems that handle everything you need except sync; even Keepass 1.x fits this bill. Then set up an SVN repo; there's no way you're changing it so often to need conflicting changes. If you screw up, you'll at least have a revision history to fall back on.
+People are going to recommend you Keepass, 2.0 specifically. They are wrong, and you should listen to me instead. Keepass is not yet the tool you want:

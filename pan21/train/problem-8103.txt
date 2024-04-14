@@ -1,0 +1,6 @@
+I've compared the old config and new config and there were a few object/service type syntax changes which were updated prior to loading the new config.  I did not notice any failed commands when the new configs were loaded.
+The trusted rule should allow Host A to talk to the web server on port 443 and also allow the return traffic for that session through the firewall due to the session being initiated by the trusted source.
+The question is what configurations exist in the default setup that make the Cisco ASA act in a stateful manner?
+The stateful manner was working previously.  We did an OS upgrade and received a new baseline config around the same time a few months ago.  This is around when the issue started.  I'm thinking it's a possible bug in the new IOS or a necessary config was overlooked or didn't take with the new IOS.
+Problem was we upgraded the ASA OS version and the upgrade required a memory upgrade as well and memory usage was pegged at 100%.  Memory upgrade is complete now and the stateful nature of the ASA has returned to normal.
+The problem is in my specific situation the ASA is denying the return traffic due to the source/destination ip's and protocols being reversed.  

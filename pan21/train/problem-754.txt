@@ -1,0 +1,6 @@
+Keeping it as simple as I can has worked out pretty well so far and this works as is for now. But, when I find myself embedding another language into the code for nearly every solution, thats when I start asking if I'm missing a bigger picture.
+Basically I'm looking for two things. First a simple "contains" based search where the python equivalent would be something like:
+The second thing is, this isn't the first time I've thrown together some python snippet to bring more of a pythonic mentality to the database. For those who are well dug into the SQL world am I missing out on something by doing this? I get it for speed but if speed is ever an issue, I would assume that I just need to rewrite the implementation in C.
+In the database that I'm currently building, logically, I'm inclined to believe that the SQL command would look a bit like this if I were trying to show all of the snippet titles that contained 'evil' in the description.
+This works and should stop me from asking, but I would really prefer to learn how the SQL world would solve this because the whole point of learning SQL was to learn how to work the database instead of just finding another way to mold python to recreate a nosql feel.
+Im new to the PostgreSQL world so I do apologize in advance for not knowing if there is an obvious answer to these questions.

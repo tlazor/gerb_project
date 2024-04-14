@@ -1,0 +1,5 @@
+However, about half a year ago a group of 7 school, all under a common IT department, stopped getting the security warning.  In stead the applet loads and starts running in untrusted mode, without first giving the user an option to accept or reject the signature.
+My application is deployed as a self-signed applet to several thousand users at more than 50 schools across the country (in Norway).  The user is presented with the standard Java security warning asking if they will accept the signature.  When they do, the applet runs perfectly.  
+I know little about Window systems in general, but I would think it would be some sort of policy-file or something that is loaded when a machine hooks up to/through the schools network.  
+The problem is on Windows machines, and only when the machine is connected to the schools network.  If they take the same machine home with them, the program functions as it should, with security warnings and everything.
+Furthermore, the problem only started occurring in these 7 schools after changes made after a security breach they had a while back.  The IT department is stumped.  I am stumped.

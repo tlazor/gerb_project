@@ -1,0 +1,9 @@
+This means if someone were faking the site and you accept it, then they could be in control of the symmetric key used to do the actual encryption of the session.   So while it may still be encrypted someone might know the decrypt key.  
+My understanding is that the SSL certificate simply validates the identity of the site owner so that you (the customer) can be confident you are sending data to a legit company.
+If there is a certificate error on a website (such as the domain not matching what is stated in the cert) and I continue to view the site anyway, is data over the HTTPS connection still encrypted? 
+It tries to solve the shared secret problem.  So an SSL cert that has expired, or is from the wrong domain (it is minted for www.acme.com and it is being used at www.roadrunner.com), or the CA that signed it is not one of the trusted root CA's, then you get an error. 
+It will, however, protect you against a purely passive attacker. Nobody who is merely listening could decrypt the data.
+The data is still encrypted.  However, the endpoint has not been verified.  So, the data is "secure" in that it's encrypted over the wire.  However, you might be sending it to the wrong person if the certificate doesn't match up properly...
+Say you want to send your credit card information to Amazon. Say you have a secure connection, but you don't know if it's to Amazon or to an attacker who is impersonating Amazon. Sure, you could send the credit card, and it would be encrypted, but you have no idea what party holds the keys to the encrypted data. So the encryption is of minimal value.
+The certificate is used for an asymmetrically encrypted exchange of a symmetric key to be used for the encryption.
+Is that the only role that the certificate provides or does it also play a role in the encryption process such that an error like the one above would cause the encryption to be skipped?

@@ -1,0 +1,19 @@
+Putting all the above together, I came up with a main method that inputs the solution constraints and handles a non-solution too:
+My initial beefs with the code are that it depends heavily on constants, and on fixed arrays, instead of slices. In general Go favors slices over arrays. Consider this method:
+What your code lacks though, is a sense of readability, and maintainability. There are also a number of potential bugs, and some variable shadowing.
+You would be better by having a combination of a waitgroup and closing the channel if/when the waitgroup completes.
+Note the creation of the WaitGroup and the killer channel that allows you to capture the no-solution condition, and the early solution killer.
+your code does not clean up any go-routines that are still working when the first solution is found. You should find a way to terminate these routines cleanly - this would make your code usable in an application that does not immediately exit on the first solution.
+Your use of constants is impacting the code in odd ways. I mentioned the array-to-slice above, but it also impacts things like passing pointers in to arrays instead of slices, etc.
+Your use of the result channel appears to be a good idea, but it runs the risk of failing when no result is found. The fact that the 8x8 board has at least one valid result means that you are lucky, and that the channel completes OK. If there was no solution, though, your code would hang indefinitely.
+It has a lot of parameters. It is past the point where a structure may be a better solution, but I left it as a lot of parameters for you to correlate things back to your code better.
+The x1 and y1 variables are duplicated in different scopes. The closure pattern is the right pattern, but give your variables different, non-shadowing names. Also, why x1 and y1 instead of just x and y?
+If you use variable names that imply a secondary meaning (like x), then you should ensure that the secondary meaning is consistent with the code's implementation.
+a is the height of the board, and b is the width (at least, that's the way that the printChess will print it out.
+If you take advantage of the symmetry of the chess board and limit your loops you could do it in even less time than that.
+Constants in general are a bad idea, unless they really are constants. The dimensions of the board should be passed around, or inferred, as parameters.
+Also note the different mechanism for creating the closure. I am not recommending one way vs. the other, but creating the variables in the inside scope like startx := x allows you to access startx inside the goroutine without worrying about the scope, just like a parameter-based closure function.
+it requires a 2D array with very specific dimensions, you can't use that function to print different size boards in the same program. It would be better to have a slice:
+Additionally, if you create a parameter-based closure for the x and y variables, you should probably be consistent and create it for the c channel too.
+It's a good thing your board is square - you mix up the use of the a and b constants, and the use of the x and y coordinates. If you were to have a rectangular board, say 6x8, your would cause index-out-of-bounds exceptions. Hmmm, no, actually, it will work, but your logic of using x and y implies that x is a horizontal position, but really, x in your code is the vertical position, and y is the horizontal position.
+your maxLevels constant is a better name, but really it is a computed value: maxLevels = a * b. I would not use it at all as a separate constant.

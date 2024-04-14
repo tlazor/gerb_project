@@ -1,0 +1,7 @@
+I know that the question is about Word 2011, but I wanted to put this here in case anyone else was trying on a not-so-different version.
+For international users: You can manually change the title of the TOC to whatever you need in your language, updating the TOC will only update the titles and/or page numbers but leave the title of the TOC untouched.
+Repeat this for any other headings that you wish to remove (I also used this to exclude List of Figures and List of Tables from my TOC.
+Choosing one of the "automatic" TOC's (first row) the inserted TOC contains automatically a title formatted as "Heading 1" that did NOT list itself in the TOC underneath. So Word does the trick itself.
+In Word 2010, select your TOC header and go to the References tab in the top bar, from there select Add Text and select Do Now Show in Table of Contents.
+Check the style you used for the heading on the table of contents (TOC). Chapters in many tables of contents are generated from the heading styles. If you used Heading 1 as the style for the heading on the TOC, then it will show up as a chapter.
+Actually when you add the table of contents (TOC) by choosing "Document Elements" on the Ribbon (I think it is called, underneath the first row of icons) and then there "Table of Contents" (second from the left), then "Insert", you then get a selection of styles for your TOC.

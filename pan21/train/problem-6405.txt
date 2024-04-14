@@ -1,0 +1,7 @@
+I'm on macOS 10.12 and getting the familiar ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock'. But I don't think it's one of the usual culprits.
+As you've noted yourself, it seems that mysqld is being started twice. It seems at some point you've ran two different versions of the installers, which have installed in different locations, and not picked up on one another.
+The socket file /tmp/mysql.sock is missing, but mysqld is running. In fact there seem to be two mysqld processes:
+I think I installed and uninstalled a few versions of mysql a while back. So maybe an old instance is hanging around, getting in the way?
+I've looked for an extra .plist file that might be responsible for the extra mysqld process, but no luck:
+I can't find an old install, though. And I can't even kill the second second mysqld process (I think that's the bad one) without it restarting right away. Seems mysqld_safe just restarts it.
+Sometimes rebooting the whole system magically gets things working. There are still two mysqld processes, but at least /tmp/mysql.sock is created and I can access my databases as normal. Other times, rebooting doesn't help.

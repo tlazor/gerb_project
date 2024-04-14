@@ -1,0 +1,5 @@
+I don't think its a problem with your code. If you see closely the trend line has almost same slope for both training loss and validation loss; this suggests that you are okay as far as code is concerned.
+I am curious to know why my plot has smaller amount of validation loss. For your information, I used Keras as my deep learning framework. And since I used Keras, I thought this library would handle the different proportion of training set size and validation set size by averaging the errors.
+I used the for loop to feed my data into lstm_autoencoder network. In the dictionary variable stock_list, there are 500 stock names such as 'AAPL'. 
+I think this is because your training set is much larger than your validation set. What this means is that for training; losses are being accumulated for comparatively larger number of examples than validation. Hence your training error is larger than your validation error.
+I plotted lstm_autoencoder_history['loss'] and lstm_autoencoder_history['val_loss'] and it is weird because usually validation loss is higher than train loss.

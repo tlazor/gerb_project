@@ -1,0 +1,7 @@
+ssh foo@domain.com -vvvv is more reliable than ssh foo@domain.com. Call me crazy, but if I don't specify the verbosity sometimes it just doesn't connect. If I do specify the verbosity, it will be more informative and connect.
+I'm behind a proxy and I have ssh setup to use a proxy, so this could be the case but I've noticed that
+Because ssh -vvv spends a lot of time printing messages and that gives the other side more time to respond to packets... No, I don't see how this could make any actual difference.
+The only difference a -v or any number of -v's should make is the verbosity level returned to you. Connection debug, X Forwarding stats, etc.
+It's not impossible to think that numerous -v's could keep alive a shaky connection, or a connection with an appliance that is very keen towards killing idle connections, but the initial connection should be no different as far as the actual SSH communication on-the-wire is concerned.
+I suspect an observation bias. I conjecture that the second ssh attempt has a higher probability of success than the first (and the -vvv is just a coincidence, because you tend to use -vvv the second time but not the first time).
+Is there any explanation for this behaviour? And for me this is pretty consistent behaviour. Does the verbosity somehow change a variable in the way the ssh connects and returns data such that it forces it to work?

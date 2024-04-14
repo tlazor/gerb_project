@@ -1,0 +1,8 @@
+Reading this, it looks like the program will supply x,y,z as input to something else (another program? a website?), careful reading shows that it receives these values as input. 
+You say program, but this is inside the docstring of a function. Again, precise terminology in tecnical documentation is not optional.
+This phrase adds no value to the documentation and should be removed, the reader wants to obtain information, not to play guess and answer arbitrary questions that he is not supposed to know.
+You say decision, I take that to mean Boolean that is True or False, but the default value for this parameter is 1, and considering 1 and 0 as boolean values is confusing and has been obsolete for at least 16 years, if not more. (C99)
+This whole phrase is not needed, as all the information in it could be conveyed more succinctly and with less noise by naming the function stream_cipher
+There are no tests, nor examples of usage in your documentation. While your attempt to provide documentation is admirable, many people find it easier to understand what a piece of code does by example, so I suggest adding an example call, along with expected output. This will also enable automatic testing for simpler optimizations and simplifications.
+There is no message in the method arguments: Crypt(string,key,encrypt=1), when describing what the arguments do, use the same name in code and docs.
+This is vague: what do you mean by determined? Reading the code tells me that the key is used as the seed of the random number generator, and I would have stated so in the documentation.

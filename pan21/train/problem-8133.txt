@@ -1,0 +1,6 @@
+But honestly I would just expect the add function to take a row. This is not something where I'd use generics, instead I'd just use mutable data structures that have constraint checks. I'm way more concerned with column names matching especially when a params statement doesn't make sure they're in the right order.
+Finally I think about the use of params to solve the problem with different amount of columns, but I’m not sure how to make a good implementation other AddRow-methode.
+I have a lot of classes which are principal equal, but they consist small differences so that I can´t abstract then very well.
+The classes represent different kinds of DataTables. Every Class has two important methods which every "table-class" has. Here a abstracted example:
+The differences between the tables are the number of columns and the datatyp of column content. With this implementation I can´t use abstract classes, because of the different amount of columns. The names of the columns are also redundant in code.
+Alternatively, you could mix both approaches. Using the generics to ensure the number of columns and then adding a DataRow at a time to enforce column names match up.

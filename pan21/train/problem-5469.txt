@@ -1,0 +1,7 @@
+If your jdk file gets stuck on asking for the jdk file on repeat in windows 7, or you are having problems with the jdk file, try running SQLDeveloper as administrator rather than just the regular startup.
+What could be the issue here when it was working just fine yesterday?  I will add that my PC did freeze last night during shutdown, so I ended up having to power it off, but I don't know if that's relevant.
+I reinstalled Java and it still gives the same message.  I also downloaded SQL Developer without the SDK and get the same message.  I will also add that I am not actually installing SQL Developer, just running the executable from the folder.  I don't think you actually install it anyway.
+"jre6" in the folder name implies you have JRE installed there, and not the SDK. Point it to somewhere where you have java.exe of a JDK/SDK installation, instead of JRE, and from thereon it should work.
+Yesterday, I downloaded SQL Developer 3 with SDK and was able to use it just fine.  After shutting down my PC last night and booting it up again this morning, every time I try to run it, I get this message:
+you can download one here: http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html#jdk-6u34-oth-JPR. I downloaded and installed 32 or 64 bit 
+If you had to power off during shutdown, it might've not been able to save the SDK reference, thus asking it on the next startup.

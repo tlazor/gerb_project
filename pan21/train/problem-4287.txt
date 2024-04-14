@@ -1,0 +1,5 @@
+arp -a will list the ARP cache table on your system which should show the MAC addresses for IP addresses on your computer's local subnet that you have recently accessed.  However for your intended use, this table may not be useful as entries in that table can and will get removed after some period of time.  This period of time is OS TCP stack implementation dependent.
+I've written a little script that retrieves the mac-address and hostname or ip-address from the dhcpd.conf and then construct the wakeup packet (improved version of someone else' perl script). If you want, I can put it on pastebin.com or such.
+Of course it would be possible to have a constantly running script that periodically performs the arp -a command and updates a file with the new information retrieved.
+The etherwake utility (upstream seems to be dead) can read MAC addresses from /etc/ethers (or another kind of ethers database specified in /etc/nsswitch.conf).
+Is there any such thing as a file linking MAC addresses to IP addresses / DNS names for use with wakeonlan on Linux? Something like this:

@@ -1,0 +1,6 @@
+Rather than using firewall rules, the normal way to limit interest access is to put a proxy server in front of your firewall which is configured to allow or block access to the internet/specific sites for all or specific users. Using this method your client can whitelist the hostname e.g cdn.google.com as allowed through the proxy and solve your problem but if they insist upon using firewall rules your only option is to either allow all the google IP's or alternatively use a different CDN with a much smaller amount of IP's e.g the rackspace cloud files CDN. 
+Ultimately I doubt that your client will be will be willing to whitelist/unblock all of the google ASN as it contains so many IP's and will provide access to so much of the internet.
+This is the problem you have with CDN's, they are made up of hundreds if not thousands of servers and consequently IP's.
+The challenge is that pinging google.com (and other variants of it) returns a different IP address depending on your location.
+Is there a way to get the IP range of google's CDN (or any other CDN for that matter) to help configure an IP-based firewall?
+Our website is being accessed by a client who's firewall is setup with whitelisted IP addresses vs FQDN/DNS names.  The trouble is that the website uses google's CDN to host jQuery and jQueryUI rather than storing them on our own server.

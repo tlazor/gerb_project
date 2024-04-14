@@ -1,0 +1,6 @@
+On its end, the storage virtualization layer should make sure to replicate data for redundancy and use the capabilities of the physical devices for replication, snapshots and other.
+Do you know any solution that could accomplish the requirements listed above? A bonus point would be to be able to use the resources from the VMWare infrastructure.
+The idea is that whatever happens to the physical layer, I can replace the defective device in a transparent manner or attach new devices to the virtual layer so that more space is available.
+I'd like to use the capabilities of two Dell EqualLogic SAN and a VMWare vSphere 6 installation to implement a storage virtualization solution.
+It seems that VMWare's Virtual Volumes is what I'm looking for but I don't seem to be able to create a Virtual Volume/VMDK (a.k.a LUN) and allow a physical host to connect it via iSCSI.
+Basically I'd like to put virtual SAN layer above my two physical SANs so that it can provide the same services as a usual SAN, this is for say, LUNs, iSCSI endpoint and more, NFS, CIFS shares, etc...

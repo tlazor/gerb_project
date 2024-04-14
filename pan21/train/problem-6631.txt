@@ -1,0 +1,6 @@
+You didn't mention your graphics card, so I assume you're relying on the one integrated in your CPU? In which case you may experience serious problems if you did not properly setup hardware acceleration. Sometimes players offloads too much of the decoding pipeline to hardware that the GPU or graphics memory gets overwhelmed.
+Many media players force video/audio syncing, so if video decoding is lagging, audio may become shattered as well.
+I would suggest you disable hardware acceleration in PowerDVD and see if the situation improves. (Your Core i5 should be capable of decoding Blu-ray video completely in software.) 
+(BTW, your audio card is good enough for HD audio. Even though the chip requires the CPU to do most of the decoding, modern processors are so powerful that audio decoding cost is quite negligible.)
+If this worked, you should check why hardware acceleration broke down. Did you install the latest drivers from Intel? Were some incompatible video filters installed by mistake?
+My experience is that hardware acceleration using the DXVA API does not work well if your graphics card have less than 256MB of dedicated VRAM. Check your BIOS settings and see how much you have allocated to your graphics card.

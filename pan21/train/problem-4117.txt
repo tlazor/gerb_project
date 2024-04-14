@@ -1,0 +1,8 @@
+Unfortunately, there is no consensus on whether these three steps are all that is needed. The weak end system model is built into the entire Linux TCP/IP stack, and it's not clear what might go wrong with subtle issues like multicast.
+You need a strong end system model. Linux is fundamentally built around a weak send system model, so it's really not a good OS choice for this application.
+I would recommend bonding the physical interfaces then configure all of the addresses on the single bonded interface.
+It seems you want a test environment equivalent to 9 separate machines, and believed that 9 interfaces on one machine could emulate that.  In Linux it simply cannot do this through a single stack for reasons David Schwartz described.  BTDT and have the scars.  It was bad enough with 2 interfaces.
+You more likely want to create a bridge with the 8/9 interfaces and then assign an IP address to that bridge (bridge-utils packet, command 'brctl add').
+You will have to fake every piece of the behavior you need, from ARP to policy routing to source address selection. You will also need filters to prevent packets from being accepted if they arrive on the wrong interface.
+It's not clear how you would choose the output interface for broadcasts, for example. Should it go out all of them? Maybe. What is the right behavior if the stack gets an outbound broadcast with a source address not assigned to one of the interfaces?
+A better solution might be to run 8 or 9 discrete virtual machines in your one host, and bridge 8 or 9 interfaces to these virtual machines.

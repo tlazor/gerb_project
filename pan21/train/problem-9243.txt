@@ -1,0 +1,8 @@
+I'd like to use mitmproxy or mitmdump to record and replay my form submissions. I don't want to proxy all web traffic, just requests to, say, localhost:3000.
+You can replay requests in the mitmproxy UI by pressing r or automatically by replaying a saved conversation from the previous step:  http://mitmproxy.org/doc/features/clientreplay.html
+This listens in reverse mode, and will contact http://localhost:3000 as an upstream when your browser goes to http://localhost:8080/. When using domains, it's important to send the host header too (usually this is the next question when I hear this one asked).
+You can record HTTP requests by specifiying -w outfile or by saving flows manually in the mitmproxy UI (w keyboard shortcut).
+Though, I have not been able to proxy or see localhost traffic in proxy mode, luckily, the reverse proxy mode still works (even though the documentation is hard to find/understand):
+Ideally, I'd start the proxy on localhost:8080, request localhost:8080 with my browser, and have it relay that request to localhost:3000. But another workflow could be fine.
+I'm working on a web application on localhost. It requires some manual testing, including form submissions. Everything is done via plain HTTP, not HTTPS.
+Mitmproxy 4 has gone a different direction in terms of expected use. Previously, I would simply use it to start up a logging reverse proxy, but lately, the development has been towards installing mitmproxy as a system proxy and then listening to the flows from your system (including https traffic) and then filtering your flows to what you wanted.

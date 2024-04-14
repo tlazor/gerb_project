@@ -1,0 +1,6 @@
+Another method I've used is powershell, here's the code to find and output the results to a text file.
+is there an easy way to find in the project where database.dbo.tabledata has been used in a script within the project
+There are two methods I'd use personally. The best method probably, is the CTRL + SHIFT + F function. You can search for items like tables at the project level or the solution level. However if you have too many different solutions, you can use the below method.
+I guess you are using VS (as your tags say) for developing/editing SSIS. Right click on the .dtsx file and "View Code". Then do a string search. If you have multiple dtsx to look for then CMD is your best friend (mentioned by @billinkc) or alternatively you can use notepad++. In Linux I believe there is a command line function call "grep" (https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/).
+That should be a good starting point for looking through your packages and hopefully the table name(s) you're looking for do not collide with the internal xml of an SSIS package. If that's the case, and you can assume OLE DB Destinations, a find for OpenRowset should be beneficial.
+A low rent approach would be to open a command window (Start -> Run => cmd) and navigate to the folder with all the SSIS packages. cd \my\ssis\folder\

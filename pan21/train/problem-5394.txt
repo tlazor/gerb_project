@@ -1,0 +1,7 @@
+If you entered wrong parameters during the configuration, you can reconfigure with sudo dpkg-reconfigure ldap-auth-config or uninstall the packages with
+On the QNAP server: the QNAP tutorial is pretty clear and it's quite straightforward. Do not forget to enable the NAS to be client of it's own LDAP server in Menu "Domain Security". The full domain name has nothing to do with an actual browsing page, you could use "mypage.johndoe" if you want, as long as you are consistent with this name of course.
+I finally managed to solved my problem. That was a rather unusual issue, I guess: the LDAP server is hosted on a NAS (QNAP); the firmware update of the NAS somehow screwed up the LDAP database, resulting in everything seeming normal, except that the clients could not bind the users and their UID. 
+then configure the ldap address (e.g. ldap://123.123.123.123/), the name of the search base dc=mypage,dc=johndoe, LDAP version (3), make local root database admin (I choose No), does the LDAP database require login (I choose No).
+Downgrading the firmware did not help since the LDAP database was somehow corrupted. What did solve my problem was to load a backup of the LDAP database.
+if it can help someone. Disclaimer: I know nearly nothing about LDAP servers; natxo asenjo recommends the following tutorial: http://www.zytrax.com/books/ldap/.
+where nameOfPackage is ldap-auth-client for example. The --purge option deletes the configuration files.

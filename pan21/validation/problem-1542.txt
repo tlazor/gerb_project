@@ -1,0 +1,8 @@
+The jobs are stored in the system database MSDB. Did you back that up? You need to restore it to get your jobs back.
+When reinstating the jobs, make sure to not only look for what jobs you did have in place, but but jobs you should have had in place.
+This isn't strictly speaking a direct answer to the question, but I think it's relevant. Virtually any scheduled job that you'd normally create within SQL Server can be done as a batch file using osql or sqlcmd. You can run the batch file from the Windows Task Scheduler.
+Now that it's a few weeks later and you've (hopefully) recovered most of your critical jobs, you should revisit what you have in place and think about:
+(Of course these are things one should check on all DB servers, but following up on a failure is a great time to re-examine best practices and see what you may be missing.)
+It can be difficult to recover in a situation like this, but it's much better if you make sure that you get the jobs back in a situation where you won't have performance issues down the road that bring up problems in the recovery again! 
+Which approach is better is a matter of taste. I like using batch files from Windows because I can run other stuff from the batch file, and the batch file is easy to replicate on new installations without worrying about restoring msdb.
+For the situation you are in, as pointed out if you have neither an MSDB backup or a saved scripting of the jobs and MSDB is not available, you will have to recreate the jobs from memory or other sources. ("Am I screwed" = Yes)

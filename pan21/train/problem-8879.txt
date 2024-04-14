@@ -1,0 +1,12 @@
+If I use Remote Desktop I can get a view of the desktop and use it but the media center view gets blocked (I get the log in screen).
++1 for PsExec.  it could also do exactly what you need if you already have script or .exe you just need to run on the machine.   If that meets your needs it would be even easier for you in the long run than the simultaneous session hack.
+If I use LogMeIn, the media center application closes (not compatible with remote use) and the both the remote and media center views are the same.
+If there are no unique parameters for the scripts each time, just create a scheduled task to run your scripts.
+I have a Windows 7 computer that is acting as a Media Center so it is always on but not always in use.
+I would like to be able to log in to this machine remotely and launch some scripts that take time to compute.
+Is there a way to access the computer remotely to launch and monitor these scripts while not disturbing the media center users?
+Depending you your programming chops (you are already writting scripts - I'd say you are almost there) you could create a windows service or a simple web application interface that would start your processes, and allow you to supply any necessary parameters through the web interface or an RPC call.  
+This will not allow you the rich user experience of a full fledged RDP connection, but I have found it perfect for short, simple tasks.
+This allows you to launch console programs remotely and does not have a heavy installation/configuration process.
+I don't know what you think about doing things old school with text based. You can look in to Putty. It is a free SSH application.
+You cannot login interactively two sessions simultaniously (wihtout hacking windows and violating your license agreement).  If you are ok with that (considering system security and stability concerns + legal concerns), use the hack (jaoc's answer).

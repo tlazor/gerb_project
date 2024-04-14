@@ -1,0 +1,7 @@
+in this case, it will display your USER name, your HOSTNAME and it wil Print out your current Working Directory
+It's most likely updated by your shell prompt ($PS1 in ~/.bashrc or the system-wide /etc/bash.bashrc). Look for \e]2; or \033]2; or a similar escape sequence.
+An exert from the /etc/bash.bashrc file is to run the following line to fix your title back to the default:
+Your given example looks like the usual "<user>@<host>:<path>" template, in which domU-12-31-20-0a-81-AB is the server's hostname as currently configured in the kernel. Most likely, it was assigned by an automated Xen domU creation tool based on your virtual server's Ethernet address.
+Nothing new to what grawity already said but a lot more detailed/mind-blowing article here: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/index.html
+You can change the current hostname by using hostname newname. To make it persist across reboots, look around in /etc – on every reboot, the hostname is read from the file /etc/hostname (other distributions may use /etc/sysconfig/hostname or similar).
+Relevant section for title manipulation is: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/xterm-title-bar-manipulations.html

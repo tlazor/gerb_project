@@ -1,0 +1,5 @@
+If you want to be able to start a command without having to specify the full path, you have to include the directory in your PATH variable. You can see the current PATH with
+In Windows 10 (and possibly 8?), you will see an edit window that makes it easy to add a path. In prior editions of Windows, you will see a text box edit window. Add the folder path to the end, preceded by a semi-colon: ;c:\Users\myUser\desktop\far\far.exe
+For example, I want to open Far Manager using an alias, I have at first to CD into the path, which is c:\Users\myUser\desktop\far\far.exe.
+I know about the set "alias=myCommand param1 param2" but the problem is I want a single command to open up the application, for example Atom and VSCode have this feature, if I type atom or code in cmd it will open up. so I want to set a single command to open up the application without having to changing the directory into it at first and then use the start command. 
+Yet another option is to set the directory and program name in a program shortcut (eg far.lnk) which you can create in a directory already in your path. Such files can be called direct from cmd.

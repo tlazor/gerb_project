@@ -1,0 +1,7 @@
+Here is an example, I have an Linux instance , say, private IP is 10.10.10.10, public IP is 54.54.54.54.
+I can imagine it's related with part which how public IP associate with private IP. Therefore, the inbound and outbound traffic is somehow lost.  But I would really want to know more details.
+I don't see an issue pinging my own public ip from inside the instance. make sure you add a rule in the security groups associated with the instance.
+Your elastic IP is not present on any local interfaces. If you want to bind a local service to an IP address, bind it to the private one and associate your EIP to it.
+The reason I need to use it's public IP instead of localhost is because it's the same IP configuration which I will be used for this server as well as for other servers.
+If you need to bind different instances of your service to different public EIP's, just use the same number of private IP's associated to them.
+Inside the instance, I could successfully ping it's private IP(10.10.10.10) and localhost. However, I cannot access it's public IP(54.54.54.54).

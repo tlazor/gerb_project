@@ -1,0 +1,8 @@
+Older PICs relied on the programmer to provide the timing for programming the Flash. I suspect that the RPi would be capable of getting those timings correct. The main difficulty in that case would be the level conversion from 3.3V to 5V for the PIC
+Note that these circuits require an external 12V power source, and a few additional components (voltage regulator, transistors, capacitors, resistors, and some LEDs in the advanced one).
+Now you have the read the programming specification for that specific PIC family and work out how to manipulate the GPIOs to get the program in there.
+See an example (via), and a reportedly more advanced one (via) describing how to use of Raspberry Pi to program PICs via GPIO.
+Newer PICs do the programming timing internally and some can be programmed at 3.3V. Those should be able to be connected directly to some IO pins.
+Another open project for pic programming is usbpicprog. This one could also be worth a look, but it is more complicated as it is a programer connected to the USB port, built around a pic18f2550. This programmer has a great feature: it generates the +12V programming voltage with a charge pump, thus it doesn't need any other power source than  +5V over USB. 
+Pins 8 and 9 can be used as UART pins, so it should be possible to control a programmer over these pins.
+Software-wise, there is an open source pic programmer program for linux called odyssey. It is used with programmers connected to a parallel port. Odyssey communicates by bitbanging, so it should be possible to adapt it to send the data to the GPIO instead of a parallel port. Odyssey supports a lot of the 16f and 18f PIC:s, and is able to read several formats of HEX files. 

@@ -1,0 +1,6 @@
+"The ANSI charsets are all the same for ASCII characters such as digits 0-9, and English letters a-z and A-Z," (http://www.firstobject.com/convert-ansi-file-to-unicode.htm)
+Other test, I opened the same file with HxD (http://mh-nexus.de/en/hxd/), and my file it is correct too, with the latin character "Á" at end of file. See the hexa below:
+There is no problem in entering “Á” in windows-1252 encoding. Naturally, Notepad++ also displays it OK. So do many, many other programs.
+The default encoding in Notepad++ is called “ANSI”, without clarification; it may mean windows-1252, or it may mean whatever 8-bit encoding is the system’s native 8-bit encoding (in your case, it’s probably windows-1252 anyway). “ANSI” is a Microsoft misnomer for its 8-bit encodings, one of which (now known as windows-1252) was long ago submitted to the American National Standards Institute for approval – and rejected.
+To my surprise, the notepad++ saved the file normally, I can read it on notepad++ normally with acentuation at Ansi Encoding.
+You would need UTF-8 if you wanted to enter “Ć” for example. Many people use UTF-8 even if they don’t need characters outside windows-1252 right now, to avoid any need to change the encoding later, if new characters are added.

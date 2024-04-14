@@ -1,0 +1,5 @@
+If you're using keras or tensorflow.keras, this parameter is known as patience in the EarlyStopping callback.
+You should also look for training error Vs testing error than training accuracy and testing accuracy.
+Keep training until your validation accuracy saturates (or starts dropping). Since the accuracy increases slowly, try to increase your learning rate parameter etato force the network to converge faster to the optimum weights. Be aware though, if you increase it too much though, it will become unstable. 
+At epoch > 280 in your graph, validation accuracy becomes lesser than training accuracy and hence it becomes a case of overfitting. In order to avoid overfitting here, training further is not recommended. However you may choose to train the model beyond the epoch where training and validation accuracy matches if the resulting validation accuracy is sufficient for the particular problem you are working on. 
+It equals the number of epochs with no validation accuracy improvement to trigger the end of the training phase. I usually set it to 2 or 3, 1 is usually too sensitive to noise. 

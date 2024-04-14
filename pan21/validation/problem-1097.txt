@@ -1,0 +1,7 @@
+There are downsides.  Failures will be at a slightly higher rate, and individual system noise will probably be higher due to increased fan velocities.  And your tolerance for a heat rise is much less, meaning you have to act faster if things start to get unexpectedly warm.  
+There is also the (currently unpopular) idea of just running things hot.  Check your system's documentation for descriptions of the temperature range it will tolerate.  For example, Dell has confirmed that their systems are warranted to perform at a 32 degrees Celsius (90 degrees Fahrenheit) inlet temperature.
+James Hamilton's blog touches on this idea periodically from an environmental (green/sustainability) standpoint -- here is an example which refers to Dell specifically.
+ASHRAE (the professional society for HVAC) performed several studies in cooperation with several major IT vendors and determined that around 85 degrees F, measured two inches from the server air intake is recommended, and peak temps can go well beyond that.
+Now I've never done this myself, I'm still attached to my A/C -- but I'm thinking about it for future deployments.
+Also, between an Xserve and a RAID, they should really be in a rack that's open (fully vented/mesh front and rear doors) if they're not cooled with forced air.
+Sounds like a bigger problem than just cooling the rack... ideally, you should move the rack to somewhere where noise isn't such a problem.

@@ -1,0 +1,9 @@
+isCompleteString() prints its output rather than returning a boolean.  It is a strong convention in Java that methods named isSomething(), hasSomething(), or canSomething() should return a boolean.  Also, printing the output prevents you from writing unit tests or reusing the code.
+As you noticed, the second implementation is more efficient.  Searching a string is less efficient than arithmetic and an array lookup.  Concatenating a string is less efficient than setting one element of an array.
+122-alphabets is weird and mysterious.  alphabets - 'a' would work just as well, and the intention would be more obvious.
+The class should be public.  The isCompleteString() function should probably be public as well, since it implements the primary functionality of the program.
+Using byte for N is weird.  Why limit yourself to 127 test cases?  Just use int, which is more natural, more scalable, and no less efficient.
+Your second implementation is not really using java.util.BitSet, but it does something similar in spirit.  Note that you only need a set of 26 bits.  Guess what?  An int has 32 bits!  The following solution should be even faster.
+Declaring throws Exception is a bit sloppy and mysterious.  If you only need IOException, then declare throws IOException.
+N should not be a static variable.  It's just a loop counter within main(), and should therefore just be a local variable.
+String args[] is allowable.  However, String[] args is considered more idiomatic in Java, and easier to read.  (You wrote char[] toChar further down, which is good.)

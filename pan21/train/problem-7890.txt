@@ -1,0 +1,8 @@
+As I mentioned in the comments against the accepted answer, just using the Win7 DVD to remove the partition and do an "automatic startup repair" did the trick, however, I did have a few issues so thought I'd add my own answer...
+I ended up deleting the partition in the Win7 setup (when booting from the DVD). After restarting, it took two attempts to auto repair startup problems (missing bootmgr).
+Restarting again caused the missing bootmgr problem, so back into startup repair. After restarting (I think it took two repair attempts/restarts again) I could now delete the old Vista partition.
+By far the easiest way is simply to delete the other partition and mark your new one as active then put in the DVD and allow it to repair the startup for you.
+However, the repair still didn't make my Win7 partition the system partition (D: still existed somehow), but in Disk Management, I could now set C: as the 'Active' partition.
+The final problem was extending the Win7 partition to use the newly freed-up space. Disk Management didn't seem to let me do this, but I'd previously downloaded a free partition tool called Partition Wizard which did allow me to extend the partition to use up all the free space. One final reboot later, and I have now successfully deleted the old partition and extended the new Win7 partition into all the available space. Phew!
+(of course, this will fail and you can have a lot of problems if you use Bitlocker on your drive... Assuming you don't!)
+There are ways by copying the bootloader / system files then marking as active e.t.c. but it can take time and can get complicated

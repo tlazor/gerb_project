@@ -1,0 +1,6 @@
+Exchange allows me to import it, but then it never shows in the ECP. When I try to remove the key through the Exchange Console, this is the error I get:
+I have a CRT and KEY file on our CentOS webserver. It's working fine. We want to use it on our Windows 2008 R2 Standard server for Exchange 2013.
+I know this question has been asked before and I've gone through countless threads on here (as well as google) trying all of them. Unfortunately, I think I'm having an unrelated issue to what others have had.
+The only way to remove it is to open the MMC, add the Certificate Snap-In and connect to Computer Certificates. I can search by the SHA1 thumbprint and delete it. (If I don't delete it, when I attempt to import it again, I get an error that the thumbprint already exists.)
+I don't know what the solution is to getting this to import through Exchange, but Massimo found a work around. If the PFX is imported through MMC > Certificates > Computer, it allowed me to add it via the Exchange Console.
+I have the exact same results in Exchange 2013, it silently imports it, won't display it on the ECP and when I check it in the MMC: it's missing the private key. Any help at this point would be appreciated.

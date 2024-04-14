@@ -1,0 +1,8 @@
+In Linux, one of the layers of protection against malware is the fact that you need sudo privileges, malware most often would not be able to crack the sudo password, hence it's unable to do what is supposed to do.
+Also, if you’re using EncFS or whatever, that doesn’t help either: If it’s mounted, the folder gets encrypted. If it’s not mounted, the backing files get encrypted and you can’t mount it anymore. It’s secure, but not safe.
+If you're using file-based encryption, then the password is a decryption key; without the key, you can still read and write the file, but it's gibberish.  This means that ransomware would be able to wrap it in another layer of encryption.
+No, because no OS I know of has any method of “password-protecting a folder”. There are just regular filesystem permissions.
+So in windows, or any OS, if I password protect a folder, the only one who can remove the password is the admin and the admin account is password protected too. Would the ransomware be able to encrypt the folder and its content or would the filesystem restricts that?
+Of course, the ransomware can only encrypt where it can write. But what really hurts: Having your OS encrypted? Or having your personal files encrypted?
+Ransomware runs as the user, so, provided the user is not an administrative user and provided the encrypted folder is locked, ransomware would not be able to encrypt it - unless it contains an unpatched privilege escalation exploit as well.
+They may be set to not be readable or writable by unprivileged accounts, and thus you have to enter an administrator's password in order to view them.  The account is what's password-protected, not the folder.  Thus, if the ransomware runs as that account, it is able to write changes to it.

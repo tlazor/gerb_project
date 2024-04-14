@@ -1,0 +1,5 @@
+The issue I come across most often is the figure/image has had a Heading style applied by accident - when this happens the caption/chapter numbering goes wild and starts inserting 0 as the chapter number!
+I spent hours on this. My issue was I had added a "title" that said Chapter 1 above my heading 1 which was formatted with the various levels. As soon as I deleted the fancy title placed above my heading 1 in the document things worked fine. I did have to update the figure to get the new numbering to come in.
+According to the previous solution (Emami), Using Shift+Enter to write the second line of Heading1 style, has been found.
+I work as an IT Training & Support Specialist at a UK based post-graduate university and many of our students come to me with this issue in their Thesis documents in Word 2010/2013.
+Simple solution:- click once on the image to select it, click the Normal style in the Style group on the Home ribbon.  Now update the entire document (CTRL+A > F9 > Update Entire Table > OK...repeat as necessary).

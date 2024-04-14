@@ -1,0 +1,7 @@
+What I do is I use port forwarding. I have the Pi connected to my laptop as a network device and I access it via SSH.
+A typical use of HubPiWi will be to add a Keyboard, a Mouse and a Camera on the three USB ports. This is in addition to Wifi, of course. 
+I'm late to the party, and you already have some very cheap options, but I reckon you may be able to do it for less - just a couple of resistors - if you have a PC with a spare serial port nearby.  The hardware side is a little hacky, and the connection will be SLOW and you do say you want reasonably fast, but I thought it was worth a mention anyway.
+Premise: You can do network over serial using PPP (what modems use to connect to the ISP).  So if we can get the Pi's Tx and RX to talk to a PC serial port, we can network over that.
+I'm answering my own question with two ideas that I have, but both solutions are tacky (IMO) and not that cheap ($10-30). I'm hoping there's a better way.
+This creates a remote port forward to a proxy server (find one on http://proxylist.hidemyass.com/ or similar site) on the port 1234. The next step is to add APT proxy to file /etc/apt/apt.conf (create if not found) and write the following line:
+Checkout  HubPiWi - an add on board for Pi Zero with 3 USB Ports and an integrated Wifi with on board Antenna. The board has a PCB Antenna and does not require and Cable or Connector. 

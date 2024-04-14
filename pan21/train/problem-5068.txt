@@ -1,0 +1,7 @@
+Serial devices privileges are granted to members of the dialout group. To get connected to /dev/ttyS0 I added the current user to the group using:
+but for this command, nothing shows up that is using ttyS0. I've also tried grabbing all open files and filtering for a lock on ttyS0:
+How is it possible the cu says the line is in use, but both ps and lsof return nothing using that line?
+I don't know what could possibly be using this connection. To find out, I've tried reading all open processes and filtering for the use of ttyS0:
+It seems that this is a bug in cu. I solved this by changing owner group of /dev/ttyUSB0 using following command:
+and retry cu. If it starts working, you need to take care of the respective udev file and the user permissions/groups. For my device it looked like this (being member in plugdev group):
+On CrunchBang linux (Debian variant), I have a COM port on ttyS0, which I'm trying to use with an NFC device. libnfc responded that it couldn't see any NFC devices, so I tried directly opening the COM port. For this, I used:

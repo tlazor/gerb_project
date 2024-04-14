@@ -1,0 +1,6 @@
+When people discuss complexity, there's worst case and average case. In computer science, people often look primarily at the worst case. In real life the average case is more important. 
+Of course that's just me saying that your code is Ok. In a job interview, you may have to live with whatever the interviewer says. 
+Complexity of your code is very, very bad if n == 0 or k == 1 because your loop doesn't finish :-( So that should be fixed.
+The reasoning behind this is that if \$ N \$ is a power of \$ K \$, its representation in base \$K\$ looks something like like \$000100 ..00\$. We can do something like a binary search to find the position of this one (if it exists) by checking the largest divisor of \$N\$ of the form \$ K^{2^i} \$, dividing it out, then doing this recursively until it either doesn't divide out (and isn't a power of \$K\$), or it returns 1 (and is a power of \$K\$).
+In your case, the worst case is that n = k^m, in which case it takes m steps. However, if n is chosen at random, then the chances are (k-1) / k that you stop after just one step, (k-1) / k^2 for two steps, (k-1) / k^3 for three steps and so on. Even for k = 2, the average number of steps is just two. 
+The complexity of this is \$O(log(log(N))\$, compared to \$ O(log(N)) \$ for straightforward division or logarithms.

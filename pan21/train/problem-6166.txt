@@ -1,0 +1,6 @@
+If someone wants to visit the web server, the browser will first send a DNS query for this host name. 
+for example, all DNS queries will be forwarded by DNS server to the web server host, and the DNS server on the host respond to the web browser directly. how about the delay?
+If I hope all DNS query for this web server should be notified to the web server immediately(so the web server knows which IP did the query), is it possible or not?
+But the web server WILL know the client IP when the client PC/browser actually connects to the web server as the web server need to know where to send back the data/page that you requested.
+or DNS server sends a  notification packet to the web server immediately when it receives a DNS query for the web server. how about the delay?
+Yes. To an entirely different server. I am not sure what you are assuming as a setup here, but if I want to visit your site foo.bar, I look it up with Google's DNS at 8.8.8.8 personally, and then I get your actual IP and end up at your site. The way you present your problem, you sound very confused and I'm not sure you understand how DNS works. Can you explain what you are trying to do and why you are asking this? That might give you a better answer.

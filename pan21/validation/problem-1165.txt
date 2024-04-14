@@ -1,0 +1,8 @@
+I would look into a generic SSH daemon for Windows.  OpenSSH (free, but difficult to configure and you may be stuck in a POSIX environment) or Bitvise's WinSSHD (easy to set up but not free) are two possibilities.  WinRM is the Microsoft solution to this problem, however.
+Another alternative is to use Sysinternal's PSExec.  I have in the past written batch files which copy a second batch file using Administrative shares (\\C$) to the remote system, and then PSExec will launch that second batch file.  That works well on clients, but I'd be hesitant about doing it on servers.
+For me, lacking company support for those fancy alternatives, I start a VPN session and use the directions found in the eBook: Layman’s Guide to PowerShell 2.0 Remoting.
+I write "basically because there are some (a handfull, but not difficult) security configurations to make, but these depend on the environment (domain, trust...)
+You could always be a Bad Admin(TM) and enable the Telnet Server on older Windows clients, and then disable it again once you're finished!
+Basically, to enable Powershell remoting on machine "pc1" with ip "10.11.12.13" start powershell (Version 2.0 and newer) as admin on "pc1" and type
+Sounds like you are after something like /n Software's Powershell SSH Server or Quest's PowerGui Pro Mobile Shell.
+before I got into it I used http://www.freesshd.com/ which is a very simple to setup windows ssh service (to connect to with putty)

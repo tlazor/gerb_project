@@ -1,0 +1,5 @@
+So my question: is there a way for me to specify during installation of Windows that I want those directories (Program Files and User folders) to be on the HDD instead of the SSD while still installing the OS onto the SSD?
+I used this on some of my client builds when I was installing SSD/HDD combos. Its worked pretty well for me. Give it a shot.
+I've also downloaded RT Seven Lite and Oracle VM Virtualbox in the hopes of modifying my boot disc, but haven't had any luck so far.
+I've just finished building a desktop and would like to install Windows 7 to a SSD and then have the default storage (i.e. Program Files and User folders) on a separate HDD. I've searched for different ways to do this and the most often solution I've seen is modifying the registry entries for those locations to point to the HDD instead of the SSD, but I've also read that doing so after already installing the OS can lead to problems with Windows programs not knowing where they are located. 
+I apologize if this has been asked or answered elsewhere, my Google-fu has been less than helpful when searching this subject and I'm getting desperate.

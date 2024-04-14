@@ -1,0 +1,5 @@
+However, while this is working exactly as it should, if somebody were to disconnect an access point and instead connect a switch to the outlet, and then connect the AP to that switch. The AP would authenticate, and full access is granted to everyone on that switch. I've tried setting up client-limit on the Procurve switch, however that prevents any users on the AP from accessing the network.
+The solution I have tried is setting up the ProCurve as a 802.1x authenticator against a RADIUS server, which is working.
+Since the outlets at the AP's are being mounted on the wall, so everyone can access them, I would like to protect the ports on the switch, so nobody can circumvent our logs. (By connecting, without their mac addresses being registered to their room number)
+How can I prevent users from accessing the network through these outlets, and still allow people to logon to the wifi?
+The Access Points are configured as 802.1x supplicants, and succesfully authenticates to the switch, and has access to the network.

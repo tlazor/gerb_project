@@ -1,0 +1,5 @@
+You could also boot into Safe Mode and change the video driver to "VGA" instead of whatever accelerated driver you're using.  After you reboot into normal mode, reinstall the real driver and set whatever resolution you like.
+Since the display settings won't stick in safe mode, download NirCmd in safe mode and add a batch startup script to change the resolution:
+Your OS is trying to force the TV to use a refresh rate/resolution it can't support. You have to check your TV manual. It will list the supported combination. Contrary to a monitor, depending on your TV set, you may not have many choices here.
+This would reduce the screen resolution two steps.  Use more "down" steps at the end to reduce it all the way to the minimum.  Again, this is for XP, test on Vista (in Safe Mode) before trying this.
+The refresh rate will be almost certainly 60 Hz. The resolution is entirely dependent on the TV screen size. Meanwhile if your video card has settings for TV display you should use those instead of setting anything from within Windows normal resolution dialog box.

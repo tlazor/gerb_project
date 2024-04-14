@@ -1,0 +1,8 @@
+Windows does not support this out of the box, so you will need to use latest manufacturer drivers for your NICs, and follow their instructions for enabling this functionality.
+To do this you need to "trunk" (also called "bonding" or "link aggregation") your two NICs. To do this you need:
+I don't think the DGS-1016D supports link aggregation though, so you might have been struck out on the first hurdle.
+When run in load sharing mode it's quite normal to only see one NIC in use. Only when the demand in one direction gets to the point where the second NIC is required will you see traffic flowing through it. OTOH, I quite often see inbound traffic on one NIC and outbound on the other.
+The other option is to run different services on the different NICs, so if your issue is with multiple concurrent file transfers, run half over the IP address of NIC1 and half over the IP address of NIC2. This should give you a similar overall result.
+Also bear in mind that the total throughput is often limited by other connected devices. e.g. A server with 2 1Gb NICs won't be bothered by a few clients connecting with 100Mb NICs. No point having a suer fast connection on the server if it can't be utilised by the clients.
+What do I need to do to spread the love across both NIC's?  I'm hoping to increase transfer speeds from my Server to my network.  
+I've "Bridged" the NIC's in my Server 2003 box but when I do a large file transfer, I see that only one is active at a time.

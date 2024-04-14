@@ -1,0 +1,5 @@
+Consider a grossly oversimplified scenario. A program runs, and then finishes. Your operating system has two choices:
+1) It could make the memory that held the program free. This requires a specific operation to make it free, and a specific operation to allow it to be used again. And if the program runs again, it will have to be loaded in from disk.
+2) It could not make the memory that held the program free. This requires no operation to make it free, but a specific operation might be needed later to move it to another use. And if the program runs again, it will not have to be loaded in from disk.
+So, under most conditions, option 2 is a pure win. It saves an operation if the memory needs to be used for something else (it can just switch from one use to another in one step rather than two steps, one to make it free and one to make it not free). And it may save the program from having to be loaded in from disk, which would be a huge win.
+There is a common misunderstanding that free RAM is good. Actually, every byte of RAM that is free represents a failure of the system to make effective use of that RAM. Free RAM won't make your system any faster.

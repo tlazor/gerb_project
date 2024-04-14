@@ -1,0 +1,8 @@
+I like multilog for my use case, but my use case is so trivial/simple that it is not laid out very simply in the docs/examples I found.  Here is a simple multilog rotate example:
+Finally, don't forget to nohup if required!  With nohup, you do not need the 2>&1 (s=10e6 and n=30 here):
+Is there a way to make that log file rotate?  (max size, then switch to a different file, keep only a limited number of files)
+Otherwise, you may be better off piping your logged content to a custom program or script to handle it, or look at setting up the logrotate configuration.
+I've seen a few answers which talk about the logrotate program, which sounds good, but they also seem to be focused on programs which are generating log files internally and handle HUP signals.  Is there a way to make this work with a basic output redirection script?
+the rotatelogs tool shipped with apache (in the bin dir)  (see docs) takes input from stdin and rotates the log after some specific amount of time
+*For many applications, these are poor choices for long term use.  They do allow you to observe the behavior of filling and rotating the logs more quickly than large logs do.
+If you can have it go to one of the standard log streams (syslog, daemon, cron, user, security, mail, etc.) you can use the logger command and pipe to it instead.

@@ -1,0 +1,13 @@
+I've just checked the preferences in 1.0.5 and there's an option for "Accelerated video output (Overlay)" on the simple settings. Make sure that this is checked.
+So the final answer to your question: With VLC, there is no guarantee of hardware acceleration. Monitoring CPU usage alone cannot give you the answer.
+VLC is unable to use HA. It will be only avaliable in 1.1.0. You can use 1.1.0 pre release until then, it works.
+DXVA is the Direct-X interface that a video card manufacturer exposes in their video drivers that applications can make use of. VLC 2.0 onwards supports DXVA decoding.
+So it looks like VLC should be using hardware acceleration. Check you haven't turned it off. Your video card should be able to handle this.
+The 'Overlay' setting tells the video player to dump the pictures frames directly into the memory of the video card. 
+Video decode is the actual decoding of the encoded bitstream like H.264 using a video codec. This is the process of converting the encoded content into actual picture frames that makes up the video.
+You can't tell with CPU usage alone. There are various levels of hardware acceleration that hardware can support (MoComp, IDCT, VLD etc.) - so it is not just a yes/no answer. Your CPU usage is dependent on how much acceleration is available and the details of the content.
+If your player only uses decode acceleration, the CPU still does the work of resizing, scaling etc. (If you have a 480p video and make it full-screen on a 1080p screen, the video must be scaled up to fill the entire screen - this processing happens on the CPU unless otherwise specified)
+How can I tell if VLC is using hardware acceleration? I usually get around 20% cpu usage when playing h264 video which seems a bit high.
+Video rendering is where Overlay comes in. Note that this is different from the actual decode process. This is the part of actually displaying the picture frames on the screen. It might sound simple, but there is more to it than one might think. Normally, windows handles placing content on the screen since the OS is aware of what other content needs to be placed on the screen (What window overlaps which other window. Decisions need to be made about what part of what window to draw and what to hide)
+This can either be done in software (CPU) or be hardware accelerated on the GPU (using specialized hardware and registers optimized for such computation instead of generic purpose computation like the CPU).
+On the "All" settings there's an option "Overlay video output" which has the tooltip "Overlay is the hardware acceleration capability of your video card (ability to render video directly). VLC will try to use it by default." Make sure that is also checked.

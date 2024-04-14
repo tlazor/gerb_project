@@ -1,0 +1,12 @@
+If you use the official repositories you won't break / damage your system, because repositories maintainers check every relation / dependency of the packages versions.
+So sometimes it won't upgrade a package whose dependencies have changed. If you want to be more thorough, you can use sudo apt-get dist-upgrade:
+Most of the time it doesn't happen because Linux Mint freeze versions so if you have Linux Mint 17 and the repository you add is for that version then the maintainer will respect the dependencies.
+I came to Linux as an winXP refugee, and I'd prefer not to get deeper into the nuts and bolts than I have to. I am fairly comfortable with the command line (I'm an old geezer who worked on several command line systems before windows were invented), so as long as it's documented, I can do it.
+What levels does that command line process install as default? Am I likely to run into problems picking up bleeding edge unstable versions? I use the  programs that came with the package as far as possible, only adding things like python3 and a few low level utilities.
+By default, when you install Linux Mint the official repositories are referenced, you can check which repositories you are using on the Software Sources tab on Synaptics or going to /etc/apt on console.
+No, the command-line is always safe. There shouldn't be even any difference as synaptic is just a front-end. Some people find it more comfortable. apt-get has no less options than synaptic, they are just hidden from you when you only use apt-get update/install/upgrade etc.
+Synaptic and apt-get are tools for the same task. Both of them use repositories to get updates of the packages.
+It could happen that the new repository installs a new version of a package or a common library. If an existing application depends on the older version then the application fails.
+I personally find searching via synaptic much more comfortable as the command-line search of apt-get ain't the best (imho).
+Synaptic gives a lot of options for updating, and frankly I find it confusing. So I just go to the terminal and do sudo apt-get update/upgrade from time to time.
+However sometimes you need to install an application not available on the official repositories, so you can add other repositories.

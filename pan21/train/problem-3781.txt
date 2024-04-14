@@ -1,0 +1,6 @@
+USBDeview works fine for that. I had a USB using multiple drive letters (4!!!) needed for my hard drives. And if diskpart couldn't do it, this soft did it without breaking a sweat. Quiet amazing USB tool actually. Tons of infos and options in there !
+In that window it will show all of the listed letters assigned, even if the main window isn't showing it.
+My system dual boots Windows 10, and the drive assignments are fine there (although of course different, since the system drive changes).
+In Disk Management (diskmgmt.msc), find the disk/partition in the lower half of the screen, right-click and select "Change Drive Letter and Paths for :".
+I tried unassigning D: to see if both drive letters would be released, but the system will not allow unassignment of what it considers a system drive.
+I use an ssd (C:) for my (Windows 8.1) system drive and an hdd (D:) for data, with the library folders redirected to D:.  That works fine, but somehow the D: drive got an extra drive letter (E:) assigned as well, so it shows up twice in File Explorer.  Both entries work, and the contents are identical, so it really is for the same physical drive.  Disk Manager shows only the one drive, labelled D:, but the E: drive letter is unavailable for assignment.

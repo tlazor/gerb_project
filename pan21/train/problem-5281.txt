@@ -1,0 +1,6 @@
+There's another mailing list thread with someone else trying to solve the same problem and they end up using smtp_header_checks.  There isn't a lot of documentation for smtp_header_checks, but, since the processing is applied when mail is delivered via SMTP, it can be used to rewrite the From header added by cleanup.
+Since it's the header information that needs to be changed or reformatted, using postfix's header_checks seems like the obvious solution.  However, it doesn't work.  Reading the header_checks man page there's another hint in the BUGS section.
+is not a valid e-mail address. The wikipedia entry has some useful pointers, as well as references to the relevant RFC's. 
+Here's an example of an /etc/postfix/smtp_header_checks configuration that will change the From (header) address of every outgoing message to LOCALHOST System <noreply@example.com>:
+The key to solving this is understanding how the postfix cleanup process handles missing header information.  From the cleanup man page:
+Please note I'm not a regex expert, so you may want to test your own regex rather than relying on the one above.

@@ -1,0 +1,6 @@
+Look at those files under /etc/letsencrypt/live; notice that they themselves are symlinks to yet another directory, archive. That directory is also not world-readable by default.
+Do not try to "solve" permission problems with a sledgehammer. Giving everyone write permissions to those folders was completely unnecessary.
+Whether your current problem is caused by file permissions or chrooting, this symlink won't help with it at all. If you have enough permissions to follow a symlink to /etc​/letsencrypt​/live​/foo​/privkey.pem, then you also have enough permissions to access the same file directly.
+Permissions of "symlink files" are irrelevant and you cannot change them on Linux. They're always reported as "lrwxrwxrwx", but it's only the target file itself that matters, not the symlink to it.
+Use namei -l ./public/certbot/example.com/privkey.pem to quickly see every component in the path (including symlink resolution) and its permissions.
+Most software do not have this requirement in the first place, and can access certificates directly from `/etc/letsencrypt/live just fine.

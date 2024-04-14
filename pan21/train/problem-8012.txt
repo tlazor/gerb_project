@@ -1,0 +1,6 @@
+You may not actually need root permissions to install a given software package, or you may not have access to root privileges via sudo or su or other methods.
+They give you the correct commands, it is up to you as a user to ensure you have the correct privileges.
+"sudo" may not be required if, for example, you have already run "su" and your session is running in elevated permissions.  That negates the need to run sudo.  Generally the use of sudo is preferred, but it is not strictly the only way to reach the same goal.
+The ./configure script has lots of other options, some common to all, some dependent on the particular package you're compiling.  Use ./configure --help to see them all.
+One of the ./configure script's common options is --prefix, which changes the base installation directory from whatever the default is.  So on a system where I have no root privs at all, I can still install this software to my own home directory:
+Notice the hash/pound sign. On almost every Linux distro I've used, this sign indicates you're in a root shell.

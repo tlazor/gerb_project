@@ -1,0 +1,6 @@
+As you may already know, one of the requirements to use all the available wifi US 5GHz channels is supporting DFS on the Access Point; when DFS is enabled, it scans active and inactive 5Ghz channels for a minute at a time to ensure that there is no conflict with any radar signals which may also operate in this spectrum.  If radar pulses are detected, that channel is black-holed for at least 30 minutes.
+The output includes a section called "DFS Blocked Frequencies" which should be what you're looking for.
+Is there a way to find the current list of DFS-blackholed channels via the console or GUI?  If so, how?
+Although this seems to be an AP-based rather than WLC-based command, it would appear you can get the info you want from the AP CLI through
+http://www.cisco.com/c/en/us/td/docs/wireless/access_point/12-4-25d-JA/Configuration/guide/cg_12_4_25d_JA/scg12-4-25d-JA-chap6-radio.html
+DFS detects radar operating close to our site; however, I'm curious whether there is a list of DFS black-holed channels in the WLC... so far, I've been turning up a big zero... all I can find are SNMP traps from the controller...

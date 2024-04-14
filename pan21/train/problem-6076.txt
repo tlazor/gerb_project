@@ -1,0 +1,6 @@
+I use them a lot (let’s say 15 times in the last 10 months) for mock upgrades and patching, needs to revert because of someone doing something that broke things, and enhancements gone bad I do not have any issues with creating an image (AMI) from a live instance or creating an AMI (image) from a snapshot
+I made an AMI from a Windows snapshot using AWS Console, but the operation created an AMI of type "Linux (Other)". Funnily enough, the AMI launches and AWS charges the Linux price (!). However, I am not able to retrieve the Administrator password.
+No, it is not possible to create a Windows AMI from an EBS snapshot. This only works for Linux AMIs.
+Long story short, is it possible to specifically create a Windows AMI from an EBS snapshot? The documentation only refers to making an Windows AMI from a live instance (which isn't possible if the instance is a spot instance).
+In general, spot instances should be used in cases where the instance could be terminated at any time and all the data lost from the instance. If you require the data held on the instance, then on-demand instances or reserved instances should be used. Or modify your application to preserve data off the instance (like in an external database or S3).
+To create a Windows AMI, you must create the image directly from a Windows EC2 instance using ec2:CreateImage or the AWS Management Console.

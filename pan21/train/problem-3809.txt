@@ -1,0 +1,8 @@
+Apologies if this is a simple question, it's just never an area I've delved into before though I'm sure there is an existing solution since this seems like something that would interest lots of people for security and troubleshooting reasons.
+I also found this, but it's for nginx, though it seems if something like this exists for Apache then when it is detected to redirect you could log it.  
+From this, the more you ignore unexpected traffic the safer (and happier) you will feel. If you don't feel like you can ignore it, try to configure Apache to not log it.
+I've found this which seems like a possible solution, but reading the page for mod_log_config I can't tell if it only logs valid HTTP requests or is able to log all data sent to the port.
+So, for example, if someone just sends a ping, uses a telnet client, is scanning ports, sends a badly formatted HTTP request, or anything other than a valid HTTP request to port 80 it would write it to the log.  And the same for 443 except looking for valid a valid HTTPS request.
+The more configuration and CPU time to dedicate to handling invalid traffic the less CPU is available to the legitimate traffic.
+I'm trying to log all traffic (IP address and data whatever form of data is received) that hits a specific port (80 and 443 in my case) if it isn't valid for that port.  
+Unfortunately, apache httpd isn't going to give you what you're looking for. Normally, apache only logs after the request has been received and processed. There is an optional forensic log in apache that gives you the option to log before the request is processed, but only after request headers are received. If no request is actually sent, then apache will have nothing to log.

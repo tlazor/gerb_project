@@ -1,0 +1,5 @@
+Here are some telnet transcripts from my end and the client end to show the response back from the server (email and pasword replaced):
+I should note that the server is hosted on separate networks from both the client and my location. I have tried restarting the server with no luck.
+So my question is, does anyone know if there is some configuration/setting in dovecot that is forcing a connection from a specific IP address to fail? 
+Hearing this I assumed LFD had blocked their IP for too many failed password attempts, (even though it has been setup in csf.ignore). But alas nothing is listed under CSF/LFD rules for that IP address. And connecting from the clients computer, I'm able to connect via telnet to dovecot on port 143 and also access the website running on that server, so the IP does not appear to be blocked in IPTables on the server.
+I'm having a strange issue with one of our cPanel/WHM servers where it appears to be failing dovecot (IMAP/POP3) logins only from a specific IP address. The client was setting up a new workstation and had forgotten the password to one of their accounts (IMAP), so Outlook was constantly prompting for the password.

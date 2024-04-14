@@ -1,0 +1,7 @@
+If this does not work, another way you can get mysql to work is to change user in /etc/mysql/my.cnf to root; though there are no doubt some issues with doing that from a security perspective.
+Naturally I would have thought the -a switch should have taken care of everything. But upon checking  the execute bit for o(thers), for /var and /mnt, they are different, the latter's is disabled. So I enabled it and yes, it is now functioning.
+The thing is, mysql is not the first occupant of /mnt/var/lib. I earlier moved PostgreSQL datadir there, and it did not complain about having no execute permissions for o.
+Reinstalled AppArmor and moved the MySql profile under disabled profiles of AppArmor, even then it did not work. 
+If you move your datadir, you not only need to give the new datadir permissions, but you need to insure all parent directories have permission.
+The issue is with AppArmor. I am not sure why MySql is unable to access files even after uninstalling AppArmor. 
+I faced the same issue... In Ubuntu systems you need to change the permissions for the new datadir. 

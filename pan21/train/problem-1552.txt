@@ -1,0 +1,6 @@
+This wouldn't work so well if the paragraph spanned multiple pages - though as long as you keep your PDFs under 2.5MB, you can "package" any number of pages into a single PDF.
+I think the first question is "should I even bother trying to adapt the materials / google mini to work in this scenario?" and if so, "which approach is best?"
+If the user wants to know the definition of "apple" then searching apple will return the single PDF page the word and definition of apple appear on.  That's all the user wants to know.
+Those that do however, I can search for them, find them, and am linked directly to them...  But upon clicking the link, the entire PDF is downloaded, and it displays the PDF starting at page one instead of the page the search terms were found on.
+My solution was to split the PDFs into individual pages.  This works for me because I'm searching and serving reference materials, for example, a Dictionary.
+Unfortunately, many of the books are larger than the 30MB file size indexing limit, so they don't even get indexed. (I think there is a configuration to change this?)

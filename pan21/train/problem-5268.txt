@@ -1,0 +1,14 @@
+An email comes in, it's moved to the relevant sub-folder and fitted with a category. As more work is done on it and the category continues to change, and it may also be moved to a different folder as the work continues. 
+You aren't going to be able to do anything without generating transaction logs. That is how Exchange works. You will need to either work with that, or have a new database with circular logging on it and take the risk while the content is being moved about. 
+What is the best way of dealing with this? (Assuming I can find them a different method to use for actual work flow to avoid getting into the same mess in future. This is out of the scope of the question though) 
+2- Whatever method I use to 'archive' or store the old mailbox, it needs to keep it's categories so their 'filing system' is intact. 
+I'd like them to have a nice fresh mailbox to work from but still have access to the old data when needed.
+At a minimum you are looking at a new database and then splitting the content up. 185gb mailbox is well over the tested limits of Outlook and Exchange, so you will be seeing issues. 
+The only other option I can think of is to remove it from Exchange. Use an archiving tool which can suck the content out of the mailbox. Get one that has Outlook plugins so the content is available through that route. Once the mailbox is empty, move the mailbox to a new database (along with any other mailboxes in that database) drop it and create a new one. 
+This has gone on for years and now we have a rather large mailbox. Over 185GB in size. I have never seen a mailbox so large and something needs to be done with it before something goes wrong. 
+1- I want to avoid generating mass transactions if possible as with a 185gb mailbox they could be substantial.
+One of the mailboxes is a shared mailbox that the company has been using to perform work flow rather than an external system.
+I would be looking at how the data can be split up. It could be as simple as moving the subfolder's into their own mailbox. 
+Have someone assigned to sort the email, so it goes in to the mailbox as it does now, then move it to the relevant mailbox. As a project finishes the mailbox can be closed. 
+Already whenever anyone performs a search on the folder the entire mailbox grinds to a halt while the search processes and it will only get worse from here. 
+If this a "project" type system, then that would probably work well. Setup a mailbox for each "project", then setup a group for each "project" as well. Give the group Full Mailbox permissions, then you can easily add and remove the members who need access. I doubt whether everyone in the company needs access to all of that data all of the time. 

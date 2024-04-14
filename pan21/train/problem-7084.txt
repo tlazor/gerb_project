@@ -1,0 +1,7 @@
+After having purchased Macro Express (Pro), I discovered a number of late-bloomers which were not available at the time. Some of them were free, but the names have slipped from my alleged mind.
+This method could be considered overkill, as was my situation as well, but it has proven valuable in so many other ways since the purchase.
+In the image above, visible in the command editor, the Wait for Time to Elapse was set to one hour as per your question. I did not assign a hot key or other activation method to this macro as it is only a test, but one could accomplish activation in many different ways provided by the software.
+I get into meetings and mute my laptop. But forget to unmute it when I come out. This leads me to miss the notifications from my outlook.
+For example, I could create a simple script that opens the sound controls (or directly adjust the volume, in the case of ME) at a specific time (or instantly). It is possible to add a parameter in this script that takes the current time and sits idle for an hour, then returns the volume to your desired level.
+Is there a way to mute the laptop for say 1 hour. It should automatically unmute after an hour. I have seen the answers about nirCMD. But this is not scheduled task. It should be on demand.
+I use a program called Macro Express (not free) but there are other similar programmatic style packages that accomplish similar tasks.

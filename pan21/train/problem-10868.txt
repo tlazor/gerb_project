@@ -1,0 +1,5 @@
+Usually you have a service which defines 'a logical master' – it can be an IP address or DRBD volume in the primary state – then all other services depend on this and you choose the 'master' by setting preferences for the primary service.
+Heartbeat itself, when used with Pacemaker, doesn't make any decisions on master/slave states or on what resources are running.
+You define actual preference by declaring some constants. Example: 'run service 1 on a node where service 2' is running or 'always prefer node 1 for both services'.
+If you configured the service to run as a single instance that can run on both nodes with no constraints, then you cannot tell which node will run it.  If you have two such services then you may end with one running on one node and the other on the other node. For the first service node1 will be active and for the second – node2.
+With Pacemaker you don't have 'an active node' and 'a passive node'. All cluster nodes (there may be more than 2) can run services equally and the rules in the CIB database tell CRM (Pacemaker's resources manager) what node can run what services.

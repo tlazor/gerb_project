@@ -1,0 +1,6 @@
+My personal opinion is that such mistakes are unlikely to happen, since the paper proof needs to be well polished before machine formalization can even be attempted.
+Inconsistencies in proof frameworks usually require the heavy use of strange combinations of esoteric features, and so very rarely crop up "by accident".
+Most (all?) proof assistants have soundness bugs fixed on occasion.  However, from those I've seen these bugs are usually difficult to come across unintentionally, and results proved before the bug is fixed generally hold up after the fix.
+As Andrej points out though, it occasionally happens that soundness-breaking bugs do crop up in these systems (though usually not silently, as Andrej suggests), and the fix to that bug involves some changes to existing proofs, or, more likely, of the standard library of the proof system involved.
+It's hard to say whether the established proofs depended on the inconsistency, since after the fix, they required minor tweaks to be accepted by the proof checker. But this happens at each non-trivial update!
+To my knowledge, no machine checked proof of a complex mathematical development has ever been retracted.

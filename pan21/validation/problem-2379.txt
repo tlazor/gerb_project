@@ -1,0 +1,6 @@
+I'd recommend enabling Dovecot and Postfix or Sendmail and going from there if you're looking for something quick. However, due to the large number of aliases you're working with, management would be a pain. Would something like a Zimbra install make more sense in this case?
+I want to set up an "internal only" mail server on a Linux machine. We need it for our integration test environment:
+No there are no easier options. If you need a mail server then you need to install a mail server. If you need an IMAP server you need to install an IMAP server. If you can live with local mail storage then you do not need a RDBMS to store mails.
+(BTW, the server machine already runs a PostgreSQL instance - I could use this to store mails, if this is the easiest option to allow virtual accounts?)
+(You don't need Postfix and Courier. You need either of them as MTA/MDA. And Courier-IMAP or Dovecot as IMAP server.)
+There are lots of tutorials out there, but they usually set up a full Postfix server + a separate MDA (like Courier)? Aren't there easier options, as the server will never have to transfer mail to other mail servers?

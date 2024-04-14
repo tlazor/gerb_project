@@ -1,0 +1,7 @@
+This query is going against a query only database, so it's not a result of not having analyzed table statistics either.
+I installed MySQL Workbench which seems to be a really nice tool, especially considering the fact that it's free. However, this section in the explorer interface for my connection that is completely grayed out:
+The EXPLAIN plan is similar enough to not warrant such a massive increase in execution time, and identical in terms of the number of rows returned at each step.
+And I followed the instructions in the MySQL Performance Schema Quick Start Guide and verified that this feature is indeed enabled.
+I kicked off a job last night in order to have some statistics collected, but this morning only find:
+The MySQL Workbench Performance requires the connected database to be version 5.6+. Although 5.5 has most of the capability for it, the MySQL team didn't believe it was mature enough to allow it
+I have a complex query that is performing in subsecond time on my laptop, while the same query takes 70 seconds on my production server under no load against an identical schema.

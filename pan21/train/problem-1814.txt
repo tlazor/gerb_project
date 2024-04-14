@@ -1,0 +1,7 @@
+That is by far the easiest way to do it. And it works when going sudo on any user to assume their login environment. I personally would not mess around with root's login environment and would use "sudo su -" instead.
+To keep your settings for the next Bash shell, place a line in your $HOME/.bashrc that looks like this: 
+Due to the way OS X and the Terminal application handle command emulation you have to create the file $HOME/.bash_profile and enter the following line:
+I am on a Mac, running Snow Leopard (if it matters). I am customizing my bash prompt to display things that get pulled from user specific places. For example, I am using Ruby Version Manager to manage different versions of Ruby. I am displaying the Ruby version I am using in the prompt. I am also using Homebrew, and have installed Git via Homebrew. I am displaying the Git branch in the prompt as well.
+The problem is when I switch to root (sudo su, or sudo bash) it tries to use my user's prompt, which it won't be able to use because it won't be able to find RVM or Homebrew. So it displays errors. How can I fix this so that it doesn't display errors? (either by bringing RVM/Homebrew over as if I were still that user, or not displaying my custom prompt)
+I'm not entirely sure, but I believe that running sudo -s will start root shell with all your environment variables still in effect.
+If you wanted to simply display your hostname followed by a dollar sign, you could do the following:

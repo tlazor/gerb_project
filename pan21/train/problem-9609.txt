@@ -1,0 +1,7 @@
+If you're trying to install a new OS and eventually want to use the other six disks with the OS once it's built, remove all of the disks, but keep them in order. Install the new OS and insert the six disks into the system after the OS is built.
+disks 0 and 1 are raid redundant (OS)    and the remaining 6 drives are in raid 5 I believe.  i would like to pull out disks 0 and 1 and install new drives to build a new OS.  I need to be able to reinsert the old drives and reboot back to the original OS. (swap)
+If you're looking to just use the server to install an OS, remove all of the disks and only insert what you need to install the new OS.
+What this means for removing all the disks from one array and replacing them with brand new ones, I can't say unfortunately. But it does mean that putting your old drives back in should bring the array back online.
+Yes, HP RAID controllers store their array data on the disks themselves. This means you can take all of your disks, throw them into a brand new controller and the arrays will detect and rebuild themselves.
+You can do this, but the caveat is that you don't want to make drastic changes to the drive locations. 
+I had a serious problem in the past attempting this.  does the raid require (look for) the drives based on a serial number or something?  just dont want to lose data.  thanks 

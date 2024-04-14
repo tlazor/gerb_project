@@ -1,0 +1,8 @@
+Still, our function is sub-par, since we don't follow the common naming convention (camelCase) on the one hand don't  use library functions for our advantage.
+Write replicate and sequence yourself without looking at their respective source code. replicate :: Int -> a -> [a] should fulfil the following properties for positive n:
+However, this function's type is weird. We want to get _length values, so why do we have to supply them first? That's error prone. Our funtion should have the type Int -> IO [Float] instead:
+Here replicateM c a performs a action c times. The replicateM length_ getLine expression returns an action that produces a list of strings, IO [String]. Using <$> operator (aka fmap) you can apply a function to [String] part of that IO [String] thing. Finally, the function we apply is map read converts a String into a Float, because we explicitly wrote the type of the whole expression.
+Note that due to get_budget_values' type signature we don't have to use :: Float at read temp_value anymore.
+The getLine followed by read approach is so common that there is a function for that, namely readLn:
+So let's say we have doNTimes :: Int -> IO a -> IO [a] so that doNTimes n action repeats the action n times and collects the results in a list. Then we can write
+What's missing is doNTimes. Now, we know that there is replicate :: Int -> a -> [a], which is almost correct, but we would end up with [IO Float] instead of IO [Float]. But there's also sequence :: [IO a] -> IO [a].*

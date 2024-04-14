@@ -1,0 +1,11 @@
+I don't think, based on your edit, that you're hitting your IIS server at all. As you mentioned the request never shows up in the IIS logs, and that kind of error doesn't seem like the kind of error IIS is going to give you.
+The error message being returned is from the proxy server, not the IIS server. This information was stumbled upon when a member of the ops team noticed HTTP requests weren't sending proxy-bypass information like they expected to.
+After getting my operations team involved, the answer has turned out to be that the proxy server has been trying to process requests, instead of them bypassing to the local network. 
+Have you set the Site hostheader for service.test on the specific website. Due to multiple sites on 1 IP address suppport, IIS uses hostheaders to differentiate when hosting on port 80.
+From this, we've decided that the problem is too messy to fix, and we're going to use the fully-qualified names as a "good enough" workaround.
+If that works, then the issue is likely with the way the name resolution is configured on the server.  Which is to say that the 'company.local' domain is not in the DNS search suffix list.
+This should ensure that the service.test request goes to your IIS server (assuming you're hitting it from the IIS server itself as you mentioned in a comment).
+If you click on properties of your website, then Advanced, add in hostheader, and put in the blank, service.test, if dns is resolving to the ip etc...just make sure you have a correct default page in documents and it should load..
+Can you take a look at the application pool of the site, are you using network service as the identity? Does http://localhost load or give you an error document not found? you may just try to create a new site and try with that one, if the localhost loads with a htm file, it could be something in the metabase with that particular site that is off..
+Good point CodingGorilla, the error is not the one that would be found for a hostheader issue. Internal error would seem to point to something else..
+The proxy bypass rules include *.company.local, which functions for addresses without any other suffixes and provides bypass for the fully-qualified name, but does not seem to apply when another suffix is used, such as .test.

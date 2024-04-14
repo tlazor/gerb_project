@@ -1,0 +1,6 @@
+Note: As we are talking about a component of Windows I assume that modifying a executable from Windows is not covered by the license you have accepted when installing Windows. 
+If you don't have such folder, or if cmd.exe.mui is not there, it means your cmd.exe (command prompt execuable) has its Dutch strings built in, so you cannot change it to English easily.
+If you are running Windows XP you can translate a lot strings yourself. Using a resource editor like XN Resource Editor or ResEdit you can modify the included messages and save everything as a modified EXE file. 
+It depends on how your Windows is localized (I'm not familiar with Dutch Windows specifically). Look at the following folder:
+If you have the file named cmd.exe.mui there, rename it to something else. Your command prompt will be in English mostly (all text coming from the cmd.exe will be English, but some error messages are coming from other sources and will be in Dutch.
+There will be no "obscure long link from microsoft.com". cmd.exe is a Windows component and is not distributed separately.

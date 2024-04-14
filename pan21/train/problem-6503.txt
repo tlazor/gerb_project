@@ -1,0 +1,10 @@
+The accounts are only activated via an email from a valid source, and all the requests and actioned are in the helpdesk. Works quite well for us
+we have a couple of pcf file that contain only specific server they are allowed to work on. They have accounts in AD that are normally disabled, when the need to use them we activate the accounts but set them to expire when they think they should have finished.
+The consultant laptop is put on a VLAN that only has restricted internet and no intranet access.  To access anything on our LAN they use our SSL VPN and are restricted down to only being able to connect to servers used on whatever project they are on.
+Typically a consultant will use a laptop provided by us, if not, they will get the AV software which we require or the VPN connection will fail.
+I would use two-factor authentication.  One a physical device that they have to possess in addition to a username and password.
+On the backend, I would use a radius server or TACACS server should they be doing any work on your firewall.
+If they are issued a laptop by us, they are subject to all of the same rules as any other employee, except that their accounts expire periodically and have to be reauthorized by an authorized manager.
+E-token/SafeWord devices from Aladdin work pretty well for the physical device portion and they're relatively inexpensive should they get lost or the contractor doesn't return theirs.
+We make an account in a consultant OU that has specified logon hours unless for special circumstances they need access longer than that.
+We require that contractors with outside equipment use SSL-VPN to access internal resources, period. In the office, no external equipment is allowed, except for a lab area where they can plug outside equipment into a network that gives them internet access for limited periods of time -- but there is no access to the internal network allowed.

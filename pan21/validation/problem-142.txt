@@ -1,0 +1,8 @@
+Can someone clarify the definition of traffic-direction? Does a clear definition to traffic-direction even exist, or is it up to how I look at it?
+In your example, as you indicated, the original VPN connection (#1) is inbound because the traffic originates at a host outside the network which establishes a connection to an internal resource.
+Generally speaking, the direction of the traffic is determined by the location of the host establishing the connection.
+Again, this may not be universally true with all vendors, but generally this is how inbound/outbound connections are treated.
+Once this connection is established (#2), while the data flows in both directions, it is still an inbound connection because it was still initiated from the external host.  All return traffic is considered to be part of this original connection.
+When a client is connected to VPN, this establishes a "virtual" presence inside the network.  So, for the VPN client accessing the web site (#3), the physical host uses the inbound connection to the virtual host that was already created, and the virtual host establishes an outbound connection through the firewall to the web site.
+I'm working on extracting some traffic-direction results on several stateful firewalls and I pondered on how you define the direction of the traffic in these stateful firewalls.
+But the "result-worthy" way I see it, the traffic is flowing in an outbound direction because it goes without saying the connection between the VPN-client and the firewall is needed in this context and the VPN-client is actually acting as it was physically behind the firewall on the Inside interface.

@@ -1,0 +1,9 @@
+There are better alternatives than Squid for your requirements. See the Apt-Cacher NG which was written for exactly your use-case.
+And if you have more than a dozen systems in your network then you should consider to host a (private) Ubuntu mirror.
+In my network, I've some Ubuntu machines which need to download files from nl.archive.ubuntu.com. Since it's quite a waste of time to download everything multiple times, I've setup a squid proxy for caching the data.
+As you may have guessed, the helper file needs to be created at /etc/squid-deb-proxy/rewrite.pl, containing:
+Another use for this proxy was rewriting requests for archive.ubuntu.com or *.archive.ubuntu.com to nl.archive.ubuntu.com because this mirror is faster than the US mirrors.
+How do I setup such a squid proxy which rewrites the host *.example.com to www.example.com and cache the result of the latter?
+Make it executable (chmod +x /etc/squid-deb-proxy/rewrite.pl), reload the squid configuration and the changes should immediately be visible. You can check this by looking at the speed, or requesting certain files which do only exist on the local mirror (http://nl.archive.ubuntu.com/rsyncscript.txt in my case).
+To rewrite mirror requests from *archive.ubuntu.com to nl.archive.ubuntu.com, you need to create the a rewrite helper and configure squid to use this helper for rewriting requests.
+This has worked quite well, but after a recent install of my caching machine, the configuration was lost. I remember having a separate perl program for handling this rewrite.

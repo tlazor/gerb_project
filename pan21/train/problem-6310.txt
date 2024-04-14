@@ -1,0 +1,6 @@
+If you're looking for an anti-virus capable of analyzing a network tap, I'm unfamiliar with any such appliance/application.
+I have been using Endian firewall to provide gateway and protocol-specific antivirus services on a few clients' networks.  The gist of it is that it has transparent application proxies that scan supported protocols using clamAV.  The commercial-version of Endian has support for AV engines other than clamAV, but clam has done a pretty remarkable job for me.
+If you are talking about Windows operating systems, then you can get the free Microsoft Security Essentials. It's a free anti-malware from MS. Updates will be through Windows Update.
+If you want to scan only your HTTP traffic coming into your network you can use a combination of Squid + HAVP (http://www.server-side.de/) if you have linux gateway machine. 
+I am looking for a free solution. I read about Untangle, and long ago I used IPCop. I know, they are not AV per se, but they have the ability and include AV softwares. However, I need a bit more. I need the feature of scanning a single PC, or a range of PCs.
+That's a pretty intriguing concept thouh, and I'd say that if you can justify the expense (e.g. ROI), someone has surely developed a product to do what you want, and if they haven't, you've got a great product idea that you should develop.

@@ -1,0 +1,6 @@
+I would check what brands of switches are present and then find out what discovery protocols they might use and then just sniff for the candidates (it might take a few minutes until you receive a packet).
+I think most people ask this question the other way around - having access to the switch and querying a MAC address.
+If this is indeed information that the switch would give out (security implications) - I could write my own application, if someone could point out which protocol would be used.
+There are several protocols that might be running (CDP on cisco switches, NDP on nortel, LLDP, ...) which can tell you what switch and port you're at.
+I my test laptop and was wondering if there is a software (maybe by HP) that would tell me which switch and port the laptop is currently plugged into? Please assume that I do not have access to the switch management.
+I would go to a random room, plug my laptop into an ethernet port on the wall and it will tell me which switch and port I am connected to.

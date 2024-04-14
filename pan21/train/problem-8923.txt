@@ -1,0 +1,7 @@
+I am about to implement a SAN here using a HP P2000; the SAN itself is on-order (ETA a couple of weeks) so in the meantime I'm getting the rest of the equipment up and running.
+1) Dual port to be able to connect to both fabrics (yes, the NIC itself becomes a single PoF but the server is only 1RU and I can't physically fit 2 additional NIC's in)
+So, am I doing the right thing? I suspect configuring the ethernet ports "as normal" using Windows means the ToE won't be used.
+Tonight's task was to install the HP "Multifunction" NIC's in the 2 existing servers (Windows 2008R2) that will be connecting to the SAN - They are HP NC382T which I bought for:
+All installed OK, but I can't figure out the addressing. In the HP NCU (Network Configuration Utility) I've enabled both ports as iSCSI devices and given them static addresses as per the image, but Windows doesn't "see" that configuration. The 2 ports are still listed as ethernet adaptors (as expected) but the IP configuration doesn't exist. Windows has given them autoconf addresses (169.254.x.x) and there are no routes for 192.168.101/24 or 192.168.102/24.
+I'm got the switches installed and configured; they are dedicated switches with all ports in the default VLAN except 1 which connects to my management VLAN.
+The SAN has dual-controllers and I'm going to multipath the whole setup. Here is what the plan is for the SAN to look like:

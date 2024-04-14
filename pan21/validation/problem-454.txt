@@ -1,0 +1,6 @@
+The offset in the square bracket seems reasonable. The source and my local clock has offset of 92us, but why the margin of error is so high with 10.6 seconds? What does the margin of error mean? What could be the possible reason?
+Windows Server before 2016 was not designed for sub second accuracy.  Often it achieves this anyway, so I'm still suspicious your domain's time keeping given the large error.
+Before I pointed them to the AD, it was using the public time server like 0.centos.pool.ntp.org. At that time, the result is posted as below. The margin of error is much lower. 
+And a tip: configure chrony.conf (or ntp.conf)  with  pool ad.example.org. Active Directory best practice is to have more than one DC, and they're all in DNS as the domain name.  Might as well use them all, like you did for the NTP public pool.
+The PDC in your domain may simply be off by many seconds. Especially if it is drifting and not synced to anything.  Check its performance with w32tm /monitor /domain: from a domain joined Windows box.    For more useful commands, this previous question has a w32tm 
+After I configured chrony service on my CentOS 7.3 to point to the active directory, it shows below 

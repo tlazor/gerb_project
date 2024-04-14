@@ -1,0 +1,8 @@
+I prefer a desktop for home and a desktop for work. This way, I can have dual monitors running. I know peeps say 'use the notebook display + an external', but that's not big enough / good enough, for me.
+Security? Because it's not mobile, it's as secure as the location you work at. if anything, i won't loose it or break it (eg. drop it, etc).
+I love the new Macbook pro's and want one bad. But i couldn't do my programming on it because i'm greedy now and need 2x 24" LCD's. I can't go back. I've bitten the apple.
+This doesn't work for all cases since it requires a network connection, but I've been doing development/testing in a sandbox domain running entirely on virtual machines.  I have two virtual NICs on the dev machine spanning the sandbox and corporate network and sufficient resources to run Visual Studio comfortably.  So I just Remote Desktop in to work.
+Most laptops come with 5400 RPM drives which just doesn't cut it and increases compiling time, so be mindful of the build. Sure you can lock the laptop down with drive encryption and other things, but they just make the developer whinny and they go out of their way to disable them.  
+I think a high spec'd laptop is the way to go as long as it has a easy docking station when in the office or at home which easily connects to mulitple monitors and external keyboard and mouse.
+I've been impressed with the experience because I can easily revert to older snapshots if necessary (as I had to do recently when I forgot to turn off automatic updates).  As long as source files are checked in, there is nothing on the machine that needs to be persisted.
+What I always liked about laptops for developers is all you need is an extra monitor to run dual, a huge benefit.

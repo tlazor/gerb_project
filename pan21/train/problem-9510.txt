@@ -1,0 +1,7 @@
+I've noticed this on the above-mentioned Linksys, three varieties of 3Com, and possibly half a dozen dumb switches.
+I've seen this behavior on two Netgear Smart Switches.  In both cases the switches were ignoring all broadcast traffic.  So the DHCP requests and replies were not being passed along.
+The only thing I can think of is that the switch might not be able to update its ARP cache correctly to reflect the newly-assigned IP.
+TCP based communication is meant to be reliable and the protocol is designed to retry communication other protocols like UDP are not reliable.  DHCP just happens to be using UDP.  On a typical network most of what you see these days is TCP-based.  Its resilience properties may be what is be allowing you to continue to have communication over failing hardware.
+We had a Linksys SRW-224P fail today.  Systems which were still connected worked properly, until it came time to renew their DHCP lease.  Once the lease expired, they stopped working, but up until then we couldn't detect a failure.  This includes PoE VoIP phones -- they work fine until their lease is up, at which point they're done.
+I've noticed this several times: a switch starts to behave oddly.  Usually if the switch doesn't fail outright, what tends to get noticed is that DHCP doesn't work.
+Perhaps you are looking at this from the wrong direction instead of asking why does DHCP not work maybe you should be asking why does TCP-based communication working on a unreliable network where there is packet loss or corruption.

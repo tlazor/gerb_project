@@ -1,0 +1,8 @@
+If at all possible, I would like to copy all 6 partitions onto a new 2TB SATA drive. For bonus points, can I expand the partitions to fill up the rest of the 2TB drive?
+Windows tools would be preferable. I don't boot Windows off of either of the 750GB drives currently installed.
+Easeus Partition Manager (Home Edition is free) has a partition-copy function that allows you to select the source and destination partitions and choose how to handle the excess if the destination is larger (in your case, you would expand it as much as you like):
+You should be able to do this with a combo of gparted (or another partitioner) and clonezilla. Gparted is available on most Linux live-cds, and clonezilla is available as an iso to create a live-cd.
+For expanding the partitions... you can create them at the desired size with gparted. When doing this, align the boundaries to "MB", and I suggest creating them in multiples of 1024MB. So if you want a 340GB partition, it will be 340 x 1024MB.
+Since you'll be working with disk partitions, you might want to keep TestDisk handy in case anything goes wrong. It's available pre-installed on several rescue cds, or in the repos for most Linux distros, so you can install it to a live session if needed.
+Use gparted to create the target NTFS & ext4 partitions on the 2TB drive, and clonezilla in expert mode to clone the partitions to the new drive.
+I've never used it so YMMV.  And yes, once the partitions are on the new drive they can be extended.  In windows 7 it's just a right click.  In Vista you'll need to use the command line tool.

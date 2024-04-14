@@ -1,0 +1,5 @@
+What do you see in your system logs?  Depending on how your system is configured, you may find cron output in /var/log/cron.  Can you give us an example of the cron job that is not running?  How are you differentiating between, "cron is not running this job" and "cron is running this job but the job is not behaving correctly"?
+At the time, I found this to be the best method for my needs.  Creating an empty cron.deny file in /etc could potentially replicate the same performance.
+On a typical system, you should not have to (a) add anyone to the crontab group or (b) edit cron.allow.  The default behavior is, absent explicit configuration to the contrary, to allow everyone to run cron jobs.  That said, the configuration changes you've made, though unnecessary, should not prevent things from working.
+If you want to maintain the performance but allow a specific user, it might be helpful if you produce the errors in your logs.
+In RHEL4 the default behavior to allow non-root crontabs was changed, which I found undesirable.  I restored the previous behavior by using this method:

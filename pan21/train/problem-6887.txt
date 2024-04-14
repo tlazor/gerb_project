@@ -1,0 +1,6 @@
+All other export formats are there for your comfort (and because once you have the EPS import, the EPS export might be easy to create).
+Indeed, Scribus created an .eps file.  I verified that the font was embedded (subsetted in this case) by looking inside of it:
+On the other side, from you description of the problem, I fear a mismatch between the curves Scribus is providing to the exporter and the ones GS can define for EPS... Which would be harder to fix. But it's not easy to say anything without seeing your files and eventually having checked the code involved.
+The problem with myfile.eps is that the 500 point font (that's a big size) has jagged edges when viewed in a typical viewing app, such as GwenView.  You don't see the jagged edges until you zoom into the font.  And so here is my question: How do I tell the Scribus EPS export function to create even more resolution within the embedding?
+Also -- as far as I know -- Scribus' EPS export, is using Ghostscript (GS): if you have some degree of programming literacy, you can have a look at the parameters Scribus is passing to GS and see if there is anything you can do to improve the EPS export.
+If you're not happy with the result, you should really export a PDF from Scribus and then convert that PDF into whatever your final target is.

@@ -1,0 +1,5 @@
+Just because they are not in a reserved private IP space does not mean they are public.  The private VOIP connection I have to my provider uses "public" IP addresses but there are no routes to the internet.  I believe a common reason for this is to prevent addressing conflicts with customers internal ranges.
+That depend on your MPLS provider. so there are a patch for the traceroute program, that print the MPLS label using ICMP, if the LSR is configured to affich these labels ( but most of providers don't do).
+I am actually a little bit surprised you see them from your router, that seems to indicate that the MPLS cloud is extended all the way to the CE (customer edge) device.
+When running a traceroute, should I see any public IP addresses when tracing route from one MPLS point to another MPLS point?  So when I do a traceroute from 10.0.0.1 to 10.0.1.1, I see some public IP address in between...  
+The IPs you see are probably the loopback (that is, "a virtual interface that is the first to become active and the last to disappear on a router, usually used for router ID and for management access") addresses of devices through the MPLS network.

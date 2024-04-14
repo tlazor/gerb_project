@@ -1,0 +1,6 @@
+However if it still doesn't work, you've probably accidentally let the magic smoke out of something.
+If that doesn't do it, then take one of the memory chips out and try it with just one.  If that doesn't work, do the same thing only with the other.  If you get it to go with one then you've got bad memory.
+If you've put the original RAM back in and it still doesn't work, about the only thing to try it to be SURE that the RAM is seated properly (I've had repeated problems in this regard with laptop RAM).  If it starts working again, try the new RAM again.
+I am quite confident that merely swopping the ram couldn't have cause this, but what could have gone wrong?
+I was just working on an Acer laptop (not mine, eek) when I discovered it only has 512MB ram.  As I was loading Visual Studio 2008, I knew this wasn't an option, so I swopped it's memory out (two DDR2's), for 1GB.  When I tried to boot the machine, immediately on power on, both build in and USB hard drive lights came on and the machine hung.  There was no opportunity to enter BIOS settings or anything.  I replaced the original ram with no change.
+If neither work, put the original memory back in and see if it still works.  If so then your new memory's either incompatible or both are bad.  If not (and you've unplugged and reseated the battery) then you've got bigger problems...

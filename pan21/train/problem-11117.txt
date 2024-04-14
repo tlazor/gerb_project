@@ -1,0 +1,8 @@
+Working with extended properties would be unmanageable without help from automation though.  We developed tools that help us capture and store the information in the extended properties.  And, we also have tools to view and report the information.
+Eg: We use Team Foundation projects and we track in a db extended property the last post deployment script number that was executed from the post deployment folder (eg - we have scripts 1 to 23, the ext. property is set to 15, so the post deployment script will execute only scripts from 16 and further). Same for pre-deployment scripts.
+We manage a database-structure version process and store that information in the extended properties.  We also capture descriptions of tables, columns and other database objects.
+In our projects we use them for keeping versioning information in extended properties set per database.
+Here's an example data dictionary script that makes heavy use of table and column descriptions that shows how useful they can be for self documenting, http://www.csvreader.com/posts/data_dictionary.php .
+I have not yet seen a single project that used extended properties. IMO the reason is this: even if we want to store documentation in the database, which is usually not the case, there are alternatives. Usually extended properties do not do exactly what we want. On the other hand, rolling out our own solution that does exactly what we need is so easy, so why bother?
+I'm working with a system where we have numerous databases.  Self-documenting is useful because each database can have a different structure.
+Developing the tools has been useful in this environment, but I don't see the benefit if your working in a shop where you have very few databases.

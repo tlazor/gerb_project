@@ -1,0 +1,9 @@
+Earlier, I tried all possible ways of formatting it but it just would not get formatted. Hence low level formatting. I'm using HDD Low level format tool version 4.4 for formatting. 
+You've 3 choices - wait it out, however long it takes; or cancel, if that's even an option. 3rd choice is to hard-end the task; which has its own risks of potential damage to the drive.
+I'd leave it at least overnight if not two, just in case it's found a swathe of bad blocks & is being thorough in mapping them out. It would also give you time to see if the 9 month wait is accurate or the process just has a bad case of thermometeritis, i.e., no clue how long it will take.
+I'm kind of at a situation where I'm having to do a low level format for my 1 TB WD external hard disk drive.
+I got My 1 TB western digital 3.5" formatted in 2.5 hours. If you have a 1TB 2.5" 5400 Rpm then it may take upto 5 hours.
+If you decide to pull the plug, cancel etc, then I'd run WD's own diagnostic over the drive anyway -  http://support.wdc.com/product/download.asp?groupid=111&sid=3&lang=en 
+The problem that I'm facing is that it is doing the format at an awfully slow pace. With the current speed that I'm getting, it is going to take close to 290 days (Yes 'Days'. Just did a quick calculation) which, at least in my opinion, is insane.
+I spent 7 hours (it paused a couple times) transferring 1 TB worth of data and now I am formatting. I had to use USB 2.0 for the transfer and this too is taking 7 or so hours. 
+Assuming the USB is capable of actually maintaing the speed, then even the free version of that tool should take about 6 hours... so I'd guess it's struggling somewhat.

@@ -1,0 +1,10 @@
+I want to subscribe a daemon, inotify-style, to receive a notification when free space on a given filesystem dips below a certain percentage. Is this possible?
+You can use the Monit utility for this. You can set the interval with which this checks, but 60 seconds is the norm for polling.
+Since there will be more things you want to monitor, you might want to spend some time learning nagios.  It sounds like you had a case where you ran out of space, and you don't want that particular failure to happen again.  But systems can fail in unexpected ways, and all services should be monitored.
+To test, set the threshold to something you know breaches it now and then touch a file on the affected filesystem. You should get your monitor file created.
+This uses a very recent system call API called fanotify. Probably need a 2.6.37 kernel or greater to run it (so EL5 is out of the question, for example). If you get complaints it wont compile, its probably too old a kernel.
+This will setup the monitor. Every closed file handle on the filesystem that had a write flag open initiates the event check.
+In a pinch you can just use the plugins.  They're easy to install, and do what they say (check_disk checks disk space).  They return "not 0" on failure.  Failure can be warning, critical or unknown.
+Add something like this to crontab will trigger $send_error on failure.  It will be triggered if > 50% of partition "/" is used.
+Obviously its probably best to put the monitor file somewhere not on the same filesystem (/dev/shm is a good place).
+This works as an event based mechanism. I've not ran it for long periods so wont guarantee its stability.

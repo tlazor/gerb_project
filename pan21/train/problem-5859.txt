@@ -1,0 +1,5 @@
+You are good to go. Just make sure ports you have used are not in use by some other process & are also open from firewall, antivirus etc.
+As with the other answers host file doesn't have port information but you can have a page that redirects biased upon the header like apache or IIS would do for name based virtual hosting.  Check the header and redirect as needed.  However I don't really see the value in this as you are reinventing the wheel.  Apache supports port based virtual hosting and I assume that iis does.
+DNS will resolve site.com and www.site.com to localhost as long as you're not doing something like proxying your DNS queries. You should probably ask over at ServerFault for webserver configuration help, that's the most likely issue.
+Are you using the servers only for local development? If so, you could put your Apache to listen to 127.0.0.2:80 and redirect that with the hosts file to the domain name you like.
+Is your goal to have a development machine with both running our is this for a production situation.

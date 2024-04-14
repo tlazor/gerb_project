@@ -1,0 +1,6 @@
+Remember that MySQL grants go from most specific to most general (e.g. if user@10.0.0.1 connects, and there are users user@10.0.0.1 and user@10.0.0.* which have different grants, the most specific matching username is used).
+For reports I want the user to only be able to see reports database and not main database. I created A user  'username@%' for the reports plugin in the server and gave it vie,select,execute privileges on reports db.
+If you have multiple rows returned, you've created multiple  users with different host portions.  Check these and remove/fix if necessary.  
+I would suggest starting by checking you haven't created multiple users with different host portions accidentally:
+What should I do to prevent them from seeing the other database. In short: when developer logs in from reporting plugin, they should only see the report database.
+ Now when the developer connects to database using those credentials from reports plugin, they report that they are able to see the other database and all it's tables as well.

@@ -1,0 +1,6 @@
+As you see from the log file, the headers HTTP-X-REAL-IP and HTTP-X-FORWARDED-FOR are empty (represented by "-" at the end of the log). We tried different configurations (recursive, 0.0.0.0:0), to no avail.
+Would a misconfiguration of nginx/real ip module cause the headers to be empty or is the load balancer at fault here (or a third option?)?
+We have two webservers (nginx) sitting behind a load balancer (storm on demand load balancer, not managed by our group). By default, the ip we receive is the load balancer ip. We tried to use the real ip module in nginx, but it looks like the load balancer isn't forwarding the real ip.
+Nginx config (we have a default virtual host that just redirects to a static html page for test and that inherits everything from http directive):
+Looking at the Storm on Demand load balancer service, it seems they use Zeus load balancers - which use the X-Cluster-Client-Ip header for the real/source IP. So I would suggest trying,
+The support staff of the load balancer is saying that the problem is on our end, but we do not think so because of the empty headers.

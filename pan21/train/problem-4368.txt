@@ -1,0 +1,7 @@
+After that you need to scan the surface in the read+verify mode. That means that every sector will be read and its read speed will be measured.
+The last thing is OS itself. Quite often bootmgr is damaged when the compression of the C drive is turned on.
+You need to make sure that there is no sectors with >=250 ms speed rate (normal rate is up to 50 ms).
+The easiest way to diagnose it - to try another PSU or at least disconnect all other devices consuming power from +12V line.
+The next part is that you need to make sure that your PSU +12V power line is stable and current on it is enough for the hard drive. If you hear clicking sound and after that a sound like when the motor is turning off that means that HDD is parking its reading magnetic heads and powered off. This can happen due to the unstable PSU.
+Make sure that it is off (in the C drive properties > untick checkbox "Compress this drive to save disk space").
+There can be 3 possible issues: HDD surface degradation (bad sectors starting to appear and are remapped from HDD itself from time to time), HDD power issue, OS issue.

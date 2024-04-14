@@ -1,0 +1,8 @@
+My answer is probably based on new code which wasn't available when the original question was asked, but here it is:
+(FWIW, my powers at the AD level are very limited -- I can join servers and delete server records but that's about it...)
+When I 'net ads join', it appears that a DDNS entry is getting created for the 172.20 interface. How can I prevent this from happening? 
+I'm using 'net ads join' to add Linux servers to an AD domain. The servers are multi-homed, with a public IP on eth1 and a non-routable private background network on eth0 (in the 172.20 space, used for netboots and installs and stuff -- no routing to the Internet on that network).
+Set the interfaces global parameter in /etc/samba/smb.conf to the interface that should be registered.
+The only way I've found to prevent the unwanted interface from being added is to down it while running the 'net ads join' command. Then it isn't added, and it can be manually brought back up afterwards. Now off to see about filing a Centos bug... 
+Here's some documentation on that parameter, which doesn't come out and say the above but definitely implies it in a bunch of places (and also documents the ways you can specify the interfaces in that parameter, e.g., by name or even by netmask):
+I believe that the list of interfaces (in the appropriately-named "interfaces" parameter) that are registered comes from the smb.conf file on the machine you're joining to the AD; if there is no such parameter, then all (non-loopback) interfaces get used.

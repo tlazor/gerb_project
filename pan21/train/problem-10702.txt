@@ -1,0 +1,6 @@
+However the hardware simulated by your virtual machine will not perfectly match the hardware of your original computer. Thus windows will complain about drivers and it will want to be reactivated. This will change the windows installation on disk. When (if) you boot windows natively it will complain again since the hardware will have reverted to native.
+Note: Looks like VirtualBox's website is temporarily offline, but it should be in the Ubuntu repos for you if you do not have it.
+Yes, it is possible. You already mentioned Vmware workstation. That has a 30 day trail. And the machines it creates can be used in the free Vmware player.
+I have run something similar before a few years back, but I do not recall the step-by-step.  Virtualbox is highly recommended as a VM program (cross platform as well).  Once you get it set up, you may hit a few snags if you boot to physical again since the VM doesn't fully emulate the environment you installed it on (especially if you install the Guest Additions).
+Here you go Martin,  glad you find it as helpful.  I generally try to prove things work before I give people a rabbit to chase!
+Instead you might consider trying it first with a copy of your installation. Use the vmware converter for this. If that does not work, then:

@@ -1,0 +1,6 @@
+Try using a mobile or another device and see if you get the same issue? If the issue doesn't occur with the other device like a mobile or other laptop then you know it's specific to your toshiba device. If it follows then the issue is likely to be your router and DHCP.
+I would recommend trying to first update your wireless adaptor drivers. Making sure they are compatible with the version of windows 7 you are on. They can be found here: http://www.toshiba.co.uk/support/drivers/laptops/
+I have a Windows 7 laptop (a Toshiba if that makes any difference) connected by WiFi to my ISP router, everything is set up automatically (IP & DNS, DHCP enabled). Most of the time, it works just fine:
+Any other suggestions? As I said, it's an intermittent problem and the only solution I have found so far is to reboot.
+If the error still occurs trying configuring a static ip address to your toshiba laptop. Make sure you use the address range etc that you have when it is connected and working fine. And see if that works.
+Otherwise try logging into your router and check out the DHCP settings, making a note of what they are before changing anything. Once noted, verify and make sure they are correct. Something like this should be correct:

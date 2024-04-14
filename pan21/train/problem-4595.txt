@@ -1,0 +1,10 @@
+3) Installing the "ms-sys" package - click Applications->Accessories->Terminal and type "sudo apt-get update" and then "sudo apt-get install ms-sys".
+As now you have dual-boot-system so I would recommend you NOT TO JUST REMOVE THE UBUNTU Partition as you won't be able to boot Windows because the information pointed by MBR will be gone. As you have poked your MBR so I guess you should follow THESE steps:
+So am I able to first fix the MBR while Ubuntu is still on, then fire up Windows and at this time delete the partition?
+Do Tell me if you find any error while following these steps. If found relevant then please mark STAR to my answer.
+4) Finally restore the Windows master boot record by entering the command "ms-sys -w /dev/[drive]", where [drive] is the hard disk whose Windows master boot record you want to restore. You can find out which this is by launching gparted (System->Administration->GNOME Partition Editor) and cycling through the available drives until you find your Windows partition.
+2) Enabling universe repositories - launch System->Administration->Software Sources and check the "Community maintained Open Source software (universe)"
+Basically I have goosed my MBR numerous times in the past and this time I wanted to ensure all will run smooth.
+The solutions I see are to first fire up Windows remove the partition, insert the Windows recovery media and fix the MBR. As mentioned before I have ended up with a dead laptop and had to wipe and restart.
+I realise this question looks like so many others, but its slightly different and I cannot find an answer elsewhere.
+So I installed Ubuntu along side Windows 10 but need to remove it and install Fedora. So my question is this...

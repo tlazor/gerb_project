@@ -1,0 +1,6 @@
+I use the English and German spell-checking feature a lot and I find the spell-checking works to my satisfaction.
+You can follow this guide to integrate openoffice and thunderbird dictionaries: http://hektor.umcs.lublin.pl/~mikosmul/computing/tips/mozilla-thunderbird.html
+I don't know your text editor, but if it supports myspell dictionaries the procedure is very similar.
+So, is it possible to use my Mozilla dictionaries in my text editor (feel free to propose one that supports that)?
+I also write text using various flavors of text editors on windows. It would be great to use the same dictionary in my local editor as I use with my Mozilla apps, as that would reduce a lot of duplicated dictionary maintenance (adding the same word 3 times over) and I also found the Mozilla dictionary to work slightly better than then one in my texteditor. (I use PSPad atm. for simple text files / TeXnicCenter for LaTeX editing.)
+The spell checking in PSPad sucks for German as it is case-insensitive. I recommend using the free Notepad++. It comes with a plugin called DSpellCheck that supports Hunspell. With the symlink method mentioned before, you should be able to use one set of dictionary files for pretty much every writing task.

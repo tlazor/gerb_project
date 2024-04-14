@@ -1,0 +1,6 @@
+Here is my attempt on Python to assign MSZoning with the new one-hot-encoded data.  I do know that one-hot-encoding turns each value into a column of its own and assigns binary values to each of them so I realize that this isn't exactly a good idea.  I wanted to try it anyways:
+The order mapping of classes and labels from sklearn's LabelEncoder can be seen from its classes_ property
+I am currently working on the Boston problem hosted on Kaggle.  The dataset is nothing like the Titanic dataset.  There are many categorical columns and I'm trying to one-hot-encode these columns.  I've decided to go with the column MSZoning to get the approach working and work out a strategy to apply it to other categorical columns.  This is a small snippet of the dataset:
+I did read through some Medium posts on this but they didn't exactly relate to what I was trying to do with my dataset as they were working with dummy data with a couple of categorical columns.  What I want to know is, how do I make use of one-hot-encoding after the (attempted) step?  
+Here are the different types of values present in MSZoning, so obviously integer encoding only would be a bad idea:
+First of all, I noticed you have loaded the same dataframe for both train and test. Change the code like this:

@@ -1,0 +1,8 @@
+That would I think do the same as what you are suggesting - but I may have misunderstood what exaclty you mean. 
+Briefly, the idea is to REJECT entire traffic in OUTPUT chain for random user, and change the user every 5 minutes.
+The underlying purpose of doing this, is to check if iptables is capable to work with random variable argument.
+Everyone else will enjoy Internet connection, every 5 minutes different (random) user will be discriminated
+iptables -t nat -A POSTROUTING -o eth0 --uid-owner 001-100 -m statistic --mode random --probability 0.9 -j DROP
+The simplest way I can think of is to have a cronjob regenerate a rule every five minutes, using a random UID (how exactly you get that random UID depends on your needs, but a hack might be --uid-owner $(( 100 + $RANDOM%100 ))). 
+You would need a means of deleting the previous random rule, but that would I think otherwise match your requirements. 
+will REJECT (for one random user) entire traffic in OUTPUT chain for 5 minutes. No Internet connection.

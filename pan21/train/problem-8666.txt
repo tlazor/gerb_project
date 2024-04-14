@@ -1,0 +1,8 @@
+So, not caring about the data on that MacMini (it's just my TV server, nothing that cant be reinstalled and all the actual data is on an external drive) I've booted it in target disk mode (hold down t when you start it up and connect it via FireWire to another Mac) then fire up your Terminal.
+The only option is to securely erase the effected partition using a similar method to how you encrypted it originally.
+You can safely ignore the error however. When I then fired up Disk Utility there was my disk - newly erased.  I will now reboot my iMac in Recovery Disk mode and re-install Mavericks on the MacMini. (Fingers crossed)
+I started getting this dialog last week.  Not sure why the dialog showed up since the disk is still mounted properly.
+% diskutil cs delete XXXXXXXXXXXXXXXXXXXXXXXXXXXX  <-- put the Logical Volume Group ID in place of the Xs
+Without the current password, you will have to erase and reformat the disk in Apple's Disk Utility.  It is always a good idea to store these passwords in a safe place.  Apple also allows you to store the key with them.  See this article for more information.
+In my case the password is still stored in my Keychain and it's possible to show the password there. Check the "Show password" box (shown in the screenshot below) and enter your administrator password. This allowed me to add it to my password manager.
+I'm facing the exact same issue.  The HD in my MacMini has become corrupted and my only option is to erase it, but, in a fit of security consciousness, I encrypted it with FileVault and so Disk Utility won't erase it at all.

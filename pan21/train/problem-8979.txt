@@ -1,0 +1,6 @@
+Do you have more than on CD/DVD drive? Are you installing on the first hard drive, or first parition?
+What is the blue-screen error code? There are many reasons for Windows to generate a blue screen, and troubleshooting is easier when you know which one it is.
+i've seen Windows (XP) BSOD during gui install portion because the drive letters get mangled after first reboot when devices get switched around and it loses where everything is.
+Windows automatically disables the installation of the ACPI HAL and installs the Standard PC HAL. You should also contact the manufacturer of your computer to obtain a BIOS that is fully ACPI compliant.
+Given Windows 7 is currently only available as an ISO, is it possible that you have a bad burn? I had a problem with Virtual PC on Windows 2000 several years ago, where it would crash if the VPC network services driver was enabled. Windows XP on another computer would simply not be able to use the network. I discovered that the driver was actually bad on the disc, the checksum not matching.
+Can you boot in vga mode? if so - try a less capable video card? I had issues after installing Vista on an nVidia machine. After rebuilding it a couple of times, I discovered that it was a known problem, and there was an updated nVidia driver (the 'even more recent' one on windows update was no good)

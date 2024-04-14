@@ -1,0 +1,7 @@
+As an example, a user sends an email to 1234564@fax.mydomain.com and I want the exact email forwarded outside mydomain.com to 1234564@example.com.
+Note There are no accounts on the local Zimbra server under the fax.mydomain.com subdomain and the prefix 123456 will not be constant, e.g. it will change depending on fax recipient's number.
+I know that the easy thing would be to have users send the emails directly to the @example.com domain, but I'd rather have them use the local fax.mydomain.com domain and have the email forwarded/ redirected.
+I've tried to find a feature within Zimbra and I tried to zmprov md fax.mydomain.com zimbraMailCatchAllForwardingAddress @example.com but the emails bounced.
+Only forwarding is probably not enough, you also have to masquerade the domain name, otherwise the example.com mail server probably rejects the mail and this is what you see as bounces.
+I think that postfix transports requires that I specify a different SMTP server, e.g. otherdomain.com     :[smtp.otherdomain.com]
+Mails arriving at example will still have the To:- field as xx@fax.mydomain.org but the envelope is correct.

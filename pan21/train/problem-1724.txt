@@ -1,0 +1,7 @@
+Per-VLAN spanning-tree and Rapid Spanning-Tree both operate in a very similar fashion to each other, but are neither Link-State or Distance-Vector.  They operate within layer 2 (eg: Ethernet) domains only and only care about building a loop-free topology to the root bridge of the network.
+Neither.  Link state and distance vector are types of routing-protocols eg: OSPF and ISIS are types of link-state routing protocol, while RIP and BGP are examples of distance vector.
+The VLAN-enabled IEEE protocol is MSTP - BPDUs are passed untagged only but information to an interface's VLANs is included. Multiple MSTP instances built independent spanning trees. They can be used to group VLANs so that more interfaces can be utilized. MSTP also supports multiple regions ie. STP domains and interoperates with RSTP.
+Which spanning tree protocol is link state and which one is vector state. We have stp and rapid spanning tree !! 
+Link-state and distance-vector are different types for routing protocols as Benjamin has pointed out.
+Cisco's RPVST+ builds a separate spanning tree within each VLAN. BPDUs are passed tagged and untagged according to the interface they are sent out of.
+IEEE RSTP is VLAN-agnostic. BPDUs are passed untagged exclusively and only a single spanning tree is built, ie. all VLANs use the same interfaces.

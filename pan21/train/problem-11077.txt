@@ -1,0 +1,5 @@
+When you get to the account setup screens, you enter your full name. The short name is automatically generated from this by removing spaces and going to lowercase, i.e. John Doe -> johndoe, though it is still editable at this point.
+@Daniel Beck's comment is one way of going about fixing your issue, but you may need to do some chowning on the new directory.
+The home/business question is only for registration demographic information--you can actually skip that entirely if you choose by hitting command-Q.
+The "naming convention" for the home folder is to be identical to the user short name, just like it is on any *NIX system, but as far as the short name itself is concerned, that's more of a default than a convention.
+Did you use the migration assistant to restore your previous user account onto the new one? Likely you just made the mistake of not making your new account's short name match the old one, since the migration assistant simply migrates the data onto your new account instead of replacing it.

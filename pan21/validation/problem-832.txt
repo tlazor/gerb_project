@@ -1,0 +1,6 @@
+It seems my main failure was using unset req.http.Set-Cookie; when I should have been using unset obj.http.Set-Cookie; in the vcl_fetch section. (obj in vcl_fetch and req in vcl_recv section).
+I have a Ruby on Rails application fronted by varnish+nginx. As most of the sites content is static unless you are a logged in user, I want to cache the site heavily with varnish when a user is logged out but only to cache static assets when they are logged in.
+Ok, in the end I managed to solve this using the following vcl file. Note that I added a couple of extra bits to allow cache expiration grace when the backend has died.
+When a user is logged in they will have the cookie 'user_credentials' present in their Cookie: header, in addition I need to skip caching on /login and /sessions in order that a user can get their 'user_credentials' cookie in the first place. 
+The configuration I have at the moment is totally bypassing the cache for everything when logged in, including static assets — and is returning cache MISS for everything when logged out. I've spent hours going around in circles and here is my current default.vcl
+Rails by default does not set a cache friendly Cache-control header, but my application sets a "public,s-max-age=60" header when a user is not logged in. Nginx is set to return 'far future' expires headers for all static assets.

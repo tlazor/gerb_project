@@ -1,0 +1,8 @@
+In that case you make the current constructor @deprecated and provide a new one next to it. You can also provide a default value for the new field so that the original constructor still "works". For example:
+This way, their IDE will still tell them they're using an outdated constructor, but at least they'll still be able to run their current code without changing all the calls from the start.
+Then adding another field with information about person is no longer change of employee and therefore does not necesitate need to change its descendants.
+Alternatively you could look into other options besides adding the fields to that class. For example, you could have a lookup class that, given a certain employee, looks up his salary in a table for example. This greatly depends on what your program is supposed to do. With the little information you've given us here it's hard to propose concrete solutions like this.
+There's also nothing wrong with this way of working. You're adding a field that every instance of this class needs to have for your program to work correctly. That's a good reason to enforce initialising it in the constructor. Your compiler (or even better, your IDE) will tell you where else you need to update your code.
+In case you're developing a package that other people use where they need to have some time to adjust to the new version you need to be more careful when making API changes (like adding parameters to a public constructor).
+But if you want to be sure that all required parameters are given when creating a child. You there is no other way.
+And Person can enforece invariants about person and Employee will now just enforce that it actually must have Person.

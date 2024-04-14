@@ -1,0 +1,11 @@
+As you rightfully stated, using these classes makes it much easier to simplify code where these dependencies are being used, as you can enforce the dependency via type-hinting, and skip all the guarding clauses.
+This would allow property-style access to callers (i.e. $phone->phone), which some developers prefer.
+Finally, I don't like change* naming convention as you are doing a simple set operation here. I think set* would be more standard nomenclature for what is happening here.
+Mindlessly setting and getting fields of an object is bad, though. Especially with this syntax (setX, getX).
+Note that object is written in bold in the second sentence. Your Organization class is merely a data structure here. There's no sense attached to it, it doesn't follow rules and doesn't use its own logic.
+I like that you are considering your Address, Email, and Phone objects as being immutable.  That is, if you needed to change one of these on the Organization object, you would simply discard the old reference for a new one.
+Can you spot the differences ? You don't want to be able to only set X or Y location of a cartesian point, because that is not how it works.
+Another thing I might suggest is to think about your Organization entity and how it interacts in your system.
+With regards to the question around whether to write getters/setters, I think your approach is fine.  There are a couple of other approaches you might consider to find what works best for your application's needs:
+In conclusion, if something has some logic/sense about it that the external world knows (should know) nothing about, make an object, but so far, Organization should only have public fields, and absolutely no methods inside. That's not an object.
+Use magic methods defined in a trait or base class to provide immutability to classes that use/extend on this functionality.

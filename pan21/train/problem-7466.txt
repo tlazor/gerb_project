@@ -1,0 +1,8 @@
+The only thing I have heard of that will work is a Virtual XP on the Win 7 box.  The problem is that this software is a part of a whole software set.  I would have to put all of the pieces on the Virtual XP or none at all.  
+Before I go down the road of putting it all on the virtual xp I would like to know that there is no way to get it all on the Win 7 os.
+Some legacy installers can be "unzipped".  Meaning some zip utilities can actually unzip the files the program is supposed to install.  Now I don't recommend it, but you could try to manually move the files yourself.
+This error can also appear when you create a script and save it as *.exe instead of *.bat. Switching to *.bat can solve the problem.
+With legacy installers you really just have to fiddle around with the settings.  Try setting compatibility mode to Windows XP SP 3 and Set run as administrator.
+Previously it has only been installed on Windows XP 32 bit.  I get the following error when I try to run it:
+An installer that was created for Windows 7 (32bit/64bit) in the first place, got corrupt while being transferred via email, showing this message (on Windows 7 64bit). The non-corrupt file installed fine.
+I have a really old installer (legacy app) that we are trying to get running on a Windows 7 64 bit os.

@@ -1,0 +1,6 @@
+The last experiment I tried worked for searching with only one store at a time(this is just off the top of my head, I don't have my notes with me at the moment, so pardon if there were any errors in the code):
+Given this scenario, I am looking to retrieve all stores records with no sales of product codes 001, 002, 003 within that day, along with the dates when those occurred.
+Or - sorry, I am very rusty in DB2, but I do recall the possibility of generating a compact result table. If so, it would probably look like this:
+Is it possible to expand this code to cover all store_ids in the daily_sales_records database? Or am I just thinking too hard on this one?
+This is my first time posting in stackexchange, and I hope I did my due diligence for this question. I'm working on a problem that I just can't seem to wrap my head around. Consider this scenario of a chain of electronics stores, where day-to-day transactions are recorded in a database:
+(Store ID 2 is excluded on 2019-01-01 because there were sales for products 002 and 003, while store 1 was excluded on 2019-01-02 because there was a sale for product 003)

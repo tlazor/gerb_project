@@ -1,0 +1,6 @@
+The answer is simple: check wiki! https://wiki.archlinux.org/index.php/Beginners%27_Guide/Installation
+Regarding your issue about installation, the new way to install Arch Linux is using the Arch Linux Install Scripts. A detailed explanation on how to install Arch Linux can be found on the Beginners Guide to Installation on the Arch Wiki.
+Very recently, Arch Linux removed the AIF (Arch Installation Framework) was back in those days, was called using /arch/setup.
+As a Arch Linux user, let me advise you to read and follow only the ArchWiki for help regarding any usage on Arch Linux. You can always expect the ArchWiki to contain the most detailed and up-to-date help, explanations and guidelines, which on a rolling-release system like Arch is crucial.
+However, when I entered it, it said that there's no directory like that, so I decided to follow the tutorial on the official website but for me it's like chinese.
+I'm completely new to Linux, the only reason that I'd try it out because I've seen it in a video (Arch Linux) and I liked it. So I downloaded it and loaded it up in a virtual machine (virtualbox). I found alot of tuts for installing it like entering "/arch/setup" in the console.

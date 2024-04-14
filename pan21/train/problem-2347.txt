@@ -1,0 +1,6 @@
+I'm recommending a clean reinstall because LVM might help you in the future. Is this an option for you?
+You can't do it directly; either you put more of your stuff inside /home, or you'll have to move all content from /home to /home.tmp on sda1 to clear sda2 and reinstall there.
+If you have a physical access to the server you may try doing this with GParted. It's a free and OpenSource project that can re-partition Ext2/3/4, NTFS and many other file system formats. 
+Although it would be possible to run it from within the current installation, an easier way would be booting up a live CD.
+What you should be aware is that you should be really careful when you're using the program. If your computer get's turned off (loss of electricity?) - you will probably get all of the information on the drive messed up. So you'll need to reinstall a fresh copy and start from zero.
+You can use a partition editor like GParted . It is capable of moving relevant filesystem data and resize the partitions accordingly. 

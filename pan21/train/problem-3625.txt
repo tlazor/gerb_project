@@ -1,0 +1,11 @@
+Yes, it is possible to represent the neural network with a single hidden layer. Computing the final result of $a_5$:
+$$a_5 = (\theta_9\theta_1+\theta_{10}\theta_3)C^2x_1+(\theta_9\theta_2+\theta_{10}\theta_4)C^2x_2+(\theta_{11}\theta_5+\theta_{12}\theta_7)C^2x_3+(\theta_{11}\theta_6+\theta_{12}\theta_8)C^2x_4$$
+Which means we can define the result of the network with only one equation which depends on the activation function $F$.
+$$a_5 = C^2 * (x_1*(\theta_1*\theta_9+\theta_3*\theta_{10}) + x_2(\theta_2*\theta_{9}+\theta_4*\theta_{10}) + x_3(\theta_5*\theta_{11}+ \theta_7*\theta_{12}) + x_4(\theta_6*\theta_{11}+\theta_8*\theta_{12})) $$
+$$a_5 = ((x_1*\theta_1 + x_2*\theta_2)*\theta_9*C + (x_1*\theta_3 + x_2*\theta_4)*\theta_{10}*C + (x_3*\theta_5 + x_4*\theta_6)*\theta_{11}*C+ (x_3*\theta_7 + x_4*\theta_8)*C)*\theta_{12}*C $$
+$$a_5 = F([\theta_9\theta_1+\theta_{10}\theta_3,\theta_9\theta_2+\theta_{10}\theta_4,\theta_{11}\theta_5+\theta_{12}\theta_7,\theta_{11}\theta_6+\theta_{12}\theta_8],[x_1,x_2,x_3,x_4])*C$$
+You are asked whether we can mimic the given neural network with a new network that contains only a input layer and an output layer, which in turn means whether $a_5$ can be represented as a linear combination of $x_1, x_2, x_3, x_4$. Since every action the neural net does is linear it can be represented as a smaller one without a hidden layer.
+$$a_5=(\theta_9*(\theta_1x_1+\theta_2x_2)*C+\theta_{10}*(\theta_3x_1+\theta_4x_2)*C+\theta_{11}*(\theta_5x_3+\theta_6x_4)*C+\theta_{12}*(\theta_7x_3+\theta_8x_4)*C)*C$$
+$$a_5=(\theta_9\theta_1x_1+\theta_9\theta_2x_2+\theta_{10}\theta_3x_1+\theta_{10}\theta_4x_2+\theta_{11}\theta_5x_3+\theta_{11}\theta_6x_4+\theta_{12}\theta_7x_3+\theta_{12}\theta_8x_4)*C^2$$9
+Calling $F(\theta,x) = C*\sum\theta x$ the activation function (according to the definition), we reexpress the above equation with this definition:
+$$<\theta_1*\theta_9+\theta_3*\theta_{10},\theta_5*\theta_{11}+ \theta_7*\theta_{12} , \theta_2*\theta_{9}+\theta_4*\theta_{10}, \theta_6*\theta_{11}+\theta_8*\theta_{12}> $$

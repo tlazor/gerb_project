@@ -1,0 +1,5 @@
+You can pull up Task Manager (CTRL+SHIFT+ESC), and then right-click the window you want on Applications and choose "Bring To Front".  When you've identified the correct window, right-click it and choose "Go To Process".  Now, under the "View" menu, choose "Select Columns...", and check the PID box.  The PID will now appear as a separate column alongside your highlighted process.
+I have several copies of a program running.  I would like to find the PID for a particular one of these processes.  I can identify the window which spawned the process (and there is only one process from that window) but I cannot tell it apart from other similar processes.
+Are there any other distinguishing characteristics about the process that you care about? Is the start-string different, the path, something?
+Alternatively, if the one you care about has a specific file open, you could run handle.exe and find the PID that way. 
+Use SysInternals Process Explorer. Right-click on the process, and bring the Window to the Front. This technically lets you find the window from the potential processes, so you might have to do it a few times until you find the one you care about.

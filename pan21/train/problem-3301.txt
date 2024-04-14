@@ -1,0 +1,8 @@
+Using camel-case doesn't make any difference as everything will be converted to uppercase anyway (because you did not use " to quote your names - which is a good thing).
+Recently I have been using a Database Abstraction Layer built by a Python web-framework called web2py (click for their DAL syntax). They include the option to include your constraints within the CREATE TABLE statement.
+The scripts with embedded constraints are more "self-contained" however. You don't need to look for other places in the script to find the constraint definitions.
+Whilst taking Stanford's "Introduction to Databases" MOOC, the SQL Standard was mentioned as supporting any query within the CREATE TABLE statement as constraints (essentially replacing a major use-case for triggers).
+Below is a simple example of including constraints in CREATE TABLE statements; rather than through ALERT TABLE and/or CREATE TRIGGER statements:
+BTW: You'll note that I'm using CAPS for keywords, upper CamelCase for table names and lower under_score for attribute and trigger names. Is this good practice? - Feel free to critique my indentation and whitespace usage styles also :)
+The scripts where the constraints are defined through an ALTER statement are a bit more flexible, as you don't need to care about the order of creation (first create all tables, then all PKs, then all FKs). 
+Regarding indention and whitespace: that again is completely personal taste. Do it the way you think you can still understand this in 6 months. The most important thing is to be consistent (and maybe document your style somewhere in your project documentation, so that new members can understand and use the same formatting)

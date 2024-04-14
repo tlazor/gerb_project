@@ -1,0 +1,5 @@
+The int uses_bones represents a bool, because LWJGL does not support loading booleans to the shader. 1 = true, 0 = false 
+You can create two shaders and set the correct one from the application. Use a define to turn on/off features.
+One core execute a lot of (64) with SIMD paradigms. Think about them as a vector of data and one instruction pointer (IP). In program with a branch the core can't use two IP for different data. So in this case both branch are executed and the registry from the "wrong" branch ignored.
+I read a few thing about, that in GLSL both sides of the if-clause is executed, so do you have any idea for a workaround for this one: 
+But if the branch depend only on uniform data all the data in the SIMD vector will follow the same branch, and the compiler add a real branch instruction. Older shader compiler didn't support this feature, but modern compiler and hardware does. In HLSL you can enforce the branch with [branch] before the if. I don't know if GLSL have something similar.

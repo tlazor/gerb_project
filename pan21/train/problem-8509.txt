@@ -1,0 +1,5 @@
+Always On Availability Groups is different than mirroring in that it's built atop Windows clustering, which means it relies on quorum voting to achieve the tiebreaker. Normally, you would want a third Windows server involved, but good news: it doesn't have to have SQL Server installed. You can use a file share to act as a quorum witness, or even a cloud witness.
+To break the tie, database mirroring can use a witness server, but it can be an absolutely free SQL Server Express Edition. 
+This is called a split brain scenario, and you always want SQL Server to fail into a non-available state when that happens.
+Otherwise, what would happen when the two servers had a network split and couldn't see each other? You wouldn't want them both automatically promoting themselves to primary, and both accepting writes. Think about what would happen on a table with an identity field, for example: both servers could quickly end up with two different records with the same identity field.
+You could even get fancy and remove the quorum votes from one of your servers - but if that server goes down, your entire cluster will go down.

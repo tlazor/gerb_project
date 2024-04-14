@@ -1,0 +1,6 @@
+It is made to 'fit' your monitor layout so within display properties you can drag the monitors up and down, etc so that it feels natural to your setup.
+For example if the bottom monitor of your left monitor is in line with the bottom of the right monitor then you should drag it down in windows to reflect this, etc. 
+Since there was not a "free" answer to this question, I developed a little Windows C# command-line application to deal with this problem, and allow the mouse to move smoothly across multiple monitors, and also to wrap-around between left-most and right-most monitors.
+Whenever the mouse hits any part of the tall monitor's left edge, it should be wrapped to the wide monitor's right edge. I don't particularly care where on the edge it gets wrapped: It's fine if it's just the closest point like I've shown in the image (dashed line is the wrap/teleport).
+When moving from the right to the left monitor, if the mouse hits the areas I've shown in red, it gets stuck. I would like to change this behavior.
+DisplayFusion has an option on the Settings > Window Management tab, called "Prevent mouse cursor from snagging on unaligned monitor edges" that fixes this issue up.

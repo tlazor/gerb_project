@@ -1,0 +1,5 @@
+At one point I had some tools for connecting to the printer via telnet and dumping the contents of all the files (and then splitting them apart on the receiving end).  I think they've been lost after some job and hardware changes, but it's definitely possible.
+EDIT: Section 7.4.2 of the MIME RFC is also interesting from a security perspective w/r/t Postscript printers.
+Of particular interest may be the filenameforall operator, which will execute a block of code for each filename matching a pattern...this is a great way to write your own version of the ls command.
+At least with older Xerox printers there were a variety of Postscript operations available for interacting with the local filesystem...you could use this by submitting the appropriate print job to the printer, or possibly through an interactive telnet session.  Look at the "File operators" section in chapter 8 of the Postscript Language Reference Manual.
+I'm pretty sure that most Xerox devices in this range automatically encrypt and overwrite data. You may have to purchase an additional license.

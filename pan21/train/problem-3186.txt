@@ -1,0 +1,5 @@
+Currently, every time a new application tries to go online, I have to confirm or deny its access rights. I would like to generally maintain this behavior.
+Is there a way to set these Little Snitch permissions on the command line? I'd like to be able to run my environment setup scripts without babysitting the GUI throughout the whole (otherwise automated) affair.
+I am running Little Snitch on Mac OS X, which lets me control how individual processes access the network.
+As a result, for every new virtualenv created, a Little Snitch dialog pops up during the automated setup asking about the permissions for the "new" Python executable, and I have to set the permissions and click "Accept".
+The problem I have is this: I also use the Python virtualenv module to create isolated environments for web development with Django and Tornado. I have lots of scripts (executed through virtualenvwrapper) to automate all the boilerplate configuration and setup -- but a newly created virtualenv contains its own copy of the Python interpreter executable, which is a completely new application as far as Little Snitch is concerned.

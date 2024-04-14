@@ -1,0 +1,6 @@
+So it looks like you've likely encountered a bug in rsync parsing on exclude files. But using the --exclude= parameter you can work around this issue - in worst case writing your own wrapper reading your exclude file and assigning an exclude parameter for each line.
+Note the \ to escape the space. However the My Documents" folder is still created on target side but remains empty even if there is some content on source side.
+In fact I've just tried this with latest cygwin rsync and you're right. Using exclude files it's not possible to exclude a folder with spaces in it's name. However it works to exclude its contents while the folder itself is still synchronized.
+I'm using cw-rsync under Windows 7 to copy files off my local machine every day to an rsync server running on a Linux box. It works fine, apart from the fact that I can't seem to exclude directory names properly. Right now, in my exclude file, I have:
+This works, but also has the effect of also excluding any directory called just "My" or "Documents" or "Downloads"
+I've found that (at least for Cygwin rsync) the --exclude= parameter works correctly even with spaces:

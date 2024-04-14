@@ -1,0 +1,5 @@
+Essentially answer the question "how does this nameserver get its zone data?" for each nameserver and it should guide you in the right direction.
+It's hard to say with certainty how some unnamed service provider chooses to label different things in their system.
+That said, it's quite common for domain name registrars to also provide dns hosting services, in which case they will both have some interface for managing the delegation of your domain name (often using the nameservers associated with their dns hosting services by default), as well as some interface for managing the records in the zone hosted on their nameservers.
+In such a scenario, if you do not actually use the dns hosting services provided by the registrar (ie, you have delegated the domain name to other nameservers), managing the records in the zone hosted by the company that is also your registrar no longer has any practical purpose; no one will query their nameservers anyway.
+The nameservers that your domain name is delegated to is the determining factor for answering your question; based on which nameservers are in use, you can sort of backtrack to where you would manage the records.

@@ -1,0 +1,8 @@
+"Just run Synchronization Service Manager (miisclient.exe), and check Properties of Active Directory Domain Services Connector which failed import or export. On left panel of “properties” dialog, click “Connect to Active Directory Forest”, check on the right panel, for the "Domain:" field, if it is NetBIOS name specified, need to change NetBIOS name to Fully Qualified Domain Name, then enter account password and click "OK" button to save the connector property. This should fix this issue."
+One other thing of note is that password sync continues to work - but new objects or changes to objects are not synced.  
+https://social.msdn.microsoft.com/Forums/en-US/8cdb6596-11ce-4b06-a02c-14ea440146bc/problems-with-latest-azure-ad-connect?forum=WindowsAzureAD
+After installation, the AD Connector is now failing and throwing errors.  They fail on the import and export run profiles.   
+If I save the Import profile output it doesn't show me anything - it is connecting successfully to the-the domain controller. 
+I've installed the latest updates for .NET 4.5 and then installed .NET 4.6.1 but with same results (so it's currently running now with .NET 4.6.1).  
+There are no errors logged from the profile.  I also enabled the AD Sync event logs - but nothing is getting logged there either.  As far as I can tell there are no other application logs we can check in the Azure AD directories. 
+Additionally, if you open the connector itself and try to refresh the schema or view the containers (OU"s) it throws an error 

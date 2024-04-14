@@ -1,0 +1,8 @@
+There are a great many tutorials on TLS and x509 certificates. Here is one introduces the topic: How to Use X.509 Certificates and SSL For Secure Communications
+You may issue different x509 certificates for every host or site.  Or, if using one certificate, subject alternative names and wildcard host names are commonly supported.
+If you do not already have the certificate PFX, export it from one of the existing IIS servers that may have the certificate.  
+Installing the certificate on one server + Exporting the public/private keys of the certificate for installation on additional servers
+This is largely platform dependent if you need the actual steps, so if you do, let me know your OS and IIS version and I'll edit my answer.
+You can use a wildcard certificate (*.example.com) and import it on a server. The same can be said for a certificate with different subject alternate names. For simplicity, a pfx-type of certificate is the easiest. You can import this certificate on all servers and use it.
+If the certificate private key is marked as "not exportable", you may use JailBreak to export the certificate. 
+Use the same process to import the certificate PFX into the local machine Personal/My store using the Certificates MMC on the other IIS servers, then use IIS Manager to select the certificate.  

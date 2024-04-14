@@ -1,0 +1,14 @@
+Better sorting methods, e.g. if you use a bubble-sort, you can pick a much better algo that suits your case better (single insertions/removals don't require to resort whole list).
+Inserting into a "swiss-cheese" vertex array with such holes lets you move data only up to the first hole and stop there rather than move the whole array.
+When you remove quads you can quickly degenerate them (set all vertices to the same value) instead of removing them and copying over the following quads.
+A smart bubble/insertion sort is faster than quick sort when the array is already mostly sorted (reused on the next frame).
+Krom Stern's answer of using linked vectors (a list of shorter arrays) is excellent as you can fine tune the technique to a sweet spot between [number of draw calls] and [sort time of individual buffers], always put an extra bit of free space in each buffers.
+If insertion speed is critical you can use the top-1 N bits of a positive float as an integer, skipping the sign bit, into an array of linked lists.
+If we need both positive and negative z then the negative z needs a set of reverse-sort functions due to being one's-complements.
+To speed up the copy of data rather than copying entire vertex values use an index buffer to sort the vertices.
+Linked list. where each item hold a pointer to the next item in list. Insertion and removal cost is O(1). This is not cache friendly though, but you can try.
+You can combine and store your objects in linked vectors, where each vector is e.g. 32 items and those are linked into a list. When vector grows too big - split it. When too small - merge it to neighbour.
+If you're using integer depth values using this float hack will limit you to 23 bits of depth values (0 to +8M) as 32bit floats only have 23 bits (+ 1bit sign) of precision (8bits used for the exponent).
+This is useful when you don't know the range you'll need to sort and/or are already using floating point depth values.
+IEEE floating points of the same sign can be compared and sorted as integers, its part of the standard's design. They are one's-complements rather than two's-complements but this doesn't matter if we're only using positive z.
+All this gets complicated quickly so a good idea for debugging is to have an independant sanity-check using a per-frame sort-all-active-objects-and-verify function that will confirm everything is sorted properly and there are no bugs in the faster, gradual sorting system.

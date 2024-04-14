@@ -1,0 +1,6 @@
+Think of it as learning the basis transformation on one set of input data (.fit method) and then apply the same basis transformation on new set of data (.transform method).
+This is a complete noob question, I'm new to Python, and I understand the basics of NMF, but when implementing it in sklearn it seems a bit convoluted and I wanted to ask whether anyone knows how to exploit the results. 
+I've imported data from a file, and created and shaped an array, and now have implemented some initial NMF code I took from the sklearn guide online.
+But here's the bit I'm getting lost - and why I commented out the last two lines - where does X_new come from, am I meant to be imported another matrix for comparison - I thought the point of NMF was to identify key features of the matrix under analysis?
+If you are interested in transforming the same matrix (myfile in your case), use only the fit_transform method instead of transform.
+The API allows two types of operations: Learn and transform a matrix under analysis. Or alternatively, learn the factorization on one matrix (myfile / X) and then apply the same transformation on a new matrix (X_new), having the same number of columns (but potentially different number of rows).

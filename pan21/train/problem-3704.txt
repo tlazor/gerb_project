@@ -1,0 +1,6 @@
+Before you do so disable any add-on repos.  A major problem you will face is that some add-on repos may install dependencies required for PHP 5.3 but not needed for PHP 5.2 (such as varying sqlite versions).  
+If you continue down the path your headed, your probably going to run into what I call "dependency hell"  Old PHP needs old version of X, which is needed by a new version of Y, and if you want the old version of X, you need to downgrade Y as well, so on and so forth.   10-15 dependencies later, your running a reasonably insecure environment because a significant chunk of your system is running old code. 
+everytime something like this happened to me (needing an older copy then what is in repo, or newer) I've found it easier to build my own RPM's from source, and i recommend doing that.
+Its not too difficult, just a little more time consuming, and you can ensure your using the latest of everything ELSE on your system, and just the older (or newer) versions of PHP.
+If all else fails, remove all php 5.3 packages with rpm -e --nodeps and then just re-install using the centOS sources.
+The "Missing Dependency" error is often caused by mixing repositories. I suggest you disabled the atomic, epel repos and try again with CentOS testing repo based on this guide or Jason Litka repo.

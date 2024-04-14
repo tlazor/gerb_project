@@ -1,0 +1,5 @@
+one way to do this would be to structure this as an HTTP application.. if you did that your ??? box could be an HTTP intermediary that spoke HTTP/2 on the backside.. then you would only need one connection on that side (and you can arbitrarily mux the active sessions within http/2). 
+What can I place between my application and my appliance to accept more than 16 connections on one hand, and still cap to 16 connections on the other hand ?
+I am in full control of the applications and the network between them and the enter preformatted text hereappliance...
+I have several applications which need to connect to an appliance which only accepts 16 concurrent TCP connections.
+Assuming the TCP connections are carrying some kind of request/response protocol the gateway will need to recognise the beginning and end of each request and response, merge the stream of requests from different clients to send them to the device and somehow keep track of which request belongs to which client so it can send the responses back to the correct client. 

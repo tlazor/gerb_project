@@ -1,0 +1,5 @@
+I am fairly sure that the cause of the intranet windows authentication is because the server cannot access the AD server at the other site.
+nslookup reports that one domain as "non-existent", all the other AD servers reply with their details. However I AM able to ping derby.local.
+Further investigation shows that a user who is a member of this site, lets say derby.local, cannot log into their account from inside another domain, for example i set up an account on the derby.local domain and tried to log in from london.local, i get the error “There are currently no logon servers available to service the logon” suggesting that the AD server is not accessible, however i CAN ping it.
+The intranet server (Server 2008 R2, IIS 7.5) is based in, lets say london.local, and uses Windows Authentication in order to authenticate and access the site on the intranet server.
+I have just rolled out a new Intranet company wide - the company has 6 UK sites, each has a local domain called (for example) london.local, derby.local, thatlotupnorth.local etc etc, and each has its own AD server.(The sites are connected via MPLS through Virgin, but that should be transparent to the issue)

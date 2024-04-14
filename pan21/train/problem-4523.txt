@@ -1,0 +1,9 @@
+How it can be really used? Can some one give me an example, the ones provided in this reference article don't really help explain things well for me?
+You as an end user (ie. developer of applications using SQL Server) can similarly use the state passed in to RAISERROR so that your product support can identify the place a procedure raises an error, for example:
+See the one called State, with a value of 1? ERROR_STATE() returns this value. So if you use TRY/CATCH:
+The purpose of SQL Server error states is for the SQL Server development team to be able to identify in code the exact place system errors were raised, given that many errors are raised in multiple places.
+Short answer - it can't. An ERROR_STATE is essentially a sub-division of an ERROR_NUMBER. It cannot tell you what line of code caused the error (except insofar as the ERROR_NUMBER and ERROR_STATE together tell you the cause of the error, and it then becomes obvious what the cause is).
+That's all. Not useful in most scenarios. I suggest more reading up on error handling in general before you dive too deep into specific functions that sound useful.
+No, it does not help you find anything out about where the error occurred. Here is a quick example. If you try to divide by 0, you get an error message with a bunch of details:
+See how the two state allow you to distinguish later which error case was hit. Before you say 'but I can look at the error message' I'm telling you one word: internationalization.
+I read that ERROR_STATE() can help to distinguish between different states/locations in the source code where same type of error can occur. But it is not really clear to me that how it can be useful.

@@ -1,0 +1,6 @@
+The information that OVH has given you is inconsistent and/or incomplete. You will have to get them to do a better job.
+If you route the block directly to your dedicated server, you may use each address individually with a /32 prefix and your existing default gateway.
+If you want to assign them to bridged virtual machines, then you don't set up the secondary IP addresses in the host. You'll need to set virtual MAC addresses in the OVH control panel, then create VMs with those MAC addresses and the host's gateway, like:
+Don't set them up this way unless you have routed the block of IP addresses to a vRack. And, with such a small block, you should not attempt to route it to a vRack or you'll only have one usable IP address.
+/30 network gives you only two useable IP addresses (other two are network and broadcast) and one of them is the gateway, so essentially they gave you one static IP address which is 84.84.185.177. Assign this address to your interface, set network mask to 255.255.255.252, set your default gateway to 84.84.185.178 and it should work.
+I suspect that the information about network / broadcast / gateway does not apply and can be simply disregarded. OVH will probably supply you with an IP address outside the /30 that you will need to use as a default gateway.

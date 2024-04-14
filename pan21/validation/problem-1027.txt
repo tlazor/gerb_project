@@ -1,0 +1,7 @@
+Create images of all hard disk partitions and place them on a network share or removable hard disk. Also back up the partition table with the following command (change paths as needed):
+Prepare a bootable USB stick with a partition imaging tool. dd will do, or partimage if you want more of a UI. A good starting point is a Ubuntu Live USB stick with a persistent filesystem – create the stick, boot it and install any missing tools (in case you want to use partimage).
+I need to run some tests before deployment on an environment as close to my production server as possible. How can I virtualize the current installation into VM image to be able to run some of my tests.
+Shut down the VM. Unconfigure the USB drive, then boot the VM again. It should now boot into a copy of your production system.
+Depending on your OS and configuration, you may have to reconfigure network interfaces and possibly some other hardware-related stuff (e.g. mount points/drive letters for disk partitions).
+Now create a VM. Be sure to select a hardware configuration similar to your production server (ATA vs. SCSI disks, number of network interfaces etc.) and that the number and size of virtual hard disks is at least equal to what you have in your production system.
+Boot the VM with the live USB stick (or an image of it). Make sure the VM can access the location where you have placed your disk images. Restore the partition table and images to your virtual HD.

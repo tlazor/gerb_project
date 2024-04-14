@@ -1,0 +1,7 @@
+Here's an example. Let's say you have a Web Page that displays multiple images. You may want to link these images to your HTTPs CDN when the Page is viewed using HTTPs and you may want the page to use your HTTP CDN when the page is accessed using HTTP. Use a dynamic web application to check the protocol and replace all links accordingly.
+I don't know of any, but if you have control of the web server on the other end, you could redirect to a different domain (or have a different vhost) depending on whether it is using ssl or not.
+So a DNS client that looks for the https/tcp service for the the "s.test.com" record gets a response back saying the service is on host special.domain.com, port 443. A DNS client that asks for http/tcp for "s.test.com" gets back a response saying host simple.domain.com, port 80.
+As already mentioned, basic DNS does not do this. However, if you control the client (i.e., it's software that you code and distribute), you could use SRV records:
+However, you could modify your application to detect the protocol (HTTP or HTTPs) and provide its links accordingly. 
+So if you want one response for HTTP and another for HTTPS, you would put something like the following in your DNS zone record:
+The "0 5" are priorities/preferences so that you can do round-robin if you have multiple hosts for the same service (special1, special2, ...; simpleA, simpleB, etc.).

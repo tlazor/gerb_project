@@ -1,0 +1,7 @@
+The slow speed that you are seeing via VNC is that the VNC client is not auto-adjusting the color depth.  Try changing your VNC settings to a lower color depth, and see how that works.
+(any of the other solutions you're looking at, which talk about running your own VNC server, probably date from the days before Apple had Screen Sharing (aka their own VNC server) embedded into the OS by default)
+Apple's own Remote Desktop client works fine, and will autoadjust the color depth as necessary to speed up the data transfer.
+If a shell is good enough, just run sshd on the Mac Mini, and install Putty (http://www.chiark.greenend.org.uk/~sgtatham/putty/) on the windows box.
+[1]: well, not quite 'just VNC'; iirc Apple threw in some extensions to allow for things like encrypting keystrokes, and kerberos support; but they're implemented as extensions to VNC, in such a way that any VNC client will work, but the clients that understand the extensions will work better)
+Assuming that you're using the built-in Screen Sharing (which is, as you say, just VNC[1]) - nope, that's what you get.
+You can logout, and login as a different user, but the GUI level of the Mac OS is for the currently logged in user.  

@@ -1,0 +1,9 @@
+I presumed that as sudo runs as root (sudo whoami returns 'root') generating keys and transferring them to the other machine as sudo should work the same as if I was logged in as root.  Am I wrong in my assumption or are there issues with using key based authentication as the root user onto another machine?
+I have been able to set up authentication between my standard account on the machine and the git repository but when I try and set it up as root it will not work (I perform the same tasks as I did for my normal account but using sudo each time)
+I connect to one linux machine with a standard user account and use sudo when it is necessary to perform something a little above my users station.
+I want to set up key based authentication between the machine I am in and the git repository so as to not need to put in a password each time.
+Check if PermitRootLogin is set to without-password in your sshd_config and "root" is not in the DenyUsers (or is missing in AllowUsers) list.
+SSH login as root is disabled by default on most linux distros (see James Lawrie's or joschi's answers to see how to enable it).  But there is no good reason to use it IMO.  (Also, I'm not sure I understand why you would want to be root when doing a git pull, but let's assume you really need that...)
+Anyway, if you want to run a certain task as root without needing a password, you should configure sudo to allow exactly that.  You'll need a line somewhat like the following in your sudoers file:
+Also check the permissions on /root/.ssh and /root/.ssh/authorized_keys. Both should only be accessible for "root" (e. g. have a permissions mask of 0700 and 0600).
+Don't forget to carefully read the manpages for sudo & sudoers first, and always use visudo to edit your sudoers config!

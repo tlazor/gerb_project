@@ -1,0 +1,10 @@
+There are other products that have this elevation functionality. They basically work by running as a service which is then able to change the privileges of other processes.
+I need to edit a lot of xml files in the C:\ directory if windows.To save the edits to those files I need admin privileges.I have to always open the notepad++ (a text editor) with the admin privileges. I do not like every time to right click the application and then run as admin.It takes time !
+Right-click the program you want to run as admin then click Properties then go to the Compatibility tab then check Run this program as an administrator.
+ScriptLogic's Privilege Authority (http://www.scriptlogic.com/products/privilegeauthority/version-comparison.asp) can elevate specific applications.  The Community Edition is free.
+Is there a way I can open a particular application always with Admin Privileges ? I mean to say , just double click the application and the application starts with the admin privileges.
+Beyond Trust also has PowerBroker Desktops that has similar functionality, but I do not think there is a free version.  (http://www.beyondtrust.com/Products/PowerBroker-Desktops-Windows-Edition/)
+Otherwise, you have to either turn down/off the UAC setting or live with it. At least setting the program to always use Admin privileges via the shortcut or compatibility tab like the two suggestions given here helps a little.
+Instead, you can use a non-ideal, convoluted method using the Task Scheduler to bypass the UAC prompt for specific programs by creating a task, setting it to use admin privileges, and entering the username and password.
+As you can see, there are lots of questions about it (many of them right here at SU). Unfortunately there is no practical solution to this because there is no “whitelist” (yet? still?)
+Turning off the UAC prompt for specific programs, or adding a program to a UAC “whitelist” have been common questions since Vista was released.

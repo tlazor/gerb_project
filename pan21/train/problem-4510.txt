@@ -1,0 +1,9 @@
+If you have over 17 apache processes running your machine will start using swap space for sure... once starting to use swap it can get out of control quickly if it's a busy server.
+Look at the output of "top" on the system and pay attention to the RSS size of the apache processes.  Lets say it's 30M.  Then, 512MB RAM / Apache RSS size... suggests a MaxClient setting of around 17.
+The rough rule is MaxClients = approximate RAM available to Apache ÷ average RAM per Apache process. 150 would probably be way more than your average 256MB VPS slice can handle.
+For the most part, 150 is considered a reasonable number. My recommendation would be to leave it as is.  If it ain't broke, why try fix it? 
+If you do find that your hitting MaxClients consistently then you have a problem which needs  addressing.  
+For the most part the limiting factor is going to be memory. Particularly if you are using apache and have a lot of modules installed (mod_php, mod_perl etc); Some of the factors which are going to determine the maximum number of concurrent connections that you can service will include: 
+So I just got a nice new VPS service. I was wondering what a good number of 'MaxClients' would be, for a server that will host a personal website, some blogs, etc, and your experiences with one server maxclients stuff! The default of Ubu server is 150.
+I know the answer is a bit vague but there is no real firm figure that can be provided without more knowledge of the environment 
+However, as it's probably not a busy webserver (you've gone for VPS and it's a personal website) the MaxClient setting is probably on the most part irrelevant as you probably won't be getting many concurrent connections.

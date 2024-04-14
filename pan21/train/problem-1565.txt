@@ -1,0 +1,6 @@
+I have one Server(IBM X3800 series) and one Desktop PC. Server is having to network card connected to it. eth0 and eth1. eth0 is connected to WAN via global IP of 202 series and internet is working fine on server, I can connect to internet. eth1 is connected to switch and below is config in eth1
+It looks like you are setting up a transparent proxy but your config does not look valid for this task. httpd_accel_* directives are for reverse proxying (AKA http acceleration) I believe. You should comment them out. Use http_port 3128 transparent instead.
+Now the desktop PC is connected to server via switch and the ip configuration for Desktop pc is this
+You have a proxy sitting on a computer, but no configuration of any kind to cause other computers to use that proxy. The iptables settings are trying to modify packets that will never wind up on that computer because no configuration anywhere else on your network steers these packets to that computer.
+It sounds like what you want is NAT, not proxying. And the NAT should be set up on the machine that's the default gateway for the LAN machines.
+I can easily ping from desktop to server and from server to desktop. But my desktop system cannot access the internet. So I guess that the problem is with the squid. Please help me to solve this issue. If you need any other information then please let me know.

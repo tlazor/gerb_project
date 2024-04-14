@@ -1,0 +1,6 @@
+I'm trying to set up Jenkins in Tomcat7 on Ubuntu.  I installed Tomcat7 and deployed jenkins.war, and I now see the Jenkins home page at http://myhost:8080/jenkins, but it's attempting to create the Jenkins directory at /usr/share/tomcat7/.jenkins, which it can't for security reasons.  I've already created /srv/jenkins and given the tomcat7 group permissions, and want to set JENKINS_HOME to that path.  I've tried adding it to the tomcat configuration in /etc/tomcat7/server.xml:
+According to the documentation I've read and a couple examples above, Jenkins uses your Tomcat user's home directory and searches for a .jenkins in that folder. Make sure your Tomcat user's home directory is set to a value you expect, /opt/apache/tomcat for example, and create a .jenkins symlink in that folder pointing to where your Jenkins folder lives.
+It isn't exactly the solution I prefer, but I created the /usr/share/tomcat7/bin/setenv.sh script as described in catalina.sh.
+But even after restarting tomcat7 I still get the same result (trying to use /usr/share/tomcat7/.jenkins).  
+A simpler way is to edit the context descriptor of the Tomcat servlet ($CATALINA_HOME/conf/config.xml) and add the folowing line: 
+And I've also tried adding it to the automatically created context file in ROOT/META-INF/context.xml (there is no $CATALINA_HOME/conf as far as I can tell).

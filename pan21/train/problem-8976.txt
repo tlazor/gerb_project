@@ -1,0 +1,10 @@
+You can quantify the cost to the business from loss of connectivity, which will allow you to better weigh the ISP's SLA versus cost.  If having Internet connectivity is critical for all employees' workflow, you could consider the cost of payroll for an hour versus the SLA for the connection.  If most of business is conducted independent of the Internet connectivity, a cheaper connection will have better return on investment.
+The bottom line is that the service from your ISP is probably actually what you'll get, nothing more, and almost never anything less.
+Most cable connections (even "Business Cable") do not have guaranteed bandwidth, guaranteed uptime or guaranteed repair windows -- This means if your connection goes out and you're down while the cable company takes a week to fix it you're effectively out of luck, and the most you'll get out of them is a "Sorry..."
+In my local market the cable providers are more than capable of providing Internet connectivity for an office.
+If you are going to be using the upstream but serving the Internet or uploading a great deal of files, there is better technical argument for the bandwidth of a professional connection.
+Can somebody shine some light into what other things I should consider in addition to the obvious speed / bandwidth amounts?
+I guess I'd go with the cable connection for the extra bandwidth potential, since its very likely you'll get most of it most of the time.
+With the Cable connection you'll likely get quite close to those speeds, but there will be times you only get 10% of those speeds. In my experience, this isn't very frequent, and even still its plenty good enough. (Given the downstream is already 10x faster).
+Service level, cost, and technical application are key points.  If you simply want Internet connectivity for internal office use, I would focus on cost.  It might be most cost effective to get cable and DSL and implement redundancy using a router.
+Right now I'm in a position to go with a dedicated 5up/5down pipe from our ISP or go with Time Warner Cable for a 50up/5down connection.

@@ -1,0 +1,8 @@
+This is almost certainly single host with many IP addresses routed to it and simple script to make it appear like it's traversing many hosts.
+So yes, for intermittent hosts which are probably routers, one can set these to pretty much random names and these would turn up in the X.Y.Z.W.IN-ADDR.ARPA queries.
+The downside is that you can't really access that host throught the DNS name reported - but then, if they are part of the core infra, this should not be a major problem anyway.
+Obviously the person does not control A record for those hosts and couldn't have A resolve for them.
+How are the host names in this trace route able to use random top level domains? I didn't know there was an 'Empire' or 'victory' top level domain.
+This RFC explains the DNS system http://www.ietf.org/rfc/rfc1035.txt. And most importantly, the section "3.5. IN-ADDR.ARPA domain" explains how these names are set for reverse lookup of the IP addresses.
+The PTR record doesn't have to be a valid FQDN. (for internal / non-internet DNS servers, this is not uncommon.)
+Like Ricky+Laazik say no limits what PTR can point to, like no limits where A can point to, just you won't be able to have it PTR -> A -> PTR unless you control both.

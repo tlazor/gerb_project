@@ -1,0 +1,10 @@
+Toms hardware has a good chart that has a list of all common CPUs along with their out of the box performance
+These situations are purely hypothetical, I'm just trying to get an idea of what exactly makes one cpu better than another aside from clock speed.
+Benchmarks or floating point operations/fixed time and such is a better way to measure CPU performance now days. Clock speeds was a simple way to increase performance in the past but that is not how it's done anymore. The reason is that the technology have become so small that heat would destroy it. The fastest CPU's have remained at around 3ghz for almost a decade for that reason.
+When your PC wants to perform a calculation, it needs the data to do it. It stores these in the memory registers, and these are VERY crowded. Too much data, very few registers. So CPUs have cache, incredibly fast memory for quick data retrieval. The more cache you have, the more data your CPU can hold without having to fall back to the much slower RAM (or much slower again, HDD)
+Now I'll compare that Q6600 with a Q9550 which I'll keep at its 2.83GHZ stock speed. The clock speeds are now the same, does the Q9550 come out far ahead of the Q6600 still?
+So your faster Clock means your CPU has a higher calculations/s, but the larger cache means it doesn't have to wait for the information. Whether it makes a great difference depends on the application to an extent, but in general, more cache is a very good thing indeed.
+The fact is, I had two Pentium 4's that were 3GHZ, but one was the newer generation that had double the cache and as a result, it was a lot faster.
+As these CPU's both have the same speed but one of them has other technology that rates it higher - the FSB and the Cache, I would have to say it will be faster.
+There isn't really a good way of comparing two CPU - especially one CPU against another that is at the same clock speed without getting both of them and benchmarking.
+I've always understood that a higher clock speed will make a cpu faster, but how much of a difference does the cache and other details of the processor make?

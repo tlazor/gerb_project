@@ -1,0 +1,6 @@
+I have a potentiometer that is used to adjust volume level along with MCP3008 but even if I don't touch it, its values are going and coming as following.
+But I don't want it to change when I'm not adjusting it. As a solution I make a range in which if the range difference greater than 10, do alteration. But If I do that, volume adjusting is immediately going down or up not slowly(gradually). How can I solve it? I checked that it has ground connection well.
+However you can deal with this in software. I'd recommend using the gpiozero library which has an MCP3008 class and normalises readings on a 0 to 1 scale:
+You can combine it with gpiozero's smoothed function which will smoothen out your values by providing the mean of every 5 readings:
+Another solution is to filter out the noise. The easiest option I can think of is to add a low-pass filter. Pick a capacitor in 10-100 μF range and a resistor in 10-100 kΩ range and see if that helps.
+You seem to have noise in your signal, and you should find out where that noise comes from. The first thing I would check is whether you actually need diff mode, since that picks up noise on two channels instead of one. Unless you have your reasons, switch to single-channel mode.

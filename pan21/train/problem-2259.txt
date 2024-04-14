@@ -1,0 +1,8 @@
+If my guess is right, does Bitlocker also decrypt unallocated data after I unlock the drive? I want to know whether I can recover my deleted data from unlocked drive or not. I am not sure about positive thing because performance is main motto of this option (encrypt only used space).
+Whether or not this applies in each and every case I obviously cant say but it is not completely impossible.
+I used WinHex to clone the encrypted partition to another drive so "I" could attack it and then set  Passware Kit Forensic loose on it. Took 6 hours but came back with a garbage password that I was sure wouldn't work but it did. So I was able to decrypt the partition.
+First thing first, I am NOT talking about full drive encryption. Bitlocker has a feature to encrypt used space only. I am talking about this.
+As for recovering data from an unlocked drive, applications that do this should see the data as they would for any normal drive as their calls are intercepted by BitLocker, which handles the encryption/decryption on a block-by-block basis.
+While I still wasn't able to find I was looking for ( I suspect now that it was never even on this drive), I was able to pull old and previously deleted files from the partition. The encryption process did not garble these into meaningless strings / binary data,  if that's what you're worried about / hoping for.
+I couldn't find what I was look for in the live files, so I then used NTFSUndelete to search through the deleted files area of the cracked and previously encrypted partition. 
+I have done this in the last 48 hours because I had a power out and lost access to an encrypted partition. It wouldn't accept the password.

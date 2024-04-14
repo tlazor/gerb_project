@@ -1,0 +1,8 @@
+On nights that we want to do the copy we just tick the box in SQL Server Agent Scheduler and go home. Come in the next morning and it's all done.
+You can schedule the script to run at specific time or just run it on demand. Refer to the links that I have suggested above.
+As to the person kicking off the job not having access to the data, there's a stored procedure--sp_start_job--in 2005 and higher.  The person kicking off the job would only need the one of the SQL Agent roles granted to them, such as SQLAgentOperatorRole.  
+If source database is running then you just can’t copy it because SQL Server will prevent you to do so. This means that you’ll either have to stop SQL Server service or connect to SQL Server to create a backup. In either case you’ll need a level of privileges that can probably access the data.  
+When you restore the database, you have to use REPLACE option to overwrite the files with the new ones.
+The database backup includes all the data in the database when the FULL backup was taken including the database users. When you restore the database on Test server, make sure to SYNC Orphan users.
+Quick answer is that this is possible but not straight forward and doing so in read only mode and w/o being able to read data is going to be challenging.
+We normally do it at night because that's when the server is at its quietest. There is no reason that you can't do it during normal operations - none of the steps requires taking the live database offline. But we found that the CPU time and network traffic made it more favourable to do it out of business hours.

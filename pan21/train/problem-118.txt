@@ -1,0 +1,6 @@
+The specific example you have would be very difficult, and probably wouldn't work if two directories had the same name.
+"z in" would cd into /home/user/mail/inbox as the higher weighted entry. However you can pass multiple arguments to z.lua to prefer a different entry. In the above example, "z w in" would then change directory to /home/user/work/inbox.
+Tab autocompletion of the path after cd isn't fast enough? Usually it only takes me 5 or 6 keystrokes to get where i need to go that way.
+pushd pushes your current directory onto a stack, then cd's to the argument directory.  The stack can be as large as you want.  popd removes the directory on the top of the stack and cd's to it.
+And then you can input the number and choose where to go before actual cd. eg. input 3 to cd to /home/data/software. And if you just press ENTER and input nothing, it will just quit and stay where you were.
+Save it as a batch file, put it on your path (\system32, for example), and then you can type, say "go docs" to go to your documents. You could write a small program to help manage them, if you want, too.

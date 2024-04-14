@@ -1,0 +1,7 @@
+Use the native method arraycopy as opposed to manually copying the elements for your concatenation method for better performance: 
+The Scanner is only used for retrieving the values at one place (which should be in main()) so you shouldn't make it a static field. Better declare it inside the method.  
+One wouldn't expect to see requests for user input inside a method whichs purpose is to initialize an array. The limit and the maximum value should be passed as parameters to this method.  
+Also think about making more use of enhanced for loops, how come you are only using them for part of your solution and not the rest?
+I totally agree with all of the above, but will add to it that you are prompting the user for an input of the array size, and then not checking it. 
+You shouldn't shorten variable or method names. Sam the Maintainer  will thank you for naming your variables and methods with meaningful name where he/she can graps at first glance what is going on.  
+Also note that Random.nextInt(max) returns random values between 0 (inclusive) and max (exclusive).  

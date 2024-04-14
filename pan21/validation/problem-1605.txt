@@ -1,0 +1,9 @@
+I've got a few Python based servers that I need to run, and would like them to start automatically when I start my Ubuntu Server box. What is the best way to execute them like this?
+The Ubuntu (and Debian) way to get applications to start at boot time is to turn them into system services using update-rc.d -- see here for instructions: http://www.debuntu.org/how-to-manage-services-with-update-rc.d
+Its failing because sudo is prompting for a password.  Since there's no TTY open, its just waiting for you to enter one--or may, in fact, be instantly failing.  If you're running this as root, you don't need to launch it as sudo.
+However, what you likely want to do is alter tornadoDeploy.py to daemonize itself--that is, to detach itself, so that its not running with an open session.  The python-daemonize library provides easy tools to allow you to do this.  This eliminates having to deal with screen, while still allowing you to daemonize the process.
+doesn't, with no error messages. Is that something to do with the spaces? Even though I did surround it with backquotes? I also tried:
+Remember that anything that runs as root is a potential security vulnerability, especially if other users can modify it.
+Read this about startup scripts and this about a python daemon library. Also, don't you have to run tornado behind a real http server?
+Assuming your script is a well behaved daemon and that you have set up sudo to not require a password for running your script. 
+I was hoping I could write a Bash script and use Screen to get them running in the background, where I can check on them every now and then, but where as

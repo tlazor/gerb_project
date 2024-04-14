@@ -1,0 +1,13 @@
+You would probably do something with the -n flag between the then and else, like setting a variable, and deciding whether to call node or not, before calling open.
+Also note that if -n was specified, it will become part of the search string. I doubt that's intended, so it looks like a bug.
+Lastly, I would always start a script with a shebang, making it executable from the command line directly, but this also depends on how it is going to be used.
+I'm not quite certain about the use of node and escaping, and I'm going to assume that it does exactly what you need, focusing on the code and style of your script only.
+Instead, you could use the bash built-in replacement function and the all-parameters variable like this:
+Thirdly, I do like "one line ifs", and would change the two checks for missing arguments to -n like follows:
+First, I notice that you use an if statement to check whether $1 is -n, then another where you check whether it is not -n.  You could, of course, use an if/then/else construction for that.
+To check if an executable exists, it's better to use the exit code of running it rather than trying to match the output, for example like this:
+When there are not enough parameters, separating the cases of whether the first parameter was -n or not, just for the sake of using a different exit code, seems overkill. I suggest to combine those two cases, and use the same exit code for both.
+As for handling -n, I suggest that after the check on the first parameter, save the value in a variable, for example no_escape=1, and do a shift. This will help simplifying the test of the argument processing.
+Secondly, instead of looping backwards through the command line arguments with ${BASH_ARGV[*]}, concatenating them with +es, could have unexpected side effects if you use quoted spaces, as in:
+Despite what this message seems to suggest, it looks like the script will use node to apply escapes, regardless of the -n parameter. So this message is either poorly phrased or you have a bug.
+But that is a matter of taste.  It does save three lines, though, and makes clear that it is some kind of precondition check (the lines end in exit).

@@ -1,0 +1,11 @@
+I had a similar issues with some Seagate drives a few years ago.  We bought about 8 disks at the same time and they all were from the same lot.  About at about 3 years, one drive went. 18 hours later another drive went, 24 hours later a 3rd drive went.  
+Others have reported simultaneous failure of an entire array of identical disks in a RAID configuration, coming from the same production batch, and thus being subject to the same weakness.
+Since the drives have been bought together and are the same model, they will probably have the same weaknesses, and probably all fail simultaneously under the same condition...
+But are you willing to continue taking the risk? I'd change the disk ASAP to avoid having to get up in the early hours.  
+I had a spare drive that I can still boot from that fails SMART checks every boot and requires a soft reset, has for years, but it's just a dump, not a system disk! So although SMART errors can persist for a long time they should ALWAYS be heeded in production, as the risks heavily outweigh the cost, time and data integrity benefits. Google studied 100,00 disks and  found:
+Make sure you have the latest copy of the smart utils not just the ones included in your OS.  smart utils are updated frequently and some of the errors reporting from specific drives to get resolved.
+Google's study was very informative.  30% of disk with SMART errors eventually fail.  That's not odds I would be will to deal with.  That's a 9% chance that two disks will fail and your RAID at that point will be destroyed.
+That part is not interpreted by smartctl (assuming I understand correctly, of course) - that drive has told smartctl that is isn't happy with its current state (for whatever reason) and smartctl is just echoing that warning to you. Even if it is misinterpreting the spin-up time reading, I don't think it is doing any interpretation on the "self assessment test" reading.
+So it's not always a robust indicator. However SMART error significantly increase the likelihood of a disk crash in the time immediately after initial detection:
+I would suggest moving your data off that drive ASAP, preferably before it next power cycles in case the spin-up problem is real and might get worse.
+The main concept of RAID is that disks fail at different times, giving you the opportunity to swap one disk at a time, and avoid data loss.

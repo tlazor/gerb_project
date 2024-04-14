@@ -1,0 +1,15 @@
+I must warn you, those actions are very drastic and require adequate amount of knowledge in the area, I suggest you get help of the professional Exchange admin.
+You're using install media that's older than the previous time you installed.  That won't work, switch back to the newer media.
+B:32:C67FDE2E8339674490FBAFDCA3DFDC95:CN=Discovery Management\0ADEL:1a8b7727-3e6f-411a-9dc3-eb9bd4d7c0ad,CN=Deleted Objects,DC=xxx,DC=com
+The 2nd error surprises me because I've logged in with an account that has access to pretty much everything. I tried a second account, same result. Perhaps it has something to do with the process running as administrator.
+If it's not production, make a clean new lab, and read the "Help" link at the top of the page before posting again.
+An account can have access to "pretty much everything" and still not be a member of the Enterprise Admins group. Verify that the user is in that specific group.
+The problem was that I was attempting to install using my original media and various updates had already changed the Active Directory organization configuration version. After downloading the latest cup (http://www.microsoft.com/en-us/download/details.aspx?id=45221) both the above errors were sorted.
+Global updates need to be made to Active Directory, and this user account isn't a member of the 'Enterprise Admins' group
+The site posted by Vick Vega was useful. I cleared everthing out correctly and started from scratch and now it seems ok
+To the folk that warned me about playing around with AD you were quite correct - it seems I broke quite a lot. I then had this problem:
+You're not being very precise here. Go into ADUC and confirm if this account is a member of Enterprise Admins. This isn't rocket science, it's spelled out quite explicitly in the documentation and in this error you're getting.
+But that's if you were having a problem with a clean AD. It sounds like you may have also trashed your AD in some way, it may be recoverable and it may not be. If this is production, I'd spend the few bucks and open a PSS ticket. 
+Additional info: this is the 2nd time I have set up an Exchange 2013 server on the domain. This is probably why we have the version issue. I scrubbed the first server because it corrupted.
+Setup encountered a problem while validating the state of Active Directory: The Active Directory organization configuration version (15870) is higher than Setup's version(15844). Therefore, PrepareAD can't be executed.  See the Exchange setup log for more information on this error.
+CN=Microsoft Exchange,CN=Services,CN=Configuration,DC=xxx,DC=com points to an invalid DN or a deleted object.

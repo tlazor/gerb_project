@@ -1,0 +1,7 @@
+To answer your second point, in addition to @slhck 's mention about printer dpi, 300dpi is also the typical minimal recommended number for OCR with font-sizes of 10+pt.
+pdfimages -j test.pdf test && for file in $(find . -name "test*.jpg"); do identify -verbose "$file" | awk 'NR==6'; done
+So, I don't have the -list option as stated by previous answers.  However, the test image created from pdfimages based on slhck's answer contains the desired answer!
+A PDF file doesn't have an inherent resolution, each raster-image within it (if any) will have it's own resolution. I don't know of a simple way to extract a single number for median/modal resolution of embedded image XObjects.
+To answer your other two points, nowadays at least you can use Acrobat Pro to check image DPI and resolution, and you can edit it too.
+It seems that Imagemagick always assumes a 72dpi and so the information printed here appears to be incorrect.
+Further, a modern 15" 4K laptop screen also only has about 280PPi, so if you want to view an entire A4 on the screen (landscape) there is no point scanning at higher than ~320 dpi, because any document higher than that will be scaled down. Of course, this doesn't matter if you plan to zoom in, then you might need higher dpi.

@@ -1,0 +1,7 @@
+If that's what you're doing, you can use pre-signed URLs to allow the browser to upload the object directly to S3. The upload doesn't need to pass through your web server at all.
+The server will be apache or nginx on a linux OS with https enabled. Processing language will be php 7. 
+There's a good collection of sample bucket policies here. Taking one of these and modifying it, a policy that would allow anyone to upload a file to an S3 bucket, but restrict the file size to 1GB is:
+As partially mentioned by @duskwuff if you're allowing users to upload files directly to S3 then you can restrict the size of the uploaded object via S3 Bucket Policies.
+If you want to limit uploads to specific users, or force users to put uploads in a home folder (i.e. a folder with a name unique to them), then you should check-out Amazon Cognito. With Cognito you'd use IAM policies containing variables that represent a Cognito User Id etc.
+The last thing to remember is that an s3:PutObject can overwrite files, so keep this in mind when deciding where to allow users to upload to.
+When an HTTP POST request is sent by the site visitor does the server know the file size [content-length] sent at the start of the request or does it have to get the whole file to get the REAL file size? 

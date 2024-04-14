@@ -1,0 +1,14 @@
+I don't realy tried that, but scheduled reboot and then shutdown should help you in this. (Tasks Scheduler)
+From these observations, I suspect windows downloads a part of update while installing or sends some data to MS before it finishes installing. 
+I clicked update and shut down last night, expecting Windows to be done with whatever it needs to do, and turned on the machine this morning to be greeted with an hour-long update process I did not expect.
+for more detailed process on update i think it will be better to contact the support and mention the specific version of Windows you are using.
+I see no technical reason for this behavior, as Windows is perfectly capable of rebooting any number of times during an update (as it indeed did this morning).
+For me, its not a good use case. Many of my friends are also frustrated of this behaviour. There's no legal way to postpone or schedule updates. You can set idle time but its restricted to contigious 12 hrs.
+The system during update can for example check that package "pack2" needs reboot and be installed only after "pack1" should be installed onto system, because of this it will need a complete system reboot.
+That is the suggestion why after you shutdown your PC your downloaded updates are still "Updating" (but they are Installing in fact)
+I'm sorry if this sounds a bit more like a rant than a question, but I'm genuinely curious about the reasons behind this behavior. Is there a technical reason? Does Microsoft simply think that this is the best way to go about updates? Is my preferred use case so unexpected / out of norm?
+And the option that goes from Microsoft about shutdown your PC for good after download of updates can be more universall, maybe you want to see the process with your own eyes and shut it down for this reason. I think more can be found here: https://technet.microsoft.com/en-us/security/bulletins
+If I wish to update, I would expect it to finish it asap instead of waiting for me to restart it next morning.
+Whenever I select "Update and shut down", the machine will update for a while and then shut down, but when I start it up again, it will still spend time on updating. As far as I know, an "Update and restart" will fully complete the update. So why is that not the case with "Update and shut down"?
+I'm curious if there is any technical or user experience design reason for this phenomenon I'm experiencing:
+There was an instance when I left Windows for an update. Next morning I had a presentation. I turned on windows to start the presentation in front of a huge audience and guess what? "Getting Ready..."

@@ -1,0 +1,6 @@
+The stack-dump references update-notifier, and says that it died calling sysfs_find_dirent which means it was reading directory entries off a disk type device.
+I've seen this when I have certain usb-storage supported devices connected on boot (iPhone 3 leaps to mind).
+If package memtest86+, then reboot and select memtest86+ in boot menu. Let it run default tests. Then select the fade tests, they take a long time to run.
+This type of problem means that the kernel got some rubbish when talking to a device. This could be a connection fault, a memory faulta motherboard fault,  or a CPU fault and I'd test for them in that order but only with the devices that are absolutely required to boot.
+Got this on my machine. I was just browsing the web on Chrome and my computer froze. I recently just built this machine. I have a feeling it is a hardware problem... Possibly one of my parts arrived broken in some way....
+Once you have the machine running, try adding things and rebooting until you see the failures return.

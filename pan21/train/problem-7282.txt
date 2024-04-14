@@ -1,0 +1,5 @@
+I figure maybe it'll create the PDF when it doesn't exist so I enter in a non-existent PDF and get a "File not found; Check the file name and try again" error.
+Before Acrobat X and later XI were released there was an option in the Acrobat menu to create a blank PDF. This option has now been moved to the Tools Pane under 'Pages > More Insert Options choose Insert Blank Page (Shift-Ctrl-Q or Shift-CMD-Q)'.
+Going to File -> Create says I can create PDF's from files, scanners, web pages, etc, but there's no option to let me create one from scratch. I guess I could create a blank page in Word, print that to a PDF and then open that but that seems like a rather indirect way. Is that really the only way to do this?
+I'd recommend downloading one of the many free A4 PDF Templates online and making your own A4 Template (with margins, etc) from that.
+If you want to add the option to create a blank PDF back to the File menu then you can do that using a small JavaScript that that is available from here:

@@ -1,0 +1,5 @@
+In most non-rural areas now the number of devices using 2.4Ghz has become great that its trending towards being unusuable. Apartment blocks already have huge issues where there are just too many TX points (I can pick up 25+ from my apartment). The solution is to buy 5Ghz capable equipment for your 5Ghz capable clients. For older clients a better AP with large antennas may mitigate the noise enough to work ok. 
+It looks like CH1 is ok, one distant AP that should cause a complete breakdown. The problem is its misleading as it only shows .11X networks. It doesnt show bluetooth networks, wireless keyboards, baby monitors, microwave ovens, TV Signal senders etc etc. CH1-3 might be the worst part of the spectrum but the graph shows the opposite. 
+1) Interference.  Do you have a microwave oven going off nearby, or a cordless phone (many of these can interfere).  
+2) A hardware or driver problem with your wireless card.  Make sure you're using the latest card drivers.
+You might like to try moving the equipment somewhere else to help pintpoint this.  Even a neighbor's equipment (cordless phone etc) could do it.

@@ -1,0 +1,7 @@
+In my home network, I make sure that every machine has at least a basic virus scanner running. If the system can't handle one, I generally throw it out and get something that can. I feel that the cost of a new machine is less expensive than rebuilding my entire network because a system wasn't powerful enough to run anti-virus.
+Basically is there a way to get files on and off the machine without resorting to usb sticks which allow it to push contents.  
+I'm more worried about the push case as I feel its easier to lock down and the machine is used primarily to produce files.
+Is there any way I can secure this computer from the outside (i.e. on the network layer) so we would be able to get files in and out of it .mp3 files and wave files. That doesn't open it up to full file sharing within the network.
+Theres an older computer in my home which we don't have connected to a network so it doesn't need an anti-virus and a firewall.
+The best thing you can do is to modify your usage to fit a more security conscious scenario. Here are a few questions that I hope can guide you to find the right answer for your situation:
+The problem you face is that any network connection introduces security vulnerabilities. Your task then is to mitigate the potential threats. Blocking it from connecting to the internet is a good place to start, but you still have to worry about malicious software using your other machines as a springboard to attack this machine.

@@ -1,0 +1,9 @@
+The 5050 in the title of the question is misleading because that is just the physical size/form factor of the LED. There are 5050 LEDs available which are not individually addressable.
+You'll need a logic shifter (see the one the AdaFruit recommend on their website) as GPIO are 3V3 and APA102 is 5V. 
+not sure if you've solved this yet, but I have an apa102 single LED working well with SPI and python.
+Second, your code looks good. Sending 32 Zeroes, followed by 32 ones, should indeed light one LED in white. I am not 100% sure if you need to send the stop frames if you only have one LED, but to make sure just send say 16 or 32 zero bits after the ones.
+First, it doesn't matter at all if you use /dev/spidev0.0 or /dev/spidev0.1: The APA102 LEDs do not have an input for the CE0/CE1 pin. The ,0 device sets CE0 high, and ,1 does the same for CE1. But since you can't connect the pin to the LED, it doesn't matter.
+the most significant bit of the LED frame has to be “1”, since it is used to identify the start of the frame. It appears that the next two bits serve no function and can have arbitrary values. To stay compliant with the APA102 data sheet, it makes sense to set them to “1”, though.
+If you want to use a level shifter, I have a wiring diagram here: https://github.com/tinue/APA102_Pi
+A level shifter is not usually required. The 3.3V from the Raspberry Pi are usually detected correctly as "high" by the 5V LEDs. As mentioned before, the Pi and the LEDs must have a common ground.
+The APA102 LEDs are what Adafruit calls DotStar LEDs. They have a lot of information and libraries for them.

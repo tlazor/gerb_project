@@ -1,0 +1,6 @@
+The key to merging your datasets is to extract a list of the unique names.  This is much easier if the names are all in one column.  If you must have your data arranged as you've shown, there is a VBA solution, so comment below if you need that.
+The IFERROR() inserts blanks for rows that would have a #NUM! error when the formula runs out of unique values.
+The two SUMIF() formulas just add up the Score and Value numbers for each name.  The IF() inserts a blank for rows where the length of column E is < 1 (i.e. the cell has no name and appears blank).
+How it works: The inner COUNTIF() creates an array of the number of times each of the names in column A appear in the growing list in column E. The MATCH() finds the position of the first 0 (corresponding to a name that hasn't been listed yet) in that array, and that is used as the row_num in an INDEX(), which picks the name out of column A. Names which have already been listed do not appear again.
+In the first table below, I've moved your "B" data under the "A" data, and added a few more rows in each section.
+These two formulas, filled down from F2 and G2, add up the Score and Value for each name in the list:

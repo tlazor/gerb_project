@@ -1,0 +1,7 @@
+Since most things are on board these days, the motherboard manufacturer will get you like 99% of the drivers you need. The only real doozies are video card and network card (if seperate).
+Google everything after PCI\. If you can find anything, drop the last parameter (ex.: REV) and continue. You'll eventually find exactly what you need (usually the drivers, but you'll get the make, model of the card too).
+Write down this information, and visit the manufacturer's website. They'll have the drivers you need.
+When you turn the computer on, you should see some information about the motherboard, it's brand and model number.
+Get a Linux live CD (e.g. Ubuntu), boot from that, and see if it does any better.  It may correctly detect the video hardware, ethernet, perhaps other bits.  You can then post another question asking "How do I get hardware information in Ubuntu?" :-)
+For each device with a yellow question mark, right click > properties, then navigate to the details tab.
+He gave me everything exept his HDD. So i installed a HDD in and installed Windows XP on the System :
