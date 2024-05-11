@@ -9,3 +9,11 @@ https://drive.google.com/file/d/1wmvf9oAN1gosDCF1i7iGKM36NzLtveQ5/view?usp=shari
 
 Scripts:
 https://github.com/pan-webis-de/pan-code/tree/master/clef21/style-change-detection
+
+
+Tasks:
+- Implement coin flip model
+- Implement Zhang et al model
+- Implement our simple fourier model
+- Determine the cutoff frequencies for our fourier model
+- Implement Zhang + fourier model, using cutoff frequencies
