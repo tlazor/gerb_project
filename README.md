@@ -10,6 +10,9 @@ https://drive.google.com/file/d/1wmvf9oAN1gosDCF1i7iGKM36NzLtveQ5/view?usp=shari
 Scripts:
 https://github.com/pan-webis-de/pan-code/tree/master/clef21/style-change-detection
 
+Top Result Paper:
+https://ceur-ws.org/Vol-2936/paper-198.pdf
+
 
 Tasks:
 - Implement coin flip model
