@@ -228,7 +228,7 @@ class Pan21PyDataset(PyDataset):
             # print(f"{len(batch_x)=}")
             # print(f"{len(batch_y)=}")
         else:
-            print(f"file exists")
+            # print(f"file exists")
             npzfile = np.load(idx_path)
             batch_x = npzfile['batch_x']
             batch_y = npzfile['batch_y']
