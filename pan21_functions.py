@@ -161,19 +161,18 @@ class Pan21PyDataset(PyDataset):
 
         self.x_path = x_path
         y = read_ground_truth_files(y_path)
-        self.task_3_y = get_task_3_ground_truth(get_simple_ground_truth(y, range(1, len(y))))
+        self.task_3_y = get_task_3_ground_truth(get_simple_ground_truth(y, range(1, len(y)+1)))
         self.task_3_lens = [len(problem) for problem in self.task_3_y]
         self.num_problems = len(self.task_3_y)
+        self.pair_end_index = np.cumsum(self.task_3_lens)
         self.num_pairs = np.sum(self.task_3_lens)
 
         self.max_input_length = max_input_length
         self.batch_size = batch_size
-        
-        self.length = math.ceil(self.num_pairs / self.batch_size)
 
     def __len__(self):
         # Return number of batches.
-        return self.length
+        return math.ceil(self.num_pairs / self.batch_size)
 
     def get_data(self, low_problem_idx, high_problem_idx, low_idx, high_idx):
         # print(f"{low_problem_idx=} {high_problem_idx=} {low_idx=} {high_idx=}")
@@ -201,29 +200,22 @@ class Pan21PyDataset(PyDataset):
         high = min(low + self.batch_size, self.num_pairs)
         # print(f"{low=} {high=}")
 
-        paragraph_pair_index = 0
         low_problem_index = 0
         high_problem_index = 0
-        previous_index_sum = 0
         low_index_within_problem = 0
         high_index_within_problem = 0
         low_found = False
-        high_found = False
-        for i, pair_len in enumerate(self.task_3_lens):
-            paragraph_pair_index += pair_len
-            if not low_found and paragraph_pair_index > low:
-                low_problem_index = i
-                low_index_within_problem = low - previous_index_sum
-                low_found = True
-            if paragraph_pair_index >= high:
-                high_problem_index = i
-                high_index_within_problem = min(low_index_within_problem + self.batch_size, self.__len__())
-                high_found = True
+        for problem_num, (end, num_pairs_in_problem) in enumerate(zip(self.pair_end_index, self.task_3_lens)):
+            start = end - num_pairs_in_problem
+            if not low_found:
+                if end > low:
+                    low_problem_index = problem_num
+                    low_index_within_problem = low - start
+                    low_found = True
+            if end >= high:
+                high_problem_index = problem_num
+                high_index_within_problem = low_index_within_problem + self.batch_size
                 break
-
-            previous_index_sum = paragraph_pair_index
-
-        # print(f"")
 
         batch_x, batch_y = self.get_data(low_problem_index, high_problem_index, low_index_within_problem, high_index_within_problem)
 
@@ -331,7 +323,8 @@ class Pan21FourierFilterDataset(Pan21PyDataset):
         batch_x, batch_y = super().__getitem__(idx)
 
         _, j, _ = batch_x.shape
-        batch_x[:, :j//2, :] = lfilter(self.i, self.u, batch_x[:, :j//2, :])
-        batch_x[:, j//2:, :] = lfilter(self.i, self.u, batch_x[:, j//2:, :])
+
+        batch_x[:, :j//2, :] = lfilter(self.i, self.u, batch_x[:, :j//2, :], axis=1)
+        batch_x[:, j//2:, :] = lfilter(self.i, self.u, batch_x[:, j//2:, :], axis=1)
 
         return batch_x, batch_y
