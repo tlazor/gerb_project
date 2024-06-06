@@ -223,9 +223,11 @@ class Pan21PyDataset(PyDataset):
 
             previous_index_sum = paragraph_pair_index
 
+        # print(f"")
+
         batch_x, batch_y = self.get_data(low_problem_index, high_problem_index, low_index_within_problem, high_index_within_problem)
 
-        assert batch_x.shape[0] != 0, f"{idx=}: Dimension is 0 {batch_x.shape=} {batch_y.shape=}"
+        assert batch_x.shape[0] != 0, f"{idx=}: Dimension is 0 {low_problem_index}, {high_problem_index}, {low_index_within_problem}, {high_index_within_problem}"
         assert batch_x.shape[0] == batch_y.shape[0], f"{idx=}: Dimension mismatch {batch_x.shape=} {batch_y.shape=}"
 
         return batch_x, batch_y
