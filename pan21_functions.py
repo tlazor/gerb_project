@@ -25,7 +25,10 @@ DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 @memory.cache
 def get_tokenizer_model():
     bert_tokenizer = BertTokenizer.from_pretrained('bert-base-cased')
-    bert_model = BertModel.from_pretrained("bert-base-cased").to(DEVICE)
+    if DEVICE == "cuda":
+        bert_model = BertModel.from_pretrained("bert-base-cased").to(DEVICE)
+    else:
+        bert_model = BertModel.from_pretrained("bert-base-cased")
 
     return bert_tokenizer, bert_model
 
@@ -135,7 +138,8 @@ def get_problem_embeddings(problems, max_input_length, verbose=False):
             inputs = bert_tokenizer(paragraph, return_tensors='pt', padding=True, truncation=True)
 
             # Move inputs to GPU
-            inputs = {key: value.to(DEVICE) for key, value in inputs.items()}
+            if DEVICE == "cuda":
+                inputs = {key: value.to(DEVICE) for key, value in inputs.items()}
 
             # Step 4: Generate embeddings
             with torch.no_grad():
@@ -225,80 +229,35 @@ class Pan21PyDataset(PyDataset):
         return batch_x, batch_y
 
 class Pan21FourierDataset(Pan21PyDataset):
-    def __init__(self, x_set, y_set, file_path, batch_size=32, num_fourier_features=512, **kwargs):
-        super().__init__(x_set, y_set, file_path, batch_size=batch_size, **kwargs)
+    def __init__(self, x_set, y_set, batch_size=128, num_fourier_features=512, **kwargs):
+        super().__init__(x_set, y_set, batch_size=batch_size, **kwargs)
         self.num_fourier_features = num_fourier_features
 
-    def __getitem__(self, idx, force_compute=False):
-        idx_path = self.file_path / "fourier" / f"{idx}.npz"
-        return Pan21FourierDataset.__getitem__helper(idx_path, idx, num_fourier_features=self.num_fourier_features, force_compute=force_compute)
+    def __getitem__(self, idx):
+        batch_x_embeddings, batch_y_embeddings = super().__getitem__(idx)
 
-    def __getitem__helper(idx_path, idx, num_fourier_features, force_compute=False):
-        # idx_path = file_path / "fourier" / f"{idx}.npz"
-        # print(f"Pan21FourierDataset {idx_path=}")
-
-        # batch_x, batch_y = super().__getitem__(idx, force_compute)
-        # print(f'{idx_path.parent / ".." / f"{idx}.npz"=}')
-        embed_file = np.load(idx_path.parent / ".." / f"{idx}.npz")
-        batch_x = embed_file['batch_x']
-        batch_y = embed_file['batch_y']
-        
-        if num_fourier_features > 0:
-            new_batch_x = batch_x.copy()
-            
-            num_features = len(batch_x[0])
+        if self.num_fourier_features == 0:
+            pass
+        else:
+            num_features = batch_x_embeddings.shape[1]
             # print(f"{num_features=}")
             # 0:x will be BERT embeddings for paragraph 1
             # x:length/2 will be fourier features for paragraph 1
-            num_non_fourier_features = (num_features - num_fourier_features) // 2
-            para1_fourier_features_low, para1_fourier_features_high = num_non_fourier_features, num_features // 2
-            para2_fourier_features_low, para2_fourier_features_high = num_features // 2 + num_non_fourier_features , num_features
+            num_non_fourier_features = num_features - self.num_fourier_features
+            para1_fourier_features_low, para1_fourier_features_high = num_non_fourier_features // 2, num_features // 2
+            para2_fourier_features_low, para2_fourier_features_high = (num_features + num_non_fourier_features) // 2, num_features
 
-            # print(f"{para1_fourier_features_low=} {para1_fourier_features_high=}")
-            # print(f"{para2_fourier_features_low=} {para2_fourier_features_high=}")
+            para1_end = num_features//2
+            para1_fft = np.real(np.fft.fft(batch_x_embeddings[:, :para1_end, :], axis=1))
+            para2_fft = np.real(np.fft.fft(batch_x_embeddings[:, para1_end:, :], axis=1))
 
-            if force_compute or not idx_path.exists():
-                para1_end = num_features//2
-                for i, x in enumerate(batch_x):
-                    para1_fft = np.real(np.fft.fft(x[:para1_end], axis=1))
-                    para2_fft = np.real(np.fft.fft(x[para1_end:], axis=1))
+            # Simple decimation to fit the spectrum
+            factor = num_features // self.num_fourier_features
 
-                    new_batch_x[i, para1_fourier_features_low:para1_fourier_features_high] = para1_fft[:num_fourier_features//2]
-                    new_batch_x[i, para2_fourier_features_low:para2_fourier_features_high] = para2_fft[:num_fourier_features//2]
-            else:
-                npzfile = np.load(idx_path)
-                fourier_batch_x = npzfile['fourier_batch_x']
+            batch_x_embeddings[:, para1_fourier_features_low:para1_fourier_features_high] = para1_fft[::factor]
+            batch_x_embeddings[:, para2_fourier_features_low:para2_fourier_features_high] = para2_fft[::factor]
 
-                _,j,_ = fourier_batch_x.shape
-
-                new_batch_x[:, para1_fourier_features_low:para1_fourier_features_high, :] = fourier_batch_x[:, :num_fourier_features//2, :]
-                new_batch_x[:, para2_fourier_features_low:para2_fourier_features_high, :] = fourier_batch_x[:, j//2:(j+num_fourier_features)//2, :]
-
-            return new_batch_x, batch_y
-        else:
-            return batch_x, batch_y
-    
-    def save_file(idx_path, idx, num_fourier_features, force_compute=False, compress=False):
-        fourier_batch_x, _ = Pan21FourierDataset.__getitem__helper(idx_path, idx, num_fourier_features, force_compute)
-        if compress:
-            np.savez_compressed(idx_path, fourier_batch_x=fourier_batch_x)
-        else:
-            np.savez(idx_path, fourier_batch_x=fourier_batch_x)
-
-    def to_file(self, overwrite=False, compress=False):
-        fourier_file_path = self.file_path / "fourier"
-        fourier_file_path.mkdir(parents=True, exist_ok=True)
-
-        n_jobs = os.cpu_count() // 2
-        # print(f"{n_jobs=} {free_memory=} {os.cpu_count()=}")
-        args_for_jobs = []
-        for i in range(len(self)):
-            idx_path = self.file_path / "fourier" / f"{i}.npz"
-            if not idx_path.exists() or overwrite:
-                args_for_jobs.append((idx_path, i, 512, True, compress))
-        
-        with parallel_config(backend='threading', n_jobs=n_jobs):
-            Parallel()(delayed(Pan21FourierDataset.save_file)(*args) for args in tqdm(args_for_jobs))
+        return batch_x_embeddings, batch_y_embeddings
 
 import gc
 
