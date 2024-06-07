@@ -4,6 +4,11 @@ from pathlib import Path
 import numpy as np
 import json
 import tensorflow as tf
+from tqdm import tqdm
+
+from evaluation.evaluator import read_ground_truth_files
+
+from pan21_functions import Pan21FourierDataset, Pan21FourierFilterDataset
 
 def map_predictions_to_json(predictions, threshold=0.5):
     # Number of paragraphs inferred from the triangular number formula: n(n-1)/2 = len(predictions)
@@ -47,6 +52,7 @@ def map_predictions_to_json(predictions, threshold=0.5):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process a model directory.')
     parser.add_argument('--models', type=str, default='/default/path', help='The path to the models folder')
+    parser.add_argument('-f', '--fourier', action='store_true', help="Use fourier dataset")
     args = parser.parse_args()
 
     if not os.path.isdir(args.models):
@@ -55,7 +61,10 @@ if __name__ == "__main__":
         print(f"Processing models in folder: {args.models}")
 
     model_dir = Path(args.models)
-    val_ds = Pan21PyDataset("pan21/validation", "pan21/validation")
+    if args.fourier:
+        val_ds = Pan21FourierDataset("pan21/validation", "pan21/validation")
+    else:
+        val_ds = Pan21FourierFilterDataset("pan21/validation", "pan21/validation")
     
     truth_folder = "pan21/validation"
     truth = read_ground_truth_files(truth_folder)
@@ -69,10 +78,10 @@ if __name__ == "__main__":
     task3_scores = []
     dict_of_jsons_result = {}
 
-    for model_path in model_dir.glob("*.keras"):
+    for model_path in tqdm(model_dir.glob("*.keras")):
         loaded_model = tf.keras.models.load_model(model_path)
         predictions = loaded_model.predict(val_ds)
-        for i, (ending_index, num_of_pair) in enumerate(zip(ending_indices, nums_of_pars)):
+        for i, (ending_index, num_of_pair) in tqdm(enumerate(zip(ending_indices, nums_of_pars))):
             problem_id = i + 1
             prediction = predictions[int(ending_index) - int(num_of_pair):int(ending_index)]
             result_json = map_predictions_to_json(prediction)
