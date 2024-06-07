@@ -52,9 +52,10 @@ def print_logs(model_dir, isFourier = True):
             plt.xlabel("Epoch")
             plt.ylabel(metric.replace('_', ' '))
             
-            # Show the legend
-            plt.legend()
-            
+            plt.gca().set_ylim(0.5, 0.8)
+            plt.gca().get_xaxis().set_major_locator(plt.MaxNLocator(integer=True))
+            plt.legend(bbox_to_anchor=(0.5, -0.1), loc='upper center', ncol=4)
+
             # Display the plot
             plt.show()
 
