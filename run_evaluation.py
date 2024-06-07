@@ -1,6 +1,6 @@
 import json
 import math
-import evaluation.evaluator
+from evaluation.evaluator import compute_score_single_predictions, compute_score_multiple_predictions, read_ground_truth_files
 from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -65,30 +65,32 @@ if __name__ == "__main__":
     else:
         print(f"Processing models in folder: {args.model}")
 
-    # for model_path in Path(args.model).glob("*.json"):
+    truth = read_ground_truth_files("pan21/validation")
 
-    #     with open(model_path, 'r') as json_file:
-    #         dict_of_jsons_result = json.load(json_file)
+    for model_path in Path(args.model).glob("*.json"):
 
-    #     task1_result = evaluator.compute_score_single_predictions(truth, dict_of_jsons_result, 'multi-author')
-    #     task2_result = evaluator.compute_score_multiple_predictions(truth, dict_of_jsons_result, 'changes', labels=[0, 1])
-    #     task3_result = evaluator.compute_score_multiple_predictions(truth, dict_of_jsons_result, 'paragraph-authors', labels=[1, 2, 3, 4])
+        with open(model_path, 'r') as json_file:
+            dict_of_jsons_result = json.load(json_file)
 
-    #     # Append scores to the lists
-    #     task1_scores.append(task1_result)
-    #     task2_scores.append(task2_result)
-    #     task3_scores.append(task3_result)
+        task1_result = compute_score_single_predictions(truth, dict_of_jsons_result, 'multi-author')
+        task2_result = compute_score_multiple_predictions(truth, dict_of_jsons_result, 'changes', labels=[0, 1])
+        task3_result = compute_score_multiple_predictions(truth, dict_of_jsons_result, 'paragraph-authors', labels=[1, 2, 3, 4])
 
-    #     # Create a DataFrame to store the evaluation results
-    #     results_df = pd.DataFrame({
-    #         'Model': model_path.stem,
-    #         'Task 1 Score': task1_scores,
-    #         'Task 2 Score': task2_scores,
-    #         'Task 3 Score': task3_scores
-    #     })
+        # Append scores to the lists
+        # task1_scores.append(task1_result)
+        # task2_scores.append(task2_result)
+        # task3_scores.append(task3_result)
 
-    #     # Display the results DataFrame
-    #     print(results_df)
+        # Create a DataFrame to store the evaluation results
+        results_df = pd.DataFrame({
+            'Model': model_path.stem,
+            'Task 1 Score': task1_result,
+            'Task 2 Score': task2_result,
+            'Task 3 Score': task3_result
+        })
+
+        # Display the results DataFrame
+        print(results_df)
 
     # Fourier
     print_logs(Path(args.model))
