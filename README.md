@@ -1,4 +1,4 @@
-# tar_project
+# gerb_project
 
 # Links
 Competition website:
@@ -19,11 +19,3 @@ https://ceur-ws.org/Vol-2936/paper-148.pdf
 Paper with Code provided:
 - https://ceur-ws.org/Vol-2936/paper-191.pdf
 - https://github.com/eivistr/pan21-style-change-detection-stacking-ensemble
-
-
-Tasks:
-- Implement coin flip model
-- Implement Zhang et al model
-- Implement our simple fourier model
-- Determine the cutoff frequencies for our fourier model
-- Implement Zhang + fourier model, using cutoff frequencies
