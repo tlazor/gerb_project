@@ -1,6 +1,4 @@
-# gerb_project
-
-Frequency Analysis of Embeddings for Author Style Change Detection
+# Frequency Analysis of Embeddings for Author Style Change Detection
 
 Team [Gerb](https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/gerb%CA%B0-) project for the Textual Analysis and Retreival course at FER.
 
