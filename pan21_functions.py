@@ -253,9 +253,10 @@ class Pan21FourierDataset(Pan21PyDataset):
 
             # Simple decimation to fit the spectrum
             factor = num_features // self.num_fourier_features
+            # print(f"{factor=} {para1_fourier_features_low}:{para1_fourier_features_high}")
 
-            batch_x_embeddings[:, para1_fourier_features_low:para1_fourier_features_high] = para1_fft[::factor]
-            batch_x_embeddings[:, para2_fourier_features_low:para2_fourier_features_high] = para2_fft[::factor]
+            batch_x_embeddings[:, para1_fourier_features_low:para1_fourier_features_high] = para1_fft[:, ::factor, :]
+            batch_x_embeddings[:, para2_fourier_features_low:para2_fourier_features_high] = para2_fft[:, ::factor, :]
 
         return batch_x_embeddings, batch_y_embeddings
 
@@ -278,7 +279,7 @@ class Pan21FourierFilterDataset(Pan21PyDataset):
         
         self.i, self.u = butter(order, cutoff_frequencies, btype='bandstop')
     
-    def __getitem__(self, idx, force_compute=False):
+    def __getitem__(self, idx):
         batch_x, batch_y = super().__getitem__(idx)
 
         _, j, _ = batch_x.shape
