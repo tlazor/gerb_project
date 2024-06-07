@@ -48,7 +48,6 @@ def map_predictions_to_json(predictions, threshold=0.5):
     }
     return data
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process a model directory.')
     parser.add_argument('--models', type=str, default='/default/path', help='The path to the models folder')
@@ -62,23 +61,26 @@ if __name__ == "__main__":
 
     model_dir = Path(args.models)
     if args.fourier:
-        val_ds = Pan21FourierDataset("pan21/validation", "pan21/validation")
-    else:
-        val_ds = Pan21FourierFilterDataset("pan21/validation", "pan21/validation")
+        val_ds = Pan21FourierDataset("/home/ubuntu/tar/pan21/validation", "/home/ubuntu/tar/pan21/validation")
     
     truth_folder = "pan21/validation"
     truth = read_ground_truth_files(truth_folder)
 
-    nums_of_pars = val_ds.task_3_lens
-    num_of_pairs = [(pars * (pars - 1)) / 2 for pars in nums_of_pars]
-    ending_indices = np.cumsum(nums_of_pars)
-
     task1_scores = []
     task2_scores = []
     task3_scores = []
-    dict_of_jsons_result = {}
+    
 
     for model_path in tqdm(model_dir.glob("*.keras")):
+        dict_of_jsons_result = {}
+        
+        if args.fourier == False:
+            cutoff_frequencies = [float(f) for f in model_path.stem.split('_')]
+            val_ds = Pan21FourierFilterDataset("/home/ubuntu/tar/pan21/validation", "/home/ubuntu/tar/pan21/validation", cutoff_frequencies)
+        
+        nums_of_pars = val_ds.task_3_lens
+        ending_indices = np.cumsum(nums_of_pars)
+        
         loaded_model = tf.keras.models.load_model(model_path)
         predictions = loaded_model.predict(val_ds)
         for i, (ending_index, num_of_pair) in enumerate(zip(ending_indices, nums_of_pars)):
