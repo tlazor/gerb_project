@@ -43,10 +43,10 @@ def print_logs(model_dir, isFourier = True):
         # Create a plot for each validation metric
         for metric in val_metrics:
             plt.figure()
-            
+            f'Model: {model_path.stem.split("_")[0]}_{model_path.stem.split("_")[1]}\n'
             # Group by number of Fourier features and plot each group with different line styles
             for (num_features, group_df), line_style in zip(df.groupby("num_features"), line_styles):
-                group_df.plot(x="epoch", y=metric, label=f'{num_features}', ax=plt.gca(), linestyle=line_style)
+                group_df.plot(x="epoch", y=metric, label=f'{num_features.split("_")[0]}_{num_features.split("_")[1]}', ax=plt.gca(), linestyle=line_style)
 
             # Adding labels and title
             plt.xlabel("Epoch")
