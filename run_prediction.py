@@ -14,7 +14,7 @@ def map_predictions_to_json(predictions, threshold=0.5):
     # Number of paragraphs inferred from the triangular number formula: n(n-1)/2 = len(predictions)
     # Solving for n gives us n = 3 for len(predictions) = 3
 
-    num_paragraphs = int((1 + math.sqrt(1 + 8 * len(predictions))) / 2)
+    num_paragraphs = int((1 + np.sqrt(1 + 8 * len(predictions))) / 2)
     
     # Initialize authorship
     authors = list(range(1, num_paragraphs + 1))
@@ -26,7 +26,7 @@ def map_predictions_to_json(predictions, threshold=0.5):
         for j in range(i + 1, num_paragraphs + 1):
             prediction_map[(i, j)] = predictions[index]
             index += 1
-    print(prediction_map)
+    # print(prediction_map)
     # Clustering logic based on predictions
     for i in range(1, num_paragraphs):
         for j in range(i + 1, num_paragraphs + 1):
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     for model_path in tqdm(model_dir.glob("*.keras")):
         loaded_model = tf.keras.models.load_model(model_path)
         predictions = loaded_model.predict(val_ds)
-        for i, (ending_index, num_of_pair) in tqdm(enumerate(zip(ending_indices, nums_of_pars))):
+        for i, (ending_index, num_of_pair) in enumerate(zip(ending_indices, nums_of_pars)):
             problem_id = i + 1
             prediction = predictions[int(ending_index) - int(num_of_pair):int(ending_index)]
             result_json = map_predictions_to_json(prediction)

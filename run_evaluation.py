@@ -28,32 +28,35 @@ def print_logs(model_dir, isFourier = True):
         log_df["num_features"] = [features] * len(log_df["epoch"])
         log_dfs.append(log_df)
 
-    # Concatenate all DataFrame into one
-    df = pd.concat(log_dfs)
+    if len(log_dfs) < 1:
+        print(f"No log files found: {model_dir}")
+    else:
+        # Concatenate all DataFrame into one
+        df = pd.concat(log_dfs)
 
-    # Validation metrics to plot
-    val_metrics = ["val_auc", "val_binary_accuracy", "val_loss"]
+        # Validation metrics to plot
+        val_metrics = ["val_auc", "val_binary_accuracy", "val_loss"]
 
-    # Line styles for different Fourier feature counts
-    line_styles = ['-', '--', '-.', ':', 'solid', 'dotted']
+        # Line styles for different Fourier feature counts
+        line_styles = ['-', '--', '-.', ':', 'solid', 'dotted']
 
-    # Create a plot for each validation metric
-    for metric in val_metrics:
-        plt.figure()
-        
-        # Group by number of Fourier features and plot each group with different line styles
-        for (num_features, group_df), line_style in zip(df.groupby("num_features"), line_styles):
-            group_df.plot(x="epoch", y=metric, label=f'{num_features}', ax=plt.gca(), linestyle=line_style)
+        # Create a plot for each validation metric
+        for metric in val_metrics:
+            plt.figure()
+            
+            # Group by number of Fourier features and plot each group with different line styles
+            for (num_features, group_df), line_style in zip(df.groupby("num_features"), line_styles):
+                group_df.plot(x="epoch", y=metric, label=f'{num_features}', ax=plt.gca(), linestyle=line_style)
 
-        # Adding labels and title
-        plt.xlabel("Epoch")
-        plt.ylabel(metric.replace('_', ' '))
-        
-        # Show the legend
-        plt.legend()
-        
-        # Display the plot
-        plt.show()
+            # Adding labels and title
+            plt.xlabel("Epoch")
+            plt.ylabel(metric.replace('_', ' '))
+            
+            # Show the legend
+            plt.legend()
+            
+            # Display the plot
+            plt.show()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process a json results directory.')
@@ -82,15 +85,22 @@ if __name__ == "__main__":
         # task3_scores.append(task3_result)
 
         # Create a DataFrame to store the evaluation results
-        results_df = pd.DataFrame({
-            'Model': model_path.stem,
-            'Task 1 Score': task1_result,
-            'Task 2 Score': task2_result,
-            'Task 3 Score': task3_result
-        })
+        # results_df = pd.DataFrame({
+        #     'Model': model_path.stem,
+        #     'Task 1 Score': task1_result,
+        #     'Task 2 Score': task2_result,
+        #     'Task 3 Score': task3_result
+        # })
+
+        print(
+            f'Model: {model_path.stem}\n' +
+            f'\tTask 1 Score: {task1_result}\n'+
+            f'\tTask 2 Score: {task2_result}\n'+
+            f'\tTask 3 Score: {task3_result}\n'
+        )
 
         # Display the results DataFrame
-        print(results_df)
+        # print(results_df)
 
     # Fourier
     print_logs(Path(args.model))
