@@ -17,22 +17,35 @@ def map_predictions_to_json(predictions, threshold=0.5):
     num_paragraphs = int((1 + np.sqrt(1 + 8 * len(predictions))) / 2)
     
     # Initialize authorship
-    authors = list(range(1, num_paragraphs + 1))
+    authors = [1]*num_paragraphs
     
     # Parse predictions into a matrix (or map) for easier access
     prediction_map = {}
     index = 0
-    for i in range(1, num_paragraphs):
-        for j in range(i + 1, num_paragraphs + 1):
-            prediction_map[(i, j)] = predictions[index]
+    for i in range(num_paragraphs):
+        for j in range(i + 1, num_paragraphs):
+            prediction_map[(i, j)] = predictions[index][0]
             index += 1
-    # print(prediction_map)
+    # print(f"{predictions=}")
+    # print(f"{prediction_map.items()=}")
     # Clustering logic based on predictions
+    max_author = 1
     for i in range(1, num_paragraphs):
-        for j in range(i + 1, num_paragraphs + 1):
-            if prediction_map[(i, j)] < threshold:
-                # Assign the same author ID to paragraphs i and j if they are likely the same author
-                authors[j-1] = authors[i-1]
+        author_set = False
+        for j in range(0, i):
+            if (i, j) in prediction_map:
+                if prediction_map[(i, j)] < threshold:
+                    # Assign the same author ID to paragraphs i and j if they are likely the same author
+                    authors[i] = authors[j]
+                    author_set = True
+            else:
+                if prediction_map[(j, i)] < threshold:
+                    # Assign the same author ID to paragraphs i and j if they are likely the same author
+                    authors[i] = authors[j]
+                    author_set = True
+        if not author_set:
+            max_author += 1
+            authors[i] = max_author
     
     # Set of unique authors to count different authors
     unique_authors = set(authors)
@@ -61,7 +74,7 @@ if __name__ == "__main__":
 
     model_dir = Path(args.models)
     if args.fourier:
-        val_ds = Pan21FourierDataset("/home/ubuntu/tar/pan21/validation", "/home/ubuntu/tar/pan21/validation")
+        val_ds = Pan21FourierDataset("pan21/validation", "pan21/validation")
     
     truth_folder = "pan21/validation"
     truth = read_ground_truth_files(truth_folder)
@@ -76,13 +89,22 @@ if __name__ == "__main__":
         
         if args.fourier == False:
             cutoff_frequencies = [float(f) for f in model_path.stem.split('_')]
-            val_ds = Pan21FourierFilterDataset("/home/ubuntu/tar/pan21/validation", "/home/ubuntu/tar/pan21/validation", cutoff_frequencies)
+            val_ds = Pan21FourierFilterDataset("pan21/validation", "pan21/validation", cutoff_frequencies)
         
         nums_of_pars = val_ds.task_3_lens
         ending_indices = np.cumsum(nums_of_pars)
         
-        loaded_model = tf.keras.models.load_model(model_path)
-        predictions = loaded_model.predict(val_ds)
+        predictions_file = Path(f"{model_path.stem}_predictions.npy")
+        if predictions_file.exists():
+            predictions = np.load(predictions_file)
+        else:
+            loaded_model = tf.keras.models.load_model(model_path)
+            predictions = loaded_model.predict(val_ds)
+
+            np.save(predictions_file, predictions)
+
+        # print(f"{predictions.shape=}")
+
         for i, (ending_index, num_of_pair) in enumerate(zip(ending_indices, nums_of_pars)):
             problem_id = i + 1
             prediction = predictions[int(ending_index) - int(num_of_pair):int(ending_index)]
