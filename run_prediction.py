@@ -75,6 +75,10 @@ if __name__ == "__main__":
     model_dir = Path(args.models)
     if args.fourier:
         val_ds = Pan21FourierDataset("pan21/validation", "pan21/validation")
+
+    pred_dir = Path("predictions")
+    pred_dir.mkdir(exist_ok=True)
+    print(f"Storing predictions in {pred_dir}")
     
     truth_folder = "pan21/validation"
     truth = read_ground_truth_files(truth_folder)
@@ -94,7 +98,7 @@ if __name__ == "__main__":
         nums_of_pars = val_ds.task_3_lens
         ending_indices = np.cumsum(nums_of_pars)
         
-        predictions_file = Path(f"{model_path.stem}_predictions.npy")
+        predictions_file = Path(f"predictions/{model_path.stem}_predictions.npy")
         if predictions_file.exists():
             predictions = np.load(predictions_file)
         else:
@@ -112,5 +116,5 @@ if __name__ == "__main__":
             dict_of_jsons_result[f"problem-{problem_id}"] = result_json
 
         # Save dict_of_jsons_result to a JSON file
-        with open(f'{model_path.stem}.json', 'w') as json_file:
+        with open(f'predictions/{model_path.stem}.json', 'w') as json_file:
             json.dump(dict_of_jsons_result, json_file, indent=4)
