@@ -17,12 +17,12 @@ from natsort import natsorted
 from transformers import BertTokenizer, BertModel
 from joblib import Memory
 
-memory = Memory(".cache", verbose=0)
+# memory = Memory(".cache", verbose=0)
 # memory = Memory(".cache_test", verbose=1)
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-@memory.cache
+# # @memory.cache
 def get_tokenizer_model():
     bert_tokenizer = BertTokenizer.from_pretrained('bert-base-cased')
     if DEVICE == "cuda":
@@ -32,7 +32,7 @@ def get_tokenizer_model():
 
     return bert_tokenizer, bert_model
 
-@memory.cache
+# @memory.cache
 def read_problem_files(problem_folder, start=0, stop=None):
     # print(f"{start=} {stop=}")
     problems = []
@@ -131,7 +131,7 @@ def flatten_problems(problems_list, squeeze=False):
 from itertools import islice
 bert_tokenizer, bert_model = get_tokenizer_model()
 
-@memory.cache
+# @memory.cache
 def get_problem_embeddings(problems, max_input_length, verbose=False):
     def get_paragraph_pairs(problem_text, max_input_length):
         def get_embeddings(paragraph):
