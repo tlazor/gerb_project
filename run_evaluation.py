@@ -104,7 +104,7 @@ if __name__ == "__main__":
         # print(results_df)
 
     # Fourier
-    print_logs(Path(args.model))
+    print_logs(Path(args.model), isFourier=True)
 
     # Filter
-    print_logs(Path(args.model), False)
+    print_logs(Path(args.model), isFourier=False)
