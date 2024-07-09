@@ -1,7 +1,7 @@
 from paragraph_dataset import ParagraphDataset
 
 from natsort import natsorted
-from tqdm import tqdm
+from rich.progress import track
 from pathlib import Path
 import torch
 import itertools
@@ -9,14 +9,18 @@ import itertools
 from evaluation.evaluator import read_ground_truth_files
 
 class BinaryDataset(ParagraphDataset):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, x_path, y_path, **kwargs):
+        super().__init__(x_path, y_path, **kwargs)
 
         # track metadata about the pairs: Problem number, paragraph a number, paragraph b number
         # later this can be used to associated
         self.paragraph_pair_info = []
+
+        # Task 3 paragraph pairs and binary comparison results
+        self.binary_x = []
+        self.binary_y = []
         
-        for problem_num, (paragraphs, authors) in tqdm(enumerate(zip(self.x,self.y))):
+        for problem_num, (paragraphs, authors) in track(enumerate(zip(self.x,self.y)), description="Generating Task 3 binary data"):
             n = len(paragraphs)
             for para_a_num, para_b_num in itertools.combinations(range(n), 2):
                 # metadata

@@ -1,6 +1,6 @@
 from torch.utils.data import Dataset
 from natsort import natsorted
-from tqdm import tqdm
+from rich.progress import track
 from pathlib import Path
 import torch
 
@@ -22,10 +22,10 @@ class ParagraphDataset(Dataset):
         problem_files = natsorted(Path(x_path).glob('problem-*.txt'))
         gt = read_ground_truth_files(y_path)
 
-        for problem_num, problem_file in tqdm(enumerate(problem_files), desc="Loading problem and ground truth files"):
-            assert problem_file.stem == f"problem-{problem_num}.txt", f"Problem files out of order or missing {problem_num=} {problem_file=}"
+        for problem_num, problem_file in track(enumerate(problem_files, start=1), description="Loading problem and ground truth files"):
+            assert problem_file.stem == f"problem-{problem_num}", f"Problem files out of order or missing {problem_num=} {problem_file.stem=}"
             
-            paragraph_authors = gt[f"problem-{problem_num+1}"]["paragraph-authors"]
+            paragraph_authors = gt[f"problem-{problem_num}"]["paragraph-authors"]
             with open(problem_file, 'r', encoding="utf8") as fh:
                 paragraphs = fh.readlines()
 
