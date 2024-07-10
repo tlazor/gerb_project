@@ -20,14 +20,16 @@ class BinaryDataset(ParagraphDataset):
         self.binary_x = []
         self.binary_y = []
         
-        for problem_num, (paragraphs, authors) in track(enumerate(zip(self.x,self.y)), description="Generating Task 3 binary data"):
+        for problem_num, (paragraphs, authors) in track(enumerate(zip(self.x,self.y), start=1), description="Generating Task 3 binary data"):
             n = len(paragraphs)
             for para_a_num, para_b_num in itertools.combinations(range(n), 2):
                 # metadata
                 self.paragraph_pair_info.append((problem_num, para_a_num, para_b_num))
-
-                self.binary_x.append((paragraphs[para_a_num], paragraphs[para_b_num]))
-                self.binary_y.append(int(authors[para_a_num] == authors[para_b_num]))
+                
+                binary_x = (paragraphs[para_a_num], paragraphs[para_b_num])
+                self.binary_x.append(binary_x)
+                binary_y = float(authors[para_a_num] == authors[para_b_num])
+                self.binary_y.append(torch.tensor([binary_y], device=self.device))
 
             
     def __len__(self):
