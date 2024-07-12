@@ -22,7 +22,7 @@ class ParagraphDataset(Dataset):
         problem_files = natsorted(Path(x_path).glob('problem-*.txt'))
         gt = read_ground_truth_files(y_path)
 
-        for problem_num, problem_file in track(enumerate(problem_files, start=1), description="Loading problem and ground truth files"):
+        for problem_num, problem_file in track(enumerate(problem_files, start=1), description="Loading problem and ground truth files", total=len(problem_files)):
             assert problem_file.stem == f"problem-{problem_num}", f"Problem files out of order or missing {problem_num=} {problem_file.stem=}"
             
             paragraph_authors = gt[f"problem-{problem_num}"]["paragraph-authors"]

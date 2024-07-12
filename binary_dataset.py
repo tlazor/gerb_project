@@ -20,7 +20,7 @@ class BinaryDataset(ParagraphDataset):
         self.binary_x = []
         self.binary_y = []
         
-        for problem_num, (paragraphs, authors) in track(enumerate(zip(self.x,self.y), start=1), description="Generating Task 3 binary data"):
+        for problem_num, (paragraphs, authors) in track(enumerate(zip(self.x,self.y), start=1), description="Generating Task 3 binary data", total=len(self.y)):
             n = len(paragraphs)
             for para_a_num, para_b_num in itertools.combinations(range(n), 2):
                 # metadata
