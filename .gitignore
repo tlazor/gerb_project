@@ -166,3 +166,8 @@ models/
 .venv*
 pan21.zip
 predictions/
+*.torch
+
+# Cached dataset files
+pan21/*_embeddings/
+pan21/*_authors
