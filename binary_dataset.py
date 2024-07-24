@@ -1,4 +1,4 @@
-from tokenized_dataset import EmbeddingDataset
+from embedding_dataset import EmbeddingDataset
 from torch.utils.data import Dataset
 
 from rich.progress import track
@@ -33,4 +33,4 @@ class BinaryDataset(Dataset):
         binary_x = (paragraph_embeddings[para_a_num], paragraph_embeddings[para_b_num])
         binary_y = float(authors[para_a_num] == authors[para_b_num])
         
-        return binary_x, torch.tensor([binary_y], device=self.device)
+        return binary_x, torch.tensor(binary_y, device=self.device)
