@@ -19,6 +19,7 @@ class EmbeddingDataset(Dataset):
         self.tokens_per_paragraph = tokens_per_paragraph
         self.embedding_dir = Path(f"{x_path}_embeddings")
         self.author_file = Path(f"{x_path}_authors")
+        # Number of problems to load into memory at a time
         self.batch_size = 512
 
         if self.author_file.exists():
