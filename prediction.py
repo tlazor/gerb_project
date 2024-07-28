@@ -70,6 +70,11 @@ def map_predictions_to_json(prediction_map, threshold=0.5):
     }
     return data
 
+
+def build_json_predictions(prediction_dict, threshold=.5):
+    return {f"problem-{problem_num}":map_predictions_to_json(prediction_map, threshold) for problem_num, prediction_map in prediction_dict.items()}
+
+
 def compute_scores(truth, predictions):
     task1_result = compute_score_single_predictions(truth, predictions, 'multi-author')
     task2_result = compute_score_multiple_predictions(truth, predictions, 'changes', labels=[0, 1])
