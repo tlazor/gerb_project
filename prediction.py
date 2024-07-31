@@ -1,5 +1,6 @@
 import numpy as np
 from rich.progress import track
+import torch
 
 from evaluation.evaluator import compute_score_single_predictions, compute_score_multiple_predictions
 
@@ -26,6 +27,11 @@ def cluster_paragraphs(similarity_matrix, num_clusters):
     Z = linkage(condensed_distance_matrix, method='average')
     
     labels = fcluster(Z, num_clusters, criterion='maxclust')
+
+    if len(np.unique(labels)) == len(labels):
+        if num_clusters == 1:
+            # weird fcluster bug handling
+            labels = [1, 2] if distance_matrix[0][1] < .5 else [1, 1]
 
     # fcluster makes no guarantees that the cluster indexes will be monotonically increasing
     unique_labels = {}
@@ -55,9 +61,10 @@ def determine_optimal_clusters(similarity_matrix, max_clusters=10):
         # silhouette score for single cluster is 0
         if len(np.unique(labels)) == len(labels):
             if num_clusters == 1:
-            # seems to be a bug in fcluster, num_clusters == 1 should return 1 unique label, but does not always
+            # TODO:  seems to be a bug in fcluster, num_clusters == 1 should return 1 unique label, but does not always
             # how to handle this case? silhouette score is 1 when every point is its own cluster
-                print(f"{num_clusters=} bug")
+                # print(f"{num_clusters=} bug")
+                pass
             else:
                 print(f"{num_clusters=} {labels=}")
         else:
@@ -80,9 +87,6 @@ def build_prediction_dict(models, val_dataset):
         for idx, (x, _) in track(enumerate(val_dataset), total=len(val_dataset)):
             prediction = model(x) 
             problem_num, para_a_num, para_b_num = val_dataset.paragraph_pair_info[idx]
-
-            if problem_num == 56:
-                print(f"hey")
 
             if problem_num not in prediction_dict:
                 prediction_dict[problem_num] = {}
@@ -132,18 +136,21 @@ def author_prediction(prediction_map, num_paragraphs, original=False, threshold=
     else:
         # empirically determined
         k = 500
-        def y_sigmoid(x):
+        def sigmoid(x):
             return 1 / (1 + np.exp(-k * (x - threshold)))
+        def inverse_sigmoid(x):
+            # return threshold - (1 / k) * np.log((1 - x) / x)
+            return np.abs(np.log(x/(1 - x)))
         
-
         # the result of the binary comparison is the probability of two paragraphs being written by the same author 
         # (0 => extremely likely, .5 => even chance, 1 => very unlikely)
         # we can use the probabilities as distances and then cluster the binary comparisons to see which ones
         # are the same author
         distance_matrix = np.ones((num_paragraphs, num_paragraphs))
         for (key_i, key_j), binary_comparison in prediction_map.items():
-            distance_matrix[key_i, key_j] = y_sigmoid(binary_comparison)
-            distance_matrix[key_j, key_i] = y_sigmoid(binary_comparison)
+            # use inverse sigmoid to remove last layer
+            distance_matrix[key_i, key_j] = inverse_sigmoid(binary_comparison)
+            distance_matrix[key_j, key_i] = inverse_sigmoid(binary_comparison)
         
         np.fill_diagonal(distance_matrix, 0)
         similarity_matrix = 1 - distance_matrix
@@ -153,22 +160,27 @@ def author_prediction(prediction_map, num_paragraphs, original=False, threshold=
 
     return authors
 
+def change_prediction(authors, num_paragraphs):
+    return [int(authors[i] != authors[i + 1]) for i in range(num_paragraphs - 1)]
+
 def map_predictions_to_json(prediction_map, threshold=0.5):
     num_paragraphs = max([x[1] for x in prediction_map.keys()])+1
     
     # Initialize authorship
     authors = author_prediction(prediction_map, num_paragraphs, threshold=threshold)
+    changes = change_prediction(authors, num_paragraphs)
     
     # Set of unique authors to count different authors
-    unique_authors = set(authors)
+    num_authors = len(set(authors))
     
     # Construct the JSON object
     data = {
-        "authors": len(unique_authors),
+        "authors": num_authors,
         "structure": [999],  # Placeholder or specific requirement
         "site": "googole.com",
-        "multi-author": multiauthor_prediction(prediction_map, threshold),
-        "changes": [int(authors[i] != authors[i + 1]) for i in range(num_paragraphs - 1)],
+        # "multi-author": multiauthor_prediction(prediction_map, threshold),
+        "multi-author": 1 if num_authors > 1 else 0,
+        "changes": changes,
         "paragraph-authors": authors
     }
     return data
