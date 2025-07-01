@@ -2,6 +2,8 @@
 
 Team [Gerb](https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/gerb%CA%B0-) project for Textual Analysis and Retrieval at FER.
 
+[Report](https://github.com/tlazor/gerb_project/blob/main/TAR2024_paper_8.pdf)
+
 # Links
 Competition website:
 https://pan.webis.de/clef21/pan21-web/style-change-detection.html
